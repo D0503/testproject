@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S003",
+  "visual": {
+    "status": "passed",
+    "basis": "模拟器（API 26，HarmonyOS-7.0.0 镜像）截图显示：Navigation 搜索框标题栏配置 NavigationTitleOptions.systemMaterial（ULTRA_THIN）后，滚动时列表内容透过标题栏材质层呈现通透渗透效果，右侧非自定义 Menu 按钮呈现材质背板；标题栏未设置普通背景色/背景模糊，无遮挡覆盖，滚动与菜单交互正常。",
+    "evidence": [
+      { "type": "screenshot", "path": "D:\\HW\\testproject\\test3\\ohos-feature-engineering\\IL-S003\\evidence\\screenshot-launch.jpeg" },
+      { "type": "screenshot", "path": "D:\\HW\\testproject\\test3\\ohos-feature-engineering\\IL-S003\\evidence\\screenshot-scrolled.jpeg" }
+    ]
+  },
+  "matchedCriteriaRefs": ["IL-F009"],
+  "runtime": {
+    "status": "passed",
+    "summary": "entry-default-unsigned.hap 安装成功，aa start 拉起 EntryAbility 成功，页面正常渲染（设备材质支持：支持），列表滚动流畅，菜单点击可触发 Toast。"
+  }
+}

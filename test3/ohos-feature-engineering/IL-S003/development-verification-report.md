@@ -1,13 +1,13 @@
 # 代码开发验证报告
 
-- 总结果：`build_passed_runtime_pending`
+- 总结果：`passed`
 - 能力：immersive-light
 - 技术路线：arkui-api26
 - 场景：IL-S003（判据策略：reuse，冻结于 2026-09-08T08:25:41.888Z）
 - 工程：D:\HW\testproject\test3
 - 目标：搜索框标题栏具有沉浸光感效果
 
-静态、SDK 和构建已通过，仍缺少必需设备运行或视觉证据。
+所有必需验证层均有通过证据。
 
 ## 代码实现步骤与依据
 
@@ -72,18 +72,16 @@ Navigation 搜索框标题栏通过 NavigationTitleOptions.systemMaterial 组件
 | static | 是 | passed | 场景静态规则通过。 |
 | sdk | 是 | passed | ArkUI 沉浸光感 API 26：SDK API 26，必需符号已找到 |
 | build | 是 | passed | 真实 debug 构建通过。 |
-| install | 是 | not_run | 未请求运行验证。 |
-| runtime | 是 | not_run | 未请求运行验证。 |
-| visual | 是 | not_run | 没有截图、录屏、模型判定或用户明确观察，不能判定视觉成功。 |
+| install | 是 | passed | 应用安装并拉起。 |
+| runtime | 是 | passed | entry-default-unsigned.hap 安装成功，aa start 拉起 EntryAbility 成功，页面正常渲染（设备材质支持：支持），列表滚动流畅，菜单点击可触发 Toast。 |
+| visual | 是 | passed | 模型判图：模拟器（API 26，HarmonyOS-7.0.0 镜像）截图显示：Navigation 搜索框标题栏配置 NavigationTitleOptions.systemMaterial（ULTRA_THIN）后，滚动时列表内容透过标题栏材质层呈现通透渗透效果，右侧非自定义 Menu 按钮呈现材质背板；标题栏未设置普通背景色/背景模糊，无遮挡覆盖，滚动与菜单交互正常。 |
 
 ## 代码变化
 
 未记录触及文件。
 ## 待验证
 
-- PENDING-001 [install] 未请求运行验证。
-- PENDING-002 [runtime] 未请求运行验证。
-- PENDING-003 [visual] 没有截图、录屏、模型判定或用户明确观察，不能判定视觉成功。
+无。
 
 ## 证据
 
@@ -91,3 +89,8 @@ Navigation 搜索框标题栏通过 NavigationTitleOptions.systemMaterial 组件
 - EVID-002 [sdk_declaration] 本机 SDK 声明文件 — E:/DevEco Studio/sdk/default/openharmony/ets/api/@ohos.arkui.uiMaterial.d.ts
 - EVID-003 [sdk_declaration] 本机 SDK 声明文件 — E:/DevEco Studio/sdk/default/openharmony/ets/component/common.d.ts
 - EVID-004 [build_log] devecocli build 成功 — D:\HW\testproject\test3\ohos-feature-engineering\IL-S003\evidence\build.log
+- EVID-005 [device_log] devecocli run 安装并拉起成功 — D:\HW\testproject\test3\ohos-feature-engineering\IL-S003\evidence\device-run.log
+- EVID-006 [screenshot] 设备屏幕截图（devecocli ui screenshot）。 — D:\HW\testproject\test3\ohos-feature-engineering\IL-S003\evidence\device-visual.png
+- EVID-007 [screenshot] 判图引用的截图。 — D:\HW\testproject\test3\ohos-feature-engineering\IL-S003\evidence\screenshot-launch.jpeg
+- EVID-008 [screenshot] 判图引用的截图。 — D:\HW\testproject\test3\ohos-feature-engineering\IL-S003\evidence\screenshot-scrolled.jpeg
+- EVID-009 [visual_judgment] 模拟器（API 26，HarmonyOS-7.0.0 镜像）截图显示：Navigation 搜索框标题栏配置 NavigationTitleOptions.systemMaterial（ULTRA_THIN）后，滚动时列表内容透过标题栏材质层呈现通透渗透效果，右侧非自定义 Menu 按钮呈现材质背板；标题栏未设置普通背景色/背景模糊，无遮挡覆盖，滚动与菜单交互正常。

@@ -10,7 +10,7 @@
     "targetFiles": [],
     "product": "default",
     "buildMode": "debug",
-    "device": null,
+    "device": "127.0.0.1:5555",
     "navigation": null,
     "criteria": "D:\\HW\\testproject\\test3\\ohos-feature-engineering\\criteria-IL-S003.json"
   },
@@ -39,7 +39,7 @@
   "projectBaseline": {
     "inspectionVersion": "1.0",
     "projectRoot": "D:/HW/testproject/test3",
-    "inspectedAt": "2026-09-08T08:48:31.910Z",
+    "inspectedAt": "2026-09-08T09:03:22.160Z",
     "route": {
       "id": "arkui-api26",
       "displayName": "ArkUI 沉浸光感 API 26",
@@ -114,11 +114,47 @@
       "entries": [
         {
           "status": " M",
-          "path": "test3/entry/src/main/ets/pages/Index.ets"
+          "path": "test3/.hvigor/cache/file-cache.json"
+        },
+        {
+          "status": " M",
+          "path": "test3/.hvigor/cache/last-build-info.json"
+        },
+        {
+          "status": " M",
+          "path": "test3/.hvigor/cache/task-cache.json"
+        },
+        {
+          "status": " M",
+          "path": "test3/.hvigor/outputs/build-logs/build.log"
+        },
+        {
+          "status": " M",
+          "path": "test3/.hvigor/outputs/logs/details/details.json"
+        },
+        {
+          "status": " M",
+          "path": "test3/.hvigor/outputs/records/performance-recorder.json"
+        },
+        {
+          "status": " D",
+          "path": "test3/.hvigor/report/report-202609081629491820.json"
         },
         {
           "status": "??",
-          "path": "test3/ohos-feature-engineering/implementation-IL-S003.json"
+          "path": "test3/.hvigor/report/report-202609081658263620.json"
+        },
+        {
+          "status": "??",
+          "path": "test3/ohos-feature-engineering/IL-S003/evidence/screenshot-launch.jpeg"
+        },
+        {
+          "status": "??",
+          "path": "test3/ohos-feature-engineering/IL-S003/evidence/screenshot-scrolled.jpeg"
+        },
+        {
+          "status": "??",
+          "path": "test3/ohos-feature-engineering/IL-S003/visual-judgment.json"
         }
       ]
     },
@@ -484,21 +520,32 @@
     },
     "install": {
       "required": true,
-      "status": "not_run",
-      "summary": "未请求运行验证。",
-      "evidenceRefs": []
+      "status": "passed",
+      "summary": "应用安装并拉起。",
+      "evidenceRefs": [
+        "EVID-005"
+      ],
+      "command": "devecocli run --skip-build --device 127.0.0.1:5555",
+      "exitCode": 0
     },
     "runtime": {
       "required": true,
-      "status": "not_run",
-      "summary": "未请求运行验证。",
-      "evidenceRefs": []
+      "status": "passed",
+      "summary": "entry-default-unsigned.hap 安装成功，aa start 拉起 EntryAbility 成功，页面正常渲染（设备材质支持：支持），列表滚动流畅，菜单点击可触发 Toast。",
+      "evidenceRefs": [
+        "EVID-007",
+        "EVID-008"
+      ]
     },
     "visual": {
       "required": true,
-      "status": "not_run",
-      "summary": "没有截图、录屏、模型判定或用户明确观察，不能判定视觉成功。",
-      "evidenceRefs": []
+      "status": "passed",
+      "summary": "模型判图：模拟器（API 26，HarmonyOS-7.0.0 镜像）截图显示：Navigation 搜索框标题栏配置 NavigationTitleOptions.systemMaterial（ULTRA_THIN）后，滚动时列表内容透过标题栏材质层呈现通透渗透效果，右侧非自定义 Menu 按钮呈现材质背板；标题栏未设置普通背景色/背景模糊，无遮挡覆盖，滚动与菜单交互正常。",
+      "evidenceRefs": [
+        "EVID-009",
+        "EVID-007",
+        "EVID-008"
+      ]
     }
   },
   "evidence": [
@@ -507,7 +554,7 @@
       "type": "static",
       "path": null,
       "sha256": "3c2093afe7d3fd1ef0c8ed5f13640eb8129322980e832f20756c4fee4e3bf18e",
-      "capturedAt": "2026-09-08T08:48:31.932Z",
+      "capturedAt": "2026-09-08T09:03:22.225Z",
       "summary": "场景静态规则：passed",
       "details": {
         "status": "passed",
@@ -551,7 +598,7 @@
       "type": "sdk_declaration",
       "path": "E:/DevEco Studio/sdk/default/openharmony/ets/api/@ohos.arkui.uiMaterial.d.ts",
       "sha256": "d609002869f80307090bc11803b91049e86ff301f46e472e72430d954a40fd30",
-      "capturedAt": "2026-09-08T08:48:31.910Z",
+      "capturedAt": "2026-09-08T09:03:22.160Z",
       "summary": "本机 SDK 声明文件"
     },
     {
@@ -559,44 +606,95 @@
       "type": "sdk_declaration",
       "path": "E:/DevEco Studio/sdk/default/openharmony/ets/component/common.d.ts",
       "sha256": "2662a40432b2fa6efcfe387c3bc4bdc79ac9a993de1e415042b37a78d6315614",
-      "capturedAt": "2026-09-08T08:48:31.910Z",
+      "capturedAt": "2026-09-08T09:03:22.160Z",
       "summary": "本机 SDK 声明文件"
     },
     {
       "id": "EVID-004",
       "type": "build_log",
       "path": "D:\\HW\\testproject\\test3\\ohos-feature-engineering\\IL-S003\\evidence\\build.log",
-      "sha256": "90d4cebe36aafbb297c9105c96a48811270435cb5e800f74418b8d09f6fa0e90",
-      "capturedAt": "2026-09-08T08:49:14.845Z",
+      "sha256": "29e256bf6705c91435d2a166c8b931234cac44010164c38c7c7a80c68efbaa62",
+      "capturedAt": "2026-09-08T09:03:34.442Z",
       "summary": "devecocli build 成功",
       "command": "devecocli build --product default --build-mode debug",
       "exitCode": 0,
-      "excerpt": "..  \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@DoNativeStrip...  \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@BuildJS... after 7 ms \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@CacheNativeLibs...  \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@CompileArkTS... after 6 s 589 ms \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@GeneratePkgModuleJson...  \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@ProcessCompiledResources... after 3 ms \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@PackageHap... after 1 s 48 ms \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@PackingCheck... after 11 ms \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@SignHap... after 4 ms \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@CollectDebugSymbol... after 3 ms \u001b[39m\n> hvigor \u001b[32mFinished :entry:assembleHap... after 1 ms \u001b[39m\n> hvigor \u001b[32mFinished ::MakeProjectPackInfo... after 14 ms \u001b[39m\n> hvigor \u001b[32mFinished ::ProcessProjectPrivacyProfile... after 9 ms \u001b[39m\n> hvigor \u001b[32mFinished ::GeneratePackRes... after 2 ms \u001b[39m\n> hvigor \u001b[32mFinished ::PackageApp... after 964 ms \u001b[39m\n> hvigor \u001b[32mFinished ::SignPackagesFromApp... after 2 ms \u001b[39m\n> hvigor \u001b[32mFinished ::SignApp... after 2 ms \u001b[39m\n> hvigor \u001b[32mFinished ::assembleApp... after 1 ms \u001b[39m\n> hvigor \u001b[32mBUILD SUCCESSFUL in 22 s 705 ms \u001b[39m\n\n42 tasks in total: 26 executed, 16 up-to-date\n\u001b[32m\nMerged central compile_commands.json for C++ language server.\u001b[39m\n\n\u001b[32mBuild completed successfully\u001b[39m\n\n\u001b[33mNew version 1.3.2 available, run `devecocli update` to upgrade\u001b[39m\n\n\u001b[33mEnsure the project source is trustworthy before proceeding.\u001b[39m\n> hvigor \u001b[33mWARN: Will skip sign 'hos_hap'. No signingConfigs profile is configured in current project.\n             If needed, configure the signingConfigs in D:\\HW\\testproject\\test3\\build-profile.json5.\u001b[39m\n> hvigor \u001b[33mWARN: Will skip sign 'app'. No signingConfigs profile is configured in current project.\n             If needed, configure the signingConfigs in D:\\HW\\testproject\\test3\\build-profile.json5.\u001b[39m\n"
-    }
-  ],
-  "pendingVerifications": [
-    {
-      "id": "PENDING-001",
-      "level": "install",
-      "reason": "未请求运行验证。",
-      "required": true
+      "excerpt": "ATE :entry:default@CompileResource...  \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@DoNativeStrip...  \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@CompileArkTS...  \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@BuildJS... after 11 ms \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@CacheNativeLibs...  \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@GeneratePkgModuleJson...  \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@ProcessCompiledResources... after 2 ms \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@PackageHap...  \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@PackingCheck... after 15 ms \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@SignHap... after 6 ms \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@CollectDebugSymbol... after 4 ms \u001b[39m\n> hvigor \u001b[32mFinished :entry:assembleHap... after 2 ms \u001b[39m\n> hvigor \u001b[32mFinished ::MakeProjectPackInfo... after 16 ms \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE ::ProcessProjectPrivacyProfile...  \u001b[39m\n> hvigor \u001b[32mFinished ::GeneratePackRes... after 7 ms \u001b[39m\n> hvigor \u001b[32mFinished ::PackageApp... after 877 ms \u001b[39m\n> hvigor \u001b[32mFinished ::SignPackagesFromApp... after 2 ms \u001b[39m\n> hvigor \u001b[32mFinished ::SignApp... after 3 ms \u001b[39m\n> hvigor \u001b[32mFinished ::assembleApp... after 1 ms \u001b[39m\n> hvigor \u001b[32mBUILD SUCCESSFUL in 1 s 629 ms \u001b[39m\n\n42 tasks in total: 23 executed, 19 up-to-date\n\u001b[32m\nMerged central compile_commands.json for C++ language server.\u001b[39m\n\n\u001b[32mBuild completed successfully\u001b[39m\n\n\u001b[33mNew version 1.3.2 available, run `devecocli update` to upgrade\u001b[39m\n\n\u001b[33mEnsure the project source is trustworthy before proceeding.\u001b[39m\n> hvigor \u001b[33mWARN: Will skip sign 'hos_hap'. No signingConfigs profile is configured in current project.\n             If needed, configure the signingConfigs in D:\\HW\\testproject\\test3\\build-profile.json5.\u001b[39m\n> hvigor \u001b[33mWARN: Will skip sign 'app'. No signingConfigs profile is configured in current project.\n             If needed, configure the signingConfigs in D:\\HW\\testproject\\test3\\build-profile.json5.\u001b[39m\n"
     },
     {
-      "id": "PENDING-002",
-      "level": "runtime",
-      "reason": "未请求运行验证。",
-      "required": true
+      "id": "EVID-005",
+      "type": "device_log",
+      "path": "D:\\HW\\testproject\\test3\\ohos-feature-engineering\\IL-S003\\evidence\\device-run.log",
+      "sha256": "3020adf959c93dd080f9c9551c001b68bded5a9a2ef1b24bb4c867a3de9138ca",
+      "capturedAt": "2026-09-08T09:03:38.334Z",
+      "summary": "devecocli run 安装并拉起成功",
+      "command": "devecocli run --skip-build --device 127.0.0.1:5555",
+      "exitCode": 0,
+      "excerpt": "$ devecocli run --skip-build --device 127.0.0.1:5555\nAuto-selected module: entry\n\nInstalling artifacts to device 127.0.0.1:5555...\nApp installed successfully\nLaunching com.example.app/EntryAbility...\n\u001b[32m\nApplication 'com.example.app': start ability successfully.\u001b[39m\n\n\u001b[33mNew version 1.3.2 available, run `devecocli update` to upgrade\u001b[39m\n\n\u001b[33mEnsure the project source is trusted before proceeding.\u001b[39m\n"
     },
     {
-      "id": "PENDING-003",
-      "level": "visual",
-      "reason": "没有截图、录屏、模型判定或用户明确观察，不能判定视觉成功。",
-      "required": true
+      "id": "EVID-006",
+      "type": "screenshot",
+      "path": "D:\\HW\\testproject\\test3\\ohos-feature-engineering\\IL-S003\\evidence\\device-visual.png",
+      "sha256": "9ede8afeaff57df9df842f8995d5a2a90346ebdd03b37cf9edb0b982eabedffb",
+      "capturedAt": "2026-09-08T09:03:41.338Z",
+      "summary": "设备屏幕截图（devecocli ui screenshot）。"
+    },
+    {
+      "id": "EVID-007",
+      "type": "screenshot",
+      "path": "D:\\HW\\testproject\\test3\\ohos-feature-engineering\\IL-S003\\evidence\\screenshot-launch.jpeg",
+      "sha256": "05a3d9542055e6d3d8980b4c63d138f10e6354fccf1a294a274bac63085d5411",
+      "capturedAt": "2026-09-08T09:03:41.343Z",
+      "summary": "判图引用的截图。"
+    },
+    {
+      "id": "EVID-008",
+      "type": "screenshot",
+      "path": "D:\\HW\\testproject\\test3\\ohos-feature-engineering\\IL-S003\\evidence\\screenshot-scrolled.jpeg",
+      "sha256": "f894236b7c95a7c5cb00fc2033e8f496e5e344e6d5232086a5d0771beb11759e",
+      "capturedAt": "2026-09-08T09:03:41.344Z",
+      "summary": "判图引用的截图。"
+    },
+    {
+      "id": "EVID-009",
+      "type": "visual_judgment",
+      "path": null,
+      "sha256": "3ef17e5bbee184ce9e609b9659e98a66b99c288f0259f2306096214070c90fa1",
+      "capturedAt": "2026-09-08T09:03:41.344Z",
+      "summary": "模拟器（API 26，HarmonyOS-7.0.0 镜像）截图显示：Navigation 搜索框标题栏配置 NavigationTitleOptions.systemMaterial（ULTRA_THIN）后，滚动时列表内容透过标题栏材质层呈现通透渗透效果，右侧非自定义 Menu 按钮呈现材质背板；标题栏未设置普通背景色/背景模糊，无遮挡覆盖，滚动与菜单交互正常。",
+      "details": {
+        "schemaVersion": "1.0",
+        "scenarioId": "IL-S003",
+        "visual": {
+          "status": "passed",
+          "basis": "模拟器（API 26，HarmonyOS-7.0.0 镜像）截图显示：Navigation 搜索框标题栏配置 NavigationTitleOptions.systemMaterial（ULTRA_THIN）后，滚动时列表内容透过标题栏材质层呈现通透渗透效果，右侧非自定义 Menu 按钮呈现材质背板；标题栏未设置普通背景色/背景模糊，无遮挡覆盖，滚动与菜单交互正常。",
+          "evidence": [
+            {
+              "type": "screenshot",
+              "path": "D:\\HW\\testproject\\test3\\ohos-feature-engineering\\IL-S003\\evidence\\screenshot-launch.jpeg"
+            },
+            {
+              "type": "screenshot",
+              "path": "D:\\HW\\testproject\\test3\\ohos-feature-engineering\\IL-S003\\evidence\\screenshot-scrolled.jpeg"
+            }
+          ]
+        },
+        "matchedCriteriaRefs": [
+          "IL-F009"
+        ],
+        "runtime": {
+          "status": "passed",
+          "summary": "entry-default-unsigned.hap 安装成功，aa start 拉起 EntryAbility 成功，页面正常渲染（设备材质支持：支持），列表滚动流畅，菜单点击可触发 Toast。"
+        }
+      }
     }
   ],
+  "pendingVerifications": [],
   "verdict": {
-    "status": "build_passed_runtime_pending",
-    "summary": "静态、SDK 和构建已通过，仍缺少必需设备运行或视觉证据。",
-    "matchedCriteriaRefs": []
+    "status": "passed",
+    "summary": "所有必需验证层均有通过证据。",
+    "matchedCriteriaRefs": [
+      "IL-F009"
+    ]
   }
 }

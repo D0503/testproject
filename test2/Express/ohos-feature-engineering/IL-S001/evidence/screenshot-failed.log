@@ -1,0 +1,2 @@
+$ devecocli ui screenshot --device 127.0.0.1:5555 --path D:\HW\testproject\test2\Express\ohos-feature-engineering\IL-S001\evidence\device-visual.png
+[31mError: Screenshot file already exists: D:\HW\testproject\test2\Express\ohos-feature-engineering\IL-S001\evidence\device-visual.png[39m

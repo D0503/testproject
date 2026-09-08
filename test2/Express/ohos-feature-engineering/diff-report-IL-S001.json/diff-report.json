@@ -1,0 +1,23 @@
+{
+  "status": "clean",
+  "frozenAt": "2026-09-08T07:21:10.224Z",
+  "pages": [
+    {
+      "snapshotId": "overview",
+      "status": "unchanged",
+      "category": null,
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "与上次审查一致。"
+    },
+    {
+      "snapshotId": "enable",
+      "status": "unchanged",
+      "category": null,
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "与上次审查一致。"
+    }
+  ],
+  "highRisk": []
+}

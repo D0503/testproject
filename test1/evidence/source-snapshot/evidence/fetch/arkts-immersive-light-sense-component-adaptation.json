@@ -1,0 +1,489 @@
+{
+  "status": "fetched",
+  "retrievalMethod": "huawei_getDocumentById",
+  "pageUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation",
+  "canonicalUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation",
+  "retrievedAt": "2026-09-08T06:57:44.613Z",
+  "contentType": "application/json",
+  "documentId": "arkts-immersive-light-sense-component-adaptation",
+  "language": "cn",
+  "catalogName": "harmonyos-guides",
+  "title": "组件适配沉浸光感",
+  "documentStatus": "4",
+  "updatedDate": "2026-09-06 04:10:15",
+  "displayUpdateTime": "2026-09-06 04:35:00",
+  "textCharacters": 6457,
+  "warnings": [],
+  "contentMarkdown": "# 组件适配沉浸光感\n\n本文按导航类、弹窗类、按钮与选择类、其余组件四大场景分类，系统介绍各组件如何通过应用级开关与组件级配置开启沉浸光感，涵盖沉浸光感的视觉效果、设置方法及适配要点，帮助开发者快速完成沉浸光感的组件适配。\n\n#### 导航类组件\n\n导航类组件包括Navigation标题栏、底部页签、索引条，是页面导航与内容定位的辅助元素，通常固定在页面顶部或底部。沉浸光感为导航类组件赋予了通透的悬浮质感，让导航栏在滚动内容之上呈现轻盈的分层效果，内容透过材质层自然渗透，建立导航区域与内容之间的视觉层次。导航类组件通常使用较薄的材质样式（ULTRA_THIN或THIN），在保持背景通透的同时避免过度遮挡内容。\n\n#### [h2]Navigation标题栏\n\nNavigation标题栏支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，Navigation标题栏默认开启沉浸光感，沉浸式系统材质样式默认取值为ULTRA_THIN；在非ENABLE模式下，沉浸光感不生效。\n\n组件级开启：Navigation标题栏支持通过[NavigationTitleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navigationtitleoptions11)中的systemMaterial字段设置沉浸光感效果。\n\n- 推荐将沉浸光感限定在顶部标题栏等需要凸显的局部区域，控制使用面积与层数，详见[沉浸光感功耗优化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints)。\n\n- 沉浸光感针对标题栏生效的范围是：返回键、非自定义Menu。\n\n- systemMaterial为undefined时，[MaterialState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)开关配置为DEFAULT时标题栏无材质效果；配置为ENABLE时标题栏生效系统默认的沉浸式材质效果。\n\n- 建议设置沉浸光感时，使用[barStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navigationtitleoptions11)为STACK样式，以便Navigation内容区延伸至标题栏区域，获得沉浸光感的最佳体验。\n\n组件开启沉浸光感的效果请参见[示例20（设置systemMaterial开启标题栏材质效果）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#%E7%A4%BA%E4%BE%8B20%E8%AE%BE%E7%BD%AEsystemmaterial%E5%BC%80%E5%90%AF%E6%A0%87%E9%A2%98%E6%A0%8F%E6%9D%90%E8%B4%A8%E6%95%88%E6%9E%9C)。\n\n#### [h2]底部页签（Tabs）\n\n底部页签支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，底部页签不会默认开启沉浸光感；设置[barFloatingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barfloatingstyle)属性并生效底部页签的悬浮样式时，底部页签默认开启沉浸光感，沉浸式系统材质样式默认取值为THIN。\n\n组件级开启：底部页签支持通过[barFloatingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barfloatingstyle)属性中[FloatingTabBarStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#floatingtabbarstyle)的systemMaterial字段，设置TabBar背板的沉浸光感效果。\n\n- 悬浮样式仅在[barOverlap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#baroverlap10)为true、[vertical](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#vertical)为false、[barPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barposition9)为BarPosition.End时生效，三个条件需同时满足，否则systemMaterial设置不生效。\n\n- 设置悬浮材质后，不建议再通过[barBackgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barbackgroundcolor10)、[barBackgroundBlurStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barbackgroundblurstyle11)为TabBar设置背景色或背景模糊，避免遮挡材质效果。\n\n- TabContent不支持设置沉浸光感。\n\n组件开启沉浸光感的效果请参见[示例24（TabBar悬浮样式）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#%E7%A4%BA%E4%BE%8B24tabbar%E6%82%AC%E6%B5%AE%E6%A0%B7%E5%BC%8F)。\n\n#### [h2]索引条（AlphabetIndexer）\n\n索引条支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，索引条默认开启沉浸光感，沉浸式系统材质样式默认取值为THICK。\n\n组件级开启：索引条参数[popupBackground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer#popupbackground)和[popupBackgroundBlurStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer#popupbackgroundblurstyle12)均未主动设置（或参数value传入undefined）时，提示弹窗默认开启沉浸光感，默认材质样式为THICK；也可通过[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)属性主动设置沉浸光感效果。\n\n- 高算力、中算力设备默认显示为沉浸光感THICK样式，低算力设备不显示沉浸光感效果，显示为白色背景。\n\n- popupBackground、popupBackgroundBlurStyle属性和沉浸光感能力互斥。主动设置popupBackground或popupBackgroundBlurStyle后无沉浸光感效果。\n\n组件开启沉浸光感的效果请参见[示例3（设置提示弹窗背景模糊材质）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer#%E7%A4%BA%E4%BE%8B3%E8%AE%BE%E7%BD%AE%E6%8F%90%E7%A4%BA%E5%BC%B9%E7%AA%97%E8%83%8C%E6%99%AF%E6%A8%A1%E7%B3%8A%E6%9D%90%E8%B4%A8)。\n\n#### 弹窗类组件\n\n弹窗类组件包括Toast、Popup、Tips、Menu和Dialog（包含AlertDialog、CustomDialog、bindSheet及各类PickerDialog），是浮层元素，在内容之上建立视觉层次。沉浸光感为弹窗类组件赋予了核心价值：沉浸式系统材质让弹窗背景呈现轻盈通透的质感，底层内容透过材质层自然渗透，配合折射、高光、阴影等多层效果，使弹窗在内容之上建立清晰的视觉层次；沉浸式空间动效为弹窗和菜单的弹出过程增添形变、流光等动态表现，使弹出过程灵动自然。弹窗类组件通常使用较厚的材质样式（THICK或ULTRA_THICK），以获得更强的背景模糊效果，确保弹窗内容与背景内容之间有清晰的视觉分离。\n\n#### [h2]即时反馈（Toast）\n\nToast支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，Toast默认开启沉浸光感，沉浸式系统材质样式默认取值为THICK。\n\n组件级开启：Toast支持通过[ShowToastOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#showtoastoptions)中的systemMaterial字段设置沉浸光感效果。\n\n沉浸光感开启后，如果已主动设置[ShowToastOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#showtoastoptions)中的backgroundBlurStyle或backgroundColor，则不呈现沉浸光感效果，否则沉浸式系统材质样式ImmersiveStyle默认取值为ImmersiveStyle.THICK。具体请参考[Dialog或Toast组件默认没有材质效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-faq#dialog%E6%88%96toast%E7%BB%84%E4%BB%B6%E9%BB%98%E8%AE%A4%E6%B2%A1%E6%9C%89%E6%9D%90%E8%B4%A8%E6%95%88%E6%9E%9C)。\n\n组件开启沉浸光感的效果请参见[showToast](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#showtoast)。\n\n#### [h2]气泡提示（Popup和Tips）\n\nPopup和Tips支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，气泡提示不会默认开启沉浸光感。\n\n组件级开启：气泡支持通过[PopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupoptions%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E)中的systemMaterial字段设置沉浸光感效果；悬浮提示通过[TipsOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-tips#tipsoptions%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E)中的systemMaterial字段设置。\n\n组件开启沉浸光感的效果请参见[示例9（设置Popup的沉浸光感视觉效果）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#%E7%A4%BA%E4%BE%8B9%E8%AE%BE%E7%BD%AEpopup%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E8%A7%86%E8%A7%89%E6%95%88%E6%9E%9C)和[示例3（设置悬浮气泡的沉浸光感视效）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-tips#%E7%A4%BA%E4%BE%8B3%E8%AE%BE%E7%BD%AE%E6%82%AC%E6%B5%AE%E6%B0%94%E6%B3%A1%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E8%A7%86%E6%95%88)。\n\n#### [h2]菜单（Menu）\n\n菜单支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，菜单默认开启沉浸光感，沉浸式系统材质样式默认取值为THICK。\n\n组件级开启：菜单支持通过[ContextMenuOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#contextmenuoptions10)中的systemMaterial字段设置沉浸光感效果。\n\n组件开启沉浸光感的效果请参见[示例24（设置菜单的沉浸光感）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#%E7%A4%BA%E4%BE%8B24%E8%AE%BE%E7%BD%AE%E8%8F%9C%E5%8D%95%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F)。\n\n#### [h2]弹出框（Dialog）\n\n弹出框支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，弹出框默认开启沉浸光感，沉浸式系统材质样式默认取值为ULTRA_THICK。\n\n组件级开启：弹出框支持通过弹出框options参数中的systemMaterial字段设置沉浸光感效果，如[CustomDialogControllerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontrolleroptions%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E)、[AlertDialogParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-alert-dialog-box#alertdialogparam%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E)、[ActionSheetOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-action-sheet#actionsheetoptions%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E)、[SheetOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions)等。\n\n- 沉浸光感开启后，如果已主动设置背景色、背景模糊等自定义样式属性，则不呈现沉浸光感效果，否则沉浸式系统材质样式ImmersiveStyle默认取值为ImmersiveStyle.ULTRA_THICK。具体请参考[Dialog或Toast组件默认没有材质效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-faq#dialog%E6%88%96toast%E7%BB%84%E4%BB%B6%E9%BB%98%E8%AE%A4%E6%B2%A1%E6%9C%89%E6%9D%90%E8%B4%A8%E6%95%88%E6%9E%9C)。\n\n- 大面积的弹出框开启沉浸光感效果，会带来更多的动效绘制开销，不建议开启。详见[控制弹窗尺寸](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints#%E6%8E%A7%E5%88%B6%E5%BC%B9%E7%AA%97%E5%B0%BA%E5%AF%B8)中的尺寸建议。\n\n- [CalendarPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-calendarpicker)组件拉起的弹出框目前暂不支持开启沉浸光感效果，通过通用属性设置的沉浸光感效果会体现在CalendarPicker组件本身。\n\n- [DatePicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-datepicker)、[TextPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textpicker)、[TimePicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-timepicker)组件沉浸光感效果同CustomDialog相同。\n\n组件开启沉浸光感的效果请参见[示例9（设置弹窗的沉浸光感效果）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-alert-dialog-box#%E7%A4%BA%E4%BE%8B9%E8%AE%BE%E7%BD%AE%E5%BC%B9%E7%AA%97%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C)、[示例14（设置弹窗的沉浸光感效果）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#%E7%A4%BA%E4%BE%8B14%E8%AE%BE%E7%BD%AE%E5%BC%B9%E7%AA%97%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C)、[示例9（设置弹窗的沉浸光感效果）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-action-sheet#%E7%A4%BA%E4%BE%8B9%E8%AE%BE%E7%BD%AE%E5%BC%B9%E7%AA%97%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C)和[示例10（半模态设置系统材质）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#%E7%A4%BA%E4%BE%8B10%E5%8D%8A%E6%A8%A1%E6%80%81%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8)。\n\n#### 按钮与选择类组件\n\n按钮与选择类组件包括Button、Select、Toggle、Slider、ChipGroup和SegmentButton，是内嵌于内容流中的交互元素，用户通过它们进行选择和操作。沉浸光感为选择类组件提供了细腻的交互反馈与通透的视觉质感：沉浸式系统材质通常使用较薄的材质样式（ULTRA_THIN或THIN），在保持组件背景通透的同时，通过[ImmersiveOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)中的交互形变（interactive）和点光源（lightEffect）为按压、触摸等操作提供灵动的视觉反馈，替代组件默认的按压态和悬浮态效果。\n\n#### [h2]按钮（Button）\n\n按钮支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，按钮不会默认开启沉浸光感。\n\n组件级开启：按钮支持通过[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)属性为[Button](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button)组件设置沉浸光感效果。\n\n- 材质样式为THIN或ULTRA_THIN时，[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#fontcolor)使用系统预定义的可反色颜色资源，可随材质自动反色。\n\n- 当沉浸光感启用了光感交互反馈效果（[lightEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)）时，按钮默认的点击态和悬浮态视觉反馈不再展示，由材质的光感交互反馈效果替代。\n\n- 配置沉浸光感但未设置[buttonStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#buttonstyle11)、[backgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundcolor)等颜色相关属性且未设置材质颜色时，默认生效Button主题色的材质样式。\n\n组件开启沉浸光感的效果请参见[示例9（设置按钮的沉浸光感效果）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#%E7%A4%BA%E4%BE%8B9%E8%AE%BE%E7%BD%AE%E6%8C%89%E9%92%AE%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C)。\n\n#### [h2]下拉按钮（Select）\n\n下拉按钮支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，下拉按钮与下拉菜单默认开启沉浸光感。下拉按钮沉浸式系统材质样式默认取值为ULTRA_THIN，并默认开启交互形变（[interactive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)）与光感交互反馈（[lightEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)）；下拉菜单沉浸式系统材质样式默认取值为THICK。\n\n组件级开启：下拉按钮支持通过[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)属性设置沉浸光感效果；下拉菜单通过独立的[menuSystemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select#menusystemmaterial)接口设置沉浸光感效果。\n\n- 下拉按钮与下拉菜单的沉浸光感相互独立，可分别开启或关闭；如需单独关闭沉浸光感，应设置[uiMaterial.Material.empty](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#empty)，而非将systemMaterial设置为undefined。\n\n- 当下拉按钮的沉浸光感启用了光感交互反馈效果（[lightEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)）时，下拉按钮默认的按压态和悬浮态视觉反馈不再展示，由材质的光感交互反馈效果替代。\n\n组件开启沉浸光感的效果请参见[示例11（设置Select和下拉菜单沉浸光感效果）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select#%E7%A4%BA%E4%BE%8B11%E8%AE%BE%E7%BD%AEselect%E5%92%8C%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C)。\n\n#### [h2]开关（Toggle）\n\n开关支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，Toggle默认开启沉浸光感。\n\n组件级开启：开关支持通过[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)属性设置沉浸光感效果。\n\n- 不同[ToggleType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle#toggletype%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E)下沉浸光感效果存在差异：\n\n- ToggleType.Checkbox：当前未适配沉浸光感效果，设置后无沉浸光感效果。\n\n- ToggleType.Switch：传入的材质参数仅作为开启沉浸光感的开关标记，不影响实际视觉效果，实际使用组件内部预设的视觉参数，主要影响滑块大小、滑块样式、阴影等；材质效果随设备算力档位变化。\n\n- ToggleType.Button：效果与[Button](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button)组件设置沉浸光感相同，主要影响背景颜色、边框、阴影等视觉属性。\n\n组件开启沉浸光感的效果请参见[示例4（Toggle沉浸光感效果）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle#%E7%A4%BA%E4%BE%8B4toggle%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C)。\n\n#### [h2]滑动条（Slider）\n\n滑动条支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，滑动条默认开启沉浸光感。\n\n组件级开启：滑动条支持通过[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)属性设置沉浸光感效果。\n\n- 传入的材质参数仅作为开启沉浸光感的开关标记，不影响实际视觉效果，实际使用组件内部预设的视觉参数，主要影响滑块大小、滑块样式、阴影等；传入undefined时沉浸光感不生效，恢复为原先的Slider样式。\n\n- 沉浸光感的交互反馈效果仅在滑块形状为[SliderBlockType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#sliderblocktype10%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E).DEFAULT且[SliderStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#sliderstyle%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E)不为NONE时生效。\n\n组件开启沉浸光感的效果请参见[示例10（设置滑动条的沉浸光感效果）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#%E7%A4%BA%E4%BE%8B10%E8%AE%BE%E7%BD%AE%E6%BB%91%E5%8A%A8%E6%9D%A1%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C)。\n\n#### [h2]子页签（ChipGroup）\n\n子页签支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，子页签默认开启沉浸光感，沉浸式系统材质样式默认取值为ULTRA_THIN。\n\n组件级开启：子页签支持通过[ChipGroup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chipgroup)的backgroundSystemMaterial、selectedBackgroundSystemMaterial（选中状态）和iconBackgroundSystemMaterial（图标）字段设置沉浸光感效果。\n\n需要文字、图标颜色随材质自动反色时，颜色应使用系统预定义的可反色颜色资源（如$r('sys.color.font_primary')），硬编码颜色值不会触发自动反色，详见[设置沉浸式系统材质反色](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-common-capability#%E8%AE%BE%E7%BD%AE%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8%E5%8F%8D%E8%89%B2)。\n\n组件开启沉浸光感的效果请参见[示例6（设置系统材质样式）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chipgroup#%E7%A4%BA%E4%BE%8B6%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8%E6%A0%B7%E5%BC%8F)和[示例7（设置组件选中状态的系统材质样式）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chipgroup#%E7%A4%BA%E4%BE%8B7%E8%AE%BE%E7%BD%AE%E7%BB%84%E4%BB%B6%E9%80%89%E4%B8%AD%E7%8A%B6%E6%80%81%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8%E6%A0%B7%E5%BC%8F)。\n\n#### [h2]操作块（SegmentButton）\n\n操作块支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，操作块默认开启沉浸光感，沉浸式系统材质样式默认取值为THIN。\n\n组件级开启：[SegmentButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbutton)支持通过SegmentButtonOptions中的backgroundSystemMaterial字段设置沉浸光感效果；[SegmentButtonV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbuttonv2)通过各类分段按钮options参数中的backgroundSystemMaterial字段设置。\n\n- SegmentButton的胶囊类多选分段按钮（[SegmentButtonOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbutton#segmentbuttonoptions)的type为“capsule”且[SegmentButtonOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbutton#segmentbuttonoptions)的multiply为true）不支持backgroundSystemMaterial，设置后不生效。\n\n- SegmentButtonV2开启沉浸光感后，支持选中项背景跟随手指拖拽，否则不支持跟随手指拖拽。\n\n- 设置自动反色时，即colorInvert为true，如果SegmentButton中的fontColor、selectedFontColor，或SegmentButtonV2中的itemFontColor、itemSelectedFontColor、itemIconFillColor、itemSelectedIconFillColor等使用支持反色的系统资源，颜色自动适配到材质背景色的反色。\n\n组件开启沉浸光感的效果请参见[示例8（设置背景板材质）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbutton#%E7%A4%BA%E4%BE%8B8%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E6%9D%BF%E6%9D%90%E8%B4%A8)和[示例6（设置背景板材质）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbuttonv2#%E7%A4%BA%E4%BE%8B6%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E6%9D%BF%E6%9D%90%E8%B4%A8)。\n\n#### 其余组件\n\n其余组件均支持通用属性[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)设置沉浸式系统材质，跟随通用属性的生效规则呈现效果，例如[布局容器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-overview)、[滚动容器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-list-grid-development-overview)。生效区域为Navigation/NavDestination标题栏，或横向Tab中barPosition为BarPosition.End的底部TabBar。开启后的常见问题请参考[沉浸光感常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-faq)。",
+  "contentText": "组件适配沉浸光感\n本文按导航类、弹窗类、按钮与选择类、其余组件四大场景分类，系统介绍各组件如何通过应用级开关与组件级配置开启沉浸光感，涵盖沉浸光感的视觉效果、设置方法及适配要点，帮助开发者快速完成沉浸光感的组件适配。\n导航类组件\n导航类组件包括Navigation标题栏、底部页签、索引条，是页面导航与内容定位的辅助元素，通常固定在页面顶部或底部。沉浸光感为导航类组件赋予了通透的悬浮质感，让导航栏在滚动内容之上呈现轻盈的分层效果，内容透过材质层自然渗透，建立导航区域与内容之间的视觉层次。导航类组件通常使用较薄的材质样式（ULTRA_THIN或THIN），在保持背景通透的同时避免过度遮挡内容。\n[h2]Navigation标题栏\nNavigation标题栏支持通过应用级开启、组件级开启方式开启沉浸光感。\n应用级开启：应用级开关处于ENABLE模式下，Navigation标题栏默认开启沉浸光感，沉浸式系统材质样式默认取值为ULTRA_THIN；在非ENABLE模式下，沉浸光感不生效。\n组件级开启：Navigation标题栏支持通过NavigationTitleOptions中的systemMaterial字段设置沉浸光感效果。\n推荐将沉浸光感限定在顶部标题栏等需要凸显的局部区域，控制使用面积与层数，详见沉浸光感功耗优化。\n沉浸光感针对标题栏生效的范围是：返回键、非自定义Menu。\nsystemMaterial为undefined时，MaterialState开关配置为DEFAULT时标题栏无材质效果；配置为ENABLE时标题栏生效系统默认的沉浸式材质效果。\n建议设置沉浸光感时，使用barStyle为STACK样式，以便Navigation内容区延伸至标题栏区域，获得沉浸光感的最佳体验。\n组件开启沉浸光感的效果请参见示例20（设置systemMaterial开启标题栏材质效果）。\n[h2]底部页签（Tabs）\n底部页签支持通过应用级开启、组件级开启方式开启沉浸光感。\n应用级开启：应用级开关处于ENABLE模式下，底部页签不会默认开启沉浸光感；设置barFloatingStyle属性并生效底部页签的悬浮样式时，底部页签默认开启沉浸光感，沉浸式系统材质样式默认取值为THIN。\n组件级开启：底部页签支持通过barFloatingStyle属性中FloatingTabBarStyle的systemMaterial字段，设置TabBar背板的沉浸光感效果。\n悬浮样式仅在barOverlap为true、vertical为false、barPosition为BarPosition.End时生效，三个条件需同时满足，否则systemMaterial设置不生效。\n设置悬浮材质后，不建议再通过barBackgroundColor、barBackgroundBlurStyle为TabBar设置背景色或背景模糊，避免遮挡材质效果。\nTabContent不支持设置沉浸光感。\n组件开启沉浸光感的效果请参见示例24（TabBar悬浮样式）。\n[h2]索引条（AlphabetIndexer）\n索引条支持通过应用级开启、组件级开启方式开启沉浸光感。\n应用级开启：应用级开关处于ENABLE模式下，索引条默认开启沉浸光感，沉浸式系统材质样式默认取值为THICK。\n组件级开启：索引条参数popupBackground和popupBackgroundBlurStyle均未主动设置（或参数value传入undefined）时，提示弹窗默认开启沉浸光感，默认材质样式为THICK；也可通过systemMaterial属性主动设置沉浸光感效果。\n高算力、中算力设备默认显示为沉浸光感THICK样式，低算力设备不显示沉浸光感效果，显示为白色背景。\npopupBackground、popupBackgroundBlurStyle属性和沉浸光感能力互斥。主动设置popupBackground或popupBackgroundBlurStyle后无沉浸光感效果。\n组件开启沉浸光感的效果请参见示例3（设置提示弹窗背景模糊材质）。\n弹窗类组件\n弹窗类组件包括Toast、Popup、Tips、Menu和Dialog（包含AlertDialog、CustomDialog、bindSheet及各类PickerDialog），是浮层元素，在内容之上建立视觉层次。沉浸光感为弹窗类组件赋予了核心价值：沉浸式系统材质让弹窗背景呈现轻盈通透的质感，底层内容透过材质层自然渗透，配合折射、高光、阴影等多层效果，使弹窗在内容之上建立清晰的视觉层次；沉浸式空间动效为弹窗和菜单的弹出过程增添形变、流光等动态表现，使弹出过程灵动自然。弹窗类组件通常使用较厚的材质样式（THICK或ULTRA_THICK），以获得更强的背景模糊效果，确保弹窗内容与背景内容之间有清晰的视觉分离。\n[h2]即时反馈（Toast）\nToast支持通过应用级开启、组件级开启方式开启沉浸光感。\n应用级开启：应用级开关处于ENABLE模式下，Toast默认开启沉浸光感，沉浸式系统材质样式默认取值为THICK。\n组件级开启：Toast支持通过ShowToastOptions中的systemMaterial字段设置沉浸光感效果。\n沉浸光感开启后，如果已主动设置ShowToastOptions中的backgroundBlurStyle或backgroundColor，则不呈现沉浸光感效果，否则沉浸式系统材质样式ImmersiveStyle默认取值为ImmersiveStyle.THICK。具体请参考Dialog或Toast组件默认没有材质效果。\n组件开启沉浸光感的效果请参见showToast。\n[h2]气泡提示（Popup和Tips）\nPopup和Tips支持通过应用级开启、组件级开启方式开启沉浸光感。\n应用级开启：应用级开关处于ENABLE模式下，气泡提示不会默认开启沉浸光感。\n组件级开启：气泡支持通过PopupOptions中的systemMaterial字段设置沉浸光感效果；悬浮提示通过TipsOptions中的systemMaterial字段设置。\n组件开启沉浸光感的效果请参见示例9（设置Popup的沉浸光感视觉效果）和示例3（设置悬浮气泡的沉浸光感视效）。\n[h2]菜单（Menu）\n菜单支持通过应用级开启、组件级开启方式开启沉浸光感。\n应用级开启：应用级开关处于ENABLE模式下，菜单默认开启沉浸光感，沉浸式系统材质样式默认取值为THICK。\n组件级开启：菜单支持通过ContextMenuOptions中的systemMaterial字段设置沉浸光感效果。\n组件开启沉浸光感的效果请参见示例24（设置菜单的沉浸光感）。\n[h2]弹出框（Dialog）\n弹出框支持通过应用级开启、组件级开启方式开启沉浸光感。\n应用级开启：应用级开关处于ENABLE模式下，弹出框默认开启沉浸光感，沉浸式系统材质样式默认取值为ULTRA_THICK。\n组件级开启：弹出框支持通过弹出框options参数中的systemMaterial字段设置沉浸光感效果，如CustomDialogControllerOptions、AlertDialogParam、ActionSheetOptions、SheetOptions等。\n沉浸光感开启后，如果已主动设置背景色、背景模糊等自定义样式属性，则不呈现沉浸光感效果，否则沉浸式系统材质样式ImmersiveStyle默认取值为ImmersiveStyle.ULTRA_THICK。具体请参考Dialog或Toast组件默认没有材质效果。\n大面积的弹出框开启沉浸光感效果，会带来更多的动效绘制开销，不建议开启。详见控制弹窗尺寸中的尺寸建议。\nCalendarPicker组件拉起的弹出框目前暂不支持开启沉浸光感效果，通过通用属性设置的沉浸光感效果会体现在CalendarPicker组件本身。\nDatePicker、TextPicker、TimePicker组件沉浸光感效果同CustomDialog相同。\n组件开启沉浸光感的效果请参见示例9（设置弹窗的沉浸光感效果）、示例14（设置弹窗的沉浸光感效果）、示例9（设置弹窗的沉浸光感效果）和示例10（半模态设置系统材质）。\n按钮与选择类组件\n按钮与选择类组件包括Button、Select、Toggle、Slider、ChipGroup和SegmentButton，是内嵌于内容流中的交互元素，用户通过它们进行选择和操作。沉浸光感为选择类组件提供了细腻的交互反馈与通透的视觉质感：沉浸式系统材质通常使用较薄的材质样式（ULTRA_THIN或THIN），在保持组件背景通透的同时，通过ImmersiveOptions中的交互形变（interactive）和点光源（lightEffect）为按压、触摸等操作提供灵动的视觉反馈，替代组件默认的按压态和悬浮态效果。\n[h2]按钮（Button）\n按钮支持通过应用级开启、组件级开启方式开启沉浸光感。\n应用级开启：应用级开关处于ENABLE模式下，按钮不会默认开启沉浸光感。\n组件级开启：按钮支持通过systemMaterial属性为Button组件设置沉浸光感效果。\n材质样式为THIN或ULTRA_THIN时，fontColor使用系统预定义的可反色颜色资源，可随材质自动反色。\n当沉浸光感启用了光感交互反馈效果（lightEffect）时，按钮默认的点击态和悬浮态视觉反馈不再展示，由材质的光感交互反馈效果替代。\n配置沉浸光感但未设置buttonStyle、backgroundColor等颜色相关属性且未设置材质颜色时，默认生效Button主题色的材质样式。\n组件开启沉浸光感的效果请参见示例9（设置按钮的沉浸光感效果）。\n[h2]下拉按钮（Select）\n下拉按钮支持通过应用级开启、组件级开启方式开启沉浸光感。\n应用级开启：应用级开关处于ENABLE模式下，下拉按钮与下拉菜单默认开启沉浸光感。下拉按钮沉浸式系统材质样式默认取值为ULTRA_THIN，并默认开启交互形变（interactive）与光感交互反馈（lightEffect）；下拉菜单沉浸式系统材质样式默认取值为THICK。\n组件级开启：下拉按钮支持通过systemMaterial属性设置沉浸光感效果；下拉菜单通过独立的menuSystemMaterial接口设置沉浸光感效果。\n下拉按钮与下拉菜单的沉浸光感相互独立，可分别开启或关闭；如需单独关闭沉浸光感，应设置uiMaterial.Material.empty，而非将systemMaterial设置为undefined。\n当下拉按钮的沉浸光感启用了光感交互反馈效果（lightEffect）时，下拉按钮默认的按压态和悬浮态视觉反馈不再展示，由材质的光感交互反馈效果替代。\n组件开启沉浸光感的效果请参见示例11（设置Select和下拉菜单沉浸光感效果）。\n[h2]开关（Toggle）\n开关支持通过应用级开启、组件级开启方式开启沉浸光感。\n应用级开启：应用级开关处于ENABLE模式下，Toggle默认开启沉浸光感。\n组件级开启：开关支持通过systemMaterial属性设置沉浸光感效果。\n不同ToggleType下沉浸光感效果存在差异：\nToggleType.Checkbox：当前未适配沉浸光感效果，设置后无沉浸光感效果。\nToggleType.Switch：传入的材质参数仅作为开启沉浸光感的开关标记，不影响实际视觉效果，实际使用组件内部预设的视觉参数，主要影响滑块大小、滑块样式、阴影等；材质效果随设备算力档位变化。\nToggleType.Button：效果与Button组件设置沉浸光感相同，主要影响背景颜色、边框、阴影等视觉属性。\n组件开启沉浸光感的效果请参见示例4（Toggle沉浸光感效果）。\n[h2]滑动条（Slider）\n滑动条支持通过应用级开启、组件级开启方式开启沉浸光感。\n应用级开启：应用级开关处于ENABLE模式下，滑动条默认开启沉浸光感。\n组件级开启：滑动条支持通过systemMaterial属性设置沉浸光感效果。\n传入的材质参数仅作为开启沉浸光感的开关标记，不影响实际视觉效果，实际使用组件内部预设的视觉参数，主要影响滑块大小、滑块样式、阴影等；传入undefined时沉浸光感不生效，恢复为原先的Slider样式。\n沉浸光感的交互反馈效果仅在滑块形状为SliderBlockType.DEFAULT且SliderStyle不为NONE时生效。\n组件开启沉浸光感的效果请参见示例10（设置滑动条的沉浸光感效果）。\n[h2]子页签（ChipGroup）\n子页签支持通过应用级开启、组件级开启方式开启沉浸光感。\n应用级开启：应用级开关处于ENABLE模式下，子页签默认开启沉浸光感，沉浸式系统材质样式默认取值为ULTRA_THIN。\n组件级开启：子页签支持通过ChipGroup的backgroundSystemMaterial、selectedBackgroundSystemMaterial（选中状态）和iconBackgroundSystemMaterial（图标）字段设置沉浸光感效果。\n需要文字、图标颜色随材质自动反色时，颜色应使用系统预定义的可反色颜色资源（如$r('sys.color.font_primary')），硬编码颜色值不会触发自动反色，详见设置沉浸式系统材质反色。\n组件开启沉浸光感的效果请参见示例6（设置系统材质样式）和示例7（设置组件选中状态的系统材质样式）。\n[h2]操作块（SegmentButton）\n操作块支持通过应用级开启、组件级开启方式开启沉浸光感。\n应用级开启：应用级开关处于ENABLE模式下，操作块默认开启沉浸光感，沉浸式系统材质样式默认取值为THIN。\n组件级开启：SegmentButton支持通过SegmentButtonOptions中的backgroundSystemMaterial字段设置沉浸光感效果；SegmentButtonV2通过各类分段按钮options参数中的backgroundSystemMaterial字段设置。\nSegmentButton的胶囊类多选分段按钮（SegmentButtonOptions的type为“capsule”且SegmentButtonOptions的multiply为true）不支持backgroundSystemMaterial，设置后不生效。\nSegmentButtonV2开启沉浸光感后，支持选中项背景跟随手指拖拽，否则不支持跟随手指拖拽。\n设置自动反色时，即colorInvert为true，如果SegmentButton中的fontColor、selectedFontColor，或SegmentButtonV2中的itemFontColor、itemSelectedFontColor、itemIconFillColor、itemSelectedIconFillColor等使用支持反色的系统资源，颜色自动适配到材质背景色的反色。\n组件开启沉浸光感的效果请参见示例8（设置背景板材质）和示例6（设置背景板材质）。\n其余组件\n其余组件均支持通用属性systemMaterial设置沉浸式系统材质，跟随通用属性的生效规则呈现效果，例如布局容器、滚动容器。生效区域为Navigation/NavDestination标题栏，或横向Tab中barPosition为BarPosition.End的底部TabBar。开启后的常见问题请参考沉浸光感常见问题。",
+  "sections": [
+    {
+      "id": "section-1",
+      "level": 1,
+      "heading": "组件适配沉浸光感",
+      "lineStart": 1,
+      "lineEnd": 4,
+      "text": "本文按导航类、弹窗类、按钮与选择类、其余组件四大场景分类，系统介绍各组件如何通过应用级开关与组件级配置开启沉浸光感，涵盖沉浸光感的视觉效果、设置方法及适配要点，帮助开发者快速完成沉浸光感的组件适配。"
+    },
+    {
+      "id": "section-2",
+      "level": 4,
+      "heading": "导航类组件",
+      "lineStart": 5,
+      "lineEnd": 8,
+      "text": "导航类组件包括Navigation标题栏、底部页签、索引条，是页面导航与内容定位的辅助元素，通常固定在页面顶部或底部。沉浸光感为导航类组件赋予了通透的悬浮质感，让导航栏在滚动内容之上呈现轻盈的分层效果，内容透过材质层自然渗透，建立导航区域与内容之间的视觉层次。导航类组件通常使用较薄的材质样式（ULTRA_THIN或THIN），在保持背景通透的同时避免过度遮挡内容。"
+    },
+    {
+      "id": "section-3",
+      "level": 4,
+      "heading": "[h2]Navigation标题栏",
+      "lineStart": 9,
+      "lineEnd": 26,
+      "text": "Navigation标题栏支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，Navigation标题栏默认开启沉浸光感，沉浸式系统材质样式默认取值为ULTRA_THIN；在非ENABLE模式下，沉浸光感不生效。\n\n组件级开启：Navigation标题栏支持通过[NavigationTitleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navigationtitleoptions11)中的systemMaterial字段设置沉浸光感效果。\n\n- 推荐将沉浸光感限定在顶部标题栏等需要凸显的局部区域，控制使用面积与层数，详见[沉浸光感功耗优化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints)。\n\n- 沉浸光感针对标题栏生效的范围是：返回键、非自定义Menu。\n\n- systemMaterial为undefined时，[MaterialState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)开关配置为DEFAULT时标题栏无材质效果；配置为ENABLE时标题栏生效系统默认的沉浸式材质效果。\n\n- 建议设置沉浸光感时，使用[barStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navigationtitleoptions11)为STACK样式，以便Navigation内容区延伸至标题栏区域，获得沉浸光感的最佳体验。\n\n组件开启沉浸光感的效果请参见[示例20（设置systemMaterial开启标题栏材质效果）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#%E7%A4%BA%E4%BE%8B20%E8%AE%BE%E7%BD%AEsystemmaterial%E5%BC%80%E5%90%AF%E6%A0%87%E9%A2%98%E6%A0%8F%E6%9D%90%E8%B4%A8%E6%95%88%E6%9E%9C)。"
+    },
+    {
+      "id": "section-4",
+      "level": 4,
+      "heading": "[h2]底部页签（Tabs）",
+      "lineStart": 27,
+      "lineEnd": 42,
+      "text": "底部页签支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，底部页签不会默认开启沉浸光感；设置[barFloatingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barfloatingstyle)属性并生效底部页签的悬浮样式时，底部页签默认开启沉浸光感，沉浸式系统材质样式默认取值为THIN。\n\n组件级开启：底部页签支持通过[barFloatingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barfloatingstyle)属性中[FloatingTabBarStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#floatingtabbarstyle)的systemMaterial字段，设置TabBar背板的沉浸光感效果。\n\n- 悬浮样式仅在[barOverlap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#baroverlap10)为true、[vertical](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#vertical)为false、[barPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barposition9)为BarPosition.End时生效，三个条件需同时满足，否则systemMaterial设置不生效。\n\n- 设置悬浮材质后，不建议再通过[barBackgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barbackgroundcolor10)、[barBackgroundBlurStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barbackgroundblurstyle11)为TabBar设置背景色或背景模糊，避免遮挡材质效果。\n\n- TabContent不支持设置沉浸光感。\n\n组件开启沉浸光感的效果请参见[示例24（TabBar悬浮样式）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#%E7%A4%BA%E4%BE%8B24tabbar%E6%82%AC%E6%B5%AE%E6%A0%B7%E5%BC%8F)。"
+    },
+    {
+      "id": "section-5",
+      "level": 4,
+      "heading": "[h2]索引条（AlphabetIndexer）",
+      "lineStart": 43,
+      "lineEnd": 56,
+      "text": "索引条支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，索引条默认开启沉浸光感，沉浸式系统材质样式默认取值为THICK。\n\n组件级开启：索引条参数[popupBackground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer#popupbackground)和[popupBackgroundBlurStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer#popupbackgroundblurstyle12)均未主动设置（或参数value传入undefined）时，提示弹窗默认开启沉浸光感，默认材质样式为THICK；也可通过[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)属性主动设置沉浸光感效果。\n\n- 高算力、中算力设备默认显示为沉浸光感THICK样式，低算力设备不显示沉浸光感效果，显示为白色背景。\n\n- popupBackground、popupBackgroundBlurStyle属性和沉浸光感能力互斥。主动设置popupBackground或popupBackgroundBlurStyle后无沉浸光感效果。\n\n组件开启沉浸光感的效果请参见[示例3（设置提示弹窗背景模糊材质）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer#%E7%A4%BA%E4%BE%8B3%E8%AE%BE%E7%BD%AE%E6%8F%90%E7%A4%BA%E5%BC%B9%E7%AA%97%E8%83%8C%E6%99%AF%E6%A8%A1%E7%B3%8A%E6%9D%90%E8%B4%A8)。"
+    },
+    {
+      "id": "section-6",
+      "level": 4,
+      "heading": "弹窗类组件",
+      "lineStart": 57,
+      "lineEnd": 60,
+      "text": "弹窗类组件包括Toast、Popup、Tips、Menu和Dialog（包含AlertDialog、CustomDialog、bindSheet及各类PickerDialog），是浮层元素，在内容之上建立视觉层次。沉浸光感为弹窗类组件赋予了核心价值：沉浸式系统材质让弹窗背景呈现轻盈通透的质感，底层内容透过材质层自然渗透，配合折射、高光、阴影等多层效果，使弹窗在内容之上建立清晰的视觉层次；沉浸式空间动效为弹窗和菜单的弹出过程增添形变、流光等动态表现，使弹出过程灵动自然。弹窗类组件通常使用较厚的材质样式（THICK或ULTRA_THICK），以获得更强的背景模糊效果，确保弹窗内容与背景内容之间有清晰的视觉分离。"
+    },
+    {
+      "id": "section-7",
+      "level": 4,
+      "heading": "[h2]即时反馈（Toast）",
+      "lineStart": 61,
+      "lineEnd": 72,
+      "text": "Toast支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，Toast默认开启沉浸光感，沉浸式系统材质样式默认取值为THICK。\n\n组件级开启：Toast支持通过[ShowToastOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#showtoastoptions)中的systemMaterial字段设置沉浸光感效果。\n\n沉浸光感开启后，如果已主动设置[ShowToastOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#showtoastoptions)中的backgroundBlurStyle或backgroundColor，则不呈现沉浸光感效果，否则沉浸式系统材质样式ImmersiveStyle默认取值为ImmersiveStyle.THICK。具体请参考[Dialog或Toast组件默认没有材质效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-faq#dialog%E6%88%96toast%E7%BB%84%E4%BB%B6%E9%BB%98%E8%AE%A4%E6%B2%A1%E6%9C%89%E6%9D%90%E8%B4%A8%E6%95%88%E6%9E%9C)。\n\n组件开启沉浸光感的效果请参见[showToast](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#showtoast)。"
+    },
+    {
+      "id": "section-8",
+      "level": 4,
+      "heading": "[h2]气泡提示（Popup和Tips）",
+      "lineStart": 73,
+      "lineEnd": 82,
+      "text": "Popup和Tips支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，气泡提示不会默认开启沉浸光感。\n\n组件级开启：气泡支持通过[PopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupoptions%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E)中的systemMaterial字段设置沉浸光感效果；悬浮提示通过[TipsOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-tips#tipsoptions%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E)中的systemMaterial字段设置。\n\n组件开启沉浸光感的效果请参见[示例9（设置Popup的沉浸光感视觉效果）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#%E7%A4%BA%E4%BE%8B9%E8%AE%BE%E7%BD%AEpopup%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E8%A7%86%E8%A7%89%E6%95%88%E6%9E%9C)和[示例3（设置悬浮气泡的沉浸光感视效）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-tips#%E7%A4%BA%E4%BE%8B3%E8%AE%BE%E7%BD%AE%E6%82%AC%E6%B5%AE%E6%B0%94%E6%B3%A1%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E8%A7%86%E6%95%88)。"
+    },
+    {
+      "id": "section-9",
+      "level": 4,
+      "heading": "[h2]菜单（Menu）",
+      "lineStart": 83,
+      "lineEnd": 92,
+      "text": "菜单支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，菜单默认开启沉浸光感，沉浸式系统材质样式默认取值为THICK。\n\n组件级开启：菜单支持通过[ContextMenuOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#contextmenuoptions10)中的systemMaterial字段设置沉浸光感效果。\n\n组件开启沉浸光感的效果请参见[示例24（设置菜单的沉浸光感）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#%E7%A4%BA%E4%BE%8B24%E8%AE%BE%E7%BD%AE%E8%8F%9C%E5%8D%95%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F)。"
+    },
+    {
+      "id": "section-10",
+      "level": 4,
+      "heading": "[h2]弹出框（Dialog）",
+      "lineStart": 93,
+      "lineEnd": 110,
+      "text": "弹出框支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，弹出框默认开启沉浸光感，沉浸式系统材质样式默认取值为ULTRA_THICK。\n\n组件级开启：弹出框支持通过弹出框options参数中的systemMaterial字段设置沉浸光感效果，如[CustomDialogControllerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontrolleroptions%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E)、[AlertDialogParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-alert-dialog-box#alertdialogparam%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E)、[ActionSheetOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-action-sheet#actionsheetoptions%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E)、[SheetOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions)等。\n\n- 沉浸光感开启后，如果已主动设置背景色、背景模糊等自定义样式属性，则不呈现沉浸光感效果，否则沉浸式系统材质样式ImmersiveStyle默认取值为ImmersiveStyle.ULTRA_THICK。具体请参考[Dialog或Toast组件默认没有材质效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-faq#dialog%E6%88%96toast%E7%BB%84%E4%BB%B6%E9%BB%98%E8%AE%A4%E6%B2%A1%E6%9C%89%E6%9D%90%E8%B4%A8%E6%95%88%E6%9E%9C)。\n\n- 大面积的弹出框开启沉浸光感效果，会带来更多的动效绘制开销，不建议开启。详见[控制弹窗尺寸](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints#%E6%8E%A7%E5%88%B6%E5%BC%B9%E7%AA%97%E5%B0%BA%E5%AF%B8)中的尺寸建议。\n\n- [CalendarPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-calendarpicker)组件拉起的弹出框目前暂不支持开启沉浸光感效果，通过通用属性设置的沉浸光感效果会体现在CalendarPicker组件本身。\n\n- [DatePicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-datepicker)、[TextPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textpicker)、[TimePicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-timepicker)组件沉浸光感效果同CustomDialog相同。\n\n组件开启沉浸光感的效果请参见[示例9（设置弹窗的沉浸光感效果）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-alert-dialog-box#%E7%A4%BA%E4%BE%8B9%E8%AE%BE%E7%BD%AE%E5%BC%B9%E7%AA%97%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C)、[示例14（设置弹窗的沉浸光感效果）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#%E7%A4%BA%E4%BE%8B14%E8%AE%BE%E7%BD%AE%E5%BC%B9%E7%AA%97%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C)、[示例9（设置弹窗的沉浸光感效果）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-action-sheet#%E7%A4%BA%E4%BE%8B9%E8%AE%BE%E7%BD%AE%E5%BC%B9%E7%AA%97%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C)和[示例10（半模态设置系统材质）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#%E7%A4%BA%E4%BE%8B10%E5%8D%8A%E6%A8%A1%E6%80%81%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8)。"
+    },
+    {
+      "id": "section-11",
+      "level": 4,
+      "heading": "按钮与选择类组件",
+      "lineStart": 111,
+      "lineEnd": 114,
+      "text": "按钮与选择类组件包括Button、Select、Toggle、Slider、ChipGroup和SegmentButton，是内嵌于内容流中的交互元素，用户通过它们进行选择和操作。沉浸光感为选择类组件提供了细腻的交互反馈与通透的视觉质感：沉浸式系统材质通常使用较薄的材质样式（ULTRA_THIN或THIN），在保持组件背景通透的同时，通过[ImmersiveOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)中的交互形变（interactive）和点光源（lightEffect）为按压、触摸等操作提供灵动的视觉反馈，替代组件默认的按压态和悬浮态效果。"
+    },
+    {
+      "id": "section-12",
+      "level": 4,
+      "heading": "[h2]按钮（Button）",
+      "lineStart": 115,
+      "lineEnd": 130,
+      "text": "按钮支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，按钮不会默认开启沉浸光感。\n\n组件级开启：按钮支持通过[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)属性为[Button](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button)组件设置沉浸光感效果。\n\n- 材质样式为THIN或ULTRA_THIN时，[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#fontcolor)使用系统预定义的可反色颜色资源，可随材质自动反色。\n\n- 当沉浸光感启用了光感交互反馈效果（[lightEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)）时，按钮默认的点击态和悬浮态视觉反馈不再展示，由材质的光感交互反馈效果替代。\n\n- 配置沉浸光感但未设置[buttonStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#buttonstyle11)、[backgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundcolor)等颜色相关属性且未设置材质颜色时，默认生效Button主题色的材质样式。\n\n组件开启沉浸光感的效果请参见[示例9（设置按钮的沉浸光感效果）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#%E7%A4%BA%E4%BE%8B9%E8%AE%BE%E7%BD%AE%E6%8C%89%E9%92%AE%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C)。"
+    },
+    {
+      "id": "section-13",
+      "level": 4,
+      "heading": "[h2]下拉按钮（Select）",
+      "lineStart": 131,
+      "lineEnd": 144,
+      "text": "下拉按钮支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，下拉按钮与下拉菜单默认开启沉浸光感。下拉按钮沉浸式系统材质样式默认取值为ULTRA_THIN，并默认开启交互形变（[interactive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)）与光感交互反馈（[lightEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)）；下拉菜单沉浸式系统材质样式默认取值为THICK。\n\n组件级开启：下拉按钮支持通过[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)属性设置沉浸光感效果；下拉菜单通过独立的[menuSystemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select#menusystemmaterial)接口设置沉浸光感效果。\n\n- 下拉按钮与下拉菜单的沉浸光感相互独立，可分别开启或关闭；如需单独关闭沉浸光感，应设置[uiMaterial.Material.empty](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#empty)，而非将systemMaterial设置为undefined。\n\n- 当下拉按钮的沉浸光感启用了光感交互反馈效果（[lightEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)）时，下拉按钮默认的按压态和悬浮态视觉反馈不再展示，由材质的光感交互反馈效果替代。\n\n组件开启沉浸光感的效果请参见[示例11（设置Select和下拉菜单沉浸光感效果）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select#%E7%A4%BA%E4%BE%8B11%E8%AE%BE%E7%BD%AEselect%E5%92%8C%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C)。"
+    },
+    {
+      "id": "section-14",
+      "level": 4,
+      "heading": "[h2]开关（Toggle）",
+      "lineStart": 145,
+      "lineEnd": 162,
+      "text": "开关支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，Toggle默认开启沉浸光感。\n\n组件级开启：开关支持通过[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)属性设置沉浸光感效果。\n\n- 不同[ToggleType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle#toggletype%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E)下沉浸光感效果存在差异：\n\n- ToggleType.Checkbox：当前未适配沉浸光感效果，设置后无沉浸光感效果。\n\n- ToggleType.Switch：传入的材质参数仅作为开启沉浸光感的开关标记，不影响实际视觉效果，实际使用组件内部预设的视觉参数，主要影响滑块大小、滑块样式、阴影等；材质效果随设备算力档位变化。\n\n- ToggleType.Button：效果与[Button](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button)组件设置沉浸光感相同，主要影响背景颜色、边框、阴影等视觉属性。\n\n组件开启沉浸光感的效果请参见[示例4（Toggle沉浸光感效果）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle#%E7%A4%BA%E4%BE%8B4toggle%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C)。"
+    },
+    {
+      "id": "section-15",
+      "level": 4,
+      "heading": "[h2]滑动条（Slider）",
+      "lineStart": 163,
+      "lineEnd": 176,
+      "text": "滑动条支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，滑动条默认开启沉浸光感。\n\n组件级开启：滑动条支持通过[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)属性设置沉浸光感效果。\n\n- 传入的材质参数仅作为开启沉浸光感的开关标记，不影响实际视觉效果，实际使用组件内部预设的视觉参数，主要影响滑块大小、滑块样式、阴影等；传入undefined时沉浸光感不生效，恢复为原先的Slider样式。\n\n- 沉浸光感的交互反馈效果仅在滑块形状为[SliderBlockType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#sliderblocktype10%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E).DEFAULT且[SliderStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#sliderstyle%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E)不为NONE时生效。\n\n组件开启沉浸光感的效果请参见[示例10（设置滑动条的沉浸光感效果）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#%E7%A4%BA%E4%BE%8B10%E8%AE%BE%E7%BD%AE%E6%BB%91%E5%8A%A8%E6%9D%A1%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C)。"
+    },
+    {
+      "id": "section-16",
+      "level": 4,
+      "heading": "[h2]子页签（ChipGroup）",
+      "lineStart": 177,
+      "lineEnd": 188,
+      "text": "子页签支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，子页签默认开启沉浸光感，沉浸式系统材质样式默认取值为ULTRA_THIN。\n\n组件级开启：子页签支持通过[ChipGroup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chipgroup)的backgroundSystemMaterial、selectedBackgroundSystemMaterial（选中状态）和iconBackgroundSystemMaterial（图标）字段设置沉浸光感效果。\n\n需要文字、图标颜色随材质自动反色时，颜色应使用系统预定义的可反色颜色资源（如$r('sys.color.font_primary')），硬编码颜色值不会触发自动反色，详见[设置沉浸式系统材质反色](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-common-capability#%E8%AE%BE%E7%BD%AE%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8%E5%8F%8D%E8%89%B2)。\n\n组件开启沉浸光感的效果请参见[示例6（设置系统材质样式）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chipgroup#%E7%A4%BA%E4%BE%8B6%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8%E6%A0%B7%E5%BC%8F)和[示例7（设置组件选中状态的系统材质样式）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chipgroup#%E7%A4%BA%E4%BE%8B7%E8%AE%BE%E7%BD%AE%E7%BB%84%E4%BB%B6%E9%80%89%E4%B8%AD%E7%8A%B6%E6%80%81%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8%E6%A0%B7%E5%BC%8F)。"
+    },
+    {
+      "id": "section-17",
+      "level": 4,
+      "heading": "[h2]操作块（SegmentButton）",
+      "lineStart": 189,
+      "lineEnd": 204,
+      "text": "操作块支持通过应用级开启、组件级开启方式开启沉浸光感。\n\n应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，操作块默认开启沉浸光感，沉浸式系统材质样式默认取值为THIN。\n\n组件级开启：[SegmentButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbutton)支持通过SegmentButtonOptions中的backgroundSystemMaterial字段设置沉浸光感效果；[SegmentButtonV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbuttonv2)通过各类分段按钮options参数中的backgroundSystemMaterial字段设置。\n\n- SegmentButton的胶囊类多选分段按钮（[SegmentButtonOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbutton#segmentbuttonoptions)的type为“capsule”且[SegmentButtonOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbutton#segmentbuttonoptions)的multiply为true）不支持backgroundSystemMaterial，设置后不生效。\n\n- SegmentButtonV2开启沉浸光感后，支持选中项背景跟随手指拖拽，否则不支持跟随手指拖拽。\n\n- 设置自动反色时，即colorInvert为true，如果SegmentButton中的fontColor、selectedFontColor，或SegmentButtonV2中的itemFontColor、itemSelectedFontColor、itemIconFillColor、itemSelectedIconFillColor等使用支持反色的系统资源，颜色自动适配到材质背景色的反色。\n\n组件开启沉浸光感的效果请参见[示例8（设置背景板材质）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbutton#%E7%A4%BA%E4%BE%8B8%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E6%9D%BF%E6%9D%90%E8%B4%A8)和[示例6（设置背景板材质）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbuttonv2#%E7%A4%BA%E4%BE%8B6%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E6%9D%BF%E6%9D%90%E8%B4%A8)。"
+    },
+    {
+      "id": "section-18",
+      "level": 4,
+      "heading": "其余组件",
+      "lineStart": 205,
+      "lineEnd": 207,
+      "text": "其余组件均支持通用属性[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)设置沉浸式系统材质，跟随通用属性的生效规则呈现效果，例如[布局容器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-overview)、[滚动容器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-list-grid-development-overview)。生效区域为Navigation/NavDestination标题栏，或横向Tab中barPosition为BarPosition.End的底部TabBar。开启后的常见问题请参考[沉浸光感常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-faq)。"
+    }
+  ],
+  "codeBlocks": [],
+  "links": [
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate",
+      "text": "ENABLE",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navigationtitleoptions11",
+      "text": "NavigationTitleOptions",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints",
+      "text": "沉浸光感功耗优化",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#%E7%A4%BA%E4%BE%8B20%E8%AE%BE%E7%BD%AEsystemmaterial%E5%BC%80%E5%90%AF%E6%A0%87%E9%A2%98%E6%A0%8F%E6%9D%90%E8%B4%A8%E6%95%88%E6%9E%9C",
+      "text": "示例20（设置systemMaterial开启标题栏材质效果）",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barfloatingstyle",
+      "text": "barFloatingStyle",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#floatingtabbarstyle",
+      "text": "FloatingTabBarStyle",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#baroverlap10",
+      "text": "barOverlap",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#vertical",
+      "text": "vertical",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barposition9",
+      "text": "barPosition",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barbackgroundcolor10",
+      "text": "barBackgroundColor",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barbackgroundblurstyle11",
+      "text": "barBackgroundBlurStyle",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#%E7%A4%BA%E4%BE%8B24tabbar%E6%82%AC%E6%B5%AE%E6%A0%B7%E5%BC%8F",
+      "text": "示例24（TabBar悬浮样式）",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer#popupbackground",
+      "text": "popupBackground",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer#popupbackgroundblurstyle12",
+      "text": "popupBackgroundBlurStyle",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial",
+      "text": "systemMaterial",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer#%E7%A4%BA%E4%BE%8B3%E8%AE%BE%E7%BD%AE%E6%8F%90%E7%A4%BA%E5%BC%B9%E7%AA%97%E8%83%8C%E6%99%AF%E6%A8%A1%E7%B3%8A%E6%9D%90%E8%B4%A8",
+      "text": "示例3（设置提示弹窗背景模糊材质）",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#showtoastoptions",
+      "text": "ShowToastOptions",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-faq#dialog%E6%88%96toast%E7%BB%84%E4%BB%B6%E9%BB%98%E8%AE%A4%E6%B2%A1%E6%9C%89%E6%9D%90%E8%B4%A8%E6%95%88%E6%9E%9C",
+      "text": "Dialog或Toast组件默认没有材质效果",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#showtoast",
+      "text": "showToast",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupoptions%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+      "text": "PopupOptions",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-tips#tipsoptions%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+      "text": "TipsOptions",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#%E7%A4%BA%E4%BE%8B9%E8%AE%BE%E7%BD%AEpopup%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E8%A7%86%E8%A7%89%E6%95%88%E6%9E%9C",
+      "text": "示例9（设置Popup的沉浸光感视觉效果）",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-tips#%E7%A4%BA%E4%BE%8B3%E8%AE%BE%E7%BD%AE%E6%82%AC%E6%B5%AE%E6%B0%94%E6%B3%A1%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E8%A7%86%E6%95%88",
+      "text": "示例3（设置悬浮气泡的沉浸光感视效）",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#contextmenuoptions10",
+      "text": "ContextMenuOptions",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#%E7%A4%BA%E4%BE%8B24%E8%AE%BE%E7%BD%AE%E8%8F%9C%E5%8D%95%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F",
+      "text": "示例24（设置菜单的沉浸光感）",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontrolleroptions%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E",
+      "text": "CustomDialogControllerOptions",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-alert-dialog-box#alertdialogparam%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E",
+      "text": "AlertDialogParam",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-action-sheet#actionsheetoptions%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E",
+      "text": "ActionSheetOptions",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions",
+      "text": "SheetOptions",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints#%E6%8E%A7%E5%88%B6%E5%BC%B9%E7%AA%97%E5%B0%BA%E5%AF%B8",
+      "text": "控制弹窗尺寸",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-calendarpicker",
+      "text": "CalendarPicker",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-datepicker",
+      "text": "DatePicker",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textpicker",
+      "text": "TextPicker",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-timepicker",
+      "text": "TimePicker",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-alert-dialog-box#%E7%A4%BA%E4%BE%8B9%E8%AE%BE%E7%BD%AE%E5%BC%B9%E7%AA%97%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C",
+      "text": "示例9（设置弹窗的沉浸光感效果）",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#%E7%A4%BA%E4%BE%8B14%E8%AE%BE%E7%BD%AE%E5%BC%B9%E7%AA%97%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C",
+      "text": "示例14（设置弹窗的沉浸光感效果）",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-action-sheet#%E7%A4%BA%E4%BE%8B9%E8%AE%BE%E7%BD%AE%E5%BC%B9%E7%AA%97%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C",
+      "text": "示例9（设置弹窗的沉浸光感效果）",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#%E7%A4%BA%E4%BE%8B10%E5%8D%8A%E6%A8%A1%E6%80%81%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8",
+      "text": "示例10（半模态设置系统材质）",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions",
+      "text": "ImmersiveOptions",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button",
+      "text": "Button",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#fontcolor",
+      "text": "fontColor",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#buttonstyle11",
+      "text": "buttonStyle",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundcolor",
+      "text": "backgroundColor",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#%E7%A4%BA%E4%BE%8B9%E8%AE%BE%E7%BD%AE%E6%8C%89%E9%92%AE%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C",
+      "text": "示例9（设置按钮的沉浸光感效果）",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select#menusystemmaterial",
+      "text": "menuSystemMaterial",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#empty",
+      "text": "uiMaterial.Material.empty",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select#%E7%A4%BA%E4%BE%8B11%E8%AE%BE%E7%BD%AEselect%E5%92%8C%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C",
+      "text": "示例11（设置Select和下拉菜单沉浸光感效果）",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle#toggletype%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E",
+      "text": "ToggleType",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle#%E7%A4%BA%E4%BE%8B4toggle%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C",
+      "text": "示例4（Toggle沉浸光感效果）",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#sliderblocktype10%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E",
+      "text": "SliderBlockType",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#sliderstyle%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E",
+      "text": "SliderStyle",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#%E7%A4%BA%E4%BE%8B10%E8%AE%BE%E7%BD%AE%E6%BB%91%E5%8A%A8%E6%9D%A1%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C",
+      "text": "示例10（设置滑动条的沉浸光感效果）",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chipgroup",
+      "text": "ChipGroup",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-common-capability#%E8%AE%BE%E7%BD%AE%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8%E5%8F%8D%E8%89%B2",
+      "text": "设置沉浸式系统材质反色",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chipgroup#%E7%A4%BA%E4%BE%8B6%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8%E6%A0%B7%E5%BC%8F",
+      "text": "示例6（设置系统材质样式）",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chipgroup#%E7%A4%BA%E4%BE%8B7%E8%AE%BE%E7%BD%AE%E7%BB%84%E4%BB%B6%E9%80%89%E4%B8%AD%E7%8A%B6%E6%80%81%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8%E6%A0%B7%E5%BC%8F",
+      "text": "示例7（设置组件选中状态的系统材质样式）",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbutton",
+      "text": "SegmentButton",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbuttonv2",
+      "text": "SegmentButtonV2",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbutton#segmentbuttonoptions",
+      "text": "SegmentButtonOptions",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbutton#%E7%A4%BA%E4%BE%8B8%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E6%9D%BF%E6%9D%90%E8%B4%A8",
+      "text": "示例8（设置背景板材质）",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbuttonv2#%E7%A4%BA%E4%BE%8B6%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E6%9D%BF%E6%9D%90%E8%B4%A8",
+      "text": "示例6（设置背景板材质）",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-overview",
+      "text": "布局容器",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-list-grid-development-overview",
+      "text": "滚动容器",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-faq",
+      "text": "沉浸光感常见问题",
+      "official": true
+    }
+  ],
+  "contentSha256": "f04667da8de437b3ba849d490c5fea9bdb3c98785b8fe8a19603b28817b8992f"
+}

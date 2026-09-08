@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S001",
+  "visual": {
+    "status": "passed",
+    "basis": "对照实验：enable 构建截图（main-entry.jpeg）底部 TabBar 呈悬浮圆角半透明沉浸材质，应用级开启生效；同一代码仅改 metadata 为 disable 后（main-entry-disable.jpeg），显式组件级 ImmersiveMaterial(THIN) 的悬浮材质同样消失，TabBar 退化为贴底普通样式。实测应用级 disable 同时关闭了组件级显式开启的材质，行为匹配 IL-F006（全局禁用，应用级或组件级开启均不生效），不匹配 IL-F007。",
+    "evidence": [
+      {
+        "type": "screenshot",
+        "path": "D:\\HW\\testproject\\test2\\Express\\ohos-feature-engineering\\IL-S001\\evidence\\main-entry.jpeg"
+      },
+      {
+        "type": "screenshot",
+        "path": "D:\\HW\\testproject\\test2\\Express\\ohos-feature-engineering\\IL-S001\\evidence\\main-entry-disable.jpeg"
+      }
+    ]
+  },
+  "runtime": {
+    "status": "passed",
+    "summary": "enable 与 disable 两个构建均安装拉起成功，首页渲染正常；disable 对照变体仅用于实验，最终工程状态已恢复为 enable。"
+  },
+  "matchedCriteriaRefs": ["IL-F006"]
+}

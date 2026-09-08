@@ -1,0 +1,357 @@
+{
+  "status": "fetched",
+  "retrievalMethod": "huawei_getDocumentById",
+  "pageUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-faq",
+  "canonicalUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-faq",
+  "retrievedAt": "2026-09-08T06:57:43.776Z",
+  "contentType": "application/json",
+  "documentId": "arkts-immersive-light-sense-faq",
+  "language": "cn",
+  "catalogName": "harmonyos-guides",
+  "title": "沉浸光感常见问题",
+  "documentStatus": "4",
+  "updatedDate": "2026-09-03 14:08:45",
+  "displayUpdateTime": "2026-09-04 10:41:25",
+  "textCharacters": 8836,
+  "warnings": [],
+  "contentMarkdown": "# 沉浸光感常见问题\n\n本文提供沉浸光感开发过程中的常见问题及解决措施。沉浸光感的完整能力介绍及开发指导，请参见[沉浸光感简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-overview)。\n\n#### uiMaterial与hdsMaterial的材质等级和材质样式差异对比\n\n[uiMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial)与[hdsMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsmaterial)均提供沉浸式系统材质能力，但提供的材质等级和材质样式存在差异。\n\n-\n沉浸式材质等级差异\n\n为了在不同算力设备上都能流畅地使用沉浸光感，uiMaterial和hdsMaterial均通过MaterialLevel定义了不同的材质等级，两者在使用上存在差异。\n\n- uiMaterial.[MaterialLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materiallevel)：包含EXQUISITE、GENTLE、SMOOTH三个枚举，分别对应高、中、低算力设备的材质等级。材质等级由设备决定，即自适应材质等级，仅支持通过[uiMaterial.getGlobalMaterialLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#uimaterialgetglobalmateriallevel)获取，不支持设置。\n\n- hdsMaterial.[MaterialLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsmaterial#materiallevel)：包含EXQUISITE、GENTLE、SMOOTH、ADAPTIVE四个档位，分别对应精美、轻柔、流畅、自适应材质效果。该枚举支持开发者在组件中主动设置，例如在[HdsNavigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation)组件中，通过[SystemMaterialParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation#systemmaterialparams)中的materialLevel设置。MaterialLevel中ADAPTIVE表示由系统根据设备性能自适应材质等级，如果在低算力设备上使用EXQUISITE或GENTLE材质等级可能造成卡顿和发热。因此使用hdsMaterial设置沉浸式系统材质等级时，推荐将等级设置为ADAPTIVE，实现和uiMaterial相同的材质等级自适应效果。\n\n-\n沉浸式材质样式差异\n\n- uiMaterial：提供[ImmersiveStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersivestyle)设置沉浸式材质样式。不同的材质样式对应不同的材质厚薄程度，主要包括材质的模糊程度、高光效果等。在高、中算力设备上，开发者可在同一材质等级下通过ImmersiveStyle进一步调整材质厚薄程度等效果；在低算力设备上，仅支持一种材质样式，ImmersiveStyle枚举不生效，具体材质样式效果可以参考[示例1（设置沉浸式系统材质）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#%E7%A4%BA%E4%BE%8B1%E8%AE%BE%E7%BD%AE%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8)。\n\n- hdsMaterial：不提供与uiMaterial.ImmersiveStyle对等的材质厚薄程度样式配置。组件的最终材质效果由[SystemMaterialParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation#systemmaterialparams)中的materialType、materialLevel及组件的差异化实现共同决定。以[HdsNavigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation)组件为例，具体材质样式效果可以参考[使用自定义沉浸光感效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-hds-component-material#%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C)的示例图。\n\n#### 为组件设置了沉浸式系统材质但看不到材质效果\n\n#### [h2]组件不在沉浸光感生效范围\n\n问题现象\n\n- 开启沉浸光感后，组件没有呈现沉浸光感效果。\n\n- 日志中存在打印：Material inactive: out of scope. Use component in navigation title bar or Tabbar.\n\n可能原因\n\n沉浸光感开启后，\n\n-\n弹窗类组件（AlertDialog、ActionSheet、CustomDialog、CalendarPickerDialog、DatePickerDialog、TimePickerDialog、TextPickerDialog、SelectionMenu、AlphabetIndexer弹窗、Text设置copyOption后长按或双击触发的文本菜单）和弹窗类接口（PromptAction、ArkUI_NativeDialog、@ohos.promptAction (弹窗)、Popup控制、Tips控制、菜单控制、半模态转场）以及按钮与选择类组件（Slider、Toggle、Select）可在页面内全部区域生效。\n\n- 其他组件仅在Navigation/NavDestination标题栏或横向Tab中barPosition为BarPosition.End的底部TabBar中生效。在其他区域中设置沉浸光感效果不生效。\n\n解决措施\n\n将需要沉浸光感效果的组件置于Navigation/NavDestination标题栏区域，或横向Tabs中barPosition为BarPosition.End的底部TabBar区域中。\n\n若无法满足生效范围要求，可改用[backgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundcolor)等通用属性替代材质效果。\n\n示例\n\n以下示例展示了分别在Navigation标题栏中和Navigation内容区，开启沉浸光感的显示效果。位于Navigation标题栏中的Column开启沉浸光感正常生效；位于Navigation内容区中的Column组件，因其不处于Navigation标题栏或底部TabBar中，不生效沉浸光感效果。\n\n```\nimport { CircleShape, TitleBarType, uiMaterial } from '@kit.ArkUI';\n\n@Entry\n@Component\nstruct MaterialScopeAdaptExample {\n  private arr: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];\n\n  @Builder\n  NavigationTitle() {\n    Row() {\n      // 请将$r('app.string.title_bar')替换为实际资源文件，在本示例中该资源文件的value值为\"标题栏\"\n      Text($r('app.string.title_bar'))\n        .fontColor('#182431')\n        .fontSize(30)\n        .lineHeight(41)\n        .fontWeight(700)\n      Blank()\n      Column() {\n        SymbolGlyph($r('sys.symbol.a_3d_square_fill'))\n      }\n      .width(50)\n      .height(50)\n      .clipShape(new CircleShape({\n        width: 50,\n        height: 50\n      }))\n      .justifyContent(FlexAlign.Center)\n      .backgroundColor(Color.Transparent)\n      // 在Navigation标题栏中开启沉浸光感，处于生效范围内，沉浸光感效果生效\n      .systemMaterial(new uiMaterial.ImmersiveMaterial({\n        style: uiMaterial.ImmersiveStyle.THIN,\n      }))\n    }\n    .alignItems(VerticalAlign.Center)\n    .width('100%')\n    .padding(16)\n  }\n\n  build() {\n    Column() {\n      Navigation() {\n        Column() {\n          Row() {\n            // 请将$r('app.string.content_area')替换为实际资源文件，在本示例中该资源文件的value值为\"内容区\"\n            Text($r('app.string.content_area'))\n\n            Blank()\n\n            Column() {\n              SymbolGlyph($r('sys.symbol.a_3d_square_fill'))\n            }\n            .width(50)\n            .height(50)\n            .clipShape(new CircleShape({\n              width: 50,\n              height: 50\n            }))\n            .justifyContent(FlexAlign.Center)\n            .backgroundColor(Color.Transparent)\n            // 在Navigation内容中开启沉浸光感，处于生效范围外，不生效沉浸光感效果\n            .systemMaterial(new uiMaterial.ImmersiveMaterial({\n              style: uiMaterial.ImmersiveStyle.THIN,\n            }))\n          }\n          .width('100%')\n          .padding(16)\n          .borderRadius(16)\n        }\n        .width('100%')\n        .height('100%')\n        .padding(16)\n        .backgroundColor('#FFFFFF')\n        .linearGradient({\n          angle: 0,\n          colors: [\n            ['#004AAF', 0.0],\n            ['#2787D9', 0.5],\n            ['#F0FAFF', 1.0]\n          ]\n        })\n        .justifyContent(FlexAlign.Center)\n        .alignItems(HorizontalAlign.Center)\n      }\n      .title(this.NavigationTitle, { barStyle: BarStyle.STACK })\n    }.width('100%').height('100%').backgroundColor('#F1F3F5')\n  }\n}\n```\n\n#### [h2]背景色或背景模糊遮挡材质效果\n\n问题现象\n\n为组件调用了[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)接口开启沉浸光感后，组件的视觉效果没有发生变化，仍然呈现纯色背景或无任何材质表现。\n\n可能原因\n\n沉浸光感的视觉层级位于组件的[backgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundcolor)、[backgroundBlurStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundblurstyle9)等属性之下。如果同时设置了不透明的背景色或背景模糊样式，这些属性会覆盖在材质层之上，导致材质效果被遮挡不可见。\n\n解决措施\n\n- 将组件的背景色设置为透明（Color.Transparent）或移除背景色设置。\n\n- 移除[backgroundBlurStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundblurstyle9)等背景模糊样式，避免模糊效果覆盖材质层。\n\n代码示例\n\n```\n// 错误写法：不透明背景色会覆盖在材质层之上，导致材质效果不可见\nColumn() {\n  Text('沉浸光感')\n}\n.width(328)\n.height(56)\n.borderRadius(28)\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THIN,\n}))\n.backgroundColor(Color.White)\n// 推荐写法：将背景色设为透明，确保材质效果可见\nColumn() {\n  Text('沉浸光感')\n}\n.width(328)\n.height(56)\n.borderRadius(28)\n.backgroundColor(Color.Transparent)\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THIN,\n}))\n```\n\n#### 设置沉浸式系统材质后组件边框呈现出周围背景的颜色\n\n问题现象\n\n为组件设置沉浸式系统材质后，组件的边框区域呈现出周围背景图片或背景色的颜色，而非预期的边框效果。\n\n可能原因\n\n这是沉浸式系统材质的正常光学表现。沉浸光感视效具有折射特性，能够将组件周围的内容透过材质层折射到组件的边框区域。这种折射效果是材质通透感和层次感的重要组成部分，尤其在ULTRA_THIN和THIN等薄材质样式下表现更为明显。\n\n解决措施\n\n- 使用较厚的材质样式（如REGULAR、THICK或ULTRA_THICK），降低材质透明度以减少折射效果。\n\n- 为材质层添加[materialColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)赋色，通过叠加一层半透明颜色降低折射的可见程度。\n\n#### materialColor传入不透明颜色后材质效果消失\n\n问题现象\n\n为沉浸式系统材质的[materialColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)参数传入颜色后，组件的材质效果完全消失，仅显示纯色背景。\n\n可能原因\n\n[materialColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)参数的作用是为材质滤镜[materialFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-filter-effect#materialfilter23)再混合一层纯色效果。该颜色需要带有一定的透明度值，如果传入纯不透明颜色（如Color.Red或'#FFFF0000'），会遮挡材质滤镜效果。\n\n解决措施\n\n为[materialColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)传入带有透明度的颜色值。\n\n[materialColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)参数对所有档位的算力设备均生效。在高算力和中算力设备上，该参数为材质滤镜再混合一层纯色效果；在低算力设备上，该参数作为背景色[backgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundcolor)属性值。\n\n代码示例\n\n```\n// 错误写法：纯不透明颜色遮挡了材质效果\nnew uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THIN,\n  materialColor: Color.Red, // 不透明，材质滤镜效果被完全遮挡\n})\n\n// 推荐写法：使用带透明度的颜色\nnew uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THIN,\n  materialColor: '#80FF0000', // 带有50%透明度的红色\n})\n```\n\n#### 低算力设备上沉浸光感效果与高算力设备差异较大\n\n问题现象\n\n在低算力设备上运行应用时，沉浸式系统材质的视觉效果与高算力设备相比差异较大，部分材质参数设置后没有生效。\n\n可能原因\n\n沉浸式系统材质的效果会根据设备算力档位自动适配。在高算力和中算力设备上，影响材质滤镜[materialFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-filter-effect#materialfilter23)效果和阴影效果；在低算力设备上，仅影响背景色、边框颜色、边框宽度和阴影效果。此外，材质样式[style](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)和自动反色[colorInvert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)参数仅在高算力和中算力设备上生效，在低算力设备上设置这两个参数不会产生视觉效果差异。\n\n解决措施\n\n这是系统级的自适应行为，开发者无需为不同档位设备编写差异化代码，沉浸光感会自动确保在各档位设备上的流畅运行。\n\n#### 开启自动反色后文字颜色没有变化\n\n问题现象\n\n为沉浸式系统材质开启了[colorInvert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)自动反色功能，但组件内文字的颜色并未随背景色自动适配。\n\n可能原因\n\n自动反色功能的生效需要同时满足以下条件。\n\n- 设备算力档位需为高算力或中算力，低算力设备上自动反色不产生视觉效果差异。\n\n- 材质样式需要为THIN或ULTRA_THIN，在REGULAR、THICK、ULTRA_THICK样式下不生效。\n\n- 系统沉浸光感的强弱配置影响反色触发阈值，沉浸式系统材质越薄、系统沉浸光感设置越强，越容易触发自动反色。\n\n- 自动反色仅对通过资源接口设置的颜色值生效，包括[Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)组件的[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#fontcolor)、[Button](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button)组件的[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#fontcolor)、[SymbolGlyph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph)组件的[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#fontcolor)、[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)组件的[fillColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#fillcolor)、TextInput、TextArea、Chip、ChipGroup、SegmentButton、Swiper等组件的颜色属性，完整生效属性清单请参见[colorInvert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)参数说明。使用代码中硬编码的颜色值（如Color.White、'#FFFFFFFF'）不会触发自动反色。\n\n解决措施\n\n- 确认材质样式为THIN或ULTRA_THIN。\n\n- 确认文字颜色通过资源接口（如$r('app.color.xxx')）设置，而非硬编码颜色值。\n\n- 将系统沉浸光感配置调高后再观察效果。\n\n#### 同时设置shadow属性和沉浸式系统材质后阴影效果不符合预期\n\n问题现象\n\n为组件同时设置了通用属性[shadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadow)和沉浸式系统材质后，阴影效果呈现为沉浸式系统材质自带的阴影样式，开发者自定义的shadow参数不生效。\n\n可能原因\n\n当沉浸式系统材质的[applyShadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)参数为true（默认值）时，材质中的阴影效果固定生效，优先于[shadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadow)通用属性，此时自定义的shadow设置不会生效；当该参数为false时，[shadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadow)通用属性生效，材质的阴影效果不生效。\n\n解决措施\n\n- 如需使用沉浸式系统材质自带的阴影效果，无需额外设置shadow属性。\n\n- 如需使用自定义的shadow通用属性，将[applyShadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)设置为false。\n\n代码示例\n\n```\n// 关闭材质阴影，使用自定义shadow\nnew uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n  applyShadow: false,\n})\n```\n\n#### 通过通用属性systemMaterial设置沉浸式系统材质后组件样式显示异常\n\n问题现象\n\n通过通用属性[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)设置沉浸式系统材质后，组件的背景色、边框等样式显示不符合预期。\n\n可能原因\n\n通过通用属性设置沉浸式系统材质时，如果[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)放在其他样式属性之前，可能导致材质效果优先级与预期不符。\n\n解决措施\n\n将[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)放在其他样式属性（如背景色、边框、阴影等）之后设置。通过组件options参数（如Toast的[ShowToastOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#showtoastoptions)、Popup的[PopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupoptions%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E)等）设置沉浸式系统材质时则无需关注设置顺序。\n\n代码示例\n\n```\n// 推荐写法：先设置其他属性，再设置systemMaterial\nColumn() {\n  Text('推荐')\n}\n.width(328)\n.height(56)\n.borderRadius(28)\n.justifyContent(FlexAlign.Center)\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n}))\n```\n\n#### Dialog或Toast组件默认没有材质效果\n\n问题现象\n\n在[DEFAULT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，[Dialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-base-dialog-overview)、[Toast](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-toast)等组件未呈现沉浸式系统材质的视觉效果。\n\n可能原因\n\n[DEFAULT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)是沉浸式系统材质的默认开启模式，在该模式下，[Dialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-base-dialog-overview)、[Toast](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-toast)、[AlphabetIndexer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer)等组件仅在未设置背景色、模糊参数和阴影参数时才会默认开启沉浸式系统材质。如果开发者主动为这些组件设置了[backgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundcolor)、[backgroundBlurStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundblurstyle9)或[shadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadow)等属性，沉浸式系统材质不会默认开启。\n\n解决措施\n\n- 移除与沉浸式系统材质冲突的属性设置（如backgroundColor、backgroundBlurStyle、shadow），让材质效果默认开启。\n\n- 在ENABLE模式下，沉浸式系统材质样式的优先级高于组件本身设置的背景色、模糊、阴影和边框样式，且更多组件会默认开启沉浸式系统材质。\n\n- 如需在保留现有属性的同时使用沉浸式系统材质，通过[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)属性主动设置。\n\n#### 材质渲染区域与组件可视区域不一致\n\n问题现象\n\n给组件设置沉浸式系统材质后，材质渲染区域与组件可视区域不一致。\n\n-\nCheckbox可视区域为40*40的圆形，材质渲染区域为40*40的矩形。\n\n-\nText组件可视区域为文本内容，材质渲染区域为100*40的矩形。\n\n可能原因\n\n材质渲染区域由组件布局区域决定，而组件可视区域为实际呈现内容的区域，可能不等于布局区域，导致两者不一致。\n\n解决措施\n\n通过[width](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#width)、[height](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#height)、[borderRadius](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-border#borderradius)接口控制组件可视区域与材质渲染区域一致。\n\nText组件无法给文本内容设置沉浸式系统材质。\n\n代码示例\n\n```\n// 材质渲染区域与组件可视区域不一致示例\nRow() {\n  Text('Checkbox组件：')\n    .fontColor(Color.Black)\n  Checkbox()\n    .width(40)\n    .height(40)\n    .borderWidth(1)\n    .borderColor(Color.Blue)\n    .systemMaterial(new uiMaterial.ImmersiveMaterial({\n      style: uiMaterial.ImmersiveStyle.ULTRA_THIN,\n      interactive: true\n    }))\n}\nRow() {\n  Text('Text组件：')\n    .fontColor(Color.Black)\n  Text(\"hello\")\n    .width(100)\n    .height(40)\n    .systemMaterial(new uiMaterial.ImmersiveMaterial({\n      style: uiMaterial.ImmersiveStyle.ULTRA_THIN,\n      interactive: true\n    }))\n}\n```\n\n#### 材质效果的显示层级问题\n\n问题现象\n\n同时给组件设置沉浸式系统材质和背景色，材质效果被遮盖。例如TextArea组件设置背景色后，会遮盖材质效果。\n\n可能原因\n\n自绘制组件的背景色作用于内容层，材质效果作用于背板层，而内容层位于背板层之上，因此材质效果被内容层遮盖。\n\n解决措施\n\n不建议同时使用沉浸式系统材质和背景色[backgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundcolor)接口。\n\n沉浸式系统材质无法绘制在内容层。\n\n代码示例\n\n```\n// 材质效果的显示层级问题示例\nRow() {\n  Text('TextArea组件：')\n    .fontColor(Color.Black)\n  TextArea()\n    .width(100)\n    .height(40)\n    .backgroundColor('#cc999999') // 不建议同时使用沉浸式系统材质和背景色接口\n    .systemMaterial(new uiMaterial.ImmersiveMaterial({\n      style: uiMaterial.ImmersiveStyle.ULTRA_THIN,\n      interactive: true\n    }))\n}\n```",
+  "contentText": "沉浸光感常见问题\n本文提供沉浸光感开发过程中的常见问题及解决措施。沉浸光感的完整能力介绍及开发指导，请参见沉浸光感简介。\nuiMaterial与hdsMaterial的材质等级和材质样式差异对比\nuiMaterial与hdsMaterial均提供沉浸式系统材质能力，但提供的材质等级和材质样式存在差异。\n-\n沉浸式材质等级差异\n为了在不同算力设备上都能流畅地使用沉浸光感，uiMaterial和hdsMaterial均通过MaterialLevel定义了不同的材质等级，两者在使用上存在差异。\nuiMaterial.MaterialLevel：包含EXQUISITE、GENTLE、SMOOTH三个枚举，分别对应高、中、低算力设备的材质等级。材质等级由设备决定，即自适应材质等级，仅支持通过uiMaterial.getGlobalMaterialLevel获取，不支持设置。\nhdsMaterial.MaterialLevel：包含EXQUISITE、GENTLE、SMOOTH、ADAPTIVE四个档位，分别对应精美、轻柔、流畅、自适应材质效果。该枚举支持开发者在组件中主动设置，例如在HdsNavigation组件中，通过SystemMaterialParams中的materialLevel设置。MaterialLevel中ADAPTIVE表示由系统根据设备性能自适应材质等级，如果在低算力设备上使用EXQUISITE或GENTLE材质等级可能造成卡顿和发热。因此使用hdsMaterial设置沉浸式系统材质等级时，推荐将等级设置为ADAPTIVE，实现和uiMaterial相同的材质等级自适应效果。\n-\n沉浸式材质样式差异\nuiMaterial：提供ImmersiveStyle设置沉浸式材质样式。不同的材质样式对应不同的材质厚薄程度，主要包括材质的模糊程度、高光效果等。在高、中算力设备上，开发者可在同一材质等级下通过ImmersiveStyle进一步调整材质厚薄程度等效果；在低算力设备上，仅支持一种材质样式，ImmersiveStyle枚举不生效，具体材质样式效果可以参考示例1（设置沉浸式系统材质）。\nhdsMaterial：不提供与uiMaterial.ImmersiveStyle对等的材质厚薄程度样式配置。组件的最终材质效果由SystemMaterialParams中的materialType、materialLevel及组件的差异化实现共同决定。以HdsNavigation组件为例，具体材质样式效果可以参考使用自定义沉浸光感效果的示例图。\n为组件设置了沉浸式系统材质但看不到材质效果\n[h2]组件不在沉浸光感生效范围\n问题现象\n开启沉浸光感后，组件没有呈现沉浸光感效果。\n日志中存在打印：Material inactive: out of scope. Use component in navigation title bar or Tabbar.\n可能原因\n沉浸光感开启后，\n-\n弹窗类组件（AlertDialog、ActionSheet、CustomDialog、CalendarPickerDialog、DatePickerDialog、TimePickerDialog、TextPickerDialog、SelectionMenu、AlphabetIndexer弹窗、Text设置copyOption后长按或双击触发的文本菜单）和弹窗类接口（PromptAction、ArkUI_NativeDialog、@ohos.promptAction (弹窗)、Popup控制、Tips控制、菜单控制、半模态转场）以及按钮与选择类组件（Slider、Toggle、Select）可在页面内全部区域生效。\n其他组件仅在Navigation/NavDestination标题栏或横向Tab中barPosition为BarPosition.End的底部TabBar中生效。在其他区域中设置沉浸光感效果不生效。\n解决措施\n将需要沉浸光感效果的组件置于Navigation/NavDestination标题栏区域，或横向Tabs中barPosition为BarPosition.End的底部TabBar区域中。\n若无法满足生效范围要求，可改用backgroundColor等通用属性替代材质效果。\n示例\n以下示例展示了分别在Navigation标题栏中和Navigation内容区，开启沉浸光感的显示效果。位于Navigation标题栏中的Column开启沉浸光感正常生效；位于Navigation内容区中的Column组件，因其不处于Navigation标题栏或底部TabBar中，不生效沉浸光感效果。\nimport { CircleShape, TitleBarType, uiMaterial } from '@kit.ArkUI';\n@Entry\n@Component\nstruct MaterialScopeAdaptExample {\nprivate arr: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];\n@Builder\nNavigationTitle() {\nRow() {\n// 请将$r('app.string.title_bar')替换为实际资源文件，在本示例中该资源文件的value值为\"标题栏\"\nText($r('app.string.title_bar'))\n.fontColor('#182431')\n.fontSize(30)\n.lineHeight(41)\n.fontWeight(700)\nBlank()\nColumn() {\nSymbolGlyph($r('sys.symbol.a_3d_square_fill'))\n}\n.width(50)\n.height(50)\n.clipShape(new CircleShape({\nwidth: 50,\nheight: 50\n}))\n.justifyContent(FlexAlign.Center)\n.backgroundColor(Color.Transparent)\n// 在Navigation标题栏中开启沉浸光感，处于生效范围内，沉浸光感效果生效\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.THIN,\n}))\n}\n.alignItems(VerticalAlign.Center)\n.width('100%')\n.padding(16)\n}\nbuild() {\nColumn() {\nNavigation() {\nColumn() {\nRow() {\n// 请将$r('app.string.content_area')替换为实际资源文件，在本示例中该资源文件的value值为\"内容区\"\nText($r('app.string.content_area'))\nBlank()\nColumn() {\nSymbolGlyph($r('sys.symbol.a_3d_square_fill'))\n}\n.width(50)\n.height(50)\n.clipShape(new CircleShape({\nwidth: 50,\nheight: 50\n}))\n.justifyContent(FlexAlign.Center)\n.backgroundColor(Color.Transparent)\n// 在Navigation内容中开启沉浸光感，处于生效范围外，不生效沉浸光感效果\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.THIN,\n}))\n}\n.width('100%')\n.padding(16)\n.borderRadius(16)\n}\n.width('100%')\n.height('100%')\n.padding(16)\n.backgroundColor('#FFFFFF')\n.linearGradient({\nangle: 0,\ncolors: [\n['#004AAF', 0.0],\n['#2787D9', 0.5],\n['#F0FAFF', 1.0]\n]\n})\n.justifyContent(FlexAlign.Center)\n.alignItems(HorizontalAlign.Center)\n}\n.title(this.NavigationTitle, { barStyle: BarStyle.STACK })\n}.width('100%').height('100%').backgroundColor('#F1F3F5')\n}\n}\n[h2]背景色或背景模糊遮挡材质效果\n问题现象\n为组件调用了systemMaterial接口开启沉浸光感后，组件的视觉效果没有发生变化，仍然呈现纯色背景或无任何材质表现。\n可能原因\n沉浸光感的视觉层级位于组件的backgroundColor、backgroundBlurStyle等属性之下。如果同时设置了不透明的背景色或背景模糊样式，这些属性会覆盖在材质层之上，导致材质效果被遮挡不可见。\n解决措施\n将组件的背景色设置为透明（Color.Transparent）或移除背景色设置。\n移除backgroundBlurStyle等背景模糊样式，避免模糊效果覆盖材质层。\n代码示例\n// 错误写法：不透明背景色会覆盖在材质层之上，导致材质效果不可见\nColumn() {\nText('沉浸光感')\n}\n.width(328)\n.height(56)\n.borderRadius(28)\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.THIN,\n}))\n.backgroundColor(Color.White)\n// 推荐写法：将背景色设为透明，确保材质效果可见\nColumn() {\nText('沉浸光感')\n}\n.width(328)\n.height(56)\n.borderRadius(28)\n.backgroundColor(Color.Transparent)\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.THIN,\n}))\n设置沉浸式系统材质后组件边框呈现出周围背景的颜色\n问题现象\n为组件设置沉浸式系统材质后，组件的边框区域呈现出周围背景图片或背景色的颜色，而非预期的边框效果。\n可能原因\n这是沉浸式系统材质的正常光学表现。沉浸光感视效具有折射特性，能够将组件周围的内容透过材质层折射到组件的边框区域。这种折射效果是材质通透感和层次感的重要组成部分，尤其在ULTRA_THIN和THIN等薄材质样式下表现更为明显。\n解决措施\n使用较厚的材质样式（如REGULAR、THICK或ULTRA_THICK），降低材质透明度以减少折射效果。\n为材质层添加materialColor赋色，通过叠加一层半透明颜色降低折射的可见程度。\nmaterialColor传入不透明颜色后材质效果消失\n问题现象\n为沉浸式系统材质的materialColor参数传入颜色后，组件的材质效果完全消失，仅显示纯色背景。\n可能原因\nmaterialColor参数的作用是为材质滤镜materialFilter再混合一层纯色效果。该颜色需要带有一定的透明度值，如果传入纯不透明颜色（如Color.Red或'#FFFF0000'），会遮挡材质滤镜效果。\n解决措施\n为materialColor传入带有透明度的颜色值。\nmaterialColor参数对所有档位的算力设备均生效。在高算力和中算力设备上，该参数为材质滤镜再混合一层纯色效果；在低算力设备上，该参数作为背景色backgroundColor属性值。\n代码示例\n// 错误写法：纯不透明颜色遮挡了材质效果\nnew uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.THIN,\nmaterialColor: Color.Red, // 不透明，材质滤镜效果被完全遮挡\n})\n// 推荐写法：使用带透明度的颜色\nnew uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.THIN,\nmaterialColor: '#80FF0000', // 带有50%透明度的红色\n})\n低算力设备上沉浸光感效果与高算力设备差异较大\n问题现象\n在低算力设备上运行应用时，沉浸式系统材质的视觉效果与高算力设备相比差异较大，部分材质参数设置后没有生效。\n可能原因\n沉浸式系统材质的效果会根据设备算力档位自动适配。在高算力和中算力设备上，影响材质滤镜materialFilter效果和阴影效果；在低算力设备上，仅影响背景色、边框颜色、边框宽度和阴影效果。此外，材质样式style和自动反色colorInvert参数仅在高算力和中算力设备上生效，在低算力设备上设置这两个参数不会产生视觉效果差异。\n解决措施\n这是系统级的自适应行为，开发者无需为不同档位设备编写差异化代码，沉浸光感会自动确保在各档位设备上的流畅运行。\n开启自动反色后文字颜色没有变化\n问题现象\n为沉浸式系统材质开启了colorInvert自动反色功能，但组件内文字的颜色并未随背景色自动适配。\n可能原因\n自动反色功能的生效需要同时满足以下条件。\n设备算力档位需为高算力或中算力，低算力设备上自动反色不产生视觉效果差异。\n材质样式需要为THIN或ULTRA_THIN，在REGULAR、THICK、ULTRA_THICK样式下不生效。\n系统沉浸光感的强弱配置影响反色触发阈值，沉浸式系统材质越薄、系统沉浸光感设置越强，越容易触发自动反色。\n自动反色仅对通过资源接口设置的颜色值生效，包括Text组件的fontColor、Button组件的fontColor、SymbolGlyph组件的fontColor、Image组件的fillColor、TextInput、TextArea、Chip、ChipGroup、SegmentButton、Swiper等组件的颜色属性，完整生效属性清单请参见colorInvert参数说明。使用代码中硬编码的颜色值（如Color.White、'#FFFFFFFF'）不会触发自动反色。\n解决措施\n确认材质样式为THIN或ULTRA_THIN。\n确认文字颜色通过资源接口（如$r('app.color.xxx')）设置，而非硬编码颜色值。\n将系统沉浸光感配置调高后再观察效果。\n同时设置shadow属性和沉浸式系统材质后阴影效果不符合预期\n问题现象\n为组件同时设置了通用属性shadow和沉浸式系统材质后，阴影效果呈现为沉浸式系统材质自带的阴影样式，开发者自定义的shadow参数不生效。\n可能原因\n当沉浸式系统材质的applyShadow参数为true（默认值）时，材质中的阴影效果固定生效，优先于shadow通用属性，此时自定义的shadow设置不会生效；当该参数为false时，shadow通用属性生效，材质的阴影效果不生效。\n解决措施\n如需使用沉浸式系统材质自带的阴影效果，无需额外设置shadow属性。\n如需使用自定义的shadow通用属性，将applyShadow设置为false。\n代码示例\n// 关闭材质阴影，使用自定义shadow\nnew uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.REGULAR,\napplyShadow: false,\n})\n通过通用属性systemMaterial设置沉浸式系统材质后组件样式显示异常\n问题现象\n通过通用属性systemMaterial设置沉浸式系统材质后，组件的背景色、边框等样式显示不符合预期。\n可能原因\n通过通用属性设置沉浸式系统材质时，如果systemMaterial放在其他样式属性之前，可能导致材质效果优先级与预期不符。\n解决措施\n将systemMaterial放在其他样式属性（如背景色、边框、阴影等）之后设置。通过组件options参数（如Toast的ShowToastOptions、Popup的PopupOptions等）设置沉浸式系统材质时则无需关注设置顺序。\n代码示例\n// 推荐写法：先设置其他属性，再设置systemMaterial\nColumn() {\nText('推荐')\n}\n.width(328)\n.height(56)\n.borderRadius(28)\n.justifyContent(FlexAlign.Center)\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.REGULAR,\n}))\nDialog或Toast组件默认没有材质效果\n问题现象\n在DEFAULT模式下，Dialog、Toast等组件未呈现沉浸式系统材质的视觉效果。\n可能原因\nDEFAULT是沉浸式系统材质的默认开启模式，在该模式下，Dialog、Toast、AlphabetIndexer等组件仅在未设置背景色、模糊参数和阴影参数时才会默认开启沉浸式系统材质。如果开发者主动为这些组件设置了backgroundColor、backgroundBlurStyle或shadow等属性，沉浸式系统材质不会默认开启。\n解决措施\n移除与沉浸式系统材质冲突的属性设置（如backgroundColor、backgroundBlurStyle、shadow），让材质效果默认开启。\n在ENABLE模式下，沉浸式系统材质样式的优先级高于组件本身设置的背景色、模糊、阴影和边框样式，且更多组件会默认开启沉浸式系统材质。\n如需在保留现有属性的同时使用沉浸式系统材质，通过systemMaterial属性主动设置。\n材质渲染区域与组件可视区域不一致\n问题现象\n给组件设置沉浸式系统材质后，材质渲染区域与组件可视区域不一致。\n-\nCheckbox可视区域为4040的圆形，材质渲染区域为4040的矩形。\n-\nText组件可视区域为文本内容，材质渲染区域为10040的矩形。\n可能原因\n材质渲染区域由组件布局区域决定，而组件可视区域为实际呈现内容的区域，可能不等于布局区域，导致两者不一致。\n解决措施\n通过width、height、borderRadius接口控制组件可视区域与材质渲染区域一致。\nText组件无法给文本内容设置沉浸式系统材质。\n代码示例\n// 材质渲染区域与组件可视区域不一致示例\nRow() {\nText('Checkbox组件：')\n.fontColor(Color.Black)\nCheckbox()\n.width(40)\n.height(40)\n.borderWidth(1)\n.borderColor(Color.Blue)\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.ULTRA_THIN,\ninteractive: true\n}))\n}\nRow() {\nText('Text组件：')\n.fontColor(Color.Black)\nText(\"hello\")\n.width(100)\n.height(40)\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.ULTRA_THIN,\ninteractive: true\n}))\n}\n材质效果的显示层级问题\n问题现象\n同时给组件设置沉浸式系统材质和背景色，材质效果被遮盖。例如TextArea组件设置背景色后，会遮盖材质效果。\n可能原因\n自绘制组件的背景色作用于内容层，材质效果作用于背板层，而内容层位于背板层之上，因此材质效果被内容层遮盖。\n解决措施\n不建议同时使用沉浸式系统材质和背景色backgroundColor接口。\n沉浸式系统材质无法绘制在内容层。\n代码示例\n// 材质效果的显示层级问题示例\nRow() {\nText('TextArea组件：')\n.fontColor(Color.Black)\nTextArea()\n.width(100)\n.height(40)\n.backgroundColor('#cc999999') // 不建议同时使用沉浸式系统材质和背景色接口\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.ULTRA_THIN,\ninteractive: true\n}))\n}",
+  "sections": [
+    {
+      "id": "section-1",
+      "level": 1,
+      "heading": "沉浸光感常见问题",
+      "lineStart": 1,
+      "lineEnd": 4,
+      "text": "本文提供沉浸光感开发过程中的常见问题及解决措施。沉浸光感的完整能力介绍及开发指导，请参见[沉浸光感简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-overview)。"
+    },
+    {
+      "id": "section-2",
+      "level": 4,
+      "heading": "uiMaterial与hdsMaterial的材质等级和材质样式差异对比",
+      "lineStart": 5,
+      "lineEnd": 24,
+      "text": "[uiMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial)与[hdsMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsmaterial)均提供沉浸式系统材质能力，但提供的材质等级和材质样式存在差异。\n\n-\n沉浸式材质等级差异\n\n为了在不同算力设备上都能流畅地使用沉浸光感，uiMaterial和hdsMaterial均通过MaterialLevel定义了不同的材质等级，两者在使用上存在差异。\n\n- uiMaterial.[MaterialLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materiallevel)：包含EXQUISITE、GENTLE、SMOOTH三个枚举，分别对应高、中、低算力设备的材质等级。材质等级由设备决定，即自适应材质等级，仅支持通过[uiMaterial.getGlobalMaterialLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#uimaterialgetglobalmateriallevel)获取，不支持设置。\n\n- hdsMaterial.[MaterialLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsmaterial#materiallevel)：包含EXQUISITE、GENTLE、SMOOTH、ADAPTIVE四个档位，分别对应精美、轻柔、流畅、自适应材质效果。该枚举支持开发者在组件中主动设置，例如在[HdsNavigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation)组件中，通过[SystemMaterialParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation#systemmaterialparams)中的materialLevel设置。MaterialLevel中ADAPTIVE表示由系统根据设备性能自适应材质等级，如果在低算力设备上使用EXQUISITE或GENTLE材质等级可能造成卡顿和发热。因此使用hdsMaterial设置沉浸式系统材质等级时，推荐将等级设置为ADAPTIVE，实现和uiMaterial相同的材质等级自适应效果。\n\n-\n沉浸式材质样式差异\n\n- uiMaterial：提供[ImmersiveStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersivestyle)设置沉浸式材质样式。不同的材质样式对应不同的材质厚薄程度，主要包括材质的模糊程度、高光效果等。在高、中算力设备上，开发者可在同一材质等级下通过ImmersiveStyle进一步调整材质厚薄程度等效果；在低算力设备上，仅支持一种材质样式，ImmersiveStyle枚举不生效，具体材质样式效果可以参考[示例1（设置沉浸式系统材质）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#%E7%A4%BA%E4%BE%8B1%E8%AE%BE%E7%BD%AE%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8)。\n\n- hdsMaterial：不提供与uiMaterial.ImmersiveStyle对等的材质厚薄程度样式配置。组件的最终材质效果由[SystemMaterialParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation#systemmaterialparams)中的materialType、materialLevel及组件的差异化实现共同决定。以[HdsNavigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation)组件为例，具体材质样式效果可以参考[使用自定义沉浸光感效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-hds-component-material#%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C)的示例图。"
+    },
+    {
+      "id": "section-3",
+      "level": 4,
+      "heading": "为组件设置了沉浸式系统材质但看不到材质效果",
+      "lineStart": 25,
+      "lineEnd": 26,
+      "text": ""
+    },
+    {
+      "id": "section-4",
+      "level": 4,
+      "heading": "[h2]组件不在沉浸光感生效范围",
+      "lineStart": 27,
+      "lineEnd": 143,
+      "text": "问题现象\n\n- 开启沉浸光感后，组件没有呈现沉浸光感效果。\n\n- 日志中存在打印：Material inactive: out of scope. Use component in navigation title bar or Tabbar.\n\n可能原因\n\n沉浸光感开启后，\n\n-\n弹窗类组件（AlertDialog、ActionSheet、CustomDialog、CalendarPickerDialog、DatePickerDialog、TimePickerDialog、TextPickerDialog、SelectionMenu、AlphabetIndexer弹窗、Text设置copyOption后长按或双击触发的文本菜单）和弹窗类接口（PromptAction、ArkUI_NativeDialog、@ohos.promptAction (弹窗)、Popup控制、Tips控制、菜单控制、半模态转场）以及按钮与选择类组件（Slider、Toggle、Select）可在页面内全部区域生效。\n\n- 其他组件仅在Navigation/NavDestination标题栏或横向Tab中barPosition为BarPosition.End的底部TabBar中生效。在其他区域中设置沉浸光感效果不生效。\n\n解决措施\n\n将需要沉浸光感效果的组件置于Navigation/NavDestination标题栏区域，或横向Tabs中barPosition为BarPosition.End的底部TabBar区域中。\n\n若无法满足生效范围要求，可改用[backgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundcolor)等通用属性替代材质效果。\n\n示例\n\n以下示例展示了分别在Navigation标题栏中和Navigation内容区，开启沉浸光感的显示效果。位于Navigation标题栏中的Column开启沉浸光感正常生效；位于Navigation内容区中的Column组件，因其不处于Navigation标题栏或底部TabBar中，不生效沉浸光感效果。\n\n```\nimport { CircleShape, TitleBarType, uiMaterial } from '@kit.ArkUI';\n\n@Entry\n@Component\nstruct MaterialScopeAdaptExample {\n  private arr: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];\n\n  @Builder\n  NavigationTitle() {\n    Row() {\n      // 请将$r('app.string.title_bar')替换为实际资源文件，在本示例中该资源文件的value值为\"标题栏\"\n      Text($r('app.string.title_bar'))\n        .fontColor('#182431')\n        .fontSize(30)\n        .lineHeight(41)\n        .fontWeight(700)\n      Blank()\n      Column() {\n        SymbolGlyph($r('sys.symbol.a_3d_square_fill'))\n      }\n      .width(50)\n      .height(50)\n      .clipShape(new CircleShape({\n        width: 50,\n        height: 50\n      }))\n      .justifyContent(FlexAlign.Center)\n      .backgroundColor(Color.Transparent)\n      // 在Navigation标题栏中开启沉浸光感，处于生效范围内，沉浸光感效果生效\n      .systemMaterial(new uiMaterial.ImmersiveMaterial({\n        style: uiMaterial.ImmersiveStyle.THIN,\n      }))\n    }\n    .alignItems(VerticalAlign.Center)\n    .width('100%')\n    .padding(16)\n  }\n\n  build() {\n    Column() {\n      Navigation() {\n        Column() {\n          Row() {\n            // 请将$r('app.string.content_area')替换为实际资源文件，在本示例中该资源文件的value值为\"内容区\"\n            Text($r('app.string.content_area'))\n\n            Blank()\n\n            Column() {\n              SymbolGlyph($r('sys.symbol.a_3d_square_fill'))\n            }\n            .width(50)\n            .height(50)\n            .clipShape(new CircleShape({\n              width: 50,\n              height: 50\n            }))\n            .justifyContent(FlexAlign.Center)\n            .backgroundColor(Color.Transparent)\n            // 在Navigation内容中开启沉浸光感，处于生效范围外，不生效沉浸光感效果\n            .systemMaterial(new uiMaterial.ImmersiveMaterial({\n              style: uiMaterial.ImmersiveStyle.THIN,\n            }))\n          }\n          .width('100%')\n          .padding(16)\n          .borderRadius(16)\n        }\n        .width('100%')\n        .height('100%')\n        .padding(16)\n        .backgroundColor('#FFFFFF')\n        .linearGradient({\n          angle: 0,\n          colors: [\n            ['#004AAF', 0.0],\n            ['#2787D9', 0.5],\n            ['#F0FAFF', 1.0]\n          ]\n        })\n        .justifyContent(FlexAlign.Center)\n        .alignItems(HorizontalAlign.Center)\n      }\n      .title(this.NavigationTitle, { barStyle: BarStyle.STACK })\n    }.width('100%').height('100%').backgroundColor('#F1F3F5')\n  }\n}\n```"
+    },
+    {
+      "id": "section-5",
+      "level": 4,
+      "heading": "[h2]背景色或背景模糊遮挡材质效果",
+      "lineStart": 144,
+      "lineEnd": 186,
+      "text": "问题现象\n\n为组件调用了[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)接口开启沉浸光感后，组件的视觉效果没有发生变化，仍然呈现纯色背景或无任何材质表现。\n\n可能原因\n\n沉浸光感的视觉层级位于组件的[backgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundcolor)、[backgroundBlurStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundblurstyle9)等属性之下。如果同时设置了不透明的背景色或背景模糊样式，这些属性会覆盖在材质层之上，导致材质效果被遮挡不可见。\n\n解决措施\n\n- 将组件的背景色设置为透明（Color.Transparent）或移除背景色设置。\n\n- 移除[backgroundBlurStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundblurstyle9)等背景模糊样式，避免模糊效果覆盖材质层。\n\n代码示例\n\n```\n// 错误写法：不透明背景色会覆盖在材质层之上，导致材质效果不可见\nColumn() {\n  Text('沉浸光感')\n}\n.width(328)\n.height(56)\n.borderRadius(28)\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THIN,\n}))\n.backgroundColor(Color.White)\n// 推荐写法：将背景色设为透明，确保材质效果可见\nColumn() {\n  Text('沉浸光感')\n}\n.width(328)\n.height(56)\n.borderRadius(28)\n.backgroundColor(Color.Transparent)\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THIN,\n}))\n```"
+    },
+    {
+      "id": "section-6",
+      "level": 4,
+      "heading": "设置沉浸式系统材质后组件边框呈现出周围背景的颜色",
+      "lineStart": 187,
+      "lineEnd": 202,
+      "text": "问题现象\n\n为组件设置沉浸式系统材质后，组件的边框区域呈现出周围背景图片或背景色的颜色，而非预期的边框效果。\n\n可能原因\n\n这是沉浸式系统材质的正常光学表现。沉浸光感视效具有折射特性，能够将组件周围的内容透过材质层折射到组件的边框区域。这种折射效果是材质通透感和层次感的重要组成部分，尤其在ULTRA_THIN和THIN等薄材质样式下表现更为明显。\n\n解决措施\n\n- 使用较厚的材质样式（如REGULAR、THICK或ULTRA_THICK），降低材质透明度以减少折射效果。\n\n- 为材质层添加[materialColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)赋色，通过叠加一层半透明颜色降低折射的可见程度。"
+    },
+    {
+      "id": "section-7",
+      "level": 4,
+      "heading": "materialColor传入不透明颜色后材质效果消失",
+      "lineStart": 203,
+      "lineEnd": 234,
+      "text": "问题现象\n\n为沉浸式系统材质的[materialColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)参数传入颜色后，组件的材质效果完全消失，仅显示纯色背景。\n\n可能原因\n\n[materialColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)参数的作用是为材质滤镜[materialFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-filter-effect#materialfilter23)再混合一层纯色效果。该颜色需要带有一定的透明度值，如果传入纯不透明颜色（如Color.Red或'#FFFF0000'），会遮挡材质滤镜效果。\n\n解决措施\n\n为[materialColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)传入带有透明度的颜色值。\n\n[materialColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)参数对所有档位的算力设备均生效。在高算力和中算力设备上，该参数为材质滤镜再混合一层纯色效果；在低算力设备上，该参数作为背景色[backgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundcolor)属性值。\n\n代码示例\n\n```\n// 错误写法：纯不透明颜色遮挡了材质效果\nnew uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THIN,\n  materialColor: Color.Red, // 不透明，材质滤镜效果被完全遮挡\n})\n\n// 推荐写法：使用带透明度的颜色\nnew uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THIN,\n  materialColor: '#80FF0000', // 带有50%透明度的红色\n})\n```"
+    },
+    {
+      "id": "section-8",
+      "level": 4,
+      "heading": "低算力设备上沉浸光感效果与高算力设备差异较大",
+      "lineStart": 235,
+      "lineEnd": 248,
+      "text": "问题现象\n\n在低算力设备上运行应用时，沉浸式系统材质的视觉效果与高算力设备相比差异较大，部分材质参数设置后没有生效。\n\n可能原因\n\n沉浸式系统材质的效果会根据设备算力档位自动适配。在高算力和中算力设备上，影响材质滤镜[materialFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-filter-effect#materialfilter23)效果和阴影效果；在低算力设备上，仅影响背景色、边框颜色、边框宽度和阴影效果。此外，材质样式[style](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)和自动反色[colorInvert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)参数仅在高算力和中算力设备上生效，在低算力设备上设置这两个参数不会产生视觉效果差异。\n\n解决措施\n\n这是系统级的自适应行为，开发者无需为不同档位设备编写差异化代码，沉浸光感会自动确保在各档位设备上的流畅运行。"
+    },
+    {
+      "id": "section-9",
+      "level": 4,
+      "heading": "开启自动反色后文字颜色没有变化",
+      "lineStart": 249,
+      "lineEnd": 274,
+      "text": "问题现象\n\n为沉浸式系统材质开启了[colorInvert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)自动反色功能，但组件内文字的颜色并未随背景色自动适配。\n\n可能原因\n\n自动反色功能的生效需要同时满足以下条件。\n\n- 设备算力档位需为高算力或中算力，低算力设备上自动反色不产生视觉效果差异。\n\n- 材质样式需要为THIN或ULTRA_THIN，在REGULAR、THICK、ULTRA_THICK样式下不生效。\n\n- 系统沉浸光感的强弱配置影响反色触发阈值，沉浸式系统材质越薄、系统沉浸光感设置越强，越容易触发自动反色。\n\n- 自动反色仅对通过资源接口设置的颜色值生效，包括[Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)组件的[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#fontcolor)、[Button](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button)组件的[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#fontcolor)、[SymbolGlyph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph)组件的[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#fontcolor)、[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)组件的[fillColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#fillcolor)、TextInput、TextArea、Chip、ChipGroup、SegmentButton、Swiper等组件的颜色属性，完整生效属性清单请参见[colorInvert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)参数说明。使用代码中硬编码的颜色值（如Color.White、'#FFFFFFFF'）不会触发自动反色。\n\n解决措施\n\n- 确认材质样式为THIN或ULTRA_THIN。\n\n- 确认文字颜色通过资源接口（如$r('app.color.xxx')）设置，而非硬编码颜色值。\n\n- 将系统沉浸光感配置调高后再观察效果。"
+    },
+    {
+      "id": "section-10",
+      "level": 4,
+      "heading": "同时设置shadow属性和沉浸式系统材质后阴影效果不符合预期",
+      "lineStart": 275,
+      "lineEnd": 300,
+      "text": "问题现象\n\n为组件同时设置了通用属性[shadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadow)和沉浸式系统材质后，阴影效果呈现为沉浸式系统材质自带的阴影样式，开发者自定义的shadow参数不生效。\n\n可能原因\n\n当沉浸式系统材质的[applyShadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)参数为true（默认值）时，材质中的阴影效果固定生效，优先于[shadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadow)通用属性，此时自定义的shadow设置不会生效；当该参数为false时，[shadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadow)通用属性生效，材质的阴影效果不生效。\n\n解决措施\n\n- 如需使用沉浸式系统材质自带的阴影效果，无需额外设置shadow属性。\n\n- 如需使用自定义的shadow通用属性，将[applyShadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)设置为false。\n\n代码示例\n\n```\n// 关闭材质阴影，使用自定义shadow\nnew uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n  applyShadow: false,\n})\n```"
+    },
+    {
+      "id": "section-11",
+      "level": 4,
+      "heading": "通过通用属性systemMaterial设置沉浸式系统材质后组件样式显示异常",
+      "lineStart": 301,
+      "lineEnd": 330,
+      "text": "问题现象\n\n通过通用属性[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)设置沉浸式系统材质后，组件的背景色、边框等样式显示不符合预期。\n\n可能原因\n\n通过通用属性设置沉浸式系统材质时，如果[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)放在其他样式属性之前，可能导致材质效果优先级与预期不符。\n\n解决措施\n\n将[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)放在其他样式属性（如背景色、边框、阴影等）之后设置。通过组件options参数（如Toast的[ShowToastOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#showtoastoptions)、Popup的[PopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupoptions%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E)等）设置沉浸式系统材质时则无需关注设置顺序。\n\n代码示例\n\n```\n// 推荐写法：先设置其他属性，再设置systemMaterial\nColumn() {\n  Text('推荐')\n}\n.width(328)\n.height(56)\n.borderRadius(28)\n.justifyContent(FlexAlign.Center)\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n}))\n```"
+    },
+    {
+      "id": "section-12",
+      "level": 4,
+      "heading": "Dialog或Toast组件默认没有材质效果",
+      "lineStart": 331,
+      "lineEnd": 348,
+      "text": "问题现象\n\n在[DEFAULT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，[Dialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-base-dialog-overview)、[Toast](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-toast)等组件未呈现沉浸式系统材质的视觉效果。\n\n可能原因\n\n[DEFAULT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)是沉浸式系统材质的默认开启模式，在该模式下，[Dialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-base-dialog-overview)、[Toast](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-toast)、[AlphabetIndexer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer)等组件仅在未设置背景色、模糊参数和阴影参数时才会默认开启沉浸式系统材质。如果开发者主动为这些组件设置了[backgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundcolor)、[backgroundBlurStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundblurstyle9)或[shadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadow)等属性，沉浸式系统材质不会默认开启。\n\n解决措施\n\n- 移除与沉浸式系统材质冲突的属性设置（如backgroundColor、backgroundBlurStyle、shadow），让材质效果默认开启。\n\n- 在ENABLE模式下，沉浸式系统材质样式的优先级高于组件本身设置的背景色、模糊、阴影和边框样式，且更多组件会默认开启沉浸式系统材质。\n\n- 如需在保留现有属性的同时使用沉浸式系统材质，通过[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)属性主动设置。"
+    },
+    {
+      "id": "section-13",
+      "level": 4,
+      "heading": "材质渲染区域与组件可视区域不一致",
+      "lineStart": 349,
+      "lineEnd": 400,
+      "text": "问题现象\n\n给组件设置沉浸式系统材质后，材质渲染区域与组件可视区域不一致。\n\n-\nCheckbox可视区域为40*40的圆形，材质渲染区域为40*40的矩形。\n\n-\nText组件可视区域为文本内容，材质渲染区域为100*40的矩形。\n\n可能原因\n\n材质渲染区域由组件布局区域决定，而组件可视区域为实际呈现内容的区域，可能不等于布局区域，导致两者不一致。\n\n解决措施\n\n通过[width](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#width)、[height](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#height)、[borderRadius](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-border#borderradius)接口控制组件可视区域与材质渲染区域一致。\n\nText组件无法给文本内容设置沉浸式系统材质。\n\n代码示例\n\n```\n// 材质渲染区域与组件可视区域不一致示例\nRow() {\n  Text('Checkbox组件：')\n    .fontColor(Color.Black)\n  Checkbox()\n    .width(40)\n    .height(40)\n    .borderWidth(1)\n    .borderColor(Color.Blue)\n    .systemMaterial(new uiMaterial.ImmersiveMaterial({\n      style: uiMaterial.ImmersiveStyle.ULTRA_THIN,\n      interactive: true\n    }))\n}\nRow() {\n  Text('Text组件：')\n    .fontColor(Color.Black)\n  Text(\"hello\")\n    .width(100)\n    .height(40)\n    .systemMaterial(new uiMaterial.ImmersiveMaterial({\n      style: uiMaterial.ImmersiveStyle.ULTRA_THIN,\n      interactive: true\n    }))\n}\n```"
+    },
+    {
+      "id": "section-14",
+      "level": 4,
+      "heading": "材质效果的显示层级问题",
+      "lineStart": 401,
+      "lineEnd": 433,
+      "text": "问题现象\n\n同时给组件设置沉浸式系统材质和背景色，材质效果被遮盖。例如TextArea组件设置背景色后，会遮盖材质效果。\n\n可能原因\n\n自绘制组件的背景色作用于内容层，材质效果作用于背板层，而内容层位于背板层之上，因此材质效果被内容层遮盖。\n\n解决措施\n\n不建议同时使用沉浸式系统材质和背景色[backgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundcolor)接口。\n\n沉浸式系统材质无法绘制在内容层。\n\n代码示例\n\n```\n// 材质效果的显示层级问题示例\nRow() {\n  Text('TextArea组件：')\n    .fontColor(Color.Black)\n  TextArea()\n    .width(100)\n    .height(40)\n    .backgroundColor('#cc999999') // 不建议同时使用沉浸式系统材质和背景色接口\n    .systemMaterial(new uiMaterial.ImmersiveMaterial({\n      style: uiMaterial.ImmersiveStyle.ULTRA_THIN,\n      interactive: true\n    }))\n}\n```"
+    }
+  ],
+  "codeBlocks": [
+    {
+      "index": 0,
+      "language": null,
+      "startLine": 54,
+      "endLine": 142,
+      "content": "import { CircleShape, TitleBarType, uiMaterial } from '@kit.ArkUI';\n\n@Entry\n@Component\nstruct MaterialScopeAdaptExample {\n  private arr: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];\n\n  @Builder\n  NavigationTitle() {\n    Row() {\n      // 请将$r('app.string.title_bar')替换为实际资源文件，在本示例中该资源文件的value值为\"标题栏\"\n      Text($r('app.string.title_bar'))\n        .fontColor('#182431')\n        .fontSize(30)\n        .lineHeight(41)\n        .fontWeight(700)\n      Blank()\n      Column() {\n        SymbolGlyph($r('sys.symbol.a_3d_square_fill'))\n      }\n      .width(50)\n      .height(50)\n      .clipShape(new CircleShape({\n        width: 50,\n        height: 50\n      }))\n      .justifyContent(FlexAlign.Center)\n      .backgroundColor(Color.Transparent)\n      // 在Navigation标题栏中开启沉浸光感，处于生效范围内，沉浸光感效果生效\n      .systemMaterial(new uiMaterial.ImmersiveMaterial({\n        style: uiMaterial.ImmersiveStyle.THIN,\n      }))\n    }\n    .alignItems(VerticalAlign.Center)\n    .width('100%')\n    .padding(16)\n  }\n\n  build() {\n    Column() {\n      Navigation() {\n        Column() {\n          Row() {\n            // 请将$r('app.string.content_area')替换为实际资源文件，在本示例中该资源文件的value值为\"内容区\"\n            Text($r('app.string.content_area'))\n\n            Blank()\n\n            Column() {\n              SymbolGlyph($r('sys.symbol.a_3d_square_fill'))\n            }\n            .width(50)\n            .height(50)\n            .clipShape(new CircleShape({\n              width: 50,\n              height: 50\n            }))\n            .justifyContent(FlexAlign.Center)\n            .backgroundColor(Color.Transparent)\n            // 在Navigation内容中开启沉浸光感，处于生效范围外，不生效沉浸光感效果\n            .systemMaterial(new uiMaterial.ImmersiveMaterial({\n              style: uiMaterial.ImmersiveStyle.THIN,\n            }))\n          }\n          .width('100%')\n          .padding(16)\n          .borderRadius(16)\n        }\n        .width('100%')\n        .height('100%')\n        .padding(16)\n        .backgroundColor('#FFFFFF')\n        .linearGradient({\n          angle: 0,\n          colors: [\n            ['#004AAF', 0.0],\n            ['#2787D9', 0.5],\n            ['#F0FAFF', 1.0]\n          ]\n        })\n        .justifyContent(FlexAlign.Center)\n        .alignItems(HorizontalAlign.Center)\n      }\n      .title(this.NavigationTitle, { barStyle: BarStyle.STACK })\n    }.width('100%').height('100%').backgroundColor('#F1F3F5')\n  }\n}"
+    },
+    {
+      "index": 1,
+      "language": null,
+      "startLine": 162,
+      "endLine": 185,
+      "content": "// 错误写法：不透明背景色会覆盖在材质层之上，导致材质效果不可见\nColumn() {\n  Text('沉浸光感')\n}\n.width(328)\n.height(56)\n.borderRadius(28)\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THIN,\n}))\n.backgroundColor(Color.White)\n// 推荐写法：将背景色设为透明，确保材质效果可见\nColumn() {\n  Text('沉浸光感')\n}\n.width(328)\n.height(56)\n.borderRadius(28)\n.backgroundColor(Color.Transparent)\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THIN,\n}))"
+    },
+    {
+      "index": 2,
+      "language": null,
+      "startLine": 221,
+      "endLine": 233,
+      "content": "// 错误写法：纯不透明颜色遮挡了材质效果\nnew uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THIN,\n  materialColor: Color.Red, // 不透明，材质滤镜效果被完全遮挡\n})\n\n// 推荐写法：使用带透明度的颜色\nnew uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THIN,\n  materialColor: '#80FF0000', // 带有50%透明度的红色\n})"
+    },
+    {
+      "index": 3,
+      "language": null,
+      "startLine": 293,
+      "endLine": 299,
+      "content": "// 关闭材质阴影，使用自定义shadow\nnew uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n  applyShadow: false,\n})"
+    },
+    {
+      "index": 4,
+      "language": null,
+      "startLine": 317,
+      "endLine": 329,
+      "content": "// 推荐写法：先设置其他属性，再设置systemMaterial\nColumn() {\n  Text('推荐')\n}\n.width(328)\n.height(56)\n.borderRadius(28)\n.justifyContent(FlexAlign.Center)\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n}))"
+    },
+    {
+      "index": 5,
+      "language": null,
+      "startLine": 373,
+      "endLine": 399,
+      "content": "// 材质渲染区域与组件可视区域不一致示例\nRow() {\n  Text('Checkbox组件：')\n    .fontColor(Color.Black)\n  Checkbox()\n    .width(40)\n    .height(40)\n    .borderWidth(1)\n    .borderColor(Color.Blue)\n    .systemMaterial(new uiMaterial.ImmersiveMaterial({\n      style: uiMaterial.ImmersiveStyle.ULTRA_THIN,\n      interactive: true\n    }))\n}\nRow() {\n  Text('Text组件：')\n    .fontColor(Color.Black)\n  Text(\"hello\")\n    .width(100)\n    .height(40)\n    .systemMaterial(new uiMaterial.ImmersiveMaterial({\n      style: uiMaterial.ImmersiveStyle.ULTRA_THIN,\n      interactive: true\n    }))\n}"
+    },
+    {
+      "index": 6,
+      "language": null,
+      "startLine": 419,
+      "endLine": 433,
+      "content": "// 材质效果的显示层级问题示例\nRow() {\n  Text('TextArea组件：')\n    .fontColor(Color.Black)\n  TextArea()\n    .width(100)\n    .height(40)\n    .backgroundColor('#cc999999') // 不建议同时使用沉浸式系统材质和背景色接口\n    .systemMaterial(new uiMaterial.ImmersiveMaterial({\n      style: uiMaterial.ImmersiveStyle.ULTRA_THIN,\n      interactive: true\n    }))\n}"
+    }
+  ],
+  "links": [
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-overview",
+      "text": "沉浸光感简介",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial",
+      "text": "uiMaterial",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsmaterial",
+      "text": "hdsMaterial",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materiallevel",
+      "text": "MaterialLevel",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#uimaterialgetglobalmateriallevel",
+      "text": "uiMaterial.getGlobalMaterialLevel",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsmaterial#materiallevel",
+      "text": "MaterialLevel",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation",
+      "text": "HdsNavigation",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation#systemmaterialparams",
+      "text": "SystemMaterialParams",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersivestyle",
+      "text": "ImmersiveStyle",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#%E7%A4%BA%E4%BE%8B1%E8%AE%BE%E7%BD%AE%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8",
+      "text": "示例1（设置沉浸式系统材质）",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-hds-component-material#%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C",
+      "text": "使用自定义沉浸光感效果",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundcolor",
+      "text": "backgroundColor",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial",
+      "text": "systemMaterial",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundblurstyle9",
+      "text": "backgroundBlurStyle",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions",
+      "text": "materialColor",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-filter-effect#materialfilter23",
+      "text": "materialFilter",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text",
+      "text": "Text",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#fontcolor",
+      "text": "fontColor",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button",
+      "text": "Button",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#fontcolor",
+      "text": "fontColor",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph",
+      "text": "SymbolGlyph",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#fontcolor",
+      "text": "fontColor",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image",
+      "text": "Image",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#fillcolor",
+      "text": "fillColor",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadow",
+      "text": "shadow",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#showtoastoptions",
+      "text": "ShowToastOptions",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupoptions%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+      "text": "PopupOptions",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate",
+      "text": "DEFAULT",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-base-dialog-overview",
+      "text": "Dialog",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-toast",
+      "text": "Toast",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer",
+      "text": "AlphabetIndexer",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#width",
+      "text": "width",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#height",
+      "text": "height",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-border#borderradius",
+      "text": "borderRadius",
+      "official": true
+    }
+  ],
+  "contentSha256": "3af55540713f19d611f7aaacf09f342b0fc17b4ab8385a28ae3e9ac9d25058d1"
+}

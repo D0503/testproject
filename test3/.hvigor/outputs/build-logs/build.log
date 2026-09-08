@@ -1,0 +1,1939 @@
+[2026-09-08T16:29:48.763] [DEBUG] debug-file - env: nodejsVersion=v24.14.1
+[2026-09-08T16:29:49.192] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: false,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-09-08T16:29:53.033] [DEBUG] debug-file - hvigorfile, require result:  { default: { system: [Function: appTasks], plugins: [] } }
+[2026-09-08T16:29:53.044] [DEBUG] debug-file - Starting plugin build process
+[2026-09-08T16:29:53.677] [DEBUG] debug-file - App plugin register hook start...
+[2026-09-08T16:29:53.703] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-09-08T16:29:48.766] [DEBUG] debug-file - env: hvigor-config.json5 content = {
+  modelVersion: '6.0.1',
+  dependencies: {},
+  execution: {},
+  logging: {},
+  debugging: {},
+  nodeOptions: {}
+}
+[2026-09-08T16:29:54.065] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2026-09-08T16:29:49.193] [DEBUG] debug-file - Since current hvigor version 6.26.4 differs from last hvigor version 
+      undefined, delete file-cache.json and task-cache.json.
+[2026-09-08T16:29:53.034] [DEBUG] debug-file - hvigorfile, binding system plugins [Function: appTasks]
+[2026-09-08T16:29:53.044] [DEBUG] debug-file - App plugin prepare start...
+[2026-09-08T16:29:53.678] [DEBUG] debug-file - App plugin register hook end...
+[2026-09-08T16:29:53.726] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2026-09-08T16:29:48.768] [DEBUG] debug-file - env: daemon=false
+[2026-09-08T16:29:54.084] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2026-09-08T16:29:49.193] [DEBUG] debug-file - Cache service initialization finished in 1 ms 
+[2026-09-08T16:29:53.045] [DEBUG] debug-file - App plugin prepare end...
+[2026-09-08T16:29:53.678] [DEBUG] debug-file - Plugin build process completed
+[2026-09-08T16:29:53.731] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2026-09-08T16:29:48.768] [DEBUG] debug-file - no-daemon, use the parent process.execArgv --max-old-space-size=8192,--max-semi-space-size=16,--expose-gc
+[2026-09-08T16:29:54.100] [DEBUG] debug-file - Current worker pool is stopped or closed.
+[2026-09-08T16:29:49.195] [DEBUG] debug-file - hvigorfile, resolving D:\HW\testproject\test3\hvigorfile.ts
+[2026-09-08T16:29:53.045] [DEBUG] debug-file - App plugin creating...
+[2026-09-08T16:29:53.683] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2026-09-08T16:29:53.967] [DEBUG] debug-file - hvigor build process will be closed with an error.
+[2026-09-08T16:29:54.105] [DEBUG] debug-file - Clear worker 0.
+[2026-09-08T16:29:53.684] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2026-09-08T16:29:53.982] [ERROR] debug-file - [31m00303313 Configuration Error
+[31mError Message: compileSdkVersion is incompatible with the current DevEco Studio version. configured version: 26, DevEco Studio version: 26.0.0.
+[31m
+* Try the following:
+  > The compileSdkVersion field in the HarmonyOS project does not need to be explicitly configured. The built-in SDK version of DevEco Studio will be used by default during compilation. Remove the compileSdkVersion field from build-profile.json5, or set it to the SDK version matching the current DevEco Studio. 
+  > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-errorcode-00303-1#section191211454141814
+[39m
+
+[31m* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+
+[2026-09-08T16:29:54.109] [DEBUG] debug-file - Clear worker 1.
+[2026-09-08T16:29:53.685] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-09-08T16:29:53.982] [DEBUG] debug-file - ERROR: stacktrace = AdaptorError: [31m00303313 Configuration Error
+[31mError Message: compileSdkVersion is incompatible with the current DevEco Studio version. configured version: 26, DevEco Studio version: 26.0.0.
+[31m
+* Try the following:
+  > The compileSdkVersion field in the HarmonyOS project does not need to be explicitly configured. The built-in SDK version of DevEco Studio will be used by default during compilation. Remove the compileSdkVersion field from build-profile.json5, or set it to the SDK version matching the current DevEco Studio. 
+  > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-errorcode-00303-1#section191211454141814
+[39m
+    at OhosLogger.printErrorExit (E:\DevEco Studio\tools\hvigor\hvigor\src\base\log\hvigor-log.js:1:6525)
+    at HmosSdkLoader.checkSdkVersionMatch (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\hmos-sdk-loader.js:1:2398)
+    at HmosSdkLoader.getHmosSdkComponents (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\hmos-sdk-loader.js:1:1836)
+    at HosSdkInfo.setup (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\info\hos-sdk-info.js:1:1537)
+    at ProjectTaskService.setup (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\tasks\service\project-task-service.js:1:2525)
+    at ProjectImpl.<anonymous> (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\app-plugin-builder.js:1:2458)
+    at ProjectImpl.executeAfterBindSystemPluginsHook (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\hvigor-node-impl\default-node-impl.js:1:5577)
+    at evaluateNodeVigorFile (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js:1:10074)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async evalProject (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js:1:3685)
+[2026-09-08T16:29:54.167] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-09-08T16:29:53.686] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2026-09-08T16:29:53.982] [ERROR] debug-file - AdaptorError: [31m00303313 Configuration Error
+[31mError Message: compileSdkVersion is incompatible with the current DevEco Studio version. configured version: 26, DevEco Studio version: 26.0.0.
+[31m
+* Try the following:
+  > The compileSdkVersion field in the HarmonyOS project does not need to be explicitly configured. The built-in SDK version of DevEco Studio will be used by default during compilation. Remove the compileSdkVersion field from build-profile.json5, or set it to the SDK version matching the current DevEco Studio. 
+  > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-errorcode-00303-1#section191211454141814
+[39m
+    at OhosLogger.printErrorExit (E:\DevEco Studio\tools\hvigor\hvigor\src\base\log\hvigor-log.js:1:6525)
+    at HmosSdkLoader.checkSdkVersionMatch (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\hmos-sdk-loader.js:1:2398)
+    at HmosSdkLoader.getHmosSdkComponents (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\hmos-sdk-loader.js:1:1836)
+    at HosSdkInfo.setup (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\info\hos-sdk-info.js:1:1537)
+    at ProjectTaskService.setup (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\tasks\service\project-task-service.js:1:2525)
+    at ProjectImpl.<anonymous> (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\app-plugin-builder.js:1:2458)
+    at ProjectImpl.executeAfterBindSystemPluginsHook (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\hvigor-node-impl\default-node-impl.js:1:5577)
+    at evaluateNodeVigorFile (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js:1:10074)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async evalProject (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js:1:3685)
+[2026-09-08T16:29:54.196] [DEBUG] debug-file - worker[0] exits with exit code 0.
+[2026-09-08T16:29:53.996] [ERROR] debug-file - BUILD FAILED in 4 s 808 ms 
+[2026-09-08T16:29:54.197] [DEBUG] debug-file - worker[1] exits with exit code 0.
+[2026-09-08T16:29:54.055] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2026-09-08T16:29:54.198] [DEBUG] debug-file - Worker 0 has been cleared.
+[2026-09-08T16:29:54.056] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2026-09-08T16:29:54.198] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-09-08T16:29:54.198] [DEBUG] debug-file - Current busy worker size: 0.
+[2026-09-08T16:29:54.198] [DEBUG] debug-file - Worker 1 has been cleared.
+[2026-09-08T16:29:54.198] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-09-08T16:29:54.198] [DEBUG] debug-file - Current busy worker size: 0.
+[2026-09-08T16:29:54.273] [DEBUG] debug-file - Current worker pool is terminated.
+[2026-09-08T16:29:54.273] [DEBUG] debug-file - Current worker pool is terminated.
+[2026-09-08T16:30:19.058] [DEBUG] debug-file - env: nodejsVersion=v24.14.1
+[2026-09-08T16:30:19.540] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: false,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-09-08T16:30:24.515] [DEBUG] debug-file - hvigorfile, require result:  { default: { system: [Function: appTasks], plugins: [] } }
+[2026-09-08T16:30:24.525] [DEBUG] debug-file - Starting plugin build process
+[2026-09-08T16:30:25.334] [DEBUG] debug-file - App plugin register hook start...
+[2026-09-08T16:30:25.366] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-09-08T16:30:19.060] [DEBUG] debug-file - env: hvigor-config.json5 content = {
+  modelVersion: '6.0.1',
+  dependencies: {},
+  execution: {},
+  logging: {},
+  debugging: {},
+  nodeOptions: {}
+}
+[2026-09-08T16:30:25.624] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2026-09-08T16:30:19.541] [DEBUG] debug-file - Since current hvigor version 6.26.4 differs from last hvigor version 
+      undefined, delete file-cache.json and task-cache.json.
+[2026-09-08T16:30:24.525] [DEBUG] debug-file - App plugin prepare start...
+[2026-09-08T16:30:24.515] [DEBUG] debug-file - hvigorfile, binding system plugins [Function: appTasks]
+[2026-09-08T16:30:25.339] [DEBUG] debug-file - App plugin register hook end...
+[2026-09-08T16:30:25.406] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2026-09-08T16:30:19.062] [DEBUG] debug-file - env: daemon=false
+[2026-09-08T16:30:25.633] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2026-09-08T16:30:19.543] [DEBUG] debug-file - Cache service initialization finished in 3 ms 
+[2026-09-08T16:30:24.525] [DEBUG] debug-file - App plugin prepare end...
+[2026-09-08T16:30:25.340] [DEBUG] debug-file - Plugin build process completed
+[2026-09-08T16:30:25.411] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2026-09-08T16:30:19.062] [DEBUG] debug-file - no-daemon, use the parent process.execArgv --max-old-space-size=8192,--max-semi-space-size=16,--expose-gc
+[2026-09-08T16:30:25.642] [DEBUG] debug-file - Current worker pool is stopped or closed.
+[2026-09-08T16:30:19.545] [DEBUG] debug-file - hvigorfile, resolving D:\HW\testproject\test3\hvigorfile.ts
+[2026-09-08T16:30:24.526] [DEBUG] debug-file - App plugin creating...
+[2026-09-08T16:30:25.345] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2026-09-08T16:30:25.578] [DEBUG] debug-file - hvigor build process will be closed with an error.
+[2026-09-08T16:30:25.643] [DEBUG] debug-file - Clear worker 0.
+[2026-09-08T16:30:25.346] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2026-09-08T16:30:25.584] [ERROR] debug-file - [31m00303313 Configuration Error
+[31mError Message: compileSdkVersion is incompatible with the current DevEco Studio version. configured version: 26, DevEco Studio version: 26.0.0.
+[31m
+* Try the following:
+  > The compileSdkVersion field in the HarmonyOS project does not need to be explicitly configured. The built-in SDK version of DevEco Studio will be used by default during compilation. Remove the compileSdkVersion field from build-profile.json5, or set it to the SDK version matching the current DevEco Studio. 
+  > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-errorcode-00303-1#section191211454141814
+[39m
+
+[31m* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+
+[2026-09-08T16:30:25.643] [DEBUG] debug-file - Clear worker 1.
+[2026-09-08T16:30:25.349] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-09-08T16:30:25.584] [DEBUG] debug-file - ERROR: stacktrace = AdaptorError: [31m00303313 Configuration Error
+[31mError Message: compileSdkVersion is incompatible with the current DevEco Studio version. configured version: 26, DevEco Studio version: 26.0.0.
+[31m
+* Try the following:
+  > The compileSdkVersion field in the HarmonyOS project does not need to be explicitly configured. The built-in SDK version of DevEco Studio will be used by default during compilation. Remove the compileSdkVersion field from build-profile.json5, or set it to the SDK version matching the current DevEco Studio. 
+  > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-errorcode-00303-1#section191211454141814
+[39m
+    at OhosLogger.printErrorExit (E:\DevEco Studio\tools\hvigor\hvigor\src\base\log\hvigor-log.js:1:6525)
+    at HmosSdkLoader.checkSdkVersionMatch (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\hmos-sdk-loader.js:1:2398)
+    at HmosSdkLoader.getHmosSdkComponents (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\hmos-sdk-loader.js:1:1836)
+    at HosSdkInfo.setup (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\info\hos-sdk-info.js:1:1537)
+    at ProjectTaskService.setup (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\tasks\service\project-task-service.js:1:2525)
+    at ProjectImpl.<anonymous> (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\app-plugin-builder.js:1:2458)
+    at ProjectImpl.executeAfterBindSystemPluginsHook (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\hvigor-node-impl\default-node-impl.js:1:5577)
+    at evaluateNodeVigorFile (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js:1:10074)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async evalProject (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js:1:3685)
+[2026-09-08T16:30:25.693] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-09-08T16:30:25.349] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2026-09-08T16:30:25.584] [ERROR] debug-file - AdaptorError: [31m00303313 Configuration Error
+[31mError Message: compileSdkVersion is incompatible with the current DevEco Studio version. configured version: 26, DevEco Studio version: 26.0.0.
+[31m
+* Try the following:
+  > The compileSdkVersion field in the HarmonyOS project does not need to be explicitly configured. The built-in SDK version of DevEco Studio will be used by default during compilation. Remove the compileSdkVersion field from build-profile.json5, or set it to the SDK version matching the current DevEco Studio. 
+  > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-errorcode-00303-1#section191211454141814
+[39m
+    at OhosLogger.printErrorExit (E:\DevEco Studio\tools\hvigor\hvigor\src\base\log\hvigor-log.js:1:6525)
+    at HmosSdkLoader.checkSdkVersionMatch (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\hmos-sdk-loader.js:1:2398)
+    at HmosSdkLoader.getHmosSdkComponents (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\hmos-sdk-loader.js:1:1836)
+    at HosSdkInfo.setup (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\info\hos-sdk-info.js:1:1537)
+    at ProjectTaskService.setup (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\tasks\service\project-task-service.js:1:2525)
+    at ProjectImpl.<anonymous> (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\app-plugin-builder.js:1:2458)
+    at ProjectImpl.executeAfterBindSystemPluginsHook (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\hvigor-node-impl\default-node-impl.js:1:5577)
+    at evaluateNodeVigorFile (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js:1:10074)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async evalProject (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js:1:3685)
+[2026-09-08T16:30:25.712] [DEBUG] debug-file - worker[0] exits with exit code 0.
+[2026-09-08T16:30:25.590] [ERROR] debug-file - BUILD FAILED in 6 s 69 ms 
+[2026-09-08T16:30:25.713] [DEBUG] debug-file - worker[1] exits with exit code 0.
+[2026-09-08T16:30:25.618] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2026-09-08T16:30:25.715] [DEBUG] debug-file - Worker 0 has been cleared.
+[2026-09-08T16:30:25.619] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2026-09-08T16:30:25.715] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-09-08T16:30:25.715] [DEBUG] debug-file - Current busy worker size: 0.
+[2026-09-08T16:30:25.716] [DEBUG] debug-file - Worker 1 has been cleared.
+[2026-09-08T16:30:25.716] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-09-08T16:30:25.716] [DEBUG] debug-file - Current busy worker size: 0.
+[2026-09-08T16:30:25.826] [DEBUG] debug-file - Current worker pool is terminated.
+[2026-09-08T16:30:25.826] [DEBUG] debug-file - Current worker pool is terminated.
+[2026-09-08T16:31:06.558] [DEBUG] debug-file - env: nodejsVersion=v24.14.1
+[2026-09-08T16:31:07.010] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: false,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-09-08T16:31:09.560] [DEBUG] debug-file - hvigorfile, require result:  { default: { system: [Function: appTasks], plugins: [] } }
+[2026-09-08T16:31:09.566] [DEBUG] debug-file - Starting plugin build process
+[2026-09-08T16:31:09.791] [DEBUG] debug-file - App plugin register hook start...
+[2026-09-08T16:31:06.559] [DEBUG] debug-file - env: hvigor-config.json5 content = {
+  modelVersion: '6.0.1',
+  dependencies: {},
+  execution: {},
+  logging: {},
+  debugging: {},
+  nodeOptions: {}
+}
+[2026-09-08T16:31:09.799] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-09-08T16:31:10.203] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2026-09-08T16:31:07.011] [DEBUG] debug-file - Since current hvigor version 6.26.4 differs from last hvigor version 
+      undefined, delete file-cache.json and task-cache.json.
+[2026-09-08T16:31:09.561] [DEBUG] debug-file - hvigorfile, binding system plugins [Function: appTasks]
+[2026-09-08T16:31:09.567] [DEBUG] debug-file - App plugin prepare start...
+[2026-09-08T16:31:09.791] [DEBUG] debug-file - App plugin register hook end...
+[2026-09-08T16:31:06.561] [DEBUG] debug-file - env: daemon=false
+[2026-09-08T16:31:09.808] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2026-09-08T16:31:10.208] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2026-09-08T16:31:07.014] [DEBUG] debug-file - Cache service initialization finished in 4 ms 
+[2026-09-08T16:31:09.567] [DEBUG] debug-file - App plugin prepare end...
+[2026-09-08T16:31:09.791] [DEBUG] debug-file - Plugin build process completed
+[2026-09-08T16:31:09.810] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2026-09-08T16:31:10.213] [DEBUG] debug-file - Current worker pool is stopped or closed.
+[2026-09-08T16:31:06.561] [DEBUG] debug-file - no-daemon, use the parent process.execArgv --max-old-space-size=8192,--max-semi-space-size=16,--expose-gc
+[2026-09-08T16:31:07.018] [DEBUG] debug-file - hvigorfile, resolving D:\HW\testproject\test3\hvigorfile.ts
+[2026-09-08T16:31:09.567] [DEBUG] debug-file - App plugin creating...
+[2026-09-08T16:31:09.792] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2026-09-08T16:31:10.162] [DEBUG] debug-file - hvigor build process will be closed with an error.
+[2026-09-08T16:31:10.214] [DEBUG] debug-file - Clear worker 0.
+[2026-09-08T16:31:10.167] [ERROR] debug-file - [31m00303313 Configuration Error
+[31mError Message: compileSdkVersion is incompatible with the current DevEco Studio version. configured version: 26, DevEco Studio version: 26.0.0.
+[31m
+* Try the following:
+  > The compileSdkVersion field in the HarmonyOS project does not need to be explicitly configured. The built-in SDK version of DevEco Studio will be used by default during compilation. Remove the compileSdkVersion field from build-profile.json5, or set it to the SDK version matching the current DevEco Studio. 
+  > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-errorcode-00303-1#section191211454141814
+[39m
+
+[31m* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+
+[2026-09-08T16:31:09.792] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2026-09-08T16:31:10.214] [DEBUG] debug-file - Clear worker 1.
+[2026-09-08T16:31:10.167] [DEBUG] debug-file - ERROR: stacktrace = AdaptorError: [31m00303313 Configuration Error
+[31mError Message: compileSdkVersion is incompatible with the current DevEco Studio version. configured version: 26, DevEco Studio version: 26.0.0.
+[31m
+* Try the following:
+  > The compileSdkVersion field in the HarmonyOS project does not need to be explicitly configured. The built-in SDK version of DevEco Studio will be used by default during compilation. Remove the compileSdkVersion field from build-profile.json5, or set it to the SDK version matching the current DevEco Studio. 
+  > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-errorcode-00303-1#section191211454141814
+[39m
+    at OhosLogger.printErrorExit (E:\DevEco Studio\tools\hvigor\hvigor\src\base\log\hvigor-log.js:1:6525)
+    at HmosSdkLoader.checkSdkVersionMatch (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\hmos-sdk-loader.js:1:2398)
+    at HmosSdkLoader.getHmosSdkComponents (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\hmos-sdk-loader.js:1:1836)
+    at HosSdkInfo.setup (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\info\hos-sdk-info.js:1:1537)
+    at ProjectTaskService.setup (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\tasks\service\project-task-service.js:1:2525)
+    at ProjectImpl.<anonymous> (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\app-plugin-builder.js:1:2458)
+    at ProjectImpl.executeAfterBindSystemPluginsHook (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\hvigor-node-impl\default-node-impl.js:1:5577)
+    at evaluateNodeVigorFile (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js:1:10074)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async evalProject (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js:1:3685)
+[2026-09-08T16:31:10.230] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-09-08T16:31:09.793] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-09-08T16:31:10.167] [ERROR] debug-file - AdaptorError: [31m00303313 Configuration Error
+[31mError Message: compileSdkVersion is incompatible with the current DevEco Studio version. configured version: 26, DevEco Studio version: 26.0.0.
+[31m
+* Try the following:
+  > The compileSdkVersion field in the HarmonyOS project does not need to be explicitly configured. The built-in SDK version of DevEco Studio will be used by default during compilation. Remove the compileSdkVersion field from build-profile.json5, or set it to the SDK version matching the current DevEco Studio. 
+  > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-errorcode-00303-1#section191211454141814
+[39m
+    at OhosLogger.printErrorExit (E:\DevEco Studio\tools\hvigor\hvigor\src\base\log\hvigor-log.js:1:6525)
+    at HmosSdkLoader.checkSdkVersionMatch (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\hmos-sdk-loader.js:1:2398)
+    at HmosSdkLoader.getHmosSdkComponents (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\hmos-sdk-loader.js:1:1836)
+    at HosSdkInfo.setup (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\info\hos-sdk-info.js:1:1537)
+    at ProjectTaskService.setup (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\tasks\service\project-task-service.js:1:2525)
+    at ProjectImpl.<anonymous> (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\app-plugin-builder.js:1:2458)
+    at ProjectImpl.executeAfterBindSystemPluginsHook (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\hvigor-node-impl\default-node-impl.js:1:5577)
+    at evaluateNodeVigorFile (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js:1:10074)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async evalProject (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js:1:3685)
+[2026-09-08T16:31:09.793] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2026-09-08T16:31:10.236] [DEBUG] debug-file - worker[0] exits with exit code 0.
+[2026-09-08T16:31:10.173] [ERROR] debug-file - BUILD FAILED in 3 s 169 ms 
+[2026-09-08T16:31:10.237] [DEBUG] debug-file - worker[1] exits with exit code 0.
+[2026-09-08T16:31:10.197] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2026-09-08T16:31:10.237] [DEBUG] debug-file - Worker 0 has been cleared.
+[2026-09-08T16:31:10.197] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2026-09-08T16:31:10.237] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-09-08T16:31:10.237] [DEBUG] debug-file - Current busy worker size: 0.
+[2026-09-08T16:31:10.238] [DEBUG] debug-file - Worker 1 has been cleared.
+[2026-09-08T16:31:10.238] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-09-08T16:31:10.238] [DEBUG] debug-file - Current busy worker size: 0.
+[2026-09-08T16:31:10.288] [DEBUG] debug-file - Current worker pool is terminated.
+[2026-09-08T16:31:10.288] [DEBUG] debug-file - Current worker pool is terminated.
+[2026-09-08T16:32:24.674] [DEBUG] debug-file - env: nodejsVersion=v22.17.1
+[2026-09-08T16:32:24.853] [DEBUG] debug-file - env: daemon=true
+[2026-09-08T16:32:24.677] [DEBUG] debug-file - env: hvigor-config.json5 content = {
+  modelVersion: '6.0.1',
+  dependencies: {},
+  execution: {},
+  logging: {},
+  debugging: {},
+  nodeOptions: {}
+}
+[2026-09-08T16:32:25.664] [DEBUG] debug-file - hvigor java daemon: Starting java daemon. jvmXmxValue=512m, jarPath=E:\DevEco Studio\tools\hvigor\hvigor\lib\hvigor-java-daemon.jar
+[2026-09-08T16:32:25.667] [DEBUG] debug-file - hvigor java daemon: Read cache file, 
+    port=45050, pid=13272, sessionId exists=true
+[2026-09-08T16:32:25.783] [DEBUG] debug-file - hvigor java daemon: tryConnect success
+[2026-09-08T16:32:25.812] [DEBUG] debug-file - session manager: set active socket. socketId=MWTSF8NlgtsRFA5NAAAB
+[2026-09-08T16:32:26.859] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-09-08T16:32:26.872] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2026-09-08T16:32:26.872] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2026-09-08T16:32:26.874] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2026-09-08T16:32:26.879] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2026-09-08T16:32:26.883] [DEBUG] debug-file - Workers' log level updated to INFO
+[2026-09-08T16:32:26.894] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-09-08T16:32:26.896] [DEBUG] debug-file - Since current hvigor version 6.26.4 differs from last hvigor version 
+      undefined, delete file-cache.json and task-cache.json.
+[2026-09-08T16:32:26.902] [DEBUG] debug-file - Cache service initialization finished in 8 ms 
+[2026-09-08T16:32:26.904] [DEBUG] debug-file - hvigorfile, resolving D:\HW\testproject\test3\hvigorfile.ts
+[2026-09-08T16:32:29.918] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-09-08T16:32:29.920] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-09-08T16:32:29.921] [DEBUG] debug-file - Starting plugin build process
+[2026-09-08T16:32:29.921] [DEBUG] debug-file - App plugin prepare start...
+[2026-09-08T16:32:29.921] [DEBUG] debug-file - App plugin prepare end...
+[2026-09-08T16:32:29.921] [DEBUG] debug-file - App plugin creating...
+[2026-09-08T16:32:30.210] [DEBUG] debug-file - App plugin register hook start...
+[2026-09-08T16:32:30.211] [DEBUG] debug-file - App plugin register hook end...
+[2026-09-08T16:32:30.211] [DEBUG] debug-file - Plugin build process completed
+[2026-09-08T16:32:30.213] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2026-09-08T16:32:30.214] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2026-09-08T16:32:30.215] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-09-08T16:32:30.215] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2026-09-08T16:32:30.219] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-09-08T16:32:30.228] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2026-09-08T16:32:30.230] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2026-09-08T16:32:30.478] [DEBUG] debug-file - hvigor build process will be closed with an error.
+[2026-09-08T16:32:30.482] [ERROR] debug-file - [31m00303313 Configuration Error
+[31mError Message: compileSdkVersion is incompatible with the current DevEco Studio version. configured version: 26, DevEco Studio version: 26.0.0.
+[31m
+* Try the following:
+  > The compileSdkVersion field in the HarmonyOS project does not need to be explicitly configured. The built-in SDK version of DevEco Studio will be used by default during compilation. Remove the compileSdkVersion field from build-profile.json5, or set it to the SDK version matching the current DevEco Studio. 
+  > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-errorcode-00303-1#section191211454141814
+[39m
+
+[31m* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+
+[2026-09-08T16:32:30.482] [DEBUG] debug-file - ERROR: stacktrace = AdaptorError: [31m00303313 Configuration Error
+[31mError Message: compileSdkVersion is incompatible with the current DevEco Studio version. configured version: 26, DevEco Studio version: 26.0.0.
+[31m
+* Try the following:
+  > The compileSdkVersion field in the HarmonyOS project does not need to be explicitly configured. The built-in SDK version of DevEco Studio will be used by default during compilation. Remove the compileSdkVersion field from build-profile.json5, or set it to the SDK version matching the current DevEco Studio. 
+  > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-errorcode-00303-1#section191211454141814
+[39m
+    at OhosLogger.printErrorExit (E:\DevEco Studio\tools\hvigor\hvigor\src\base\log\hvigor-log.js:1:6525)
+    at HmosSdkLoader.checkSdkVersionMatch (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\hmos-sdk-loader.js:1:2398)
+    at HmosSdkLoader.getHmosSdkComponents (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\hmos-sdk-loader.js:1:1836)
+    at HosSdkInfo.setup (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\info\hos-sdk-info.js:1:1537)
+    at ProjectTaskService.setup (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\tasks\service\project-task-service.js:1:2525)
+    at ProjectImpl.<anonymous> (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\app-plugin-builder.js:1:2458)
+    at ProjectImpl.executeAfterBindSystemPluginsHook (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\hvigor-node-impl\default-node-impl.js:1:5577)
+    at evaluateNodeVigorFile (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js:1:10074)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async evalProject (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js:1:3685)
+[2026-09-08T16:32:30.482] [ERROR] debug-file - AdaptorError: [31m00303313 Configuration Error
+[31mError Message: compileSdkVersion is incompatible with the current DevEco Studio version. configured version: 26, DevEco Studio version: 26.0.0.
+[31m
+* Try the following:
+  > The compileSdkVersion field in the HarmonyOS project does not need to be explicitly configured. The built-in SDK version of DevEco Studio will be used by default during compilation. Remove the compileSdkVersion field from build-profile.json5, or set it to the SDK version matching the current DevEco Studio. 
+  > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-errorcode-00303-1#section191211454141814
+[39m
+    at OhosLogger.printErrorExit (E:\DevEco Studio\tools\hvigor\hvigor\src\base\log\hvigor-log.js:1:6525)
+    at HmosSdkLoader.checkSdkVersionMatch (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\hmos-sdk-loader.js:1:2398)
+    at HmosSdkLoader.getHmosSdkComponents (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\hmos-sdk-loader.js:1:1836)
+    at HosSdkInfo.setup (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\sdk\info\hos-sdk-info.js:1:1537)
+    at ProjectTaskService.setup (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\tasks\service\project-task-service.js:1:2525)
+    at ProjectImpl.<anonymous> (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\app-plugin-builder.js:1:2458)
+    at ProjectImpl.executeAfterBindSystemPluginsHook (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\hvigor-node-impl\default-node-impl.js:1:5577)
+    at evaluateNodeVigorFile (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js:1:10074)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async evalProject (E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js:1:3685)
+[2026-09-08T16:32:30.486] [ERROR] debug-file - BUILD FAILED in 3 s 601 ms 
+[2026-09-08T16:32:30.504] [DEBUG] debug-file - Cleanup worker 0.
+[2026-09-08T16:32:30.505] [DEBUG] debug-file - Cleanup worker 1.
+[2026-09-08T16:32:30.517] [DEBUG] debug-file - session manager: send message to worker process. WorkerThreadId: 0, data: {"type":"hvigor_failed","reason":"Server has disconnected."}
+[2026-09-08T16:32:30.518] [DEBUG] debug-file - session manager: send message to worker process. WorkerThreadId: 0, data: {"type":"CloseWatch","reason":"Server has disconnected."}
+[2026-09-08T16:32:30.525] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-09-08T16:32:30.527] [DEBUG] debug-file - worker[0] exits with exit code 1.
+[2026-09-08T16:32:30.528] [DEBUG] debug-file - worker[1] exits with exit code 1.
+[2026-09-08T16:32:30.529] [DEBUG] debug-file - Worker 0 has been cleaned up.
+[2026-09-08T16:32:30.529] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-09-08T16:32:30.529] [DEBUG] debug-file - Current resident worker size: 0.
+[2026-09-08T16:32:30.530] [DEBUG] debug-file - Worker 1 has been cleaned up.
+[2026-09-08T16:32:30.530] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-09-08T16:32:30.530] [DEBUG] debug-file - Current resident worker size: 0.
+[2026-09-08T16:32:30.532] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-09-08T16:32:30.533] [DEBUG] debug-file - ABORT_WORK sent to workers.
+[2026-09-08T16:32:30.534] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-09-08T16:38:12.125] [DEBUG] debug-file - env: nodejsVersion=v22.17.1
+[2026-09-08T16:38:12.174] [DEBUG] debug-file - env: daemon=true
+[2026-09-08T16:38:12.127] [DEBUG] debug-file - env: hvigor-config.json5 content = {
+  modelVersion: '6.0.1',
+  dependencies: {},
+  execution: {},
+  logging: {},
+  debugging: {},
+  nodeOptions: {}
+}
+[2026-09-08T16:38:13.002] [DEBUG] debug-file - session manager: set active socket. socketId=jGh_22j4pKqwbf6gAAAD
+[2026-09-08T16:38:13.034] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-09-08T16:38:13.051] [DEBUG] debug-file - Workers' log level updated to INFO
+[2026-09-08T16:38:13.063] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-09-08T16:38:13.065] [DEBUG] debug-file - Since current hvigor version 6.26.4 differs from last hvigor version 
+      undefined, delete file-cache.json and task-cache.json.
+[2026-09-08T16:38:13.071] [DEBUG] debug-file - Cache service initialization finished in 7 ms 
+[2026-09-08T16:38:13.080] [DEBUG] debug-file - hvigorfile, resolving D:\HW\testproject\test3\hvigorfile.ts
+[2026-09-08T16:38:13.115] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-09-08T16:38:13.115] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-09-08T16:38:13.115] [DEBUG] debug-file - Starting plugin build process
+[2026-09-08T16:38:13.116] [DEBUG] debug-file - App plugin prepare start...
+[2026-09-08T16:38:13.116] [DEBUG] debug-file - App plugin prepare end...
+[2026-09-08T16:38:13.116] [DEBUG] debug-file - App plugin creating...
+[2026-09-08T16:38:13.176] [DEBUG] debug-file - App plugin register hook start...
+[2026-09-08T16:38:13.178] [DEBUG] debug-file - App plugin register hook end...
+[2026-09-08T16:38:13.178] [DEBUG] debug-file - Plugin build process completed
+[2026-09-08T16:38:13.179] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2026-09-08T16:38:13.179] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2026-09-08T16:38:13.186] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-09-08T16:38:13.188] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2026-09-08T16:38:13.195] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-09-08T16:38:13.235] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2026-09-08T16:38:13.241] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2026-09-08T16:38:13.256] [DEBUG] debug-file - Local scan or download hmscore sdk components toolchains,ets,native
+[2026-09-08T16:38:13.263] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2026-09-08T16:38:13.350] [DEBUG] debug-file - Sdk init in 110 ms 
+[2026-09-08T16:38:13.373] [DEBUG] debug-file - Project task initialization takes 20 ms 
+[2026-09-08T16:38:13.374] [DEBUG] debug-file - hvigorfile, begin to bind custom plugins...
+[2026-09-08T16:38:13.375] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\HW\testproject\test3\hvigorfile.ts
+[2026-09-08T16:38:13.375] [DEBUG] debug-file - hvigorfile, resolve finished D:\HW\testproject\test3\hvigorfile.ts
+[2026-09-08T16:38:13.380] [DEBUG] debug-file - hvigorfile, resolving D:\HW\testproject\test3\entry\hvigorfile.ts
+[2026-09-08T16:38:13.398] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-09-08T16:38:13.398] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-09-08T16:38:13.401] [DEBUG] debug-file - Starting plugin build process
+[2026-09-08T16:38:13.401] [DEBUG] debug-file - Hap plugin creating...
+[2026-09-08T16:38:13.407] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\hooks\cangjie-register.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\strategy\stage-init-strategy.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\abstract-plugin-builder.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\app-plugin-builder.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\factory\plugin-factory.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\index.js
+- D:\HW\testproject\test3\hvigorfile.ts
+- E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js
+- E:\DevEco Studio\tools\hvigor\hvigor\src\base\boot\index.js
+- E:\DevEco Studio\tools\hvigor\hvigor\src\base\daemon\cluster\worker-process-lifecycle.js
+- E:\DevEco Studio\tools\hvigor\hvigor\src\base\daemon\process\daemon-process-boot-script.js
+[2026-09-08T16:38:13.445] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-09-08T16:38:13.448] [DEBUG] debug-file - Target 'default' config initialized
+[2026-09-08T16:38:13.451] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-09-08T16:38:13.451] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-09-08T16:38:13.451] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-09-08T16:38:13.452] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-09-08T16:38:13.452] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2026-09-08T16:38:13.452] [DEBUG] debug-file - Target 'default' config initialized
+[2026-09-08T16:38:13.453] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-09-08T16:38:13.454] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-09-08T16:38:13.454] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-09-08T16:38:13.454] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-09-08T16:38:13.455] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-09-08T16:38:13.455] [DEBUG] debug-file - Target 'default' config initialized
+[2026-09-08T16:38:13.456] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-09-08T16:38:13.457] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-09-08T16:38:13.457] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-09-08T16:38:13.457] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-09-08T16:38:13.458] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2026-09-08T16:38:13.459] [DEBUG] debug-file - hvigor build process will be closed with an error.
+[2026-09-08T16:38:13.472] [DEBUG] debug-file - ERROR: stacktrace = Error: api version parameter is illegal! Expected format: <major>[.<minor>][.<patch>], e.g., "17", "17.2", "17.2.3"
+    at new ApiVersion (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\node_modules\@ohos\sdkmanager-common\build\src\core\loader\abstract-component-dto.js:99:19)
+    at ValidateUtil.integrationVersionCheck (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\utils\validate\validate-util.js:1:4649)
+    at new TargetTaskService (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\tasks\service\target-task-service.js:1:2990)
+    at HapPlugin.initTargetDepends (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\common\abstract-module-plugin.js:1:3079)
+    at StageInitializationStrategy.setUpModulePlugin (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\strategy\stage-init-strategy.js:1:3068)
+    at StageInitializationStrategy.createHapPlugin (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\strategy\stage-init-strategy.js:1:1229)
+    at HapPluginBuilder.createPlugin (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\hap-plugin-builder.js:1:622)
+    at HapPluginBuilder.build (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\abstract-plugin-builder.js:1:756)
+    at PluginFactory.getHapPlugin (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\factory\plugin-factory.js:1:574)
+    at hapTasks (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\index.js:1:443)
+[2026-09-08T16:38:13.473] [ERROR] debug-file - Error: api version parameter is illegal! Expected format: <major>[.<minor>][.<patch>], e.g., "17", "17.2", "17.2.3"
+    at new ApiVersion (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\node_modules\@ohos\sdkmanager-common\build\src\core\loader\abstract-component-dto.js:99:19)
+    at ValidateUtil.integrationVersionCheck (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\utils\validate\validate-util.js:1:4649)
+    at new TargetTaskService (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\tasks\service\target-task-service.js:1:2990)
+    at HapPlugin.initTargetDepends (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\common\abstract-module-plugin.js:1:3079)
+    at StageInitializationStrategy.setUpModulePlugin (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\strategy\stage-init-strategy.js:1:3068)
+    at StageInitializationStrategy.createHapPlugin (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\strategy\stage-init-strategy.js:1:1229)
+    at HapPluginBuilder.createPlugin (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\hap-plugin-builder.js:1:622)
+    at HapPluginBuilder.build (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\abstract-plugin-builder.js:1:756)
+    at PluginFactory.getHapPlugin (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\factory\plugin-factory.js:1:574)
+    at hapTasks (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\index.js:1:443)
+[2026-09-08T16:38:13.475] [ERROR] debug-file - BUILD FAILED in 421 ms 
+[2026-09-08T16:38:13.493] [DEBUG] debug-file - There's no busy workers and idle workers need cleanup.
+[2026-09-08T16:38:13.496] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-09-08T16:38:13.523] [DEBUG] debug-file - session manager: send message to worker process. WorkerThreadId: 0, data: {"type":"hvigor_failed","reason":"Server has disconnected."}
+[2026-09-08T16:38:13.526] [DEBUG] debug-file - session manager: send message to worker process. WorkerThreadId: 0, data: {"type":"CloseWatch","reason":"Server has disconnected."}
+[2026-09-08T16:38:13.524] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-09-08T16:38:13.525] [DEBUG] debug-file - ABORT_WORK sent to workers.
+[2026-09-08T16:38:13.527] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-09-08T16:39:50.630] [DEBUG] debug-file - env: nodejsVersion=v22.17.1
+[2026-09-08T16:39:51.329] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: true,
+  daemon: false,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-09-08T16:39:54.834] [DEBUG] debug-file - Starting plugin build process
+[2026-09-08T16:39:54.832] [DEBUG] debug-file - hvigorfile, require result:  { default: { system: [Function: appTasks], plugins: [] } }
+[2026-09-08T16:39:55.097] [DEBUG] debug-file - App plugin register hook start...
+[2026-09-08T16:39:55.106] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-09-08T16:39:55.125] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2026-09-08T16:39:55.197] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\hooks\cangjie-register.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\strategy\stage-init-strategy.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\abstract-plugin-builder.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\app-plugin-builder.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\factory\plugin-factory.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\index.js
+- D:\HW\testproject\test3\hvigorfile.ts
+- E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js
+- E:\DevEco Studio\tools\hvigor\hvigor\src\base\boot\index.js
+- E:\DevEco Studio\tools\hvigor\hvigor\src\cli\main\cli.js
+- E:\DevEco Studio\tools\hvigor\hvigor\bin\hvigor.js
+[2026-09-08T16:39:55.217] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-09-08T16:39:50.632] [DEBUG] debug-file - env: hvigor-config.json5 content = {
+  modelVersion: '6.0.1',
+  dependencies: {},
+  execution: {},
+  logging: {},
+  debugging: {},
+  nodeOptions: {}
+}
+[2026-09-08T16:39:55.183] [DEBUG] debug-file - Project task initialization takes 11 ms 
+[2026-09-08T16:39:55.474] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2026-09-08T16:39:51.331] [DEBUG] debug-file - Cache service initialization finished in 2 ms 
+[2026-09-08T16:39:54.834] [DEBUG] debug-file - App plugin prepare start...
+[2026-09-08T16:39:54.832] [DEBUG] debug-file - hvigorfile, binding system plugins [Function: appTasks]
+[2026-09-08T16:39:55.098] [DEBUG] debug-file - App plugin register hook end...
+[2026-09-08T16:39:55.114] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2026-09-08T16:39:55.170] [DEBUG] debug-file - Sdk init in 55 ms 
+[2026-09-08T16:39:55.217] [DEBUG] debug-file - Target 'default' config initialized
+[2026-09-08T16:39:50.635] [DEBUG] debug-file - env: daemon=false
+[2026-09-08T16:39:55.184] [DEBUG] debug-file - hvigorfile, begin to bind custom plugins...
+[2026-09-08T16:39:55.482] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2026-09-08T16:39:51.332] [DEBUG] debug-file - hvigorfile, resolving D:\HW\testproject\test3\hvigorfile.ts
+[2026-09-08T16:39:54.834] [DEBUG] debug-file - App plugin prepare end...
+[2026-09-08T16:39:55.098] [DEBUG] debug-file - Plugin build process completed
+[2026-09-08T16:39:55.117] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2026-09-08T16:39:55.218] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-09-08T16:39:50.635] [DEBUG] debug-file - no-daemon, use the parent process.execArgv --max-old-space-size=8192,--max-semi-space-size=16,--expose-gc,--enable-source-maps
+[2026-09-08T16:39:55.184] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\HW\testproject\test3\hvigorfile.ts
+[2026-09-08T16:39:55.492] [DEBUG] debug-file - Current worker pool is stopped or closed.
+[2026-09-08T16:39:54.834] [DEBUG] debug-file - App plugin creating...
+[2026-09-08T16:39:55.100] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2026-09-08T16:39:55.121] [DEBUG] debug-file - Local scan or download hmscore sdk components toolchains,ets,native
+[2026-09-08T16:39:55.218] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-09-08T16:39:55.184] [DEBUG] debug-file - hvigorfile, resolve finished D:\HW\testproject\test3\hvigorfile.ts
+[2026-09-08T16:39:55.494] [DEBUG] debug-file - Clear worker 0.
+[2026-09-08T16:39:55.100] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2026-09-08T16:39:55.218] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-09-08T16:39:55.185] [DEBUG] debug-file - hvigorfile, resolving D:\HW\testproject\test3\entry\hvigorfile.ts
+[2026-09-08T16:39:55.495] [DEBUG] debug-file - Clear worker 1.
+[2026-09-08T16:39:55.101] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-09-08T16:39:55.218] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-09-08T16:39:55.193] [DEBUG] debug-file - hvigorfile, require result:  { default: { system: [Function: hapTasks], plugins: [] } }
+[2026-09-08T16:39:55.498] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-09-08T16:39:55.101] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2026-09-08T16:39:55.218] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2026-09-08T16:39:55.521] [DEBUG] debug-file - worker[0] exits with exit code 0.
+[2026-09-08T16:39:55.194] [DEBUG] debug-file - hvigorfile, binding system plugins [Function: hapTasks]
+[2026-09-08T16:39:55.218] [DEBUG] debug-file - Target 'default' config initialized
+[2026-09-08T16:39:55.523] [DEBUG] debug-file - Worker 0 has been cleared.
+[2026-09-08T16:39:55.218] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-09-08T16:39:55.194] [DEBUG] debug-file - Starting plugin build process
+[2026-09-08T16:39:55.523] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-09-08T16:39:55.219] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-09-08T16:39:55.194] [DEBUG] debug-file - Hap plugin creating...
+[2026-09-08T16:39:55.524] [DEBUG] debug-file - Current busy worker size: 0.
+[2026-09-08T16:39:55.219] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-09-08T16:39:55.526] [DEBUG] debug-file - worker[1] exits with exit code 0.
+[2026-09-08T16:39:55.219] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-09-08T16:39:55.526] [DEBUG] debug-file - Worker 1 has been cleared.
+[2026-09-08T16:39:55.219] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-09-08T16:39:55.526] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-09-08T16:39:55.219] [DEBUG] debug-file - Target 'default' config initialized
+[2026-09-08T16:39:55.526] [DEBUG] debug-file - Current busy worker size: 0.
+[2026-09-08T16:39:55.219] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-09-08T16:39:55.530] [DEBUG] debug-file - Current worker pool is terminated.
+[2026-09-08T16:39:55.219] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-09-08T16:39:55.530] [DEBUG] debug-file - Current worker pool is terminated.
+[2026-09-08T16:39:55.219] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-09-08T16:39:55.219] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-09-08T16:39:55.219] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2026-09-08T16:39:55.220] [DEBUG] debug-file - hvigor build process will be closed with an error.
+[2026-09-08T16:39:55.426] [ERROR] debug-file - Error: api version parameter is illegal! Expected format: <major>[.<minor>][.<patch>], e.g., "17", "17.2", "17.2.3"
+    at new ApiVersion (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\node_modules\@ohos\sdkmanager-common\build\src\core\loader\abstract-component-dto.js:99:19)
+    at ValidateUtil.integrationVersionCheck (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\utils\validate\validate-util.js:1:4649)
+    at new TargetTaskService (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\tasks\service\target-task-service.js:1:2990)
+    at HapPlugin.initTargetDepends (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\common\abstract-module-plugin.js:1:3079)
+    at StageInitializationStrategy.setUpModulePlugin (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\strategy\stage-init-strategy.js:1:3068)
+    at StageInitializationStrategy.createHapPlugin (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\strategy\stage-init-strategy.js:1:1229)
+    at HapPluginBuilder.createPlugin (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\hap-plugin-builder.js:1:622)
+    at HapPluginBuilder.build (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\abstract-plugin-builder.js:1:756)
+    at PluginFactory.getHapPlugin (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\factory\plugin-factory.js:1:574)
+    at hapTasks (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\index.js:1:443)
+[2026-09-08T16:39:55.430] [ERROR] debug-file - BUILD FAILED in 4 s 109 ms 
+[2026-09-08T16:39:55.466] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2026-09-08T16:39:55.466] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2026-09-08T16:42:46.661] [DEBUG] debug-file - env: nodejsVersion=v22.17.1
+[2026-09-08T16:42:47.295] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: false,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-09-08T16:42:53.512] [DEBUG] debug-file - hvigorfile, require result:  { default: { system: [Function: appTasks], plugins: [] } }
+[2026-09-08T16:42:53.518] [DEBUG] debug-file - Starting plugin build process
+[2026-09-08T16:42:54.611] [DEBUG] debug-file - hvigor build process will be closed with an error.
+[2026-09-08T16:42:46.662] [DEBUG] debug-file - env: hvigor-config.json5 content = {
+  modelVersion: '26.0.0',
+  dependencies: {},
+  execution: {},
+  logging: {},
+  debugging: {},
+  nodeOptions: {}
+}
+[2026-09-08T16:42:54.661] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2026-09-08T16:42:47.297] [DEBUG] debug-file - Cache service initialization finished in 2 ms 
+[2026-09-08T16:42:53.513] [DEBUG] debug-file - hvigorfile, binding system plugins [Function: appTasks]
+[2026-09-08T16:42:53.519] [DEBUG] debug-file - App plugin prepare start...
+[2026-09-08T16:42:54.619] [ERROR] debug-file - [31m00303027 Configuration Error
+[31mError Message: The modelVersion in hvigor-config.json5 is 26.0.0, and the modelVersion in oh-package.json5 is 6.0.1, at file: D:\HW\testproject\test3\oh-package.json5
+[31m
+* Try the following:
+  > They need to be consistent. Go to Tools > Migrate Assistant use the migration tool to update the project structure and configuration with Deveco Studio, or refer to the guide to manually update the project structure and configuration. Verify that the value of modelVersion in the hvigor-config.json5 file is the same as that in the oh-package.json5 file.
+  > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-set-options#section1646051642919、https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-oh-package-json5
+[39m
+
+[31m* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+
+[2026-09-08T16:42:46.667] [DEBUG] debug-file - env: daemon=false
+[2026-09-08T16:42:54.677] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2026-09-08T16:42:47.299] [DEBUG] debug-file - hvigorfile, resolving D:\HW\testproject\test3\hvigorfile.ts
+[2026-09-08T16:42:53.519] [DEBUG] debug-file - App plugin prepare end...
+[2026-09-08T16:42:54.619] [DEBUG] debug-file - ERROR: stacktrace = AdaptorError: [31m00303027 Configuration Error
+[31mError Message: The modelVersion in hvigor-config.json5 is 26.0.0, and the modelVersion in oh-package.json5 is 6.0.1, at file: D:\HW\testproject\test3\oh-package.json5
+[31m
+* Try the following:
+  > They need to be consistent. Go to Tools > Migrate Assistant use the migration tool to update the project structure and configuration with Deveco Studio, or refer to the guide to manually update the project structure and configuration. Verify that the value of modelVersion in the hvigor-config.json5 file is the same as that in the oh-package.json5 file.
+  > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-set-options#section1646051642919、https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-oh-package-json5
+[39m
+    at OhosLogger.printErrorExit (E:\DevEco Studio\tools\hvigor\hvigor\src\base\log\hvigor-log.js:1:6525)
+    at ValidateUtil.modelVersionCheck (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\utils\validate\validate-util.js:1:3675)
+    at ProjectModelImpl.projectStatusCheck (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\model\project\core-project-model-impl.js:1:6062)
+    at new CoreProjectModelImpl (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\model\project\core-project-model-impl.js:1:2893)
+    at new ProjectModelImpl (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\model\project\project-model-impl.js:1:596)
+    at new AppPlugin (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\app-plugin.js:1:514)
+    at StageInitializationStrategy.createAppPlugin (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\strategy\stage-init-strategy.js:1:949)
+    at AppPluginBuilder.createPlugin (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\app-plugin-builder.js:1:1672)
+    at AppPluginBuilder.build (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\abstract-plugin-builder.js:1:756)
+    at PluginFactory.getAppPlugin (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\factory\plugin-factory.js:1:481)
+[2026-09-08T16:42:46.667] [DEBUG] debug-file - no-daemon, use the parent process.execArgv --max-old-space-size=8192,--max-semi-space-size=16,--expose-gc
+[2026-09-08T16:42:54.687] [DEBUG] debug-file - Current worker pool is stopped or closed.
+[2026-09-08T16:42:53.520] [DEBUG] debug-file - App plugin creating...
+[2026-09-08T16:42:54.620] [ERROR] debug-file - AdaptorError: [31m00303027 Configuration Error
+[31mError Message: The modelVersion in hvigor-config.json5 is 26.0.0, and the modelVersion in oh-package.json5 is 6.0.1, at file: D:\HW\testproject\test3\oh-package.json5
+[31m
+* Try the following:
+  > They need to be consistent. Go to Tools > Migrate Assistant use the migration tool to update the project structure and configuration with Deveco Studio, or refer to the guide to manually update the project structure and configuration. Verify that the value of modelVersion in the hvigor-config.json5 file is the same as that in the oh-package.json5 file.
+  > More info: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-set-options#section1646051642919、https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-oh-package-json5
+[39m
+    at OhosLogger.printErrorExit (E:\DevEco Studio\tools\hvigor\hvigor\src\base\log\hvigor-log.js:1:6525)
+    at ValidateUtil.modelVersionCheck (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\utils\validate\validate-util.js:1:3675)
+    at ProjectModelImpl.projectStatusCheck (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\model\project\core-project-model-impl.js:1:6062)
+    at new CoreProjectModelImpl (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\model\project\core-project-model-impl.js:1:2893)
+    at new ProjectModelImpl (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\model\project\project-model-impl.js:1:596)
+    at new AppPlugin (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\app-plugin.js:1:514)
+    at StageInitializationStrategy.createAppPlugin (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\strategy\stage-init-strategy.js:1:949)
+    at AppPluginBuilder.createPlugin (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\app-plugin-builder.js:1:1672)
+    at AppPluginBuilder.build (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\abstract-plugin-builder.js:1:756)
+    at PluginFactory.getAppPlugin (E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\factory\plugin-factory.js:1:481)
+[2026-09-08T16:42:54.689] [DEBUG] debug-file - Clear worker 0.
+[2026-09-08T16:42:54.626] [ERROR] debug-file - BUILD FAILED in 7 s 338 ms 
+[2026-09-08T16:42:54.690] [DEBUG] debug-file - Clear worker 1.
+[2026-09-08T16:42:54.652] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2026-09-08T16:42:54.740] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-09-08T16:42:54.652] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2026-09-08T16:42:54.754] [DEBUG] debug-file - worker[0] exits with exit code 0.
+[2026-09-08T16:42:54.755] [DEBUG] debug-file - worker[1] exits with exit code 0.
+[2026-09-08T16:42:54.756] [DEBUG] debug-file - Worker 0 has been cleared.
+[2026-09-08T16:42:54.756] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-09-08T16:42:54.756] [DEBUG] debug-file - Current busy worker size: 0.
+[2026-09-08T16:42:54.756] [DEBUG] debug-file - Worker 1 has been cleared.
+[2026-09-08T16:42:54.756] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-09-08T16:42:54.756] [DEBUG] debug-file - Current busy worker size: 0.
+[2026-09-08T16:42:54.875] [DEBUG] debug-file - Current worker pool is terminated.
+[2026-09-08T16:42:54.875] [DEBUG] debug-file - Current worker pool is terminated.
+[2026-09-08T16:43:16.411] [DEBUG] debug-file - env: nodejsVersion=v22.17.1
+[2026-09-08T16:43:17.070] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: false,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-09-08T16:43:20.188] [DEBUG] debug-file - Starting plugin build process
+[2026-09-08T16:43:20.183] [DEBUG] debug-file - hvigorfile, require result:  { default: { system: [Function: appTasks], plugins: [] } }
+[2026-09-08T16:43:20.418] [DEBUG] debug-file - App plugin register hook start...
+[2026-09-08T16:43:20.425] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-09-08T16:43:20.443] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2026-09-08T16:43:20.507] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\hooks\cangjie-register.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\strategy\stage-init-strategy.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\abstract-plugin-builder.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\app-plugin-builder.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\factory\plugin-factory.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\index.js
+- D:\HW\testproject\test3\hvigorfile.ts
+- E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js
+- E:\DevEco Studio\tools\hvigor\hvigor\src\base\boot\index.js
+- E:\DevEco Studio\tools\hvigor\hvigor\src\cli\main\cli.js
+- E:\DevEco Studio\tools\hvigor\hvigor\bin\hvigor.js
+[2026-09-08T16:43:20.496] [DEBUG] debug-file - Project task initialization takes 9 ms 
+[2026-09-08T16:43:20.523] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-09-08T16:43:20.533] [DEBUG] debug-file - project has submodules:entry
+[2026-09-08T16:43:20.559] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-09-08T16:43:20.535] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2026-09-08T16:43:20.584] [DEBUG] debug-file - Executing task :entry:default@PreBuild
+[2026-09-08T16:43:20.773] [DEBUG] debug-file - Executing task :entry:default@GenerateMetadata
+[2026-09-08T16:43:20.796] [DEBUG] debug-file - Executing task :entry:default@PreCheckSyscap
+[2026-09-08T16:43:20.790] [DEBUG] debug-file - Executing task :entry:default@CreateBuildProfile
+[2026-09-08T16:43:20.800] [DEBUG] debug-file - Executing task :entry:default@GeneratePkgContextInfo
+[2026-09-08T16:43:20.814] [DEBUG] debug-file - Executing task :entry:default@ProcessIntegratedHsp
+[2026-09-08T16:43:20.818] [DEBUG] debug-file - Executing task :entry:default@BuildNativeWithCmake
+[2026-09-08T16:43:20.819] [DEBUG] debug-file - Executing task :entry:default@MakePackInfo
+[2026-09-08T16:43:20.826] [DEBUG] debug-file - Executing task :entry:default@SyscapTransform
+[2026-09-08T16:43:20.831] [DEBUG] debug-file - Executing task :entry:default@ProcessProfile
+[2026-09-08T16:43:21.065] [DEBUG] debug-file - 24.0.0.0
+[2026-09-08T16:43:21.080] [DEBUG] debug-file - Executing task :entry:default@ProcessRouterMap
+[2026-09-08T16:43:21.102] [DEBUG] debug-file - Executing task :entry:default@ProcessStartupConfig
+[2026-09-08T16:43:21.105] [DEBUG] debug-file - Executing task :entry:default@BuildNativeWithNinja
+[2026-09-08T16:43:21.096] [DEBUG] debug-file - Executing task :entry:default@ProcessShareConfig
+[2026-09-08T16:43:21.123] [DEBUG] debug-file - Executing task :entry:default@GenerateLoaderJson
+[2026-09-08T16:43:21.114] [DEBUG] debug-file - Executing task :entry:default@ProcessResource
+[2026-09-08T16:43:16.412] [DEBUG] debug-file - env: hvigor-config.json5 content = {
+  modelVersion: '26.0.0',
+  dependencies: {},
+  execution: {},
+  logging: {},
+  debugging: {},
+  nodeOptions: {}
+}
+[2026-09-08T16:43:21.139] [DEBUG] debug-file - Executing task :entry:default@ProcessLibs
+[2026-09-08T16:43:21.150] [DEBUG] debug-file - Executing task :entry:default@CompileResource
+[2026-09-08T16:43:21.182] [DEBUG] debug-file - current process  memoryUsage: {
+  rss: 228745216,
+  heapTotal: 176484352,
+  heapUsed: 142522192,
+  external: 3695830,
+  arrayBuffers: 104100
+} os memoryUsage :14.851432800292969
+[2026-09-08T16:43:17.075] [DEBUG] debug-file - Cache service initialization finished in 4 ms 
+[2026-09-08T16:43:20.184] [DEBUG] debug-file - hvigorfile, binding system plugins [Function: appTasks]
+[2026-09-08T16:43:20.418] [DEBUG] debug-file - App plugin register hook end...
+[2026-09-08T16:43:20.435] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2026-09-08T16:43:20.188] [DEBUG] debug-file - App plugin prepare start...
+[2026-09-08T16:43:20.486] [DEBUG] debug-file - Sdk init in 50 ms 
+[2026-09-08T16:43:20.496] [DEBUG] debug-file - hvigorfile, begin to bind custom plugins...
+[2026-09-08T16:43:20.523] [DEBUG] debug-file - Target 'default' config initialized
+[2026-09-08T16:43:20.562] [DEBUG] debug-file - Module entry Collected Dependency: 
+[2026-09-08T16:43:20.538] [DEBUG] debug-file - load to the disk finished
+[2026-09-08T16:43:20.589] [DEBUG] debug-file - Task 'entry:default@PreBuild' cost while wrapping incremental declarations: 1 ms 
+[2026-09-08T16:43:20.796] [DEBUG] debug-file - entry : default@PreCheckSyscap cost memory 0.02008056640625
+[2026-09-08T16:43:20.790] [DEBUG] debug-file - Task 'entry:default@CreateBuildProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-09-08T16:43:20.774] [DEBUG] debug-file - Task 'entry:default@GenerateMetadata' cost while wrapping incremental declarations: 1 ms 
+[2026-09-08T16:43:20.805] [DEBUG] debug-file - Task 'entry:default@GeneratePkgContextInfo' cost while wrapping incremental declarations: 1 ms 
+[2026-09-08T16:43:20.815] [DEBUG] debug-file - entry : default@ProcessIntegratedHsp cost memory 0.0445098876953125
+[2026-09-08T16:43:20.818] [DEBUG] debug-file - entry : default@BuildNativeWithCmake cost memory 0.01853179931640625
+[2026-09-08T16:43:20.822] [DEBUG] debug-file - Module Pack Info:  {
+  summary: {
+    app: { bundleName: 'c***p', bundleType: 'app', version: [Object] },
+    modules: [ [Object] ]
+  },
+  packages: [
+    {
+      deviceType: [Array],
+      moduleType: 'entry',
+      deliveryWithInstall: true,
+      name: 'entry-default'
+    }
+  ]
+}
+[2026-09-08T16:43:20.838] [DEBUG] debug-file - Task 'entry:default@ProcessProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-09-08T16:43:20.826] [DEBUG] debug-file - File: 'D:\HW\testproject\test3\entry\src\main\syscap.json' from 'sysCapJsonPath' is not exists, just ignore.
+[2026-09-08T16:43:21.070] [DEBUG] debug-file - No need to add fake ui ability because of not in preview process.
+[2026-09-08T16:43:21.090] [DEBUG] debug-file - entry : default@ProcessRouterMap cost memory 0.08338165283203125
+[2026-09-08T16:43:21.102] [DEBUG] debug-file - Task 'entry:default@ProcessStartupConfig' cost while wrapping incremental declarations: 1 ms 
+[2026-09-08T16:43:21.107] [DEBUG] debug-file - entry : default@BuildNativeWithNinja cost memory 0.02496337890625
+[2026-09-08T16:43:21.099] [DEBUG] debug-file - entry : default@ProcessShareConfig cost memory 0.07845306396484375
+[2026-09-08T16:43:21.126] [DEBUG] debug-file - Task 'entry:default@GenerateLoaderJson' cost while wrapping incremental declarations: 1 ms 
+[2026-09-08T16:43:21.114] [DEBUG] debug-file - Task 'entry:default@ProcessResource' cost while wrapping incremental declarations: 1 ms 
+[2026-09-08T16:43:16.415] [DEBUG] debug-file - env: daemon=false
+[2026-09-08T16:43:21.140] [DEBUG] debug-file - Task 'entry:default@ProcessLibs' cost while wrapping incremental declarations: 1 ms 
+[2026-09-08T16:43:21.171] [DEBUG] debug-file - Use tool [E:\DevEco Studio\sdk\default\openharmony\toolchains\restool.exe]
+ [
+  'E:\\DevEco Studio\\sdk\\default\\openharmony\\toolchains\\restool.exe',
+  '-l',
+  'D:\\HW\\testproject\\test3\\entry\\build\\default\\intermediates\\res\\default\\resConfig.json'
+]
+[2026-09-08T16:43:17.079] [DEBUG] debug-file - hvigorfile, resolving D:\HW\testproject\test3\hvigorfile.ts
+[2026-09-08T16:43:20.419] [DEBUG] debug-file - Plugin build process completed
+[2026-09-08T16:43:20.437] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2026-09-08T16:43:20.188] [DEBUG] debug-file - App plugin prepare end...
+[2026-09-08T16:43:20.496] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\HW\testproject\test3\hvigorfile.ts
+[2026-09-08T16:43:20.562] [DEBUG] debug-file - Module entry's total dependency: 0
+[2026-09-08T16:43:20.524] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-09-08T16:43:20.796] [DEBUG] debug-file - runTaskFromQueue task cost before running: 3 s 751 ms 
+[2026-09-08T16:43:20.793] [DEBUG] debug-file - entry : default@CreateBuildProfile cost memory 0.07683563232421875
+[2026-09-08T16:43:20.778] [DEBUG] debug-file - entry : default@GenerateMetadata cost memory 0.09575653076171875
+[2026-09-08T16:43:20.806] [DEBUG] debug-file - entry : default@GeneratePkgContextInfo cost memory 0.27630615234375
+[2026-09-08T16:43:20.815] [DEBUG] debug-file - runTaskFromQueue task cost before running: 3 s 770 ms 
+[2026-09-08T16:43:20.818] [DEBUG] debug-file - runTaskFromQueue task cost before running: 3 s 772 ms 
+[2026-09-08T16:43:20.761] [DEBUG] debug-file - current product is not Atomic service.
+[2026-09-08T16:43:20.840] [DEBUG] debug-file - [
+  'E:\\nodejs\\node.exe',
+  'E:\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\bin\\ark\\ts2abc.js',
+  '--target-api-version',
+  '26'
+]
+[2026-09-08T16:43:20.824] [DEBUG] debug-file - entry : default@MakePackInfo cost memory 0.14669036865234375
+[2026-09-08T16:43:20.827] [DEBUG] debug-file - Task 'entry:default@SyscapTransform' cost while wrapping incremental declarations: 1 ms 
+[2026-09-08T16:43:21.073] [DEBUG] debug-file - entry : default@ProcessProfile cost memory 4.307647705078125
+[2026-09-08T16:43:21.090] [DEBUG] debug-file - runTaskFromQueue task cost before running: 4 s 45 ms 
+[2026-09-08T16:43:21.103] [DEBUG] debug-file - entry : default@ProcessStartupConfig cost memory 0.09500885009765625
+[2026-09-08T16:43:21.100] [DEBUG] debug-file - runTaskFromQueue task cost before running: 4 s 54 ms 
+[2026-09-08T16:43:21.107] [DEBUG] debug-file - runTaskFromQueue task cost before running: 4 s 62 ms 
+[2026-09-08T16:43:21.135] [DEBUG] debug-file - entry : default@GenerateLoaderJson cost memory 0.3490447998046875
+[2026-09-08T16:43:16.415] [DEBUG] debug-file - no-daemon, use the parent process.execArgv --max-old-space-size=8192,--max-semi-space-size=16,--expose-gc
+[2026-09-08T16:43:21.145] [DEBUG] debug-file - Worker dispatch failed, running processLibs on main thread.
+[2026-09-08T16:43:21.117] [DEBUG] debug-file - entry : default@ProcessResource cost memory 0.10675811767578125
+[2026-09-08T16:43:20.420] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2026-09-08T16:43:20.439] [DEBUG] debug-file - Local scan or download hmscore sdk components toolchains,ets,native
+[2026-09-08T16:43:20.188] [DEBUG] debug-file - App plugin creating...
+[2026-09-08T16:43:20.539] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-09-08T16:43:20.497] [DEBUG] debug-file - hvigorfile, resolve finished D:\HW\testproject\test3\hvigorfile.ts
+[2026-09-08T16:43:20.569] [DEBUG] debug-file - Configuration phase cost:3 s 494 ms 
+[2026-09-08T16:43:20.793] [DEBUG] debug-file - runTaskFromQueue task cost before running: 3 s 748 ms 
+[2026-09-08T16:43:20.797] [INFO] debug-file - Finished :entry:default@PreCheckSyscap... after 1 ms 
+[2026-09-08T16:43:20.524] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-09-08T16:43:20.806] [DEBUG] debug-file - runTaskFromQueue task cost before running: 3 s 761 ms 
+[2026-09-08T16:43:20.816] [INFO] debug-file - Finished :entry:default@ProcessIntegratedHsp... after 2 ms 
+[2026-09-08T16:43:20.778] [DEBUG] debug-file - runTaskFromQueue task cost before running: 3 s 733 ms 
+[2026-09-08T16:43:20.818] [INFO] debug-file - Finished :entry:default@BuildNativeWithCmake... after 1 ms 
+[2026-09-08T16:43:20.762] [DEBUG] debug-file - Use tool [win32: JAVA_HOME, CLASSPATH]
+ [ { JAVA_HOME: 'E:\\Java\\jdk-21.0.11' }, { CLASSPATH: undefined } ]
+[2026-09-08T16:43:20.824] [DEBUG] debug-file - runTaskFromQueue task cost before running: 3 s 778 ms 
+[2026-09-08T16:43:20.828] [DEBUG] debug-file - entry : default@SyscapTransform cost memory 0.0597076416015625
+[2026-09-08T16:43:21.073] [DEBUG] debug-file - runTaskFromQueue task cost before running: 4 s 28 ms 
+[2026-09-08T16:43:21.091] [INFO] debug-file - Finished :entry:default@ProcessRouterMap... after 11 ms 
+[2026-09-08T16:43:21.107] [INFO] debug-file - Finished :entry:default@BuildNativeWithNinja... after 3 ms 
+[2026-09-08T16:43:21.135] [DEBUG] debug-file - runTaskFromQueue task cost before running: 4 s 89 ms 
+[2026-09-08T16:43:21.100] [INFO] debug-file - Finished :entry:default@ProcessShareConfig... after 4 ms 
+[2026-09-08T16:43:21.147] [DEBUG] debug-file - entry : default@ProcessLibs cost memory 0.38222503662109375
+[2026-09-08T16:43:21.103] [DEBUG] debug-file - runTaskFromQueue task cost before running: 4 s 58 ms 
+[2026-09-08T16:43:21.118] [DEBUG] debug-file - runTaskFromQueue task cost before running: 4 s 73 ms 
+[2026-09-08T16:43:20.420] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2026-09-08T16:43:20.555] [DEBUG] debug-file - Module test3 Collected Dependency: 
+[2026-09-08T16:43:20.572] [DEBUG] debug-file - Configuration task cost before running: 3 s 527 ms 
+[2026-09-08T16:43:20.497] [DEBUG] debug-file - hvigorfile, resolving D:\HW\testproject\test3\entry\hvigorfile.ts
+[2026-09-08T16:43:20.793] [INFO] debug-file - Finished :entry:default@CreateBuildProfile... after 4 ms 
+[2026-09-08T16:43:20.524] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-09-08T16:43:20.806] [INFO] debug-file - Finished :entry:default@GeneratePkgContextInfo... after 7 ms 
+[2026-09-08T16:43:20.778] [INFO] debug-file - Finished :entry:default@GenerateMetadata... after 5 ms 
+[2026-09-08T16:43:20.762] [DEBUG] debug-file - Use tool [win32: NODE_HOME]
+ [ { NODE_HOME: undefined } ]
+[2026-09-08T16:43:20.825] [INFO] debug-file - Finished :entry:default@MakePackInfo... after 5 ms 
+[2026-09-08T16:43:20.828] [DEBUG] debug-file - runTaskFromQueue task cost before running: 3 s 782 ms 
+[2026-09-08T16:43:21.074] [INFO] debug-file - Finished :entry:default@ProcessProfile... after 243 ms 
+[2026-09-08T16:43:21.110] [DEBUG] debug-file - restool module names: entry; moduleName=entry, taskName=default@ProcessResource
+[2026-09-08T16:43:21.137] [INFO] debug-file - Finished :entry:default@GenerateLoaderJson... after 13 ms 
+[2026-09-08T16:43:21.147] [DEBUG] debug-file - runTaskFromQueue task cost before running: 4 s 102 ms 
+[2026-09-08T16:43:21.103] [INFO] debug-file - Finished :entry:default@ProcessStartupConfig... after 2 ms 
+[2026-09-08T16:43:21.119] [INFO] debug-file - Finished :entry:default@ProcessResource... after 5 ms 
+[2026-09-08T16:43:20.421] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-09-08T16:43:20.555] [DEBUG] debug-file - Module test3's total dependency: 0
+[2026-09-08T16:43:20.504] [DEBUG] debug-file - hvigorfile, require result:  { default: { system: [Function: hapTasks], plugins: [] } }
+[2026-09-08T16:43:20.524] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-09-08T16:43:20.807] [DEBUG] debug-file - Executing task :entry:default@GeneratePkgSdkInfo
+[2026-09-08T16:43:20.780] [DEBUG] debug-file - Executing task :entry:default@ConfigureCmake
+[2026-09-08T16:43:20.763] [DEBUG] debug-file - entry : default@PreBuild cost memory 2.894500732421875
+[2026-09-08T16:43:20.828] [INFO] debug-file - Finished :entry:default@SyscapTransform... after 2 ms 
+[2026-09-08T16:43:21.148] [INFO] debug-file - Finished :entry:default@ProcessLibs... after 9 ms 
+[2026-09-08T16:43:20.421] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2026-09-08T16:43:20.504] [DEBUG] debug-file - hvigorfile, binding system plugins [Function: hapTasks]
+[2026-09-08T16:43:20.524] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2026-09-08T16:43:20.809] [DEBUG] debug-file - Task 'entry:default@GeneratePkgSdkInfo' cost while wrapping incremental declarations: 1 ms 
+[2026-09-08T16:43:20.780] [DEBUG] debug-file - entry : default@ConfigureCmake cost memory 0.01648712158203125
+[2026-09-08T16:43:20.763] [DEBUG] debug-file - runTaskFromQueue task cost before running: 3 s 718 ms 
+[2026-09-08T16:43:21.149] [DEBUG] debug-file - restool module names: entry; moduleName=entry, taskName=default@CompileResource
+[2026-09-08T16:43:20.504] [DEBUG] debug-file - Starting plugin build process
+[2026-09-08T16:43:20.809] [DEBUG] debug-file - entry : default@GeneratePkgSdkInfo cost memory 0.14766693115234375
+[2026-09-08T16:43:20.524] [DEBUG] debug-file - Target 'default' config initialized
+[2026-09-08T16:43:20.780] [DEBUG] debug-file - runTaskFromQueue task cost before running: 3 s 734 ms 
+[2026-09-08T16:43:20.767] [INFO] debug-file - Finished :entry:default@PreBuild... after 180 ms 
+[2026-09-08T16:43:20.780] [INFO] debug-file - Finished :entry:default@ConfigureCmake... after 1 ms 
+[2026-09-08T16:43:20.809] [DEBUG] debug-file - runTaskFromQueue task cost before running: 3 s 764 ms 
+[2026-09-08T16:43:20.505] [DEBUG] debug-file - Hap plugin creating...
+[2026-09-08T16:43:20.525] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-09-08T16:43:20.769] [DEBUG] debug-file - Executing task :entry:default@CreateModuleInfo
+[2026-09-08T16:43:20.781] [DEBUG] debug-file - Executing task :entry:default@MergeProfile
+[2026-09-08T16:43:20.810] [INFO] debug-file - Finished :entry:default@GeneratePkgSdkInfo... after 3 ms 
+[2026-09-08T16:43:20.525] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-09-08T16:43:20.770] [DEBUG] debug-file - Task 'entry:default@CreateModuleInfo' cost while wrapping incremental declarations: 1 ms 
+[2026-09-08T16:43:20.782] [DEBUG] debug-file - Task 'entry:default@MergeProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-09-08T16:43:20.525] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-09-08T16:43:20.771] [DEBUG] debug-file - entry : default@CreateModuleInfo cost memory 0.0567169189453125
+[2026-09-08T16:43:20.784] [DEBUG] debug-file - Change app api release type with 'Release'
+[2026-09-08T16:43:20.525] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-09-08T16:43:20.771] [DEBUG] debug-file - runTaskFromQueue task cost before running: 3 s 725 ms 
+[2026-09-08T16:43:20.784] [DEBUG] debug-file - Change app compile API version with '26.0.0.105'
+[2026-09-08T16:43:20.525] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-09-08T16:43:20.771] [INFO] debug-file - Finished :entry:default@CreateModuleInfo... after 2 ms 
+[2026-09-08T16:43:20.784] [DEBUG] debug-file - Change app target API version with '260000026'
+[2026-09-08T16:43:20.525] [DEBUG] debug-file - Target 'default' config initialized
+[2026-09-08T16:43:20.784] [DEBUG] debug-file - Change app minimum API version with '260000026'
+[2026-09-08T16:43:20.525] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-09-08T16:43:20.784] [DEBUG] debug-file - Use cli appEnvironment
+[2026-09-08T16:43:20.525] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-09-08T16:43:20.787] [DEBUG] debug-file - The permissions of moduleJson5 is null.
+[2026-09-08T16:43:20.525] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-09-08T16:43:20.787] [DEBUG] debug-file - entry : default@MergeProfile cost memory 0.1712493896484375
+[2026-09-08T16:43:20.526] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-09-08T16:43:20.787] [DEBUG] debug-file - runTaskFromQueue task cost before running: 3 s 742 ms 
+[2026-09-08T16:43:20.526] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2026-09-08T16:43:20.788] [INFO] debug-file - Finished :entry:default@MergeProfile... after 6 ms 
+[2026-09-08T16:43:20.531] [DEBUG] debug-file - Module entry task initialization takes 5 ms 
+[2026-09-08T16:43:20.531] [DEBUG] debug-file - Hap plugin register hook start...
+[2026-09-08T16:43:20.531] [DEBUG] debug-file - Hap plugin register hook end...
+[2026-09-08T16:43:20.531] [DEBUG] debug-file - Plugin build process completed
+[2026-09-08T16:43:20.531] [DEBUG] debug-file - hvigorfile, begin to bind custom plugins...
+[2026-09-08T16:43:20.532] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\HW\testproject\test3\entry\hvigorfile.ts
+[2026-09-08T16:43:20.532] [DEBUG] debug-file - hvigorfile, resolve finished D:\HW\testproject\test3\entry\hvigorfile.ts
+[2026-09-08T16:43:21.617] [DEBUG] debug-file - Info: Pack: normal pack mode
+
+[2026-09-08T16:43:21.748] [DEBUG] debug-file - Info: hardware concurrency count is : 16
+Info: thread count is : 16
+
+[2026-09-08T16:43:21.749] [DEBUG] debug-file - Info: thread pool is started
+
+[2026-09-08T16:43:21.750] [DEBUG] debug-file - Info: GenericCompiler::CompileFiles
+
+[2026-09-08T16:43:21.758] [DEBUG] debug-file - Info: GenericCompiler::CompileFiles
+
+[2026-09-08T16:43:21.758] [DEBUG] debug-file - Warning: 'D:\HW\testproject\test3\entry\src\main\resources\base\media\background.png' is defined repeatedly.
+Warning: 'D:\HW\testproject\test3\entry\src\main\resources\base\media\foreground.png' is defined repeatedly.
+Warning: 'D:\HW\testproject\test3\entry\src\main\resources\base\media\layered_image.json' is defined repeatedly.
+
+[2026-09-08T16:43:21.759] [DEBUG] debug-file - Info: GenericCompiler::CompileFiles
+
+[2026-09-08T16:43:21.775] [DEBUG] debug-file - 09-08 16:43:21.775 45880 43820 I C01400/SvgDecodeUtils: SvgDecodeUtils::IsSvgFormat probe svg format, path:D:\HW\testproject\test3\AppScope\resources\base\media\background.png.
+09-08 16:43:21.775 45880 43820 E C01400/ImageTranscoderUtils: DecodeToRGBA IN
+
+[2026-09-08T16:43:21.775] [DEBUG] debug-file - 09-08 16:43:21.775 45880 43820 I C01400/SvgDecodeUtils: SvgDecodeUtils::IsSvgFormat probe svg format, path:D:\HW\testproject\test3\AppScope\resources\base\media\background.png.
+09-08 16:43:21.775 45880 43820 E C01400/ImageTranscoderUtils: ImageFilter IN D:\HW\testproject\test3\AppScope\resources\base\media\background.png
+
+[2026-09-08T16:43:21.852] [DEBUG] debug-file - 09-08 16:43:21.851 45880 43820 I C01400/SvgDecodeUtils: SvgDecodeUtils::IsSvgFormat probe svg format, path:D:\HW\testproject\test3\AppScope\resources\base\media\foreground.png.
+
+[2026-09-08T16:43:21.852] [DEBUG] debug-file - 09-08 16:43:21.851 45880 43820 E C01400/ImageTranscoderUtils: DecodeToRGBA IN
+09-08 16:43:21.852 45880 43820 I C01400/SvgDecodeUtils: SvgDecodeUtils::IsSvgFormat probe svg format, path:D:\HW\testproject\test3\AppScope\resources\base\media\foreground.png.
+09-08 16:43:21.852 45880 43820 E C01400/ImageTranscoderUtils: ImageFilter IN D:\HW\testproject\test3\AppScope\resources\base\media\foreground.png
+
+[2026-09-08T16:43:21.912] [DEBUG] debug-file - Info: can't scale media json file.
+
+[2026-09-08T16:43:21.912] [DEBUG] debug-file - Warning: The width or height of the png file referenced by the icon exceeds the limit (41 pixels)
+at D:\HW\testproject\test3\AppScope\resources\base\media\background.png
+Warning: The width or height of the png file referenced by the icon exceeds the limit (41 pixels)
+at D:\HW\testproject\test3\AppScope\resources\base\media\foreground.png
+Warning: D:\HW\testproject\test3\AppScope\resources\base\media\layered_image.json is not png format
+
+[2026-09-08T16:43:21.916] [DEBUG] debug-file - Info: restool resources compile success.
+
+[2026-09-08T16:43:21.918] [DEBUG] debug-file - Info: thread pool is stopped
+
+[2026-09-08T16:43:21.999] [DEBUG] debug-file - entry : default@CompileResource cost memory -8.780471801757812
+[2026-09-08T16:43:22.000] [DEBUG] debug-file - runTaskFromQueue task cost before running: 4 s 954 ms 
+[2026-09-08T16:43:22.003] [INFO] debug-file - Finished :entry:default@CompileResource... after 850 ms 
+[2026-09-08T16:43:22.010] [DEBUG] debug-file - Executing task :entry:default@DoNativeStrip
+[2026-09-08T16:43:22.011] [DEBUG] debug-file - File: 'D:\HW\testproject\test3\entry\build\default\intermediates\binxo\default' from 'doBinxoNativeLibs' is not exists, just ignore.
+[2026-09-08T16:43:22.012] [DEBUG] debug-file - Task 'entry:default@DoNativeStrip' cost while wrapping incremental declarations: 2 ms 
+[2026-09-08T16:43:22.019] [DEBUG] debug-file - entry : default@DoNativeStrip cost memory 0.1742706298828125
+[2026-09-08T16:43:22.020] [DEBUG] debug-file - runTaskFromQueue task cost before running: 4 s 974 ms 
+[2026-09-08T16:43:22.024] [DEBUG] debug-file - Executing task :entry:default@CompileArkTS
+[2026-09-08T16:43:22.084] [DEBUG] debug-file - Executing task :entry:default@BuildJS
+[2026-09-08T16:43:22.020] [INFO] debug-file - Finished :entry:default@DoNativeStrip... after 10 ms 
+[2026-09-08T16:43:22.060] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2026-09-08T16:43:22.027] [DEBUG] debug-file - obfuscationOptions: undefined
+[2026-09-08T16:43:22.097] [DEBUG] debug-file - Executing task :entry:default@CacheNativeLibs
+[2026-09-08T16:43:22.085] [DEBUG] debug-file - Task 'entry:default@BuildJS' cost while wrapping incremental declarations: 1 ms 
+[2026-09-08T16:43:22.064] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2026-09-08T16:43:22.030] [DEBUG] debug-file - Task 'entry:default@CompileArkTS' cost while wrapping incremental declarations: 1 ms 
+[2026-09-08T16:43:22.098] [DEBUG] debug-file - File: 'D:\HW\testproject\test3\entry\build\default\intermediates\binxo\default' from 'cacheBinxoNativeLibs' is not exists, just ignore.
+[2026-09-08T16:43:22.092] [DEBUG] debug-file - entry : default@BuildJS cost memory 0.16170501708984375
+[2026-09-08T16:43:22.067] [DEBUG] debug-file - before submitting ArkTS compile task to worker pool, config.buildDir: D:\HW\testproject\test3\entry\build
+[2026-09-08T16:43:22.054] [DEBUG] debug-file - build config:
+[2026-09-08T16:43:22.099] [DEBUG] debug-file - Task 'entry:default@CacheNativeLibs' cost while wrapping incremental declarations: 2 ms 
+[2026-09-08T16:43:22.092] [DEBUG] debug-file - runTaskFromQueue task cost before running: 5 s 47 ms 
+[2026-09-08T16:43:22.067] [DEBUG] debug-file - default@CompileArkTS work[0] is submitted.
+[2026-09-08T16:43:22.055] [DEBUG] debug-file - {
+  moduleType: 'entry',
+  perf: 0,
+  targetName: '.default',
+  packageManagerType: 'ohpm',
+  localPropertiesPath: 'D:\\HW\\testproject\\test3\\local.properties',
+  isPreview: false,
+  isOhosTest: false,
+  isLocalTest: false,
+  buildMode: 'Debug',
+  hotReloadBuild: undefined,
+  watchMode: 'false',
+  aceProfilePath: 'D:\\HW\\testproject\\test3\\entry\\build\\default\\intermediates\\res\\default\\resources\\base\\profile',
+  etsLoaderPath: 'E:\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader',
+  modulePath: 'D:\\HW\\testproject\\test3\\entry',
+  testFrameworkPar: {
+    testMode: undefined,
+    coveragePathFilter: undefined,
+    coverageMode: undefined
+  },
+  needCoverageInsert: false,
+  debugLine: false,
+  projectTopDir: 'D:\\HW\\testproject\\test3',
+  compileSdkVersion: 26,
+  compatibleSdkVersion: 26,
+  originCompatibleSdkVersion: '26.0.0',
+  compatibleSdkVersionStage: undefined,
+  bundleName: 'c***p',
+  etsLoaderVersion: '26.0.0.105',
+  etsLoaderReleaseType: 'Release',
+  aotCompileMode: 'type',
+  apPath: 'D:\\HW\\testproject\\test3\\entry\\modules.ap',
+  entryModuleName: 'entry',
+  entryModuleVersion: '1.0.0',
+  entryPackageName: 'entry',
+  allModuleNameHash: 'ba363049387fe9ae07c9d5ffb85ec478487e8a17815990b343cbdfed17dbc958',
+  externalApiPaths: [ 'E:\\DevEco Studio\\sdk\\default\\hms\\ets' ],
+  compilerTypes: [],
+  isCrossplatform: false,
+  hvigorPluginFile: undefined,
+  compilePluginPath: undefined,
+  buildGeneratedProfilePath: 'D:\\HW\\testproject\\test3\\entry\\build\\default\\generated\\profile\\default',
+  bundleType: 'app',
+  arkTSVersion: undefined,
+  apiVersion: 26,
+  needCompleteSourcesMap: false,
+  isFaMode: false,
+  buildDir: 'D:\\HW\\testproject\\test3\\entry\\build',
+  buildCacheProjectDir: 'D:\\HW\\testproject\\test3',
+  deviceTypes: [ 'phone' ],
+  pkgContextInfo: {
+    '@ohos/hypium': {
+      packageName: '@ohos/hypium',
+      bundleName: '*****',
+      moduleName: '',
+      version: '1.0.24',
+      entryPath: 'index.js',
+      isSO: false,
+      dependencyAlias: ''
+    },
+    '@ohos/hamock': {
+      packageName: '@ohos/hamock',
+      bundleName: '*****',
+      moduleName: '',
+      version: '1.0.0',
+      entryPath: 'index.ets',
+      isSO: false,
+      dependencyAlias: ''
+    },
+    entry: {
+      packageName: 'entry',
+      bundleName: '*****',
+      moduleName: '',
+      version: '',
+      entryPath: 'src/main/',
+      isSO: false,
+      dependencyAlias: ''
+    }
+  },
+  ohPackagePathMap: {},
+  dependencyAliasMap: {},
+  permission: { requestPermissions: undefined, definePermissions: undefined },
+  useGetCurrentBundleName: false,
+  projectArkOption: undefined,
+  sourceMapDir: undefined,
+  branchElimination: false,
+  transformLib: undefined,
+  tsImportSendable: false,
+  resolveConflictMode: true,
+  depName2RootPath: {},
+  depName2DepInfo: {},
+  depName2OhExports: {},
+  rootPathSet: [ 'D:\\HW\\testproject\\test3' ],
+  useNativeResolver: true,
+  shouldEmitJs: true,
+  useUnifiedAst: false,
+  useTscResolve: false,
+  singleFileEmit: false,
+  userProjectConfig: {
+    autoLazyImport: false,
+    allowEmptyBundleName: false,
+    reExportCheckMode: 'noCheck',
+    executionMode: 'memory',
+    usePathPlaceholder: false,
+    writeRollupCache: true,
+    isExpandImportEnabled: false,
+    expandImportExclude: '',
+    lazyImportExclude: '',
+    lazyImportInclude: '',
+    ignoreCrossplatformCheck: false,
+    isHarDeduplicateEnabled: false,
+    skipOhModulesLint: false,
+    enableStrictCheckOHModule: false,
+    disableSendableCheckRules: [],
+    useDeclarationFileSignature: false,
+    customizedOptions: undefined,
+    integratedHsp: false,
+    tsImportSoCheck: false,
+    isPreloadSoEnabled: false
+  },
+  executionMode: 'memory',
+  arkCompileCachePath: 'D:\\HW\\testproject\\test3\\entry\\build\\default\\cache\\default\\default@CompileArkTS\\esmodule',
+  autoLazyFilter: undefined,
+  isHarDeduplicateEnabled: false,
+  intermediateHarDuplicateDirPath: 'D:\\HW\\testproject\\test3\\entry\\build\\default\\intermediates\\har_duplicate\\default',
+  autoLazyImport: false,
+  allowEmptyBundleName: false,
+  reExportCheckMode: 'noCheck',
+  usePathPlaceholder: false,
+  writeRollupCache: true,
+  isExpandImportEnabled: false,
+  expandImportExclude: '',
+  lazyImportExclude: '',
+  lazyImportInclude: '',
+  ignoreCrossplatformCheck: false,
+  skipOhModulesLint: false,
+  enableStrictCheckOHModule: false,
+  disableSendableCheckRules: [],
+  useDeclarationFileSignature: false,
+  customizedOptions: undefined,
+  integratedHsp: false,
+  tsImportSoCheck: false,
+  isPreloadSoEnabled: false,
+  strictMode: {
+    caseSensitiveCheck: true,
+    useNormalizedOHMUrl: true,
+    noExternalImportByPath: true
+  },
+  useNormalizedOHMUrl: true,
+  caseSensitiveCheck: true,
+  strictCheckerOnly: false,
+  aceModuleJsonPath: 'D:\\HW\\testproject\\test3\\entry\\build\\default\\intermediates\\res\\default\\ark_module.json',
+  appResource: 'D:\\HW\\testproject\\test3\\entry\\build\\default\\intermediates\\res\\default\\ResourceTable.txt',
+  rawFileResource: 'D:\\HW\\testproject\\test3\\entry\\build\\default\\intermediates\\res\\default\\resources\\rawfile',
+  resourceTableHash: 'd81a83941c07883d4327563ba2cfe0ac7f68042912820a1577b99d29cbd144cc',
+  runtimeOS: 'HarmonyOS',
+  sdkInfo: 'false:26:26.0.0.105:Release',
+  aceModuleRoot: 'D:\\HW\\testproject\\test3\\entry\\src\\main\\ets',
+  compileMode: 'esmodule',
+  aceSuperVisualPath: 'D:\\HW\\testproject\\test3\\entry\\src\\main\\supervisual',
+  aceBuildJson: 'D:\\HW\\testproject\\test3\\entry\\build\\default\\intermediates\\loader\\default\\loader.json',
+  cachePath: 'D:\\HW\\testproject\\test3\\entry\\build\\default\\cache\\default\\default@CompileArkTS\\esmodule\\debug',
+  aceModuleBuild: 'D:\\HW\\testproject\\test3\\entry\\build\\default\\intermediates\\loader_out\\default\\ets',
+  supportChunks: true,
+  declaredFilesPath: undefined,
+  shouldCollectDirectImportees: false,
+  isByteCodeHarOptimize: false,
+  expandImportPath: undefined,
+  resourceTableTs: 'D:\\HW\\testproject\\test3\\entry\\build\\default\\generated\\r\\default\\ResourceTable.ts',
+  moduleMetaInfoFiles: [
+    {
+      filePath: 'D:\\HW\\testproject\\test3\\entry\\build\\default\\generated\\r\\default\\ResourceTable.ts',
+      ohmurl: '&entry/build/generated/r/ResourceTable&'
+    }
+  ],
+  pkgNameToPkgBriefInfo: {
+    entry: {
+      pkgRoot: 'D:\\HW\\testproject\\test3\\entry',
+      originalSourceRoots: undefined,
+      sourceRoots: [Array],
+      pkgName: 'entry'
+    }
+  },
+  projectModel: {
+    'D:\\HW\\testproject\\test3\\entry\\src\\main': {
+      moduleName: 'entry',
+      modulePkgPath: 'D:\\HW\\testproject\\test3\\entry',
+      belongProjectPath: 'D:\\HW\\testproject\\test3'
+    },
+    'D:\\HW\\testproject\\test3\\entry\\.test\\default\\intermediates\\src\\ohosTest\\ets': {
+      moduleName: 'entry_test',
+      modulePkgPath: 'D:\\HW\\testproject\\test3\\entry',
+      belongProjectPath: 'D:\\HW\\testproject\\test3'
+    },
+    'D:\\HW\\testproject\\test3\\entry\\src\\ohosTest': {
+      moduleName: 'entry_test',
+      modulePkgPath: 'D:\\HW\\testproject\\test3\\entry',
+      belongProjectPath: 'D:\\HW\\testproject\\test3'
+    },
+    'D:\\HW\\testproject\\test3\\entry': {
+      moduleName: 'entry',
+      modulePkgPath: 'D:\\HW\\testproject\\test3\\entry',
+      belongProjectPath: 'D:\\HW\\testproject\\test3'
+    },
+    'D:\\HW\\testproject\\test3': {
+      moduleName: 'test3',
+      modulePkgPath: 'D:\\HW\\testproject\\test3',
+      belongProjectPath: 'D:\\HW\\testproject\\test3'
+    }
+  },
+  pkgJsonFileHash: 'f5839b8ced1afd024dc0d04d047ea9e40e058bf343f55a37ff3c28c9e4724701',
+  allModulePaths: [ 'D:\\HW\\testproject\\test3\\entry' ],
+  routerMap: {},
+  obfuscationOptions: undefined,
+  byteCodeHarToDependencyKeys: undefined,
+  compileBlockPkg: [],
+  mockParams: {
+    decorator: '@MockSetup',
+    packageName: '@ohos/hamock',
+    etsSourceRootPath: 'src/main/ets',
+    mockConfigPath: 'D:\\HW\\testproject\\test3\\entry\\src\\mock\\mock-config.json5',
+    mockConfigKey2ModuleInfo: {},
+    source2ModuleIdMap: {}
+  },
+  copyCodeResourceEnable: false,
+  copyCodeResourceExcludes: [],
+  copyCodeResourceIncludes: undefined,
+  uiTransformOptimization: false,
+  sdkPath: 'E:/DevEco Studio/sdk',
+  needPreloadSoFileSet: {},
+  preloadSoFilePath: 'D:\\HW\\testproject\\test3\\entry\\build\\default\\intermediates\\preload\\default\\preload.json',
+  useSourceHash: false,
+  localModuleParamMap: {},
+  otherPaths: {
+    'entry/*': [
+      '..\\*',
+      '..\\..\\..\\build\\default\\generated\\profile\\default\\*'
+    ]
+  },
+  collectImportersConfig: undefined
+}
+[2026-09-08T16:43:22.093] [INFO] debug-file - Finished :entry:default@BuildJS... after 9 ms 
+[2026-09-08T16:43:22.069] [DEBUG] debug-file - default@CompileArkTS work[0] is pushed to ready queue.
+[2026-09-08T16:43:22.100] [DEBUG] debug-file - default@CacheNativeLibs work[1] is submitted.
+[2026-09-08T16:43:22.055] [DEBUG] debug-file - Compile arkts with external api path: E:\DevEco Studio\sdk\default\hms\ets
+[2026-09-08T16:43:22.069] [DEBUG] debug-file - A work dispatched to worker[15] failed because unable to get work from ready queue.
+[2026-09-08T16:43:22.100] [DEBUG] debug-file - default@CacheNativeLibs work[1] is pushed to ready queue.
+[2026-09-08T16:43:22.058] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2026-09-08T16:43:22.069] [DEBUG] debug-file - A work dispatched to worker[14] failed because unable to get work from ready queue.
+[2026-09-08T16:43:22.100] [DEBUG] debug-file - A work dispatched to worker[15] failed because unable to get work from ready queue.
+[2026-09-08T16:43:22.058] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2026-09-08T16:43:22.070] [DEBUG] debug-file - A work dispatched to worker[13] failed because unable to get work from ready queue.
+[2026-09-08T16:43:22.070] [DEBUG] debug-file - A work dispatched to worker[12] failed because unable to get work from ready queue.
+[2026-09-08T16:43:22.101] [DEBUG] debug-file - Create  resident worker with id: 14.
+[2026-09-08T16:43:22.070] [DEBUG] debug-file - A work dispatched to worker[11] failed because unable to get work from ready queue.
+[2026-09-08T16:43:22.105] [DEBUG] debug-file - default@CacheNativeLibs work[1] has been dispatched to worker[14].
+[2026-09-08T16:43:22.070] [DEBUG] debug-file - A work dispatched to worker[10] failed because unable to get work from ready queue.
+[2026-09-08T16:43:22.106] [DEBUG] debug-file - default@CacheNativeLibs work[1] is dispatched.
+[2026-09-08T16:43:22.070] [DEBUG] debug-file - A work dispatched to worker[9] failed because unable to get work from ready queue.
+[2026-09-08T16:43:22.106] [DEBUG] debug-file - entry : default@CacheNativeLibs cost memory 0.18155670166015625
+[2026-09-08T16:43:22.070] [DEBUG] debug-file - A work dispatched to worker[8] failed because unable to get work from ready queue.
+[2026-09-08T16:43:22.070] [DEBUG] debug-file - A work dispatched to worker[7] failed because unable to get work from ready queue.
+[2026-09-08T16:43:22.070] [DEBUG] debug-file - A work dispatched to worker[6] failed because unable to get work from ready queue.
+[2026-09-08T16:43:22.070] [DEBUG] debug-file - A work dispatched to worker[5] failed because unable to get work from ready queue.
+[2026-09-08T16:43:22.071] [DEBUG] debug-file - Create  resident worker with id: 4.
+[2026-09-08T16:43:22.076] [DEBUG] debug-file - default@CompileArkTS work[0] has been dispatched to worker[4].
+[2026-09-08T16:43:22.077] [DEBUG] debug-file - default@CompileArkTS work[0] is dispatched.
+[2026-09-08T16:43:22.077] [DEBUG] debug-file - entry : default@CompileArkTS cost memory 1.6914520263671875
+[2026-09-08T16:43:23.073] [DEBUG] debug-file - worker[14] has one work done.
+[2026-09-08T16:43:23.073] [DEBUG] debug-file - default@CacheNativeLibs work[1] done.
+[2026-09-08T16:43:23.074] [DEBUG] debug-file - A work dispatched to worker[14] failed because unable to get work from ready queue.
+[2026-09-08T16:43:23.074] [INFO] debug-file - Finished :entry:default@CacheNativeLibs... after 18 ms 
+[2026-09-08T16:43:31.881] [DEBUG] debug-file - worker[4] has one work done.
+[2026-09-08T16:43:31.882] [DEBUG] debug-file - Ark compile task finished.finished time is 17833620430800
+[2026-09-08T16:43:31.884] [DEBUG] debug-file - default@CompileArkTS work[0] done.
+[2026-09-08T16:43:31.884] [DEBUG] debug-file - A work dispatched to worker[4] failed because unable to get work from ready queue.
+[2026-09-08T16:43:31.887] [INFO] debug-file - Finished :entry:default@CompileArkTS... after 6 s 850 ms 
+[2026-09-08T16:43:31.889] [DEBUG] debug-file - Executing task :entry:default@GeneratePkgModuleJson
+[2026-09-08T16:43:31.889] [DEBUG] debug-file - File: 'D:\HW\testproject\test3\entry\build\default\intermediates\preload\default\preload.json' from 'preloadSoJsonPath' is not exists, just ignore.
+[2026-09-08T16:43:31.903] [DEBUG] debug-file - default@PackageHap work[2] is submitted.
+[2026-09-08T16:43:31.890] [DEBUG] debug-file - Error occurs while handling @Input 'shouldDeduplicateHar': The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received undefined
+[2026-09-08T16:43:31.903] [DEBUG] debug-file - default@PackageHap work[2] is pushed to ready queue.
+[2026-09-08T16:43:31.898] [DEBUG] debug-file - Executing task :entry:default@PackageHap
+[2026-09-08T16:43:31.890] [DEBUG] debug-file - Task 'entry:default@GeneratePkgModuleJson' cost while wrapping incremental declarations: 1 ms 
+[2026-09-08T16:43:31.902] [DEBUG] debug-file - Use tool [E:\DevEco Studio\sdk\default\openharmony\toolchains\lib\app_packing_tool.jar]
+ [
+  'java',
+  '-Dfile.encoding=GBK',
+  '-jar',
+  'E:\\DevEco Studio\\sdk\\default\\openharmony\\toolchains\\lib\\app_packing_tool.jar',
+  '--mode',
+  'hap',
+  '--force',
+  'true',
+  '--lib-path',
+  'D:\\HW\\testproject\\test3\\entry\\build\\default\\intermediates\\stripped_native_libs\\default',
+  '--json-path',
+  'D:\\HW\\testproject\\test3\\entry\\build\\default\\intermediates\\package\\default\\module.json',
+  '--resources-path',
+  'D:\\HW\\testproject\\test3\\entry\\build\\default\\intermediates\\res\\default\\resources',
+  '--index-path',
+  'D:\\HW\\testproject\\test3\\entry\\build\\default\\intermediates\\res\\default\\resources.index',
+  '--pack-info-path',
+  'D:\\HW\\testproject\\test3\\entry\\build\\default\\outputs\\default\\pack.info',
+  '--out-path',
+  'D:\\HW\\testproject\\test3\\entry\\build\\default\\outputs\\default\\entry-default-unsigned.hap',
+  '--ets-path',
+  'D:\\HW\\testproject\\test3\\entry\\build\\default\\intermediates\\loader_out\\default\\ets',
+  '--pkg-context-path',
+  'D:\\HW\\testproject\\test3\\entry\\build\\default\\intermediates\\loader\\default\\pkgContextInfo.json'
+]
+[2026-09-08T16:43:31.893] [DEBUG] debug-file - entry : default@GeneratePkgModuleJson cost memory 0.141754150390625
+[2026-09-08T16:43:31.903] [DEBUG] debug-file - A work dispatched to worker[15] failed because unable to get work from ready queue.
+[2026-09-08T16:43:31.893] [DEBUG] debug-file - runTaskFromQueue task cost before running: 14 s 847 ms 
+[2026-09-08T16:43:31.903] [DEBUG] debug-file - default@PackageHap work[2] has been dispatched to worker[14].
+[2026-09-08T16:43:31.893] [INFO] debug-file - Finished :entry:default@GeneratePkgModuleJson... after 5 ms 
+[2026-09-08T16:43:31.904] [DEBUG] debug-file - default@PackageHap work[2] is dispatched.
+[2026-09-08T16:43:31.910] [DEBUG] debug-file - entry : default@PackageHap cost memory 0.36578369140625
+[2026-09-08T16:43:31.894] [DEBUG] debug-file - Executing task :entry:default@ProcessCompiledResources
+[2026-09-08T16:43:31.894] [DEBUG] debug-file - File: 'D:\HW\testproject\test3\entry\build\default\intermediates\preload\default\preload.json' from 'preloadSoJsonPath' is not exists, just ignore.
+[2026-09-08T16:43:31.894] [DEBUG] debug-file - Task 'entry:default@ProcessCompiledResources' cost while wrapping incremental declarations: 1 ms 
+[2026-09-08T16:43:31.894] [DEBUG] debug-file - entry : default@ProcessCompiledResources cost memory 0.05182647705078125
+[2026-09-08T16:43:31.894] [DEBUG] debug-file - runTaskFromQueue task cost before running: 14 s 849 ms 
+[2026-09-08T16:43:31.895] [INFO] debug-file - Finished :entry:default@ProcessCompiledResources... after 1 ms 
+[2026-09-08T16:43:32.082] [DEBUG] debug-file - current process  memoryUsage: {
+  rss: 680538112,
+  heapTotal: 52379648,
+  heapUsed: 46891008,
+  external: 3711395,
+  arrayBuffers: 18667
+} os memoryUsage :15.296890258789062
+[2026-09-08T16:43:33.140] [DEBUG] debug-file - worker[14] has one work done.
+[2026-09-08T16:43:33.140] [DEBUG] debug-file - default@PackageHap work[2] done.
+[2026-09-08T16:43:33.144] [DEBUG] debug-file - Executing task :entry:default@PackingCheck
+[2026-09-08T16:43:33.159] [DEBUG] debug-file - Executing task :entry:default@CollectDebugSymbol
+[2026-09-08T16:43:33.154] [DEBUG] debug-file - Executing task :entry:default@SignHap
+[2026-09-08T16:43:33.142] [INFO] debug-file - Finished :entry:default@PackageHap... after 1 s 81 ms 
+[2026-09-08T16:43:33.151] [DEBUG] debug-file - entry : default@PackingCheck cost memory 0.43704986572265625
+[2026-09-08T16:43:33.160] [DEBUG] debug-file - entry : default@CollectDebugSymbol cost memory 0.087158203125
+[2026-09-08T16:43:33.155] [WARN] debug-file - Will skip sign 'hos_hap'. No signingConfigs profile is configured in current project.
+             If needed, configure the signingConfigs in D:\HW\testproject\test3\build-profile.json5.
+[2026-09-08T16:43:33.152] [DEBUG] debug-file - runTaskFromQueue task cost before running: 16 s 106 ms 
+[2026-09-08T16:43:33.160] [DEBUG] debug-file - runTaskFromQueue task cost before running: 16 s 115 ms 
+[2026-09-08T16:43:33.156] [DEBUG] debug-file - entry : default@SignHap cost memory 0.07509613037109375
+[2026-09-08T16:43:33.152] [INFO] debug-file - Finished :entry:default@PackingCheck... after 8 ms 
+[2026-09-08T16:43:33.160] [INFO] debug-file - Finished :entry:default@CollectDebugSymbol... after 2 ms 
+[2026-09-08T16:43:33.156] [DEBUG] debug-file - runTaskFromQueue task cost before running: 16 s 111 ms 
+[2026-09-08T16:43:33.161] [DEBUG] debug-file - Executing task :entry:assembleHap
+[2026-09-08T16:43:33.157] [INFO] debug-file - Finished :entry:default@SignHap... after 3 ms 
+[2026-09-08T16:43:33.161] [DEBUG] debug-file - entry : assembleHap cost memory 0.01663970947265625
+[2026-09-08T16:43:33.161] [DEBUG] debug-file - runTaskFromQueue task cost before running: 16 s 115 ms 
+[2026-09-08T16:43:33.161] [INFO] debug-file - Finished :entry:assembleHap... after 1 ms 
+[2026-09-08T16:43:33.164] [INFO] debug-file - BUILD SUCCESSFUL in 16 s 118 ms 
+[2026-09-08T16:43:33.167] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\HW\testproject\test3\AppScope\app.json5 cache by regenerate.
+[2026-09-08T16:43:33.168] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\HW\testproject\test3\entry\src\main\module.json5 cache by regenerate.
+[2026-09-08T16:43:33.168] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\HW\testproject\test3\build-profile.json5 cache by regenerate.
+[2026-09-08T16:43:33.168] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\HW\testproject\test3\entry\build-profile.json5 cache by regenerate.
+[2026-09-08T16:43:33.168] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\HW\testproject\test3\entry\src\main\resources\base\profile\main_pages.json cache by regenerate.
+[2026-09-08T16:43:33.168] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\HW\testproject\test3\hvigor\hvigor-config.json5 cache by regenerate.
+[2026-09-08T16:43:33.168] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\HW\testproject\test3\entry\src\mock\mock-config.json5 cache by regenerate.
+[2026-09-08T16:43:33.168] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\HW\testproject\test3\entry\oh-package.json5 cache by regenerate.
+[2026-09-08T16:43:33.168] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\HW\testproject\test3\oh-package.json5 cache by regenerate.
+[2026-09-08T16:43:33.169] [DEBUG] debug-file - Incremental task entry:default@PreBuild post-execution cost:4 ms .
+[2026-09-08T16:43:33.169] [DEBUG] debug-file - Update task entry:default@CreateModuleInfo output file:D:\HW\testproject\test3\entry\build\default\generated\profile\default\ModuleInfo.ts cache.
+[2026-09-08T16:43:33.170] [DEBUG] debug-file - Incremental task entry:default@CreateModuleInfo post-execution cost:1 ms .
+[2026-09-08T16:43:33.170] [DEBUG] debug-file - Update task entry:default@GenerateMetadata input file:D:\HW\testproject\test3\entry\src\main\module.json5 cache by regenerate.
+[2026-09-08T16:43:33.170] [DEBUG] debug-file - Update task entry:default@GenerateMetadata output file:D:\HW\testproject\test3\entry\build\default\intermediates\hap_metadata\default\output_metadata.json cache.
+[2026-09-08T16:43:33.170] [DEBUG] debug-file - Incremental task entry:default@GenerateMetadata post-execution cost:1 ms .
+[2026-09-08T16:43:33.170] [DEBUG] debug-file - Update task entry:default@MergeProfile input file:D:\HW\testproject\test3\AppScope\app.json5 cache by regenerate.
+[2026-09-08T16:43:33.170] [DEBUG] debug-file - Update task entry:default@MergeProfile input file:D:\HW\testproject\test3\build-profile.json5 cache by regenerate.
+[2026-09-08T16:43:33.170] [DEBUG] debug-file - Update task entry:default@MergeProfile input file:D:\HW\testproject\test3\entry\src\main\module.json5 cache by regenerate.
+[2026-09-08T16:43:33.170] [DEBUG] debug-file - Update task entry:default@MergeProfile output file:D:\HW\testproject\test3\entry\build\default\intermediates\merge_profile\default\module.json cache.
+[2026-09-08T16:43:33.171] [DEBUG] debug-file - Incremental task entry:default@MergeProfile post-execution cost:1 ms .
+[2026-09-08T16:43:33.171] [DEBUG] debug-file - Update task entry:default@CreateBuildProfile input file:D:\HW\testproject\test3\AppScope\app.json5 cache by regenerate.
+[2026-09-08T16:43:33.171] [DEBUG] debug-file - Update task entry:default@CreateBuildProfile input file:D:\HW\testproject\test3\build-profile.json5 cache by regenerate.
+[2026-09-08T16:43:33.171] [DEBUG] debug-file - Update task entry:default@CreateBuildProfile output file:D:\HW\testproject\test3\entry\build\default\generated\profile\default\BuildProfile.ets cache.
+[2026-09-08T16:43:33.171] [DEBUG] debug-file - Incremental task entry:default@CreateBuildProfile post-execution cost:1 ms .
+[2026-09-08T16:43:33.171] [DEBUG] debug-file - Update task entry:default@GeneratePkgContextInfo output file:D:\HW\testproject\test3\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache.
+[2026-09-08T16:43:33.171] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgContextInfo post-execution cost:1 ms .
+[2026-09-08T16:43:33.171] [DEBUG] debug-file - Update task entry:default@GeneratePkgSdkInfo output file:D:\HW\testproject\test3\entry\build\default\intermediates\loader\default\pkgSdkInfo.json cache.
+[2026-09-08T16:43:33.171] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgSdkInfo post-execution cost:1 ms .
+[2026-09-08T16:43:33.171] [DEBUG] debug-file - Update task entry:default@ProcessIntegratedHsp output file:D:\HW\testproject\test3\build\cache\default\integrated_hsp\integratedHspCache.json cache.
+[2026-09-08T16:43:33.171] [DEBUG] debug-file - Incremental task entry:default@ProcessIntegratedHsp post-execution cost:1 ms .
+[2026-09-08T16:43:33.172] [DEBUG] debug-file - Update task entry:default@MakePackInfo input file:D:\HW\testproject\test3\AppScope\app.json5 cache by regenerate.
+[2026-09-08T16:43:33.172] [DEBUG] debug-file - Update task entry:default@MakePackInfo input file:D:\HW\testproject\test3\entry\src\main\module.json5 cache by regenerate.
+[2026-09-08T16:43:33.172] [DEBUG] debug-file - Update task entry:default@MakePackInfo input file:D:\HW\testproject\test3\build-profile.json5 cache by regenerate.
+[2026-09-08T16:43:33.172] [DEBUG] debug-file - Update task entry:default@MakePackInfo input file:D:\HW\testproject\test3\entry\src\main\resources\base\profile\backup_config.json cache by regenerate.
+[2026-09-08T16:43:33.172] [DEBUG] debug-file - Update task entry:default@MakePackInfo output file:D:\HW\testproject\test3\entry\build\default\outputs\default\pack.info cache.
+[2026-09-08T16:43:33.173] [DEBUG] debug-file - Incremental task entry:default@MakePackInfo post-execution cost:2 ms .
+[2026-09-08T16:43:33.173] [DEBUG] debug-file - Update task entry:default@SyscapTransform input file:E:\DevEco Studio\sdk\default\openharmony\toolchains\syscap_tool.exe cache by regenerate.
+[2026-09-08T16:43:33.173] [DEBUG] debug-file - Update task entry:default@SyscapTransform input file:E:\DevEco Studio\sdk\default\openharmony\ets\api\device-define cache by regenerate.
+[2026-09-08T16:43:33.174] [DEBUG] debug-file - Update task entry:default@SyscapTransform output file:D:\HW\testproject\test3\entry\build\default\intermediates\syscap\default\rpcid.sc cache.
+[2026-09-08T16:43:33.174] [DEBUG] debug-file - Incremental task entry:default@SyscapTransform post-execution cost:2 ms .
+[2026-09-08T16:43:33.175] [DEBUG] debug-file - Update task entry:default@ProcessProfile input file:D:\HW\testproject\test3\entry\build\default\intermediates\merge_profile\default\module.json cache by regenerate.
+[2026-09-08T16:43:33.175] [DEBUG] debug-file - Update task entry:default@ProcessProfile output file:D:\HW\testproject\test3\entry\build\default\intermediates\process_profile\default\module.json cache.
+[2026-09-08T16:43:33.175] [DEBUG] debug-file - Incremental task entry:default@ProcessProfile post-execution cost:1 ms .
+[2026-09-08T16:43:33.175] [DEBUG] debug-file - Update task entry:default@ProcessRouterMap input file:D:\HW\testproject\test3\entry\oh-package.json5 cache by regenerate.
+[2026-09-08T16:43:33.175] [DEBUG] debug-file - Update task entry:default@ProcessRouterMap input file:D:\HW\testproject\test3\oh-package.json5 cache by regenerate.
+[2026-09-08T16:43:33.175] [DEBUG] debug-file - Update task entry:default@ProcessRouterMap input file:D:\HW\testproject\test3\entry\src\main\module.json5 cache by regenerate.
+[2026-09-08T16:43:33.175] [DEBUG] debug-file - Update task entry:default@ProcessRouterMap input file:D:\HW\testproject\test3\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2026-09-08T16:43:33.175] [DEBUG] debug-file - Update task entry:default@ProcessRouterMap output file:D:\HW\testproject\test3\entry\build\default\intermediates\router_map\default\temp-router-map.json cache.
+[2026-09-08T16:43:33.175] [DEBUG] debug-file - Update task entry:default@ProcessRouterMap output file:D:\HW\testproject\test3\entry\build\default\intermediates\router_map\default\loader-router-map.json cache.
+[2026-09-08T16:43:33.175] [DEBUG] debug-file - Incremental task entry:default@ProcessRouterMap post-execution cost:1 ms .
+[2026-09-08T16:43:33.176] [DEBUG] debug-file - Update task entry:default@ProcessShareConfig input file:D:\HW\testproject\test3\entry\oh-package.json5 cache by regenerate.
+[2026-09-08T16:43:33.176] [DEBUG] debug-file - Update task entry:default@ProcessShareConfig input file:D:\HW\testproject\test3\oh-package.json5 cache by regenerate.
+[2026-09-08T16:43:33.176] [DEBUG] debug-file - Update task entry:default@ProcessShareConfig input file:D:\HW\testproject\test3\entry\src\main\module.json5 cache by regenerate.
+[2026-09-08T16:43:33.176] [DEBUG] debug-file - Update task entry:default@ProcessShareConfig input file:D:\HW\testproject\test3\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2026-09-08T16:43:33.176] [DEBUG] debug-file - Update task entry:default@ProcessShareConfig output file:D:\HW\testproject\test3\entry\build\default\intermediates\share_config\default\temp-share-config.json cache.
+[2026-09-08T16:43:33.176] [DEBUG] debug-file - Incremental task entry:default@ProcessShareConfig post-execution cost:1 ms .
+[2026-09-08T16:43:33.176] [DEBUG] debug-file - Update task entry:default@ProcessStartupConfig input file:D:\HW\testproject\test3\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2026-09-08T16:43:33.176] [DEBUG] debug-file - Update task entry:default@ProcessStartupConfig output file:D:\HW\testproject\test3\entry\build\default\intermediates\startup\default\startup_config.json cache.
+[2026-09-08T16:43:33.176] [DEBUG] debug-file - Incremental task entry:default@ProcessStartupConfig post-execution cost:1 ms .
+[2026-09-08T16:43:33.176] [DEBUG] debug-file - Update task entry:default@ProcessResource output file:D:\HW\testproject\test3\entry\build\default\intermediates\res\default\resConfig.json cache.
+[2026-09-08T16:43:33.177] [DEBUG] debug-file - Update task entry:default@ProcessResource output file:D:\HW\testproject\test3\entry\build\default\intermediates\res\default\opt-compression.json cache.
+[2026-09-08T16:43:33.177] [DEBUG] debug-file - Incremental task entry:default@ProcessResource post-execution cost:1 ms .
+[2026-09-08T16:43:33.178] [DEBUG] debug-file - Update task entry:default@GenerateLoaderJson input file:D:\HW\testproject\test3\entry\src\mock\mock-config.json5 cache by regenerate.
+[2026-09-08T16:43:33.178] [DEBUG] debug-file - Update task entry:default@GenerateLoaderJson input file:D:\HW\testproject\test3\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2026-09-08T16:43:33.178] [DEBUG] debug-file - Update task entry:default@GenerateLoaderJson input file:D:\HW\testproject\test3\entry\build\default\intermediates\router_map\default\temp-router-map.json cache by regenerate.
+[2026-09-08T16:43:33.178] [DEBUG] debug-file - Update task entry:default@GenerateLoaderJson output file:D:\HW\testproject\test3\entry\build\default\intermediates\loader\default\loader.json cache.
+[2026-09-08T16:43:33.178] [DEBUG] debug-file - Incremental task entry:default@GenerateLoaderJson post-execution cost:2 ms .
+[2026-09-08T16:43:33.178] [DEBUG] debug-file - Update task entry:default@ProcessLibs input file:D:\HW\testproject\test3\build-profile.json5 cache by regenerate.
+[2026-09-08T16:43:33.179] [DEBUG] debug-file - Update task entry:default@ProcessLibs input file:D:\HW\testproject\test3\entry\build-profile.json5 cache by regenerate.
+[2026-09-08T16:43:33.179] [DEBUG] debug-file - Update task entry:default@ProcessLibs output file:D:\HW\testproject\test3\entry\build\default\intermediates\libs\default cache.
+[2026-09-08T16:43:33.179] [DEBUG] debug-file - Incremental task entry:default@ProcessLibs post-execution cost:1 ms .
+[2026-09-08T16:43:33.180] [DEBUG] debug-file - Update task entry:default@CompileResource input file:D:\HW\testproject\test3\entry\src\main\resources cache by regenerate.
+[2026-09-08T16:43:33.182] [DEBUG] debug-file - Update task entry:default@CompileResource input file:D:\HW\testproject\test3\AppScope\resources cache by regenerate.
+[2026-09-08T16:43:33.183] [DEBUG] debug-file - Update task entry:default@CompileResource input file:D:\HW\testproject\test3\entry\build\default\intermediates\process_profile\default\module.json cache by regenerate.
+[2026-09-08T16:43:33.183] [DEBUG] debug-file - Update task entry:default@CompileResource input file:D:\HW\testproject\test3\entry\build\default\intermediates\res\default\resConfig.json cache by regenerate.
+[2026-09-08T16:43:33.183] [DEBUG] debug-file - Update task entry:default@CompileResource output file:D:\HW\testproject\test3\entry\build\default\intermediates\res\default cache.
+[2026-09-08T16:43:33.185] [DEBUG] debug-file - Update task entry:default@CompileResource output file:D:\HW\testproject\test3\entry\build\default\generated\r\default\ResourceTable.h cache.
+[2026-09-08T16:43:33.185] [DEBUG] debug-file - Update task entry:default@CompileResource output file:D:\HW\testproject\test3\entry\build\default\generated\r\default\ResourceTable.ts cache.
+[2026-09-08T16:43:33.185] [DEBUG] debug-file - Update task entry:default@CompileResource output file:D:\HW\testproject\test3\entry\build\default\generated\r\default cache.
+[2026-09-08T16:43:33.185] [DEBUG] debug-file - Incremental task entry:default@CompileResource post-execution cost:7 ms .
+[2026-09-08T16:43:33.185] [DEBUG] debug-file - Update task entry:default@DoNativeStrip input file:D:\HW\testproject\test3\entry\build\default\intermediates\libs\default cache by regenerate.
+[2026-09-08T16:43:33.185] [DEBUG] debug-file - Update task entry:default@DoNativeStrip output file:D:\HW\testproject\test3\entry\build\default\intermediates\stripped_native_libs\default cache.
+[2026-09-08T16:43:33.185] [DEBUG] debug-file - Incremental task entry:default@DoNativeStrip post-execution cost:1 ms .
+[2026-09-08T16:43:33.186] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\HW\testproject\test3\entry\build\default\intermediates\loader\default cache by regenerate.
+[2026-09-08T16:43:33.187] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\HW\testproject\test3\entry\build\default\intermediates\res\default\resources\rawfile cache by regenerate.
+[2026-09-08T16:43:33.187] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\HW\testproject\test3\entry\build\default\intermediates\res\default\ResourceTable.txt cache by regenerate.
+[2026-09-08T16:43:33.187] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\HW\testproject\test3\entry\build\default\intermediates\res\default\ark_module.json cache by regenerate.
+[2026-09-08T16:43:33.187] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\HW\testproject\test3\entry\build\default\intermediates\res\default\resources\base\profile cache by regenerate.
+[2026-09-08T16:43:33.187] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\HW\testproject\test3\entry\src\main\ets cache by regenerate.
+[2026-09-08T16:43:33.188] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\HW\testproject\test3\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2026-09-08T16:43:33.188] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\HW\testproject\test3\entry\build\default\generated\profile\default\BuildProfile.ets cache by regenerate.
+[2026-09-08T16:43:33.188] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\HW\testproject\test3\entry\src\mock\mock-config.json5 cache by regenerate.
+[2026-09-08T16:43:33.188] [DEBUG] debug-file - Update task entry:default@CompileArkTS output file:D:\HW\testproject\test3\entry\build\default\intermediates\loader_out\default\ets cache.
+[2026-09-08T16:43:33.188] [DEBUG] debug-file - Incremental task entry:default@CompileArkTS post-execution cost:3 ms .
+[2026-09-08T16:43:33.189] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\HW\testproject\test3\entry\build\default\intermediates\loader\default cache by regenerate.
+[2026-09-08T16:43:33.189] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\HW\testproject\test3\entry\build\default\intermediates\res\default\resources\rawfile cache by regenerate.
+[2026-09-08T16:43:33.190] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\HW\testproject\test3\entry\build\default\intermediates\res\default\ResourceTable.txt cache by regenerate.
+[2026-09-08T16:43:33.190] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\HW\testproject\test3\entry\build\default\intermediates\res\default\ark_module.json cache by regenerate.
+[2026-09-08T16:43:33.190] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\HW\testproject\test3\entry\build\default\intermediates\res\default\resources\base\profile cache by regenerate.
+[2026-09-08T16:43:33.190] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\HW\testproject\test3\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2026-09-08T16:43:33.190] [DEBUG] debug-file - Update task entry:default@BuildJS output file:D:\HW\testproject\test3\entry\build\default\intermediates\loader_out\default\js cache.
+[2026-09-08T16:43:33.190] [DEBUG] debug-file - Incremental task entry:default@BuildJS post-execution cost:2 ms .
+[2026-09-08T16:43:33.190] [DEBUG] debug-file - Update task entry:default@CacheNativeLibs input file:D:\HW\testproject\test3\entry\build\default\intermediates\stripped_native_libs\default cache by regenerate.
+[2026-09-08T16:43:33.190] [DEBUG] debug-file - Update task entry:default@CacheNativeLibs input file:D:\HW\testproject\test3\entry\build\default\intermediates\libs\default cache by regenerate.
+[2026-09-08T16:43:33.191] [DEBUG] debug-file - Update task entry:default@CacheNativeLibs output file:D:\HW\testproject\test3\entry\build\default\intermediates\patch\default\base_native_libs.json cache.
+[2026-09-08T16:43:33.191] [DEBUG] debug-file - Update task entry:default@CacheNativeLibs output file:D:\HW\testproject\test3\entry\build\default\intermediates\patch\default\binxo_native_libs.json cache.
+[2026-09-08T16:43:33.191] [DEBUG] debug-file - Incremental task entry:default@CacheNativeLibs post-execution cost:1 ms .
+[2026-09-08T16:43:33.191] [DEBUG] debug-file - Update task entry:default@GeneratePkgModuleJson input file:D:\HW\testproject\test3\entry\build\default\intermediates\res\default\module.json cache by regenerate.
+[2026-09-08T16:43:33.191] [DEBUG] debug-file - Update task entry:default@GeneratePkgModuleJson output file:D:\HW\testproject\test3\entry\build\default\intermediates\package\default\module.json cache.
+[2026-09-08T16:43:33.191] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgModuleJson post-execution cost:1 ms .
+[2026-09-08T16:43:33.191] [DEBUG] debug-file - Incremental task entry:default@ProcessCompiledResources post-execution cost:1 ms .
+[2026-09-08T16:43:33.191] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\HW\testproject\test3\entry\build\default\outputs\default\pack.info cache by regenerate.
+[2026-09-08T16:43:33.192] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\HW\testproject\test3\entry\build\default\intermediates\stripped_native_libs\default cache by regenerate.
+[2026-09-08T16:43:33.192] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\HW\testproject\test3\entry\build\default\intermediates\res\default\module.json cache by regenerate.
+[2026-09-08T16:43:33.192] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\HW\testproject\test3\entry\build\default\intermediates\res\default\resources cache by regenerate.
+[2026-09-08T16:43:33.192] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\HW\testproject\test3\entry\build\default\intermediates\res\default\resources.index cache by regenerate.
+[2026-09-08T16:43:33.192] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\HW\testproject\test3\entry\build\default\intermediates\loader_out\default\ets cache by regenerate.
+[2026-09-08T16:43:33.193] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\HW\testproject\test3\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2026-09-08T16:43:33.193] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\HW\testproject\test3\entry\build\default\intermediates\package\default\module.json cache by regenerate.
+[2026-09-08T16:43:33.193] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\HW\testproject\test3\entry\build\default\intermediates\loader_out\default\ets\sourceMaps.map cache by regenerate.
+[2026-09-08T16:43:33.193] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\HW\testproject\test3\entry\build\default\generated\profile\default\BuildProfile.ets cache by regenerate.
+[2026-09-08T16:43:33.193] [DEBUG] debug-file - Update task entry:default@PackageHap output file:D:\HW\testproject\test3\entry\build\default\outputs\default\entry-default-unsigned.hap cache.
+[2026-09-08T16:43:33.193] [DEBUG] debug-file - Update task entry:default@PackageHap output file:D:\HW\testproject\test3\entry\build\default\intermediates\source_map\default\sourceMaps.map cache.
+[2026-09-08T16:43:33.193] [DEBUG] debug-file - Update task entry:default@PackageHap output file:D:\HW\testproject\test3\entry\build\default\outputs\default\mapping\sourceMaps.map cache.
+[2026-09-08T16:43:33.193] [DEBUG] debug-file - Incremental task entry:default@PackageHap post-execution cost:2 ms .
+[2026-09-08T16:43:33.193] [DEBUG] debug-file - Update task entry:default@SignHap input file:D:\HW\testproject\test3\entry\build\default\outputs\default\entry-default-unsigned.hap cache by regenerate.
+[2026-09-08T16:43:33.193] [DEBUG] debug-file - Update task entry:default@SignHap output file:D:\HW\testproject\test3\entry\build\default\outputs\default\entry-default-signed.hap cache.
+[2026-09-08T16:43:33.193] [DEBUG] debug-file - Incremental task entry:default@SignHap post-execution cost:1 ms .
+[2026-09-08T16:43:33.194] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol input file:D:\HW\testproject\test3\entry\build\default\intermediates\loader_out\default\ets\sourceMaps.map cache by regenerate.
+[2026-09-08T16:43:33.194] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol input file:D:\HW\testproject\test3\entry\build\default\intermediates\libs\default cache by regenerate.
+[2026-09-08T16:43:33.194] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol output file:D:\HW\testproject\test3\entry\build\default\outputs\default\symbol cache.
+[2026-09-08T16:43:33.194] [DEBUG] debug-file - Incremental task entry:default@CollectDebugSymbol post-execution cost:1 ms .
+[2026-09-08T16:43:33.211] [DEBUG] debug-file - Current worker pool is stopped or closed.
+[2026-09-08T16:43:33.211] [DEBUG] debug-file - Clear worker 0.
+[2026-09-08T16:43:33.212] [DEBUG] debug-file - Clear worker 1.
+[2026-09-08T16:43:33.212] [DEBUG] debug-file - Clear worker 4.
+[2026-09-08T16:43:33.212] [DEBUG] debug-file - Clear worker 14.
+[2026-09-08T16:43:33.214] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-09-08T16:43:33.219] [DEBUG] debug-file - worker[1] exits with exit code 1.
+[2026-09-08T16:43:33.220] [DEBUG] debug-file - Worker 1 has been cleared.
+[2026-09-08T16:43:33.220] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-09-08T16:43:33.220] [DEBUG] debug-file - Current busy worker size: 0.
+[2026-09-08T16:43:33.221] [DEBUG] debug-file - worker[0] exits with exit code 1.
+[2026-09-08T16:43:33.221] [DEBUG] debug-file - Worker 0 has been cleared.
+[2026-09-08T16:43:33.221] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-09-08T16:43:33.221] [DEBUG] debug-file - Current busy worker size: 0.
+[2026-09-08T16:43:33.226] [DEBUG] debug-file - Current worker pool is terminated.
+[2026-09-08T16:43:33.226] [DEBUG] debug-file - Current worker pool is terminated.
+[2026-09-08T16:43:33.228] [DEBUG] debug-file - worker[14] exits with exit code 1.
+[2026-09-08T16:43:33.229] [DEBUG] debug-file - Worker 14 has been cleared.
+[2026-09-08T16:43:33.229] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-09-08T16:43:33.229] [DEBUG] debug-file - Current busy worker size: 0.
+[2026-09-08T16:43:33.229] [DEBUG] debug-file - Current worker pool is terminated.
+[2026-09-08T16:43:33.270] [DEBUG] debug-file - worker[4] exits with exit code 1.
+[2026-09-08T16:43:33.270] [DEBUG] debug-file - Worker 4 has been cleared.
+[2026-09-08T16:43:33.270] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-09-08T16:43:33.270] [DEBUG] debug-file - Current busy worker size: 0.
+[2026-09-08T16:43:33.270] [DEBUG] debug-file - Current worker pool is terminated.
+[2026-09-08T16:44:25.352] [DEBUG] debug-file - env: nodejsVersion=v24.14.1
+[2026-09-08T16:44:25.803] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: false,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-09-08T16:44:29.581] [DEBUG] debug-file - hvigorfile, require result:  { default: { system: [Function: appTasks], plugins: [] } }
+[2026-09-08T16:44:29.586] [DEBUG] debug-file - Starting plugin build process
+[2026-09-08T16:44:30.190] [DEBUG] debug-file - App plugin register hook start...
+[2026-09-08T16:44:30.207] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-09-08T16:44:30.270] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2026-09-08T16:44:30.476] [DEBUG] debug-file - Project task initialization takes 43 ms 
+[2026-09-08T16:44:30.508] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\hooks\cangjie-register.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\strategy\stage-init-strategy.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\abstract-plugin-builder.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\app-plugin-builder.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\factory\plugin-factory.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\index.js
+- D:\HW\testproject\test3\hvigorfile.ts
+- E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js
+- E:\DevEco Studio\tools\hvigor\hvigor\src\base\boot\index.js
+- E:\DevEco Studio\tools\hvigor\hvigor\src\cli\main\cli.js
+- E:\DevEco Studio\tools\hvigor\hvigor\bin\hvigor.js
+[2026-09-08T16:44:30.546] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-09-08T16:44:30.573] [DEBUG] debug-file - project has submodules:entry
+[2026-09-08T16:44:30.578] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2026-09-08T16:44:25.353] [DEBUG] debug-file - env: hvigor-config.json5 content = {
+  modelVersion: '26.0.0',
+  dependencies: {},
+  execution: {},
+  logging: {},
+  debugging: {},
+  nodeOptions: {}
+}
+[2026-09-08T16:44:30.634] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-09-08T16:44:30.741] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2026-09-08T16:44:25.815] [DEBUG] debug-file - Cache service initialization finished in 12 ms 
+[2026-09-08T16:44:29.582] [DEBUG] debug-file - hvigorfile, binding system plugins [Function: appTasks]
+[2026-09-08T16:44:29.587] [DEBUG] debug-file - App plugin prepare start...
+[2026-09-08T16:44:30.191] [DEBUG] debug-file - App plugin register hook end...
+[2026-09-08T16:44:30.245] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2026-09-08T16:44:30.424] [DEBUG] debug-file - Sdk init in 176 ms 
+[2026-09-08T16:44:30.477] [DEBUG] debug-file - hvigorfile, begin to bind custom plugins...
+[2026-09-08T16:44:30.547] [DEBUG] debug-file - Target 'default' config initialized
+[2026-09-08T16:44:30.584] [DEBUG] debug-file - load to the disk finished
+[2026-09-08T16:44:25.354] [DEBUG] debug-file - env: daemon=false
+[2026-09-08T16:44:30.644] [DEBUG] debug-file - Module entry Collected Dependency: 
+[2026-09-08T16:44:30.751] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2026-09-08T16:44:25.819] [DEBUG] debug-file - hvigorfile, resolving D:\HW\testproject\test3\hvigorfile.ts
+[2026-09-08T16:44:29.587] [DEBUG] debug-file - App plugin prepare end...
+[2026-09-08T16:44:30.191] [DEBUG] debug-file - Plugin build process completed
+[2026-09-08T16:44:30.251] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2026-09-08T16:44:30.477] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\HW\testproject\test3\hvigorfile.ts
+[2026-09-08T16:44:30.548] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-09-08T16:44:30.587] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-09-08T16:44:25.354] [DEBUG] debug-file - no-daemon, use the parent process.execArgv --max-old-space-size=8192,--max-semi-space-size=16,--expose-gc
+[2026-09-08T16:44:30.644] [DEBUG] debug-file - Module entry's total dependency: 0
+[2026-09-08T16:44:30.764] [DEBUG] debug-file - Current worker pool is stopped or closed.
+[2026-09-08T16:44:29.587] [DEBUG] debug-file - App plugin creating...
+[2026-09-08T16:44:30.195] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2026-09-08T16:44:30.258] [DEBUG] debug-file - Local scan or download hmscore sdk components toolchains,ets,native
+[2026-09-08T16:44:30.477] [DEBUG] debug-file - hvigorfile, resolve finished D:\HW\testproject\test3\hvigorfile.ts
+[2026-09-08T16:44:30.549] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-09-08T16:44:30.624] [DEBUG] debug-file - Module test3 Collected Dependency: 
+[2026-09-08T16:44:30.657] [DEBUG] debug-file - Configuration phase cost:4 s 842 ms 
+[2026-09-08T16:44:30.766] [DEBUG] debug-file - Clear worker 0.
+[2026-09-08T16:44:30.195] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2026-09-08T16:44:30.481] [DEBUG] debug-file - hvigorfile, resolving D:\HW\testproject\test3\entry\hvigorfile.ts
+[2026-09-08T16:44:30.549] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-09-08T16:44:30.624] [DEBUG] debug-file - Module test3's total dependency: 0
+[2026-09-08T16:44:30.666] [DEBUG] debug-file - Configuration task cost before running: 4 s 888 ms 
+[2026-09-08T16:44:30.767] [DEBUG] debug-file - Clear worker 1.
+[2026-09-08T16:44:30.197] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-09-08T16:44:30.502] [DEBUG] debug-file - hvigorfile, require result:  { default: { system: [Function: hapTasks], plugins: [] } }
+[2026-09-08T16:44:30.549] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-09-08T16:44:30.667] [DEBUG] debug-file - Executing task :entry:init
+[2026-09-08T16:44:30.776] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-09-08T16:44:30.197] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2026-09-08T16:44:30.549] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2026-09-08T16:44:30.502] [DEBUG] debug-file - hvigorfile, binding system plugins [Function: hapTasks]
+[2026-09-08T16:44:30.668] [DEBUG] debug-file - entry : init cost memory 0.0268402099609375
+[2026-09-08T16:44:30.813] [DEBUG] debug-file - worker[0] exits with exit code 0.
+[2026-09-08T16:44:30.549] [DEBUG] debug-file - Target 'default' config initialized
+[2026-09-08T16:44:30.502] [DEBUG] debug-file - Starting plugin build process
+[2026-09-08T16:44:30.668] [DEBUG] debug-file - runTaskFromQueue task cost before running: 4 s 890 ms 
+[2026-09-08T16:44:30.815] [DEBUG] debug-file - Worker 0 has been cleared.
+[2026-09-08T16:44:30.551] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-09-08T16:44:30.503] [DEBUG] debug-file - Hap plugin creating...
+[2026-09-08T16:44:30.671] [INFO] debug-file - Finished :entry:init... after 2 ms 
+[2026-09-08T16:44:30.817] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-09-08T16:44:30.672] [DEBUG] debug-file - Executing task ::init
+[2026-09-08T16:44:30.817] [DEBUG] debug-file - Current busy worker size: 0.
+[2026-09-08T16:44:30.552] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-09-08T16:44:30.672] [DEBUG] debug-file - test3 : init cost memory 0.0159149169921875
+[2026-09-08T16:44:30.832] [DEBUG] debug-file - worker[1] exits with exit code 0.
+[2026-09-08T16:44:30.552] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-09-08T16:44:30.672] [DEBUG] debug-file - runTaskFromQueue task cost before running: 4 s 894 ms 
+[2026-09-08T16:44:30.833] [DEBUG] debug-file - Worker 1 has been cleared.
+[2026-09-08T16:44:30.552] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-09-08T16:44:30.673] [INFO] debug-file - Finished ::init... after 1 ms 
+[2026-09-08T16:44:30.834] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-09-08T16:44:30.552] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-09-08T16:44:30.682] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2026-09-08T16:44:30.834] [DEBUG] debug-file - Current busy worker size: 0.
+[2026-09-08T16:44:30.552] [DEBUG] debug-file - Target 'default' config initialized
+[2026-09-08T16:44:30.684] [DEBUG] debug-file - Obtain build option for module 'entry' target 'ohosTest'in this build.
+[2026-09-08T16:44:30.834] [DEBUG] debug-file - Current worker pool is terminated.
+[2026-09-08T16:44:30.552] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-09-08T16:44:30.732] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2026-09-08T16:44:30.553] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-09-08T16:44:30.834] [DEBUG] debug-file - Current worker pool is terminated.
+[2026-09-08T16:44:30.733] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2026-09-08T16:44:30.553] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-09-08T16:44:30.553] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-09-08T16:44:30.553] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2026-09-08T16:44:30.567] [DEBUG] debug-file - Module entry task initialization takes 12 ms 
+[2026-09-08T16:44:30.568] [DEBUG] debug-file - Hap plugin register hook start...
+[2026-09-08T16:44:30.568] [DEBUG] debug-file - Hap plugin register hook end...
+[2026-09-08T16:44:30.568] [DEBUG] debug-file - Plugin build process completed
+[2026-09-08T16:44:30.568] [DEBUG] debug-file - hvigorfile, begin to bind custom plugins...
+[2026-09-08T16:44:30.569] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\HW\testproject\test3\entry\hvigorfile.ts
+[2026-09-08T16:44:30.569] [DEBUG] debug-file - hvigorfile, resolve finished D:\HW\testproject\test3\entry\hvigorfile.ts
+[2026-09-08T16:44:32.204] [DEBUG] debug-file - env: nodejsVersion=v24.14.1
+[2026-09-08T16:44:32.515] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: false,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-09-08T16:44:34.763] [DEBUG] debug-file - hvigorfile, require result:  { default: { system: [Function: appTasks], plugins: [] } }
+[2026-09-08T16:44:34.770] [DEBUG] debug-file - Starting plugin build process
+[2026-09-08T16:44:35.471] [DEBUG] debug-file - App plugin register hook start...
+[2026-09-08T16:44:35.488] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-09-08T16:44:35.536] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2026-09-08T16:44:35.719] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\hooks\cangjie-register.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\strategy\stage-init-strategy.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\abstract-plugin-builder.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\builder\app-plugin-builder.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\factory\plugin-factory.js
+- E:\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\index.js
+- D:\HW\testproject\test3\hvigorfile.ts
+- E:\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js
+- E:\DevEco Studio\tools\hvigor\hvigor\src\base\boot\index.js
+- E:\DevEco Studio\tools\hvigor\hvigor\src\cli\main\cli.js
+- E:\DevEco Studio\tools\hvigor\hvigor\bin\hvigor.js
+[2026-09-08T16:44:35.683] [DEBUG] debug-file - Project task initialization takes 26 ms 
+[2026-09-08T16:44:35.778] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-09-08T16:44:35.806] [DEBUG] debug-file - project has submodules:entry
+[2026-09-08T16:44:35.812] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2026-09-08T16:44:35.848] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-09-08T16:44:35.930] [DEBUG] debug-file - Executing task :entry:default@PreBuild
+[2026-09-08T16:44:32.205] [DEBUG] debug-file - env: hvigor-config.json5 content = {
+  modelVersion: '26.0.0',
+  dependencies: {},
+  execution: {},
+  logging: {},
+  debugging: {},
+  nodeOptions: {}
+}
+[2026-09-08T16:44:36.066] [DEBUG] debug-file - Executing task :entry:default@BuildNativeWithCmake
+[2026-09-08T16:44:36.135] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2026-09-08T16:44:32.519] [DEBUG] debug-file - Cache service initialization finished in 5 ms 
+[2026-09-08T16:44:34.764] [DEBUG] debug-file - hvigorfile, binding system plugins [Function: appTasks]
+[2026-09-08T16:44:34.770] [DEBUG] debug-file - App plugin prepare start...
+[2026-09-08T16:44:35.472] [DEBUG] debug-file - App plugin register hook end...
+[2026-09-08T16:44:35.517] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2026-09-08T16:44:35.650] [DEBUG] debug-file - Sdk init in 131 ms 
+[2026-09-08T16:44:35.684] [DEBUG] debug-file - hvigorfile, begin to bind custom plugins...
+[2026-09-08T16:44:35.781] [DEBUG] debug-file - Target 'default' config initialized
+[2026-09-08T16:44:35.817] [DEBUG] debug-file - load to the disk finished
+[2026-09-08T16:44:35.856] [DEBUG] debug-file - Module entry Collected Dependency: 
+[2026-09-08T16:44:32.206] [DEBUG] debug-file - env: daemon=false
+[2026-09-08T16:44:36.068] [DEBUG] debug-file - entry : default@BuildNativeWithCmake cost memory 0.01763916015625
+[2026-09-08T16:44:36.143] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2026-09-08T16:44:35.961] [DEBUG] debug-file - Task 'entry:default@PreBuild' cost while wrapping incremental declarations: 3 ms 
+[2026-09-08T16:44:32.522] [DEBUG] debug-file - hvigorfile, resolving D:\HW\testproject\test3\hvigorfile.ts
+[2026-09-08T16:44:34.770] [DEBUG] debug-file - App plugin prepare end...
+[2026-09-08T16:44:35.472] [DEBUG] debug-file - Plugin build process completed
+[2026-09-08T16:44:35.521] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2026-09-08T16:44:35.684] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\HW\testproject\test3\hvigorfile.ts
+[2026-09-08T16:44:35.783] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-09-08T16:44:35.819] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-09-08T16:44:35.856] [DEBUG] debug-file - Module entry's total dependency: 0
+[2026-09-08T16:44:32.206] [DEBUG] debug-file - no-daemon, use the parent process.execArgv --max-old-space-size=8192,--max-semi-space-size=16,--expose-gc
+[2026-09-08T16:44:36.069] [DEBUG] debug-file - runTaskFromQueue task cost before running: 3 s 563 ms 
+[2026-09-08T16:44:36.148] [DEBUG] debug-file - Current worker pool is stopped or closed.
+[2026-09-08T16:44:36.042] [DEBUG] debug-file - Incremental task entry:default@PreBuild pre-execution cost: 51 ms .
+[2026-09-08T16:44:34.770] [DEBUG] debug-file - App plugin creating...
+[2026-09-08T16:44:35.475] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2026-09-08T16:44:35.527] [DEBUG] debug-file - Local scan or download hmscore sdk components toolchains,ets,native
+[2026-09-08T16:44:35.783] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-09-08T16:44:35.685] [DEBUG] debug-file - hvigorfile, resolve finished D:\HW\testproject\test3\hvigorfile.ts
+[2026-09-08T16:44:35.841] [DEBUG] debug-file - Module test3 Collected Dependency: 
+[2026-09-08T16:44:35.877] [DEBUG] debug-file - Configuration phase cost:3 s 358 ms 
+[2026-09-08T16:44:36.070] [INFO] debug-file - Finished :entry:default@BuildNativeWithCmake... after 3 ms 
+[2026-09-08T16:44:36.150] [DEBUG] debug-file - Clear worker 0.
+[2026-09-08T16:44:36.042] [DEBUG] debug-file - entry : default@PreBuild cost memory 0.8911895751953125
+[2026-09-08T16:44:35.475] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2026-09-08T16:44:35.688] [DEBUG] debug-file - hvigorfile, resolving D:\HW\testproject\test3\entry\hvigorfile.ts
+[2026-09-08T16:44:35.783] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-09-08T16:44:35.841] [DEBUG] debug-file - Module test3's total dependency: 0
+[2026-09-08T16:44:35.893] [DEBUG] debug-file - Configuration task cost before running: 3 s 388 ms 
+[2026-09-08T16:44:36.071] [DEBUG] debug-file - Executing task :entry:compileNative
+[2026-09-08T16:44:36.150] [DEBUG] debug-file - Clear worker 1.
+[2026-09-08T16:44:36.053] [INFO] debug-file - UP-TO-DATE :entry:default@PreBuild...  
+[2026-09-08T16:44:35.477] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-09-08T16:44:35.711] [DEBUG] debug-file - hvigorfile, require result:  { default: { system: [Function: hapTasks], plugins: [] } }
+[2026-09-08T16:44:35.783] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-09-08T16:44:36.056] [DEBUG] debug-file - Executing task :entry:default@ConfigureCmake
+[2026-09-08T16:44:36.072] [DEBUG] debug-file - entry : compileNative cost memory 0.0148162841796875
+[2026-09-08T16:44:36.154] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-09-08T16:44:35.477] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2026-09-08T16:44:35.712] [DEBUG] debug-file - hvigorfile, binding system plugins [Function: hapTasks]
+[2026-09-08T16:44:35.784] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2026-09-08T16:44:36.057] [DEBUG] debug-file - entry : default@ConfigureCmake cost memory 0.019866943359375
+[2026-09-08T16:44:36.072] [DEBUG] debug-file - runTaskFromQueue task cost before running: 3 s 567 ms 
+[2026-09-08T16:44:36.183] [DEBUG] debug-file - worker[0] exits with exit code 0.
+[2026-09-08T16:44:35.712] [DEBUG] debug-file - Starting plugin build process
+[2026-09-08T16:44:35.784] [DEBUG] debug-file - Target 'default' config initialized
+[2026-09-08T16:44:36.057] [DEBUG] debug-file - runTaskFromQueue task cost before running: 3 s 552 ms 
+[2026-09-08T16:44:36.074] [INFO] debug-file - Finished :entry:compileNative... after 1 ms 
+[2026-09-08T16:44:36.186] [DEBUG] debug-file - Worker 0 has been cleared.
+[2026-09-08T16:44:35.712] [DEBUG] debug-file - Hap plugin creating...
+[2026-09-08T16:44:35.785] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-09-08T16:44:36.058] [INFO] debug-file - Finished :entry:default@ConfigureCmake... after 1 ms 
+[2026-09-08T16:44:36.081] [INFO] debug-file - BUILD SUCCESSFUL in 3 s 574 ms 
+[2026-09-08T16:44:36.187] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-09-08T16:44:35.785] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-09-08T16:44:36.083] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@PreBuild is up-to-date.
+[2026-09-08T16:44:36.187] [DEBUG] debug-file - Current busy worker size: 0.
+[2026-09-08T16:44:35.785] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-09-08T16:44:36.129] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2026-09-08T16:44:36.204] [DEBUG] debug-file - worker[1] exits with exit code 0.
+[2026-09-08T16:44:35.785] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-09-08T16:44:36.129] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2026-09-08T16:44:36.205] [DEBUG] debug-file - Worker 1 has been cleared.
+[2026-09-08T16:44:35.786] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-09-08T16:44:36.206] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-09-08T16:44:35.786] [DEBUG] debug-file - Target 'default' config initialized
+[2026-09-08T16:44:36.206] [DEBUG] debug-file - Current busy worker size: 0.
+[2026-09-08T16:44:35.786] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-09-08T16:44:35.787] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-09-08T16:44:35.787] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-09-08T16:44:35.787] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-09-08T16:44:35.787] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2026-09-08T16:44:35.803] [DEBUG] debug-file - Module entry task initialization takes 14 ms 
+[2026-09-08T16:44:35.803] [DEBUG] debug-file - Hap plugin register hook start...
+[2026-09-08T16:44:35.803] [DEBUG] debug-file - Hap plugin register hook end...
+[2026-09-08T16:44:35.803] [DEBUG] debug-file - Plugin build process completed
+[2026-09-08T16:44:35.803] [DEBUG] debug-file - hvigorfile, begin to bind custom plugins...
+[2026-09-08T16:44:35.803] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\HW\testproject\test3\entry\hvigorfile.ts
+[2026-09-08T16:44:35.803] [DEBUG] debug-file - hvigorfile, resolve finished D:\HW\testproject\test3\entry\hvigorfile.ts
+[2026-09-08T16:44:36.332] [DEBUG] debug-file - Current worker pool is terminated.
+[2026-09-08T16:44:36.333] [DEBUG] debug-file - Current worker pool is terminated.

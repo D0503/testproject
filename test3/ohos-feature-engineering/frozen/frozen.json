@@ -1,0 +1,12 @@
+{
+  "frozenAt": "2026-09-08T08:25:41.888Z",
+  "snapshots": [
+    {
+      "snapshotId": "component",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation",
+      "contentSha256": "f04667da8de437b3ba849d490c5fea9bdb3c98785b8fe8a19603b28817b8992f",
+      "title": "组件适配沉浸光感",
+      "updatedDate": "2026-09-06 04:10:15"
+    }
+  ]
+}

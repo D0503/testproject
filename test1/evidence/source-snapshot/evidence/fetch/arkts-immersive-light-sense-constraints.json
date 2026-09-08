@@ -1,0 +1,169 @@
+{
+  "status": "fetched",
+  "retrievalMethod": "huawei_getDocumentById",
+  "pageUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints",
+  "canonicalUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints",
+  "retrievedAt": "2026-09-08T06:57:43.393Z",
+  "contentType": "application/json",
+  "documentId": "arkts-immersive-light-sense-constraints",
+  "language": "cn",
+  "catalogName": "harmonyos-guides",
+  "title": "沉浸光感功耗优化",
+  "documentStatus": "4",
+  "updatedDate": "2026-09-03 14:08:21",
+  "displayUpdateTime": "2026-09-04 10:41:25",
+  "textCharacters": 4730,
+  "warnings": [],
+  "contentMarkdown": "# 沉浸光感功耗优化\n\n沉浸光感效果由材质滤镜、折射、高光、阴影等多层效果叠加而成，渲染时需要消耗GPU资源，不合理使用会显著增加功耗。\n\n总体优化原则：沉浸光感效果作为一种\"稀缺\"视觉资源使用，需控制面积与层数、不应固定显示在视频动图动画等变化的内容之上。建议遵循以下功耗优化，获得沉浸光感体验的同时降低性能与功耗的影响。\n\n#### 控制材质使用面积\n\n沉浸式系统材质影响的区域越大，需要处理的像素越多，功耗越高。应避免在单个超大尺寸区域上使用沉浸式系统材质，也应避免在大量小区域上重复使用沉浸式系统材质；推荐在Navigation顶部标题栏和底部Tabs区域中少量使用，优先将沉浸式系统材质限定在需要凸显的局部区域中。\n\n沉浸光感开启后，\n\n-\n弹窗类组件（AlertDialog、ActionSheet、CustomDialog、CalendarPickerDialog、DatePickerDialog、TimePickerDialog、TextPickerDialog、SelectionMenu、AlphabetIndexer弹窗、Text设置copyOption后长按或双击触发的文本菜单）和弹窗类接口（PromptAction、ArkUI_NativeDialog、@ohos.promptAction (弹窗)、Popup控制、Tips控制、菜单控制、半模态转场）以及按钮与选择类组件（Slider、Toggle、Select）可在页面内全部区域生效。\n\n- 其他组件仅在Navigation/NavDestination标题栏或横向Tab中barPosition为BarPosition.End的底部TabBar中生效。在其他区域中设置沉浸光感效果不生效。\n\n```\nimport { uiMaterial } from '@kit.ArkUI';\n\n// 正例：在Navigation标题栏子树中为局部容器设置沉浸式系统材质，材质生效且面积可控\n@Entry\n@Component\nstruct MaterialAreaExample {\n  @Builder\n  NavigationTitle() {\n    Column() {\n      Text('卡片')\n    }\n    .width(328)\n    .height(120)\n    .borderRadius(24)\n    .systemMaterial(new uiMaterial.ImmersiveMaterial({\n      style: uiMaterial.ImmersiveStyle.REGULAR,\n    }))\n  }\n\n  build() {\n    Column() {\n      Navigation() {\n        // 页面内容\n      }\n      .title({ builder: this.NavigationTitle, height: '100%' })\n    }.width('100%').height('100%')\n  }\n}\n\n// 反例：在标题栏生效范围外为整页背景设置沉浸式系统材质，区域过大且材质不生效\nColumn() {\n  // ...整页内容\n}\n.width('100%')\n.height('100%')\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n}))\n```\n\n#### 避免材质嵌套\n\n材质嵌套使用会导致效果被重复计算，既增加功耗，视觉上又相互干扰。同一子树中只需在最外层设置一次沉浸式系统材质，内层节点不应再设置。\n\n```\n// 正例：仅在最外层设置一次沉浸式系统材质\nColumn() {\n  Column() {\n    Text('内容')\n  }\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n}))\n\n// 反例：外层和内层都设置了沉浸式系统材质，相互嵌套\nColumn() {\n  Column() {\n    Text('内容')\n  }\n  .systemMaterial(new uiMaterial.ImmersiveMaterial({\n    style: uiMaterial.ImmersiveStyle.THIN,\n  }))\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n}))\n```\n\n#### 避免与模糊效果叠加\n\n沉浸式系统材质自带的材质滤镜（materialFilter）已包含背景模糊效果，再叠加backgroundBlurStyle、backgroundEffect等模糊属性属于重复处理，会增加额外的功耗开销。\n\n```\n// 正例：仅使用沉浸式系统材质，由其提供模糊效果\nColumn() {\n  Text('内容')\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THICK,\n}))\n\n// 反例：同时设置沉浸式系统材质与背景模糊，重复处理\nColumn() {\n  Text('内容')\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THICK,\n}))\n.backgroundBlurStyle(BlurStyle.COMPONENT_THICK)\n```\n\n#### 控制弹窗尺寸\n\n高算力设备上，沉浸光感强度设置为强或均衡，Dialog、Menu组件默认附带形变、流光等沉浸式空间动效（参见[沉浸式空间动效](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-overview#%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%A9%BA%E9%97%B4%E5%8A%A8%E6%95%88)相关说明）。弹窗面积越大，动效的绘制开销越高，应避免接近全屏的超大面积Dialog或Menu，保持弹窗尺寸在合理范围。\n\n```\n// 正例：弹窗内容区域保持合理尺寸\n@CustomDialog\nstruct NormalSizeDialog {\n  controller: CustomDialogController = new CustomDialogController({ builder: NormalSizeDialog({}) })\n\n  build() {\n    Column() {\n      Text('弹窗内容')\n    }\n    .width(328)\n    .height(216)\n  }\n}\n\n// 反例：弹窗内容区域接近全屏，动效绘制开销高\n@CustomDialog\nstruct FullSizeDialog {\n  controller: CustomDialogController = new CustomDialogController({ builder: FullSizeDialog({}) })\n\n  build() {\n    Column() {\n      Text('弹窗内容')\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n```\n\n#### 避免在动态内容上方使用沉浸式系统材质\n\n沉浸式系统材质的折射、模糊效果需要实时采样其背后的内容。当背景是视频、动画图片等持续变化的内容时，材质层需要重新采样与计算，功耗显著上升。应避免在视频、动图等动态内容上方叠加沉浸式系统材质。\n\n```\n// 反例：在视频上方叠加沉浸式系统材质，视频在播放时沉浸式系统材质会重新绘制\nStack() {\n  Column() {\n    // 视频\n  }\n    .width('100%')\n    .height('100%')\n  Column() {\n    Text('浮层')\n  }\n  .systemMaterial(new uiMaterial.ImmersiveMaterial({\n    style: uiMaterial.ImmersiveStyle.THIN,\n  }))\n}\n```\n\n#### 控制自动反色的作用范围\n\n自动反色（[colorInvert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)）会对材质子树中通过资源接口设置的颜色逐个计算反色。子树越大、参与反色的组件越多，计算量越高。应控制反色的作用范围，避免在包含大量文本、图标的大范围内整体开启反色。\n\n```\n// 正例：缩小反色范围，仅对需要保证可读性的局部区域开启\nColumn() {\n  // ...多数内容不开启反色\n  Column() {\n    Text('标题').fontColor($r('app.color.text'))\n  }\n  .systemMaterial(new uiMaterial.ImmersiveMaterial({\n    style: uiMaterial.ImmersiveStyle.THIN,\n    colorInvert: true,\n  }))\n}\n\n// 反例：在包含大量子项的列表外层开启反色，所有子项颜色都参与计算\nColumn() {\n  ForEach(this.largeList, (item: string) => {\n    Text(item).fontColor($r('app.color.text'))\n  })\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THIN,\n  colorInvert: true,\n}))\n```\n\n#### 保持材质参数与材质区域稳定\n\n频繁修改style、materialColor等材质参数，或在材质区域内频繁增删子节点，都会触发材质效果重新计算。建议一次性确定材质参数并保持稳定，材质区域内部的子树结构也应尽量稳定。\n\n```\n// 正例：材质参数一次性设置并保持稳定\nnew uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THIN,\n  materialColor: '#80FF0000',\n})\n\n// 反例：在定时器中频繁修改材质颜色，反复触发材质重算\nsetInterval(() => {\n  this.materialColor = this.nextColor()\n}, 100)\n```\n\n#### 避免重复叠加阴影\n\n沉浸式系统材质默认已通过[applyShadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)提供阴影，再额外设置通用[shadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadow)属性既与材质效果冲突，又造成重复绘制开销。如需自定义阴影，应将applyShadow置为false后再使用shadow，避免两套效果同时生效。\n\n```\n// 正例：如需自定义阴影，先关闭沉浸式系统材质自带阴影（applyShadow:false）\nColumn() {\n  Text('内容')\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n  applyShadow: false,\n}))\n.shadow({ radius: 20, color: Color.Black })\n\n// 反例：沉浸式系统材质（默认applyShadow为true）与自定义阴影同时存在，重复且冲突\nColumn() {\n  Text('内容')\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n}))\n.shadow({ radius: 20, color: Color.Black })\n```",
+  "contentText": "沉浸光感功耗优化\n沉浸光感效果由材质滤镜、折射、高光、阴影等多层效果叠加而成，渲染时需要消耗GPU资源，不合理使用会显著增加功耗。\n总体优化原则：沉浸光感效果作为一种\"稀缺\"视觉资源使用，需控制面积与层数、不应固定显示在视频动图动画等变化的内容之上。建议遵循以下功耗优化，获得沉浸光感体验的同时降低性能与功耗的影响。\n控制材质使用面积\n沉浸式系统材质影响的区域越大，需要处理的像素越多，功耗越高。应避免在单个超大尺寸区域上使用沉浸式系统材质，也应避免在大量小区域上重复使用沉浸式系统材质；推荐在Navigation顶部标题栏和底部Tabs区域中少量使用，优先将沉浸式系统材质限定在需要凸显的局部区域中。\n沉浸光感开启后，\n-\n弹窗类组件（AlertDialog、ActionSheet、CustomDialog、CalendarPickerDialog、DatePickerDialog、TimePickerDialog、TextPickerDialog、SelectionMenu、AlphabetIndexer弹窗、Text设置copyOption后长按或双击触发的文本菜单）和弹窗类接口（PromptAction、ArkUI_NativeDialog、@ohos.promptAction (弹窗)、Popup控制、Tips控制、菜单控制、半模态转场）以及按钮与选择类组件（Slider、Toggle、Select）可在页面内全部区域生效。\n其他组件仅在Navigation/NavDestination标题栏或横向Tab中barPosition为BarPosition.End的底部TabBar中生效。在其他区域中设置沉浸光感效果不生效。\nimport { uiMaterial } from '@kit.ArkUI';\n// 正例：在Navigation标题栏子树中为局部容器设置沉浸式系统材质，材质生效且面积可控\n@Entry\n@Component\nstruct MaterialAreaExample {\n@Builder\nNavigationTitle() {\nColumn() {\nText('卡片')\n}\n.width(328)\n.height(120)\n.borderRadius(24)\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.REGULAR,\n}))\n}\nbuild() {\nColumn() {\nNavigation() {\n// 页面内容\n}\n.title({ builder: this.NavigationTitle, height: '100%' })\n}.width('100%').height('100%')\n}\n}\n// 反例：在标题栏生效范围外为整页背景设置沉浸式系统材质，区域过大且材质不生效\nColumn() {\n// ...整页内容\n}\n.width('100%')\n.height('100%')\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.REGULAR,\n}))\n避免材质嵌套\n材质嵌套使用会导致效果被重复计算，既增加功耗，视觉上又相互干扰。同一子树中只需在最外层设置一次沉浸式系统材质，内层节点不应再设置。\n// 正例：仅在最外层设置一次沉浸式系统材质\nColumn() {\nColumn() {\nText('内容')\n}\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.REGULAR,\n}))\n// 反例：外层和内层都设置了沉浸式系统材质，相互嵌套\nColumn() {\nColumn() {\nText('内容')\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.THIN,\n}))\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.REGULAR,\n}))\n避免与模糊效果叠加\n沉浸式系统材质自带的材质滤镜（materialFilter）已包含背景模糊效果，再叠加backgroundBlurStyle、backgroundEffect等模糊属性属于重复处理，会增加额外的功耗开销。\n// 正例：仅使用沉浸式系统材质，由其提供模糊效果\nColumn() {\nText('内容')\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.THICK,\n}))\n// 反例：同时设置沉浸式系统材质与背景模糊，重复处理\nColumn() {\nText('内容')\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.THICK,\n}))\n.backgroundBlurStyle(BlurStyle.COMPONENT_THICK)\n控制弹窗尺寸\n高算力设备上，沉浸光感强度设置为强或均衡，Dialog、Menu组件默认附带形变、流光等沉浸式空间动效（参见沉浸式空间动效相关说明）。弹窗面积越大，动效的绘制开销越高，应避免接近全屏的超大面积Dialog或Menu，保持弹窗尺寸在合理范围。\n// 正例：弹窗内容区域保持合理尺寸\n@CustomDialog\nstruct NormalSizeDialog {\ncontroller: CustomDialogController = new CustomDialogController({ builder: NormalSizeDialog({}) })\nbuild() {\nColumn() {\nText('弹窗内容')\n}\n.width(328)\n.height(216)\n}\n}\n// 反例：弹窗内容区域接近全屏，动效绘制开销高\n@CustomDialog\nstruct FullSizeDialog {\ncontroller: CustomDialogController = new CustomDialogController({ builder: FullSizeDialog({}) })\nbuild() {\nColumn() {\nText('弹窗内容')\n}\n.width('100%')\n.height('100%')\n}\n}\n避免在动态内容上方使用沉浸式系统材质\n沉浸式系统材质的折射、模糊效果需要实时采样其背后的内容。当背景是视频、动画图片等持续变化的内容时，材质层需要重新采样与计算，功耗显著上升。应避免在视频、动图等动态内容上方叠加沉浸式系统材质。\n// 反例：在视频上方叠加沉浸式系统材质，视频在播放时沉浸式系统材质会重新绘制\nStack() {\nColumn() {\n// 视频\n}\n.width('100%')\n.height('100%')\nColumn() {\nText('浮层')\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.THIN,\n}))\n}\n控制自动反色的作用范围\n自动反色（colorInvert）会对材质子树中通过资源接口设置的颜色逐个计算反色。子树越大、参与反色的组件越多，计算量越高。应控制反色的作用范围，避免在包含大量文本、图标的大范围内整体开启反色。\n// 正例：缩小反色范围，仅对需要保证可读性的局部区域开启\nColumn() {\n// ...多数内容不开启反色\nColumn() {\nText('标题').fontColor($r('app.color.text'))\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.THIN,\ncolorInvert: true,\n}))\n}\n// 反例：在包含大量子项的列表外层开启反色，所有子项颜色都参与计算\nColumn() {\nForEach(this.largeList, (item: string) => {\nText(item).fontColor($r('app.color.text'))\n})\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.THIN,\ncolorInvert: true,\n}))\n保持材质参数与材质区域稳定\n频繁修改style、materialColor等材质参数，或在材质区域内频繁增删子节点，都会触发材质效果重新计算。建议一次性确定材质参数并保持稳定，材质区域内部的子树结构也应尽量稳定。\n// 正例：材质参数一次性设置并保持稳定\nnew uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.THIN,\nmaterialColor: '#80FF0000',\n})\n// 反例：在定时器中频繁修改材质颜色，反复触发材质重算\nsetInterval(() => {\nthis.materialColor = this.nextColor()\n}, 100)\n避免重复叠加阴影\n沉浸式系统材质默认已通过applyShadow提供阴影，再额外设置通用shadow属性既与材质效果冲突，又造成重复绘制开销。如需自定义阴影，应将applyShadow置为false后再使用shadow，避免两套效果同时生效。\n// 正例：如需自定义阴影，先关闭沉浸式系统材质自带阴影（applyShadow:false）\nColumn() {\nText('内容')\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.REGULAR,\napplyShadow: false,\n}))\n.shadow({ radius: 20, color: Color.Black })\n// 反例：沉浸式系统材质（默认applyShadow为true）与自定义阴影同时存在，重复且冲突\nColumn() {\nText('内容')\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\nstyle: uiMaterial.ImmersiveStyle.REGULAR,\n}))\n.shadow({ radius: 20, color: Color.Black })",
+  "sections": [
+    {
+      "id": "section-1",
+      "level": 1,
+      "heading": "沉浸光感功耗优化",
+      "lineStart": 1,
+      "lineEnd": 6,
+      "text": "沉浸光感效果由材质滤镜、折射、高光、阴影等多层效果叠加而成，渲染时需要消耗GPU资源，不合理使用会显著增加功耗。\n\n总体优化原则：沉浸光感效果作为一种\"稀缺\"视觉资源使用，需控制面积与层数、不应固定显示在视频动图动画等变化的内容之上。建议遵循以下功耗优化，获得沉浸光感体验的同时降低性能与功耗的影响。"
+    },
+    {
+      "id": "section-2",
+      "level": 4,
+      "heading": "控制材质使用面积",
+      "lineStart": 7,
+      "lineEnd": 58,
+      "text": "沉浸式系统材质影响的区域越大，需要处理的像素越多，功耗越高。应避免在单个超大尺寸区域上使用沉浸式系统材质，也应避免在大量小区域上重复使用沉浸式系统材质；推荐在Navigation顶部标题栏和底部Tabs区域中少量使用，优先将沉浸式系统材质限定在需要凸显的局部区域中。\n\n沉浸光感开启后，\n\n-\n弹窗类组件（AlertDialog、ActionSheet、CustomDialog、CalendarPickerDialog、DatePickerDialog、TimePickerDialog、TextPickerDialog、SelectionMenu、AlphabetIndexer弹窗、Text设置copyOption后长按或双击触发的文本菜单）和弹窗类接口（PromptAction、ArkUI_NativeDialog、@ohos.promptAction (弹窗)、Popup控制、Tips控制、菜单控制、半模态转场）以及按钮与选择类组件（Slider、Toggle、Select）可在页面内全部区域生效。\n\n- 其他组件仅在Navigation/NavDestination标题栏或横向Tab中barPosition为BarPosition.End的底部TabBar中生效。在其他区域中设置沉浸光感效果不生效。\n\n```\nimport { uiMaterial } from '@kit.ArkUI';\n\n// 正例：在Navigation标题栏子树中为局部容器设置沉浸式系统材质，材质生效且面积可控\n@Entry\n@Component\nstruct MaterialAreaExample {\n  @Builder\n  NavigationTitle() {\n    Column() {\n      Text('卡片')\n    }\n    .width(328)\n    .height(120)\n    .borderRadius(24)\n    .systemMaterial(new uiMaterial.ImmersiveMaterial({\n      style: uiMaterial.ImmersiveStyle.REGULAR,\n    }))\n  }\n\n  build() {\n    Column() {\n      Navigation() {\n        // 页面内容\n      }\n      .title({ builder: this.NavigationTitle, height: '100%' })\n    }.width('100%').height('100%')\n  }\n}\n\n// 反例：在标题栏生效范围外为整页背景设置沉浸式系统材质，区域过大且材质不生效\nColumn() {\n  // ...整页内容\n}\n.width('100%')\n.height('100%')\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n}))\n```"
+    },
+    {
+      "id": "section-3",
+      "level": 4,
+      "heading": "避免材质嵌套",
+      "lineStart": 59,
+      "lineEnd": 87,
+      "text": "材质嵌套使用会导致效果被重复计算，既增加功耗，视觉上又相互干扰。同一子树中只需在最外层设置一次沉浸式系统材质，内层节点不应再设置。\n\n```\n// 正例：仅在最外层设置一次沉浸式系统材质\nColumn() {\n  Column() {\n    Text('内容')\n  }\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n}))\n\n// 反例：外层和内层都设置了沉浸式系统材质，相互嵌套\nColumn() {\n  Column() {\n    Text('内容')\n  }\n  .systemMaterial(new uiMaterial.ImmersiveMaterial({\n    style: uiMaterial.ImmersiveStyle.THIN,\n  }))\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n}))\n```"
+    },
+    {
+      "id": "section-4",
+      "level": 4,
+      "heading": "避免与模糊效果叠加",
+      "lineStart": 88,
+      "lineEnd": 110,
+      "text": "沉浸式系统材质自带的材质滤镜（materialFilter）已包含背景模糊效果，再叠加backgroundBlurStyle、backgroundEffect等模糊属性属于重复处理，会增加额外的功耗开销。\n\n```\n// 正例：仅使用沉浸式系统材质，由其提供模糊效果\nColumn() {\n  Text('内容')\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THICK,\n}))\n\n// 反例：同时设置沉浸式系统材质与背景模糊，重复处理\nColumn() {\n  Text('内容')\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THICK,\n}))\n.backgroundBlurStyle(BlurStyle.COMPONENT_THICK)\n```"
+    },
+    {
+      "id": "section-5",
+      "level": 4,
+      "heading": "控制弹窗尺寸",
+      "lineStart": 111,
+      "lineEnd": 144,
+      "text": "高算力设备上，沉浸光感强度设置为强或均衡，Dialog、Menu组件默认附带形变、流光等沉浸式空间动效（参见[沉浸式空间动效](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-overview#%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%A9%BA%E9%97%B4%E5%8A%A8%E6%95%88)相关说明）。弹窗面积越大，动效的绘制开销越高，应避免接近全屏的超大面积Dialog或Menu，保持弹窗尺寸在合理范围。\n\n```\n// 正例：弹窗内容区域保持合理尺寸\n@CustomDialog\nstruct NormalSizeDialog {\n  controller: CustomDialogController = new CustomDialogController({ builder: NormalSizeDialog({}) })\n\n  build() {\n    Column() {\n      Text('弹窗内容')\n    }\n    .width(328)\n    .height(216)\n  }\n}\n\n// 反例：弹窗内容区域接近全屏，动效绘制开销高\n@CustomDialog\nstruct FullSizeDialog {\n  controller: CustomDialogController = new CustomDialogController({ builder: FullSizeDialog({}) })\n\n  build() {\n    Column() {\n      Text('弹窗内容')\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n```"
+    },
+    {
+      "id": "section-6",
+      "level": 4,
+      "heading": "避免在动态内容上方使用沉浸式系统材质",
+      "lineStart": 145,
+      "lineEnd": 165,
+      "text": "沉浸式系统材质的折射、模糊效果需要实时采样其背后的内容。当背景是视频、动画图片等持续变化的内容时，材质层需要重新采样与计算，功耗显著上升。应避免在视频、动图等动态内容上方叠加沉浸式系统材质。\n\n```\n// 反例：在视频上方叠加沉浸式系统材质，视频在播放时沉浸式系统材质会重新绘制\nStack() {\n  Column() {\n    // 视频\n  }\n    .width('100%')\n    .height('100%')\n  Column() {\n    Text('浮层')\n  }\n  .systemMaterial(new uiMaterial.ImmersiveMaterial({\n    style: uiMaterial.ImmersiveStyle.THIN,\n  }))\n}\n```"
+    },
+    {
+      "id": "section-7",
+      "level": 4,
+      "heading": "控制自动反色的作用范围",
+      "lineStart": 166,
+      "lineEnd": 194,
+      "text": "自动反色（[colorInvert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)）会对材质子树中通过资源接口设置的颜色逐个计算反色。子树越大、参与反色的组件越多，计算量越高。应控制反色的作用范围，避免在包含大量文本、图标的大范围内整体开启反色。\n\n```\n// 正例：缩小反色范围，仅对需要保证可读性的局部区域开启\nColumn() {\n  // ...多数内容不开启反色\n  Column() {\n    Text('标题').fontColor($r('app.color.text'))\n  }\n  .systemMaterial(new uiMaterial.ImmersiveMaterial({\n    style: uiMaterial.ImmersiveStyle.THIN,\n    colorInvert: true,\n  }))\n}\n\n// 反例：在包含大量子项的列表外层开启反色，所有子项颜色都参与计算\nColumn() {\n  ForEach(this.largeList, (item: string) => {\n    Text(item).fontColor($r('app.color.text'))\n  })\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THIN,\n  colorInvert: true,\n}))\n```"
+    },
+    {
+      "id": "section-8",
+      "level": 4,
+      "heading": "保持材质参数与材质区域稳定",
+      "lineStart": 195,
+      "lineEnd": 211,
+      "text": "频繁修改style、materialColor等材质参数，或在材质区域内频繁增删子节点，都会触发材质效果重新计算。建议一次性确定材质参数并保持稳定，材质区域内部的子树结构也应尽量稳定。\n\n```\n// 正例：材质参数一次性设置并保持稳定\nnew uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THIN,\n  materialColor: '#80FF0000',\n})\n\n// 反例：在定时器中频繁修改材质颜色，反复触发材质重算\nsetInterval(() => {\n  this.materialColor = this.nextColor()\n}, 100)\n```"
+    },
+    {
+      "id": "section-9",
+      "level": 4,
+      "heading": "避免重复叠加阴影",
+      "lineStart": 212,
+      "lineEnd": 235,
+      "text": "沉浸式系统材质默认已通过[applyShadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)提供阴影，再额外设置通用[shadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadow)属性既与材质效果冲突，又造成重复绘制开销。如需自定义阴影，应将applyShadow置为false后再使用shadow，避免两套效果同时生效。\n\n```\n// 正例：如需自定义阴影，先关闭沉浸式系统材质自带阴影（applyShadow:false）\nColumn() {\n  Text('内容')\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n  applyShadow: false,\n}))\n.shadow({ radius: 20, color: Color.Black })\n\n// 反例：沉浸式系统材质（默认applyShadow为true）与自定义阴影同时存在，重复且冲突\nColumn() {\n  Text('内容')\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n}))\n.shadow({ radius: 20, color: Color.Black })\n```"
+    }
+  ],
+  "codeBlocks": [
+    {
+      "index": 0,
+      "language": null,
+      "startLine": 18,
+      "endLine": 57,
+      "content": "import { uiMaterial } from '@kit.ArkUI';\n\n// 正例：在Navigation标题栏子树中为局部容器设置沉浸式系统材质，材质生效且面积可控\n@Entry\n@Component\nstruct MaterialAreaExample {\n  @Builder\n  NavigationTitle() {\n    Column() {\n      Text('卡片')\n    }\n    .width(328)\n    .height(120)\n    .borderRadius(24)\n    .systemMaterial(new uiMaterial.ImmersiveMaterial({\n      style: uiMaterial.ImmersiveStyle.REGULAR,\n    }))\n  }\n\n  build() {\n    Column() {\n      Navigation() {\n        // 页面内容\n      }\n      .title({ builder: this.NavigationTitle, height: '100%' })\n    }.width('100%').height('100%')\n  }\n}\n\n// 反例：在标题栏生效范围外为整页背景设置沉浸式系统材质，区域过大且材质不生效\nColumn() {\n  // ...整页内容\n}\n.width('100%')\n.height('100%')\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n}))"
+    },
+    {
+      "index": 1,
+      "language": null,
+      "startLine": 63,
+      "endLine": 86,
+      "content": "// 正例：仅在最外层设置一次沉浸式系统材质\nColumn() {\n  Column() {\n    Text('内容')\n  }\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n}))\n\n// 反例：外层和内层都设置了沉浸式系统材质，相互嵌套\nColumn() {\n  Column() {\n    Text('内容')\n  }\n  .systemMaterial(new uiMaterial.ImmersiveMaterial({\n    style: uiMaterial.ImmersiveStyle.THIN,\n  }))\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n}))"
+    },
+    {
+      "index": 2,
+      "language": null,
+      "startLine": 92,
+      "endLine": 109,
+      "content": "// 正例：仅使用沉浸式系统材质，由其提供模糊效果\nColumn() {\n  Text('内容')\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THICK,\n}))\n\n// 反例：同时设置沉浸式系统材质与背景模糊，重复处理\nColumn() {\n  Text('内容')\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THICK,\n}))\n.backgroundBlurStyle(BlurStyle.COMPONENT_THICK)"
+    },
+    {
+      "index": 3,
+      "language": null,
+      "startLine": 115,
+      "endLine": 143,
+      "content": "// 正例：弹窗内容区域保持合理尺寸\n@CustomDialog\nstruct NormalSizeDialog {\n  controller: CustomDialogController = new CustomDialogController({ builder: NormalSizeDialog({}) })\n\n  build() {\n    Column() {\n      Text('弹窗内容')\n    }\n    .width(328)\n    .height(216)\n  }\n}\n\n// 反例：弹窗内容区域接近全屏，动效绘制开销高\n@CustomDialog\nstruct FullSizeDialog {\n  controller: CustomDialogController = new CustomDialogController({ builder: FullSizeDialog({}) })\n\n  build() {\n    Column() {\n      Text('弹窗内容')\n    }\n    .width('100%')\n    .height('100%')\n  }\n}"
+    },
+    {
+      "index": 4,
+      "language": null,
+      "startLine": 149,
+      "endLine": 164,
+      "content": "// 反例：在视频上方叠加沉浸式系统材质，视频在播放时沉浸式系统材质会重新绘制\nStack() {\n  Column() {\n    // 视频\n  }\n    .width('100%')\n    .height('100%')\n  Column() {\n    Text('浮层')\n  }\n  .systemMaterial(new uiMaterial.ImmersiveMaterial({\n    style: uiMaterial.ImmersiveStyle.THIN,\n  }))\n}"
+    },
+    {
+      "index": 5,
+      "language": null,
+      "startLine": 170,
+      "endLine": 193,
+      "content": "// 正例：缩小反色范围，仅对需要保证可读性的局部区域开启\nColumn() {\n  // ...多数内容不开启反色\n  Column() {\n    Text('标题').fontColor($r('app.color.text'))\n  }\n  .systemMaterial(new uiMaterial.ImmersiveMaterial({\n    style: uiMaterial.ImmersiveStyle.THIN,\n    colorInvert: true,\n  }))\n}\n\n// 反例：在包含大量子项的列表外层开启反色，所有子项颜色都参与计算\nColumn() {\n  ForEach(this.largeList, (item: string) => {\n    Text(item).fontColor($r('app.color.text'))\n  })\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THIN,\n  colorInvert: true,\n}))"
+    },
+    {
+      "index": 6,
+      "language": null,
+      "startLine": 199,
+      "endLine": 210,
+      "content": "// 正例：材质参数一次性设置并保持稳定\nnew uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.THIN,\n  materialColor: '#80FF0000',\n})\n\n// 反例：在定时器中频繁修改材质颜色，反复触发材质重算\nsetInterval(() => {\n  this.materialColor = this.nextColor()\n}, 100)"
+    },
+    {
+      "index": 7,
+      "language": null,
+      "startLine": 216,
+      "endLine": 235,
+      "content": "// 正例：如需自定义阴影，先关闭沉浸式系统材质自带阴影（applyShadow:false）\nColumn() {\n  Text('内容')\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n  applyShadow: false,\n}))\n.shadow({ radius: 20, color: Color.Black })\n\n// 反例：沉浸式系统材质（默认applyShadow为true）与自定义阴影同时存在，重复且冲突\nColumn() {\n  Text('内容')\n}\n.systemMaterial(new uiMaterial.ImmersiveMaterial({\n  style: uiMaterial.ImmersiveStyle.REGULAR,\n}))\n.shadow({ radius: 20, color: Color.Black })"
+    }
+  ],
+  "links": [
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-overview#%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%A9%BA%E9%97%B4%E5%8A%A8%E6%95%88",
+      "text": "沉浸式空间动效",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions",
+      "text": "colorInvert",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadow",
+      "text": "shadow",
+      "official": true
+    }
+  ],
+  "contentSha256": "13b8e311366df98466bbd59a54a9609c96d3a45a4c5af5f93a2bd17eea811f2c"
+}

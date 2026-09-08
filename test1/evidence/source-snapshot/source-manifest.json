@@ -1,0 +1,1695 @@
+{
+  "schemaVersion": "1.0",
+  "sourceType": "official-url-snapshot",
+  "rootUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense",
+  "capture": {
+    "capturedAt": "2026-09-08T06:57:45.389Z",
+    "status": "recorded"
+  },
+  "crawlPolicy": {
+    "includeLinkedPages": true,
+    "maxPages": 12,
+    "allowedDomain": "developer.huawei.com",
+    "allowedScope": "/cn/harmonyos-guides/arkts-immersive-light-sense*",
+    "recursiveExternalLinks": false
+  },
+  "collectionIndex": {
+    "localPath": "README.md",
+    "bytes": 943,
+    "sha256": "b4f863461a39e998b990be5c6a7c249313d2b17fd90e03374df1fc1b7e4b8443",
+    "derived": true,
+    "officialRootUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense"
+  },
+  "summary": {
+    "snapshotDocuments": 8,
+    "navigationOnlyDocuments": 2,
+    "officialReferences": 109,
+    "unsnapshottedOfficialReferences": 96,
+    "unresolvedMediaReferences": 0,
+    "fetchFailures": 0
+  },
+  "snapshots": [
+    {
+      "id": "arkts-immersive-light-sense",
+      "title": "沉浸光感",
+      "category": "development-guide",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense",
+      "requestedUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense",
+      "localPath": "arkts-immersive-light-sense.md",
+      "bytes": 526,
+      "sha256": "b5fb7f964bdadb9056cb6afbe393539737876fc65e22a09a415ff2662ea320a6",
+      "capturedAt": "2026-09-08T06:57:41.966Z",
+      "updatedAt": "2026-09-06 04:10:15",
+      "retrievalMethod": "huawei_getDocumentById",
+      "contentStatus": "navigation-only",
+      "declaredApiVersions": [],
+      "fetchEvidencePath": "evidence/fetch/arkts-immersive-light-sense.json",
+      "fetchEvidenceSha256": "d98f78688d3f66ea37ecfdbd7fc239a6f6bb8f6bd61c71846a16bcff9fe0a364"
+    },
+    {
+      "id": "arkts-immersive-light-sense-overview",
+      "title": "沉浸光感简介",
+      "category": "development-guide",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-overview",
+      "requestedUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-overview",
+      "localPath": "arkts-immersive-light-sense-overview.md",
+      "bytes": 8917,
+      "sha256": "9643313d663ef364c73f2877f45953d6a04cfaed5b92f22747447514ad62a98a",
+      "capturedAt": "2026-09-08T06:57:42.508Z",
+      "updatedAt": "2026-09-03 14:07:34",
+      "retrievalMethod": "huawei_getDocumentById",
+      "contentStatus": "page-body-present",
+      "declaredApiVersions": [
+        "26.0.0",
+        "0000002612101053",
+        "9",
+        "97",
+        "84",
+        "89",
+        "85",
+        "95",
+        "88",
+        "14",
+        "24",
+        "10",
+        "91"
+      ],
+      "fetchEvidencePath": "evidence/fetch/arkts-immersive-light-sense-overview.json",
+      "fetchEvidenceSha256": "3a582f96ba8417939226f04d33f5f2e1b749358349f5bd7c3b29cbca1ec4a5de"
+    },
+    {
+      "id": "arkts-immersive-light-sense-development",
+      "title": "沉浸光感开发指导",
+      "category": "development-guide",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-development",
+      "requestedUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-development",
+      "localPath": "arkts-immersive-light-sense-development.md",
+      "bytes": 376,
+      "sha256": "b73b45d60781b95e2007b5bb45363baab4fd5e85081e789bcf6a1ea2b8d24124",
+      "capturedAt": "2026-09-08T06:57:42.980Z",
+      "updatedAt": "2026-09-03 14:07:53",
+      "retrievalMethod": "huawei_getDocumentById",
+      "contentStatus": "navigation-only",
+      "declaredApiVersions": [],
+      "fetchEvidencePath": "evidence/fetch/arkts-immersive-light-sense-development.json",
+      "fetchEvidenceSha256": "f1377fac3c9e9485e5d7cf0bf6afb5187085c5ef6cbafefab358512655c60337"
+    },
+    {
+      "id": "arkts-immersive-light-sense-constraints",
+      "title": "沉浸光感功耗优化",
+      "category": "development-guide",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints",
+      "requestedUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints",
+      "localPath": "arkts-immersive-light-sense-constraints.md",
+      "bytes": 8623,
+      "sha256": "256cd175bfbdcda9cb45d113e7e27c17756d477bd9483a89f76d38a26e5faed6",
+      "capturedAt": "2026-09-08T06:57:43.393Z",
+      "updatedAt": "2026-09-03 14:08:21",
+      "retrievalMethod": "huawei_getDocumentById",
+      "contentStatus": "page-body-present",
+      "declaredApiVersions": [],
+      "fetchEvidencePath": "evidence/fetch/arkts-immersive-light-sense-constraints.json",
+      "fetchEvidenceSha256": "b68d5106ba80c637bdfa6af61a5975b4574a09dcc6935cd358050564a754d8c6"
+    },
+    {
+      "id": "arkts-immersive-light-sense-faq",
+      "title": "沉浸光感常见问题",
+      "category": "development-guide",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-faq",
+      "requestedUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-faq",
+      "localPath": "arkts-immersive-light-sense-faq.md",
+      "bytes": 24127,
+      "sha256": "3f5b14317c647131e32f2bfa35bfa742a1e6bb35aaf2979e7531880a902a618a",
+      "capturedAt": "2026-09-08T06:57:43.776Z",
+      "updatedAt": "2026-09-03 14:08:45",
+      "retrievalMethod": "huawei_getDocumentById",
+      "contentStatus": "page-body-present",
+      "declaredApiVersions": [
+        "1",
+        "89",
+        "90",
+        "94",
+        "87",
+        "85",
+        "84",
+        "95",
+        "88",
+        "98"
+      ],
+      "fetchEvidencePath": "evidence/fetch/arkts-immersive-light-sense-faq.json",
+      "fetchEvidenceSha256": "db74aed4fb158d4f23254915cf69c4e5df9efb066c8d66b3e764df49637b69df"
+    },
+    {
+      "id": "arkts-immersive-light-sense-enable",
+      "title": "开启沉浸光感",
+      "category": "development-guide",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable",
+      "requestedUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable",
+      "localPath": "arkts-immersive-light-sense-enable.md",
+      "bytes": 7076,
+      "sha256": "f970f5c0c267c72d713aeff3eb2fe06ed392d9bb4f04425d5301af9b725ac78a",
+      "capturedAt": "2026-09-08T06:57:44.193Z",
+      "updatedAt": "2026-09-06 04:10:15",
+      "retrievalMethod": "huawei_getDocumentById",
+      "contentStatus": "page-body-present",
+      "declaredApiVersions": [
+        "26.0.0",
+        "1",
+        "2",
+        "98",
+        "3",
+        "87"
+      ],
+      "fetchEvidencePath": "evidence/fetch/arkts-immersive-light-sense-enable.json",
+      "fetchEvidenceSha256": "55b15ff8e00326b98bdb061f978a0794a451ff574d914060896f73ee186eb58b"
+    },
+    {
+      "id": "arkts-immersive-light-sense-component-adaptation",
+      "title": "组件适配沉浸光感",
+      "category": "development-guide",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation",
+      "requestedUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation",
+      "localPath": "arkts-immersive-light-sense-component-adaptation.md",
+      "bytes": 26834,
+      "sha256": "2a31c5a7391ec108068e31dd28cedf7aeecf9ce4b87d5d79c27e428c332e3993",
+      "capturedAt": "2026-09-08T06:57:44.613Z",
+      "updatedAt": "2026-09-06 04:10:15",
+      "retrievalMethod": "huawei_getDocumentById",
+      "contentStatus": "page-body-present",
+      "declaredApiVersions": [
+        "20",
+        "80",
+        "90",
+        "87",
+        "98",
+        "95",
+        "88",
+        "24",
+        "82",
+        "3",
+        "97",
+        "83",
+        "99",
+        "84",
+        "89",
+        "9",
+        "85",
+        "86",
+        "94",
+        "14",
+        "10",
+        "81",
+        "92",
+        "11",
+        "4",
+        "91",
+        "6",
+        "7",
+        "8"
+      ],
+      "fetchEvidencePath": "evidence/fetch/arkts-immersive-light-sense-component-adaptation.json",
+      "fetchEvidenceSha256": "66b908960d34e136b547dcad58e11784d62e729011d695575ecb06c02397c530"
+    },
+    {
+      "id": "arkts-immersive-light-sense-common-capability",
+      "title": "沉浸式系统材质视效",
+      "category": "development-guide",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-common-capability",
+      "requestedUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-common-capability",
+      "localPath": "arkts-immersive-light-sense-common-capability.md",
+      "bytes": 10748,
+      "sha256": "7fff3217c67b500ac1e158efec8421a8be95a4dcd702c97bfa7957adfe130824",
+      "capturedAt": "2026-09-08T06:57:45.048Z",
+      "updatedAt": "2026-09-03 14:09:56",
+      "retrievalMethod": "huawei_getDocumentById",
+      "contentStatus": "page-body-present",
+      "declaredApiVersions": [],
+      "fetchEvidencePath": "evidence/fetch/arkts-immersive-light-sense-common-capability.json",
+      "fetchEvidenceSha256": "f6ac57650dc02928f26fa7320500087f5d4e53fa862f93a878680d332d309d15"
+    }
+  ],
+  "officialReferences": [
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/immersivelight-0000002612101053#section11153104616255",
+      "category": "design-guide",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "用户体验与个性定义"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-overview"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/immersivelight-0000002612101053#section91711926192713",
+      "category": "design-guide",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "设计与开发"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-overview"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-base-dialog-overview",
+      "category": "development-guide",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "Dialog"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-toast",
+      "category": "development-guide",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "Toast"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sample",
+      "category": "development-guide",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "沉浸光感典型场景"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-common-capability",
+      "category": "development-guide",
+      "snapshotStatus": "snapshotted",
+      "snapshotId": "arkts-immersive-light-sense-common-capability",
+      "occurrences": 3,
+      "linkTexts": [
+        "沉浸式系统材质视效"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-overview",
+        "arkts-immersive-light-sense-development",
+        "arkts-immersive-light-sense-enable"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-common-capability#%E8%AE%BE%E7%BD%AE%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8%E5%8F%8D%E8%89%B2",
+      "category": "development-guide",
+      "snapshotStatus": "snapshotted",
+      "snapshotId": "arkts-immersive-light-sense-common-capability",
+      "occurrences": 1,
+      "linkTexts": [
+        "设置沉浸式系统材质反色"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation",
+      "category": "development-guide",
+      "snapshotStatus": "snapshotted",
+      "snapshotId": "arkts-immersive-light-sense-component-adaptation",
+      "occurrences": 3,
+      "linkTexts": [
+        "组件适配沉浸光感"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-overview",
+        "arkts-immersive-light-sense-development",
+        "arkts-immersive-light-sense-enable"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints",
+      "category": "development-guide",
+      "snapshotStatus": "snapshotted",
+      "snapshotId": "arkts-immersive-light-sense-constraints",
+      "occurrences": 3,
+      "linkTexts": [
+        "沉浸光感功耗优化"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense",
+        "arkts-immersive-light-sense-enable",
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints#%E6%8E%A7%E5%88%B6%E5%BC%B9%E7%AA%97%E5%B0%BA%E5%AF%B8",
+      "category": "development-guide",
+      "snapshotStatus": "snapshotted",
+      "snapshotId": "arkts-immersive-light-sense-constraints",
+      "occurrences": 1,
+      "linkTexts": [
+        "控制弹窗尺寸"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-development",
+      "category": "development-guide",
+      "snapshotStatus": "snapshotted",
+      "snapshotId": "arkts-immersive-light-sense-development",
+      "occurrences": 1,
+      "linkTexts": [
+        "沉浸光感开发指导"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable",
+      "category": "development-guide",
+      "snapshotStatus": "snapshotted",
+      "snapshotId": "arkts-immersive-light-sense-enable",
+      "occurrences": 2,
+      "linkTexts": [
+        "开启沉浸光感"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-overview",
+        "arkts-immersive-light-sense-development"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-faq",
+      "category": "development-guide",
+      "snapshotStatus": "snapshotted",
+      "snapshotId": "arkts-immersive-light-sense-faq",
+      "occurrences": 3,
+      "linkTexts": [
+        "沉浸光感常见问题"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense",
+        "arkts-immersive-light-sense-enable",
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-faq#%E5%BC%80%E5%90%AF%E8%87%AA%E5%8A%A8%E5%8F%8D%E8%89%B2%E5%90%8E%E6%96%87%E5%AD%97%E9%A2%9C%E8%89%B2%E6%B2%A1%E6%9C%89%E5%8F%98%E5%8C%96",
+      "category": "development-guide",
+      "snapshotStatus": "snapshotted",
+      "snapshotId": "arkts-immersive-light-sense-faq",
+      "occurrences": 1,
+      "linkTexts": [
+        "开启自动反色后文字颜色没有变化"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-common-capability"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-faq#dialog%E6%88%96toast%E7%BB%84%E4%BB%B6%E9%BB%98%E8%AE%A4%E6%B2%A1%E6%9C%89%E6%9D%90%E8%B4%A8%E6%95%88%E6%9E%9C",
+      "category": "development-guide",
+      "snapshotStatus": "snapshotted",
+      "snapshotId": "arkts-immersive-light-sense-faq",
+      "occurrences": 1,
+      "linkTexts": [
+        "Dialog或Toast组件默认没有材质效果"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-overview",
+      "category": "development-guide",
+      "snapshotStatus": "snapshotted",
+      "snapshotId": "arkts-immersive-light-sense-overview",
+      "occurrences": 2,
+      "linkTexts": [
+        "沉浸光感简介"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense",
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-overview#%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%A9%BA%E9%97%B4%E5%8A%A8%E6%95%88",
+      "category": "development-guide",
+      "snapshotStatus": "snapshotted",
+      "snapshotId": "arkts-immersive-light-sense-overview",
+      "occurrences": 2,
+      "linkTexts": [
+        "沉浸式空间动效"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-overview",
+        "arkts-immersive-light-sense-constraints"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-overview#%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8",
+      "category": "development-guide",
+      "snapshotStatus": "snapshotted",
+      "snapshotId": "arkts-immersive-light-sense-overview",
+      "occurrences": 1,
+      "linkTexts": [
+        "沉浸式系统材质"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-overview"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-overview",
+      "category": "development-guide",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "布局容器"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-list-grid-development-overview",
+      "category": "development-guide",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "滚动容器"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file",
+      "category": "development-guide",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "module.json5"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-enable"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#metadata%E6%A0%87%E7%AD%BE",
+      "category": "development-guide",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "metadata"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-enable"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-hds-component-material",
+      "category": "development-guide",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "沉浸光感"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-overview"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-hds-component-material#%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C",
+      "category": "development-guide",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "使用自定义沉浸光感效果"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-introduction",
+      "category": "development-guide",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "UI Design Kit"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-overview"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#showtoast",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "showToast"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "uiMaterial"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#%E7%A4%BA%E4%BE%8B1%E8%AE%BE%E7%BD%AE%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "示例1（设置沉浸式系统材质）"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#empty",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 2,
+      "linkTexts": [
+        "uiMaterial.Material.empty"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-enable",
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 4,
+      "linkTexts": [
+        "colorInvert",
+        "materialColor",
+        "ImmersiveOptions"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-constraints",
+        "arkts-immersive-light-sense-faq",
+        "arkts-immersive-light-sense-component-adaptation",
+        "arkts-immersive-light-sense-common-capability"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersivestyle",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "ImmersiveStyle"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materiallevel",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "MaterialLevel"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 3,
+      "linkTexts": [
+        "DEFAULT",
+        "MaterialState",
+        "ENABLE"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq",
+        "arkts-immersive-light-sense-enable",
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#uimaterialgetglobalmateriallevel",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 2,
+      "linkTexts": [
+        "uiMaterial.getGlobalMaterialLevel"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-overview",
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#uimaterialgetmaterialinfo",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "uiMaterial.getMaterialInfo()"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-enable"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#showtoastoptions",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 3,
+      "linkTexts": [
+        "ShowToastOptions"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq",
+        "arkts-immersive-light-sense-enable",
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chipgroup",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "ChipGroup"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chipgroup#%E7%A4%BA%E4%BE%8B6%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8%E6%A0%B7%E5%BC%8F",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "示例6（设置系统材质样式）"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chipgroup#%E7%A4%BA%E4%BE%8B7%E8%AE%BE%E7%BD%AE%E7%BB%84%E4%BB%B6%E9%80%89%E4%B8%AD%E7%8A%B6%E6%80%81%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8%E6%A0%B7%E5%BC%8F",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "示例7（设置组件选中状态的系统材质样式）"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbutton",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "SegmentButton"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbutton#%E7%A4%BA%E4%BE%8B8%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E6%9D%BF%E6%9D%90%E8%B4%A8",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "示例8（设置背景板材质）"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbutton#segmentbuttonoptions",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "SegmentButtonOptions"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbuttonv2",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "SegmentButtonV2"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbuttonv2#%E7%A4%BA%E4%BE%8B6%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E6%9D%BF%E6%9D%90%E8%B4%A8",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "示例6（设置背景板材质）"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 2,
+      "linkTexts": [
+        "Button"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq",
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#%E7%A4%BA%E4%BE%8B9%E8%AE%BE%E7%BD%AE%E6%8C%89%E9%92%AE%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "示例9（设置按钮的沉浸光感效果）"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#buttonstyle11",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "buttonStyle"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#fontcolor",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 2,
+      "linkTexts": [
+        "fontColor"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq",
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-calendarpicker",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "CalendarPicker"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-datepicker",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "DatePicker"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "Image"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#fillcolor",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "fillColor"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#%E7%A4%BA%E4%BE%8B20%E8%AE%BE%E7%BD%AEsystemmaterial%E5%BC%80%E5%90%AF%E6%A0%87%E9%A2%98%E6%A0%8F%E6%9D%90%E8%B4%A8%E6%95%88%E6%9E%9C",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "示例20（设置systemMaterial开启标题栏材质效果）"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navigationtitleoptions11",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 2,
+      "linkTexts": [
+        "systemMaterial",
+        "NavigationTitleOptions"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-enable",
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select#%E7%A4%BA%E4%BE%8B11%E8%AE%BE%E7%BD%AEselect%E5%92%8C%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "示例11（设置Select和下拉菜单沉浸光感效果）"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select#menusystemmaterial",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 2,
+      "linkTexts": [
+        "menuSystemMaterial"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-enable",
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#%E7%A4%BA%E4%BE%8B10%E8%AE%BE%E7%BD%AE%E6%BB%91%E5%8A%A8%E6%9D%A1%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 2,
+      "linkTexts": [
+        "示例10（设置滑动条的沉浸光感效果）"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-overview",
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#sliderblocktype10%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "SliderBlockType"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#sliderstyle%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "SliderStyle"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "SymbolGlyph"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#fontcolor",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "fontColor"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "Text"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#fontcolor",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "fontColor"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textpicker",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "TextPicker"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-timepicker",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "TimePicker"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle#%E7%A4%BA%E4%BE%8B4toggle%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "示例4（Toggle沉浸光感效果）"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle#toggletype%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "ToggleType"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "AlphabetIndexer"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer#%E7%A4%BA%E4%BE%8B3%E8%AE%BE%E7%BD%AE%E6%8F%90%E7%A4%BA%E5%BC%B9%E7%AA%97%E8%83%8C%E6%99%AF%E6%A8%A1%E7%B3%8A%E6%9D%90%E8%B4%A8",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "示例3（设置提示弹窗背景模糊材质）"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer#popupbackground",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "popupBackground"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer#popupbackgroundblurstyle12",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "popupBackgroundBlurStyle"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#%E7%A4%BA%E4%BE%8B24tabbar%E6%82%AC%E6%B5%AE%E6%A0%B7%E5%BC%8F",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "示例24（TabBar悬浮样式）"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barbackgroundblurstyle11",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "barBackgroundBlurStyle"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barbackgroundcolor10",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "barBackgroundColor"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barfloatingstyle",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "barFloatingStyle"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#baroverlap10",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "barOverlap"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barposition9",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "barPosition"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#floatingtabbarstyle",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "FloatingTabBarStyle"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#vertical",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "vertical"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-action-sheet#%E7%A4%BA%E4%BE%8B9%E8%AE%BE%E7%BD%AE%E5%BC%B9%E7%AA%97%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 2,
+      "linkTexts": [
+        "示例9（设置弹窗的沉浸光感效果）"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-overview",
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-action-sheet#actionsheetoptions%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "ActionSheetOptions"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-alert-dialog-box#%E7%A4%BA%E4%BE%8B9%E8%AE%BE%E7%BD%AE%E5%BC%B9%E7%AA%97%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 2,
+      "linkTexts": [
+        "示例9（设置弹窗的沉浸光感效果）"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-overview",
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-alert-dialog-box#alertdialogparam%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "AlertDialogParam"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#%E7%A4%BA%E4%BE%8B14%E8%AE%BE%E7%BD%AE%E5%BC%B9%E7%AA%97%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E6%95%88%E6%9E%9C",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 2,
+      "linkTexts": [
+        "示例14（设置弹窗的沉浸光感效果）"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-overview",
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontrolleroptions%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 2,
+      "linkTexts": [
+        "CustomDialogControllerOptions"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-enable",
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundblurstyle9",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "backgroundBlurStyle"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundcolor",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 3,
+      "linkTexts": [
+        "backgroundColor"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq",
+        "arkts-immersive-light-sense-component-adaptation",
+        "arkts-immersive-light-sense-common-capability"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-border#borderradius",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "borderRadius"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-filter-effect#materialfilter23",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "materialFilter"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadow",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 3,
+      "linkTexts": [
+        "shadow"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-constraints",
+        "arkts-immersive-light-sense-faq",
+        "arkts-immersive-light-sense-common-capability"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 3,
+      "linkTexts": [
+        "systemMaterial"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq",
+        "arkts-immersive-light-sense-enable",
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#%E7%A4%BA%E4%BE%8B24%E8%AE%BE%E7%BD%AE%E8%8F%9C%E5%8D%95%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 2,
+      "linkTexts": [
+        "示例24（设置菜单的沉浸光感）"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-overview",
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#contextmenuoptions10",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "ContextMenuOptions"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#%E7%A4%BA%E4%BE%8B9%E8%AE%BE%E7%BD%AEpopup%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E8%A7%86%E8%A7%89%E6%95%88%E6%9E%9C",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "示例9（设置Popup的沉浸光感视觉效果）"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupoptions%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 2,
+      "linkTexts": [
+        "PopupOptions"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq",
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#%E7%A4%BA%E4%BE%8B10%E5%8D%8A%E6%A8%A1%E6%80%81%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E6%9D%90%E8%B4%A8",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "示例10（半模态设置系统材质）"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "SheetOptions"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#height",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "height"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#width",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "width"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-tips#%E7%A4%BA%E4%BE%8B3%E8%AE%BE%E7%BD%AE%E6%82%AC%E6%B5%AE%E6%B0%94%E6%B3%A1%E7%9A%84%E6%B2%89%E6%B5%B8%E5%85%89%E6%84%9F%E8%A7%86%E6%95%88",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "示例3（设置悬浮气泡的沉浸光感视效）"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-tips#tipsoptions%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "TipsOptions"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-component-adaptation"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsmaterial",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "hdsMaterial"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsmaterial#materiallevel",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "MaterialLevel"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "HdsNavigation"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation#systemmaterialparams",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "SystemMaterialParams"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-faq"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation#titlebarstyleoptions",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "TitleBarStyleOptions"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-overview"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdstabs#hdstabsfloatingstyle",
+      "category": "api-reference",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "HdsTabsFloatingStyle"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-overview"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/app-compatibility-influence-factor",
+      "category": "development-guide",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "targetSDKVersion"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-enable"
+      ]
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/arkts-api-compatibility-warning-elim",
+      "category": "development-guide",
+      "snapshotStatus": "not-snapshotted",
+      "snapshotId": null,
+      "occurrences": 1,
+      "linkTexts": [
+        "ArkTS API兼容性保护"
+      ],
+      "referencedBy": [
+        "arkts-immersive-light-sense-enable"
+      ]
+    }
+  ],
+  "mediaReferences": [],
+  "fetchFailures": [],
+  "generatedBy": "harmonyos-feature-engineering2/scripts/snapshot-url.mjs"
+}

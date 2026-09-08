@@ -1,0 +1,15 @@
+{
+  "status": "clean",
+  "frozenAt": "2026-09-08T07:21:20.588Z",
+  "pages": [
+    {
+      "snapshotId": "component",
+      "status": "unchanged",
+      "category": null,
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "与上次审查一致。"
+    }
+  ],
+  "highRisk": []
+}

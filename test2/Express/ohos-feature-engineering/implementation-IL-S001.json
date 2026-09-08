@@ -1,0 +1,26 @@
+{
+  "steps": [
+    {
+      "id": "S001-1",
+      "description": "build-profile.json5 的 targetSdkVersion 由 6.0.2(22) 升级为 26.0.0；compatibleSdkVersion 保持 6.0.0(20) 不变。",
+      "status": "applied",
+      "locations": [
+        { "path": "build-profile.json5", "version": "after", "lineStart": 11, "lineEnd": 11 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-F001", "reason": "官网要求开启沉浸光感时应用 targetSDKVersion 不低于 26.0.0；ArkUI 沉浸光感接口从 API 26 起提供。" }
+      ]
+    },
+    {
+      "id": "S001-2",
+      "description": "在 entry 模块 module.json5 的 module.metadata 中增加 ohos.arkui.UIMaterial.state=enable，应用级全局开启沉浸光感。",
+      "status": "applied",
+      "locations": [
+        { "path": "products/entry/src/main/module.json5", "version": "after", "lineStart": 20, "lineEnd": 23 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-F002", "reason": "应用级开关通过 entry 模块 metadata 名 ohos.arkui.UIMaterial.state 配置，value 为 enable 时开启；该配置仅在 entry 类型模块生效。" }
+      ]
+    }
+  ]
+}

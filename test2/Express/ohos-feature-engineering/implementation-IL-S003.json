@@ -1,0 +1,30 @@
+{
+  "steps": [
+    {
+      "id": "S003-1",
+      "description": "MainEntryVM 新增 tabBarFloatingStyle 计算属性：竖排页签（LG/XL 断点）、API 26 以下或不支持沉浸材质的设备返回 undefined（回退普通样式），否则构造 FloatingTabBarStyle 并以 ImmersiveMaterial(THIN) 设置 systemMaterial。",
+      "status": "applied",
+      "locations": [
+        { "path": "products/entry/src/main/ets/viewmodels/MainEntryVM.ets", "version": "after", "lineStart": 1, "lineEnd": 5 },
+        { "path": "products/entry/src/main/ets/viewmodels/MainEntryVM.ets", "version": "after", "lineStart": 75, "lineEnd": 95 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-F010", "reason": "Tabs 使用 FloatingTabBarStyle.systemMaterial 设置 TabBar 背板的沉浸光感效果。" },
+        { "type": "engineering_choice", "reason": "compatibleSdkVersion 保持 6.0.0(20)，运行时以 deviceInfo.sdkApiVersion>=26 且 isImmersiveMaterialSupported() 双重守卫，低版本设备不构造新 API 对象。" }
+      ]
+    },
+    {
+      "id": "S003-2",
+      "description": "MainEntry.ets 新增 ImmersiveTabBarModifier（AttributeModifier<TabsAttribute>），仅在 floatingStyle 有效时才调用 barOverlap(true) 与 barFloatingStyle；Tabs 通过 attributeModifier 挂载，未支持设备上不触发任何 API 26 新增接口调用。",
+      "status": "applied",
+      "locations": [
+        { "path": "products/entry/src/main/ets/pages/MainEntry.ets", "version": "after", "lineStart": 18, "lineEnd": 37 },
+        { "path": "products/entry/src/main/ets/pages/MainEntry.ets", "version": "after", "lineStart": 141, "lineEnd": 141 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-F010", "reason": "悬浮样式仅在 barOverlap=true、vertical=false、barPosition=BarPosition.End 同时满足时生效；设置悬浮材质后不再为 TabBar 设置背景色或背景模糊。" },
+        { "type": "engineering_choice", "reason": "用 AttributeModifier 包裹 API 26 新增属性调用，避免 compatibleSdkVersion 20 的老设备在运行时装配不存在的接口。" }
+      ]
+    }
+  ]
+}

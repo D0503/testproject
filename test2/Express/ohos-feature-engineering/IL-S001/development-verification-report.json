@@ -1,0 +1,1507 @@
+{
+  "verificationVersion": "1.0",
+  "mode": "code-development-validation",
+  "input": {
+    "feature": "immersive-light",
+    "project": "D:\\HW\\testproject\\test2\\Express",
+    "goal": "应用级全局开启沉浸光感：entry 模块 metadata ohos.arkui.UIMaterial.state 配置 enable",
+    "module": null,
+    "component": null,
+    "targetFiles": [],
+    "product": "default",
+    "buildMode": "debug",
+    "device": "127.0.0.1:5555",
+    "navigation": null,
+    "criteria": "D:\\HW\\testproject\\test2\\Express\\ohos-feature-engineering\\criteria-IL-S001.json"
+  },
+  "capabilityPackage": {
+    "featureId": "immersive-light",
+    "packageVersion": null,
+    "scenarioId": "IL-S001",
+    "route": "arkui-api26",
+    "criteriaStrategy": "reuse",
+    "frozenAt": "2026-09-08T07:21:10.224Z",
+    "requiredChecks": [
+      "static",
+      "sdk",
+      "build",
+      "install",
+      "runtime",
+      "visual"
+    ],
+    "criteriaRefs": [
+      "IL-F001",
+      "IL-F002",
+      "IL-F003",
+      "IL-F006",
+      "IL-F007",
+      "IL-F008"
+    ],
+    "conflictingCriteriaRefs": [
+      "IL-F006",
+      "IL-F007"
+    ]
+  },
+  "projectBaseline": {
+    "inspectionVersion": "1.0",
+    "projectRoot": "D:/HW/testproject/test2/Express",
+    "inspectedAt": "2026-09-08T07:56:15.421Z",
+    "route": {
+      "id": "arkui-api26",
+      "displayName": "ArkUI 沉浸光感 API 26",
+      "minCompileApi": 26,
+      "minTargetApi": 26,
+      "minCompatibleApi": null
+    },
+    "buildProfile": {
+      "path": "D:/HW/testproject/test2/Express/build-profile.json5",
+      "sha256": "00f70f97c67528db797b09d6d3109152d0d836f5679dbccc046fe62ea71bc441"
+    },
+    "product": {
+      "requested": null,
+      "available": [
+        {
+          "name": "default",
+          "compatibleApi": 20,
+          "targetApi": 26,
+          "compileApi": null
+        }
+      ],
+      "selected": {
+        "name": "default",
+        "compatibleApi": 20,
+        "targetApi": 26,
+        "compileApi": null
+      }
+    },
+    "buildMode": {
+      "requested": null,
+      "available": [
+        "debug",
+        "release"
+      ],
+      "selected": "debug"
+    },
+    "model": "stage",
+    "modules": [
+      {
+        "name": "entry",
+        "path": "products/entry",
+        "descriptor": "products/entry/src/main/module.json5",
+        "type": "entry",
+        "metadataDetected": true,
+        "metadataValue": "enable"
+      },
+      {
+        "name": "lib_foundation",
+        "path": "commons/lib_foundation",
+        "descriptor": "commons/lib_foundation/src/main/module.json5",
+        "type": "har",
+        "metadataDetected": false,
+        "metadataValue": null
+      },
+      {
+        "name": "business_home",
+        "path": "features/business_home",
+        "descriptor": "features/business_home/src/main/module.json5",
+        "type": "har",
+        "metadataDetected": false,
+        "metadataValue": null
+      },
+      {
+        "name": "business_order",
+        "path": "features/business_order",
+        "descriptor": "features/business_order/src/main/module.json5",
+        "type": "har",
+        "metadataDetected": false,
+        "metadataValue": null
+      },
+      {
+        "name": "business_mine",
+        "path": "features/business_mine",
+        "descriptor": "features/business_mine/src/main/module.json5",
+        "type": "har",
+        "metadataDetected": false,
+        "metadataValue": null
+      },
+      {
+        "name": "module_template",
+        "path": "components/module_template",
+        "descriptor": "components/module_template/src/main/module.json5",
+        "type": "har",
+        "metadataDetected": false,
+        "metadataValue": null
+      },
+      {
+        "name": "module_auth",
+        "path": "components/module_auth",
+        "descriptor": "components/module_auth/src/main/module.json5",
+        "type": "har",
+        "metadataDetected": false,
+        "metadataValue": null
+      },
+      {
+        "name": "membership",
+        "path": "components/membership",
+        "descriptor": "components/membership/src/main/module.json5",
+        "type": "har",
+        "metadataDetected": false,
+        "metadataValue": null
+      },
+      {
+        "name": "module_advertisement",
+        "path": "components/module_advertisement",
+        "descriptor": "components/module_advertisement/src/main/module.json5",
+        "type": "har",
+        "metadataDetected": false,
+        "metadataValue": null
+      },
+      {
+        "name": "address_management",
+        "path": "components/address_management",
+        "descriptor": "components/address_management/src/main/module.json5",
+        "type": "har",
+        "metadataDetected": false,
+        "metadataValue": null
+      },
+      {
+        "name": "coupons",
+        "path": "components/coupons",
+        "descriptor": "components/coupons/src/main/module.json5",
+        "type": "har",
+        "metadataDetected": false,
+        "metadataValue": null
+      },
+      {
+        "name": "collect_personal_info",
+        "path": "components/collect_personal_info",
+        "descriptor": "components/collect_personal_info/src/main/module.json5",
+        "type": "har",
+        "metadataDetected": false,
+        "metadataValue": null
+      },
+      {
+        "name": "aggregated_login",
+        "path": "components/aggregated_login",
+        "descriptor": "components/aggregated_login/src/main/module.json5",
+        "type": "har",
+        "metadataDetected": false,
+        "metadataValue": null
+      },
+      {
+        "name": "aggregated_payment",
+        "path": "components/aggregated_payment",
+        "descriptor": "components/aggregated_payment/src/main/module.json5",
+        "type": "har",
+        "metadataDetected": false,
+        "metadataValue": null
+      },
+      {
+        "name": "notice_center",
+        "path": "components/notice_center",
+        "descriptor": "components/notice_center/src/main/module.json5",
+        "type": "har",
+        "metadataDetected": false,
+        "metadataValue": null
+      },
+      {
+        "name": "feedback",
+        "path": "components/feedback",
+        "descriptor": "components/feedback/src/main/module.json5",
+        "type": "har",
+        "metadataDetected": false,
+        "metadataValue": null
+      },
+      {
+        "name": "app_setting",
+        "path": "components/app_setting",
+        "descriptor": "components/app_setting/src/main/module.json5",
+        "type": "har",
+        "metadataDetected": false,
+        "metadataValue": null
+      },
+      {
+        "name": "business_benefits",
+        "path": "features/business_benefits",
+        "descriptor": "features/business_benefits/src/main/module.json5",
+        "type": "har",
+        "metadataDetected": false,
+        "metadataValue": null
+      }
+    ],
+    "sdk": {
+      "status": "available",
+      "source": "env:DEVECO_SDK_HOME",
+      "path": "E:/DevEco Studio/sdk/default",
+      "manifestPath": "E:/DevEco Studio/sdk/default/sdk-pkg.json",
+      "apiVersion": 26,
+      "version": "26.0.0.105",
+      "platformVersion": "26.0.0",
+      "releaseType": "Release",
+      "declarations": [
+        {
+          "path": "E:/DevEco Studio/sdk/default/openharmony/ets/api/@ohos.arkui.uiMaterial.d.ts",
+          "sha256": "d609002869f80307090bc11803b91049e86ff301f46e472e72430d954a40fd30"
+        },
+        {
+          "path": "E:/DevEco Studio/sdk/default/openharmony/ets/component/common.d.ts",
+          "sha256": "2662a40432b2fa6efcfe387c3bc4bdc79ac9a993de1e415042b37a78d6315614"
+        }
+      ],
+      "missingSymbols": []
+    },
+    "git": {
+      "repository": false,
+      "dirty": null,
+      "entries": []
+    },
+    "targets": {
+      "requestedModule": null,
+      "requestedComponent": null,
+      "requestedFiles": [],
+      "detectedComponents": [
+        {
+          "component": "Navigation",
+          "signal": "component",
+          "path": "components/aggregated_login/src/main/ets/utils/LoginSheetUtils.ets",
+          "line": 25,
+          "excerpt": "Navigation(this.sheetStack) {"
+        },
+        {
+          "component": "Navigation",
+          "signal": "component",
+          "path": "components/collect_personal_info/src/main/ets/components/EnterPhoneNumber.ets",
+          "line": 22,
+          "excerpt": "Navigation(this.sheetPathStack) {"
+        },
+        {
+          "component": "Navigation",
+          "signal": "component",
+          "path": "components/membership/src/main/ets/util/MemberSheetUtils.ets",
+          "line": 23,
+          "excerpt": "Navigation(this.sheetStack) {"
+        },
+        {
+          "component": "Navigation",
+          "signal": "component",
+          "path": "products/entry/src/main/ets/pages/Index.ets",
+          "line": 18,
+          "excerpt": "Navigation(this.vm.navStack) {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "components/address_management/src/main/ets/pages/AddressListPage.ets",
+          "line": 100,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "components/aggregated_login/src/main/ets/components/OtherLoginPage.ets",
+          "line": 220,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "components/aggregated_login/src/main/ets/views/AggregatedLoginPage.ets",
+          "line": 11,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "components/aggregated_login/src/main/ets/views/ProtocolWebView.ets",
+          "line": 76,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "components/aggregated_payment/libs/swallow_alipay_sdk/src/main/ets/components/h5page/AlipayH5Page.ets",
+          "line": 21,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "components/app_setting/src/main/ets/pages/SettingAbout.ets",
+          "line": 16,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "components/app_setting/src/main/ets/pages/SettingFont.ets",
+          "line": 21,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "components/app_setting/src/main/ets/pages/SettingH5.ets",
+          "line": 20,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "components/app_setting/src/main/ets/pages/SettingPrivacy.ets",
+          "line": 17,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "components/collect_personal_info/src/main/ets/components/EnterPhoneNumber.ets",
+          "line": 97,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "components/feedback/src/main/ets/pages/FeedbackHistoryPage.ets",
+          "line": 48,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "components/feedback/src/main/ets/pages/FeedbackSubmitPage.ets",
+          "line": 70,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "components/membership/src/main/ets/component/MemberShipView.ets",
+          "line": 10,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "components/membership/src/main/ets/pages/MemberShipPage.ets",
+          "line": 381,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "components/module_advertisement/src/main/ets/components/Advertisement.ets",
+          "line": 76,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "components/module_auth/src/main/ets/views/CardRecognitionPage.ets",
+          "line": 18,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "components/module_template/src/main/ets/pages/TemplateListPage.ets",
+          "line": 60,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "components/module_template/src/main/ets/pages/TemplatePage.ets",
+          "line": 35,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "components/notice_center/src/main/ets/views/NoticeCenterPage.ets",
+          "line": 37,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "components/notice_center/src/main/ets/views/NoticeListPage.ets",
+          "line": 29,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "features/business_benefits/src/main/ets/pages/PointsHistoryPage.ets",
+          "line": 83,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "features/business_benefits/src/main/ets/pages/VipBenefitPage.ets",
+          "line": 12,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "features/business_home/src/main/ets/pages/EditOrderPage.ets",
+          "line": 155,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "features/business_home/src/main/ets/pages/ExpressPage.ets",
+          "line": 58,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "features/business_home/src/main/ets/pages/GoodsPage.ets",
+          "line": 26,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "features/business_home/src/main/ets/pages/ServicePointPage.ets",
+          "line": 20,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "features/business_mine/src/main/ets/pages/CouponPage.ets",
+          "line": 61,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "features/business_mine/src/main/ets/pages/PersonalInformationPage.ets",
+          "line": 15,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "features/business_mine/src/main/ets/pages/PrivacyPage.ets",
+          "line": 31,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "features/business_mine/src/main/ets/pages/PurchasePage.ets",
+          "line": 123,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "features/business_mine/src/main/ets/pages/QuickLoginPage.ets",
+          "line": 23,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "features/business_mine/src/main/ets/pages/RealNameAuthPage.ets",
+          "line": 28,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "features/business_mine/src/main/ets/pages/SettingPage.ets",
+          "line": 77,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "features/business_mine/src/main/ets/pages/SettingPrivacyPage.ets",
+          "line": 73,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "features/business_order/src/main/ets/pages/OrderDetailPage.ets",
+          "line": 44,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "features/business_order/src/main/ets/pages/OrderInfoPage.ets",
+          "line": 162,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "products/entry/src/main/ets/pages/MainEntry.ets",
+          "line": 105,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "products/entry/src/main/ets/pages/SafePage.ets",
+          "line": 13,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "NavDestination",
+          "signal": "component",
+          "path": "products/entry/src/main/ets/pages/SplashPage.ets",
+          "line": 14,
+          "excerpt": "NavDestination() {"
+        },
+        {
+          "component": "Tabs",
+          "signal": "component",
+          "path": "components/coupons/src/main/ets/views/MyCouponsView.ets",
+          "line": 76,
+          "excerpt": "Tabs({ index: this.currentIndex, controller: this._tabsController }) {"
+        },
+        {
+          "component": "Tabs",
+          "signal": "component",
+          "path": "features/business_benefits/src/main/ets/pages/BenefitPage.ets",
+          "line": 160,
+          "excerpt": "Tabs({ barPosition: BarPosition.Start, index: this.curTabBtnIndex }) {"
+        },
+        {
+          "component": "Tabs",
+          "signal": "component",
+          "path": "features/business_order/src/main/ets/pages/OrderPage.ets",
+          "line": 105,
+          "excerpt": "Tabs({ barPosition: BarPosition.Start, controller: this.tabController, index: $$this.vm.selectedIndex }) {"
+        },
+        {
+          "component": "Tabs",
+          "signal": "component",
+          "path": "products/entry/src/main/ets/pages/MainEntry.ets",
+          "line": 107,
+          "excerpt": "Tabs({ barPosition: BarPosition.End, index: this.vm.curIndex, controller: this.controller }) {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "commons/lib_foundation/src/main/ets/uicomponent/BottomBtn.ets",
+          "line": 10,
+          "excerpt": "Button(this.text)"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "commons/lib_foundation/src/main/ets/uicomponent/CommonStepper.ets",
+          "line": 134,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "commons/lib_foundation/src/main/ets/uicomponent/CommonTitle.ets",
+          "line": 32,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "commons/lib_foundation/src/main/ets/uicomponent/GridPickerSheet.ets",
+          "line": 45,
+          "excerpt": "Button('取消')"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "commons/lib_foundation/src/main/ets/uicomponent/PreferPickupTimeSheet.ets",
+          "line": 79,
+          "excerpt": "Button('取消')"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/address_management/src/main/ets/components/SpeechRecordDialog.ets",
+          "line": 68,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/address_management/src/main/ets/pages/AddressFormSheetPage.ets",
+          "line": 93,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/address_management/src/main/ets/pages/AddressListPage.ets",
+          "line": 141,
+          "excerpt": "Button('添加地址')"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/address_management/src/main/ets/utils/SimpleDialog.ets",
+          "line": 90,
+          "excerpt": "Button(content.cancelButtonText)"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/aggregated_login/src/main/ets/components/AggregatedLogin.ets",
+          "line": 123,
+          "excerpt": "Button($r('app.string.login_in_other'))"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/aggregated_login/src/main/ets/components/OtherLoginPage.ets",
+          "line": 122,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/aggregated_login/src/main/ets/views/ProtocolWebView.ets",
+          "line": 79,
+          "excerpt": "Button({ type: ButtonType.Circle }) {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/aggregated_payment/src/main/ets/components/CashierPickerSheet.ets",
+          "line": 116,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/app_setting/src/main/ets/components/CommonConfirmDialog.ets",
+          "line": 131,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/app_setting/src/main/ets/components/LogoutBtn.ets",
+          "line": 18,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/app_setting/src/main/ets/components/NavHeaderBar.ets",
+          "line": 27,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/collect_personal_info/src/main/ets/components/ChooseDate.ets",
+          "line": 50,
+          "excerpt": "Button('取消')"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/collect_personal_info/src/main/ets/components/EnterPhoneNumber.ets",
+          "line": 62,
+          "excerpt": "Button('更换')"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/collect_personal_info/src/main/ets/components/EnterTextArea.ets",
+          "line": 70,
+          "excerpt": "Button('确定')"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/collect_personal_info/src/main/ets/components/EnterTextInput.ets",
+          "line": 90,
+          "excerpt": "Button('确定')"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/coupons/src/main/ets/views/MyCouponsView.ets",
+          "line": 112,
+          "excerpt": "Button(label)"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/coupons/src/main/ets/views/SelectCouponsView.ets",
+          "line": 119,
+          "excerpt": "Button($r('app.string.confirm'))"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/feedback/src/main/ets/pages/FeedbackHistoryPage.ets",
+          "line": 199,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/feedback/src/main/ets/pages/FeedbackSubmitPage.ets",
+          "line": 185,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/membership/src/main/ets/pages/MemberShipPage.ets",
+          "line": 100,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/module_auth/src/main/ets/views/RealNameAuthView.ets",
+          "line": 170,
+          "excerpt": "Button('确认')"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/module_template/src/main/ets/components/DateTimePickerSheet.ets",
+          "line": 44,
+          "excerpt": "Button('取消')"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/module_template/src/main/ets/pages/TemplateListPage.ets",
+          "line": 109,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/notice_center/src/main/ets/components/SetReadIcon.ets",
+          "line": 13,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/notice_center/src/main/ets/views/NoticeCenterPage.ets",
+          "line": 69,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "components/notice_center/src/main/ets/views/NoticeListPage.ets",
+          "line": 94,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "features/business_benefits/src/main/ets/components/CouponListSection.ets",
+          "line": 204,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "features/business_benefits/src/main/ets/components/MonthFilterSheet.ets",
+          "line": 106,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "features/business_benefits/src/main/ets/components/TaskListSection.ets",
+          "line": 185,
+          "excerpt": "Button(this.getBtnText(taskInfo.item))"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "features/business_benefits/src/main/ets/pages/BenefitPage.ets",
+          "line": 298,
+          "excerpt": "Button(this.isTodaySigned ? '已签到' : '立即签到')"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "features/business_home/src/main/ets/components/ExpressPickerSheet.ets",
+          "line": 45,
+          "excerpt": "Button('取消')"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "features/business_home/src/main/ets/components/PurchaseBar.ets",
+          "line": 85,
+          "excerpt": "Button('下单')"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "features/business_home/src/main/ets/pages/EditOrderPage.ets",
+          "line": 457,
+          "excerpt": "Button('保存')"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "features/business_home/src/main/ets/pages/ExpressPage.ets",
+          "line": 182,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "features/business_home/src/main/ets/pages/HomePage.ets",
+          "line": 150,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "features/business_mine/src/main/ets/components/LoginAvatarCard.ets",
+          "line": 157,
+          "excerpt": "Button(this.isVip ? '会员中心' : '立即开通')"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "features/business_mine/src/main/ets/pages/PurchasePage.ets",
+          "line": 147,
+          "excerpt": "Button('一键领取')"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "features/business_mine/src/main/ets/pages/SettingPage.ets",
+          "line": 96,
+          "excerpt": "Button('退出登录')"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "features/business_order/src/main/ets/components/OrderItemCard.ets",
+          "line": 518,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "features/business_order/src/main/ets/components/StateBar.ets",
+          "line": 34,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "features/business_order/src/main/ets/pages/OrderInfoPage.ets",
+          "line": 371,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "features/business_order/src/main/ets/pages/OrderPage.ets",
+          "line": 86,
+          "excerpt": "Button() {"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "products/entry/src/main/ets/pages/SafePage.ets",
+          "line": 66,
+          "excerpt": "Button('取消')"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "products/entry/src/main/ets/widget/pages/WidgetCard.ets",
+          "line": 115,
+          "excerpt": "Button(label)"
+        },
+        {
+          "component": "Button",
+          "signal": "component",
+          "path": "products/entry/src/main/ets/widget/pages/WidgetCard2x4Card.ets",
+          "line": 117,
+          "excerpt": "Button(label)"
+        },
+        {
+          "component": "Select",
+          "signal": "component",
+          "path": "features/business_order/src/main/ets/components/StateBar.ets",
+          "line": 53,
+          "excerpt": "Select(this.vm.filterData)"
+        },
+        {
+          "component": "Toggle",
+          "signal": "component",
+          "path": "components/address_management/src/main/ets/pages/AddressFormSheetPage.ets",
+          "line": 169,
+          "excerpt": "Toggle({ type: ToggleType.Switch, isOn: this.ctx.address.isDefault })"
+        },
+        {
+          "component": "Toggle",
+          "signal": "component",
+          "path": "components/address_management/src/main/ets/pages/AddressListPage.ets",
+          "line": 214,
+          "excerpt": "Toggle({ type: ToggleType.Switch, isOn: address.isDefault })"
+        },
+        {
+          "component": "Toggle",
+          "signal": "component",
+          "path": "components/app_setting/src/main/ets/components/SettingCard.ets",
+          "line": 127,
+          "excerpt": "Toggle({ type: ToggleType.Switch, isOn: v.switchV })"
+        },
+        {
+          "component": "Toggle",
+          "signal": "component",
+          "path": "components/app_setting/src/main/ets/pages/SettingFont.ets",
+          "line": 82,
+          "excerpt": "Toggle({ type: ToggleType.Switch, isOn: this.vm.fontModel.followSystem })"
+        },
+        {
+          "component": "Toggle",
+          "signal": "component",
+          "path": "features/business_home/src/main/ets/pages/GoodsPage.ets",
+          "line": 109,
+          "excerpt": "Toggle({ type: ToggleType.Switch, isOn: $$this.vm.showVolume })"
+        },
+        {
+          "component": "Slider",
+          "signal": "component",
+          "path": "components/app_setting/src/main/ets/components/FontSizeSlider.ets",
+          "line": 44,
+          "excerpt": "Slider({"
+        }
+      ]
+    },
+    "signals": [
+      {
+        "id": "ui-material-import",
+        "detected": true,
+        "evidence": [
+          {
+            "signal": "ui-material-import",
+            "path": "commons/lib_foundation/src/main/ets/model/BaseViewModel.ets",
+            "line": 1,
+            "excerpt": "import { AppStorageV2, PersistenceV2 } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "commons/lib_foundation/src/main/ets/uicomponent/CommonTitle.ets",
+            "line": 1,
+            "excerpt": "import { AppStorageV2 } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "commons/lib_foundation/src/main/ets/utils/BreakpointUtils.ets",
+            "line": 2,
+            "excerpt": "import { AppStorageV2, MediaQuery } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "commons/lib_foundation/src/main/ets/utils/ContextUtil.ets",
+            "line": 2,
+            "excerpt": "import { promptAction } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "commons/lib_foundation/src/main/ets/utils/PopViewUtil.ets",
+            "line": 1,
+            "excerpt": "import { ComponentContent, promptAction } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "commons/lib_foundation/src/main/ets/utils/WindowUtil.ets",
+            "line": 1,
+            "excerpt": "import { AppStorageV2, window } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "components/address_management/src/main/ets/components/SpeechRecordDialog.ets",
+            "line": 1,
+            "excerpt": "import { ComponentContent, PromptAction } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "components/address_management/src/main/ets/pages/AddressFormSheetPage.ets",
+            "line": 5,
+            "excerpt": "import { PromptAction, UIContext } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "components/address_management/src/main/ets/pages/AddressListPage.ets",
+            "line": 1,
+            "excerpt": "import { UIContext, window } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "components/address_management/src/main/ets/utils/AddressFormSheet.ets",
+            "line": 1,
+            "excerpt": "import { ComponentContent, UIContext } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "components/address_management/src/main/ets/utils/LoadingMask.ets",
+            "line": 1,
+            "excerpt": "import { ComponentContent, PromptAction } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "components/address_management/src/main/ets/utils/SimpleDialog.ets",
+            "line": 1,
+            "excerpt": "import { ComponentContent, PromptAction } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "components/address_management/src/main/ets/utils/WindowListener.ets",
+            "line": 1,
+            "excerpt": "import { window } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "components/address_management/src/main/ets/viewmodels/FinalAvoidAreaVM.ets",
+            "line": 1,
+            "excerpt": "import { window } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "components/aggregated_login/src/main/ets/utils/PopViewUtils.ets",
+            "line": 1,
+            "excerpt": "import { ComponentContent, promptAction } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "components/aggregated_login/src/main/ets/viewmodel/AggregatedLoginVM.ets",
+            "line": 3,
+            "excerpt": "import { PersistenceV2 } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "components/aggregated_login/src/main/ets/views/ProtocolWebView.ets",
+            "line": 2,
+            "excerpt": "import { window } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "components/aggregated_payment/src/main/ets/AggregatedPaymentService.ets",
+            "line": 6,
+            "excerpt": "import { UIContext } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "components/aggregated_payment/src/main/ets/CashierPicker.ets",
+            "line": 1,
+            "excerpt": "import { ComponentContent, LevelMode, PromptAction, UIContext } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "components/aggregated_payment/src/main/ets/components/CashierPickerSheet.ets",
+            "line": 1,
+            "excerpt": "import { window } from '@kit.ArkUI';"
+          }
+        ]
+      },
+      {
+        "id": "material-entry",
+        "detected": true,
+        "evidence": [
+          {
+            "signal": "material-entry",
+            "path": "products/entry/src/main/ets/pages/MainEntry.ets",
+            "line": 18,
+            "excerpt": "* 底部悬浮页签沉浸光感修饰器（判据 IL-F010：Tabs 通过 FloatingTabBarStyle.systemMaterial 设置 TabBar 背板材质）。"
+          },
+          {
+            "signal": "material-entry",
+            "path": "products/entry/src/main/ets/viewmodels/MainEntryVM.ets",
+            "line": 74,
+            "excerpt": "* 底部悬浮页签样式（判据 IL-F010：Tabs 使用 FloatingTabBarStyle.systemMaterial）。"
+          },
+          {
+            "signal": "material-entry",
+            "path": "products/entry/src/main/ets/viewmodels/MainEntryVM.ets",
+            "line": 88,
+            "excerpt": "systemMaterial: new uiMaterial.ImmersiveMaterial({"
+          }
+        ]
+      },
+      {
+        "id": "application-state",
+        "detected": true,
+        "evidence": [
+          {
+            "signal": "application-state",
+            "path": "products/entry/src/main/module.json5",
+            "line": 20,
+            "excerpt": "name: \"ohos.arkui.UIMaterial.state\","
+          }
+        ]
+      },
+      {
+        "id": "capability-guard",
+        "detected": true,
+        "evidence": [
+          {
+            "signal": "capability-guard",
+            "path": "products/entry/src/main/ets/viewmodels/MainEntryVM.ets",
+            "line": 84,
+            "excerpt": "if (deviceInfo.sdkApiVersion < IMMERSIVE_MATERIAL_MIN_API || !uiMaterial.isImmersiveMaterialSupported()) {"
+          }
+        ]
+      },
+      {
+        "id": "version-guard",
+        "detected": false,
+        "evidence": []
+      }
+    ],
+    "compatibility": {
+      "status": "supported",
+      "reasons": [],
+      "authorizationRequired": [],
+      "canModify": true,
+      "canBuild": true
+    }
+  },
+  "changes": [],
+  "implementation": {
+    "recordStatus": "recorded",
+    "baselineAvailable": false,
+    "steps": [
+      {
+        "id": "S001-1",
+        "description": "build-profile.json5 的 targetSdkVersion 由 6.0.2(22) 升级为 26.0.0；compatibleSdkVersion 保持 6.0.0(20) 不变。",
+        "status": "partial",
+        "locations": [
+          {
+            "path": "build-profile.json5",
+            "version": "after",
+            "lineStart": 11,
+            "lineEnd": 11,
+            "correlation": "unverified",
+            "beforeSha256": null,
+            "afterSha256": null
+          }
+        ],
+        "basis": [
+          {
+            "type": "criteria",
+            "criteriaId": "IL-F001",
+            "reason": "官网要求开启沉浸光感时应用 targetSDKVersion 不低于 26.0.0；ArkUI 沉浸光感接口从 API 26 起提供。"
+          }
+        ],
+        "issues": [
+          "build-profile.json5:11-11 无可对应的基线差异，实施情况待确认。"
+        ]
+      },
+      {
+        "id": "S001-2",
+        "description": "在 entry 模块 module.json5 的 module.metadata 中增加 ohos.arkui.UIMaterial.state=enable，应用级全局开启沉浸光感。",
+        "status": "partial",
+        "locations": [
+          {
+            "path": "products/entry/src/main/module.json5",
+            "version": "after",
+            "lineStart": 20,
+            "lineEnd": 23,
+            "correlation": "unverified",
+            "beforeSha256": null,
+            "afterSha256": null
+          }
+        ],
+        "basis": [
+          {
+            "type": "criteria",
+            "criteriaId": "IL-F002",
+            "reason": "应用级开关通过 entry 模块 metadata 名 ohos.arkui.UIMaterial.state 配置，value 为 enable 时开启；该配置仅在 entry 类型模块生效。"
+          }
+        ],
+        "issues": [
+          "products/entry/src/main/module.json5:20-23 无可对应的基线差异，实施情况待确认。"
+        ]
+      }
+    ],
+    "uncoveredChanges": []
+  },
+  "normativeBasis": [
+    {
+      "id": "IL-F001",
+      "statement": "ArkUI 沉浸光感接口从 API 26 起提供；官网要求开启沉浸光感时应用 targetSDKVersion 不低于 26.0.0。",
+      "normativeStatus": "clear",
+      "derivation": "reused",
+      "conflictGroup": null,
+      "usage": "direct",
+      "sources": [
+        {
+          "snapshotId": "overview",
+          "anchor": "从API版本26.0.0开始",
+          "lines": [
+            3,
+            3
+          ],
+          "sha256": "17101cc0c8c72295cf7fdc84405ab291c1cb9c2a62889c25d302ac68ce723e15",
+          "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-overview",
+          "title": "沉浸光感简介",
+          "frozenAt": "2026-09-08T07:21:10.224Z"
+        }
+      ]
+    },
+    {
+      "id": "IL-F002",
+      "statement": "应用级开关通过 entry 模块 metadata 名 ohos.arkui.UIMaterial.state 配置，值为 default、enable 或 disable。",
+      "normativeStatus": "clear",
+      "derivation": "reused",
+      "conflictGroup": null,
+      "usage": "direct",
+      "sources": [
+        {
+          "snapshotId": "enable",
+          "anchor": "ohos.arkui.UIMaterial.state",
+          "lines": [
+            54,
+            54
+          ],
+          "sha256": "25a40e503b20d2cb3b864fad322d7abaa666a55206418de40a1bd33b6d81dbe7",
+          "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable",
+          "title": "开启沉浸光感",
+          "frozenAt": "2026-09-08T07:21:10.224Z"
+        }
+      ]
+    }
+  ],
+  "compatibility": {
+    "status": "supported",
+    "reasons": [],
+    "authorizationRequired": [],
+    "canModify": true,
+    "canBuild": true
+  },
+  "checks": {
+    "static": {
+      "required": true,
+      "status": "passed",
+      "summary": "场景静态规则通过。",
+      "evidenceRefs": [
+        "EVID-001"
+      ]
+    },
+    "sdk": {
+      "required": true,
+      "status": "passed",
+      "summary": "ArkUI 沉浸光感 API 26：SDK API 26，必需符号已找到",
+      "evidenceRefs": [
+        "EVID-002",
+        "EVID-003"
+      ]
+    },
+    "build": {
+      "required": true,
+      "status": "passed",
+      "summary": "真实 debug 构建通过。",
+      "evidenceRefs": [
+        "EVID-004"
+      ],
+      "command": "devecocli build --product default --build-mode debug",
+      "exitCode": 0,
+      "repairAttempts": 0
+    },
+    "install": {
+      "required": true,
+      "status": "passed",
+      "summary": "应用安装并拉起。",
+      "evidenceRefs": [
+        "EVID-005"
+      ],
+      "command": "devecocli run --skip-build --device 127.0.0.1:5555",
+      "exitCode": 0
+    },
+    "runtime": {
+      "required": true,
+      "status": "passed",
+      "summary": "enable 与 disable 两个构建均安装拉起成功，首页渲染正常；disable 对照变体仅用于实验，最终工程状态已恢复为 enable。",
+      "evidenceRefs": [
+        "EVID-007",
+        "EVID-008"
+      ]
+    },
+    "visual": {
+      "required": true,
+      "status": "passed",
+      "summary": "模型判图：对照实验：enable 构建截图（main-entry.jpeg）底部 TabBar 呈悬浮圆角半透明沉浸材质，应用级开启生效；同一代码仅改 metadata 为 disable 后（main-entry-disable.jpeg），显式组件级 ImmersiveMaterial(THIN) 的悬浮材质同样消失，TabBar 退化为贴底普通样式。实测应用级 disable 同时关闭了组件级显式开启的材质，行为匹配 IL-F006（全局禁用，应用级或组件级开启均不生效），不匹配 IL-F007。",
+      "evidenceRefs": [
+        "EVID-009",
+        "EVID-007",
+        "EVID-008"
+      ]
+    }
+  },
+  "evidence": [
+    {
+      "id": "EVID-001",
+      "type": "static",
+      "path": null,
+      "sha256": "81102d18cc4ea56c888b6896bf4aa21a3c184031c029bb9708b7e71e744491c3",
+      "capturedAt": "2026-09-08T07:56:15.602Z",
+      "summary": "场景静态规则：passed",
+      "details": {
+        "status": "passed",
+        "rules": [
+          {
+            "id": "metadata-name",
+            "status": "passed",
+            "message": "entry 模块必须包含正确的 metadata 名称。",
+            "evidence": [
+              {
+                "signal": "metadata-name",
+                "path": "products/entry/src/main/module.json5",
+                "line": 20,
+                "excerpt": "name: \"ohos.arkui.UIMaterial.state\","
+              }
+            ]
+          },
+          {
+            "id": "metadata-value",
+            "status": "passed",
+            "message": "metadata 值必须是 default、enable 或 disable。",
+            "evidence": [
+              {
+                "signal": "metadata-value",
+                "path": "products/entry/src/main/module.json5",
+                "line": 21,
+                "excerpt": "value: \"enable\""
+              }
+            ]
+          },
+          {
+            "id": "entry-only",
+            "status": "passed",
+            "message": "应用级材质 metadata 只能配置在 entry 模块。",
+            "evidence": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "EVID-002",
+      "type": "sdk_declaration",
+      "path": "E:/DevEco Studio/sdk/default/openharmony/ets/api/@ohos.arkui.uiMaterial.d.ts",
+      "sha256": "d609002869f80307090bc11803b91049e86ff301f46e472e72430d954a40fd30",
+      "capturedAt": "2026-09-08T07:56:15.421Z",
+      "summary": "本机 SDK 声明文件"
+    },
+    {
+      "id": "EVID-003",
+      "type": "sdk_declaration",
+      "path": "E:/DevEco Studio/sdk/default/openharmony/ets/component/common.d.ts",
+      "sha256": "2662a40432b2fa6efcfe387c3bc4bdc79ac9a993de1e415042b37a78d6315614",
+      "capturedAt": "2026-09-08T07:56:15.421Z",
+      "summary": "本机 SDK 声明文件"
+    },
+    {
+      "id": "EVID-004",
+      "type": "build_log",
+      "path": "D:\\HW\\testproject\\test2\\Express\\ohos-feature-engineering\\IL-S001\\evidence\\build.log",
+      "sha256": "5a33900c20fa9f71cc2d27a70d89efef3642c8d3dd2fe9f4f4ff48210e60a7a1",
+      "capturedAt": "2026-09-08T07:56:56.346Z",
+      "summary": "devecocli build 成功",
+      "command": "devecocli build --product default --build-mode debug",
+      "exitCode": 0,
+      "excerpt": "ct/test2/Express/products/entry/src/main/ets/pages/MainEntry.ets:82:12\n The '@Monitor' decorator needs to monitor the state variables that exist.\u001b[39m\u001b[39m\r\n\u001b[33mWARN: \u001b[33mArkTS:WARN File: D:/HW/testproject/test2/Express/features/business_order/src/main/ets/pages/OrderDetailPage.ets:100:19\n '@BuilderParam' attribute 'customInfoWindow' can only be initialized by '@Builder' function or '@LocalBuilder' method in struct.\u001b[39m\u001b[39m\r\n\u001b[33mWARN: \u001b[33mArkTS:WARN File: D:/HW/testproject/test2/Express/features/business_order/src/main/ets/pages/OrderInfoPage.ets:49:12\n The '@Monitor' decorator needs to monitor the state variables that exist.\u001b[39m\u001b[39m\r\n\u001b[33mWARN: \u001b[33mArkTS:WARN File: D:/HW/testproject/test2/Express/features/business_order/src/main/ets/pages/OrderInfoPage.ets:49:42\n The '@Monitor' decorator needs to monitor the state variables that exist.\u001b[39m\u001b[39m\r\n\u001b[33mWARN: \u001b[33m\u001b[33m\u001b[39m \u001b[33mArkTS:WARN Property 'sourceMapsPath' not found in '@hw-agconnect/ui-toast'.\u001b[39m \u001b[33m\u001b[39m\u001b[39m\u001b[39m\r\n\u001b[33mWARN: \u001b[33m\u001b[33m\u001b[39m \u001b[33mArkTS:WARN Property 'sourceMapsPath' not found in '@hw-agconnect/ui-dialog'.\u001b[39m \u001b[33m\u001b[39m\u001b[39m\u001b[39m\r\n\u001b[33mWARN: \u001b[33m\u001b[33m\u001b[39m \u001b[33mArkTS:WARN Property 'sourceMapsPath' not found in '@hw-agconnect/ui-skeleton'.\u001b[39m \u001b[33m\u001b[39m\u001b[39m\u001b[39m\r\n\u001b[33mWARN: \u001b[33m\u001b[33m\u001b[39m \u001b[33mArkTS:WARN Property 'sourceMapsPath' not found in '@hw-agconnect/axios-mock-adapter'.\u001b[39m \u001b[33m\u001b[39m\u001b[39m\u001b[39m\r\n\u001b[33mWARN: \u001b[33m\u001b[33m\u001b[39m \u001b[33mArkTS:WARN Property 'sourceMapsPath' not found in '@hw-agconnect/util-log'.\u001b[39m \u001b[33m\u001b[39m\u001b[39m\u001b[39m\r\n\u001b[39m\n> hvigor \u001b[33mWARN: Will skip sign 'hos_hap'. No signingConfigs profile is configured in current project.\n             If needed, configure the signingConfigs in D:\\HW\\testproject\\test2\\Express\\build-profile.json5.\u001b[39m\n> hvigor \u001b[33mWARN: Will skip sign 'app'. No signingConfigs profile is configured in current project.\n             If needed, configure the signingConfigs in D:\\HW\\testproject\\test2\\Express\\build-profile.json5.\u001b[39m\n"
+    },
+    {
+      "id": "EVID-005",
+      "type": "device_log",
+      "path": "D:\\HW\\testproject\\test2\\Express\\ohos-feature-engineering\\IL-S001\\evidence\\device-run.log",
+      "sha256": "b8389a4a5d856cd26baf918e29a8aae0b646bb8e9c54fb87419d3ef55c25cc00",
+      "capturedAt": "2026-09-08T07:57:01.199Z",
+      "summary": "devecocli run 安装并拉起成功",
+      "command": "devecocli run --skip-build --device 127.0.0.1:5555",
+      "exitCode": 0,
+      "excerpt": "$ devecocli run --skip-build --device 127.0.0.1:5555\nAuto-selected module: entry\n\nInstalling artifacts to device 127.0.0.1:5555...\nApp installed successfully\nLaunching kdwl.1.xxxxxx/EntryAbility...\n\u001b[32m\nApplication 'kdwl.1.xxxxxx': start ability successfully.\u001b[39m\n\n\u001b[33mNew version 1.3.2 available, run `devecocli update` to upgrade\u001b[39m\n\n\u001b[33mEnsure the project source is trusted before proceeding.\u001b[39m\n"
+    },
+    {
+      "id": "EVID-006",
+      "type": "device_log",
+      "path": "D:\\HW\\testproject\\test2\\Express\\ohos-feature-engineering\\IL-S001\\evidence\\screenshot-failed.log",
+      "sha256": "0ae78f21ae1818572c53695637a71f82690ebb047032d9866fbb5c22289936af",
+      "capturedAt": "2026-09-08T07:57:02.879Z",
+      "summary": "截图采集失败。",
+      "command": "devecocli ui screenshot --device 127.0.0.1:5555 --path D:\\HW\\testproject\\test2\\Express\\ohos-feature-engineering\\IL-S001\\evidence\\device-visual.png",
+      "exitCode": 1,
+      "excerpt": "$ devecocli ui screenshot --device 127.0.0.1:5555 --path D:\\HW\\testproject\\test2\\Express\\ohos-feature-engineering\\IL-S001\\evidence\\device-visual.png\n\u001b[31mError: Screenshot file already exists: D:\\HW\\testproject\\test2\\Express\\ohos-feature-engineering\\IL-S001\\evidence\\device-visual.png\u001b[39m\n"
+    },
+    {
+      "id": "EVID-007",
+      "type": "screenshot",
+      "path": "D:\\HW\\testproject\\test2\\Express\\ohos-feature-engineering\\IL-S001\\evidence\\main-entry.jpeg",
+      "sha256": "cc9a7547b8dad72bcad0c54120f6026d1d7421ddc95299722c6ccd6bb48c79bd",
+      "capturedAt": "2026-09-08T07:57:02.887Z",
+      "summary": "判图引用的截图。"
+    },
+    {
+      "id": "EVID-008",
+      "type": "screenshot",
+      "path": "D:\\HW\\testproject\\test2\\Express\\ohos-feature-engineering\\IL-S001\\evidence\\main-entry-disable.jpeg",
+      "sha256": "7fb14118dbd82cdc50dfc2e7d03017f10b7371c3663326a2234861a9b674128f",
+      "capturedAt": "2026-09-08T07:57:02.890Z",
+      "summary": "判图引用的截图。"
+    },
+    {
+      "id": "EVID-009",
+      "type": "visual_judgment",
+      "path": null,
+      "sha256": "c969df0b16bc780b57b43668e2d57bf7ff74c6894551ef5eee1d80f9186ec890",
+      "capturedAt": "2026-09-08T07:57:02.890Z",
+      "summary": "对照实验：enable 构建截图（main-entry.jpeg）底部 TabBar 呈悬浮圆角半透明沉浸材质，应用级开启生效；同一代码仅改 metadata 为 disable 后（main-entry-disable.jpeg），显式组件级 ImmersiveMaterial(THIN) 的悬浮材质同样消失，TabBar 退化为贴底普通样式。实测应用级 disable 同时关闭了组件级显式开启的材质，行为匹配 IL-F006（全局禁用，应用级或组件级开启均不生效），不匹配 IL-F007。",
+      "details": {
+        "schemaVersion": "1.0",
+        "scenarioId": "IL-S001",
+        "visual": {
+          "status": "passed",
+          "basis": "对照实验：enable 构建截图（main-entry.jpeg）底部 TabBar 呈悬浮圆角半透明沉浸材质，应用级开启生效；同一代码仅改 metadata 为 disable 后（main-entry-disable.jpeg），显式组件级 ImmersiveMaterial(THIN) 的悬浮材质同样消失，TabBar 退化为贴底普通样式。实测应用级 disable 同时关闭了组件级显式开启的材质，行为匹配 IL-F006（全局禁用，应用级或组件级开启均不生效），不匹配 IL-F007。",
+          "evidence": [
+            {
+              "type": "screenshot",
+              "path": "D:\\HW\\testproject\\test2\\Express\\ohos-feature-engineering\\IL-S001\\evidence\\main-entry.jpeg"
+            },
+            {
+              "type": "screenshot",
+              "path": "D:\\HW\\testproject\\test2\\Express\\ohos-feature-engineering\\IL-S001\\evidence\\main-entry-disable.jpeg"
+            }
+          ]
+        },
+        "runtime": {
+          "status": "passed",
+          "summary": "enable 与 disable 两个构建均安装拉起成功，首页渲染正常；disable 对照变体仅用于实验，最终工程状态已恢复为 enable。"
+        },
+        "matchedCriteriaRefs": [
+          "IL-F006"
+        ]
+      }
+    }
+  ],
+  "pendingVerifications": [],
+  "verdict": {
+    "status": "passed_with_spec_conflict",
+    "summary": "实现与运行验证成功，但实际行为只匹配冲突规范中的一个预期。",
+    "matchedCriteriaRefs": [
+      "IL-F006"
+    ]
+  }
+}

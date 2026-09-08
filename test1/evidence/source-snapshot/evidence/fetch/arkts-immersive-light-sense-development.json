@@ -1,0 +1,50 @@
+{
+  "status": "review_required",
+  "retrievalMethod": "huawei_getDocumentById",
+  "pageUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-development",
+  "canonicalUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-development",
+  "retrievedAt": "2026-09-08T06:57:42.980Z",
+  "contentType": "application/json",
+  "documentId": "arkts-immersive-light-sense-development",
+  "language": "cn",
+  "catalogName": "harmonyos-guides",
+  "title": "沉浸光感开发指导",
+  "documentStatus": "4",
+  "updatedDate": "2026-09-03 14:07:53",
+  "displayUpdateTime": "2026-09-01 03:59:25",
+  "textCharacters": 34,
+  "warnings": [
+    "content_too_short"
+  ],
+  "contentMarkdown": "# 沉浸光感开发指导\n\n- [开启沉浸光感](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable)\n\n- [组件适配沉浸光感](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation)\n\n- [沉浸式系统材质视效](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-common-capability)",
+  "contentText": "沉浸光感开发指导\n开启沉浸光感\n组件适配沉浸光感\n沉浸式系统材质视效",
+  "sections": [
+    {
+      "id": "section-1",
+      "level": 1,
+      "heading": "沉浸光感开发指导",
+      "lineStart": 1,
+      "lineEnd": 7,
+      "text": "- [开启沉浸光感](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable)\n\n- [组件适配沉浸光感](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation)\n\n- [沉浸式系统材质视效](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-common-capability)"
+    }
+  ],
+  "codeBlocks": [],
+  "links": [
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable",
+      "text": "开启沉浸光感",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation",
+      "text": "组件适配沉浸光感",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-common-capability",
+      "text": "沉浸式系统材质视效",
+      "official": true
+    }
+  ],
+  "contentSha256": "c0f0afde44e69625f96a51f48401dae47ab59e6f84115e4c9e9274fd96859ccd"
+}

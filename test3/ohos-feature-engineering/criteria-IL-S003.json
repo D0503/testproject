@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S003",
+  "frozenAt": "2026-09-08T08:25:41.888Z",
+  "validatedAt": "2026-09-08T08:26:09.887Z",
+  "strategy": "reuse",
+  "snapshots": [
+    {
+      "snapshotId": "component",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation",
+      "title": "组件适配沉浸光感",
+      "contentSha256": "f04667da8de437b3ba849d490c5fea9bdb3c98785b8fe8a19603b28817b8992f",
+      "updatedDate": "2026-09-06 04:10:15"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "IL-F009",
+      "type": "navigation",
+      "topic": "导航组件（IL-F009）",
+      "statement": "Navigation 标题栏可通过 NavigationTitleOptions.systemMaterial 配置；默认材质受应用状态影响。",
+      "snapshotId": "component",
+      "anchor": "Navigation标题栏支持通过应用级开启",
+      "status": "reused",
+      "lines": [
+        11,
+        11
+      ]
+    },
+    {
+      "id": "IL-F010",
+      "type": "navigation",
+      "topic": "导航组件（IL-F010）",
+      "statement": "Tabs 使用 FloatingTabBarStyle.systemMaterial，且材质会被栏背景色或背景模糊覆盖。",
+      "snapshotId": "component",
+      "anchor": "三个条件需同时满足",
+      "status": "reused",
+      "lines": [
+        35,
+        35
+      ]
+    },
+    {
+      "id": "IL-F011",
+      "type": "navigation",
+      "topic": "导航组件（IL-F011）",
+      "statement": "AlphabetIndexer 弹窗材质与 popupBackground、popupBackgroundBlurStyle 存在互斥覆盖关系。",
+      "snapshotId": "component",
+      "anchor": "属性和沉浸光感能力互斥",
+      "status": "reused",
+      "lines": [
+        53,
+        53
+      ]
+    }
+  ],
+  "conflictResolutions": [
+    {
+      "probeId": "disable-scope",
+      "verdict": "persists",
+      "basis": "v1.5 审查：enable 页同时存在『全局禁用，应用级或组件级开启均不生效』与『只针对应用级开启的组件』两种表述，尚未真机裁决。"
+    }
+  ],
+  "confirmations": []
+}

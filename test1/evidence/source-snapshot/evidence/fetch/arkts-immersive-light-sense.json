@@ -1,0 +1,60 @@
+{
+  "status": "review_required",
+  "retrievalMethod": "huawei_getDocumentById",
+  "pageUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense",
+  "canonicalUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense",
+  "retrievedAt": "2026-09-08T06:57:41.966Z",
+  "contentType": "application/json",
+  "documentId": "arkts-immersive-light-sense",
+  "language": "cn",
+  "catalogName": "harmonyos-guides",
+  "title": "沉浸光感",
+  "documentStatus": "4",
+  "updatedDate": "2026-09-06 04:10:15",
+  "displayUpdateTime": "2026-09-06 04:35:00",
+  "textCharacters": 47,
+  "warnings": [
+    "content_too_short"
+  ],
+  "contentMarkdown": "# 沉浸光感\n\n- [沉浸光感简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-overview)\n\n- [沉浸光感开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-development)\n\n- [沉浸光感功耗优化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints)\n\n- [沉浸光感常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-faq)\n\n- [沉浸光感典型场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sample)",
+  "contentText": "沉浸光感\n沉浸光感简介\n沉浸光感开发指导\n沉浸光感功耗优化\n沉浸光感常见问题\n沉浸光感典型场景",
+  "sections": [
+    {
+      "id": "section-1",
+      "level": 1,
+      "heading": "沉浸光感",
+      "lineStart": 1,
+      "lineEnd": 11,
+      "text": "- [沉浸光感简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-overview)\n\n- [沉浸光感开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-development)\n\n- [沉浸光感功耗优化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints)\n\n- [沉浸光感常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-faq)\n\n- [沉浸光感典型场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sample)"
+    }
+  ],
+  "codeBlocks": [],
+  "links": [
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-overview",
+      "text": "沉浸光感简介",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-development",
+      "text": "沉浸光感开发指导",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints",
+      "text": "沉浸光感功耗优化",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-faq",
+      "text": "沉浸光感常见问题",
+      "official": true
+    },
+    {
+      "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sample",
+      "text": "沉浸光感典型场景",
+      "official": true
+    }
+  ],
+  "contentSha256": "b6ec9078e85900e8eaff72329aa34a2a5aa3143f6e0c168c426eb743cd46d4e3"
+}

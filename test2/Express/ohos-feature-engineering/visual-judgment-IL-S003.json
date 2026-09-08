@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S003",
+  "visual": {
+    "status": "passed",
+    "basis": "模拟器截图显示底部页签为悬浮圆角样式并呈现半透明沉浸材质（栏背板透出底层内容），barOverlap=true、vertical=false、barPosition=End 三条件满足，FloatingTabBarStyle.systemMaterial 生效；TabBar 无普通背景色/背景模糊覆盖，布局与选中态正常。",
+    "evidence": [
+      {
+        "type": "screenshot",
+        "path": "D:\\HW\\testproject\\test2\\Express\\ohos-feature-engineering\\IL-S001\\evidence\\main-entry.jpeg"
+      }
+    ]
+  },
+  "runtime": {
+    "status": "passed",
+    "summary": "应用安装拉起成功，Tabs 首页正常渲染，底部悬浮 TabBar 可见且选中态（首页）高亮正常。"
+  },
+  "matchedCriteriaRefs": ["IL-F010"]
+}

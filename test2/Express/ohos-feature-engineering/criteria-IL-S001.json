@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S001",
+  "frozenAt": "2026-09-08T07:21:10.224Z",
+  "validatedAt": "2026-09-08T07:22:10.579Z",
+  "strategy": "reuse",
+  "snapshots": [
+    {
+      "snapshotId": "overview",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-overview",
+      "title": "沉浸光感简介",
+      "contentSha256": "17101cc0c8c72295cf7fdc84405ab291c1cb9c2a62889c25d302ac68ce723e15",
+      "updatedDate": "2026-09-03 14:07:34"
+    },
+    {
+      "snapshotId": "enable",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable",
+      "title": "开启沉浸光感",
+      "contentSha256": "25a40e503b20d2cb3b864fad322d7abaa666a55206418de40a1bd33b6d81dbe7",
+      "updatedDate": "2026-09-06 04:10:15"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "IL-F001",
+      "type": "version",
+      "topic": "版本门槛（IL-F001）",
+      "statement": "ArkUI 沉浸光感接口从 API 26 起提供；官网要求开启沉浸光感时应用 targetSDKVersion 不低于 26.0.0。",
+      "snapshotId": "overview",
+      "anchor": "从API版本26.0.0开始",
+      "status": "reused",
+      "lines": [
+        3,
+        3
+      ]
+    },
+    {
+      "id": "IL-F002",
+      "type": "configuration",
+      "topic": "配置契约（IL-F002）",
+      "statement": "应用级开关通过 entry 模块 metadata 名 ohos.arkui.UIMaterial.state 配置，值为 default、enable 或 disable。",
+      "snapshotId": "enable",
+      "anchor": "ohos.arkui.UIMaterial.state",
+      "status": "reused",
+      "lines": [
+        54,
+        54
+      ]
+    },
+    {
+      "id": "IL-F003",
+      "type": "configuration",
+      "topic": "配置契约（IL-F003）",
+      "statement": "未配置应用级开关时，升级应用按 default 处理。",
+      "snapshotId": "enable",
+      "anchor": "即为default模式",
+      "status": "reused",
+      "lines": [
+        35,
+        35
+      ]
+    },
+    {
+      "id": "IL-F006",
+      "type": "state",
+      "topic": "状态语义（IL-F006）",
+      "statement": "一处规范称应用级 disable 会使应用级和组件级显式开启都失效。",
+      "snapshotId": "enable",
+      "anchor": "会全局禁用沉浸光感",
+      "status": "reused",
+      "conflictGroup": "disable-scope",
+      "lines": [
+        75,
+        75
+      ]
+    },
+    {
+      "id": "IL-F007",
+      "type": "state",
+      "topic": "状态语义（IL-F007）",
+      "statement": "另一处规范称应用级 disable 只关闭应用级开启，组件仍可显式开启。",
+      "snapshotId": "enable",
+      "anchor": "只针对应用级开启的组件",
+      "status": "reused",
+      "conflictGroup": "disable-scope",
+      "lines": [
+        87,
+        87
+      ]
+    },
+    {
+      "id": "IL-F008",
+      "type": "capability",
+      "topic": "能力查询（IL-F008）",
+      "statement": "运行时应查询 isImmersiveMaterialSupported；全局材质档位可由 getGlobalMaterialLevel 获取。",
+      "snapshotId": "overview",
+      "anchor": "算力档位由设备定义且固定",
+      "status": "reused",
+      "lines": [
+        9,
+        9
+      ]
+    }
+  ],
+  "conflictResolutions": [
+    {
+      "probeId": "disable-scope",
+      "verdict": "persists",
+      "basis": "v1.5 审查：enable 页同时存在『全局禁用，应用级或组件级开启均不生效』与『只针对应用级开启的组件』两种表述，尚未真机裁决。"
+    }
+  ],
+  "confirmations": []
+}

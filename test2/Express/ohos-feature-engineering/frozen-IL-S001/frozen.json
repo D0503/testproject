@@ -1,0 +1,19 @@
+{
+  "frozenAt": "2026-09-08T07:21:10.224Z",
+  "snapshots": [
+    {
+      "snapshotId": "overview",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-overview",
+      "contentSha256": "17101cc0c8c72295cf7fdc84405ab291c1cb9c2a62889c25d302ac68ce723e15",
+      "title": "沉浸光感简介",
+      "updatedDate": "2026-09-03 14:07:34"
+    },
+    {
+      "snapshotId": "enable",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable",
+      "contentSha256": "25a40e503b20d2cb3b864fad322d7abaa666a55206418de40a1bd33b6d81dbe7",
+      "title": "开启沉浸光感",
+      "updatedDate": "2026-09-06 04:10:15"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-development请使用harmonyos-feature-engineering2对官网资料进行检查
+
+请使用harmonyos-feature-engineering2，对当前工程开启全局沉浸光感，将tab改为底部沉浸光感tab
+
+请使用harmonyos-feature-engineering2，在当前文件夹生成一个鸿蒙demo，实现搜索框标题栏具有沉浸光感效果。

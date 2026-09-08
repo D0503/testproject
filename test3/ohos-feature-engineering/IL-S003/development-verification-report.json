@@ -1,0 +1,602 @@
+{
+  "verificationVersion": "1.0",
+  "mode": "code-development-validation",
+  "input": {
+    "feature": "immersive-light",
+    "project": "D:\\HW\\testproject\\test3",
+    "goal": "搜索框标题栏具有沉浸光感效果",
+    "module": null,
+    "component": "Navigation",
+    "targetFiles": [],
+    "product": "default",
+    "buildMode": "debug",
+    "device": null,
+    "navigation": null,
+    "criteria": "D:\\HW\\testproject\\test3\\ohos-feature-engineering\\criteria-IL-S003.json"
+  },
+  "capabilityPackage": {
+    "featureId": "immersive-light",
+    "packageVersion": null,
+    "scenarioId": "IL-S003",
+    "route": "arkui-api26",
+    "criteriaStrategy": "reuse",
+    "frozenAt": "2026-09-08T08:25:41.888Z",
+    "requiredChecks": [
+      "static",
+      "sdk",
+      "build",
+      "install",
+      "runtime",
+      "visual"
+    ],
+    "criteriaRefs": [
+      "IL-F009",
+      "IL-F010",
+      "IL-F011"
+    ],
+    "conflictingCriteriaRefs": []
+  },
+  "projectBaseline": {
+    "inspectionVersion": "1.0",
+    "projectRoot": "D:/HW/testproject/test3",
+    "inspectedAt": "2026-09-08T08:48:31.910Z",
+    "route": {
+      "id": "arkui-api26",
+      "displayName": "ArkUI 沉浸光感 API 26",
+      "minCompileApi": 26,
+      "minTargetApi": 26,
+      "minCompatibleApi": null
+    },
+    "buildProfile": {
+      "path": "D:/HW/testproject/test3/build-profile.json5",
+      "sha256": "810fc1e7293f5581220f36bc2383ed91a426f7697262b758d8e21ba3cce217bf"
+    },
+    "product": {
+      "requested": null,
+      "available": [
+        {
+          "name": "default",
+          "compatibleApi": 26,
+          "targetApi": 26,
+          "compileApi": null
+        }
+      ],
+      "selected": {
+        "name": "default",
+        "compatibleApi": 26,
+        "targetApi": 26,
+        "compileApi": null
+      }
+    },
+    "buildMode": {
+      "requested": null,
+      "available": [
+        "debug",
+        "release"
+      ],
+      "selected": "debug"
+    },
+    "model": "stage",
+    "modules": [
+      {
+        "name": "entry",
+        "path": "entry",
+        "descriptor": "entry/src/main/module.json5",
+        "type": "entry",
+        "metadataDetected": false,
+        "metadataValue": null
+      }
+    ],
+    "sdk": {
+      "status": "available",
+      "source": "local.properties:sdk.dir",
+      "path": "E:/DevEco Studio/sdk/default",
+      "manifestPath": "E:/DevEco Studio/sdk/default/sdk-pkg.json",
+      "apiVersion": 26,
+      "version": "26.0.0.105",
+      "platformVersion": "26.0.0",
+      "releaseType": "Release",
+      "declarations": [
+        {
+          "path": "E:/DevEco Studio/sdk/default/openharmony/ets/api/@ohos.arkui.uiMaterial.d.ts",
+          "sha256": "d609002869f80307090bc11803b91049e86ff301f46e472e72430d954a40fd30"
+        },
+        {
+          "path": "E:/DevEco Studio/sdk/default/openharmony/ets/component/common.d.ts",
+          "sha256": "2662a40432b2fa6efcfe387c3bc4bdc79ac9a993de1e415042b37a78d6315614"
+        }
+      ],
+      "missingSymbols": []
+    },
+    "git": {
+      "repository": true,
+      "dirty": true,
+      "entries": [
+        {
+          "status": " M",
+          "path": "test3/entry/src/main/ets/pages/Index.ets"
+        },
+        {
+          "status": "??",
+          "path": "test3/ohos-feature-engineering/implementation-IL-S003.json"
+        }
+      ]
+    },
+    "targets": {
+      "requestedModule": null,
+      "requestedComponent": "Navigation",
+      "requestedFiles": [],
+      "detectedComponents": [
+        {
+          "component": "Navigation",
+          "signal": "component",
+          "path": "entry/src/main/ets/pages/Index.ets",
+          "line": 100,
+          "excerpt": "Navigation() {"
+        }
+      ]
+    },
+    "signals": [
+      {
+        "id": "ui-material-import",
+        "detected": true,
+        "evidence": [
+          {
+            "signal": "ui-material-import",
+            "path": "entry/src/main/ets/entryability/EntryAbility.ets",
+            "line": 3,
+            "excerpt": "import { window } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "entry/src/main/ets/materials/ImmersiveMaterialFactory.ets",
+            "line": 2,
+            "excerpt": "import { uiMaterial } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "entry/src/main/ets/materials/ImmersiveMaterialFactory.ets",
+            "line": 2,
+            "excerpt": "import { uiMaterial } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "entry/src/main/ets/materials/ImmersiveMaterialFactory.ets",
+            "line": 14,
+            "excerpt": "uiMaterial.isImmersiveMaterialSupported();"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "entry/src/main/ets/materials/ImmersiveMaterialFactory.ets",
+            "line": 17,
+            "excerpt": "static create(style: uiMaterial.ImmersiveStyle,"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "entry/src/main/ets/materials/ImmersiveMaterialFactory.ets",
+            "line": 18,
+            "excerpt": "interactive: boolean = false): uiMaterial.ImmersiveMaterial | undefined {"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "entry/src/main/ets/materials/ImmersiveMaterialFactory.ets",
+            "line": 22,
+            "excerpt": "return new uiMaterial.ImmersiveMaterial({"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "entry/src/main/ets/materials/ImmersiveMaterialFactory.ets",
+            "line": 28,
+            "excerpt": "static close(): uiMaterial.Material {"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "entry/src/main/ets/materials/ImmersiveMaterialFactory.ets",
+            "line": 29,
+            "excerpt": "return uiMaterial.Material.empty;"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "entry/src/main/ets/pages/Index.ets",
+            "line": 1,
+            "excerpt": "import { uiMaterial } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "entry/src/main/ets/pages/Index.ets",
+            "line": 1,
+            "excerpt": "import { uiMaterial } from '@kit.ArkUI';"
+          },
+          {
+            "signal": "ui-material-import",
+            "path": "entry/src/main/ets/pages/Index.ets",
+            "line": 15,
+            "excerpt": "systemMaterial: ImmersiveMaterialFactory.create(uiMaterial.ImmersiveStyle.ULTRA_THIN)"
+          }
+        ]
+      },
+      {
+        "id": "material-entry",
+        "detected": true,
+        "evidence": [
+          {
+            "signal": "material-entry",
+            "path": "entry/src/main/ets/pages/Index.ets",
+            "line": 10,
+            "excerpt": "// 判据 IL-F009：Navigation 标题栏通过 NavigationTitleOptions.systemMaterial 配置沉浸光感；"
+          },
+          {
+            "signal": "material-entry",
+            "path": "entry/src/main/ets/pages/Index.ets",
+            "line": 15,
+            "excerpt": "systemMaterial: ImmersiveMaterialFactory.create(uiMaterial.ImmersiveStyle.ULTRA_THIN)"
+          }
+        ]
+      },
+      {
+        "id": "application-state",
+        "detected": false,
+        "evidence": []
+      },
+      {
+        "id": "capability-guard",
+        "detected": true,
+        "evidence": [
+          {
+            "signal": "capability-guard",
+            "path": "entry/src/main/ets/materials/ImmersiveMaterialFactory.ets",
+            "line": 14,
+            "excerpt": "uiMaterial.isImmersiveMaterialSupported();"
+          }
+        ]
+      },
+      {
+        "id": "version-guard",
+        "detected": false,
+        "evidence": []
+      }
+    ],
+    "compatibility": {
+      "status": "supported",
+      "reasons": [],
+      "authorizationRequired": [],
+      "canModify": true,
+      "canBuild": true
+    }
+  },
+  "changes": [],
+  "implementation": {
+    "recordStatus": "recorded",
+    "baselineAvailable": false,
+    "steps": [
+      {
+        "id": "STEP-1",
+        "description": "Navigation 搜索框标题栏通过 NavigationTitleOptions.systemMaterial 组件级开启沉浸光感，材质样式 ULTRA_THIN（导航类组件薄材质），经 ImmersiveMaterialFactory 能力守卫创建。",
+        "status": "partial",
+        "locations": [
+          {
+            "path": "entry/src/main/ets/pages/Index.ets",
+            "version": "after",
+            "lineStart": 13,
+            "lineEnd": 16,
+            "correlation": "unverified",
+            "beforeSha256": null,
+            "afterSha256": null
+          },
+          {
+            "path": "entry/src/main/ets/pages/Index.ets",
+            "version": "after",
+            "lineStart": 103,
+            "lineEnd": 103,
+            "correlation": "unverified",
+            "beforeSha256": null,
+            "afterSha256": null
+          }
+        ],
+        "basis": [
+          {
+            "type": "criteria",
+            "criteriaId": "IL-F009",
+            "reason": "Navigation 标题栏支持通过 NavigationTitleOptions 中的 systemMaterial 字段设置沉浸光感效果（快照 component.md L11-L15）。"
+          }
+        ],
+        "issues": [
+          "entry/src/main/ets/pages/Index.ets:13-16 无可对应的基线差异，实施情况待确认。",
+          "entry/src/main/ets/pages/Index.ets:103-103 无可对应的基线差异，实施情况待确认。"
+        ]
+      },
+      {
+        "id": "STEP-2",
+        "description": "标题栏使用 barStyle STACK 使内容区延伸至标题栏区域，且不设置 NavigationTitleOptions.backgroundColor/backgroundBlurStyle，避免普通背景覆盖材质。",
+        "status": "partial",
+        "locations": [
+          {
+            "path": "entry/src/main/ets/pages/Index.ets",
+            "version": "after",
+            "lineStart": 12,
+            "lineEnd": 14,
+            "correlation": "unverified",
+            "beforeSha256": null,
+            "afterSha256": null
+          }
+        ],
+        "basis": [
+          {
+            "type": "criteria",
+            "criteriaId": "IL-F009",
+            "reason": "官网建议设置沉浸光感时使用 STACK 样式获得最佳体验（快照 component.md L23）。"
+          },
+          {
+            "type": "criteria",
+            "criteriaId": "IL-F010",
+            "reason": "普通背景色或背景模糊会覆盖材质效果（快照 component.md L37），标题栏同层不配置普通背景。"
+          }
+        ],
+        "issues": [
+          "entry/src/main/ets/pages/Index.ets:12-14 无可对应的基线差异，实施情况待确认。"
+        ]
+      },
+      {
+        "id": "STEP-3",
+        "description": "提供非自定义 Menu（菜单项数组）用于展示标题栏沉浸光感生效范围（返回键、非自定义 Menu）。",
+        "status": "partial",
+        "locations": [
+          {
+            "path": "entry/src/main/ets/pages/Index.ets",
+            "version": "after",
+            "lineStart": 18,
+            "lineEnd": 26,
+            "correlation": "unverified",
+            "beforeSha256": null,
+            "afterSha256": null
+          },
+          {
+            "path": "entry/src/main/ets/pages/Index.ets",
+            "version": "after",
+            "lineStart": 104,
+            "lineEnd": 104,
+            "correlation": "unverified",
+            "beforeSha256": null,
+            "afterSha256": null
+          }
+        ],
+        "basis": [
+          {
+            "type": "criteria",
+            "criteriaId": "IL-F009",
+            "reason": "沉浸光感针对标题栏生效的范围是返回键、非自定义 Menu（快照 component.md L19）。"
+          }
+        ],
+        "issues": [
+          "entry/src/main/ets/pages/Index.ets:18-26 无可对应的基线差异，实施情况待确认。",
+          "entry/src/main/ets/pages/Index.ets:104-104 无可对应的基线差异，实施情况待确认。"
+        ]
+      },
+      {
+        "id": "STEP-4",
+        "description": "复制能力包资产 ImmersiveMaterialFactory.ets（derived-implementation），封装 isImmersiveMaterialSupported 能力查询与 ImmersiveMaterial 构造，设备不支持时回退 undefined。",
+        "status": "partial",
+        "locations": [
+          {
+            "path": "entry/src/main/ets/materials/ImmersiveMaterialFactory.ets",
+            "version": "after",
+            "lineStart": 1,
+            "lineEnd": 35,
+            "correlation": "unverified",
+            "beforeSha256": null,
+            "afterSha256": null
+          }
+        ],
+        "basis": [
+          {
+            "type": "engineering_choice",
+            "reason": "能力包资产（derived-implementation）封装官网 ImmersiveMaterial 构造与设备能力守卫；本场景判据集不含 IL-F008，能力查询作为工程防护实践引入。"
+          }
+        ],
+        "issues": [
+          "entry/src/main/ets/materials/ImmersiveMaterialFactory.ets:1-35 无可对应的基线差异，实施情况待确认。"
+        ]
+      }
+    ],
+    "uncoveredChanges": []
+  },
+  "normativeBasis": [
+    {
+      "id": "IL-F009",
+      "statement": "Navigation 标题栏可通过 NavigationTitleOptions.systemMaterial 配置；默认材质受应用状态影响。",
+      "normativeStatus": "clear",
+      "derivation": "reused",
+      "conflictGroup": null,
+      "usage": "direct",
+      "sources": [
+        {
+          "snapshotId": "component",
+          "anchor": "Navigation标题栏支持通过应用级开启",
+          "lines": [
+            11,
+            11
+          ],
+          "sha256": "f04667da8de437b3ba849d490c5fea9bdb3c98785b8fe8a19603b28817b8992f",
+          "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation",
+          "title": "组件适配沉浸光感",
+          "frozenAt": "2026-09-08T08:25:41.888Z"
+        }
+      ]
+    },
+    {
+      "id": "IL-F010",
+      "statement": "Tabs 使用 FloatingTabBarStyle.systemMaterial，且材质会被栏背景色或背景模糊覆盖。",
+      "normativeStatus": "clear",
+      "derivation": "reused",
+      "conflictGroup": null,
+      "usage": "direct",
+      "sources": [
+        {
+          "snapshotId": "component",
+          "anchor": "三个条件需同时满足",
+          "lines": [
+            35,
+            35
+          ],
+          "sha256": "f04667da8de437b3ba849d490c5fea9bdb3c98785b8fe8a19603b28817b8992f",
+          "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation",
+          "title": "组件适配沉浸光感",
+          "frozenAt": "2026-09-08T08:25:41.888Z"
+        }
+      ]
+    }
+  ],
+  "compatibility": {
+    "status": "supported",
+    "reasons": [],
+    "authorizationRequired": [],
+    "canModify": true,
+    "canBuild": true
+  },
+  "checks": {
+    "static": {
+      "required": true,
+      "status": "passed",
+      "summary": "场景静态规则通过。",
+      "evidenceRefs": [
+        "EVID-001"
+      ]
+    },
+    "sdk": {
+      "required": true,
+      "status": "passed",
+      "summary": "ArkUI 沉浸光感 API 26：SDK API 26，必需符号已找到",
+      "evidenceRefs": [
+        "EVID-002",
+        "EVID-003"
+      ]
+    },
+    "build": {
+      "required": true,
+      "status": "passed",
+      "summary": "真实 debug 构建通过。",
+      "evidenceRefs": [
+        "EVID-004"
+      ],
+      "command": "devecocli build --product default --build-mode debug",
+      "exitCode": 0,
+      "repairAttempts": 0
+    },
+    "install": {
+      "required": true,
+      "status": "not_run",
+      "summary": "未请求运行验证。",
+      "evidenceRefs": []
+    },
+    "runtime": {
+      "required": true,
+      "status": "not_run",
+      "summary": "未请求运行验证。",
+      "evidenceRefs": []
+    },
+    "visual": {
+      "required": true,
+      "status": "not_run",
+      "summary": "没有截图、录屏、模型判定或用户明确观察，不能判定视觉成功。",
+      "evidenceRefs": []
+    }
+  },
+  "evidence": [
+    {
+      "id": "EVID-001",
+      "type": "static",
+      "path": null,
+      "sha256": "3c2093afe7d3fd1ef0c8ed5f13640eb8129322980e832f20756c4fee4e3bf18e",
+      "capturedAt": "2026-09-08T08:48:31.932Z",
+      "summary": "场景静态规则：passed",
+      "details": {
+        "status": "passed",
+        "rules": [
+          {
+            "id": "navigation-entry",
+            "status": "passed",
+            "message": "未发现目标导航组件入口。",
+            "evidence": [
+              {
+                "signal": "navigation-entry",
+                "path": "entry/src/main/ets/pages/Index.ets",
+                "line": 10,
+                "excerpt": "// 判据 IL-F009：Navigation 标题栏通过 NavigationTitleOptions.systemMaterial 配置沉浸光感；"
+              }
+            ]
+          },
+          {
+            "id": "tabs-material",
+            "status": "not_run",
+            "message": "FloatingTabBarStyle 缺少 systemMaterial。",
+            "evidence": []
+          },
+          {
+            "id": "tabs-background-conflict",
+            "status": "passed",
+            "message": "Tabs 栏普通背景可能覆盖材质，需核对同一配置对象。",
+            "evidence": []
+          },
+          {
+            "id": "indexer-background-conflict",
+            "status": "passed",
+            "message": "AlphabetIndexer 弹窗背景可能覆盖材质。",
+            "evidence": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "EVID-002",
+      "type": "sdk_declaration",
+      "path": "E:/DevEco Studio/sdk/default/openharmony/ets/api/@ohos.arkui.uiMaterial.d.ts",
+      "sha256": "d609002869f80307090bc11803b91049e86ff301f46e472e72430d954a40fd30",
+      "capturedAt": "2026-09-08T08:48:31.910Z",
+      "summary": "本机 SDK 声明文件"
+    },
+    {
+      "id": "EVID-003",
+      "type": "sdk_declaration",
+      "path": "E:/DevEco Studio/sdk/default/openharmony/ets/component/common.d.ts",
+      "sha256": "2662a40432b2fa6efcfe387c3bc4bdc79ac9a993de1e415042b37a78d6315614",
+      "capturedAt": "2026-09-08T08:48:31.910Z",
+      "summary": "本机 SDK 声明文件"
+    },
+    {
+      "id": "EVID-004",
+      "type": "build_log",
+      "path": "D:\\HW\\testproject\\test3\\ohos-feature-engineering\\IL-S003\\evidence\\build.log",
+      "sha256": "90d4cebe36aafbb297c9105c96a48811270435cb5e800f74418b8d09f6fa0e90",
+      "capturedAt": "2026-09-08T08:49:14.845Z",
+      "summary": "devecocli build 成功",
+      "command": "devecocli build --product default --build-mode debug",
+      "exitCode": 0,
+      "excerpt": "..  \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@DoNativeStrip...  \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@BuildJS... after 7 ms \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@CacheNativeLibs...  \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@CompileArkTS... after 6 s 589 ms \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@GeneratePkgModuleJson...  \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@ProcessCompiledResources... after 3 ms \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@PackageHap... after 1 s 48 ms \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@PackingCheck... after 11 ms \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@SignHap... after 4 ms \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@CollectDebugSymbol... after 3 ms \u001b[39m\n> hvigor \u001b[32mFinished :entry:assembleHap... after 1 ms \u001b[39m\n> hvigor \u001b[32mFinished ::MakeProjectPackInfo... after 14 ms \u001b[39m\n> hvigor \u001b[32mFinished ::ProcessProjectPrivacyProfile... after 9 ms \u001b[39m\n> hvigor \u001b[32mFinished ::GeneratePackRes... after 2 ms \u001b[39m\n> hvigor \u001b[32mFinished ::PackageApp... after 964 ms \u001b[39m\n> hvigor \u001b[32mFinished ::SignPackagesFromApp... after 2 ms \u001b[39m\n> hvigor \u001b[32mFinished ::SignApp... after 2 ms \u001b[39m\n> hvigor \u001b[32mFinished ::assembleApp... after 1 ms \u001b[39m\n> hvigor \u001b[32mBUILD SUCCESSFUL in 22 s 705 ms \u001b[39m\n\n42 tasks in total: 26 executed, 16 up-to-date\n\u001b[32m\nMerged central compile_commands.json for C++ language server.\u001b[39m\n\n\u001b[32mBuild completed successfully\u001b[39m\n\n\u001b[33mNew version 1.3.2 available, run `devecocli update` to upgrade\u001b[39m\n\n\u001b[33mEnsure the project source is trustworthy before proceeding.\u001b[39m\n> hvigor \u001b[33mWARN: Will skip sign 'hos_hap'. No signingConfigs profile is configured in current project.\n             If needed, configure the signingConfigs in D:\\HW\\testproject\\test3\\build-profile.json5.\u001b[39m\n> hvigor \u001b[33mWARN: Will skip sign 'app'. No signingConfigs profile is configured in current project.\n             If needed, configure the signingConfigs in D:\\HW\\testproject\\test3\\build-profile.json5.\u001b[39m\n"
+    }
+  ],
+  "pendingVerifications": [
+    {
+      "id": "PENDING-001",
+      "level": "install",
+      "reason": "未请求运行验证。",
+      "required": true
+    },
+    {
+      "id": "PENDING-002",
+      "level": "runtime",
+      "reason": "未请求运行验证。",
+      "required": true
+    },
+    {
+      "id": "PENDING-003",
+      "level": "visual",
+      "reason": "没有截图、录屏、模型判定或用户明确观察，不能判定视觉成功。",
+      "required": true
+    }
+  ],
+  "verdict": {
+    "status": "build_passed_runtime_pending",
+    "summary": "静态、SDK 和构建已通过，仍缺少必需设备运行或视觉证据。",
+    "matchedCriteriaRefs": []
+  }
+}

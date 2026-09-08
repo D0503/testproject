@@ -18,12 +18,20 @@ struct Index {
   // 快照 component.md L19：沉浸光感针对标题栏生效的范围是返回键、非自定义 Menu。
   private menuItems: Array<NavigationMenuItem> = [
     { value: '扫一扫', icon: 'resources/base/media/startIcon.png', action: () => {
-      this.getUIContext().getPromptAction().showToast({ message: '扫一扫' });
+      this.showMenuToast('扫一扫');
     } },
     { value: '消息', icon: 'resources/base/media/startIcon.png', action: () => {
-      this.getUIContext().getPromptAction().showToast({ message: '消息' });
+      this.showMenuToast('消息');
     } }
   ];
+
+  private showMenuToast(message: string): void {
+    try {
+      this.getUIContext().getPromptAction().showToast({ message });
+    } catch (error) {
+      console.error(`showToast failed: ${JSON.stringify(error)}`);
+    }
+  }
 
   private readonly demoColors: Array<string> = [
     '#FF6B6B', '#FFA94D', '#FFD43B', '#69DB7C', '#38D9A9',

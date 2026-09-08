@@ -1,0 +1,51 @@
+{
+  "steps": [
+    {
+      "id": "STEP-1",
+      "description": "Navigation 搜索框标题栏通过 NavigationTitleOptions.systemMaterial 组件级开启沉浸光感，材质样式 ULTRA_THIN（导航类组件薄材质），经 ImmersiveMaterialFactory 能力守卫创建。",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 13, "lineEnd": 16 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 103, "lineEnd": 103 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-F009", "reason": "Navigation 标题栏支持通过 NavigationTitleOptions 中的 systemMaterial 字段设置沉浸光感效果（快照 component.md L11-L15）。" }
+      ]
+    },
+    {
+      "id": "STEP-2",
+      "description": "标题栏使用 barStyle STACK 使内容区延伸至标题栏区域，且不设置 NavigationTitleOptions.backgroundColor/backgroundBlurStyle，避免普通背景覆盖材质。",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 12, "lineEnd": 14 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-F009", "reason": "官网建议设置沉浸光感时使用 STACK 样式获得最佳体验（快照 component.md L23）。" },
+        { "type": "criteria", "criteriaId": "IL-F010", "reason": "普通背景色或背景模糊会覆盖材质效果（快照 component.md L37），标题栏同层不配置普通背景。" }
+      ]
+    },
+    {
+      "id": "STEP-3",
+      "description": "提供非自定义 Menu（菜单项数组）用于展示标题栏沉浸光感生效范围（返回键、非自定义 Menu）。",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 18, "lineEnd": 26 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 104, "lineEnd": 104 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-F009", "reason": "沉浸光感针对标题栏生效的范围是返回键、非自定义 Menu（快照 component.md L19）。" }
+      ]
+    },
+    {
+      "id": "STEP-4",
+      "description": "复制能力包资产 ImmersiveMaterialFactory.ets（derived-implementation），封装 isImmersiveMaterialSupported 能力查询与 ImmersiveMaterial 构造，设备不支持时回退 undefined。",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/materials/ImmersiveMaterialFactory.ets", "version": "after", "lineStart": 1, "lineEnd": 35 }
+      ],
+      "basis": [
+        { "type": "engineering_choice", "reason": "能力包资产（derived-implementation）封装官网 ImmersiveMaterial 构造与设备能力守卫；本场景判据集不含 IL-F008，能力查询作为工程防护实践引入。" }
+      ]
+    }
+  ]
+}

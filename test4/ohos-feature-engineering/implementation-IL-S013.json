@@ -1,0 +1,76 @@
+{
+  "steps": [
+    {
+      "id": "impl-material-entry",
+      "description": "页面导入 @kit.ArkUI 的 uiMaterial，Search 组件通过通用属性 systemMaterial 设置沉浸式系统材质，Navigation 首页标题通过 NavigationTitleOptions 的 barStyle STACK 与 systemMaterial 为标题栏区域开启沉浸光感。",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 1, "lineEnd": 1 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 38, "lineEnd": 43 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 133, "lineEnd": 138 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S013-C01", "reason": "标题栏以及标题栏子组件开启沉浸光感，Search 通过 systemMaterial 接入。" },
+        { "type": "criteria", "criteriaId": "IL-S013-C03", "reason": "uiMaterial 由 @kit.ArkUI 导入，非弹窗组件仅在标题栏生效范围内设置。" }
+      ]
+    },
+    {
+      "id": "impl-sdk-version",
+      "description": "工程 targetSdkVersion 与 compatibleSdkVersion 升级为 26.0.0，满足沉浸光感 API 26 起始版本要求。",
+      "status": "applied",
+      "locations": [
+        { "path": "build-profile.json5", "version": "after", "lineStart": 8, "lineEnd": 9 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S013-C02", "reason": "开启沉浸光感要确保 targetSDKVersion 不低于 26.0.0。" }
+      ]
+    },
+    {
+      "id": "impl-scroll-linkage",
+      "description": "内容区 Scroll 在 onDidScroll 中累计偏移并以 0 为下限，搜索框大小范围内联动 titleOffset 与 searchOpacity，实现上滑隐藏搜索框、标题栏显示范围缩小、分类列表保留。",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 124, "lineEnd": 130 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S013-C04", "reason": "示例在搜索框大小范围内联动 titleOffset 与 searchOpacity；偏移与透明度限制在有效范围。" }
+      ]
+    },
+    {
+      "id": "impl-stack-translucent-layout",
+      "description": "标题栏 BarStyle 设置为 STACK 模式实现内容区透底，内容区 Scroll 通过 contentStartOffset 避让标题栏，标题栏与 Navigation 均设置 expandSafeArea([SafeAreaType.SYSTEM]) 延伸至系统安全区。",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 118, "lineEnd": 120 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 133, "lineEnd": 139 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S013-C05", "reason": "STACK 模式使内容区显示在标题栏下方实现透底，contentStartOffset 避让标题栏显示区域。" }
+      ]
+    },
+    {
+      "id": "impl-nested-material",
+      "description": "按典型场景示例为标题栏容器 Column、Search 与分类列表项多层设置沉浸式系统材质，分类列表项以 materialColor 选中赋色加 lightEffect 流光突出显示；该实现处于材质嵌套冲突监测组，保留功耗优化侧预期。",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 62, "lineEnd": 68 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 80, "lineEnd": 84 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S013-C06", "reason": "典型场景示例为标题栏容器、Search 与分类列表项多层设置 systemMaterial，分类列表项开启沉浸光感提升交互体验。" },
+        { "type": "criteria", "criteriaId": "IL-S013-C07", "reason": "同一子树仅最外层设置一次材质的功耗优化预期与典型示例多层设置并存，结论 persists，按双预期成组保留。" }
+      ]
+    },
+    {
+      "id": "impl-app-level-enable",
+      "description": "entry 模块配置 metadata ohos.arkui.UIMaterial.state 为 enable，为支持沉浸光感的组件批量开启沉浸光感。",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/module.json5", "version": "after", "lineStart": 13, "lineEnd": 18 }
+      ],
+      "basis": [
+        { "type": "engineering_choice", "reason": "应用级 enable 由本次冻结的 enable 页配置契约支持，作为组件级显式设置的工程保障选择，不属于骨架判据。" }
+      ]
+    }
+  ]
+}

@@ -5,7 +5,7 @@
         "MODULE_NAME": "923fe53966c6cd9343e11af776cd4b05be315ea4b200b02e4d5dfb0f929b73bf",
         "API_TYPE": "stageMode",
         "INCLUDE_IN_BUILD": true,
-        "IS_COMMAND_LINE_ENTRY_MODULE": false,
+        "IS_COMMAND_LINE_ENTRY_MODULE": true,
         "BUILD_OPTION": [
           {
             "path": "debuggable",
@@ -60,7 +60,7 @@
   },
   "HVIGOR": {
     "IS_INCREMENTAL": true,
-    "IS_DAEMON": true,
+    "IS_DAEMON": false,
     "IS_PARALLEL": true,
     "IS_HVIGORFILE_TYPE_CHECK": false,
     "IS_EXECUTION_OHPM_BY_HVIGOR": false,
@@ -68,46 +68,22 @@
     "BUILD_ANALYSIS_MODE": "normal",
     "OPTIMIZATION_STRATEGY": "memory",
     "TASK_TIME": {
-      "APP": {
-        "PreBuildApp": 449700,
-        "DuplicateDependencyCheck": 1797800,
-        "MakeProjectPackInfo": 15883900,
-        "GeneratePackRes": 7007300,
-        "PackageApp": 876612900,
-        "SignPackagesFromApp": 1730600,
-        "SignApp": 2449400,
-        "assembleApp": 332500
-      },
       "923fe53966c6cd9343e11af776cd4b05be315ea4b200b02e4d5dfb0f929b73bf": {
-        "CreateModuleInfo": 3342100,
-        "ConfigureCmake": 2732800,
-        "PreCheckSyscap": 2027600,
-        "GeneratePkgSdkInfo": 2369700,
-        "ProcessIntegratedHsp": 1259400,
-        "BuildNativeWithCmake": 919800,
-        "SyscapTransform": 4681800,
-        "ProcessStartupConfig": 12488000,
-        "BuildNativeWithNinja": 3562200,
-        "BuildJS": 11414600,
-        "ProcessCompiledResources": 1401000,
-        "PackingCheck": 15514700,
-        "SignHap": 7052100,
-        "CollectDebugSymbol": 3575400,
-        "assembleHap": 1579500
+        "ConfigureCmake": 3869600,
+        "BuildNativeWithCmake": 810000,
+        "compileNative": 363600
       }
     },
     "CUSTOM_TASK_TIME": {},
     "CUSTOM_PLUGIN_TIME": {},
-    "APIS": [
-      "getProperty"
-    ],
+    "APIS": [],
     "CONFIG_EXPERIMENT": {
       "ENABLE_MODULE_SKIP": false,
       "ENABLE_CPP_FUNCTION_LEVEL_INCREMENTAL": false
     },
     "CONFIG_PROPERTIES": {},
-    "PID": 47388,
-    "TOTAL_TIME": 1628607100,
-    "BUILD_ID": "202609081703281970"
+    "BUILD_ID": "202609111634098990",
+    "PID": 62128,
+    "TOTAL_TIME": 3154809000
   }
 }

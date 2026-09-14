@@ -1,0 +1,6 @@
+$ devecocli ui dircfling --device 127.0.0.1:5555 up
+
+[33mNew version 1.3.2 available, run `devecocli update` to upgrade[39m
+
+- Executing dircfling...
+[32m√[39m dircfling up

@@ -1,23 +1,25 @@
-import { IndexVM } from '../viewmodels/IndexVM';
+import { uiMaterial } from '@kit.ArkUI';
 
 @Entry
-@ComponentV2
-struct Index {
-  vm: IndexVM = new IndexVM();
-
-  aboutToAppear(): void {
-    this.vm.setInterception();
-    this.vm.registerBreakpointListener(this.getUIContext());
-  }
-
-  aboutToDisappear(): void {
-    this.vm.breakpoint?.unRegister();
-  }
-
+@Component
+struct SliderSystemMaterial {
   build() {
-    Navigation(this.vm.navStack) {
+    Column() {
+      Slider({
+        style: SliderStyle.InSet
+      })
+        .padding({top:50})
+        // .alignRules({
+        //   center: { anchor: '__container__', align: VerticalAlign.Top },
+        //   middle: { anchor: '__container__', align: HorizontalAlign.Start },
+        // })
+        .systemMaterial(new uiMaterial.ImmersiveMaterial({
+          style: uiMaterial.ImmersiveStyle.ULTRA_THIN,
+        }))
     }
-    .hideNavBar(true)
-    .hideTitleBar(true)
+    .height('100%')
+    .width('100%')
+    // 请开发者替换为实际资源文件
+    .backgroundImage($r("app.media.bg_benefit"))
   }
 }

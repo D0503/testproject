@@ -18,7 +18,7 @@
       },
       {
         "name": "ohos.arkui.UIMaterial.state",
-        "value": "disable"
+        "value": "enable"
       }
     ],
     "deliveryWithInstall": true,

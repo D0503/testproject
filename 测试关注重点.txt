@@ -1,0 +1,12 @@
+1、请使用harmonyos-feature-engineering2，生成一个鸿蒙demo，实现底部页签和索引条的沉浸光感效果，
+并判断不同应用级开关的效果
+2、请使用harmonyos-feature-engineering2，生成一个鸿蒙demo，实现不同弹窗类组件的沉浸光感效果，包含即时反馈、气泡提示、菜单、弹出框
+并判断不同应用级开关的效果
+3、请使用harmonyos-feature-engineering2，生成一个鸿蒙demo，实现不同按钮与选择类组件的沉浸光感效果，包含按钮、下拉按钮、开关、滑动条、子页签、操作快，不需要视觉验证
+4、请使用harmonyos-feature-engineering2，生成一个鸿蒙demo，验证button生效区域，是否具有限制
+6、请使用harmonyos-feature-engineering2，生成一个鸿蒙demo，生成两个页面，分别实现搜索框标题栏沉浸光感和内容区标题栏开启沉浸光感。
+7、请使用harmonyos-feature-engineering2，生成一个鸿蒙demo，根据faq验证背景色或背景模糊遮挡材质效果 解决方案是否正确， materialColor传入不透明颜色后材质效果消失 解决方案是否正确
+8、请使用harmonyos-feature-engineering2，生成一个鸿蒙demo，实现hds沉浸光感，包含标题栏与底部页签。
+9、Express、请使用harmonyos-feature-engineering2，对当前工程实现标题栏和导航tab沉浸光感，不需要视觉验证
+10、BookRead、请使用harmonyos-feature-engineering2，对当前工程实现hds沉浸光感，不需要视觉验证
+11、Express、请使用harmonyos-feature-engineering2，对当前工程tab沉浸光感设置自动反色，进行材质赋色'rgba(255, 0, 0, 0.2)'，并设置材质交互效果，对标题栏右侧添加一个圆形并对沉浸材质添加阴影效果

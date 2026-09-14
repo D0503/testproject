@@ -1,0 +1,3 @@
+$ devecocli ui layout --device 127.0.0.1:5555 --format json
+- Dumping layout…
+[31mError: Failed to dump layout: No window id specified and could not detect focused window[39m

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "targetDescription": "探索页搜索框标题栏沉浸光感与上滑收起联动",
+  "steps": [
+    { "stepId": "launch-app", "action": "launch", "target": "com.example.app" },
+    { "stepId": "wait-stable", "action": "wait", "timeoutMs": 2000 },
+    { "stepId": "expect-home", "action": "wait", "timeoutMs": 500, "expectPage": "探索" },
+    { "stepId": "swipe-up", "action": "swipe", "direction": "up" },
+    { "stepId": "wait-after-swipe", "action": "wait", "timeoutMs": 800 },
+    { "stepId": "expect-list", "action": "wait", "timeoutMs": 500, "expectPage": "星穹远征" }
+  ]
+}

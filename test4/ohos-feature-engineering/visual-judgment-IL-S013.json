@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S013",
+  "visual": {
+    "status": "passed",
+    "basis": "用户在 Pura 90 Pro 模拟器实机观察确认：顶部标题栏（探索标题、搜索框、分类胶囊）呈现半透明模糊沉浸光感材质，背景内容透底可见；上滑后搜索框淡出隐藏、分类列表保留突出。视觉行为匹配典型场景侧多层材质预期（IL-S013-C06），与功耗优化避免嵌套预期（IL-S013-C07）构成规范冲突组，按状态机裁决。",
+    "evidence": [
+      {
+        "type": "screenshot",
+        "path": "D:\\HW\\testproject\\test4\\ohos-feature-engineering\\evidence\\images\\4a7353b2a1fd900c847d754ec9229017915ca22da9d5bcd34faa5e45f9237521.png"
+      },
+      {
+        "type": "component_tree",
+        "path": "D:\\HW\\testproject\\test4\\ohos-feature-engineering\\evidence\\9229d30e-500d-476c-ba19-65b35c834212\\device-layout.json"
+      }
+    ]
+  },
+  "matchedCriteriaRefs": ["IL-S013-C06"],
+  "runtime": {
+    "status": "passed",
+    "summary": "导航编排通过（探索、星穹远征断言命中）；用户实机确认上滑滚动联动：搜索框淡出隐藏、分类列表保留，下滑恢复，偏移与透明度在有效范围内。"
+  }
+}

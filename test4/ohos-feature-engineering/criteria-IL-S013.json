@@ -1,0 +1,185 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S013",
+  "frozenAt": "2026-09-09T03:08:47.457Z",
+  "validatedAt": "2026-09-09T03:14:16.308Z",
+  "strategy": "fresh",
+  "snapshots": [
+    {
+      "snapshotId": "typical-scenes",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sample",
+      "title": "沉浸光感典型场景",
+      "contentSha256": "dd5ad8cbe6e912fbec6a4b66f386ae16ed1161575eb6b1ab0ecb9bfbba452b39",
+      "updatedDate": "2026-09-03 14:08:54"
+    },
+    {
+      "snapshotId": "common",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-common-capability",
+      "title": "沉浸式系统材质视效",
+      "contentSha256": "cb214d728b234428ffbe58ac10792d0d3cd9b1b4ea8664fa7da9fc5e45b5cd57",
+      "updatedDate": "2026-09-03 14:09:56"
+    },
+    {
+      "snapshotId": "design-guidance",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/design-guides/immersivelight-0000002612101053",
+      "title": "沉浸光感",
+      "contentSha256": "22592c2cf9070eb58122fef1665d23024296c5d6ede80bc681365b5df4813102",
+      "updatedDate": "2026-06-12 09:36:44"
+    },
+    {
+      "snapshotId": "enable",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable",
+      "title": "开启沉浸光感",
+      "contentSha256": "25a40e503b20d2cb3b864fad322d7abaa666a55206418de40a1bd33b6d81dbe7",
+      "updatedDate": "2026-09-06 04:10:15"
+    },
+    {
+      "snapshotId": "component",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation",
+      "title": "组件适配沉浸光感",
+      "contentSha256": "f04667da8de437b3ba849d490c5fea9bdb3c98785b8fe8a19603b28817b8992f",
+      "updatedDate": "2026-09-06 04:10:15"
+    },
+    {
+      "snapshotId": "constraints",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints",
+      "title": "沉浸光感功耗优化",
+      "contentSha256": "13b8e311366df98466bbd59a54a9609c96d3a45a4c5af5f93a2bd17eea811f2c",
+      "updatedDate": "2026-09-03 14:08:21"
+    },
+    {
+      "snapshotId": "ui-material-api",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial",
+      "title": "@ohos.arkui.uiMaterial (系统材质)",
+      "contentSha256": "0cf9fdb28f14cd44c90984068f4910c3401f03e9f19f0d29376119ef39efe7e9",
+      "updatedDate": "2026-09-03 14:20:58"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "IL-S013-C01",
+      "topic": "搜索标题栏材质入口",
+      "statement": "搜索框标题栏场景针对跳转的目标页面，通过 NavigationTitleOptions 为对应的页签页面标题栏区域开启沉浸光感；标题栏以及标题栏子组件开启沉浸光感，Search 组件通过通用属性 systemMaterial 设置沉浸式系统材质。",
+      "snapshotId": "typical-scenes",
+      "anchor": "标题栏以及标题栏子组件开启沉浸光感",
+      "status": "fresh",
+      "lines": [
+        88,
+        88
+      ]
+    },
+    {
+      "id": "IL-S013-C02",
+      "topic": "搜索标题栏材质入口",
+      "statement": "开启沉浸光感要确保应用的 targetSDKVersion 不低于 26.0.0。",
+      "snapshotId": "enable",
+      "anchor": "不低于26.0.0",
+      "status": "fresh",
+      "lines": [
+        5,
+        5
+      ]
+    },
+    {
+      "id": "IL-S013-C03",
+      "topic": "搜索标题栏材质入口",
+      "statement": "沉浸式材质通过 import { uiMaterial } from '@kit.ArkUI' 导入并由 ImmersiveMaterial 构造；除弹窗类与按钮选择类组件外，其他组件仅在 Navigation/NavDestination 标题栏或 barPosition 为 BarPosition.End 的底部 TabBar 中生效，在其他区域中设置不生效。",
+      "snapshotId": "ui-material-api",
+      "anchor": "其他组件仅在Navigation/NavDestination标题栏或横向Tab中barPosition为BarPosition.End的底部TabBar中生效，在其他区域中设置不生效",
+      "status": "fresh",
+      "lines": [
+        24,
+        24
+      ]
+    },
+    {
+      "id": "IL-S013-C04",
+      "topic": "搜索标题栏滚动联动",
+      "statement": "用户上滑首页内容区后标题栏显示范围可随之缩小：上滑时搜索框隐藏，分类列表保留并突出显示，分类列表项开启沉浸光感；示例在 Scroll 的 onDidScroll 中累计偏移，在搜索框大小范围内（scrollOffset <= 50）联动 titleOffset 与 searchOpacity = 1 - titleOffset / 50。",
+      "snapshotId": "typical-scenes",
+      "anchor": "上滑时搜索框隐藏，分类列表保留并突出显示",
+      "status": "fresh",
+      "lines": [
+        91,
+        91
+      ]
+    },
+    {
+      "id": "IL-S013-C05",
+      "topic": "搜索标题栏透底与布局",
+      "statement": "建议将 Navigation 组件的 BarStyle 设置为 STACK 模式，使内容区显示在标题栏下方，从而实现透底的效果；内容区 Scroll 通过 contentStartOffset 避让标题栏显示区域，并以 expandSafeArea([SafeAreaType.SYSTEM]) 将内容延伸至系统安全区。",
+      "snapshotId": "typical-scenes",
+      "anchor": "使内容区显示在标题栏下方，从而实现透底的效果",
+      "status": "fresh",
+      "lines": [
+        85,
+        85
+      ]
+    },
+    {
+      "id": "IL-S013-C06",
+      "topic": "搜索标题栏材质嵌套审查",
+      "statement": "典型场景示例为标题栏（NavigationTitleOptions 的 systemMaterial）、标题栏容器 Column（注释标明设置 Column 组件开启沉浸光感）、Search 与分类列表项多层设置沉浸式系统材质，其中分类列表项开启沉浸光感以提升用户交互体验和内容曝光率（materialColor 选中赋色 + lightEffect 流光）。",
+      "snapshotId": "typical-scenes",
+      "anchor": "分类列表项开启沉浸光感，提升用户交互体验和内容曝光率",
+      "conflictGroup": "search-title-nesting",
+      "status": "fresh",
+      "lines": [
+        91,
+        91
+      ]
+    },
+    {
+      "id": "IL-S013-C07",
+      "topic": "搜索标题栏材质嵌套审查",
+      "statement": "功耗优化要求：材质嵌套使用会导致效果被重复计算，既增加功耗，视觉上又相互干扰；同一子树中只需在最外层设置一次沉浸式系统材质，内层节点不应再设置。",
+      "snapshotId": "constraints",
+      "anchor": "同一子树中只需在最外层设置一次沉浸式系统材质，内层节点不应再设置",
+      "conflictGroup": "search-title-nesting",
+      "status": "fresh",
+      "lines": [
+        61,
+        61
+      ]
+    },
+    {
+      "id": "IL-S013-C08",
+      "topic": "搜索标题栏透底与布局",
+      "statement": "典型场景建议设置底部 Tabs 悬浮并为 Tabs 组件开启沉浸光感（barOverlap(true) + barFloatingStyle 的 systemMaterial），同时使用 ExpandSafeArea 将显示内容延伸至状态栏区域，使应用整体体验更加一致。",
+      "snapshotId": "typical-scenes",
+      "anchor": "设置底部Tabs悬浮并为Tabs组件开启沉浸光感",
+      "status": "fresh",
+      "lines": [
+        10,
+        10
+      ]
+    }
+  ],
+  "conflictResolutions": [
+    {
+      "probeId": "search-title-nesting",
+      "verdict": "persists",
+      "basis": "typical-scenes 搜索框标题栏示例在 NavDestination 标题栏选项、标题栏容器 Column、Search 与分类列表项上多层设置 systemMaterial（原文：分类列表项开启沉浸光感，提升用户交互体验和内容曝光率）；constraints 避免材质嵌套一节要求同一子树中只需在最外层设置一次沉浸式系统材质，内层节点不应再设置。两侧正文均未向对方条件给出例外或适用边界说明，矛盾仍在，按双判据成组保留多预期。"
+    }
+  ],
+  "confirmations": [
+    {
+      "snapshotId": "typical-scenes",
+      "category": "new",
+      "userDecision": "accepted",
+      "note": "用户于 2026-09-09 确认接受新增入口典型场景页，基于本次冻结快照现提判据并继续开发。"
+    },
+    {
+      "snapshotId": "design-guidance",
+      "category": "new",
+      "userDecision": "accepted",
+      "note": "用户于 2026-09-09 确认接受新增入口设计指引页，基于本次冻结快照现提判据并继续开发。"
+    },
+    {
+      "snapshotId": "ui-material-api",
+      "category": "new",
+      "userDecision": "accepted",
+      "note": "用户于 2026-09-09 确认接受新增入口 uiMaterial API 参考页，基于本次冻结快照现提判据并继续开发。"
+    }
+  ]
+}

@@ -1,9 +1,23 @@
 {
   "app": {
-/*
-        :todo 补充手动签名
-        */
-    "signingConfigs": [],
+    /*
+            :todo 补充手动签名
+            */
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "C:\\Users\\CuteDuan\\.ohos\\config\\default_Express_ikGImn1WUptHZiWazkzq7zdcpdpOg2CgvOJgOR_qce4=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B52293CEC219AB5614DB12B7FC686EA39AF779D04D65FCC65F28687589519BF34A636F9A7591EA7",
+          "profile": "C:\\Users\\CuteDuan\\.ohos\\config\\default_Express_ikGImn1WUptHZiWazkzq7zdcpdpOg2CgvOJgOR_qce4=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\CuteDuan\\.ohos\\config\\default_Express_ikGImn1WUptHZiWazkzq7zdcpdpOg2CgvOJgOR_qce4=.p12",
+          "storePassword": "0000001B12BA3E70C393BC6971703542C0063B0C0591C2059961DDF796FE11471D15655690515835AB353D"
+        }
+      }
+    ],
     "products": [
       {
         "name": "default",

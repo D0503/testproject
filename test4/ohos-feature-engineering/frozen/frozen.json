@@ -1,0 +1,54 @@
+{
+  "frozenAt": "2026-09-09T03:08:47.457Z",
+  "snapshots": [
+    {
+      "snapshotId": "typical-scenes",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sample",
+      "contentSha256": "dd5ad8cbe6e912fbec6a4b66f386ae16ed1161575eb6b1ab0ecb9bfbba452b39",
+      "title": "沉浸光感典型场景",
+      "updatedDate": "2026-09-03 14:08:54"
+    },
+    {
+      "snapshotId": "common",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-common-capability",
+      "contentSha256": "cb214d728b234428ffbe58ac10792d0d3cd9b1b4ea8664fa7da9fc5e45b5cd57",
+      "title": "沉浸式系统材质视效",
+      "updatedDate": "2026-09-03 14:09:56"
+    },
+    {
+      "snapshotId": "design-guidance",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/design-guides/immersivelight-0000002612101053",
+      "contentSha256": "22592c2cf9070eb58122fef1665d23024296c5d6ede80bc681365b5df4813102",
+      "title": "沉浸光感",
+      "updatedDate": "2026-06-12 09:36:44"
+    },
+    {
+      "snapshotId": "enable",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable",
+      "contentSha256": "25a40e503b20d2cb3b864fad322d7abaa666a55206418de40a1bd33b6d81dbe7",
+      "title": "开启沉浸光感",
+      "updatedDate": "2026-09-06 04:10:15"
+    },
+    {
+      "snapshotId": "component",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation",
+      "contentSha256": "f04667da8de437b3ba849d490c5fea9bdb3c98785b8fe8a19603b28817b8992f",
+      "title": "组件适配沉浸光感",
+      "updatedDate": "2026-09-06 04:10:15"
+    },
+    {
+      "snapshotId": "constraints",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints",
+      "contentSha256": "13b8e311366df98466bbd59a54a9609c96d3a45a4c5af5f93a2bd17eea811f2c",
+      "title": "沉浸光感功耗优化",
+      "updatedDate": "2026-09-03 14:08:21"
+    },
+    {
+      "snapshotId": "ui-material-api",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial",
+      "contentSha256": "0cf9fdb28f14cd44c90984068f4910c3401f03e9f19f0d29376119ef39efe7e9",
+      "title": "@ohos.arkui.uiMaterial (系统材质)",
+      "updatedDate": "2026-09-03 14:20:58"
+    }
+  ]
+}

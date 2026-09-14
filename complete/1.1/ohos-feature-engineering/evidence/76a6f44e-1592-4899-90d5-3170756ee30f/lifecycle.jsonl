@@ -1,6 +1,0 @@
-{"at":"2026-09-14T03:00:10.038Z","runId":"76a6f44e-1592-4899-90d5-3170756ee30f","pid":35160,"event":"verify_start","parentPid":44172,"script":"C:\\Users\\CuteDuan\\.config\\opencode\\skills\\harmonyos-feature-engineering2\\scripts\\verify-development.mjs","node":"E:\\nodejs\\node.exe","project":"D:\\HW\\testproject\\complete\\1.1"}
-{"at":"2026-09-14T03:00:10.264Z","runId":"76a6f44e-1592-4899-90d5-3170756ee30f","pid":35160,"event":"report_written","rendered":{"jsonPath":"D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\development-verification-report.json","markdownPath":"D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\development-verification-report.md","reportCount":1},"verdict":"failed"}
-{"at":"2026-09-14T03:00:10.267Z","runId":"76a6f44e-1592-4899-90d5-3170756ee30f","pid":35160,"event":"main_complete","exitCode":3,"resources":["CloseReq","PipeWrap","PipeWrap"]}
-{"at":"2026-09-14T03:00:10.268Z","runId":"76a6f44e-1592-4899-90d5-3170756ee30f","pid":35160,"event":"stdout_flushed"}
-{"at":"2026-09-14T03:00:10.270Z","runId":"76a6f44e-1592-4899-90d5-3170756ee30f","pid":35160,"event":"verify_before_exit","code":3}
-{"at":"2026-09-14T03:00:10.271Z","runId":"76a6f44e-1592-4899-90d5-3170756ee30f","pid":35160,"event":"verify_exit","code":3}

@@ -74,17 +74,17 @@
 
 **D01-02：索引提示弹窗 systemMaterial THIN / 背景模糊对比**
 
-验证操作：全局沉浸光感开关设为 ENABLE，进入联系人页并触发索引提示弹窗。第一组显式配置 `.systemMaterial(new uiMaterial.ImmersiveMaterial({ style: uiMaterial.ImmersiveStyle.THIN }))`；第二组配置 `.popupBackgroundBlurStyle(BlurStyle.BACKGROUND_THIN)`，对比两组效果。
+验证操作：全局沉浸光感开关设为 ENABLE，进入联系人页并触发索引提示弹窗。第一组显式配置 `.systemMaterial(new uiMaterial.ImmersiveMaterial({ style: uiMaterial.ImmersiveStyle.THIN }))`；第二组配置 `.popupBackgroundBlurStyle(BlurStyle.BlurStyle.NONE)`，对比两组效果。
 
 文档预期：根据[组件适配沉浸光感：索引条（AlphabetIndexer）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation)，应用级开关为 ENABLE 时，索引条默认开启沉浸光感，默认材质为 THICK；也可通过 systemMaterial 主动设置沉浸光感效果。popupBackground、popupBackgroundBlurStyle 与沉浸光感互斥，主动设置后不再显示沉浸光感效果。
 
-真机结果：第一张图显式设置 systemMaterial 为 THIN，但实测没有沉浸光感效果，仅显示浅色提示弹窗背板；第二张图设置 popupBackgroundBlurStyle 为 BACKGROUND_THIN 后，实测有效果，弹窗周围的明暗过渡更明显。两组测试的全局开关均已开启。
+真机结果：第一张图显式设置 systemMaterial 为 THIN，但实测没有沉浸光感效果，仅显示浅色提示弹窗背板；第二张图设置 popupBackgroundBlurStyle 为 BlurStyle.NONE 后，实测有效果，弹窗周围的明暗过渡更明显。两组测试的全局开关均已开启。
 
 验证状态：**不通过（按实测记录，systemMaterial THIN 未呈现预期效果）**。第二组有效果，但背景模糊本身也会产生视觉变化，是否属于沉浸光感仍需区分；该现象记录为疑似文档或实现差异。
 
-| systemMaterial：THIN，全局 ENABLE，无效果 | popupBackgroundBlurStyle：BACKGROUND_THIN，全局 ENABLE，有效果 |
+| systemMaterial：THIN，全局 ENABLE，无效果 | popupBackgroundBlurStyle：BlurStyle.NONE，全局 ENABLE，有效果 |
 | :---: | :---: |
-| <img src="screenshots/1/AlphabetIndexer_popup.png" alt="systemMaterial THIN 实测无沉浸光感效果" width="240" height="520" style="object-fit: contain;"> | <img src="screenshots/1/AlphabetIndexer_popup_bgblur.png" alt="BACKGROUND_THIN 背景模糊配置实测有效果" width="240" height="520" style="object-fit: contain;"> |
+| <img src="screenshots/1/AlphabetIndexer_popup.png" alt="systemMaterial THIN 实测无沉浸光感效果" width="240" height="520" style="object-fit: contain;"> | <img src="screenshots/1/AlphabetIndexer_popup_bgblur.png" alt="BlurStyle.NONE 背景模糊配置实测有效果" width="240" height="520" style="object-fit: contain;"> |
 
 **D01-03：全局 DISABLE / ENABLE / DEFAULT 对比**
 

@@ -146,7 +146,7 @@ struct Index {
           AlphabetIndexer({ arrayValue: this.alphabets, selected: this.selectedIndex })
             .selected(this.selectedIndex)
             .usingPopup(true)
-            // .popupBackgroundBlurStyle(BlurStyle.NONE)
+            .popupBackgroundBlurStyle(BlurStyle.NONE)
             .onSelect((index: number) => {
               this.selectedIndex = index;
               this.scroller.scrollToIndex(index, false);
@@ -160,9 +160,9 @@ struct Index {
                 return [];
               }
             })
-          .systemMaterial(new uiMaterial.ImmersiveMaterial({
-            style: uiMaterial.ImmersiveStyle.ULTRA_THIN
-          }))
+          // .systemMaterial(new uiMaterial.ImmersiveMaterial({
+          //   style: uiMaterial.ImmersiveStyle.ULTRA_THIN
+          // }))
         }
         .width('100%')
         .height('100%')

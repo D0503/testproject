@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "targetDescription": "依次触发即时反馈Toast、气泡Popup、菜单Menu、弹出框Dialog（AlertDialog/ActionSheet/半模态Sheet），验证弹窗可正常打开关闭",
+  "steps": [
+    { "stepId": "app-ready", "action": "wait", "timeoutMs": 3000 },
+    { "stepId": "toast-open", "action": "tap", "locator": { "by": "text", "value": "显示 Toast" } },
+    { "stepId": "toast-wait", "action": "wait", "timeoutMs": 2600 },
+    { "stepId": "popup-open", "action": "tap", "locator": { "by": "text", "value": "气泡 Popup" }, "expectPage": "气泡提示：Popup 沉浸式系统材质" },
+    { "stepId": "popup-close", "action": "tap", "locator": { "by": "text", "value": "气泡 Popup" } },
+    { "stepId": "menu-open", "action": "tap", "locator": { "by": "text", "value": "打开菜单" }, "expectPage": "菜单项一" },
+    { "stepId": "menu-select", "action": "tap", "locator": { "by": "text", "value": "菜单项一" } },
+    { "stepId": "scroll-to-dialog", "action": "swipe", "from": [600, 2000], "to": [600, 700] },
+    { "stepId": "scroll-more", "action": "swipe", "from": [600, 2000], "to": [600, 700] },
+    { "stepId": "scroll-settle", "action": "wait", "timeoutMs": 600 },
+    { "stepId": "alert-open", "action": "tap", "locator": { "by": "text", "value": "AlertDialog 警告弹窗" }, "expectPage": "警告弹窗" },
+    { "stepId": "alert-cancel", "action": "tap", "locator": { "by": "text", "value": "取消" } },
+    { "stepId": "actionsheet-open", "action": "tap", "locator": { "by": "text", "value": "ActionSheet 选择列表" }, "expectPage": "选择操作" },
+    { "stepId": "actionsheet-select", "action": "tap", "locator": { "by": "text", "value": "选项一" } },
+    { "stepId": "sheet-open", "action": "tap", "locator": { "by": "text", "value": "bindSheet 半模态" }, "expectPage": "半模态转场" },
+    { "stepId": "sheet-close", "action": "tap", "locator": { "by": "text", "value": "关闭半模态" } },
+    { "stepId": "final-wait", "action": "wait", "timeoutMs": 800 }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "runtime": {
+    "status": "passed",
+    "summary": "应用在模拟器（127.0.0.1:5555，API 26）安装并拉起成功，页面正常渲染；用户确认运行无异常。",
+    "evidence": [
+      {
+        "type": "device_log",
+        "path": "D:\\HW\\testproject\\complete\\7\\ohos-feature-engineering\\evidence\\3f5331be-dd32-457f-be1a-01b51d7495db\\device-run.log",
+        "summary": "devecocli run 安装并拉起成功日志（本轮重跑前的同一构建产物）"
+      }
+    ]
+  },
+  "visual": {
+    "status": "passed",
+    "summary": "用户在模拟器上人工确认：FAQ1 验证组错误卡片呈纯白/模糊背景（材质被遮挡不可见）、推荐卡片透出渐变背景的材质效果；FAQ2 验证组 Color.Red 卡片呈纯红色（材质效果消失）、'#80FF0000' 卡片呈半透明红色调材质。两组错误/推荐对比均符合官网 FAQ 判据预期，两个 FAQ 解决方案验证正确。",
+    "evidence": [
+      {
+        "type": "screenshot",
+        "path": "D:\\HW\\testproject\\complete\\7\\ohos-feature-engineering\\evidence\\images\\7936bc13cc5ee69861e10a2560da2bb8d0565593064360cf5f05bbaaa8ef487f.png",
+        "summary": "设备屏幕截图：含两个 FAQ 验证组的错误/推荐卡片对比"
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S003",
+  "criteria": [
+    {
+      "id": "C21",
+      "type": "navigation",
+      "topic": "导航材质生效条件",
+      "statement": "Tabs 悬浮样式仅在 barOverlap 为 true、vertical 为 false、barPosition 为 BarPosition.End 时生效，三个条件需同时满足，否则 systemMaterial 设置不生效。",
+      "snapshotId": "component",
+      "anchor": "否则systemMaterial设置不生效"
+    },
+    {
+      "id": "C22",
+      "type": "navigation",
+      "topic": "导航材质生效条件",
+      "statement": "TabContent 不支持设置沉浸光感。",
+      "snapshotId": "component",
+      "anchor": "TabContent不支持设置沉浸光感"
+    },
+    {
+      "id": "C23",
+      "type": "navigation",
+      "topic": "导航材质生效条件",
+      "statement": "沉浸光感针对 Navigation 标题栏生效的范围是返回键、非自定义 Menu。",
+      "snapshotId": "component",
+      "anchor": "返回键、非自定义Menu"
+    }
+  ],
+  "conflictResolutions": [],
+  "confirmations": []
+}

@@ -1,0 +1,324 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S005",
+  "frozenAt": "2026-09-10T07:55:29.605Z",
+  "validatedAt": "2026-09-10T08:01:52.155Z",
+  "strategy": "fresh",
+  "snapshots": [
+    {
+      "snapshotId": "component",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation",
+      "title": "组件适配沉浸光感",
+      "contentSha256": "93703579547848f36423aa6055e5021b37eea66e5f1036723e5cc901c08e39a5",
+      "updatedDate": "2026-09-07 09:01:42"
+    },
+    {
+      "snapshotId": "common",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-common-capability",
+      "title": "沉浸式系统材质视效",
+      "contentSha256": "cb214d728b234428ffbe58ac10792d0d3cd9b1b4ea8664fa7da9fc5e45b5cd57",
+      "updatedDate": "2026-09-07 09:01:55"
+    },
+    {
+      "snapshotId": "ui-material-api",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial",
+      "title": "@ohos.arkui.uiMaterial (系统材质)",
+      "contentSha256": "c71328c4454386c2c14db515c6c6747b159df1e664c5fdf9e4496523f0031011",
+      "updatedDate": "2026-09-07 09:12:53"
+    },
+    {
+      "snapshotId": "enable",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable",
+      "title": "开启沉浸光感",
+      "contentSha256": "25a40e503b20d2cb3b864fad322d7abaa666a55206418de40a1bd33b6d81dbe7",
+      "updatedDate": "2026-09-07 09:01:26"
+    },
+    {
+      "snapshotId": "constraints",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints",
+      "title": "沉浸光感功耗优化",
+      "contentSha256": "684f5939625da0ffce7af96d19900da8f8982a8a50a5a2f9b25b5ef25a1e1d5c",
+      "updatedDate": "2026-09-07 09:00:29"
+    },
+    {
+      "snapshotId": "faq",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-faq",
+      "title": "沉浸光感常见问题",
+      "contentSha256": "542084a3ed0e90c51d0fb5c6aa937687dd1bd708b959829f723f6519043d8532",
+      "updatedDate": "2026-09-07 09:00:41"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "IL-C001",
+      "topic": "控件组件（IL-F014）",
+      "statement": "按钮支持通过通用属性 systemMaterial 为 Button 组件设置沉浸光感效果（组件级开启方式）。",
+      "snapshotId": "component",
+      "anchor": "组件级开启：按钮支持通过[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)属性为[Button](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button)组件设置沉浸光感效果。",
+      "conflictGroup": "button-effective-scope",
+      "status": "fresh",
+      "lines": [
+        121,
+        121
+      ]
+    },
+    {
+      "id": "IL-C002",
+      "topic": "控件组件（IL-F014）",
+      "statement": "应用级开关处于 ENABLE 模式下，按钮不会默认开启沉浸光感，需组件级显式设置。",
+      "snapshotId": "component",
+      "anchor": "应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，按钮不会默认开启沉浸光感。",
+      "status": "fresh",
+      "lines": [
+        119,
+        119
+      ]
+    },
+    {
+      "id": "IL-C003",
+      "topic": "控件组件（IL-F015）",
+      "statement": "Select 的下拉按钮与下拉菜单是两个独立材质入口，分别使用 systemMaterial 与 menuSystemMaterial，可分别开启或关闭。",
+      "snapshotId": "component",
+      "anchor": "下拉按钮支持通过[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)属性设置沉浸光感效果；下拉菜单通过独立的[menuSystemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select#menusystemmaterial)接口设置沉浸光感效果。",
+      "status": "fresh",
+      "lines": [
+        137,
+        137
+      ]
+    },
+    {
+      "id": "IL-C004",
+      "topic": "控件组件（IL-F016）",
+      "statement": "Toggle 的 Checkbox 形态当前未适配沉浸光感效果，设置后无沉浸光感效果，应保留普通样式。",
+      "snapshotId": "component",
+      "anchor": "ToggleType.Checkbox：当前未适配沉浸光感效果，设置后无沉浸光感效果。",
+      "status": "fresh",
+      "lines": [
+        155,
+        155
+      ]
+    },
+    {
+      "id": "IL-C005",
+      "topic": "材质参数（IL-F019）",
+      "statement": "Button 启用光感交互反馈效果（lightEffect）后，默认的点击态和悬浮态视觉反馈不再展示，由材质的光感交互反馈效果替代。",
+      "snapshotId": "component",
+      "anchor": "按钮默认的点击态和悬浮态视觉反馈不再展示，由材质的光感交互反馈效果替代。",
+      "status": "fresh",
+      "lines": [
+        125,
+        125
+      ]
+    },
+    {
+      "id": "IL-C006",
+      "topic": "选择控件差异与边界",
+      "statement": "Toggle.Switch 传入的材质参数仅作为开启沉浸光感的开关标记，不影响实际视觉效果，实际使用组件内部预设的视觉参数。",
+      "snapshotId": "component",
+      "anchor": "ToggleType.Switch：传入的材质参数仅作为开启沉浸光感的开关标记，不影响实际视觉效果",
+      "status": "fresh",
+      "lines": [
+        157,
+        157
+      ]
+    },
+    {
+      "id": "IL-C007",
+      "topic": "选择控件差异与边界",
+      "statement": "Slider 的沉浸光感交互反馈效果仅在滑块形状为 SliderBlockType.DEFAULT 且 SliderStyle 不为 NONE 时生效。",
+      "snapshotId": "component",
+      "anchor": "沉浸光感的交互反馈效果仅在滑块形状为",
+      "status": "fresh",
+      "lines": [
+        173,
+        173
+      ]
+    },
+    {
+      "id": "IL-C008",
+      "topic": "子页签与操作块入口",
+      "statement": "ChipGroup 提供 backgroundSystemMaterial、selectedBackgroundSystemMaterial（选中状态）和 iconBackgroundSystemMaterial（图标）三种材质入口。",
+      "snapshotId": "component",
+      "anchor": "backgroundSystemMaterial、selectedBackgroundSystemMaterial（选中状态）和iconBackgroundSystemMaterial（图标）字段设置沉浸光感效果",
+      "status": "fresh",
+      "lines": [
+        183,
+        183
+      ]
+    },
+    {
+      "id": "IL-C009",
+      "topic": "子页签与操作块入口",
+      "statement": "SegmentButton 的胶囊类多选分段按钮（type 为 capsule 且 multiply 为 true）不支持 backgroundSystemMaterial，设置后不生效。",
+      "snapshotId": "component",
+      "anchor": "不支持backgroundSystemMaterial，设置后不生效。",
+      "status": "fresh",
+      "lines": [
+        197,
+        197
+      ]
+    },
+    {
+      "id": "IL-C010",
+      "topic": "沉浸光感生效区域限制",
+      "statement": "生效区域清单中按钮与选择类组件可在页面内全部区域生效的范围仅列举 Slider、Toggle、Select，未包含 Button。",
+      "snapshotId": "constraints",
+      "anchor": "以及按钮与选择类组件（Slider、Toggle、Select）可在页面内全部区域生效。",
+      "conflictGroup": "button-effective-scope",
+      "status": "fresh",
+      "lines": [
+        13,
+        13
+      ]
+    },
+    {
+      "id": "IL-C011",
+      "topic": "沉浸光感生效区域限制",
+      "statement": "清单外组件仅在 Navigation/NavDestination 标题栏或横向 Tab 中 barPosition 为 BarPosition.End 的底部 TabBar 中生效，在其他区域设置沉浸光感不生效；按清单字面 Button 未列入全页面生效范围。",
+      "snapshotId": "constraints",
+      "anchor": "其他组件仅在Navigation/NavDestination标题栏或横向Tab中barPosition为BarPosition.End的底部TabBar中生效。在其他区域中设置沉浸光感效果不生效。",
+      "conflictGroup": "button-effective-scope",
+      "status": "fresh",
+      "lines": [
+        15,
+        15
+      ]
+    },
+    {
+      "id": "IL-C012",
+      "topic": "沉浸光感生效区域限制",
+      "statement": "组件适配指南为 Button 提供组件级 systemMaterial 开启入口，Button 章节本身未标注页面区域限制。",
+      "snapshotId": "component",
+      "anchor": "组件级开启：按钮支持通过[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)属性为[Button](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button)组件设置沉浸光感效果。",
+      "conflictGroup": "button-effective-scope",
+      "status": "fresh",
+      "lines": [
+        121,
+        121
+      ]
+    },
+    {
+      "id": "IL-C013",
+      "topic": "生效区域诊断特征",
+      "statement": "组件不在沉浸光感生效范围时，日志中存在打印 Material inactive: out of scope. Use component in navigation title bar or Tabbar.，可作为 demo 运行时判定 Button 是否受限的诊断信号。",
+      "snapshotId": "faq",
+      "anchor": "Material inactive: out of scope. Use component in navigation title bar or Tabbar.",
+      "status": "fresh",
+      "lines": [
+        33,
+        33
+      ]
+    },
+    {
+      "id": "IL-C014",
+      "topic": "材质渲染区域",
+      "statement": "材质渲染区域由组件布局区域决定，可能不等于可视区域；通过 width、height、borderRadius 接口控制组件可视区域与材质渲染区域一致。",
+      "snapshotId": "faq",
+      "anchor": "材质渲染区域由组件布局区域决定",
+      "status": "fresh",
+      "lines": [
+        362,
+        362
+      ]
+    },
+    {
+      "id": "IL-C015",
+      "topic": "能力查询（IL-F008）",
+      "statement": "运行时通过 isImmersiveMaterialSupported 判断设备是否支持沉浸式系统材质，通过 getGlobalMaterialLevel 获取设备材质等级；不支持设备上可设置但无效果，应降级普通样式。",
+      "snapshotId": "ui-material-api",
+      "anchor": "判断当前设备是否支持沉浸式系统材质",
+      "status": "fresh",
+      "lines": [
+        393,
+        393
+      ]
+    },
+    {
+      "id": "IL-C016",
+      "topic": "版本门槛（IL-F001）",
+      "statement": "ImmersiveMaterial 对象和 systemMaterial 属性从 API 版本 26.0.0 开始新增。",
+      "snapshotId": "ui-material-api",
+      "anchor": "从API版本26.0.0开始，新增ImmersiveMaterial对象和systemMaterial属性。",
+      "status": "fresh",
+      "lines": [
+        813,
+        813
+      ]
+    },
+    {
+      "id": "IL-C017",
+      "topic": "版本门槛（IL-F001）",
+      "statement": "开启沉浸光感要确保应用的 targetSDKVersion 不低于 26.0.0。",
+      "snapshotId": "enable",
+      "anchor": "开启沉浸光感，要确保应用的",
+      "status": "fresh",
+      "lines": [
+        5,
+        5
+      ]
+    },
+    {
+      "id": "IL-C018",
+      "topic": "开启方式与优先级",
+      "statement": "组件级开启的优先级高于应用级开启，通过组件的沉浸式系统材质接口可以直接覆盖应用级开关开启的组件效果。",
+      "snapshotId": "enable",
+      "anchor": "组件级开启的优先级高于应用级开启",
+      "status": "fresh",
+      "lines": [
+        77,
+        77
+      ]
+    },
+    {
+      "id": "IL-C019",
+      "topic": "生效后样式行为",
+      "statement": "systemMaterial 属性生效后，已设置的 backgroundColor 会被恢复为透明色，borderWidth 会被恢复为无边框效果，可作为属性是否生效的判定信号。",
+      "snapshotId": "ui-material-api",
+      "anchor": "属性会被恢复为无边框效果。",
+      "status": "fresh",
+      "lines": [
+        25,
+        25
+      ]
+    },
+    {
+      "id": "IL-C020",
+      "topic": "属性设置顺序",
+      "statement": "通过通用属性 systemMaterial 设置沉浸式系统材质时，应放在其他样式属性（如背景色、边框、阴影等）之后设置。",
+      "snapshotId": "faq",
+      "anchor": "放在其他样式属性（如背景色、边框、阴影等）之后设置。",
+      "status": "fresh",
+      "lines": [
+        312,
+        312
+      ]
+    }
+  ],
+  "conflictResolutions": [],
+  "confirmations": [
+    {
+      "snapshotId": "component",
+      "category": "api-signature",
+      "userDecision": "确认按本次冻结新快照继续",
+      "note": "component 页 API 签名特征变化（+104/-1），用户于 2026-09-10 确认以本次冻结快照为真值现提判据。"
+    },
+    {
+      "snapshotId": "ui-material-api",
+      "category": "new",
+      "userDecision": "确认按本次冻结新快照继续",
+      "note": "ui-material-api 为本次新增入口页，用户于 2026-09-10 确认整体现提判据。"
+    },
+    {
+      "snapshotId": "constraints",
+      "category": "api-signature",
+      "userDecision": "确认按本次冻结新快照继续",
+      "note": "constraints 页 API 签名特征变化（+194/-2），用户于 2026-09-10 确认以本次冻结快照为真值现提判据。"
+    },
+    {
+      "snapshotId": "faq",
+      "category": "api-signature",
+      "userDecision": "确认按本次冻结新快照继续",
+      "note": "faq 页 API 签名特征变化（+299/-7），用户于 2026-09-10 确认以本次冻结快照为真值现提判据。"
+    }
+  ]
+}

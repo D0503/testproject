@@ -1,0 +1,166 @@
+{
+  "developmentMode": "existing_project",
+  "goal": "对现有 Express 工程的主导航页实现标题栏与底部导航 Tab 沉浸光感（IL-S003），仅升级 targetSdkVersion 至 26 并保留 compatibleSdkVersion 6.0.0(20)，代码采用运行时兼容写法",
+  "requirements": [
+    {
+      "criteriaId": "IL-F009",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "MainEntry 的 NavDestination 打开自定义标题栏 title(builder, options)，options 使用 NavigationTitleOptions 并按官网建议设置 barStyle 为 STACK 使内容区延伸至标题栏区域；标题内容放入 title builder 内并对其容器节点设置通用属性 systemMaterial（官网示例4/5 与功耗优化正例路径，材质 ULTRA_THIN）。NavigationTitleOptions.systemMaterial 本身的生效范围仅返回键与非自定义 Menu（见 C23），MainEntry 主页无返回键与 Menu，故不在 options 中额外配置该字段",
+      "sources": [
+        { "snapshotId": "component", "lineStart": 11, "lineEnd": 25, "sha256": "f7a3be8629930ef3267827a8dcab0fe61810e73dfe4afcd774dcf6215618dcbd" },
+        { "snapshotId": "enable", "lineStart": 39, "lineEnd": 51, "sha256": "eac1248209808882e11d9a1ae5f9ae25489575f8778998e7a36b7d2ea40a6b95" }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "MainEntry.ets 以 .title(this.mainTitleBuilder(), { barStyle: BarStyle.STACK }) 打开标题栏（NavigationTitleOptions.barStyle STACK 符合官网建议，内容延伸至标题栏区域）；mainTitleBuilder 内 CommonTitle 外层 Column 通过 TitleBarMaterialModifier.applyNormalAttribute 调用 instance.systemMaterial(ImmersiveMaterial ULTRA_THIN)，与官网示例5在 title builder 节点设置通用属性 systemMaterial 的路径一致；材质仅创建一次保持稳定"
+      }
+    },
+    {
+      "criteriaId": "IL-F010",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "主导航 Tabs 通过 barFloatingStyle 属性的 FloatingTabBarStyle.systemMaterial 字段设置 TabBar 背板沉浸光感（THIN）；现有 Tabs 未设置 barBackgroundColor/barBackgroundBlurStyle，保持不设置以避免覆盖材质",
+      "sources": [
+        { "snapshotId": "component", "lineStart": 27, "lineEnd": 41, "sha256": "dc1f365f70ed7a23f1294f2e80e319836bbeb030321dd4a664b8d9d6a1ed791a" }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "ImmersiveCompat.ets 的 TabBarMaterialModifier 调用 instance.barFloatingStyle({ systemMaterial: ImmersiveMaterial(THIN) })，与官网 Tabs 组件级开启入口一致（FloatingTabBarStyle.systemMaterial）；MainEntry.ets 与全工程均未对主导航 Tabs 设置 barBackgroundColor/barBackgroundBlurStyle，官网所述背景色/背景模糊覆盖材质的风险不存在"
+      }
+    },
+    {
+      "criteriaId": "IL-F011",
+      "strength": "required",
+      "disposition": "not_applicable",
+      "approach": "不实施：工程无 AlphabetIndexer 索引条组件，本判据无落点",
+      "reason": "本工程当前不包含 AlphabetIndexer 索引条组件，弹窗材质与 popupBackground/popupBackgroundBlurStyle 互斥关系在本轮无落点；主导航页也无索引条需求",
+      "sources": [
+        { "snapshotId": "component", "lineStart": 43, "lineEnd": 55, "sha256": "075067ec40fa2f4fca1cccc455648faac2ee1b7246c669744ed50a62e8f51f4e" }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "全工程源码检索无 AlphabetIndexer 组件引用，本轮改动也未引入索引条，判据的互斥约束无适用对象"
+      }
+    },
+    {
+      "criteriaId": "C21",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "悬浮样式三条件按断点处理：手机模式（SM/MD）vertical=false、barPosition=BarPosition.End、barOverlap 置 true，三条件同时满足，材质生效；大屏侧栏模式（LG/XL）vertical=true、barPosition=Start，barOverlap 置 false，条件不满足时 systemMaterial 不生效，TabBar 回退普通占位样式",
+      "sources": [
+        { "snapshotId": "component", "lineStart": 27, "lineEnd": 41, "sha256": "dc1f365f70ed7a23f1294f2e80e319836bbeb030321dd4a664b8d9d6a1ed791a" }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "MainEntry.ets Tabs 链上 .vertical(this.vm.isTabVertical)、.barPosition(this.vm.barPosition)（手机模式 End/大屏 Start）与新增 .barOverlap(!this.vm.isTabVertical)（手机 true/大屏 false）联动：手机模式三条件同时满足，大屏侧栏模式三条件均不满足，systemMaterial 不生效并回退普通侧栏，行为与判据的三条件约束一致"
+      }
+    },
+    {
+      "criteriaId": "C22",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "不给任何 TabContent 设置沉浸光感；四个 TabContent 保持原有 opacity/tabBar 配置不变",
+      "sources": [
+        { "snapshotId": "component", "lineStart": 27, "lineEnd": 41, "sha256": "dc1f365f70ed7a23f1294f2e80e319836bbeb030321dd4a664b8d9d6a1ed791a" }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "MainEntry.ets 四个 TabContent 仅保留原有 .opacity/.tabBar 配置，未新增任何 systemMaterial 或材质相关属性；材质仅通过 Tabs 容器的 barFloatingStyle 设置"
+      }
+    },
+    {
+      "criteriaId": "C23",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "标题栏生效范围限定为返回键与非自定义 Menu，MainEntry 主页无返回键与非自定义 Menu，因此不依赖 NavigationTitleOptions.systemMaterial 呈现标题栏材质；自定义标题内容按官方示例采用 title builder 内节点通用属性 systemMaterial 在标题栏区域生效",
+      "sources": [
+        { "snapshotId": "component", "lineStart": 11, "lineEnd": 25, "sha256": "f7a3be8629930ef3267827a8dcab0fe61810e73dfe4afcd774dcf6215618dcbd" }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "MainEntry 主页为根页面，无返回键无非自定义 Menu，NavigationTitleOptions 中未设置 systemMaterial 字段（避免无效配置）；标题栏材质通过 title builder 容器节点的通用属性 systemMaterial 生效，不与判据限定的返回键/非自定义 Menu 生效范围冲突"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "id": "S01",
+      "description": "build-profile.json5 仅将 targetSdkVersion 升级为 26.0.0，compatibleSdkVersion 保持 6.0.0(20)（用户确认的兼容策略）",
+      "status": "applied",
+      "locations": [
+        { "path": "build-profile.json5", "version": "before", "lineStart": 8, "lineEnd": 14 },
+        { "path": "build-profile.json5", "version": "after", "lineStart": 8, "lineEnd": 14 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-F009", "reason": "开启沉浸光感需 targetSDKVersion 不低于 26.0.0" },
+        { "type": "engineering_choice", "reason": "用户明确选择只升级 target 并采用兼容写法；低版本设备运行需 API 兼容保护", "constraint": "compatibleSdkVersion 保持 6.0.0(20)，不提升最低兼容版本" }
+      ]
+    },
+    {
+      "id": "S02",
+      "description": "新建 products/entry 的 ImmersiveCompat.ets：静态依赖 @kit.ArkUI uiMaterial 的 API26 专用模块，仅被动态 import；导出标题栏/页签 AttributeModifier 与创建函数，内部做 deviceInfo.sdkApiVersion>=26 与 isImmersiveMaterialSupported 双重守卫，材质对象一次性创建（ULTRA_THIN/THIN）保持稳定",
+      "status": "applied",
+      "locations": [
+        { "path": "products/entry/src/main/ets/utils/ImmersiveCompat.ets", "version": "after", "lineStart": 1, "lineEnd": 57 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-F009", "reason": "标题栏通用属性 systemMaterial 设置沉浸光感" },
+        { "type": "criteria", "criteriaId": "IL-F010", "reason": "Tabs 使用 FloatingTabBarStyle.systemMaterial 设置背板材质" },
+        { "type": "engineering_choice", "reason": "官网示例5的 isImmersiveMaterialSupported 守卫写法依赖静态 import uiMaterial，compatible 20 设备缺少 @ohos.arkui.uiMaterial 模块会导致页面加载失败", "constraint": "将 uiMaterial 依赖隔离到独立模块并动态 import，API20 设备不加载该模块自动回退普通样式" }
+      ]
+    },
+    {
+      "id": "S03",
+      "description": "MainEntryVM 增加 immersiveModifierHolder 状态与 initImmersiveMaterial：deviceInfo.sdkApiVersion>=26 时动态 import ImmersiveCompat 并创建 modifier 持有对象",
+      "status": "applied",
+      "locations": [
+        { "path": "products/entry/src/main/ets/viewmodels/MainEntryVM.ets", "version": "before", "lineStart": 1, "lineEnd": 69 },
+        { "path": "products/entry/src/main/ets/viewmodels/MainEntryVM.ets", "version": "after", "lineStart": 1, "lineEnd": 86 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-F009", "reason": "运行时按设备支持情况决定材质设置" },
+        { "type": "engineering_choice", "reason": "VM 不静态依赖 uiMaterial，保证低版本设备主页面模块可加载", "constraint": "动态 import 仅在 sdkApiVersion>=26 时执行" }
+      ]
+    },
+    {
+      "id": "S04",
+      "description": "MainEntry：NavDestination 以 title(mainTitleBuilder(), { barStyle: BarStyle.STACK }) 打开自定义标题栏（CommonTitle 渲染当前页签名），标题容器 attributeModifier 应用 systemMaterial(ULTRA_THIN)；Tabs 增加 barOverlap(!isTabVertical) 与 attributeModifier 应用 barFloatingStyle({systemMaterial: THIN})",
+      "status": "applied",
+      "locations": [
+        { "path": "products/entry/src/main/ets/pages/MainEntry.ets", "version": "before", "lineStart": 2, "lineEnd": 147 },
+        { "path": "products/entry/src/main/ets/pages/MainEntry.ets", "version": "after", "lineStart": 2, "lineEnd": 165 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-F009", "reason": "title 使用 NavigationTitleOptions STACK 样式使内容延伸至标题栏区域" },
+        { "type": "criteria", "criteriaId": "C23", "reason": "自定义标题内容不依赖 NavigationTitleOptions.systemMaterial，用通用属性在标题栏区域生效" },
+        { "type": "criteria", "criteriaId": "IL-F010", "reason": "barFloatingStyle 设置 FloatingTabBarStyle.systemMaterial" },
+        { "type": "criteria", "criteriaId": "C21", "reason": "手机模式三条件同时满足，大屏侧栏模式不满足时材质不生效" }
+      ]
+    },
+    {
+      "id": "S05",
+      "description": "四个 tab 页移除页内标题栏并做避让：HomePage 删除 titleBuilder 与滚动渐变逻辑；OrderPage/MinePage 删除 CommonTitle；BenefitPage 仅在非 tab 复用场景（isTabPage=false）保留 CommonTitle；内容顶部按 windowTopPadding+56 避让 STACK 标题栏，手机模式内容底部按页签高度 48 避让悬浮 TabBar；QueryPageVM/MinePageVM 补充 isTabVertical 断点计算",
+      "status": "applied",
+      "locations": [
+        { "path": "features/business_home/src/main/ets/pages/HomePage.ets", "version": "before", "lineStart": 15, "lineEnd": 128 },
+        { "path": "features/business_home/src/main/ets/pages/HomePage.ets", "version": "after", "lineStart": 15, "lineEnd": 95 },
+        { "path": "features/business_order/src/main/ets/pages/OrderPage.ets", "version": "before", "lineStart": 1, "lineEnd": 64 },
+        { "path": "features/business_order/src/main/ets/pages/OrderPage.ets", "version": "after", "lineStart": 1, "lineEnd": 61 },
+        { "path": "features/business_benefits/src/main/ets/pages/BenefitPage.ets", "version": "before", "lineStart": 2, "lineEnd": 187 },
+        { "path": "features/business_benefits/src/main/ets/pages/BenefitPage.ets", "version": "after", "lineStart": 2, "lineEnd": 198 },
+        { "path": "features/business_mine/src/main/ets/pages/MinePage.ets", "version": "before", "lineStart": 1, "lineEnd": 29 },
+        { "path": "features/business_mine/src/main/ets/pages/MinePage.ets", "version": "after", "lineStart": 1, "lineEnd": 25 },
+        { "path": "features/business_order/src/main/ets/viewModels/QueryPageVM.ets", "version": "before", "lineStart": 16, "lineEnd": 21 },
+        { "path": "features/business_order/src/main/ets/viewModels/QueryPageVM.ets", "version": "after", "lineStart": 16, "lineEnd": 29 },
+        { "path": "features/business_mine/src/main/ets/viewModels/MinePageVM.ets", "version": "before", "lineStart": 1, "lineEnd": 14 },
+        { "path": "features/business_mine/src/main/ets/viewModels/MinePageVM.ets", "version": "after", "lineStart": 1, "lineEnd": 22 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-F009", "reason": "标题栏统一由 NavDestination title 承载，避免双重标题" },
+        { "type": "criteria", "criteriaId": "C22", "reason": "TabContent 自身不设置沉浸光感，仅做布局避让" },
+        { "type": "engineering_choice", "reason": "barOverlap(true) 使内容延伸至悬浮页签下方，滚动内容需底部避让保证最后一项可见", "constraint": "避让高度取手机模式页签高度 48，大屏侧栏模式为 0；BenefitPage 在 isTabPage=false 二级页面场景保留 CommonTitle 并不加避让" }
+      ]
+    }
+  ]
+}

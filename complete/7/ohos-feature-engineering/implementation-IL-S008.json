@@ -1,0 +1,282 @@
+{
+  "developmentMode": "demo",
+  "requirements": [
+    {
+      "criteriaId": "IL-S008-C01",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "页面顶部调用 uiMaterial.isImmersiveMaterialSupported() 与 uiMaterial.getGlobalMaterialLevel() 并展示结果，采用 ui-material-api.md 示例5 的只读属性模式。",
+      "sources": [{ "snapshotId": "ui-material-api", "lineStart": 1161, "lineEnd": 1163, "sha256": "059cb5bdaec094f4729315a0a1ccea0de4f54185436ee5857d7dcaa22d2c4acd" }],
+      "review": { "status": "passed", "basis": "计划在 Index.ets 中以只读属性方式调用两个查询接口并在标题栏子树展示；对应示例5第1162-1163行的官方查询模式。" }
+    },
+    {
+      "criteriaId": "IL-S008-C02",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "展示不支持沉浸式材质时设置无效果的提示文案，帮助在验证截图上区分设备能力问题与遮挡问题。",
+      "sources": [{ "snapshotId": "ui-material-api", "lineStart": 3, "lineEnd": 3, "sha256": "773189baec5721506258ee3ae273f7e24dd236ca678a7023d1acbf00c0873227" }],
+      "review": { "status": "passed", "basis": "计划在诊断区提示该结论；isSupported=false 时所有材质卡片本就无效果，需要可辨识的原因。" }
+    },
+    {
+      "criteriaId": "IL-S008-C03",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "FAQ2 验证组错误卡片：materialColor: Color.Red（纯不透明），预期材质滤镜效果被完全遮挡，仅显示纯红背景。",
+      "sources": [{ "snapshotId": "faq", "lineStart": 220, "lineEnd": 225, "sha256": "65736b4021ab0c2e9e30a4925988714af4b7dfabac0fd6980d33885ad05b5565" }],
+      "review": { "status": "passed", "basis": "复现 FAQ 原文错误写法（materialColor: Color.Red 注释为不透明、材质滤镜效果被完全遮挡），运行后通过视觉对比验证。" }
+    },
+    {
+      "criteriaId": "IL-S008-C04",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "FAQ2 验证组推荐卡片：materialColor: '#80FF0000'（50% 透明度红色），预期材质在透出背景内容的同时呈现红色调。",
+      "sources": [{ "snapshotId": "faq", "lineStart": 227, "lineEnd": 232, "sha256": "e633c36a35db7c0dfc7e8184a1abed7d4656bd43ae75a8b43f8098af3ab1c926" }],
+      "review": { "status": "passed", "basis": "复现 FAQ 原文推荐写法（'#80FF0000' 带有50%透明度的红色），运行后通过视觉对比验证。" }
+    },
+    {
+      "criteriaId": "IL-S008-C05",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "在 FAQ2 组说明文字中注明 materialColor 分档行为：高/中算力为材质滤镜混合纯色，低算力作为背景色属性值。",
+      "sources": [{ "snapshotId": "faq", "lineStart": 216, "lineEnd": 216, "sha256": "f6cfc40d2d0d309c1bccf076ed2cfe17ac271eee9ba5fc866f6c056e4848e572" }],
+      "review": { "status": "passed", "basis": "说明文字帮助解读低算力设备上的验证截图差异。" }
+    },
+    {
+      "criteriaId": "IL-S008-C06",
+      "strength": "required",
+      "disposition": "not_applicable",
+      "approach": "demo 全部卡片不设置 shadow 通用属性，材质阴影由默认 applyShadow=true 提供；不引入重复阴影负面场景。",
+      "reason": "demo 验证目标仅覆盖两个目标 FAQ（背景遮挡、materialColor 不透明）；不涉及自定义 shadow，避免引入需求外的重复阴影负面场景。所有卡片不设置 shadow 通用属性。",
+      "sources": [{ "snapshotId": "common", "lineStart": 193, "lineEnd": 193, "sha256": "7ba2a9249648ae82ccfcaa02d0072a9d59990022a3230ef5ad408b7df92877f8" }],
+      "review": { "status": "passed", "basis": "对照 Index.ets 全部卡片代码：未出现任何 .shadow(...) 通用属性设置，材质阴影由默认 applyShadow 提供，无重复阴影场景，不适用结论成立。" }
+    },
+    {
+      "criteriaId": "IL-S008-C07",
+      "strength": "recommendation",
+      "disposition": "implement",
+      "approach": "材质仅设置在 328x56 小卡片上，不整页设置；不叠加视频动图等动态背景，页面背景为静态渐变。",
+      "sources": [{ "snapshotId": "constraints", "lineStart": 5, "lineEnd": 9, "sha256": "f3a83fe8cf50af9f63e0c040c3e0671f229859333306dee58f0dac49ae3e581c" }],
+      "review": { "status": "passed", "basis": "计划中所有材质卡片为局部小区域，符合控制面积与层数建议。" }
+    },
+    {
+      "criteriaId": "IL-S008-C08",
+      "strength": "recommendation",
+      "disposition": "implement",
+      "approach": "推荐写法卡片不叠加 backgroundBlurStyle；背景模糊仅出现在 FAQ1 错误示例卡片中（复现官网 FAQ 错误写法以验证遮挡结论，属场景必需的负面用例，Static blur-stacking 检查将按预期返回 inconclusive）。",
+      "sources": [{ "snapshotId": "constraints", "lineStart": 87, "lineEnd": 108, "sha256": "6409a4384490c40fa2c52a082c7581aad869309ca21ea79b4784459d7d676883" }],
+      "review": { "status": "passed", "basis": "错误示例是验证 FAQ1 模糊遮挡解决方案的必要复现；推荐示例保持单一材质来源模糊。" }
+    },
+    {
+      "criteriaId": "IL-S008-C09",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "FAQ1 验证组错误卡片 A：按官网 FAQ 错误写法将 .backgroundColor(Color.White) 设置在 .systemMaterial(...) 之后，预期不透明背景覆盖材质层、卡片呈纯白。",
+      "sources": [{ "snapshotId": "faq", "lineStart": 143, "lineEnd": 157, "sha256": "1ff403efe6673f7560b7fcbe791a1dc8dd964c1c522537a88a606ab8e144707e" }],
+      "review": { "status": "passed", "basis": "复现 FAQ1 现象与原因（视觉层级位于 backgroundColor 之下、不透明背景覆盖材质层），运行后视觉验证。" }
+    },
+    {
+      "criteriaId": "IL-S008-C10",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "FAQ1 验证组：错误卡片 B（systemMaterial 后叠加 backgroundBlurStyle 复现模糊遮挡）；推荐卡片（backgroundColor(Color.Transparent) 在前、systemMaterial 在后，且不设置背景模糊），预期推荐卡片呈现材质通透效果。",
+      "sources": [{ "snapshotId": "faq", "lineStart": 155, "lineEnd": 184, "sha256": "a651973ebedca5b7acf54b39a36a5add2571cb508bef73ebc6a42881f530b385" }],
+      "review": { "status": "passed", "basis": "两条解决措施（背景透明/移除背景模糊）均落地为可对比卡片。" }
+    },
+    {
+      "criteriaId": "IL-S008-C11",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "采用 constraints.md 正例骨架：材质卡片全部置于 Navigation 标题栏子树（.title({ builder, height: '100%' })），保证普通 Column 组件处于生效范围内。",
+      "sources": [{ "snapshotId": "constraints", "lineStart": 20, "lineEnd": 45, "sha256": "00800b98d363ea43743e22e286d81e0864494af3b5cfc17e7ac93b5344147618" }],
+      "review": { "status": "passed", "basis": "页面骨架复用官方正例的标题栏子树模式，材质卡片均在生效范围内。" }
+    },
+    {
+      "criteriaId": "IL-S008-C12",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "推荐卡片中 backgroundColor 等样式属性在前、systemMaterial 最后设置；错误卡片按 FAQ 原文复现错误顺序（材质在前、背景在后）以验证顺序影响。",
+      "sources": [{ "snapshotId": "faq", "lineStart": 300, "lineEnd": 328, "sha256": "11a6cd832e9ff376f1077b92f6da63e0a54837b84b9a58681548d4c71461c630" }],
+      "review": { "status": "passed", "basis": "推荐卡片属性顺序符合将 systemMaterial 放在其他样式属性之后的官方建议。" }
+    },
+    {
+      "criteriaId": "IL-S008-C13",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "卡片固定 width(328)、height(56)、borderRadius(28)，布局区域与可视区域一致，材质渲染区域可预期。",
+      "sources": [{ "snapshotId": "faq", "lineStart": 348, "lineEnd": 368, "sha256": "565e7587fe4924effabb8d545f6421c656d8909cb02b2bbb83194ea5bece147d" }],
+      "review": { "status": "passed", "basis": "固定尺寸加圆角控制渲染区域与可视区域一致。" }
+    },
+    {
+      "criteriaId": "IL-S008-C14",
+      "strength": "required",
+      "disposition": "not_applicable",
+      "approach": "demo 使用普通容器 Column 承载材质，不使用 TextArea 等自绘制组件，不出现内容层遮挡背板层的场景。",
+      "reason": "demo 未使用 TextArea 等自绘制组件；两个目标 FAQ 验证使用普通容器 Column，不引入内容层/背板层冲突场景。",
+      "sources": [{ "snapshotId": "faq", "lineStart": 400, "lineEnd": 414, "sha256": "9f781b5d065d82c13757eee8c40c783f8a67b8c985feb9d68894cbadd69eaa73" }],
+      "review": { "status": "passed", "basis": "对照 Index.ets 组件构成：仅使用 Column/Text/Scroll/Navigation 普通容器与文本，未使用 TextArea 等自绘制组件，不适用结论成立。" }
+    },
+    {
+      "criteriaId": "IL-S008-C15",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "推荐卡片先设置 backgroundColor(Color.Transparent) 再设置 systemMaterial，与官方示例5注释中背景色写在前、材质写在后的顺序一致；说明文字注明高/中算力设备上 systemMaterial 生效后已设背景色会被恢复为透明色。",
+      "sources": [{ "snapshotId": "ui-material-api", "lineStart": 25, "lineEnd": 25, "sha256": "1528d0bb3fd5c9ad8c17e347905df44d0a411bd24cb840c16d5b2473965f01cc" }],
+      "review": { "status": "passed", "basis": "属性顺序与说明均落实该行为。" }
+    },
+    {
+      "criteriaId": "IL-S008-C16",
+      "strength": "recommendation",
+      "disposition": "implement",
+      "approach": "三组 ImmersiveMaterial 对象一次性定义为只读属性，页面无定时器或交互修改材质参数，子树结构稳定。",
+      "sources": [{ "snapshotId": "constraints", "lineStart": 194, "lineEnd": 209, "sha256": "de423ecedd206d4b2baec813920cc6c2ed1b269ef3f73ec8b231409251e30cfb" }],
+      "review": { "status": "passed", "basis": "材质参数一次性设置并保持稳定。" }
+    },
+    {
+      "criteriaId": "IL-S008-C17",
+      "strength": "recommendation",
+      "disposition": "implement",
+      "approach": "在 FAQ1 推荐卡片说明文字中注明：THIN 薄样式边框呈现周围背景颜色为正常折射现象而非故障；FAQ2 推荐卡片说明半透明赋色可降低折射可见程度。",
+      "sources": [{ "snapshotId": "faq", "lineStart": 186, "lineEnd": 200, "sha256": "86741cef756ec5fc2c477ffcaa04587f58758d8970c41bc5b9c6bd8b185a75be" }],
+      "review": { "status": "passed", "basis": "说明文字避免将正常折射误判为验证失败。" }
+    },
+    {
+      "criteriaId": "IL-S008-C18",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "诊断区展示材质等级并说明：材质效果随设备算力档位自适应，低算力设备上 style 不产生差异，无需差异化代码。",
+      "sources": [{ "snapshotId": "faq", "lineStart": 234, "lineEnd": 246, "sha256": "c1772384a2a8f07a35bfc6c699d7eca8bdbf3966016cf1c3063141acf3387dc4" }],
+      "review": { "status": "passed", "basis": "说明文字配合 materialLevel 展示。" }
+    },
+    {
+      "criteriaId": "IL-S008-C19",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "诊断区说明材质效果受系统设置中沉浸光感强弱配置影响，不同配置下参数和效果存在差异。",
+      "sources": [{ "snapshotId": "ui-material-api", "lineStart": 25, "lineEnd": 25, "sha256": "1528d0bb3fd5c9ad8c17e347905df44d0a411bd24cb840c16d5b2473965f01cc" }],
+      "review": { "status": "passed", "basis": "说明文字帮助解读不同设备/配置下截图差异。" }
+    }
+  ],
+  "samples": [
+    {
+      "usage": "adopted",
+      "scope": "ui-material-api.md 示例5（查询材质等级与是否支持沉浸式材质）的只读属性查询模式",
+      "source": { "snapshotId": "ui-material-api", "lineStart": 1161, "lineEnd": 1163, "sha256": "059cb5bdaec094f4729315a0a1ccea0de4f54185436ee5857d7dcaa22d2c4acd" },
+      "keyPoints": [
+        { "description": "private materialLevel: uiMaterial.MaterialLevel = uiMaterial.getGlobalMaterialLevel(); private isSupported: boolean = uiMaterial.isImmersiveMaterialSupported(); 运行后不变的设备事实在组件属性中一次性查询", "adaptation": "保留两个只读属性定义，将展示位置从 Navigation 内容区移到标题栏子树内的演示列表顶部", "review": { "status": "passed", "basis": "查询调用方式与官方示例逐行一致，仅调整展示容器。" } }
+      ]
+    },
+    {
+      "usage": "adopted",
+      "scope": "faq.md「背景色或背景模糊遮挡材质效果」代码示例（错误写法/推荐写法）",
+      "source": { "snapshotId": "faq", "lineStart": 162, "lineEnd": 184, "sha256": "e51cb68680f22d91f2e9402abe17f066341ae45ca6edb2b58050089789bb0000" },
+      "keyPoints": [
+        { "description": "错误写法 .systemMaterial(...) 后跟 .backgroundColor(Color.White)", "adaptation": "原样保留为 FAQ1 错误卡片 A，补充文案标签", "review": { "status": "passed", "basis": "错误写法逐属性复现。" } },
+        { "description": "推荐写法 .backgroundColor(Color.Transparent) 后跟 .systemMaterial(new uiMaterial.ImmersiveMaterial({ style: uiMaterial.ImmersiveStyle.THIN }))", "adaptation": "原样保留为 FAQ1 推荐卡片，材质对象改为共享只读属性以保持参数稳定", "review": { "status": "passed", "basis": "推荐写法顺序与属性值一致，材质参数等价。" } }
+      ]
+    },
+    {
+      "usage": "adopted",
+      "scope": "faq.md「materialColor传入不透明颜色后材质效果消失」代码示例（错误写法/推荐写法）",
+      "source": { "snapshotId": "faq", "lineStart": 220, "lineEnd": 232, "sha256": "ecf79d5339c66d2ab970d8264625d4a862582b66814af7a71102cb658383790b" },
+      "keyPoints": [
+        { "description": "错误写法 materialColor: Color.Red（不透明，材质滤镜效果被完全遮挡）", "adaptation": "原样保留为 FAQ2 错误卡片的材质对象定义", "review": { "status": "passed", "basis": "参数值与官方示例一致。" } },
+        { "description": "推荐写法 materialColor: '#80FF0000'（带有50%透明度的红色）", "adaptation": "原样保留为 FAQ2 推荐卡片的材质对象定义", "review": { "status": "passed", "basis": "参数值与官方示例一致。" } }
+      ]
+    },
+    {
+      "usage": "adopted",
+      "scope": "constraints.md「控制材质使用面积」正例 MaterialAreaExample（Navigation 标题栏子树中为局部容器设置材质）",
+      "source": { "snapshotId": "constraints", "lineStart": 20, "lineEnd": 45, "sha256": "00800b98d363ea43743e22e286d81e0864494af3b5cfc17e7ac93b5344147618" },
+      "keyPoints": [
+        { "description": "在 @Builder NavigationTitle() 内为固定尺寸卡片设置 systemMaterial，通过 .title({ builder: this.NavigationTitle, height: '100%' }) 使标题栏子树承载演示区", "adaptation": "保留标题栏子树+height '100%' 骨架；卡片数量按验证组扩展，Navigation 内容区放置渐变背景以呈现材质通透效果", "review": { "status": "passed", "basis": "骨架结构与官方正例一致，扩展限于需求内的验证卡片。" } }
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": "S01",
+      "description": "将 build-profile.json5 的 targetSdkVersion 与 compatibleSdkVersion 配置为 26.0.0（uiMaterial 起始版本 26.0.0，demo 无低版本兼容需求）",
+      "status": "applied",
+      "locations": [
+        { "path": "build-profile.json5", "version": "before", "lineStart": 8, "lineEnd": 9 },
+        { "path": "build-profile.json5", "version": "after", "lineStart": 8, "lineEnd": 9 }
+      ],
+      "basis": [{ "type": "criteria", "criteriaId": "IL-S008-C01", "reason": "uiMaterial 查询与材质接口起始版本 26.0.0，工程 SDK 版本须满足接口版本前提" }]
+    },
+    {
+      "id": "S02",
+      "description": "Index.ets 引入 @kit.ArkUI 的 uiMaterial，以只读属性方式调用 isImmersiveMaterialSupported()/getGlobalMaterialLevel() 并在演示区顶部展示诊断结果与自适应说明",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "before", "lineStart": 1, "lineEnd": 23 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 1, "lineEnd": 14 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 51, "lineEnd": 70 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S008-C01", "reason": "运行时能力与档位查询" },
+        { "type": "criteria", "criteriaId": "IL-S008-C02", "reason": "不支持设备可设置但无效果的提示" },
+        { "type": "criteria", "criteriaId": "IL-S008-C18", "reason": "算力档位自适应说明" },
+        { "type": "criteria", "criteriaId": "IL-S008-C19", "reason": "系统沉浸光感配置影响说明" }
+      ]
+    },
+    {
+      "id": "S03",
+      "description": "页面骨架：Stack 内 Navigation 内容区为静态线性渐变背景，标题栏子树（.title({ builder, height: '100%' })）承载可滚动的演示卡片列表",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 47, "lineEnd": 50 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 160, "lineEnd": 171 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 199, "lineEnd": 204 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S008-C11", "reason": "普通组件材质仅在 Navigation/NavDestination 标题栏或底部 TabBar 生效" },
+        { "type": "criteria", "criteriaId": "IL-S008-C07", "reason": "材质限定在局部小区域、非动态背景" }
+      ]
+    },
+    {
+      "id": "S04",
+      "description": "FAQ1 验证组三张卡片：错误A（systemMaterial 后设置 backgroundColor(Color.White)）、错误B（systemMaterial 后设置 backgroundBlurStyle）、推荐（backgroundColor(Color.Transparent) 在前 + systemMaterial 在后，无模糊）；含分组标题与说明辅助组件",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 15, "lineEnd": 46 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 71, "lineEnd": 121 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S008-C09", "reason": "复现不透明背景/背景模糊覆盖材质层的现象" },
+        { "type": "criteria", "criteriaId": "IL-S008-C10", "reason": "背景透明与移除模糊两条解决措施" },
+        { "type": "criteria", "criteriaId": "IL-S008-C08", "reason": "错误卡片B按FAQ原文复现模糊叠加错误写法（负面用例），推荐卡片不叠加背景模糊" },
+        { "type": "criteria", "criteriaId": "IL-S008-C12", "reason": "推荐卡片 systemMaterial 位于其他样式属性之后" },
+        { "type": "criteria", "criteriaId": "IL-S008-C13", "reason": "固定 width/height/borderRadius 保证渲染区域与可视区域一致" },
+        { "type": "criteria", "criteriaId": "IL-S008-C15", "reason": "背景色在前、材质在后的顺序及恢复透明行为说明" },
+        { "type": "criteria", "criteriaId": "IL-S008-C17", "reason": "注明薄样式边框折射为正常现象" }
+      ]
+    },
+    {
+      "id": "S05",
+      "description": "FAQ2 验证组两张卡片：错误（materialColor: Color.Red 不透明）、推荐（materialColor: '#80FF0000' 半透明），材质对象以只读属性一次性定义；含底部验证方法说明",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 122, "lineEnd": 159 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S008-C03", "reason": "复现不透明 materialColor 遮挡材质滤镜效果" },
+        { "type": "criteria", "criteriaId": "IL-S008-C04", "reason": "推荐写法传入带透明度颜色值" },
+        { "type": "criteria", "criteriaId": "IL-S008-C05", "reason": "分档行为说明文字" },
+        { "type": "criteria", "criteriaId": "IL-S008-C16", "reason": "材质参数一次性定义并保持稳定" }
+      ]
+    },
+    {
+      "id": "S06",
+      "description": "可观察性增强：在 Navigation 内容区渐变背景上叠加两排静态高饱和彩色色块（红/橙/绿、蓝/紫/粉），为材质滤镜与折射效果提供更易观察的背景内容",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "before", "lineStart": 173, "lineEnd": 184 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 172, "lineEnd": 198 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S008-C07", "reason": "背景为静态色块与渐变，不属于视频动图等变化内容，材质上方叠加不触发动态重采样" },
+        { "type": "criteria", "criteriaId": "IL-S008-C17", "reason": "高饱和色块使材质折射/滤镜透出效果更易肉眼对比观察" }
+      ]
+    }
+  ]
+}

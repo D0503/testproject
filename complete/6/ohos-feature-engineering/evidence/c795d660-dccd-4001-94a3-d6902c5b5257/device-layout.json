@@ -1,0 +1,822 @@
+[
+  {
+    "bounds": [
+      0,
+      0,
+      1256,
+      2760
+    ],
+    "children": [
+      {
+        "type": "root",
+        "bounds": [
+          0,
+          137,
+          1256,
+          2760
+        ],
+        "children": [
+          {
+            "type": "Tabs",
+            "bounds": [
+              0,
+              137,
+              1256,
+              2760
+            ],
+            "children": [
+              {
+                "type": "Swiper",
+                "bounds": [
+                  0,
+                  137,
+                  1256,
+                  2760
+                ],
+                "scrollable": true,
+                "children": [
+                  {
+                    "type": "TabContent",
+                    "bounds": [
+                      0,
+                      137,
+                      1256,
+                      2760
+                    ],
+                    "children": [
+                      {
+                        "type": "Navigation",
+                        "bounds": [
+                          0,
+                          137,
+                          1256,
+                          2760
+                        ],
+                        "children": [
+                          {
+                            "type": "NavDestination",
+                            "bounds": [
+                              0,
+                              137,
+                              1256,
+                              2760
+                            ],
+                            "children": [
+                              {
+                                "type": "TitleBar",
+                                "bounds": [
+                                  0,
+                                  137,
+                                  1256,
+                                  346
+                                ],
+                                "children": [
+                                  {
+                                    "type": "Row",
+                                    "bounds": [
+                                      0,
+                                      137,
+                                      1256,
+                                      346
+                                    ],
+                                    "children": [
+                                      {
+                                        "id": "text",
+                                        "type": "Text",
+                                        "text": "游戏",
+                                        "bounds": [
+                                          70,
+                                          184,
+                                          267,
+                                          299
+                                        ],
+                                        "children": []
+                                      },
+                                      {
+                                        "type": "Blank",
+                                        "bounds": [
+                                          267,
+                                          137,
+                                          1046,
+                                          346
+                                        ],
+                                        "children": []
+                                      },
+                                      {
+                                        "type": "Button",
+                                        "bounds": [
+                                          1046,
+                                          171,
+                                          1186,
+                                          311
+                                        ],
+                                        "children": [
+                                          {
+                                            "type": "SymbolGlyph",
+                                            "bounds": [
+                                              1081,
+                                              206,
+                                              1151,
+                                              276
+                                            ],
+                                            "children": []
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "TitleBarMaskBlur",
+                                    "bounds": [
+                                      0,
+                                      137,
+                                      1256,
+                                      458
+                                    ],
+                                    "hitTestBehavior": "None",
+                                    "children": []
+                                  },
+                                  {
+                                    "type": "TitleBarMask",
+                                    "bounds": [
+                                      0,
+                                      137,
+                                      1256,
+                                      458
+                                    ],
+                                    "hitTestBehavior": "None",
+                                    "children": []
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "NavDestinationContent",
+                                "bounds": [
+                                  0,
+                                  137,
+                                  1256,
+                                  2760
+                                ],
+                                "children": [
+                                  {
+                                    "type": "Scroll",
+                                    "bounds": [
+                                      0,
+                                      137,
+                                      1256,
+                                      2662
+                                    ],
+                                    "scrollable": true,
+                                    "children": [
+                                      {
+                                        "type": "Column",
+                                        "bounds": [
+                                          0,
+                                          346,
+                                          1256,
+                                          2662
+                                        ],
+                                        "children": [
+                                          {
+                                            "type": "Image",
+                                            "bounds": [
+                                              56,
+                                              374,
+                                              1200,
+                                              1004
+                                            ],
+                                            "children": []
+                                          },
+                                          {
+                                            "id": "content",
+                                            "type": "__Common__",
+                                            "bounds": [
+                                              56,
+                                              1004,
+                                              1200,
+                                              1234
+                                            ],
+                                            "children": [
+                                              {
+                                                "type": "Row",
+                                                "bounds": [
+                                                  56,
+                                                  1004,
+                                                  1200,
+                                                  1234
+                                                ],
+                                                "children": [
+                                                  {
+                                                    "type": "Stack",
+                                                    "bounds": [
+                                                      56,
+                                                      1004,
+                                                      1200,
+                                                      1234
+                                                    ],
+                                                    "children": [
+                                                      {
+                                                        "type": "Scroll",
+                                                        "bounds": [
+                                                          56,
+                                                          1053,
+                                                          1200,
+                                                          1185
+                                                        ],
+                                                        "scrollable": true,
+                                                        "children": [
+                                                          {
+                                                            "type": "EffectComponent",
+                                                            "bounds": [
+                                                              56,
+                                                              1053,
+                                                              1256,
+                                                              1185
+                                                            ],
+                                                            "children": [
+                                                              {
+                                                                "type": "Row",
+                                                                "bounds": [
+                                                                  56,
+                                                                  1053,
+                                                                  1256,
+                                                                  1185
+                                                                ],
+                                                                "children": [
+                                                                  {
+                                                                    "type": "Button",
+                                                                    "bounds": [
+                                                                      112,
+                                                                      1056,
+                                                                      414,
+                                                                      1182
+                                                                    ],
+                                                                    "clickable": true,
+                                                                    "children": [
+                                                                      {
+                                                                        "type": "Flex",
+                                                                        "bounds": [
+                                                                          112,
+                                                                          1056,
+                                                                          414,
+                                                                          1182
+                                                                        ],
+                                                                        "children": [
+                                                                          {
+                                                                            "type": "SymbolGlyph",
+                                                                            "bounds": [
+                                                                              168,
+                                                                              1084,
+                                                                              238,
+                                                                              1154
+                                                                            ],
+                                                                            "children": []
+                                                                          },
+                                                                          {
+                                                                            "type": "Text",
+                                                                            "text": "策略",
+                                                                            "bounds": [
+                                                                              259,
+                                                                              1091,
+                                                                              358,
+                                                                              1148
+                                                                            ],
+                                                                            "children": []
+                                                                          }
+                                                                        ]
+                                                                      }
+                                                                    ]
+                                                                  },
+                                                                  {
+                                                                    "type": "Button",
+                                                                    "bounds": [
+                                                                      442,
+                                                                      1053,
+                                                                      750,
+                                                                      1185
+                                                                    ],
+                                                                    "clickable": true,
+                                                                    "children": [
+                                                                      {
+                                                                        "type": "Flex",
+                                                                        "bounds": [
+                                                                          445,
+                                                                          1056,
+                                                                          747,
+                                                                          1182
+                                                                        ],
+                                                                        "children": [
+                                                                          {
+                                                                            "type": "SymbolGlyph",
+                                                                            "bounds": [
+                                                                              501,
+                                                                              1084,
+                                                                              571,
+                                                                              1154
+                                                                            ],
+                                                                            "children": []
+                                                                          },
+                                                                          {
+                                                                            "type": "Text",
+                                                                            "text": "动作",
+                                                                            "bounds": [
+                                                                              592,
+                                                                              1091,
+                                                                              691,
+                                                                              1148
+                                                                            ],
+                                                                            "children": []
+                                                                          }
+                                                                        ]
+                                                                      }
+                                                                    ]
+                                                                  },
+                                                                  {
+                                                                    "type": "Button",
+                                                                    "bounds": [
+                                                                      778,
+                                                                      1053,
+                                                                      1086,
+                                                                      1185
+                                                                    ],
+                                                                    "clickable": true,
+                                                                    "children": [
+                                                                      {
+                                                                        "type": "Flex",
+                                                                        "bounds": [
+                                                                          781,
+                                                                          1056,
+                                                                          1083,
+                                                                          1182
+                                                                        ],
+                                                                        "children": [
+                                                                          {
+                                                                            "type": "SymbolGlyph",
+                                                                            "bounds": [
+                                                                              837,
+                                                                              1084,
+                                                                              907,
+                                                                              1154
+                                                                            ],
+                                                                            "children": []
+                                                                          },
+                                                                          {
+                                                                            "type": "Text",
+                                                                            "text": "竞技",
+                                                                            "bounds": [
+                                                                              928,
+                                                                              1091,
+                                                                              1027,
+                                                                              1148
+                                                                            ],
+                                                                            "children": []
+                                                                          }
+                                                                        ]
+                                                                      }
+                                                                    ]
+                                                                  },
+                                                                  {
+                                                                    "type": "Button",
+                                                                    "bounds": [
+                                                                      1114,
+                                                                      1053,
+                                                                      1256,
+                                                                      1185
+                                                                    ],
+                                                                    "clickable": true,
+                                                                    "children": [
+                                                                      {
+                                                                        "type": "Flex",
+                                                                        "bounds": [
+                                                                          1117,
+                                                                          1056,
+                                                                          1256,
+                                                                          1182
+                                                                        ],
+                                                                        "children": [
+                                                                          {
+                                                                            "type": "SymbolGlyph",
+                                                                            "bounds": [
+                                                                              1173,
+                                                                              1084,
+                                                                              1243,
+                                                                              1154
+                                                                            ],
+                                                                            "children": []
+                                                                          }
+                                                                        ]
+                                                                      }
+                                                                    ]
+                                                                  }
+                                                                ]
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "type": "List",
+                                            "bounds": [
+                                              56,
+                                              1262,
+                                              1200,
+                                              2662
+                                            ],
+                                            "children": [
+                                              {
+                                                "type": "ListItem",
+                                                "bounds": [
+                                                  56,
+                                                  1262,
+                                                  1200,
+                                                  1486
+                                                ],
+                                                "children": [
+                                                  {
+                                                    "type": "Row",
+                                                    "bounds": [
+                                                      56,
+                                                      1262,
+                                                      1200,
+                                                      1486
+                                                    ],
+                                                    "children": [
+                                                      {
+                                                        "type": "SymbolGlyph",
+                                                        "bounds": [
+                                                          126,
+                                                          1311,
+                                                          252,
+                                                          1437
+                                                        ],
+                                                        "children": []
+                                                      },
+                                                      {
+                                                        "type": "Text",
+                                                        "text": "热门榜单",
+                                                        "bounds": [
+                                                          308,
+                                                          1341,
+                                                          532,
+                                                          1407
+                                                        ],
+                                                        "children": []
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "type": "ListItem",
+                                                "bounds": [
+                                                  56,
+                                                  1504,
+                                                  1200,
+                                                  1728
+                                                ],
+                                                "children": [
+                                                  {
+                                                    "type": "Row",
+                                                    "bounds": [
+                                                      56,
+                                                      1504,
+                                                      1200,
+                                                      1728
+                                                    ],
+                                                    "children": [
+                                                      {
+                                                        "type": "SymbolGlyph",
+                                                        "bounds": [
+                                                          126,
+                                                          1553,
+                                                          252,
+                                                          1679
+                                                        ],
+                                                        "children": []
+                                                      },
+                                                      {
+                                                        "type": "Text",
+                                                        "text": "精选推荐",
+                                                        "bounds": [
+                                                          308,
+                                                          1583,
+                                                          532,
+                                                          1649
+                                                        ],
+                                                        "children": []
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "type": "ListItem",
+                                                "bounds": [
+                                                  56,
+                                                  1746,
+                                                  1200,
+                                                  1970
+                                                ],
+                                                "children": [
+                                                  {
+                                                    "type": "Row",
+                                                    "bounds": [
+                                                      56,
+                                                      1746,
+                                                      1200,
+                                                      1970
+                                                    ],
+                                                    "children": [
+                                                      {
+                                                        "type": "SymbolGlyph",
+                                                        "bounds": [
+                                                          126,
+                                                          1795,
+                                                          252,
+                                                          1921
+                                                        ],
+                                                        "children": []
+                                                      },
+                                                      {
+                                                        "type": "Text",
+                                                        "text": "新品首发",
+                                                        "bounds": [
+                                                          308,
+                                                          1825,
+                                                          532,
+                                                          1891
+                                                        ],
+                                                        "children": []
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "type": "ListItem",
+                                                "bounds": [
+                                                  56,
+                                                  1988,
+                                                  1200,
+                                                  2212
+                                                ],
+                                                "children": [
+                                                  {
+                                                    "type": "Row",
+                                                    "bounds": [
+                                                      56,
+                                                      1988,
+                                                      1200,
+                                                      2212
+                                                    ],
+                                                    "children": [
+                                                      {
+                                                        "type": "SymbolGlyph",
+                                                        "bounds": [
+                                                          126,
+                                                          2037,
+                                                          252,
+                                                          2163
+                                                        ],
+                                                        "children": []
+                                                      },
+                                                      {
+                                                        "type": "Text",
+                                                        "text": "热门话题",
+                                                        "bounds": [
+                                                          308,
+                                                          2067,
+                                                          532,
+                                                          2133
+                                                        ],
+                                                        "children": []
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "type": "ListItem",
+                                                "bounds": [
+                                                  56,
+                                                  2230,
+                                                  1200,
+                                                  2454
+                                                ],
+                                                "children": [
+                                                  {
+                                                    "type": "Row",
+                                                    "bounds": [
+                                                      56,
+                                                      2230,
+                                                      1200,
+                                                      2454
+                                                    ],
+                                                    "children": [
+                                                      {
+                                                        "type": "SymbolGlyph",
+                                                        "bounds": [
+                                                          126,
+                                                          2279,
+                                                          252,
+                                                          2405
+                                                        ],
+                                                        "children": []
+                                                      },
+                                                      {
+                                                        "type": "Text",
+                                                        "text": "必看合集",
+                                                        "bounds": [
+                                                          308,
+                                                          2309,
+                                                          532,
+                                                          2375
+                                                        ],
+                                                        "children": []
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "type": "ListItem",
+                                                "bounds": [
+                                                  56,
+                                                  2472,
+                                                  1200,
+                                                  2662
+                                                ],
+                                                "children": [
+                                                  {
+                                                    "type": "Row",
+                                                    "bounds": [
+                                                      56,
+                                                      2472,
+                                                      1200,
+                                                      2662
+                                                    ],
+                                                    "children": [
+                                                      {
+                                                        "type": "SymbolGlyph",
+                                                        "bounds": [
+                                                          126,
+                                                          2521,
+                                                          252,
+                                                          2647
+                                                        ],
+                                                        "children": []
+                                                      },
+                                                      {
+                                                        "type": "Text",
+                                                        "text": "话题广场",
+                                                        "bounds": [
+                                                          308,
+                                                          2551,
+                                                          532,
+                                                          2617
+                                                        ],
+                                                        "children": []
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "BackgroundMask",
+                "bounds": [
+                  0,
+                  2382,
+                  1256,
+                  2662
+                ],
+                "hitTestBehavior": "None",
+                "children": []
+              },
+              {
+                "type": "TabBar",
+                "bounds": [
+                  334,
+                  2302,
+                  922,
+                  2498
+                ],
+                "children": [
+                  {
+                    "type": "Column",
+                    "bounds": [
+                      379,
+                      2319,
+                      628,
+                      2481
+                    ],
+                    "clickable": true,
+                    "children": [
+                      {
+                        "type": "Column",
+                        "bounds": [
+                          379,
+                          2319,
+                          628,
+                          2481
+                        ],
+                        "children": [
+                          {
+                            "type": "SymbolGlyph",
+                            "bounds": [
+                              465,
+                              2338,
+                              542,
+                              2415
+                            ],
+                            "children": []
+                          },
+                          {
+                            "type": "Text",
+                            "text": "探索",
+                            "bounds": [
+                              468,
+                              2422,
+                              539,
+                              2463
+                            ],
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "Column",
+                    "bounds": [
+                      628,
+                      2319,
+                      877,
+                      2481
+                    ],
+                    "clickable": true,
+                    "children": [
+                      {
+                        "type": "Column",
+                        "bounds": [
+                          628,
+                          2319,
+                          877,
+                          2481
+                        ],
+                        "children": [
+                          {
+                            "type": "SymbolGlyph",
+                            "bounds": [
+                              714,
+                              2338,
+                              791,
+                              2415
+                            ],
+                            "children": []
+                          },
+                          {
+                            "type": "Text",
+                            "text": "游戏",
+                            "bounds": [
+                              717,
+                              2422,
+                              788,
+                              2463
+                            ],
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

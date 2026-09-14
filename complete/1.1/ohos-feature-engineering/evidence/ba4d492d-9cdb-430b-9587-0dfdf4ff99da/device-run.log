@@ -1,0 +1,10 @@
+$ devecocli run --skip-build --device 7TZ0126602000513
+Auto-selected module: entry
+
+Installing artifacts to device 7TZ0126602000513...
+App installed successfully
+Launching com.il.1/EntryAbility...
+[32m
+Application 'com.il.1': start ability successfully.[39m
+
+[33mEnsure the project source is trusted before proceeding.[39m

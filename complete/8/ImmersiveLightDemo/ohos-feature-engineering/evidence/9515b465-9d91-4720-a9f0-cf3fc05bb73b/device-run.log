@@ -1,0 +1,10 @@
+$ devecocli run --skip-build --device 127.0.0.1:5555
+Auto-selected module: entry
+
+Installing artifacts to device 127.0.0.1:5555...
+App installed successfully
+Launching com.example.app/EntryAbility...
+[32m
+Application 'com.example.app': start ability successfully.[39m
+
+[33mEnsure the project source is trusted before proceeding.[39m

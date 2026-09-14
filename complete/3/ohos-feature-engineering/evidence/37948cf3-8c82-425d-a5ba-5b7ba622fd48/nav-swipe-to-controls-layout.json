@@ -1,0 +1,306 @@
+[
+  {
+    "bounds": [
+      0,
+      0,
+      1256,
+      2760
+    ],
+    "children": [
+      {
+        "type": "Scroll",
+        "bounds": [
+          0,
+          137,
+          1256,
+          2662
+        ],
+        "scrollable": true,
+        "children": [
+          {
+            "type": "Text",
+            "text": "沉浸光感 · 按钮与选择类组件",
+            "bounds": [
+              80,
+              304,
+              1176,
+              402
+            ],
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "设备支持沉浸式材质: true ｜ 材质等级: 2",
+            "bounds": [
+              249,
+              430,
+              1007,
+              479
+            ],
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "按钮 Button",
+            "bounds": [
+              70,
+              577,
+              462,
+              659
+            ],
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "未设置颜色属性时默认生效主题色材质；按压弹性形变 + 流光反馈",
+            "bounds": [
+              70,
+              673,
+              1167,
+              771
+            ],
+            "children": []
+          },
+          {
+            "type": "Button",
+            "text": "主题色",
+            "bounds": [
+              94,
+              813,
+              380,
+              953
+            ],
+            "children": []
+          },
+          {
+            "type": "Button",
+            "text": "自定义流光",
+            "bounds": [
+              429,
+              813,
+              827,
+              953
+            ],
+            "children": []
+          },
+          {
+            "type": "Button",
+            "text": "禁用态",
+            "bounds": [
+              876,
+              813,
+              1162,
+              953
+            ],
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "下拉按钮 Select",
+            "bounds": [
+              70,
+              1051,
+              574,
+              1133
+            ],
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "按钮 systemMaterial 与菜单 menuSystemMaterial 相互独立",
+            "bounds": [
+              70,
+              1147,
+              1186,
+              1196
+            ],
+            "children": []
+          },
+          {
+            "type": "Select",
+            "text": "按钮+菜单均开启",
+            "bounds": [
+              70,
+              1238,
+              679,
+              1384
+            ],
+            "clickable": true,
+            "children": []
+          },
+          {
+            "type": "Select",
+            "text": "菜单已单独关闭",
+            "bounds": [
+              735,
+              1238,
+              1256,
+              1384
+            ],
+            "clickable": true,
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "开关 Toggle",
+            "bounds": [
+              70,
+              1482,
+              451,
+              1564
+            ],
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "Switch 材质参数仅作开关标记；Material.empty 单独关闭",
+            "bounds": [
+              70,
+              1578,
+              1136,
+              1627
+            ],
+            "children": []
+          },
+          {
+            "type": "Toggle",
+            "bounds": [
+              292,
+              1683,
+              418,
+              1753
+            ],
+            "clickable": true,
+            "checkable": true,
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "默认开启",
+            "bounds": [
+              277,
+              1788,
+              432,
+              1833
+            ],
+            "children": []
+          },
+          {
+            "type": "Toggle",
+            "bounds": [
+              539,
+              1683,
+              665,
+              1753
+            ],
+            "clickable": true,
+            "checkable": true,
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "empty 关闭",
+            "bounds": [
+              502,
+              1788,
+              701,
+              1833
+            ],
+            "children": []
+          },
+          {
+            "type": "Toggle",
+            "bounds": [
+              872,
+              1715,
+              878,
+              1721
+            ],
+            "clickable": true,
+            "checkable": true,
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "Button 形态",
+            "bounds": [
+              771,
+              1742,
+              979,
+              1787
+            ],
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "滑动条 Slider",
+            "bounds": [
+              70,
+              1931,
+              491,
+              2013
+            ],
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "材质参数仅作开关标记；DEFAULT 滑块 + 非 NONE 样式时交互反馈生效",
+            "bounds": [
+              70,
+              2027,
+              1160,
+              2125
+            ],
+            "children": []
+          },
+          {
+            "type": "Slider",
+            "text": "40.000000",
+            "bounds": [
+              126,
+              2167,
+              1130,
+              2307
+            ],
+            "clickable": true,
+            "scrollable": true,
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "当前进度: 40",
+            "bounds": [
+              509,
+              2349,
+              747,
+              2398
+            ],
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "子页签 ChipGroup",
+            "bounds": [
+              70,
+              2496,
+              659,
+              2578
+            ],
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "普通 / 选中 / 图标三种材质入口",
+            "bounds": [
+              70,
+              2592,
+              646,
+              2641
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

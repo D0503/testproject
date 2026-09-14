@@ -1,0 +1,59 @@
+$ devecocli build --product default --build-mode debug
+
+[ohpm install] Running...
+[32minstall completed in 0s 193ms[39m
+
+[hvigor sync] Skipped (configurations unchanged)
+
+[hvigor build] Running...
+> hvigor [32mFinished ::PreBuildApp... after 1 ms [39m
+> hvigor [32mUP-TO-DATE :entry:default@PreBuild...  [39m
+> hvigor [32mFinished ::DuplicateDependencyCheck... after 1 ms [39m
+> hvigor [32mFinished :entry:default@CreateModuleInfo... after 2 ms [39m
+> hvigor [32mUP-TO-DATE :entry:default@GenerateMetadata...  [39m
+> hvigor [32mFinished :entry:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mUP-TO-DATE :entry:default@MergeProfile...  [39m
+> hvigor [32mUP-TO-DATE :entry:default@CreateBuildProfile...  [39m
+> hvigor [32mFinished :entry:default@PreCheckSyscap... after 1 ms [39m
+> hvigor [32mUP-TO-DATE :entry:default@GeneratePkgContextInfo...  [39m
+> hvigor [32mFinished :entry:default@GeneratePkgSdkInfo... after 6 ms [39m
+> hvigor [32mFinished :entry:default@ProcessIntegratedHsp... after 2 ms [39m
+> hvigor [32mFinished :entry:default@BuildNativeWithCmake... after 2 ms [39m
+> hvigor [32mUP-TO-DATE :entry:default@MakePackInfo...  [39m
+> hvigor [32mFinished :entry:default@SyscapTransform... after 6 ms [39m
+> hvigor [32mUP-TO-DATE :entry:default@ProcessProfile...  [39m
+> hvigor [32mUP-TO-DATE :entry:default@ProcessRouterMap...  [39m
+> hvigor [32mUP-TO-DATE :entry:default@ProcessShareConfig...  [39m
+> hvigor [32mFinished :entry:default@ProcessStartupConfig... after 7 ms [39m
+> hvigor [32mFinished :entry:default@BuildNativeWithNinja... after 3 ms [39m
+> hvigor [32mUP-TO-DATE :entry:default@ProcessResource...  [39m
+> hvigor [32mUP-TO-DATE :entry:default@GenerateLoaderJson...  [39m
+> hvigor [32mUP-TO-DATE :entry:default@ProcessLibs...  [39m
+> hvigor [32mUP-TO-DATE :entry:default@CompileResource...  [39m
+> hvigor [32mUP-TO-DATE :entry:default@DoNativeStrip...  [39m
+> hvigor [32mUP-TO-DATE :entry:default@CompileArkTS...  [39m
+> hvigor [32mFinished :entry:default@BuildJS... after 10 ms [39m
+> hvigor [32mUP-TO-DATE :entry:default@CacheNativeLibs...  [39m
+> hvigor [32mUP-TO-DATE :entry:default@GeneratePkgModuleJson...  [39m
+> hvigor [32mFinished :entry:default@ProcessCompiledResources... after 3 ms [39m
+> hvigor [32mUP-TO-DATE :entry:default@PackageHap...  [39m
+> hvigor [32mFinished :entry:default@PackingCheck... after 8 ms [39m
+> hvigor [32mUP-TO-DATE :entry:default@SignHap...  [39m
+> hvigor [32mFinished :entry:default@CollectDebugSymbol... after 3 ms [39m
+> hvigor [32mFinished :entry:assembleHap... after 1 ms [39m
+> hvigor [32mUP-TO-DATE ::MakeProjectPackInfo...  [39m
+> hvigor [32mUP-TO-DATE ::ProcessProjectPrivacyProfile...  [39m
+> hvigor [32mUP-TO-DATE ::GeneratePackRes...  [39m
+> hvigor [32mFinished ::PackageApp... after 993 ms [39m
+> hvigor [32mFinished ::SignPackagesFromApp... after 2 ms [39m
+> hvigor [32mFinished ::SignApp... after 308 ms [39m
+> hvigor [32mFinished ::assembleApp... after 1 ms [39m
+> hvigor [32mBUILD SUCCESSFUL in 2 s 43 ms [39m
+
+42 tasks in total: 20 executed, 22 up-to-date
+[32m
+Merged central compile_commands.json for C++ language server.[39m
+
+[32mBuild completed successfully[39m
+
+[33mEnsure the project source is trustworthy before proceeding.[39m

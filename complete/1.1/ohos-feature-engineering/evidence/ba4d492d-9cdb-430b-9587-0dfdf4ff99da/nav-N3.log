@@ -1,0 +1,3 @@
+$ devecocli ui swipe --device 7TZ0126602000513 1104 1238 1104 1240
+- Executing swipe...
+[32m√[39m swipe from (1104, 1238) to (1104, 1240)

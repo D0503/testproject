@@ -1,0 +1,7 @@
+$ devecocli run --skip-build --device 127.0.0.1:5555
+Auto-selected module: entry
+
+Installing artifacts to device 127.0.0.1:5555...
+
+[33mEnsure the project source is trusted before proceeding.[39m
+[31m[Fail][E001005] Device not found or connected[39m

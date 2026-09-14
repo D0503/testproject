@@ -1,0 +1,249 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S011",
+  "frozenAt": "2026-09-10T13:01:51.083Z",
+  "validatedAt": "2026-09-10T13:05:15.226Z",
+  "strategy": "fresh",
+  "snapshots": [
+    {
+      "snapshotId": "hds-component-material-guide",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-hds-component-material",
+      "title": "沉浸光感",
+      "contentSha256": "5f92898926eabc25ebe72bf04602dc151d65730ca7ec96f7c92f2b449898f607",
+      "updatedDate": "2026-09-07 08:59:05"
+    },
+    {
+      "snapshotId": "hds-material-api",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsmaterial",
+      "title": "hdsMaterial (hds沉浸光感材质)",
+      "contentSha256": "c4f7d3a9855b195d066d72a40d25aab8aef463ab7eae43d83322fe347b3977e1",
+      "updatedDate": "2026-09-07 09:08:08"
+    },
+    {
+      "snapshotId": "hds-navigation-api",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation",
+      "title": "HdsNavigation (导航根视图容器)",
+      "contentSha256": "d232828351a8fd5f31fbce578a291bc18d9958b53dda6dd957e4fdbda08ece20",
+      "updatedDate": "2026-09-07 09:07:53"
+    },
+    {
+      "snapshotId": "hds-tabs-api",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdstabs",
+      "title": "HdsTabs (底部页签)",
+      "contentSha256": "f3722df205530854cd84bd7c11bafdd2d689f3422aa4abb06769cd02c648b357",
+      "updatedDate": "2026-09-07 09:08:27"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "IL-S011-D01",
+      "type": "normative",
+      "topic": "HDS 导航材质与背景滚动联动",
+      "statement": "TitleBarStyleOptions.systemMaterialEffect 设置标题栏沉浸光感样式，起始版本 6.1.0(23)。配置该属性后（模糊样式类型为 GRADIENT_BLUR 时），标题栏背景板背景色默认值随 ScrollEffectOptions.enableScrollEffect 联动：enableScrollEffect 为 false 时 originalStyle 中的 backgroundColor 默认值为 $r('sys.color.comp_background_gray')；为 true 时 originalStyle 中的 backgroundColor 默认值为透明色，scrollEffectStyle 中的 backgroundColor 默认值为 $r('sys.color.comp_background_gray')。",
+      "snapshotId": "hds-navigation-api",
+      "anchor": "当模糊样式类型为GRADIENT_BLUR并配置沉浸光感属性",
+      "status": "fresh",
+      "lines": [
+        1152,
+        1152
+      ]
+    },
+    {
+      "id": "IL-S011-D02",
+      "type": "normative",
+      "topic": "HDS 导航材质与背景滚动联动",
+      "statement": "标题栏模糊半径 blurRadius 仅在模糊样式类型配置为渐变模糊 GRADIENT_BLUR 及沉浸式渐变模糊 IMMERSIVE_GRADIENT_BLUR 时生效，取值范围 [0.0, 128.0]。作为 originalStyle 中的属性时，enableScrollEffect 为 true 默认 0.0；enableScrollEffect 为 false 且配置 systemMaterialEffect 时默认值为 12.0（未配置时 16.0）。作为 scrollEffectStyle 中的属性时，仅在 enableScrollEffect 为 true 时生效，配置 systemMaterialEffect 时默认值为 12.0。",
+      "snapshotId": "hds-navigation-api",
+      "anchor": "配置systemMaterialEffect时，默认值为12.0",
+      "status": "fresh",
+      "lines": [
+        1186,
+        1186
+      ]
+    },
+    {
+      "id": "IL-S011-D03",
+      "type": "normative",
+      "topic": "HDS 导航材质与背景滚动联动",
+      "statement": "ScrollEffectOptions.enableScrollEffect 配置标题栏是否随内容区滚动的总偏移量动态生效标题栏样式，默认值 true：true 时内容区滚动的总偏移量从 blurEffectiveStartOffset 到 blurEffectiveEndOffset，标题栏样式从 originalStyle 到 scrollEffectStyle 线性过渡；false 时不随内容区滚动动态生效标题栏样式，仅生效 originalStyle。",
+      "snapshotId": "hds-navigation-api",
+      "anchor": "配置标题栏是否随内容区滚动的总偏移量动态生效标题栏样式",
+      "status": "fresh",
+      "lines": [
+        1382,
+        1382
+      ]
+    },
+    {
+      "id": "IL-S011-D04",
+      "type": "normative",
+      "topic": "HDS 导航材质与背景滚动联动",
+      "statement": "HdsNavigation 官网示例注明材质相关属性从 6.1.0(23) 开始支持，推荐 systemMaterialEffect 与 ScrollEffectType.IMMERSIVE_GRADIENT_BLUR（推荐沉浸式图文类的场景使用）或 ScrollEffectType.GRADIENT_BLUR（推荐非沉浸式列表类的场景使用）搭配使用；GRADIENT_BLUR 在 enableScrollEffect 为 false 时直接生效模糊，适用于列表型非沉浸式场景。",
+      "snapshotId": "hds-navigation-api",
+      "anchor": "推荐与ScrollEffectType.IMMERSIVE_GRADIENT_BLUR（推荐沉浸式图文类的场景使用）",
+      "status": "fresh",
+      "lines": [
+        2906,
+        2906
+      ]
+    },
+    {
+      "id": "IL-S011-D05",
+      "type": "normative",
+      "topic": "HDS 页签悬浮布局条件",
+      "statement": "通过设置 HdsTabs 组件的 barFloatingStyle 样式，并设置 barOverlap 为 true、vertical 为 false、barPosition 为 BarPosition.End，可实现页签栏的悬浮样式；barFloatingStyle 属性与 HdsTabsFloatingStyle 起始版本均为 6.1.0(23)，模型约束仅可在 Stage 模型下使用。",
+      "snapshotId": "hds-tabs-api",
+      "anchor": "可实现页签栏的悬浮样式",
+      "status": "fresh",
+      "lines": [
+        1603,
+        1603
+      ]
+    },
+    {
+      "id": "IL-S011-D06",
+      "type": "normative",
+      "topic": "HDS 页签悬浮布局条件",
+      "statement": "barOverlap 设置 TabBar 是否背后变模糊并叠加在 TabContent 之上，默认值 false；为 true 时 TabBar 背后变模糊并叠加在 TabContent 之上，并且 barBackgroundBlurStyle 属性默认模糊材质的 BlurStyle 值修改为 'BlurStyle.COMPONENT_THICK'。",
+      "snapshotId": "hds-tabs-api",
+      "anchor": "TabBar背后变模糊并叠加在TabContent之上",
+      "status": "fresh",
+      "lines": [
+        392,
+        392
+      ]
+    },
+    {
+      "id": "IL-S011-D07",
+      "type": "normative",
+      "topic": "HDS 页签悬浮布局条件",
+      "statement": "HdsTabsFloatingStyle.systemMaterialEffect 为材质参数，默认值 undefined，没有新材质；barBottomMargin 设置页签栏与 HdsTabs 底部距离，默认 0vp，不支持设置百分比单位；barFloatingStyle 与 HdsTabsFloatingStyle 的设备行为差异为该接口在 TV 无效果，在其他设备类型中可正常调用。",
+      "snapshotId": "hds-tabs-api",
+      "anchor": "默认值：undefined，没有新材质。",
+      "status": "fresh",
+      "lines": [
+        718,
+        718
+      ]
+    },
+    {
+      "id": "IL-F027",
+      "type": "hds-version",
+      "topic": "HDS 版本门槛（IL-F027）",
+      "statement": "HDS 组件沉浸光感材质从 6.1.0(23) 起提供，仅支持 Stage 模型，系统能力为 SystemCapability.UIDesign.HDSComponent.Core。",
+      "snapshotId": "hds-component-material-guide",
+      "anchor": "新增支持HDS组件的沉浸光感材质能力",
+      "status": "reused",
+      "lines": [
+        5,
+        5
+      ]
+    },
+    {
+      "id": "IL-F028",
+      "type": "hds-navigation",
+      "topic": "HdsNavigation（IL-F028）",
+      "statement": "HdsNavigation 通过 TitleBarStyleOptions.systemMaterialEffect 为标题栏按钮设置沉浸光感，该字段从 6.1.0(23) 起提供。",
+      "snapshotId": "hds-component-material-guide",
+      "anchor": "可为标题栏按钮设置沉浸光感视效",
+      "status": "reused",
+      "lines": [
+        7,
+        7
+      ]
+    },
+    {
+      "id": "IL-F029",
+      "type": "hds-tabs",
+      "topic": "HdsTabs（IL-F029）",
+      "statement": "HdsTabs 通过 HdsTabsFloatingStyle.systemMaterialEffect 为底部悬浮页签设置沉浸光感，该字段从 6.1.0(23) 起提供。",
+      "snapshotId": "hds-component-material-guide",
+      "anchor": "可为底部页签设置沉浸光感视效",
+      "status": "reused",
+      "lines": [
+        9,
+        9
+      ]
+    },
+    {
+      "id": "IL-F030",
+      "type": "hds-material-params",
+      "topic": "HDS 材质参数（IL-F030）",
+      "statement": "HDS SystemMaterialParams 包含可选的 materialType 和 materialLevel；默认 materialType 为 NONE，默认 materialLevel 为 ADAPTIVE，因此省略 materialType 不能视为已经启用材质。",
+      "snapshotId": "hds-navigation-api",
+      "anchor": "默认值：hdsMaterial.MaterialType.NONE",
+      "status": "reused",
+      "lines": [
+        2060,
+        2060
+      ]
+    },
+    {
+      "id": "IL-F031",
+      "type": "hds-material-type",
+      "topic": "HDS MaterialType（IL-F031）",
+      "statement": "HDS MaterialType 取值为 NONE=0、ADAPTIVE=100、IMMERSIVE=101；ADAPTIVE 表示自适应系统材质且默认采用沉浸式材质。",
+      "snapshotId": "hds-material-api",
+      "anchor": "自适应系统材质。默认为沉浸式材质",
+      "status": "reused",
+      "lines": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "IL-F032",
+      "type": "hds-material-level",
+      "topic": "HDS MaterialLevel（IL-F032）",
+      "statement": "HDS MaterialLevel 取值为 EXQUISITE=0、GENTLE=1、SMOOTH=2、ADAPTIVE=10；ADAPTIVE 档由系统按设备算力自适应；设备不支持 IMMERSIVE 时官网建议使用 SMOOTH 以降低卡顿和发热风险。",
+      "snapshotId": "hds-material-api",
+      "anchor": "材质生效策略由系统策略决定",
+      "status": "reused",
+      "lines": [
+        88,
+        88
+      ]
+    },
+    {
+      "id": "IL-F033",
+      "type": "hds-adaptive-policy",
+      "topic": "HDS 自适应策略（IL-F033）",
+      "statement": "官网推荐 HDS 使用 materialType=ADAPTIVE、materialLevel=ADAPTIVE，让系统根据设备算力动态平衡材质效果和性能。",
+      "snapshotId": "hds-component-material-guide",
+      "anchor": "推荐使用系统自适应",
+      "status": "reused",
+      "lines": [
+        13,
+        13
+      ]
+    },
+    {
+      "id": "IL-F035",
+      "type": "hds-device",
+      "topic": "HDS 设备差异（IL-F035）",
+      "statement": "HDS 材质在 Phone、Tablet 可调用；PC/2in1 使用前需查询设备材质能力；HdsTabs 的该接口在 TV 无效果。",
+      "snapshotId": "hds-navigation-api",
+      "anchor": "在PC/2in1设备调用时需先调用",
+      "status": "reused",
+      "lines": [
+        2051,
+        2051
+      ]
+    },
+    {
+      "id": "IL-F036",
+      "type": "hds-code-example",
+      "topic": "HDS 示例审计（IL-F036）",
+      "statement": "HDS 官网指南示例是需补齐工程上下文的片段：示例导入仅含 @kit.UIDesignKit 与 @kit.ArkUI 的 SymbolGlyphModifier，示例本身不含异常处理代码；scenery01 明确要求替换为本地资源。",
+      "snapshotId": "hds-component-material-guide",
+      "anchor": "scenery为自定义资源，开发者需替换本地资源",
+      "status": "reused",
+      "lines": [
+        66,
+        66
+      ]
+    }
+  ],
+  "conflictResolutions": [],
+  "confirmations": []
+}

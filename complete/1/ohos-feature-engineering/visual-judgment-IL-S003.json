@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S003",
+  "visual": {
+    "status": "inconclusive",
+    "basis": "用户确认本地模拟器暂不支持沉浸光感，材质滤镜渲染按官网设备能力分支不可观察（官网声明：不支持沉浸式材质的设备上可设置但无效果，可通过 isImmersiveMaterialSupported 判断）。结构与交互层已由组件树与运行观察核实：Tabs 悬浮 TabBar [334,2368]-[922,2564] 叠于内容之上（barOverlap 悬浮布局成立）、联系人页 AlphabetIndexer [1166,654]-[1256,2144] 与 A-Z 分组 List 联动正常、页签切换无回归。材质视觉结论待真机（isImmersiveMaterialSupported=true 设备）复核。",
+    "evidence": [
+      { "type": "screenshot", "path": "D:\\HW\\testproject\\complete\\1\\ohos-feature-engineering\\evidence\\il-s003-home.jpeg" },
+      { "type": "screenshot", "path": "D:\\HW\\testproject\\complete\\1\\ohos-feature-engineering\\evidence\\il-s003-contacts-v2.jpeg" },
+      { "type": "component_tree", "path": "D:\\HW\\testproject\\complete\\1\\ohos-feature-engineering\\evidence\\il-s003-layout-home.json" },
+      { "type": "component_tree", "path": "D:\\HW\\testproject\\complete\\1\\ohos-feature-engineering\\evidence\\il-s003-layout-contacts.json" }
+    ]
+  },
+  "matchedCriteriaRefs": [],
+  "runtime": {
+    "status": "passed",
+    "summary": "devecocli run 安装并启动 EntryAbility 成功；辅以手工 hdc 验证：bm install 成功、aa start 成功、应用进程 com.example.app 存活无崩溃；首页/联系人页签切换正常，AlphabetIndexer 与分组 List 联动滚动正常，交互行为无回归。"
+  }
+}

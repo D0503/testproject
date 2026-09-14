@@ -1,0 +1,204 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S014",
+  "frozenAt": "2026-09-10T12:08:17.787Z",
+  "validatedAt": "2026-09-10T12:13:43.713Z",
+  "strategy": "fresh",
+  "snapshots": [
+    {
+      "snapshotId": "typical-scenes",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sample",
+      "title": "沉浸光感典型场景",
+      "contentSha256": "3a2968bba3e9d8a7b683571ce894df791b21b1b79135aecd2625d8402685fc7a",
+      "updatedDate": "2026-09-07 09:00:51"
+    },
+    {
+      "snapshotId": "design-guidance",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/design-guides/immersivelight-0000002612101053",
+      "title": "沉浸光感",
+      "contentSha256": "22592c2cf9070eb58122fef1665d23024296c5d6ede80bc681365b5df4813102",
+      "updatedDate": "2026-06-12 09:36:44"
+    },
+    {
+      "snapshotId": "enable",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable",
+      "title": "开启沉浸光感",
+      "contentSha256": "25a40e503b20d2cb3b864fad322d7abaa666a55206418de40a1bd33b6d81dbe7",
+      "updatedDate": "2026-09-07 09:01:26"
+    },
+    {
+      "snapshotId": "component",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation",
+      "title": "组件适配沉浸光感",
+      "contentSha256": "93703579547848f36423aa6055e5021b37eea66e5f1036723e5cc901c08e39a5",
+      "updatedDate": "2026-09-07 09:01:42"
+    },
+    {
+      "snapshotId": "constraints",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints",
+      "title": "沉浸光感功耗优化",
+      "contentSha256": "684f5939625da0ffce7af96d19900da8f8982a8a50a5a2f9b25b5ef25a1e1d5c",
+      "updatedDate": "2026-09-07 09:00:29"
+    },
+    {
+      "snapshotId": "ui-material-api",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial",
+      "title": "@ohos.arkui.uiMaterial (系统材质)",
+      "contentSha256": "c71328c4454386c2c14db515c6c6747b159df1e664c5fdf9e4496523f0031011",
+      "updatedDate": "2026-09-07 09:12:53"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "IL-S014-C01",
+      "topic": "内容标题迁入条件",
+      "type": "implementation",
+      "statement": "针对内容区滑动且内容区存在多层标题的场景，当内容区的标题滑动到标题栏区域时，可将对应的内容嵌入标题栏中显示，实现内容区标题在 NavDestination 标题栏区域的展示，从而提升用户交互体验。",
+      "snapshotId": "typical-scenes",
+      "anchor": "当内容区的标题滑动到标题栏区域时，可将对应的内容嵌入标题栏中显示",
+      "status": "fresh",
+      "lines": [
+        179,
+        179
+      ]
+    },
+    {
+      "id": "IL-S014-C02",
+      "topic": "内容标题迁入条件",
+      "type": "implementation",
+      "statement": "提取内容区中小标题为独立组件。",
+      "snapshotId": "typical-scenes",
+      "anchor": "提取内容区中小标题为独立组件",
+      "status": "fresh",
+      "lines": [
+        182,
+        182
+      ]
+    },
+    {
+      "id": "IL-S014-C03",
+      "topic": "内容标题迁入条件",
+      "type": "implementation",
+      "statement": "滑动内容区，当内容区标题滑动到标题栏区域时，将其切换到标题栏中显示。",
+      "snapshotId": "typical-scenes",
+      "anchor": "滑动内容区，当内容区标题滑动到标题栏区域时，将其切换到标题栏中显示",
+      "status": "fresh",
+      "lines": [
+        222,
+        222
+      ]
+    },
+    {
+      "id": "IL-S014-C04",
+      "topic": "内容标题连续性",
+      "type": "implementation",
+      "statement": "示例在 onShown 时通过 getComponentUtils().getRectangleById 测量标题与内容区标题位置，统一换算为 vp 后确定迁入阈值。",
+      "snapshotId": "typical-scenes",
+      "anchor": "getRectangleById('text')",
+      "status": "fresh",
+      "lines": [
+        316,
+        316
+      ]
+    },
+    {
+      "id": "IL-S014-C05",
+      "topic": "内容标题连续性",
+      "type": "implementation",
+      "statement": "内容区标题迁入标题栏显示时，原内容区位置标题设为 Hidden 避免重复显示，回滑后恢复 Visible。",
+      "snapshotId": "typical-scenes",
+      "anchor": "visibility(this.showTitle ? Visibility.Hidden : Visibility.Visible)",
+      "status": "fresh",
+      "lines": [
+        277,
+        277
+      ]
+    },
+    {
+      "id": "IL-S014-C06",
+      "topic": "内容标题连续性",
+      "type": "implementation",
+      "statement": "独立组件通过 selectedIndexes 与 onChange 维护内部选择状态，迁入切换时保留选择状态。",
+      "snapshotId": "typical-scenes",
+      "anchor": "this.selectedIndexes = activeIndexes",
+      "status": "fresh",
+      "lines": [
+        214,
+        214
+      ]
+    },
+    {
+      "id": "IL-S014-C07",
+      "topic": "内容标题区域与嵌套约束",
+      "type": "constraint",
+      "statement": "沉浸光感开启后，弹窗类组件与按钮、选择类组件可在页面内全部区域生效；其他组件仅在 Navigation/NavDestination 标题栏或横向 Tab 中 barPosition 为 BarPosition.End 的底部 TabBar 中生效。",
+      "snapshotId": "constraints",
+      "anchor": "以及按钮与选择类组件（Slider、Toggle、Select）可在页面内全部区域生效",
+      "status": "fresh",
+      "lines": [
+        13,
+        13
+      ]
+    },
+    {
+      "id": "IL-S014-C08",
+      "topic": "内容标题区域与嵌套约束",
+      "type": "constraint",
+      "statement": "材质嵌套使用会导致效果被重复计算，既增加功耗，视觉上又相互干扰；同一子树中只需在最外层设置一次沉浸式系统材质，内层节点不应再设置。",
+      "snapshotId": "constraints",
+      "anchor": "同一子树中只需在最外层设置一次沉浸式系统材质，内层节点不应再设置",
+      "status": "fresh",
+      "lines": [
+        60,
+        60
+      ]
+    },
+    {
+      "id": "IL-S014-C09",
+      "topic": "内容标题区域与嵌套约束",
+      "type": "constraint",
+      "statement": "开启沉浸光感要确保应用的 targetSDKVersion 不低于 26.0.0。",
+      "snapshotId": "enable",
+      "anchor": "不低于26.0.0",
+      "status": "fresh",
+      "lines": [
+        5,
+        5
+      ]
+    },
+    {
+      "id": "IL-S014-C10",
+      "topic": "内容标题区域与嵌套约束",
+      "type": "implementation",
+      "statement": "NavDestination 标题栏配置 STACK barStyle 与 scrollEffectOptions 的 GRADUAL_BLUR 标题栏模糊。",
+      "snapshotId": "typical-scenes",
+      "anchor": "scrollEffectType: ScrollEffectType.GRADUAL_BLUR",
+      "status": "fresh",
+      "lines": [
+        168,
+        168
+      ]
+    }
+  ],
+  "conflictResolutions": [
+    {
+      "probeId": "content-title-nesting",
+      "verdict": "resolved",
+      "basis": "typical-scenes 内容区标题栏示例中标题栏 Row 容器未设置 systemMaterial，Button 与迁入的 ClassifyComponent（ChipGroup 的 backgroundSystemMaterial）分别以组件级入口设置材质，属兄弟节点各自设置，未构成 constraints 所述同一子树父子嵌套（同一子树中只需在最外层设置一次沉浸式系统材质，内层节点不应再设置），两侧表述不冲突。"
+    }
+  ],
+  "confirmations": [
+    {
+      "snapshotId": "typical-scenes",
+      "category": "new",
+      "userDecision": "confirmed",
+      "note": "用户已确认采用本次新增入口（沉浸光感典型场景）作为判据来源继续开发。"
+    },
+    {
+      "snapshotId": "design-guidance",
+      "category": "new",
+      "userDecision": "confirmed",
+      "note": "用户已确认采用本次新增入口（沉浸光感设计指导）作为判据来源继续开发。"
+    }
+  ]
+}

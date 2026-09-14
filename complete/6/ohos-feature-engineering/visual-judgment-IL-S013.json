@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S013",
+  "visual": {
+    "status": "passed",
+    "basis": "用户查看设备截图（探索页）确认标题栏/搜索框/分类 Chips/底部页签呈现沉浸光感通透材质效果；组件树证实探索页结构完整（标题栏 Text(探索)+Search+搜索按钮、ChipGroup 分类（策略/动作/竞技…）、内容 List、底部 Tabs 探索/游戏页签）。",
+    "evidence": [
+      { "type": "screenshot", "path": "D:\\HW\\testproject\\complete\\6\\ohos-feature-engineering\\evidence\\images\\915720fde76903fe3a50f4cd0ac9e1571c6e2636cd922629fc5052c6e7c714fe.png" },
+      { "type": "component_tree", "path": "D:\\HW\\testproject\\complete\\6\\ohos-feature-engineering\\evidence\\b78fdca0-8a74-450e-ab80-fda0d8c48c98\\device-layout.json" }
+    ]
+  },
+  "matchedCriteriaRefs": ["IL-S013-C01", "IL-S013-C02", "IL-S013-C03", "IL-S013-C09"],
+  "runtime": {
+    "status": "passed",
+    "summary": "导航编排通过（expectPage=探索 命中）；组件树证实 NavDestination 标题栏内 Search 与 ChipGroup 分类就位、内容区 List 未设置材质、底部 Tabs 含探索/游戏两页签，与判据 IL-S013-C01/C02/C03/C09/C11 的结构预期一致。"
+  }
+}

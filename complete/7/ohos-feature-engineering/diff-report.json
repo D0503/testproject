@@ -1,0 +1,47 @@
+{
+  "status": "clean",
+  "frozenAt": "2026-09-11T07:33:02.890Z",
+  "pages": [
+    {
+      "snapshotId": "overview",
+      "status": "unchanged",
+      "category": null,
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "与上次审查一致。"
+    },
+    {
+      "snapshotId": "common",
+      "status": "unchanged",
+      "category": null,
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "与上次审查一致。"
+    },
+    {
+      "snapshotId": "constraints",
+      "status": "unchanged",
+      "category": null,
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "与上次审查一致。"
+    },
+    {
+      "snapshotId": "faq",
+      "status": "unchanged",
+      "category": null,
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "与上次审查一致。"
+    },
+    {
+      "snapshotId": "ui-material-api",
+      "status": "unchanged",
+      "category": null,
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "与上次审查一致。"
+    }
+  ],
+  "highRisk": []
+}

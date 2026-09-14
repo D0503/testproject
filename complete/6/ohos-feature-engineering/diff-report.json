@@ -1,0 +1,66 @@
+{
+  "status": "changed",
+  "frozenAt": "2026-09-10T12:08:17.787Z",
+  "pages": [
+    {
+      "snapshotId": "typical-scenes",
+      "status": "new",
+      "category": "new",
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "上次审查没有此页（新增入口）。"
+    },
+    {
+      "snapshotId": "design-guidance",
+      "status": "new",
+      "category": "new",
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "上次审查没有此页（新增入口）。"
+    },
+    {
+      "snapshotId": "enable",
+      "status": "unchanged",
+      "category": null,
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "与上次审查一致。"
+    },
+    {
+      "snapshotId": "component",
+      "status": "unchanged",
+      "category": null,
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "与上次审查一致。"
+    },
+    {
+      "snapshotId": "constraints",
+      "status": "unchanged",
+      "category": null,
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "与上次审查一致。"
+    },
+    {
+      "snapshotId": "ui-material-api",
+      "status": "unchanged",
+      "category": null,
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "与上次审查一致。"
+    }
+  ],
+  "highRisk": [
+    {
+      "snapshotId": "typical-scenes",
+      "category": "new",
+      "reason": "新增入口，需整体现提判据。"
+    },
+    {
+      "snapshotId": "design-guidance",
+      "category": "new",
+      "reason": "新增入口，需整体现提判据。"
+    }
+  ]
+}

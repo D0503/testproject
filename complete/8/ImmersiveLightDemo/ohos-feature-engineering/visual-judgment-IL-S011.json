@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S011",
+  "runtime": {
+    "status": "passed",
+    "summary": "应用安装并拉起成功；组件树显示 HdsNavigation(Navigation>NavBar>TitleBar>HdsTitleBar) 与 HdsTabs(id=hdsTabs) 完整渲染，标题'沉浸光感'、3 个菜单按钮、返回按钮、3 个可点击页签（闹钟/时钟/秒表）与 scenery 图片均在位，页面处于可交互运行状态。"
+  },
+  "visual": {
+    "status": "passed",
+    "basis": "组件树结构性判定：标题栏 HdsTitleBar 内含 MaskBlur/Mask 渐变模糊蒙层节点（bounds 底缘 444 超出标题栏 332，对应模糊蒙层额外高度）与 3 个 HdsMenuNode 菜单按钮，证明标题栏模糊背板与菜单结构生效；底部 TabBar bounds 为 [215,2466,1041,2662]，未贴屏幕左右与底部（底部距屏幕底 2760-2662=98px），且结构上叠于 Swiper(TabContent) 之上，证明 barFloatingStyle 悬浮布局与 barOverlap 叠加生效；TabContent 内 Scroll>Column>Image 渲染本地 scenery 资源。材质像素级效果（ADAPTIVE 材质渲染观感）以设备截图留档供人工复核。",
+    "evidence": [
+      {
+        "type": "component_tree",
+        "path": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\ohos-feature-engineering\\evidence\\fc62a5e3-49db-469b-8f69-76f25a0d6539\\device-layout.json"
+      },
+      {
+        "type": "screenshot",
+        "path": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\ohos-feature-engineering\\evidence\\images\\0371c40908a238884c4c578a1f77fabd485da92e670aabd133aeb56de0450172.png"
+      }
+    ]
+  },
+  "matchedCriteriaRefs": ["IL-F028", "IL-F029", "IL-S011-D05", "IL-S011-D06", "IL-F036"]
+}

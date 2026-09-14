@@ -1,0 +1,631 @@
+$ devecocli build --product default --build-mode debug
+
+[ohpm install] Running...
+[33mohpm WARN: [93m[1mSource code dependencies in project-level "oh-package.json5" are as follows, which could lead to circular dependencies reference.[22m[39m[33m
+	 - "module_advertisement@file:./components/module_advertisement"
+[39m[39m
+[32minstall completed in 0s 752ms[39m
+
+[hvigor sync] Skipped (configurations unchanged)
+
+[hvigor build] Running...
+> hvigor [32mhvigor client: The argument passed to Node.js or hvigor version have changed and a new daemon will be created to replace the existing daemon. Reason:{isHvigorVersionChanged: false, isNodeEnvChanged: false, isCachePathChanged: true}[39m
+> hvigor [32mhvigor client: Starting hvigor daemon.[39m
+> hvigor [32mHvigor Daemon started in 1.11 s[39m
+> hvigor [32mFinished ::PreBuildApp... after 23 ms [39m
+> hvigor [32mUP-TO-DATE :entry:default@PreBuild...  [39m
+> hvigor [32mUP-TO-DATE :lib_foundation:default@PreBuild...  [39m
+> hvigor [32mUP-TO-DATE :address_management:default@PreBuild...  [39m
+> hvigor [32mUP-TO-DATE :aggregated_payment:default@PreBuild...  [39m
+> hvigor [32mUP-TO-DATE :business_home:default@PreBuild...  [39m
+> hvigor [32mUP-TO-DATE :module_template:default@PreBuild...  [39m
+> hvigor [32mUP-TO-DATE :membership:default@PreBuild...  [39m
+> hvigor [32mUP-TO-DATE :coupons:default@PreBuild...  [39m
+> hvigor [32mUP-TO-DATE :business_order:default@PreBuild...  [39m
+> hvigor [32mUP-TO-DATE :business_benefits:default@PreBuild...  [39m
+> hvigor [32mUP-TO-DATE :business_mine:default@PreBuild...  [39m
+> hvigor [32mUP-TO-DATE :module_auth:default@PreBuild...  [39m
+> hvigor [32mUP-TO-DATE :collect_personal_info:default@PreBuild...  [39m
+> hvigor [32mUP-TO-DATE :aggregated_login:default@PreBuild...  [39m
+> hvigor [32mUP-TO-DATE :notice_center:default@PreBuild...  [39m
+> hvigor [32mUP-TO-DATE :feedback:default@PreBuild...  [39m
+> hvigor [32mUP-TO-DATE :app_setting:default@PreBuild...  [39m
+> hvigor [32mUP-TO-DATE :module_advertisement:default@PreBuild...  [39m
+> hvigor [32mFinished ::DuplicateDependencyCheck... after 2 ms [39m
+> hvigor [32mFinished :entry:default@CreateModuleInfo... after 7 ms [39m
+> hvigor [32mFinished :entry:default@GenerateMetadata... after 13 ms [39m
+> hvigor [32mFinished :entry:default@PreCheckSyscap... after 2 ms [39m
+> hvigor [32mFinished :entry:default@GeneratePkgContextInfo... after 339 ms [39m
+> hvigor [32mFinished :entry:default@GeneratePkgSdkInfo... after 88 ms [39m
+> hvigor [32mFinished :entry:default@ProcessIntegratedHsp... after 4 ms [39m
+> hvigor [32mFinished :address_management:default@CreateHarBuildProfile... after 9 ms [39m
+> hvigor [32mFinished :address_management:default@ConfigureCmake... after 2 ms [39m
+> hvigor [32mFinished :address_management:default@MergeProfile... after 201 ms [39m
+> hvigor [32mFinished :aggregated_payment:default@CreateHarBuildProfile... after 8 ms [39m
+> hvigor [32mFinished :aggregated_payment:default@ConfigureCmake... after 13 ms [39m
+> hvigor [32mFinished :aggregated_payment:default@MergeProfile... after 44 ms [39m
+> hvigor [32mFinished :membership:default@CreateHarBuildProfile... after 6 ms [39m
+> hvigor [32mFinished :membership:default@ConfigureCmake... after 2 ms [39m
+> hvigor [32mFinished :membership:default@MergeProfile... after 22 ms [39m
+> hvigor [32mFinished :coupons:default@CreateHarBuildProfile... after 33 ms [39m
+> hvigor [32mFinished :coupons:default@ConfigureCmake... after 2 ms [39m
+> hvigor [32mFinished :coupons:default@MergeProfile... after 34 ms [39m
+> hvigor [32mFinished :module_auth:default@CreateHarBuildProfile... after 11 ms [39m
+> hvigor [32mFinished :module_auth:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :module_auth:default@MergeProfile... after 24 ms [39m
+> hvigor [32mFinished :collect_personal_info:default@CreateHarBuildProfile... after 10 ms [39m
+> hvigor [32mFinished :collect_personal_info:default@ConfigureCmake... after 2 ms [39m
+> hvigor [32mFinished :collect_personal_info:default@MergeProfile... after 25 ms [39m
+> hvigor [32mFinished :aggregated_login:default@CreateHarBuildProfile... after 10 ms [39m
+> hvigor [32mFinished :aggregated_login:default@ConfigureCmake... after 5 ms [39m
+> hvigor [32mFinished :aggregated_login:default@MergeProfile... after 96 ms [39m
+> hvigor [32mFinished :notice_center:default@CreateHarBuildProfile... after 14 ms [39m
+> hvigor [32mFinished :notice_center:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :notice_center:default@MergeProfile... after 38 ms [39m
+> hvigor [32mFinished :feedback:default@CreateHarBuildProfile... after 10 ms [39m
+> hvigor [32mFinished :feedback:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :feedback:default@MergeProfile... after 14 ms [39m
+> hvigor [32mFinished :app_setting:default@CreateHarBuildProfile... after 5 ms [39m
+> hvigor [32mFinished :app_setting:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :app_setting:default@MergeProfile... after 25 ms [39m
+> hvigor [32mFinished :module_advertisement:default@CreateHarBuildProfile... after 8 ms [39m
+> hvigor [32mFinished :module_advertisement:default@ConfigureCmake... after 2 ms [39m
+> hvigor [32mFinished :module_advertisement:default@MergeProfile... after 19 ms [39m
+> hvigor [32mFinished :entry:default@SyscapTransform... after 55 ms [39m
+> hvigor [32mFinished :entry:default@ProcessRouterMap... after 347 ms [39m
+> hvigor [32mFinished :entry:default@ProcessShareConfig... after 21 ms [39m
+> hvigor [32mFinished :entry:default@ProcessStartupConfig... after 32 ms [39m
+> hvigor [32mFinished :address_management:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mFinished :lib_foundation:default@CreateHarBuildProfile... after 7 ms [39m
+> hvigor [32mFinished :aggregated_payment:default@BuildNativeWithCmake... after 2 ms [39m
+> hvigor [32mFinished :lib_foundation:default@MergeProfile... after 21 ms [39m
+> hvigor [32mFinished :membership:default@BuildNativeWithCmake... after 2 ms [39m
+> hvigor [32mFinished :coupons:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mFinished :module_auth:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mFinished :collect_personal_info:default@BuildNativeWithCmake... after 2 ms [39m
+> hvigor [32mFinished :aggregated_login:default@BuildNativeWithCmake... after 2 ms [39m
+> hvigor [32mFinished :notice_center:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mFinished :feedback:default@BuildNativeWithCmake... after 2 ms [39m
+> hvigor [32mFinished :app_setting:default@BuildNativeWithCmake... after 2 ms [39m
+> hvigor [32mFinished :module_advertisement:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mFinished :entry:default@GenerateLoaderJson... after 495 ms [39m
+> hvigor [32mFinished :address_management:default@BuildNativeWithNinja... after 3 ms [39m
+> hvigor [32mFinished :business_mine:default@CreateHarBuildProfile... after 5 ms [39m
+> hvigor [32mFinished :module_template:default@CreateHarBuildProfile... after 9 ms [39m
+> hvigor [32mFinished :business_benefits:default@CreateHarBuildProfile... after 7 ms [39m
+> hvigor [32mFinished :lib_foundation:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :aggregated_payment:default@BuildNativeWithNinja... after 2 ms [39m
+> hvigor [32mFinished :business_mine:default@MergeProfile... after 21 ms [39m
+> hvigor [32mFinished :module_template:default@MergeProfile... after 85 ms [39m
+> hvigor [32mFinished :business_benefits:default@MergeProfile... after 73 ms [39m
+> hvigor [32mFinished :membership:default@BuildNativeWithNinja... after 2 ms [39m
+> hvigor [32mFinished :coupons:default@BuildNativeWithNinja... after 1 ms [39m
+> hvigor [32mFinished :module_auth:default@BuildNativeWithNinja... after 10 ms [39m
+> hvigor [32mFinished :collect_personal_info:default@BuildNativeWithNinja... after 6 ms [39m
+> hvigor [32mFinished :aggregated_login:default@BuildNativeWithNinja... after 8 ms [39m
+> hvigor [32mFinished :notice_center:default@BuildNativeWithNinja... after 7 ms [39m
+> hvigor [32mFinished :feedback:default@BuildNativeWithNinja... after 16 ms [39m
+> hvigor [32mFinished :app_setting:default@BuildNativeWithNinja... after 2 ms [39m
+> hvigor [32mFinished :module_advertisement:default@BuildNativeWithNinja... after 7 ms [39m
+> hvigor [32mUP-TO-DATE :address_management:default@ProcessLibs...  [39m
+> hvigor [32mFinished :business_home:default@CreateHarBuildProfile... after 72 ms [39m
+> hvigor [32mFinished :business_order:default@CreateHarBuildProfile... after 42 ms [39m
+> hvigor [32mFinished :lib_foundation:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mUP-TO-DATE :aggregated_payment:default@ProcessLibs...  [39m
+> hvigor [32mFinished :business_home:default@MergeProfile... after 64 ms [39m
+> hvigor [32mFinished :business_order:default@MergeProfile... after 75 ms [39m
+> hvigor [32mUP-TO-DATE :membership:default@ProcessLibs...  [39m
+> hvigor [32mUP-TO-DATE :coupons:default@ProcessLibs...  [39m
+> hvigor [32mUP-TO-DATE :module_auth:default@ProcessLibs...  [39m
+> hvigor [32mUP-TO-DATE :collect_personal_info:default@ProcessLibs...  [39m
+> hvigor [32mUP-TO-DATE :aggregated_login:default@ProcessLibs...  [39m
+> hvigor [32mUP-TO-DATE :notice_center:default@ProcessLibs...  [39m
+> hvigor [32mUP-TO-DATE :feedback:default@ProcessLibs...  [39m
+> hvigor [32mUP-TO-DATE :app_setting:default@ProcessLibs...  [39m
+> hvigor [32mUP-TO-DATE :module_advertisement:default@ProcessLibs...  [39m
+> hvigor [32mUP-TO-DATE :address_management:default@DoNativeStrip...  [39m
+> hvigor [32mFinished :entry:default@CreateBuildProfile... after 9 ms [39m
+> hvigor [32mFinished :business_mine:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :module_template:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :business_benefits:default@ConfigureCmake... after 6 ms [39m
+> hvigor [32mUP-TO-DATE :aggregated_payment:default@DoNativeStrip...  [39m
+> hvigor [32mFinished :entry:default@MergeProfile... after 332 ms [39m
+> hvigor [32mUP-TO-DATE :membership:default@DoNativeStrip...  [39m
+> hvigor [32mUP-TO-DATE :coupons:default@DoNativeStrip...  [39m
+> hvigor [32mUP-TO-DATE :module_auth:default@DoNativeStrip...  [39m
+> hvigor [32mUP-TO-DATE :collect_personal_info:default@DoNativeStrip...  [39m
+> hvigor [32mUP-TO-DATE :aggregated_login:default@DoNativeStrip...  [39m
+> hvigor [32mUP-TO-DATE :notice_center:default@DoNativeStrip...  [39m
+> hvigor [32mUP-TO-DATE :feedback:default@DoNativeStrip...  [39m
+> hvigor [32mUP-TO-DATE :app_setting:default@DoNativeStrip...  [39m
+> hvigor [32mUP-TO-DATE :module_advertisement:default@DoNativeStrip...  [39m
+> hvigor [32mFinished :business_mine:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mFinished :module_template:default@BuildNativeWithCmake... after 11 ms [39m
+> hvigor [32mFinished :business_benefits:default@BuildNativeWithCmake... after 2 ms [39m
+> hvigor [32mFinished :lib_foundation:default@BuildNativeWithNinja... after 6 ms [39m
+> hvigor [32mFinished :entry:default@MakePackInfo... after 85 ms [39m
+> hvigor [32mFinished :entry:default@ProcessProfile... after 861 ms [39m
+> hvigor [32mFinished :business_home:default@ConfigureCmake... after 19 ms [39m
+> hvigor [32mFinished :business_order:default@ConfigureCmake... after 15 ms [39m
+> hvigor [32mUP-TO-DATE :lib_foundation:default@ProcessLibs...  [39m
+> hvigor [32mFinished :entry:default@ProcessResource... after 24 ms [39m
+> hvigor [32mFinished :business_home:default@BuildNativeWithCmake... after 4 ms [39m
+> hvigor [32mFinished :business_order:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mUP-TO-DATE :lib_foundation:default@DoNativeStrip...  [39m
+> hvigor [32mFinished :entry:default@CompileResource... after 2 s 327 ms [39m
+> hvigor [32mFinished :entry:default@ConfigureCmake... after 5 ms [39m
+> hvigor [32mFinished :business_mine:default@BuildNativeWithNinja... after 2 ms [39m
+> hvigor [32mFinished :module_template:default@BuildNativeWithNinja... after 11 ms [39m
+> hvigor [32mFinished :business_benefits:default@BuildNativeWithNinja... after 49 ms [39m
+> hvigor [32mFinished :entry:default@BuildJS... after 145 ms [39m
+> hvigor [32mFinished :entry:default@BuildNativeWithCmake... after 11 ms [39m
+> hvigor [32mUP-TO-DATE :business_mine:default@ProcessLibs...  [39m
+> hvigor [32mUP-TO-DATE :module_template:default@ProcessLibs...  [39m
+> hvigor [32mUP-TO-DATE :business_benefits:default@ProcessLibs...  [39m
+> hvigor [32mUP-TO-DATE :business_mine:default@DoNativeStrip...  [39m
+> hvigor [32mUP-TO-DATE :module_template:default@DoNativeStrip...  [39m
+> hvigor [32mUP-TO-DATE :business_benefits:default@DoNativeStrip...  [39m
+> hvigor [32mFinished :business_home:default@BuildNativeWithNinja... after 2 ms [39m
+> hvigor [32mFinished :business_order:default@BuildNativeWithNinja... after 2 ms [39m
+> hvigor [32mUP-TO-DATE :business_home:default@ProcessLibs...  [39m
+> hvigor [32mUP-TO-DATE :business_order:default@ProcessLibs...  [39m
+> hvigor [32mUP-TO-DATE :business_home:default@DoNativeStrip...  [39m
+> hvigor [32mUP-TO-DATE :business_order:default@DoNativeStrip...  [39m
+> hvigor [32mFinished :entry:default@BuildNativeWithNinja... after 6 ms [39m
+> hvigor [32mUP-TO-DATE :entry:default@ProcessLibs...  [39m
+> hvigor [32mUP-TO-DATE :entry:default@DoNativeStrip...  [39m
+> hvigor [32mFinished :entry:default@CacheNativeLibs... after 288 ms [39m
+> hvigor [32mFinished :entry:default@CompileArkTS... after 6 min 9 s 42 ms [39m
+> hvigor [32mFinished :entry:default@GeneratePkgModuleJson... after 20 ms [39m
+> hvigor [32mFinished :entry:default@ProcessCompiledResources... after 11 ms [39m
+> hvigor [32mFinished :entry:default@PackageHap... after 921 ms [39m
+> hvigor [32mFinished :entry:default@PackingCheck... after 17 ms [39m
+> hvigor [32mFinished :entry:default@SignHap... after 7 ms [39m
+> hvigor [32mFinished :entry:default@CollectDebugSymbol... after 4 ms [39m
+> hvigor [32mFinished :entry:assembleHap... after 1 ms [39m
+> hvigor [32mFinished ::MakeProjectPackInfo... after 20 ms [39m
+> hvigor [32mFinished ::ProcessProjectPrivacyProfile... after 71 ms [39m
+> hvigor [32mFinished ::GeneratePackRes... after 792 ms [39m
+> hvigor [32mFinished ::PackageApp... after 1 s 239 ms [39m
+> hvigor [32mFinished ::SignPackagesFromApp... after 11 ms [39m
+> hvigor [32mFinished ::SignApp... after 35 ms [39m
+> hvigor [32mFinished ::assembleApp... after 5 ms [39m
+> hvigor [32mBUILD SUCCESSFUL in 7 min 19 s 829 ms [39m
+
+178 tasks in total: 124 executed, 54 up-to-date
+[32m
+Merged central compile_commands.json for C++ language server.[39m
+
+[32mBuild completed successfully[39m
+
+[33mEnsure the project source is trustworthy before proceeding.[39m
+> hvigor [33mWARN: Warning: 'agcit_huawei_express_template' conflict, first declared.
+at D:\HW\testproject\complete\Express2\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\products\entry\src\main\resources\base\element\string.json
+Warning: 'agcit_huawei_express_template' conflict, first declared.
+at D:\HW\testproject\complete\Express2\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\commons\lib_foundation\src\main\resources\base\element\string.json
+Warning: 'agcit_huawei_express_template' conflict, first declared.
+at D:\HW\testproject\complete\Express2\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\features\business_home\src\main\resources\base\element\string.json
+Warning: 'agcit_huawei_express_template' conflict, first declared.
+at D:\HW\testproject\complete\Express2\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\features\business_order\src\main\resources\base\element\string.json
+Warning: 'shared_desc' conflict, first declared.
+at D:\HW\testproject\complete\Express2\features\business_home\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\features\business_order\src\main\resources\base\element\string.json
+Warning: 'ic_get.svg' conflict, first declared.
+at D:\HW\testproject\complete\Express2\features\business_home\src\main\resources\base\media\ic_get.png
+but declared again.
+at D:\HW\testproject\complete\Express2\features\business_order\src\main\resources\base\media\ic_get.svg
+Warning: 'ic_service.svg' conflict, first declared.
+at D:\HW\testproject\complete\Express2\features\business_home\src\main\resources\base\media\ic_service.png
+but declared again.
+at D:\HW\testproject\complete\Express2\features\business_order\src\main\resources\base\media\ic_service.svg
+Warning: 'agcit_huawei_express_template' conflict, first declared.
+at D:\HW\testproject\complete\Express2\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\features\business_benefits\src\main\resources\base\element\string.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\Express2\commons\lib_foundation\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\features\business_benefits\src\main\resources\base\element\string.json
+Warning: 'agcit_huawei_express_template' conflict, first declared.
+at D:\HW\testproject\complete\Express2\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\features\business_mine\src\main\resources\base\element\string.json
+Warning: 'shared_desc' conflict, first declared.
+at D:\HW\testproject\complete\Express2\features\business_home\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\features\business_mine\src\main\resources\base\element\string.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\Express2\commons\lib_foundation\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\oh_modules\.ohpm\@ohos+axios@2.2.15\oh_modules\@ohos\axios\src\main\resources\base\element\string.json
+Warning: 'page_text_font_size' conflict, first declared.
+at D:\HW\testproject\complete\Express2\features\business_benefits\src\main\resources\base\element\float.json
+but declared again.
+at D:\HW\testproject\complete\Express2\oh_modules\.ohpm\@hw-agconnect+axios-mock-adapter@1.0.0\oh_modules\@hw-agconnect\axios-mock-adapter\src\main\resources\base\element\float.json
+Warning: 'agcit_huawei_express_template' conflict, first declared.
+at D:\HW\testproject\complete\Express2\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\components\module_template\src\main\resources\base\element\string.json
+Warning: 'page_text_font_size' conflict, first declared.
+at D:\HW\testproject\complete\Express2\features\business_benefits\src\main\resources\base\element\float.json
+but declared again.
+at D:\HW\testproject\complete\Express2\components\membership\src\main\resources\base\element\float.json
+Warning: 'agcit_huawei_express_template' conflict, first declared.
+at D:\HW\testproject\complete\Express2\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\components\notice_center\src\main\resources\base\element\string.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\Express2\commons\lib_foundation\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\components\notice_center\src\main\resources\base\element\string.json
+Warning: 'background_color_grey' conflict, first declared.
+at D:\HW\testproject\complete\Express2\components\coupons\src\main\resources\base\element\color.json
+but declared again.
+at D:\HW\testproject\complete\Express2\components\notice_center\src\main\resources\base\element\color.json
+Warning: 'theme_color' conflict, first declared.
+at D:\HW\testproject\complete\Express2\components\coupons\src\main\resources\base\element\color.json
+but declared again.
+at D:\HW\testproject\complete\Express2\components\notice_center\src\main\resources\base\element\color.json
+Warning: 'border_radius_16' conflict, first declared.
+at D:\HW\testproject\complete\Express2\components\coupons\src\main\resources\base\element\border.json
+but declared again.
+at D:\HW\testproject\complete\Express2\components\notice_center\src\main\resources\base\element\float.json
+Warning: 'border_radius_8' conflict, first declared.
+at D:\HW\testproject\complete\Express2\components\coupons\src\main\resources\base\element\border.json
+but declared again.
+at D:\HW\testproject\complete\Express2\components\notice_center\src\main\resources\base\element\float.json
+Warning: 'font_size_10' conflict, first declared.
+at D:\HW\testproject\complete\Express2\components\coupons\src\main\resources\base\element\font.json
+but declared again.
+at D:\HW\testproject\complete\Express2\components\notice_center\src\main\resources\base\element\float.json
+Warning: 'font_size_12' conflict, first declared.
+at D:\HW\testproject\complete\Express2\components\coupons\src\main\resources\base\element\font.json
+but declared again.
+at D:\HW\testproject\complete\Express2\components\notice_center\src\main\resources\base\element\float.json
+Warning: 'font_size_14' conflict, first declared.
+at D:\HW\testproject\complete\Express2\components\coupons\src\main\resources\base\element\font.json
+but declared again.
+at D:\HW\testproject\complete\Express2\components\notice_center\src\main\resources\base\element\float.json
+Warning: 'font_size_24' conflict, first declared.
+at D:\HW\testproject\complete\Express2\components\coupons\src\main\resources\base\element\font.json
+but declared again.
+at D:\HW\testproject\complete\Express2\components\notice_center\src\main\resources\base\element\float.json
+Warning: 'large_radius' conflict, first declared.
+at D:\HW\testproject\complete\Express2\components\collect_personal_info\src\main\resources\base\element\float.json
+but declared again.
+at D:\HW\testproject\complete\Express2\components\app_setting\src\main\resources\base\element\float.json
+Warning: 'page_text_font_size' conflict, first declared.
+at D:\HW\testproject\complete\Express2\features\business_benefits\src\main\resources\base\element\float.json
+but declared again.
+at D:\HW\testproject\complete\Express2\oh_modules\.ohpm\@hw-agconnect+ui-toast@1.0.0\oh_modules\@hw-agconnect\ui-toast\src\main\resources\base\element\float.json
+Warning: 'page_text_font_size' conflict, first declared.
+at D:\HW\testproject\complete\Express2\features\business_benefits\src\main\resources\base\element\float.json
+but declared again.
+at D:\HW\testproject\complete\Express2\oh_modules\.ohpm\@hw-agconnect+ui-dialog@1.0.1\oh_modules\@hw-agconnect\ui-dialog\src\main\resources\base\element\float.json
+Warning: 'agcit_huawei_express_template' conflict, first declared.
+at D:\HW\testproject\complete\Express2\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\components\module_advertisement\src\main\resources\base\element\string.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\Express2\commons\lib_foundation\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\components\module_advertisement\src\main\resources\base\element\string.json
+Warning: 'page_text_font_size' conflict, first declared.
+at D:\HW\testproject\complete\Express2\features\business_benefits\src\main\resources\base\element\float.json
+but declared again.
+at D:\HW\testproject\complete\Express2\components\module_advertisement\src\main\resources\base\element\float.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\Express2\commons\lib_foundation\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\products\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\Express2\oh_modules\.ohpm\@ohos+axios@2.2.15\oh_modules\@ohos\axios\src\main\resources\en_US\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\products\entry\build\default\intermediates\res\default\resource_str\en_US\element\string.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\Express2\oh_modules\.ohpm\@ohos+axios@2.2.15\oh_modules\@ohos\axios\src\main\resources\zh_CN\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\products\entry\build\default\intermediates\res\default\resource_str\zh_CN\element\string.json
+Warning: 'agcit_agc_axios_mock_adapter' conflict, first declared.
+at D:\HW\testproject\complete\Express2\oh_modules\.ohpm\@hw-agconnect+axios-mock-adapter@1.0.0\oh_modules\@hw-agconnect\axios-mock-adapter\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\products\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'agcit_agc_util_log' conflict, first declared.
+at D:\HW\testproject\complete\Express2\oh_modules\.ohpm\@hw-agconnect+util-log@1.0.0\oh_modules\@hw-agconnect\util-log\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\products\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'agcittype_agc_util_log' conflict, first declared.
+at D:\HW\testproject\complete\Express2\oh_modules\.ohpm\@hw-agconnect+util-log@1.0.0\oh_modules\@hw-agconnect\util-log\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\products\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'agcit_agc_ui_toast' conflict, first declared.
+at D:\HW\testproject\complete\Express2\oh_modules\.ohpm\@hw-agconnect+ui-toast@1.0.0\oh_modules\@hw-agconnect\ui-toast\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\products\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'agcittype_agc_ui_toast' conflict, first declared.
+at D:\HW\testproject\complete\Express2\oh_modules\.ohpm\@hw-agconnect+ui-toast@1.0.0\oh_modules\@hw-agconnect\ui-toast\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\products\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'agcit_agc_ui_dialog' conflict, first declared.
+at D:\HW\testproject\complete\Express2\oh_modules\.ohpm\@hw-agconnect+ui-dialog@1.0.1\oh_modules\@hw-agconnect\ui-dialog\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\products\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'agcittype_agc_ui_dialog' conflict, first declared.
+at D:\HW\testproject\complete\Express2\oh_modules\.ohpm\@hw-agconnect+ui-dialog@1.0.1\oh_modules\@hw-agconnect\ui-dialog\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\products\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'agcit_agc_ui_skeleton' conflict, first declared.
+at D:\HW\testproject\complete\Express2\oh_modules\.ohpm\@hw-agconnect+ui-skeleton@1.0.0\oh_modules\@hw-agconnect\ui-skeleton\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\Express2\products\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+[39m
+> hvigor [33mWARN: [33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/oh_modules/.ohpm/@hw-agconnect+ui-toast@1.0.0/oh_modules/@hw-agconnect/ui-toast/src/main/ets/components/UIToast.d.ets:34:5
+ Function return type inference is limited (arkts-no-implicit-return-types)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/oh_modules/.ohpm/@tencent+wechat_open_sdk@1.0.14/oh_modules/@tencent/wechat_open_sdk/src/main/ets/model/message/SendMessageToWX.ets:31:11
+ Usage of 'ESObject' type is restricted (arkts-limited-esobj)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/oh_modules/.ohpm/@tencent+wechat_open_sdk@1.0.14/oh_modules/@tencent/wechat_open_sdk/src/main/ets/model/message/SendMessageToWX.ets:125:11
+ Usage of 'ESObject' type is restricted (arkts-limited-esobj)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/oh_modules/.ohpm/@tencent+wechat_open_sdk@1.0.14/oh_modules/@tencent/wechat_open_sdk/src/main/ets/open_api/WXAPIFactory.ets:120:11
+ Usage of 'ESObject' type is restricted (arkts-limited-esobj)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN: For details about ArkTS syntax errors, see FAQs[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/commons/lib_foundation/src/main/ets/utils/CommonUtil.ets:43:30
+ The system capacity of this api 'geoLocationManager' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/commons/lib_foundation/src/main/ets/utils/CommonUtil.ets:237:32
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/commons/lib_foundation/src/main/ets/utils/PopViewUtil.ets:44:14
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/commons/lib_foundation/src/main/ets/utils/PopViewUtil.ets:68:16
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/commons/lib_foundation/src/main/ets/utils/PopViewUtil.ets:86:30
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/commons/lib_foundation/src/main/ets/utils/PopViewUtil.ets:109:32
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/oh_modules/.ohpm/@tencent+wechat_open_sdk@1.0.14/oh_modules/@tencent/wechat_open_sdk/src/main/ets/diff_dev_oauth/DiffDevOAuth.ets:145:42
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/commons/lib_foundation/src/main/ets/database/RdbHelper.ets:86:28
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/commons/lib_foundation/src/main/ets/database/UserDB.ets:99:19
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/viewmodels/SafePageVM.ets:19:56
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/module_advertisement/src/main/ets/utils/OaidUtils.ets:21:37
+ To use this API, you need to apply for the permissions: ohos.permission.APP_TRACKING_CONSENT
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/features/business_order/src/main/ets/pages/OrderPage.ets:11:41
+ The system capacity of this api 'TextInputController' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/features/business_mine/src/main/ets/components/LoginAvatarCard.ets:147:18
+ The 'fill' API is supported since SDK version 26.0.0. However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/utils/ImmersiveCompat.ets:23:14
+ The 'systemMaterial' API is supported since SDK version 26.0.0. However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/utils/ImmersiveCompat.ets:35:14
+ The 'barFloatingStyle' API is supported since SDK version 26.0.0. However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/utils/ImmersiveCompat.ets:50:48
+ The 'uiMaterial' API is supported since SDK version 26.0.0. However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/utils/ImmersiveCompat.ets:50:59
+ The 'ImmersiveMaterial' API is supported since SDK version 26.0.0. However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/utils/ImmersiveCompat.ets:51:14
+ The 'uiMaterial' API is supported since SDK version 26.0.0. However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/utils/ImmersiveCompat.ets:51:25
+ The 'ImmersiveStyle' API is supported since SDK version 26.0.0. However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/utils/ImmersiveCompat.ets:51:40
+ The 'ULTRA_THIN' API is supported since SDK version 26.0.0. However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/utils/ImmersiveCompat.ets:56:54
+ The 'uiMaterial' API is supported since SDK version 26.0.0. However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/utils/ImmersiveCompat.ets:56:65
+ The 'ImmersiveMaterial' API is supported since SDK version 26.0.0. However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/utils/ImmersiveCompat.ets:57:14
+ The 'uiMaterial' API is supported since SDK version 26.0.0. However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/utils/ImmersiveCompat.ets:57:25
+ The 'ImmersiveStyle' API is supported since SDK version 26.0.0. However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/utils/ImmersiveCompat.ets:57:40
+ The 'ULTRA_THIN' API is supported since SDK version 26.0.0. However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/utils/ImmersiveCompat.ets:61:44
+ The 'uiMaterial' API is supported since SDK version 26.0.0. However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/utils/ImmersiveCompat.ets:61:55
+ The 'ImmersiveMaterial' API is supported since SDK version 26.0.0. However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/utils/ImmersiveCompat.ets:63:14
+ The 'uiMaterial' API is supported since SDK version 26.0.0. However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/utils/ImmersiveCompat.ets:63:25
+ The 'ImmersiveStyle' API is supported since SDK version 26.0.0. However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/utils/ImmersiveCompat.ets:63:40
+ The 'THIN' API is supported since SDK version 26.0.0. However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/features/business_home/src/main/ets/viewModels/ExpressPageVM.ets:590:46
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/features/business_home/src/main/ets/pages/GoodsPage.ets:16:50
+ The system capacity of this api 'TextInputController' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/features/business_home/src/main/ets/pages/GoodsPage.ets:17:51
+ The system capacity of this api 'TextInputController' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/features/business_home/src/main/ets/pages/GoodsPage.ets:18:52
+ The system capacity of this api 'TextInputController' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/features/business_order/src/main/ets/viewModels/OrderDetailPageVM.ets:185:43
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/features/business_order/src/main/ets/viewModels/OrderDetailPageVM.ets:191:45
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/features/business_order/src/main/ets/viewModels/OrderDetailPageVM.ets:196:45
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/features/business_order/src/main/ets/viewModels/OrderDetailPageVM.ets:201:45
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/features/business_order/src/main/ets/viewModels/OrderDetailPageVM.ets:206:45
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/features/business_order/src/main/ets/viewModels/OrderInfoPageVM.ets:217:31
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/features/business_order/src/main/ets/viewModels/OrderInfoPageVM.ets:225:31
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/module_auth/src/main/ets/viewmodel/RealNameAuthPageVM.ets:23:12
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/utils/AudioCapturerUtil.ets:16:21
+ The system capacity of this api 'audio' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/utils/AudioCapturerUtil.ets:17:17
+ The system capacity of this api 'audio' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/utils/AudioCapturerUtil.ets:18:21
+ The system capacity of this api 'audio' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/utils/AudioCapturerUtil.ets:19:21
+ The system capacity of this api 'audio' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/utils/AudioCapturerUtil.ets:22:15
+ The system capacity of this api 'audio' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/utils/AudioCapturerUtil.ets:29:5
+ The system capacity of this api 'audio' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/utils/SpeechRecognizeUtil.ets:125:23
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/utils/SpeechRecognizeUtil.ets:141:25
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/utils/SpeechRecognizeUtil.ets:142:16
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/utils/SpeechRecognizeUtil.ets:159:21
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/components/SpeechRecordDialog.ets:86:14
+ The 'fill' API is supported since SDK version 26.0.0. However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/utils/AddressRecognitionUtil.ets:52:88
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/utils/AddressRecognitionUtil.ets:65:35
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/pages/AddressFormSheetPage.ets:439:78
+ To use this API, you need to apply for the permissions: ohos.permission.READ_PASTEBOARD [since 12]
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/pages/AddressFormSheetPage.ets:611:25
+ The system capacity of this api 'geoLocationManager' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/pages/AddressFormSheetPage.ets:615:31
+ The system capacity of this api 'geoLocationManager' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/pages/AddressFormSheetPage.ets:712:25
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/pages/AddressFormSheetPage.ets:716:25
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/pages/AddressFormSheetPage.ets:720:25
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/pages/AddressFormSheetPage.ets:724:25
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/pages/AddressFormSheetPage.ets:728:25
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/pages/AddressFormSheetPage.ets:732:25
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/address_management/src/main/ets/pages/AddressFormSheetPage.ets:759:23
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/notice_center/src/main/ets/utils/PopViewUtil.ets:50:14
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/notice_center/src/main/ets/utils/PopViewUtil.ets:75:16
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/feedback/src/main/ets/viewmodels/FeedbackFormVM.ets:39:42
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/Express2/components/feedback/src/main/ets/viewmodels/FeedbackFormVM.ets:60:42
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/pages/MainEntry.ets:46:12
+ The '@Monitor' decorator needs to monitor the state variables that exist.[39m[39m
+[33mWARN: [33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/pages/MainEntry.ets:54:12
+ The '@Monitor' decorator needs to monitor the state variables that exist.[39m[39m
+[33mWARN: [33mArkTS:WARN File: D:/HW/testproject/complete/Express2/products/entry/src/main/ets/pages/MainEntry.ets:61:12
+ The '@Monitor' decorator needs to monitor the state variables that exist.[39m[39m
+[33mWARN: [33mArkTS:WARN File: D:/HW/testproject/complete/Express2/features/business_order/src/main/ets/pages/OrderDetailPage.ets:100:19
+ '@BuilderParam' attribute 'customInfoWindow' can only be initialized by '@Builder' function or '@LocalBuilder' method in struct.[39m[39m
+[33mWARN: [33mArkTS:WARN File: D:/HW/testproject/complete/Express2/features/business_order/src/main/ets/pages/OrderInfoPage.ets:49:12
+ The '@Monitor' decorator needs to monitor the state variables that exist.[39m[39m
+[33mWARN: [33mArkTS:WARN File: D:/HW/testproject/complete/Express2/features/business_order/src/main/ets/pages/OrderInfoPage.ets:49:42
+ The '@Monitor' decorator needs to monitor the state variables that exist.[39m[39m
+[33mWARN: [33m[33m[39m [33mArkTS:WARN Property 'sourceMapsPath' not found in '@hw-agconnect/ui-toast'.[39m [33m[39m[39m[39m
+[33mWARN: [33m[33m[39m [33mArkTS:WARN Property 'sourceMapsPath' not found in '@hw-agconnect/ui-dialog'.[39m [33m[39m[39m[39m
+[33mWARN: [33m[33m[39m [33mArkTS:WARN Property 'sourceMapsPath' not found in '@hw-agconnect/ui-skeleton'.[39m [33m[39m[39m[39m
+[33mWARN: [33m[33m[39m [33mArkTS:WARN Property 'sourceMapsPath' not found in '@hw-agconnect/axios-mock-adapter'.[39m [33m[39m[39m[39m
+[33mWARN: [33m[33m[39m [33mArkTS:WARN Property 'sourceMapsPath' not found in '@hw-agconnect/util-log'.[39m [33m[39m[39m[39m
+[39m
+> hvigor [33mWARN: Will skip sign 'hos_hap'. No signingConfigs profile is configured in current project.
+             If needed, configure the signingConfigs in D:\HW\testproject\complete\Express2\build-profile.json5.[39m
+> hvigor [33mWARN: Will skip sign 'app'. No signingConfigs profile is configured in current project.
+             If needed, configure the signingConfigs in D:\HW\testproject\complete\Express2\build-profile.json5.[39m

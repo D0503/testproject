@@ -1,0 +1,248 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S008",
+  "frozenAt": "2026-09-11T04:13:49.755Z",
+  "strategy": "fresh",
+  "instructions": [
+    "逐条阅读变化段与冻结正文，为骨架 required 的每个 topic 现提至少一条判据：statement 忠实原文（不扩大范围、不改建议为强制），anchor 取原文特征短句（必须逐字存在）。",
+    "对每个 conflictProbes 输出结论：persists（矛盾仍在）/ resolved（已解决）/ changed（表述变化），并给出 basis（引用两侧原文）。",
+    "冲突监测点结论为 persists 时，必须为两侧表述分别现提判据，并给两条判据标注相同的 conflictGroup（取监测点 id），保留多预期。",
+    "高危变化（api-signature/version/deletion/new/removed）必须先向用户确认后再写入 confirmations；未确认不得继续。",
+    "判据只能引用本次冻结快照正文；上次判据仅供对照。"
+  ],
+  "requiredTopics": [
+    {
+      "topic": "能力查询（IL-F008）",
+      "hint": "运行时应查询 isImmersiveMaterialSupported；全局材质档位可由 getGlobalMaterialLevel 获取。",
+      "mustResolve": true
+    },
+    {
+      "topic": "材质参数（IL-F017）",
+      "hint": "materialColor 必须保留透明度；不透明颜色会遮挡材质滤镜效果。",
+      "mustResolve": true
+    },
+    {
+      "topic": "材质参数（IL-F020）",
+      "hint": "applyShadow 与普通 shadow 属性存在顺序和所有权约束，避免重复阴影。",
+      "mustResolve": true
+    },
+    {
+      "topic": "性能约束（IL-F023）",
+      "hint": "应限制材质面积、嵌套、模糊叠加、动态背景、反色子树范围和重复阴影，并在真机测量性能与功耗。",
+      "mustResolve": true
+    },
+    {
+      "topic": "诊断排障（IL-F024）",
+      "hint": "无视觉效果时应排查普通背景覆盖、透明度、属性顺序、渲染区域、设备能力与算力档位。",
+      "mustResolve": true
+    },
+    {
+      "topic": "材质区域与绘制层级",
+      "hint": "核对布局区域和可视区域、width/height/borderRadius 的关系，Text 文本与背板差别、自绘制组件内容层遮挡与属性设置顺序。",
+      "mustResolve": true
+    },
+    {
+      "topic": "材质参数与区域稳定性",
+      "hint": "核对频繁改变 style/materialColor 与频繁增删子节点的开销，区分必要交互与无必要重算。",
+      "mustResolve": true
+    },
+    {
+      "topic": "折射现象与故障区分",
+      "hint": "对照 FAQ 判断边框呈现周围背景是否为正常折射，按需求选择厚度或半透明赋色；不能直接判为渲染故障。",
+      "mustResolve": true
+    },
+    {
+      "topic": "设备自适应与用户系统设置",
+      "hint": "核对低算力显示差异、系统强弱设置及深浅色变化，不能承诺所有设备显示同样滤镜。",
+      "mustResolve": true
+    }
+  ],
+  "conflictProbes": [],
+  "highRisk": [
+    {
+      "snapshotId": "overview",
+      "category": "version",
+      "reason": "版本声明发生变化"
+    },
+    {
+      "snapshotId": "constraints",
+      "category": "api-signature",
+      "reason": "API 签名/参数/默认值特征变化"
+    },
+    {
+      "snapshotId": "faq",
+      "category": "api-signature",
+      "reason": "API 签名/参数/默认值特征变化"
+    },
+    {
+      "snapshotId": "ui-material-api",
+      "category": "new",
+      "reason": "新增入口，需整体现提判据。"
+    }
+  ],
+  "changedPages": [
+    {
+      "snapshotId": "overview",
+      "category": "version",
+      "removedExcerpt": [
+        "-",
+        "弹窗类组件（AlertDialog、ActionSheet、CustomDialog、CalendarPickerDialog、DatePickerDialog、TimePickerDialog、TextPickerDialog、SelectionMenu、AlphabetIndexer弹窗、Text设置copyOpt",
+        "-",
+        "其他组件仅在Navigation/NavDestination标题栏或横向Tab中barPosition为BarPosition.End的底部TabBar中生效。在其他区域中设置沉浸光感效果不生效。",
+        "-",
+        "-"
+      ],
+      "addedExcerpt": [
+        "# 沉浸光感简介",
+        "从API版本26.0.0开始，ArkUI新增沉浸光感。",
+        "沉浸光感是ArkUI提供的一套从“视觉层”到“感知层”的体验，将光影材质与交互动效表现相结合，帮助应用建立清晰的视觉层次，并在不同设备上保持和谐一致的观感。例如：用户展开菜单时，伴随着形变弹出打破生硬的规整边界，边缘流光勾勒着面板轮廓，将菜单的弹出操作转化为富有沉浸感的体验。",
+        "沉浸光感包含[沉浸式系统材质](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-overview#%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%B3%BB%E7%BB%9F",
+        "沉浸光感会根据设备算力和用户在系统中设置的沉浸光感效果，自适应地调整沉浸式系统材质和沉浸式空间动效的表现程度，其中算力档位由设备定义且固定，可通过获取材质等级接口（[uiMaterial.getGlobalMaterialLevel](https://developer.huawei.com/consumer/cn/d",
+        "#### 关键技术",
+        "#### [h2]沉浸式系统材质",
+        "沉浸式系统材质为组件赋予轻盈通透的质感：材质滤镜、折射、高光、阴影等多层效果叠加，让底层内容透过材质层自然渗透，带来远超纯色背景的高端视觉表现。开发者只需[开启沉浸光感](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immers",
+        "沉浸式系统材质提供从超薄到超厚的五种样式，不同样式的对比效果请参考[设计与开发](https://developer.huawei.com/consumer/cn/doc/design-guides/immersivelight-0000002612101053#section91711926192713)。开启沉浸光",
+        "|",
+        "样式",
+        "| |",
+        "说明",
+        "| |",
+        "适用场景"
+      ],
+      "detail": null
+    },
+    {
+      "snapshotId": "constraints",
+      "category": "api-signature",
+      "removedExcerpt": [
+        "-",
+        "弹窗类组件（AlertDialog、ActionSheet、CustomDialog、CalendarPickerDialog、DatePickerDialog、TimePickerDialog、TextPickerDialog、SelectionMenu、AlphabetIndexer弹窗、Text设置copyOpt"
+      ],
+      "addedExcerpt": [
+        "# 沉浸光感功耗优化",
+        "沉浸光感效果由材质滤镜、折射、高光、阴影等多层效果叠加而成，渲染时需要消耗GPU资源，不合理使用会显著增加功耗。",
+        "总体优化原则：沉浸光感效果作为一种\"稀缺\"视觉资源使用，需控制面积与层数、不应固定显示在视频动图动画等变化的内容之上。建议遵循以下功耗优化，获得沉浸光感体验的同时降低性能与功耗的影响。",
+        "#### 控制材质使用面积",
+        "沉浸式系统材质影响的区域越大，需要处理的像素越多，功耗越高。应避免在单个超大尺寸区域上使用沉浸式系统材质，也应避免在大量小区域上重复使用沉浸式系统材质；推荐在Navigation顶部标题栏和底部Tabs区域中少量使用，优先将沉浸式系统材质限定在需要凸显的局部区域中。",
+        "沉浸光感开启后，",
+        "- 弹窗类组件（AlertDialog、ActionSheet、CustomDialog、CalendarPickerDialog、DatePickerDialog、TimePickerDialog、TextPickerDialog、SelectionMenu、AlphabetIndexer弹窗、Text设置copyO",
+        "- 其他组件仅在Navigation/NavDestination标题栏或横向Tab中barPosition为BarPosition.End的底部TabBar中生效。在其他区域中设置沉浸光感效果不生效。",
+        "```",
+        "import { uiMaterial } from '@kit.ArkUI';",
+        "// 正例：在Navigation标题栏子树中为局部容器设置沉浸式系统材质，材质生效且面积可控",
+        "@Entry",
+        "@Component",
+        "struct MaterialAreaExample {",
+        "  @Builder"
+      ],
+      "detail": null
+    },
+    {
+      "snapshotId": "faq",
+      "category": "api-signature",
+      "removedExcerpt": [
+        "-",
+        "-",
+        "-",
+        "弹窗类组件（AlertDialog、ActionSheet、CustomDialog、CalendarPickerDialog、DatePickerDialog、TimePickerDialog、TextPickerDialog、SelectionMenu、AlphabetIndexer弹窗、Text设置copyOpt",
+        "将需要沉浸光感效果的组件置于Navigation/NavDestination标题栏区域，或横向Tabs中barPosition为BarPosition.End的底部TabBar区域中。",
+        "-",
+        "-"
+      ],
+      "addedExcerpt": [
+        "# 沉浸光感常见问题",
+        "本文提供沉浸光感开发过程中的常见问题及解决措施。沉浸光感的完整能力介绍及开发指导，请参见[沉浸光感简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-overview)。",
+        "#### uiMaterial与hdsMaterial的材质等级和材质样式差异对比",
+        "[uiMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial)与[hdsMaterial](https://developer.huawei.com/consumer/cn/doc",
+        "沉浸式材质等级差异",
+        "为了在不同算力设备上都能流畅地使用沉浸光感，uiMaterial和hdsMaterial均通过MaterialLevel定义了不同的材质等级，两者在使用上存在差异。",
+        "- uiMaterial.[MaterialLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materiallevel)：包含EXQUISITE、GENTLE、SMOOTH三个枚",
+        "- hdsMaterial.[MaterialLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsmaterial#materiallevel)：包含EXQUISITE、GENTLE、SMOOTH、A",
+        "沉浸式材质样式差异",
+        "- uiMaterial：提供[ImmersiveStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersivestyle)设置沉浸式材质样式。不同的材质样式对应不同的材质厚",
+        "- hdsMaterial：不提供与uiMaterial.ImmersiveStyle对等的材质厚薄程度样式配置。组件的最终材质效果由[SystemMaterialParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-d",
+        "#### 为组件设置了沉浸式系统材质但看不到材质效果",
+        "#### [h2]组件不在沉浸光感生效范围",
+        "问题现象",
+        "- 开启沉浸光感后，组件没有呈现沉浸光感效果。"
+      ],
+      "detail": null
+    },
+    {
+      "snapshotId": "ui-material-api",
+      "category": "new",
+      "removedExcerpt": [],
+      "addedExcerpt": [],
+      "detail": "上次审查没有此页（新增入口）。"
+    }
+  ],
+  "unchangedPages": [
+    "common"
+  ],
+  "lastCriteriaForReference": [
+    {
+      "id": "IL-F017",
+      "topic": "材质参数（IL-F017）",
+      "statement": "materialColor 必须保留透明度；不透明颜色会遮挡材质滤镜效果。",
+      "snapshotId": "common",
+      "anchor": "会遮挡材质滤镜效果",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-F018",
+      "topic": "材质参数（IL-F018）",
+      "statement": "colorInvert 只保证对资源颜色生效，硬编码颜色不能据此判定已反色。",
+      "snapshotId": "faq",
+      "anchor": "使用代码中硬编码的颜色值",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-F019",
+      "topic": "材质参数（IL-F019）",
+      "statement": "interactive 与 lightEffect 控制交互和流光；Button 开启流光后需同时验证原按压和悬停反馈。",
+      "snapshotId": "common",
+      "anchor": "按压时产生弹性形变",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-F020",
+      "topic": "材质参数（IL-F020）",
+      "statement": "applyShadow 与普通 shadow 属性存在顺序和所有权约束，避免重复阴影。",
+      "snapshotId": "common",
+      "anchor": "自定义的shadow设置不会生效",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-F023",
+      "topic": "性能约束（IL-F023）",
+      "statement": "应限制材质面积、嵌套、模糊叠加、动态背景、反色子树范围和重复阴影，并在真机测量性能与功耗。",
+      "snapshotId": "constraints",
+      "anchor": "沉浸光感效果作为一种",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-F024",
+      "topic": "诊断排障（IL-F024）",
+      "statement": "无视觉效果时应排查普通背景覆盖、透明度、属性顺序、渲染区域、设备能力与算力档位。",
+      "snapshotId": "faq",
+      "anchor": "仍然呈现纯色背景或无任何材质表现",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-F001",
+      "topic": "版本门槛（IL-F001）",
+      "statement": "ArkUI 沉浸光感接口从 API 26 起提供；官网要求开启沉浸光感时应用 targetSDKVersion 不低于 26.0.0。",
+      "snapshotId": "overview",
+      "anchor": "从API版本26.0.0开始",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-F008",
+      "topic": "能力查询（IL-F008）",
+      "statement": "运行时应查询 isImmersiveMaterialSupported；全局材质档位可由 getGlobalMaterialLevel 获取。",
+      "snapshotId": "overview",
+      "anchor": "算力档位由设备定义且固定",
+      "conflictGroup": null
+    }
+  ]
+}

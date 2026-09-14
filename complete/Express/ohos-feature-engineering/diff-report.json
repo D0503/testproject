@@ -1,0 +1,39 @@
+{
+  "status": "clean",
+  "frozenAt": "2026-09-10T13:20:57.988Z",
+  "pages": [
+    {
+      "snapshotId": "component",
+      "status": "unchanged",
+      "category": null,
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "与上次审查一致。"
+    },
+    {
+      "snapshotId": "ui-material-api",
+      "status": "unchanged",
+      "category": null,
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "与上次审查一致。"
+    },
+    {
+      "snapshotId": "enable",
+      "status": "unchanged",
+      "category": null,
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "与上次审查一致。"
+    },
+    {
+      "snapshotId": "constraints",
+      "status": "unchanged",
+      "category": null,
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "与上次审查一致。"
+    }
+  ],
+  "highRisk": []
+}

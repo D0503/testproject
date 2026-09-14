@@ -1,0 +1,22 @@
+{
+  "projectRoot": "D:/HW/testproject/complete/1.1",
+  "comparedAt": "2026-09-14T02:57:56.478Z",
+  "changes": [
+    {
+      "path": "entry/src/main/module.json5",
+      "absolutePath": "D:/HW/testproject/complete/1.1/entry/src/main/module.json5",
+      "status": "modified",
+      "beforeSha256": "ab956fa84579579cb65974603369b3d4e0a50320ea3744b0c3cd1bf90d02dff9",
+      "afterSha256": "95045053098ced28f3f807767014815b5a26b0203f16de619b0c66eca93c42dc",
+      "diff": "--- a/entry/src/main/module.json5\n+++ b/entry/src/main/module.json5\n@@ -42,10 +42,6 @@\n           {\n             \"name\": \"ohos.extension.backup\",\n             \"resource\": \"$profile:backup_config\"\n-          },\n-          {\n-            \"name\": \"ohos.arkui.UIMaterial.state\",\n-            \"value\": \"disable\"\n           }\n         ],\n       }\n"
+    },
+    {
+      "path": "entry/src/main/ets/pages/Index.ets",
+      "absolutePath": "D:/HW/testproject/complete/1.1/entry/src/main/ets/pages/Index.ets",
+      "status": "modified",
+      "beforeSha256": "738aba8a34b3023d7b6622b96aabddedc68255c69b1a2615247e6ac0effa6585",
+      "afterSha256": "445f1704c641b366fa5caae0878b57677654a447c95eee700866ffb0a3323edf",
+      "diff": "--- a/entry/src/main/ets/pages/Index.ets\n+++ b/entry/src/main/ets/pages/Index.ets\n@@ -144,15 +144,16 @@\n \n           AlphabetIndexer({ arrayValue: this.alphabets, selected: this.selectedIndex })\n             .selected(this.selectedIndex)\n-            // .color($r('sys.color.font_on_primary'))\n-            // .selectedColor($r('sys.color.font_on_primary'))\n-            .onSelect((index: number) => {\n-              this.selectedIndex = index;\n-              this.scroller.scrollToIndex(index, false);\n-            })\n-            // .systemMaterial(new uiMaterial.ImmersiveMaterial({\n-            //   style: uiMaterial.ImmersiveStyle.ULTRA_THIN\n-            // }))\n+            .usingPopup(true)\n+            // .color($r('sys.color.font_on_primary'))\n+            // .selectedColor($r('sys.color.font_on_primary'))\n+            .onSelect((index: number) => {\n+              this.selectedIndex = index;\n+              this.scroller.scrollToIndex(index, false);\n+            })\n+            .systemMaterial(new uiMaterial.ImmersiveMaterial({\n+              style: uiMaterial.ImmersiveStyle.THICK\n+            }))\n             }))\n         }\n         .width('100%')\n"
+    }
+  ]
+}

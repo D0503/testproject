@@ -1,0 +1,92 @@
+$ devecocli build --product default --build-mode debug
+
+[ohpm install] Running...
+[32minstall completed in 0s 107ms[39m
+
+[hvigor sync] Skipped (configurations unchanged)
+
+[hvigor build] Running...
+> hvigor [32mhvigor client: Starting hvigor daemon.[39m
+> hvigor [32mHvigor Daemon started in 721 ms[39m
+> hvigor [32mFinished ::PreBuildApp... after 2 ms [39m
+
+1 tasks in total: 1 executed, 0 up-to-date
+
+[33mEnsure the project source is trustworthy before proceeding.[39m
+> hvigor [91mERROR: Failed :entry:default@PreBuild... [39m
+> hvigor [91mERROR: [31m00303038 Configuration Error
+[31mError Message: Schema validate failed, at file: D:\HW\testproject\complete\6\entry\src\main\resources\base\profile\route_map.json
+[31m
+* Try the following:
+  > Please check the following fields. 
+ {
+  instancePath: 'routerMap[0]',
+  keyword: 'required',
+  params: { missingProperty: 'buildFunction' },
+  message: "must have required property 'buildFunction'",
+  location: 'D:/HW/testproject/complete/6/entry/src/main/resources/base/profile/route_map.json:3:6'
+} 
+{
+  instancePath: 'routerMap[0]',
+  keyword: 'enum',
+  params: {
+    allowedValues: [ 'name', 'pageSourceFile', 'buildFunction', 'data', 'customData' ]
+  },
+  message: 'must be equal to one of the allowed values',
+  location: 'D:/HW/testproject/complete/6/entry/src/main/resources/base/profile/route_map.json:3:6'
+} 
+{
+  instancePath: 'routerMap[0]',
+  keyword: 'propertyNames',
+  params: { propertyName: 'buildMethod' },
+  message: 'property name must be valid',
+  location: 'D:/HW/testproject/complete/6/entry/src/main/resources/base/profile/route_map.json:3:6'
+} 
+{
+  instancePath: 'routerMap[0]',
+  keyword: 'additionalProperties',
+  params: { additionalProperty: 'buildMethod' },
+  message: 'must NOT have additional properties',
+  location: 'D:/HW/testproject/complete/6/entry/src/main/resources/base/profile/route_map.json:3:6'
+} 
+{
+  instancePath: 'routerMap[1]',
+  keyword: 'required',
+  params: { missingProperty: 'buildFunction' },
+  message: "must have required property 'buildFunction'",
+  location: 'D:/HW/testproject/complete/6/entry/src/main/resources/base/profile/route_map.json:8:6'
+} 
+{
+  instancePath: 'routerMap[1]',
+  keyword: 'enum',
+  params: {
+    allowedValues: [ 'name', 'pageSourceFile', 'buildFunction', 'data', 'customData' ]
+  },
+  message: 'must be equal to one of the allowed values',
+  location: 'D:/HW/testproject/complete/6/entry/src/main/resources/base/profile/route_map.json:8:6'
+} 
+{
+  instancePath: 'routerMap[1]',
+  keyword: 'propertyNames',
+  params: { propertyName: 'buildMethod' },
+  message: 'property name must be valid',
+  location: 'D:/HW/testproject/complete/6/entry/src/main/resources/base/profile/route_map.json:8:6'
+} 
+{
+  instancePath: 'routerMap[1]',
+  keyword: 'additionalProperties',
+  params: { additionalProperty: 'buildMethod' },
+  message: 'must NOT have additional properties',
+  location: 'D:/HW/testproject/complete/6/entry/src/main/resources/base/profile/route_map.json:8:6'
+} 
+
+[39m
+
+[31m* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+[39m
+> hvigor [91mERROR: BUILD FAILED in 4 s 21 ms [39m
+[31mhvigor build failed[39m
+Command failed with exit code 4294967295: "E:\DevEco Studio\tools\node\node.exe" "E:\DevEco Studio\tools\hvigor\bin\hvigorw.js" assembleApp -p "product=default" -p "buildMode=debug" "--analyze=normal" --parallel --incremental
+[31mhvigor build failed[39m

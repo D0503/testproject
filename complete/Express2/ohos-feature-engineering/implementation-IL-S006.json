@@ -1,0 +1,472 @@
+{
+  "developmentMode": "existing_project",
+  "requirements": [
+    {
+      "criteriaId": "IL-S006-C01",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "在 TabBar 沉浸材质 ImmersiveOptions 中设置 materialColor: 'rgba(255, 0, 0, 0.2)'（带透明度的 rgba 颜色，与官网示例一致，不遮挡材质滤镜）。",
+      "sources": [
+        {
+          "snapshotId": "common",
+          "lineStart": 81,
+          "lineEnd": 81,
+          "sha256": "868d638408afd923be6ecd1b39baac730749a9dec70fd59c602b9554fbd49e64"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "ImmersiveCompat.ets:67 tabBar 材质 materialColor: rgba(255, 0, 0, 0.2)，与官网示例同值，含透明度不遮挡滤镜。"
+      }
+    },
+    {
+      "criteriaId": "IL-S006-C02",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "materialColor 对全档位设备生效（低算力降级为背景色），同一处设置覆盖，无需差异化代码。",
+      "sources": [
+        {
+          "snapshotId": "common",
+          "lineStart": 83,
+          "lineEnd": 83,
+          "sha256": "b1babdda8f8f39041fb50ed62224a99ee641b112a8ebc44f0737497db8bd691e"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "ImmersiveCompat.ets:61-74 材质单处构造，未按设备分支；低算力降级为背景色由系统处理，工程已有 sdkApiVersion>=26 与 isImmersiveMaterialSupported 运行时守卫（39-48 行）。"
+      }
+    },
+    {
+      "criteriaId": "IL-S006-C03",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "在 TabBar 材质中开启 colorInvert: true，使页签子节点文字颜色自动调整为材质下方背景色的反色。",
+      "sources": [
+        {
+          "snapshotId": "common",
+          "lineStart": 7,
+          "lineEnd": 7,
+          "sha256": "0380209d2936753c32f77cf2b96a6a43ea732a9977465164e57a6b50d251a6a0"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "ImmersiveCompat.ets:65 tabBar 材质 colorInvert: true，页签子树资源颜色自动反色。"
+      }
+    },
+    {
+      "criteriaId": "IL-S006-C04",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "TabBar 材质 style 保持 THIN（满足 ULTRA_THIN/THIN 反色前提），通过 barFloatingStyle.systemMaterial 设置材质；工程 Tabs 已配置 barOverlap(true)（手机模式）+ BarPosition.End + vertical(false)。",
+      "sources": [
+        {
+          "snapshotId": "common",
+          "lineStart": 60,
+          "lineEnd": 70,
+          "sha256": "2d53a4afe3d41554ec05e8972c4c60d6d913095f91063ec7eaf1db605206c1cd"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "ImmersiveCompat.ets:63 style 保持 THIN（反色前提）；MainEntry.ets:117-123 vertical(false)+barPosition(End)+barOverlap(!isTabVertical) 手机模式为 true，材质经 barFloatingStyle（ImmersiveCompat.ets:35）设置。"
+      }
+    },
+    {
+      "criteriaId": "IL-S006-C05",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "在 TabBar 材质中设置 interactive: true 开启按压弹性形变。",
+      "sources": [
+        {
+          "snapshotId": "common",
+          "lineStart": 138,
+          "lineEnd": 138,
+          "sha256": "4f8cdf7e47d1822ccc5faf5b86d345e68e18b99183e853f18612e3da1de70b09"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "ImmersiveCompat.ets:69 tabBar 材质 interactive: true。"
+      }
+    },
+    {
+      "criteriaId": "IL-S006-C06",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "在 TabBar 材质中传入 lightEffect: {} 有效对象启用点光源流光（默认 Color.White 流光颜色）。",
+      "sources": [
+        {
+          "snapshotId": "common",
+          "lineStart": 140,
+          "lineEnd": 140,
+          "sha256": "64769133539c0dc68dafbdba212de34ee1dba1e9069fb54f08c525cc21e8a0b8"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "ImmersiveCompat.ets:71 tabBar 材质 lightEffect: {} 传入有效对象启用点光源，未传 null/undefined。"
+      }
+    },
+    {
+      "criteriaId": "IL-S006-C07",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "沉浸材质添加阴影效果使用材质自带阴影：显式设置 applyShadow: true，且不同时设置通用 .shadow() 属性，避免冲突与重复阴影。",
+      "sources": [
+        {
+          "snapshotId": "common",
+          "lineStart": 193,
+          "lineEnd": 193,
+          "sha256": "7ba2a9249648ae82ccfcaa02d0072a9d59990022a3230ef5ad408b7df92877f8"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "ImmersiveCompat.ets:53/58/73 三处材质 applyShadow: true 使用材质自带阴影；全工程本次未新增 .shadow() 调用（grep 确认 MainEntry/ImmersiveCompat 无 .shadow()），无冲突无重复阴影。"
+      }
+    },
+    {
+      "criteriaId": "IL-S006-C08",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "标题栏与页签材质均设置 applyShadow: true（默认值显式化），材质阴影固定生效并优先于 shadow 通用属性；全工程不新增 .shadow() 调用。",
+      "sources": [
+        {
+          "snapshotId": "ui-material-api",
+          "lineStart": 546,
+          "lineEnd": 552,
+          "sha256": "4d20792a29cb2f7f98e32bfb028aae6473d184f4a1a00d25ecf3bbe82efc950c"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "ImmersiveCompat.ets:53(titleBar)/58(circle)/73(tabBar) 均显式 applyShadow:true；未设置通用 shadow，材质阴影固定生效。"
+      }
+    },
+    {
+      "criteriaId": "IL-S006-C09",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "interactive: true（默认 false），对全档位算力设备生效，无需按设备差异化。",
+      "sources": [
+        {
+          "snapshotId": "ui-material-api",
+          "lineStart": 564,
+          "lineEnd": 570,
+          "sha256": "6cc78c8bb32e2ace560d46ff51e948d851186651f6cfbe6f5816d64759147ae8"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "ImmersiveCompat.ets:69 interactive:true（默认 false），单处设置全档位生效，无设备分支。"
+      }
+    },
+    {
+      "criteriaId": "IL-S006-C10",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "lightEffect 传入空对象 {}（LightEffectOptions 有效对象）启用；不传 null/undefined；高算力和中算力设备生效为系统行为。",
+      "sources": [
+        {
+          "snapshotId": "ui-material-api",
+          "lineStart": 582,
+          "lineEnd": 586,
+          "sha256": "c05689f845becc787683b87e4840e1bd279e0d7dbc82f21e01d1ed1dd88e5ad6"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "ImmersiveCompat.ets:71 lightEffect 传 {} 对象启用；未传 null；高中算力设备生效差异为系统行为。"
+      }
+    },
+    {
+      "criteriaId": "IL-S006-C11",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "代码侧满足可控条件：THIN 薄材质 + colorInvert:true；设备档位与系统强弱配置由系统侧决定，不做硬编码假设。",
+      "sources": [
+        {
+          "snapshotId": "faq",
+          "lineStart": 256,
+          "lineEnd": 264,
+          "sha256": "7903c9fea59ab0668cfc53f3f6ca7e006b2e698f9ee43a3f581cf9995a1fe391"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "ImmersiveCompat.ets:63 THIN 薄材质 + 65 行 colorInvert:true 满足代码侧条件；设备档位与系统强弱配置由系统侧裁决，工程不硬编码假设。"
+      }
+    },
+    {
+      "criteriaId": "IL-S006-C12",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "将 TabBar 选中文字硬编码色 '#0A59F7' 改为系统资源色 $r('sys.color.brand')（官网示例反色支持色），未选中色已是 $r('sys.color.icon_secondary') 资源色，使 colorInvert 反色可观察生效。",
+      "sources": [
+        {
+          "snapshotId": "faq",
+          "lineStart": 264,
+          "lineEnd": 264,
+          "sha256": "0f5da08fafb98df65482a9394d9d42081f0d2b78f2f7e378a4b983942894fc3b"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "MainEntry.ets:185 选中色改为 (sys.color.brand)（官网反色支持资源），186 未选中色已是 (sys.color.icon_secondary) 资源色；材质子树内不再有硬编码颜色。"
+      }
+    },
+    {
+      "criteriaId": "IL-S006-C13",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "复用工程现有 Tabs 悬浮三条件：手机模式 barOverlap(!isTabVertical)=true、vertical(false)、barPosition(End)，systemMaterial 经 barFloatingStyle 生效；大屏侧栏模式悬浮样式不生效为系统定义行为。",
+      "sources": [
+        {
+          "snapshotId": "component",
+          "lineStart": 33,
+          "lineEnd": 35,
+          "sha256": "9a0409209ec18cebc1641df0abb723d9a8df4edfa99ad8a0b55fae343299b433"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "MainEntry.ets:118 vertical(this.vm.isTabVertical) 手机模式 false、119 barPosition 手机模式 End、123 barOverlap(!isTabVertical) 手机模式 true，三条件同时满足；材质经 124 行 attributeModifier→barFloatingStyle 生效；大屏侧栏模式为系统定义的不生效行为。"
+      }
+    },
+    {
+      "criteriaId": "IL-S006-C14",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "知晓性约束：lightEffect 启用后页签默认点击态/悬浮态反馈由光感交互反馈替代，无需额外保留旧按压样式。",
+      "sources": [
+        {
+          "snapshotId": "component",
+          "lineStart": 125,
+          "lineEnd": 125,
+          "sha256": "964dd3f52b4512f58770ce42259a38e9490b85f73ea5bfbe2a8bea76102de596"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "MainEntry.ets:166-175/178-191 页签与圆形均未保留旧按压/悬浮态样式，lightEffect 启用后由光感交互反馈替代，行为符合约束。"
+      }
+    },
+    {
+      "criteriaId": "IL-S006-C15",
+      "strength": "example",
+      "disposition": "implement",
+      "approach": "参考官网标题栏示例：在标题栏右侧经 CommonTitle.rightBuilder 放置 50x50、borderRadius(25) 圆形 Column，通过 AttributeModifier 设置 ULTRA_THIN 材质 + applyShadow:true（沉浸材质阴影）+ interactive:true；按用户需求使用材质自带阴影而非 applyShadow:false+自定义 shadow。",
+      "sources": [
+        {
+          "snapshotId": "common",
+          "lineStart": 203,
+          "lineEnd": 225,
+          "sha256": "af2ad057a749047eb20108074b90790ef7317b11aa886f2f6a3b5c3a958fb8c2"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "MainEntry.ets:168-175 titleRightBuilder：Column 50x50、borderRadius(25)，经 CommonTitle.rightBuilder（160 行）置于标题栏右侧；材质 ULTRA_THIN+applyShadow:true+interactive:true（ImmersiveCompat.ets:56-60）。与官网示例结构一致，阴影按用户需求采用材质自带阴影（applyShadow:true）而非示例的 applyShadow:false+自定义 shadow。"
+      }
+    },
+    {
+      "criteriaId": "IL-S006-C16",
+      "strength": "recommendation",
+      "disposition": "implement",
+      "approach": "材质均通过 AttributeModifier.applyNormalAttribute 调用 systemMaterial/barFloatingStyle，在组件其他样式属性（尺寸、圆角等）之后应用，满足顺序建议。",
+      "sources": [
+        {
+          "snapshotId": "faq",
+          "lineStart": 270,
+          "lineEnd": 272,
+          "sha256": "333b731a178915a6fc1244b1a8ef569510c2c566d49451dda3f96b605fa45652"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "ImmersiveCompat.ets:22-24/35 材质经 applyNormalAttribute 在组件样式属性之后应用（AttributeModifier 机制天然满足顺序建议）；MainEntry.ets:174 圆形尺寸圆角在前、modifier 最后。"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "id": "S01",
+      "description": "ImmersiveCompat.ets：TabBar 材质增加 colorInvert/materialColor/interactive/lightEffect/applyShadow；标题栏材质显式 applyShadow:true；新增 titleBarCircle 材质 modifier。",
+      "status": "applied",
+      "locations": [
+        {
+          "path": "products/entry/src/main/ets/utils/ImmersiveCompat.ets",
+          "version": "after",
+          "lineStart": 9,
+          "lineEnd": 76
+        },
+        {
+          "path": "products/entry/src/main/ets/utils/ImmersiveCompat.ets",
+          "version": "before",
+          "lineStart": 11,
+          "lineEnd": 53
+        }
+      ],
+      "basis": [
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S006-C01",
+          "reason": "materialColor 带透明度 rgba"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S006-C03",
+          "reason": "colorInvert:true 自动反色"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S006-C04",
+          "reason": "THIN 样式反色前提"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S006-C05",
+          "reason": "interactive:true 交互形变"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S006-C06",
+          "reason": "lightEffect:{} 点光源"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S006-C07",
+          "reason": "applyShadow:true 材质阴影"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S006-C08",
+          "reason": "三处材质显式 applyShadow"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S006-C09",
+          "reason": "interactive 全档位"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S006-C10",
+          "reason": "lightEffect 对象启用"
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "description": "MainEntry.ets：标题栏经 CommonTitle.rightBuilder（箭头函数包装保留 this）添加右侧圆形（50x50/borderRadius 25）并绑定 titleBarCircle 沉浸材质（阴影+交互）。",
+      "status": "applied",
+      "locations": [
+        {
+          "path": "products/entry/src/main/ets/pages/MainEntry.ets",
+          "version": "after",
+          "lineStart": 152,
+          "lineEnd": 181
+        },
+        {
+          "path": "products/entry/src/main/ets/pages/MainEntry.ets",
+          "version": "before",
+          "lineStart": 160,
+          "lineEnd": 172
+        }
+      ],
+      "basis": [
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S006-C15",
+          "reason": "参考官网标题栏圆形示例"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S006-C08",
+          "reason": "圆形材质 applyShadow:true"
+        },
+        {
+          "type": "engineering_choice",
+          "reason": "修复 jscrash：@BuilderParam 跨组件执行 this 丢失，箭头函数包装保留 MainEntry 上下文",
+          "constraint": "ArkUI @Builder 作为 @BuilderParam 传入其他组件后按宿主上下文执行，需箭头函数闭包捕获调用方 this"
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "description": "MainEntry.ets：tabBarBuilder 选中文字颜色改为系统资源色 sys.color.brand。",
+      "status": "applied",
+      "locations": [
+        {
+          "path": "products/entry/src/main/ets/pages/MainEntry.ets",
+          "version": "after",
+          "lineStart": 182,
+          "lineEnd": 195
+        }
+      ],
+      "basis": [
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S006-C12",
+          "reason": "反色仅对资源色生效"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S006-C11",
+          "reason": "反色条件配合资源色"
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "description": "核对工程现有 Tabs 悬浮三条件与 barFloatingStyle 接入保持满足（existing，未修改该区段）。",
+      "status": "applied",
+      "locations": [
+        {
+          "path": "products/entry/src/main/ets/pages/MainEntry.ets",
+          "version": "after",
+          "lineStart": 115,
+          "lineEnd": 125
+        }
+      ],
+      "basis": [
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S006-C13",
+          "reason": "悬浮三条件已满足"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S006-C02",
+          "reason": "materialColor 全档位单处设置"
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "description": "核对材质应用顺序（AttributeModifier 在样式属性之后）与光感反馈替代默认按压/悬浮态（existing 行为核对）。",
+      "status": "applied",
+      "locations": [
+        {
+          "path": "products/entry/src/main/ets/utils/ImmersiveCompat.ets",
+          "version": "after",
+          "lineStart": 22,
+          "lineEnd": 36
+        }
+      ],
+      "basis": [
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S006-C16",
+          "reason": "systemMaterial 经 modifier 后置应用"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S006-C14",
+          "reason": "光感反馈替代默认按压态"
+        }
+      ]
+    }
+  ]
+}

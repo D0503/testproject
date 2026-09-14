@@ -1,0 +1,332 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S006",
+  "frozenAt": "2026-09-11T08:11:49.029Z",
+  "strategy": "fresh",
+  "instructions": [
+    "逐条阅读变化段与冻结正文，为骨架 required 的每个 topic 现提至少一条判据：statement 忠实原文（不扩大范围、不改建议为强制），anchor 取原文特征短句（必须逐字存在）。",
+    "对每个 conflictProbes 输出结论：persists（矛盾仍在）/ resolved（已解决）/ changed（表述变化），并给出 basis（引用两侧原文）。",
+    "冲突监测点结论为 persists 时，必须为两侧表述分别现提判据，并给两条判据标注相同的 conflictGroup（取监测点 id），保留多预期。",
+    "高危变化（api-signature/version/deletion/new/removed）必须先向用户确认后再写入 confirmations；未确认不得继续。",
+    "判据只能引用本次冻结快照正文；上次判据仅供对照。"
+  ],
+  "requiredTopics": [
+    {
+      "topic": "材质参数（IL-F017）",
+      "hint": "materialColor 必须保留透明度；不透明颜色会遮挡材质滤镜效果。",
+      "mustResolve": true
+    },
+    {
+      "topic": "材质参数（IL-F018）",
+      "hint": "colorInvert 只保证对资源颜色生效，硬编码颜色不能据此判定已反色。",
+      "mustResolve": true
+    },
+    {
+      "topic": "材质参数（IL-F019）",
+      "hint": "interactive 与 lightEffect 控制交互和流光；Button 开启流光后需同时验证原按压和悬停反馈。",
+      "mustResolve": true
+    },
+    {
+      "topic": "材质参数（IL-F020）",
+      "hint": "applyShadow 与普通 shadow 属性存在顺序和所有权约束，避免重复阴影。",
+      "mustResolve": true
+    },
+    {
+      "topic": "交互参数有效性与设备差异",
+      "hint": "核对 interactive、lightEffect 对各算力设备的生效差异、默认值、null/undefined，以及原点击/悬停反馈是否被替代。",
+      "mustResolve": true
+    },
+    {
+      "topic": "自动反色完整条件",
+      "hint": "核对设备档位、材质厚度、系统强弱配置与具体支持的系统颜色资源，不把任意资源颜色都视为可反色。",
+      "mustResolve": true
+    }
+  ],
+  "conflictProbes": [],
+  "highRisk": [
+    {
+      "snapshotId": "component",
+      "category": "api-signature",
+      "reason": "API 签名/参数/默认值特征变化"
+    },
+    {
+      "snapshotId": "design-guidance",
+      "category": "new",
+      "reason": "新增入口，需整体现提判据。"
+    }
+  ],
+  "changedPages": [
+    {
+      "snapshotId": "component",
+      "category": "api-signature",
+      "removedExcerpt": [
+        "- [DatePicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-datepicker)、[TextPicker](https://developer.huawei.com/consu"
+      ],
+      "addedExcerpt": [
+        "# 组件适配沉浸光感",
+        "本文按导航类、弹窗类、按钮与选择类、其余组件四大场景分类，系统介绍各组件如何通过应用级开关与组件级配置开启沉浸光感，涵盖沉浸光感的视觉效果、设置方法及适配要点，帮助开发者快速完成沉浸光感的组件适配。",
+        "#### 导航类组件",
+        "导航类组件包括Navigation标题栏、底部页签、索引条，是页面导航与内容定位的辅助元素，通常固定在页面顶部或底部。沉浸光感为导航类组件赋予了通透的悬浮质感，让导航栏在滚动内容之上呈现轻盈的分层效果，内容透过材质层自然渗透，建立导航区域与内容之间的视觉层次。导航类组件通常使用较薄的材质样式（ULTRA_THIN或TH",
+        "#### [h2]Navigation标题栏",
+        "Navigation标题栏支持通过应用级开启、组件级开启方式开启沉浸光感。",
+        "应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，Navigation标题栏默认开启沉浸光感，沉浸式系统材质样式默",
+        "组件级开启：Navigation标题栏支持通过[NavigationTitleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navigationtitle",
+        "- 推荐将沉浸光感限定在顶部标题栏等需要凸显的局部区域，控制使用面积与层数，详见[沉浸光感功耗优化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints)。",
+        "- 沉浸光感针对标题栏生效的范围是：返回键、非自定义Menu。",
+        "- systemMaterial为undefined时，[MaterialState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)开关配置为DEFAULT时标",
+        "- 建议设置沉浸光感时，使用[barStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navigationtitleoptions11)为STACK样式，以便Na",
+        "组件开启沉浸光感的效果请参见[示例20（设置systemMaterial开启标题栏材质效果）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#%E7%A4%BA%E4%BE",
+        "#### [h2]底部页签（Tabs）",
+        "底部页签支持通过应用级开启、组件级开启方式开启沉浸光感。"
+      ],
+      "detail": null
+    },
+    {
+      "snapshotId": "design-guidance",
+      "category": "new",
+      "removedExcerpt": [],
+      "addedExcerpt": [],
+      "detail": "上次审查没有此页（新增入口）。"
+    }
+  ],
+  "unchangedPages": [
+    "common",
+    "faq",
+    "constraints",
+    "ui-material-api"
+  ],
+  "lastCriteriaForReference": [
+    {
+      "id": "IL-F009",
+      "topic": "导航组件（IL-F009）",
+      "statement": "Navigation 标题栏可通过 NavigationTitleOptions.systemMaterial 配置；默认材质受应用状态影响。",
+      "snapshotId": "component",
+      "anchor": "Navigation标题栏支持通过应用级开启",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-F010",
+      "topic": "导航组件（IL-F010）",
+      "statement": "Tabs 使用 FloatingTabBarStyle.systemMaterial，且材质会被栏背景色或背景模糊覆盖。",
+      "snapshotId": "component",
+      "anchor": "三个条件需同时满足",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-F011",
+      "topic": "导航组件（IL-F011）",
+      "statement": "AlphabetIndexer 弹窗材质与 popupBackground、popupBackgroundBlurStyle 存在互斥覆盖关系。",
+      "snapshotId": "component",
+      "anchor": "属性和沉浸光感能力互斥",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-F012",
+      "topic": "弹窗组件（IL-F012）",
+      "statement": "Toast、Popup、Tips、Menu、Dialog 和 Sheet 具有各自的 systemMaterial 配置入口或默认材质策略。",
+      "snapshotId": "component",
+      "anchor": "弹窗类组件包括Toast、Popup、Tips、Menu和Dialog",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-F013",
+      "topic": "弹窗组件（IL-F013）",
+      "statement": "弹窗普通背景色、背景模糊或大面积材质会覆盖效果或引入性能风险。",
+      "snapshotId": "component",
+      "anchor": "则不呈现沉浸光感效果",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-F014",
+      "topic": "控件组件（IL-F014）",
+      "statement": "Button、Select、Toggle、Slider、ChipGroup 和 SegmentButton 系列提供组件或样式级材质入口。",
+      "snapshotId": "component",
+      "anchor": "按钮支持通过应用级开启",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-F015",
+      "topic": "控件组件（IL-F015）",
+      "statement": "Select 按钮和下拉菜单是两个独立入口，分别使用 systemMaterial 与 menuSystemMaterial。",
+      "snapshotId": "component",
+      "anchor": "下拉按钮与下拉菜单的沉浸光感相互独立",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-F016",
+      "topic": "控件组件（IL-F016）",
+      "statement": "Toggle 的 Checkbox 形态当前不适配沉浸材质，应保留普通样式。",
+      "snapshotId": "component",
+      "anchor": "当前未适配沉浸光感效果",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-F018",
+      "topic": "材质参数（IL-F018）",
+      "statement": "colorInvert 只保证对资源颜色生效，硬编码颜色不能据此判定已反色。",
+      "snapshotId": "faq",
+      "anchor": "使用代码中硬编码的颜色值",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-F019",
+      "topic": "材质参数（IL-F019）",
+      "statement": "interactive 与 lightEffect 控制交互和流光；Button 开启流光后需同时验证原按压和悬停反馈。",
+      "snapshotId": "common",
+      "anchor": "按压时产生弹性形变",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-S008-C01",
+      "topic": "能力查询（IL-F008）",
+      "statement": "运行时通过 uiMaterial.getGlobalMaterialLevel() 获取全局材质等级（与设备算力相关、由设备定义不可修改），通过 uiMaterial.isImmersiveMaterialSupported() 判断设备是否支持沉浸式材质。",
+      "snapshotId": "ui-material-api",
+      "anchor": "获取全局材质等级，与设备算力相关",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-S008-C02",
+      "topic": "能力查询（IL-F008）",
+      "statement": "只有支持沉浸式材质的设备上设置沉浸式材质才有效果；在不支持沉浸式材质的设备上可设置沉浸式材质但无效果。",
+      "snapshotId": "ui-material-api",
+      "anchor": "在不支持沉浸式材质的设备上可设置沉浸式材质但无效果",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-S008-C03",
+      "topic": "材质参数（IL-F017）",
+      "statement": "materialColor 参数为材质滤镜再混合一层纯色效果；该颜色需要带有一定的透明度值，如果传入纯不透明颜色（如 Color.Red 或 '#FFFF0000'），会遮挡材质滤镜效果，组件仅显示纯色背景。",
+      "snapshotId": "faq",
+      "anchor": "该颜色需要带有一定的透明度值",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-S008-C04",
+      "topic": "材质参数（IL-F017）",
+      "statement": "materialColor 传入不透明颜色导致材质效果消失的解决措施：为 materialColor 传入带有透明度的颜色值（示例 '#80FF0000' 为带有 50% 透明度的红色）。",
+      "snapshotId": "faq",
+      "anchor": "传入带有透明度的颜色值",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-S008-C05",
+      "topic": "材质参数（IL-F017）",
+      "statement": "materialColor 参数对所有档位的算力设备均生效：高算力和中算力设备上该参数为材质滤镜再混合一层纯色效果；低算力设备上该参数作为背景色 backgroundColor 属性值。",
+      "snapshotId": "faq",
+      "anchor": "该参数作为背景色",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-S008-C06",
+      "topic": "材质参数（IL-F020）",
+      "statement": "沉浸式系统材质默认自带阴影效果（applyShadow 为 true），优先于 shadow 通用属性，此时自定义的 shadow 设置不会生效；如需自定义阴影，将 applyShadow 置为 false 后再设置 shadow，材质阴影效果即不生效。",
+      "snapshotId": "common",
+      "anchor": "此时自定义的shadow设置不会生效",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-S008-C07",
+      "topic": "性能约束（IL-F023）",
+      "statement": "沉浸光感效果应作为一种稀缺视觉资源使用，需控制面积与层数、不应固定显示在视频动图动画等变化的内容之上。",
+      "snapshotId": "constraints",
+      "anchor": "需控制面积与层数",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-S008-C08",
+      "topic": "性能约束（IL-F023）",
+      "statement": "沉浸式系统材质自带的材质滤镜已包含背景模糊效果，再叠加 backgroundBlurStyle、backgroundEffect 等模糊属性属于重复处理，会增加额外的功耗开销。",
+      "snapshotId": "constraints",
+      "anchor": "属于重复处理，会增加额外的功耗开销",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-S008-C09",
+      "topic": "诊断排障（IL-F024）",
+      "statement": "沉浸光感的视觉层级位于组件的 backgroundColor、backgroundBlurStyle 等属性之下；如果同时设置了不透明的背景色或背景模糊样式，这些属性会覆盖在材质层之上，导致材质效果被遮挡不可见。",
+      "snapshotId": "faq",
+      "anchor": "导致材质效果被遮挡不可见",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-S008-C10",
+      "topic": "诊断排障（IL-F024）",
+      "statement": "背景色或背景模糊遮挡材质效果的解决措施：将组件的背景色设置为透明（Color.Transparent）或移除背景色设置；移除 backgroundBlurStyle 等背景模糊样式，避免模糊效果覆盖材质层。",
+      "snapshotId": "faq",
+      "anchor": "将组件的背景色设置为透明（Color.Transparent）或移除背景色设置",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-S008-C11",
+      "topic": "诊断排障（IL-F024）",
+      "statement": "沉浸光感生效范围：弹窗类组件/接口与按钮选择类组件（Slider、Toggle、Select）可在页面内全部区域生效；其他组件仅在 Navigation/NavDestination 标题栏或横向 Tab 中 barPosition 为 BarPosition.End 的底部 TabBar 中生效，在其他区域中设置沉浸光感效果不生效。",
+      "snapshotId": "faq",
+      "anchor": "在其他区域中设置沉浸光感效果不生效",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-S008-C12",
+      "topic": "诊断排障（IL-F024）",
+      "statement": "通过通用属性 systemMaterial 设置沉浸式系统材质时，应将 systemMaterial 放在其他样式属性（如背景色、边框、阴影等）之后设置；放在其他样式属性之前可能导致材质效果优先级与预期不符。",
+      "snapshotId": "faq",
+      "anchor": "放在其他样式属性（如背景色、边框、阴影等）之后设置",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-S008-C13",
+      "topic": "材质区域与绘制层级",
+      "statement": "材质渲染区域由组件布局区域决定，组件可视区域为实际呈现内容的区域，可能不等于布局区域；应通过 width、height、borderRadius 接口控制组件可视区域与材质渲染区域一致。",
+      "snapshotId": "faq",
+      "anchor": "材质渲染区域由组件布局区域决定",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-S008-C14",
+      "topic": "材质区域与绘制层级",
+      "statement": "自绘制组件的背景色作用于内容层，材质效果作用于背板层，内容层位于背板层之上，因此材质效果被内容层遮盖；不建议同时使用沉浸式系统材质和背景色接口，沉浸式系统材质无法绘制在内容层。",
+      "snapshotId": "faq",
+      "anchor": "材质效果作用于背板层",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-S008-C15",
+      "topic": "材质区域与绘制层级",
+      "statement": "在支持沉浸式材质的高算力和中算力设备上，当 systemMaterial 属性生效后，已设置的背景色属性 backgroundColor 会被恢复为透明色，已设置的边框宽度 borderWidth 属性会被恢复为无边框效果。",
+      "snapshotId": "ui-material-api",
+      "anchor": "会被恢复为透明色",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-S008-C16",
+      "topic": "材质参数与区域稳定性",
+      "statement": "频繁修改 style、materialColor 等材质参数，或在材质区域内频繁增删子节点，都会触发材质效果重新计算；建议一次性确定材质参数并保持稳定，材质区域内部的子树结构也应尽量稳定。",
+      "snapshotId": "constraints",
+      "anchor": "都会触发材质效果重新计算",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-S008-C17",
+      "topic": "折射现象与故障区分",
+      "statement": "设置沉浸式系统材质后组件边框呈现出周围背景的颜色是正常的折射光学表现而非渲染故障；沉浸光感视效能够将组件周围的内容透过材质层折射到组件的边框区域，在 ULTRA_THIN 和 THIN 等薄材质样式下表现更为明显。减少折射的措施：使用较厚的材质样式（REGULAR、THICK、ULTRA_THICK）降低材质透明度，或为材质层添加 materialColor 半透明赋色。",
+      "snapshotId": "faq",
+      "anchor": "能够将组件周围的内容透过材质层折射到组件的边框区域",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-S008-C18",
+      "topic": "设备自适应与用户系统设置",
+      "statement": "沉浸式系统材质的效果会根据设备算力档位自动适配：高算力和中算力设备上影响材质滤镜效果和阴影效果，低算力设备上仅影响背景色、边框颜色、边框宽度和阴影效果，style 和 colorInvert 参数在低算力设备上设置不会产生视觉效果差异；这是系统级自适应行为，开发者无需为不同档位设备编写差异化代码。",
+      "snapshotId": "faq",
+      "anchor": "沉浸式系统材质的效果会根据设备算力档位自动适配",
+      "conflictGroup": null
+    },
+    {
+      "id": "IL-S008-C19",
+      "topic": "设备自适应与用户系统设置",
+      "statement": "同一材质的效果会受到系统设置应用中沉浸光感配置项的影响，不同强弱程度的沉浸光感配置下，材质的参数和效果存在差异。",
+      "snapshotId": "ui-material-api",
+      "anchor": "不同强弱程度的沉浸光感配置下，材质的参数和效果存在差异",
+      "conflictGroup": null
+    }
+  ]
+}

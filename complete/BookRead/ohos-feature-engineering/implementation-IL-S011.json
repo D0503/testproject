@@ -1,0 +1,447 @@
+{
+  "developmentMode": "existing_project",
+  "requirements": [
+    {
+      "criteriaId": "IL-F027",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "将工程 targetSdkVersion 从 6.0.2(22) 升级到 6.1.0(23)（HDS 沉浸光感材质起始版本），compatibleSdkVersion 保持 6.0.0(20) 不提高最低兼容；工程为 Stage 模型满足约束",
+      "sources": [
+        {
+          "snapshotId": "hds-component-material-guide",
+          "lineStart": 5,
+          "lineEnd": 5,
+          "sha256": "5fad79183d8c6d2675b0f944c4a76fdda328718c8b70daaaf92c0c74e679e757"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "build-profile.json5:8 已将 targetSdkVersion 升级为 6.1.0(23)，compatibleSdkVersion 保持 6.0.0(20)（第9行未改动）；工程 module.json5 为 Stage 模型入口。低版本兼容核验：HdsNavigation/HdsTabs 组件起始 5.1.0(18)/6.0.0(20)，API 20 设备上组件与路由/页签切换可用，systemMaterialEffect/barFloatingStyle/hdsMaterial 枚举（23 起）在低版本设备不生效，材质与悬浮样式降级为无；DevEco 28063 兼容性警告保留在案，低版本运行未实测（用户明确不需要运行与视觉验证）。"
+      }
+    },
+    {
+      "criteriaId": "IL-F028",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "Index.ets 根路由容器由 Navigation 等价替换为 HdsNavigation，并在 titleBar 的 style.systemMaterialEffect 中为标题栏按钮配置沉浸光感",
+      "sources": [
+        {
+          "snapshotId": "hds-component-material-guide",
+          "lineStart": 7,
+          "lineEnd": 7,
+          "sha256": "1475cdeaea0987f38b1a4b65236e8f21ddd9971ed0e21adb29a3e655976fa2bc"
+        },
+        {
+          "snapshotId": "hds-navigation-api",
+          "lineStart": 1479,
+          "lineEnd": 1483,
+          "sha256": "997f30ce747627d3fdd61ec8c59faf324c83fb5e026fd97a74c08f54b4ce8b05"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "Index.ets:153 根容器已由 Navigation 等价替换为 HdsNavigation(TCRouter.getStack())，Index.ets:154-165 新增 titleBar 配置，style.systemMaterialEffect 位于 TitleBarStyleOptions.style 下，与官网 HdsNavigation 标题栏材质入口一致；原 hideNavBar/hideTitleBar/mode/navDestination/尺寸属性全部保留（166-171 行），路由行为不变。"
+      }
+    },
+    {
+      "criteriaId": "IL-F029",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "BookHomePage 的 Tabs 替换为 HdsTabs，通过 barFloatingStyle.systemMaterialEffect 为底部悬浮页签配置沉浸光感",
+      "sources": [
+        {
+          "snapshotId": "hds-component-material-guide",
+          "lineStart": 9,
+          "lineEnd": 9,
+          "sha256": "02e570cd8fd60a2c39d537fef666868df1ebb939a5013433576e3b5eea15f55f"
+        },
+        {
+          "snapshotId": "hds-tabs-api",
+          "lineStart": 715,
+          "lineEnd": 719,
+          "sha256": "969fe73994deccb2bf9d74d68c24049f1e299a6a60ea50533dd8a88fa2625c24"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "BookHomePage.ets:71-74 Tabs 已替换为 HdsTabs({barPosition,index,controller})，BookHomePage.ets:87-93 新增 barFloatingStyle，其 systemMaterialEffect 为底部悬浮页签材质入口，与官网 HdsTabsFloatingStyle.systemMaterialEffect 一致。"
+      }
+    },
+    {
+      "criteriaId": "IL-F030",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "两处 systemMaterialEffect 均显式设置 materialType 与 materialLevel，不省略 materialType（默认 NONE 不等于启用材质）",
+      "sources": [
+        {
+          "snapshotId": "hds-navigation-api",
+          "lineStart": 2055,
+          "lineEnd": 2066,
+          "sha256": "f108ae25742c9d40fc4e2ec6e53ec0ed147272d24e1748b1e614156ea04e140e"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "Index.ets:160-163 与 BookHomePage.ets:88-93 两处 systemMaterialEffect 均显式设置 materialType 与 materialLevel 两个字段，未省略 materialType，不存在依赖默认 NONE 被误认为启用材质的情况。"
+      }
+    },
+    {
+      "criteriaId": "IL-F031",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "materialType 使用 hdsMaterial.MaterialType.ADAPTIVE（自适应系统材质，默认采用沉浸式材质）",
+      "sources": [
+        {
+          "snapshotId": "hds-material-api",
+          "lineStart": 60,
+          "lineEnd": 66,
+          "sha256": "58ad7edbea837a5110b3f54c1730bfb4f485ca0e1238be3b6c04e606095298fd"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "两处 materialType 均取 hdsMaterial.MaterialType.ADAPTIVE（Index.ets:161、BookHomePage.ets:90），即枚举值 100 的自适应系统材质，默认采用沉浸式材质。"
+      }
+    },
+    {
+      "criteriaId": "IL-F032",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "materialLevel 使用 hdsMaterial.MaterialLevel.ADAPTIVE（系统按设备算力自适应材质等级）",
+      "sources": [
+        {
+          "snapshotId": "hds-material-api",
+          "lineStart": 80,
+          "lineEnd": 96,
+          "sha256": "1a2b274e1396653764b72062e52864d6fe786a561f1c4352c4a7dd6d160bb1f2"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "两处 materialLevel 均取 hdsMaterial.MaterialLevel.ADAPTIVE（Index.ets:162、BookHomePage.ets:91），材质等级由系统按设备性能自适应。"
+      }
+    },
+    {
+      "criteriaId": "IL-F033",
+      "strength": "recommendation",
+      "disposition": "implement",
+      "approach": "采用官网推荐的系统自适应组合 materialType=ADAPTIVE + materialLevel=ADAPTIVE，不在工程内自行选级",
+      "sources": [
+        {
+          "snapshotId": "hds-component-material-guide",
+          "lineStart": 11,
+          "lineEnd": 13,
+          "sha256": "f2212a12749be1d6112bce51e53cd3e0d7d5068fd8721947a708695d4f1eb61d"
+        },
+        {
+          "snapshotId": "hds-material-api",
+          "lineStart": 88,
+          "lineEnd": 90,
+          "sha256": "60d2029de8592453852712d8395d6560c013e6f698491c4bb6a084c0389c61e7"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "组合 materialType=ADAPTIVE + materialLevel=ADAPTIVE 与官网推荐一致；工程未选 EXQUISITE/GENTLE/SMOOTH 等自定义等级，因此不需要 getSystemMaterialTypes 查询路径。"
+      }
+    },
+    {
+      "criteriaId": "IL-F035",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "工程目标设备为 Phone/Tablet（可直接调用）；不选自定义材质等级，PC/2in1 的能力差异由 ADAPTIVE 系统自适应策略承担，无需 getSystemMaterialTypes 前置查询；TV 非目标设备",
+      "sources": [
+        {
+          "snapshotId": "hds-navigation-api",
+          "lineStart": 2049,
+          "lineEnd": 2053,
+          "sha256": "ebd77d2875a0a2c2e3f6c55a3bb4f69e1db80ca9c870b3e0aded7c7ee4542e6d"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "工程目标设备为 Phone/Tablet（build-profile runtimeOS HarmonyOS、无 TV 目标），材质参数可直接调用；PC/2in1 的能力差异由 ADAPTIVE 类型系统自适应策略承担（系统按设备能力决定材质生效方式），未采用需前置查询的自定义等级；TV 无效果不涉及。"
+      }
+    },
+    {
+      "criteriaId": "IL-F036",
+      "strength": "example",
+      "disposition": "implement",
+      "approach": "现有工程模式：参考官网示例的 systemMaterialEffect 配置结构，不复制 scenery01 等示例资源，不为接入引入示例外的异常处理代码",
+      "sources": [
+        {
+          "snapshotId": "hds-component-material-guide",
+          "lineStart": 20,
+          "lineEnd": 23,
+          "sha256": "ef4b133c429f6c2ee4da54c175bc3710a504f146247ddcf4696a41c36c953489"
+        },
+        {
+          "snapshotId": "hds-component-material-guide",
+          "lineStart": 64,
+          "lineEnd": 67,
+          "sha256": "28b78084027eedea155521faa8d917b172dd5dd1c404ea1f6471b2cfc27c6dec"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "仅参考官网示例的 systemMaterialEffect 配置结构与 ADAPTIVE 组合写法；未复制 scenery01 示例资源、MENU_CONFIG 示例数据与示例页面结构；工程既有业务页面、异常处理与组件组织保持不变。"
+      }
+    },
+    {
+      "criteriaId": "IL-F037",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "HdsNavigation 标题栏通过 TitleBarStyleOptions.systemMaterialEffect 配置沉浸光感样式（6.1.0(23) 起，targetSdk 升级后可用）",
+      "sources": [
+        {
+          "snapshotId": "hds-navigation-api",
+          "lineStart": 1479,
+          "lineEnd": 1483,
+          "sha256": "997f30ce747627d3fdd61ec8c59faf324c83fb5e026fd97a74c08f54b4ce8b05"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "Index.ets:154-165 通过 titleBar 的 style.systemMaterialEffect 配置沉浸光感，类型即官网 TitleBarStyleOptions.systemMaterialEffect（起始 6.1.0(23)），targetSdkVersion 已升级至 6.1.0(23) 满足起始版本；content 可选未设置，仅落材质样式。"
+      }
+    },
+    {
+      "criteriaId": "IL-F038",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "titleBar.style.scrollEffectOpts 配置 GRADIENT_BLUR 并同时配置 systemMaterialEffect，enableScrollEffect=false 时 originalStyle 背景使用默认 comp_background_gray（不自定义 backgroundColor）",
+      "sources": [
+        {
+          "snapshotId": "hds-navigation-api",
+          "lineStart": 1150,
+          "lineEnd": 1158,
+          "sha256": "be199a7859e952827b10b45ef1ff86f1960817e71eaf720f345e07303b7cf20e"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "Index.ets:156-159 scrollEffectOpts 显式配置 scrollEffectType=GRADIENT_BLUR 且 enableScrollEffect=false，同时 160-163 配置 systemMaterialEffect；未自定义 originalStyle/scrollEffectStyle 的 backgroundColor，按官网默认值规则 enableScrollEffect=false 时 originalStyle 背景为 comp_background_gray。"
+      }
+    },
+    {
+      "criteriaId": "IL-F039",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "scrollEffectOpts 显式配置 enableScrollEffect: false（首页由 NavDestination 全屏承载，不依赖滚动联动），仅生效 originalStyle 初始样式",
+      "sources": [
+        {
+          "snapshotId": "hds-navigation-api",
+          "lineStart": 1381,
+          "lineEnd": 1388,
+          "sha256": "68d02b61fb3ce2cb725691f6838e9f1b239de5f43163bc37f2e761f34298aa74"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "Index.ets:157 显式 enableScrollEffect: false：标题栏样式不随内容区滚动动态生效，仅生效 originalStyle 初始样式，与官网 false 分支语义一致；根导航栏由路由全屏 NavDestination 承载，不依赖滚动联动。"
+      }
+    },
+    {
+      "criteriaId": "IL-F040",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "手机模式（非平板断点）HdsTabs 同时设置 barOverlap(true)、vertical(false)、barPosition(BarPosition.End) 与 barFloatingStyle；平板模式保持侧边页签（vertical(true)/BarPosition.Start）不启用悬浮样式",
+      "sources": [
+        {
+          "snapshotId": "hds-tabs-api",
+          "lineStart": 1601,
+          "lineEnd": 1603,
+          "sha256": "dde363512d4d795acbef69cfcc90ab757160e9e16bda70e4ab3f98a8c2890253"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "手机模式（isTablet=false）：BookHomePage.ets:69 barPosition 保持 BarPosition.End、:83 vertical(this.isTablet)=false、:86 barOverlap(!this.isTablet)=true、:87-93 barFloatingStyle 设置，悬浮四条件同时满足；平板模式（LG 断点）：barPosition=Start、vertical=true、barFloatingStyle 传入 undefined（参数类型 Optional 允许）不启用悬浮，保持侧边页签布局。"
+      }
+    },
+    {
+      "criteriaId": "IL-F041",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "barFloatingStyle.systemMaterialEffect 显式赋值（默认 undefined 无材质）；工程不含 TV 目标，TV 无效果不影响",
+      "sources": [
+        {
+          "snapshotId": "hds-tabs-api",
+          "lineStart": 715,
+          "lineEnd": 719,
+          "sha256": "969fe73994deccb2bf9d74d68c24049f1e299a6a60ea50533dd8a88fa2625c24"
+        },
+        {
+          "snapshotId": "hds-tabs-api",
+          "lineStart": 825,
+          "lineEnd": 835,
+          "sha256": "00b12981a1dd3e991f749d1ddbf041e09477226803d25dfd17f58bb31e3807fa"
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "BookHomePage.ets:87-93 barFloatingStyle.systemMaterialEffect 显式赋值（非默认 undefined，不会落入无新材质状态）；工程无 TV 目标设备，TV 无效果的差异不影响。"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "id": "S01",
+      "description": "build-profile.json5 将 default product 的 targetSdkVersion 升级为 6.1.0(23)，compatibleSdkVersion 保持 6.0.0(20)",
+      "status": "applied",
+      "basis": [
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F027",
+          "reason": "HDS 沉浸光感材质从 6.1.0(23) 起提供"
+        }
+      ],
+      "locations": [
+        {
+          "path": "build-profile.json5",
+          "version": "before",
+          "lineStart": 8,
+          "lineEnd": 8
+        },
+        {
+          "path": "build-profile.json5",
+          "version": "after",
+          "lineStart": 8,
+          "lineEnd": 8
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "description": "Index.ets 根容器 Navigation 等价替换为 HdsNavigation（保留 pathInfos/hideNavBar/hideTitleBar/mode/navDestination/尺寸属性），新增 titleBar 配置：style.scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR} + systemMaterialEffect{ADAPTIVE,ADAPTIVE}",
+      "status": "applied",
+      "basis": [
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F028",
+          "reason": "标题栏材质入口"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F030",
+          "reason": "显式材质参数"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F031",
+          "reason": "MaterialType.ADAPTIVE"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F032",
+          "reason": "MaterialLevel.ADAPTIVE"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F033",
+          "reason": "系统自适应推荐"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F035",
+          "reason": "设备差异由系统自适应承担"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F037",
+          "reason": "TitleBarStyleOptions.systemMaterialEffect 从 6.1.0(23) 起可用"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F038",
+          "reason": "GRADIENT_BLUR 与 systemMaterialEffect 搭配的背景默认值行为"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F039",
+          "reason": "enableScrollEffect 显式 false"
+        }
+      ],
+      "locations": [
+        {
+          "path": "entry/src/main/ets/pages/Index.ets",
+          "version": "before",
+          "lineStart": 39,
+          "lineEnd": 152
+        },
+        {
+          "path": "entry/src/main/ets/pages/Index.ets",
+          "version": "after",
+          "lineStart": 39,
+          "lineEnd": 165
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "description": "BookHomePage.ets 将 Tabs 替换为 HdsTabs（tabsController 改为 HdsTabsController，继承 TabsController 保持 changeIndex 兼容），手机模式新增 barOverlap(true) 与 barFloatingStyle{systemMaterialEffect{ADAPTIVE,ADAPTIVE}}，平板模式保持侧边页签不设悬浮样式；不引入官网示例资源",
+      "status": "applied",
+      "basis": [
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F029",
+          "reason": "底部悬浮页签材质入口"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F030",
+          "reason": "显式材质参数"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F031",
+          "reason": "MaterialType.ADAPTIVE"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F032",
+          "reason": "MaterialLevel.ADAPTIVE"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F033",
+          "reason": "系统自适应推荐"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F035",
+          "reason": "目标设备 Phone/Tablet 直接可用"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F036",
+          "reason": "不复制示例资源"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F040",
+          "reason": "悬浮布局条件 barOverlap/vertical/barPosition/barFloatingStyle"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F041",
+          "reason": "systemMaterialEffect 显式配置"
+        }
+      ],
+      "locations": [
+        {
+          "path": "entry/src/main/ets/pages/BookHomePage.ets",
+          "version": "before",
+          "lineStart": 15,
+          "lineEnd": 86
+        },
+        {
+          "path": "entry/src/main/ets/pages/BookHomePage.ets",
+          "version": "after",
+          "lineStart": 15,
+          "lineEnd": 94
+        }
+      ]
+    }
+  ]
+}

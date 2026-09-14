@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S014",
+  "visual": {
+    "status": "passed",
+    "basis": "用户查看设备截图（游戏页）确认标题栏/分类 Chips 呈现沉浸光感通透材质效果；组件树证实游戏页结构完整（标题栏 Text(游戏)+AI 搜索按钮、内容区 ChipGroup 分类、内容 List、底部 Tabs）。",
+    "evidence": [
+      { "type": "screenshot", "path": "D:\\HW\\testproject\\complete\\6\\ohos-feature-engineering\\evidence\\images\\69bd20e5e883a5650645be96df45924fd1018d7e9616b7e486de2d50075f2bbd.png" },
+      { "type": "component_tree", "path": "D:\\HW\\testproject\\complete\\6\\ohos-feature-engineering\\evidence\\c795d660-dccd-4001-94a3-d6902c5b5257\\device-layout.json" }
+    ]
+  },
+  "matchedCriteriaRefs": ["IL-S014-C02", "IL-S014-C07"],
+  "runtime": {
+    "status": "passed",
+    "summary": "导航编排通过（tap 游戏页签成功、expectPage=游戏 命中）；组件树证实游戏页标题栏（Text(游戏)+Button）、内容区 ClassifyComponent（ChipGroup 策略/动作/竞技…）与 List 就位，ClassifyComponent 独立组件在探索页与游戏页两处复用，与判据 IL-S014-C02/C07/C08 的结构预期一致。"
+  }
+}

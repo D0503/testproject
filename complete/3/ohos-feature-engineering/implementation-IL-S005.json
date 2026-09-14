@@ -1,0 +1,310 @@
+{
+  "developmentMode": "demo",
+  "requirements": [
+    {
+      "criteriaId": "C01",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "Button 组件级显式设置 systemMaterial（ULTRA_THIN），不设置 buttonStyle、backgroundColor 与材质颜色，使其默认生效 Button 主题色的材质样式。",
+      "sources": [{ "snapshotId": "component", "lineStart": 115, "lineEnd": 129, "sha256": "1744a35c9491e3fe09cd45989728d0d3cdf0fdb32999e580dbd5139c167b52c2" }],
+      "review": { "status": "passed", "basis": "Index.ets:162-166 Button('主题色') 仅链式 systemMaterial(this.buttonThemeMaterial)，无 buttonStyle/backgroundColor/materialColor；材质对象 L25-29 为 {style: ULTRA_THIN, interactive, lightEffect}，符合未设颜色属性时默认主题色材质样式的契约。" }
+    },
+    {
+      "criteriaId": "C02",
+      "strength": "recommendation",
+      "disposition": "implement",
+      "approach": "Button 的 fontColor 使用系统预定义可反色颜色资源 $r('sys.color.font_primary')，THIN/ULTRA_THIN 样式下可随材质自动反色。",
+      "sources": [{ "snapshotId": "component", "lineStart": 115, "lineEnd": 129, "sha256": "1744a35c9491e3fe09cd45989728d0d3cdf0fdb32999e580dbd5139c167b52c2" }],
+      "review": { "status": "passed", "basis": "Index.ets:163/169/173 三个 Button 均使用 $r('sys.color.font_primary') 或 $r('sys.color.font_secondary') 系统资源（非硬编码），材质样式为 ULTRA_THIN/THIN，满足自动反色的资源条件。" }
+    },
+    {
+      "criteriaId": "C03",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "应用级 ENABLE 下 Button 不默认开启，demo 中通过组件级 systemMaterial 显式开启。",
+      "sources": [{ "snapshotId": "component", "lineStart": 115, "lineEnd": 129, "sha256": "1744a35c9491e3fe09cd45989728d0d3cdf0fdb32999e580dbd5139c167b52c2" }],
+      "review": { "status": "passed", "basis": "Index.ets:162-174 每个 Button 实例都显式链式 systemMaterial(...)，不依赖应用级默认开启；module.json5 虽配置 ENABLE，但 Button 不会被默认开启，显式设置覆盖需求。" }
+    },
+    {
+      "criteriaId": "C04",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "Select 同时设置 systemMaterial（下拉按钮，ULTRA_THIN + interactive + lightEffect）与 menuSystemMaterial（下拉菜单，THICK）两个独立入口。",
+      "sources": [{ "snapshotId": "component", "lineStart": 131, "lineEnd": 143, "sha256": "aa5d7d5929b567b2ccf15854b7db2b45e1f4a656bef413055dfc77e5ec9b540a" }],
+      "review": { "status": "passed", "basis": "Index.ets:181-191 第一个 Select 同时设置 .systemMaterial(this.selectButtonMaterial)（L37-41：ULTRA_THIN+interactive+lightEffect）与 .menuSystemMaterial(this.selectMenuMaterial)（L43-45：THICK），双入口均落地。" }
+    },
+    {
+      "criteriaId": "C05",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "Select 第二个实例单独关闭下拉菜单沉浸光感：menuSystemMaterial(uiMaterial.Material.empty)，演示按钮与菜单相互独立、用 empty 关闭而非 undefined。",
+      "sources": [{ "snapshotId": "component", "lineStart": 131, "lineEnd": 143, "sha256": "aa5d7d5929b567b2ccf15854b7db2b45e1f4a656bef413055dfc77e5ec9b540a" }],
+      "review": { "status": "passed", "basis": "Index.ets:193-204 第二个 Select 按钮仍为 systemMaterial(this.selectButtonMaterial)，菜单为 .menuSystemMaterial(uiMaterial.Material.empty)（L201），按钮与菜单独立、单独关闭用 empty 而非 undefined，符合契约。" }
+    },
+    {
+      "criteriaId": "C06",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "组件级设置与官网默认一致：下拉按钮 ULTRA_THIN 并开启 interactive 与 lightEffect，下拉菜单 THICK；页面文案标注默认取值。",
+      "sources": [{ "snapshotId": "component", "lineStart": 131, "lineEnd": 143, "sha256": "aa5d7d5929b567b2ccf15854b7db2b45e1f4a656bef413055dfc77e5ec9b540a" }],
+      "review": { "status": "passed", "basis": "Index.ets:37-45 selectButtonMaterial 为 {ULTRA_THIN, interactive:true, lightEffect:{}}，selectMenuMaterial 为 {THICK}，与官网应用级 ENABLE 默认取值一致（按钮 ULTRA_THIN+交互+光感，菜单 THICK）。" }
+    },
+    {
+      "criteriaId": "C07",
+      "strength": "required",
+      "disposition": "not_applicable",
+      "approach": "不实现：Checkbox 形态不设置任何沉浸光感入口，demo 仅使用 ToggleType.Switch 与 ToggleType.Button 形态。",
+      "reason": "官网明确 Toggle 的 Checkbox 形态当前未适配沉浸光感，设置后无效果。demo 不演示 Checkbox 形态、不为其设置任何材质，保留普通样式（同文件静态规则禁止 ToggleType.Checkbox 与 systemMaterial 同时出现）。",
+      "sources": [{ "snapshotId": "component", "lineStart": 145, "lineEnd": 161, "sha256": "b7f792693a8b6089cd82daede941daffc4609b20951f578d34ca6b6c2c391a56" }],
+      "review": { "status": "passed", "basis": "Index.ets 全文（1-304 行）不含 ToggleType.Checkbox，Toggle 区（L207-241）仅出现 ToggleType.Switch 与 ToggleType.Button，未给任何 Checkbox 形态设置材质，符合不适配约束。" }
+    },
+    {
+      "criteriaId": "C08",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "Button 开启 lightEffect 光感交互反馈，按压/悬浮反馈由材质光感替代（组件不设置额外按压态样式）。",
+      "sources": [{ "snapshotId": "component", "lineStart": 115, "lineEnd": 129, "sha256": "1744a35c9491e3fe09cd45989728d0d3cdf0fdb32999e580dbd5139c167b52c2" }],
+      "review": { "status": "passed", "basis": "Index.ets:25-29 buttonThemeMaterial 与 L31-35 buttonCustomLightMaterial 均含 lightEffect: {} 或 {color}，且未设置任何按压/悬浮态样式，光感交互反馈启用后默认反馈由材质替代。" }
+    },
+    {
+      "criteriaId": "C09",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "Button 材质对象设置 interactive: true，按压产生弹性形变、松手恢复。",
+      "sources": [{ "snapshotId": "common", "lineStart": 134, "lineEnd": 142, "sha256": "1165e4345ff9759968a379da9eee0c473eea8e31b382abb5321db8288eeb1fef" }],
+      "review": { "status": "passed", "basis": "Index.ets:27/33/53 材质对象均设置 interactive: true（buttonThemeMaterial/buttonCustomLightMaterial/sliderMaterial），按压弹性形变能力开启。" }
+    },
+    {
+      "criteriaId": "C10",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "Button 材质对象设置 lightEffect: {}（默认白色流光）；另设一个 lightEffect: { color: '#80FFD6AA' } 的按钮演示自定义流光颜色。",
+      "sources": [{ "snapshotId": "common", "lineStart": 134, "lineEnd": 142, "sha256": "1165e4345ff9759968a379da9eee0c473eea8e31b382abb5321db8288eeb1fef" }],
+      "review": { "status": "passed", "basis": "Index.ets:28 lightEffect: {} 默认白色流光；L34 lightEffect: { color: '#80FFD6AA' } 自定义流光颜色，两个实例分别绑定 Button('主题色') 与 Button('自定义流光')。" }
+    },
+    {
+      "criteriaId": "C11",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "Toggle 使用 ToggleType.Switch 形态并设置 systemMaterial，页面标注材质参数仅作开关标记、不影响实际视觉参数。",
+      "sources": [{ "snapshotId": "component", "lineStart": 145, "lineEnd": 161, "sha256": "b7f792693a8b6089cd82daede941daffc4609b20951f578d34ca6b6c2c391a56" }],
+      "review": { "status": "passed", "basis": "Index.ets:210-215 Toggle({ type: ToggleType.Switch }) 链式 .systemMaterial(this.switchMaterial)（L47-49：THIN），区块副标题（L208）标注参数仅作开关标记。" }
+    },
+    {
+      "criteriaId": "C12",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "Slider 设置 systemMaterial（非 undefined）开启沉浸光感。",
+      "sources": [{ "snapshotId": "component", "lineStart": 163, "lineEnd": 175, "sha256": "febdd458fb3e4a6f2ce6bc9b0c3f00044a69406b1bdc8a4daea413541b18a694" }],
+      "review": { "status": "passed", "basis": "Index.ets:244-257 Slider 链式 .systemMaterial(this.sliderMaterial)（L51-55 有效材质对象，非 undefined），沉浸光感开启。" }
+    },
+    {
+      "criteriaId": "C13",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "Slider 的 blockStyle 显式设置 type: SliderBlockType.DEFAULT，style 设置 SliderStyle.OutSet（不为 NONE），满足交互反馈生效条件。",
+      "sources": [{ "snapshotId": "component", "lineStart": 163, "lineEnd": 175, "sha256": "febdd458fb3e4a6f2ce6bc9b0c3f00044a69406b1bdc8a4daea413541b18a694" }],
+      "review": { "status": "passed", "basis": "Index.ets:249 构造参数 style: SliderStyle.OutSet（非 NONE）；L252 .blockStyle({ type: SliderBlockType.DEFAULT })，交互反馈生效条件（DEFAULT 滑块 + 非 NONE 样式）满足。" }
+    },
+    {
+      "criteriaId": "C14",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "module.json5（entry 模块）配置应用级开关 ohos.arkui.UIMaterial.state = enable；Slider/Toggle/Select 等按钮与选择类组件放置在页面内容区任意位置即可生效。",
+      "sources": [{ "snapshotId": "constraints", "lineStart": 11, "lineEnd": 15, "sha256": "201eedb21496108f0c9b4e15dc2a07e2756674e50aabcf76c37d594ce38e6127" }],
+      "review": { "status": "passed", "basis": "entry/src/main/module.json5:12-17 增加metadata {name: ohos.arkui.UIMaterial.state, value: enable}；Slider/Toggle/Select 位于页面内容区（非标题栏/TabBar），依据契约在页面内全部区域生效。" }
+    },
+    {
+      "criteriaId": "C15",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "ChipGroup 设置 backgroundSystemMaterial（普通）、selectedBackgroundSystemMaterial（选中）两个材质入口；suffix 使用 IconGroupSuffix 设置 iconBackgroundSystemMaterial（图标）入口，三种入口齐全。",
+      "sources": [{ "snapshotId": "component", "lineStart": 177, "lineEnd": 187, "sha256": "3d4f6fe993c2cadf455fe4764927c6e3c10bef80fb46be1ecb649c7a9f140685" }],
+      "review": { "status": "passed", "basis": "Index.ets:267-274 ChipGroup 参数含 backgroundSystemMaterial: this.chipNormalMaterial（L57-59）与 selectedBackgroundSystemMaterial: this.chipSelectedMaterial（L61-63）；L118-127 ChipGroupSuffix builder 中 IconGroupSuffix 设置 iconBackgroundSystemMaterial: this.chipIconMaterial（L65-67），普通/选中/图标三入口齐全。" }
+    },
+    {
+      "criteriaId": "C16",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "SegmentButton 通过 SegmentButtonOptions.capsule({ multiply: false, backgroundSystemMaterial }) 创建单选胶囊分段按钮；SegmentButtonV2 通过 CapsuleSegmentButtonV2 组件 options 中的 backgroundSystemMaterial 设置。",
+      "sources": [{ "snapshotId": "component", "lineStart": 189, "lineEnd": 203, "sha256": "03cde46ca581d9dbffebd987ec007372e8f5f952eab62a0626809ec4be1142f1" }],
+      "review": { "status": "passed", "basis": "Index.ets:76-88 SegmentButtonOptions.capsule({ multiply: false, backgroundSystemMaterial: ImmersiveMaterial(THIN) })；L284-288 CapsuleSegmentButtonV2({ items, selectedIndex, backgroundSystemMaterial: this.segV2Material })，两条接入路径均落地。" }
+    },
+    {
+      "criteriaId": "C17",
+      "strength": "required",
+      "disposition": "not_applicable",
+      "approach": "不实现：demo 的胶囊分段按钮均为单选（multiply 为 false），不出现 capsule + multiply=true 组合。",
+      "reason": "官网明确胶囊类多选分段按钮（type 为 capsule 且 multiply 为 true）不支持 backgroundSystemMaterial，设置后不生效。demo 的胶囊分段按钮均为单选（multiply 为 false），不触发该不支持组合。",
+      "sources": [{ "snapshotId": "component", "lineStart": 189, "lineEnd": 203, "sha256": "03cde46ca581d9dbffebd987ec007372e8f5f952eab62a0626809ec4be1142f1" }],
+      "review": { "status": "passed", "basis": "Index.ets:79 multiply: false（唯一 SegmentButton 实例）；L284 CapsuleSegmentButtonV2 为单选组件（selectedIndex 单值），全文无 multiply: true 胶囊组合，避开不支持场景。" }
+    },
+    {
+      "criteriaId": "C18",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "SegmentButtonV2 的 CapsuleSegmentButtonV2 设置 backgroundSystemMaterial 后，选中项背景支持跟随手指拖拽（页面文案标注该能力）。",
+      "sources": [{ "snapshotId": "component", "lineStart": 189, "lineEnd": 203, "sha256": "03cde46ca581d9dbffebd987ec007372e8f5f952eab62a0626809ec4be1142f1" }],
+      "review": { "status": "passed", "basis": "Index.ets:284-288 CapsuleSegmentButtonV2 设置 backgroundSystemMaterial（L97-99 THIN 材质），开启后选中项背景跟随手指拖拽的能力启用；区块副标题（L280）标注该行为。" }
+    },
+    {
+      "criteriaId": "C19",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "通过 uiMaterial.Material.empty 演示组件级关闭：Select 下拉菜单 menuSystemMaterial(uiMaterial.Material.empty) 与 Toggle 单独关闭 systemMaterial(uiMaterial.Material.empty)，与 undefined（恢复默认）语义区分。",
+      "sources": [{ "snapshotId": "ui-material-api", "lineStart": 79, "lineEnd": 85, "sha256": "68ac2c4f56786250033551459c964c6165dca074d284ca9014c5f859100dfe86" }],
+      "review": { "status": "passed", "basis": "Index.ets:201 菜单 empty 关闭、L222 Toggle .systemMaterial(uiMaterial.Material.empty) 单独关闭；全文未以 undefined 方式关闭组件材质，empty/undefined 语义区分正确。" }
+    },
+    {
+      "criteriaId": "C20",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "页面顶部展示 uiMaterial.isImmersiveMaterialSupported() 与 uiMaterial.getGlobalMaterialLevel() 查询结果；不支持沉浸式材质的设备上材质设置无效果（自然降级，不做额外分支）。",
+      "sources": [{ "snapshotId": "ui-material-api", "lineStart": 389, "lineEnd": 393, "sha256": "4d827ba0900197f4565f9ea35576159117bee13ff6a3f91f4182dda6cfc661aa" }],
+      "review": { "status": "passed", "basis": "Index.ets:22-23 组件字段调用 isImmersiveMaterialSupported() 与 getGlobalMaterialLevel()；L152 状态行渲染查询结果；代码未做设备分支，不支持设备上材质设置自然无效果。" }
+    }
+  ],
+  "samples": [
+    {
+      "usage": "adopted",
+      "scope": "ui-material-api 示例2（获取材质配置信息并使用空材质关闭沉浸式系统材质）——Toggle 默认开启沉浸式系统材质、通过 systemMaterial(uiMaterial.Material.empty) 单独关闭，及 module.json5 配置应用级开关的完整示例。",
+      "source": { "snapshotId": "ui-material-api", "lineStart": 964, "lineEnd": 1007, "sha256": "9f08364ce694421b3a311c0c0e476096c6c734d8851e46769c2bdbd49398733e" },
+      "keyPoints": [
+        {
+          "description": "module.json5 在 entry 模块 metadata 配置 ohos.arkui.UIMaterial.state = enable。",
+          "adaptation": "原样保留（写入 demo 的 entry/src/main/module.json5）。",
+          "review": { "status": "passed", "basis": "module.json5:12-17 metadata 配置与示例字段一致（name=ohos.arkui.UIMaterial.state, value=enable），entry 类型模块生效。" }
+        },
+        {
+          "description": "ENABLE 状态下 Toggle(ToggleType.Switch) 默认开启沉浸式系统材质；第二个 Toggle 通过 .systemMaterial(uiMaterial.Material.empty) 单独关闭。",
+          "adaptation": "原样保留组件形态与属性链，适配到 demo 的 Toggle 演示区，并补充说明文案。",
+          "review": { "status": "passed", "basis": "Index.ets:210-215 默认开启的 Switch（组件级 systemMaterial 显式标记）、L220-226 .systemMaterial(uiMaterial.Material.empty) 单独关闭实例，与示例组件形态（ToggleType.Switch, width/height 调整为 demo 布局）和调用方式一致。" }
+        }
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": "S01",
+      "description": "build-profile.json5 将目标 product 的 targetSdkVersion 与 compatibleSdkVersion 设置为 26.0.0（沉浸光感接口起始版本 26.0.0，工程约束使用 \"26.0.0\" 字符串格式）。",
+      "status": "applied",
+      "locations": [
+        { "path": "build-profile.json5", "version": "before", "lineStart": 8, "lineEnd": 9 },
+        { "path": "build-profile.json5", "version": "after", "lineStart": 8, "lineEnd": 9 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "C20", "reason": "沉浸光感 API（systemMaterial/menuSystemMaterial/ImmersiveMaterial）起始版本为 26.0.0，工程需以 API 26 为目标。" }
+      ],
+      "engineering_choice": {
+        "reason": "使用 \"26.0.0\" 而非其他格式作为 targetSdkVersion 字符串。",
+        "constraint": "工程配置约束：API 26 目标必须写 \"26.0.0\"，不得生成 \"6.1.0(26)\"。"
+      }
+    },
+    {
+      "id": "S02",
+      "description": "entry/src/main/module.json5 增加应用级开关 metadata：ohos.arkui.UIMaterial.state = enable。",
+      "status": "applied",
+      "locations": [{ "path": "entry/src/main/module.json5", "version": "after", "lineStart": 12, "lineEnd": 17 }],
+      "basis": [
+        { "type": "criteria", "criteriaId": "C14", "reason": "沉浸光感开启后按钮与选择类组件（Slider、Toggle、Select）可在页面内全部区域生效；应用级 enable 是开启方式之一。" }
+      ]
+    },
+    {
+      "id": "S03",
+      "description": "重写 Index.ets 页面骨架：渐变背景 + Scroll 滚动内容 + 设备材质状态行（isImmersiveMaterialSupported / getGlobalMaterialLevel）。",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "before", "lineStart": 1, "lineEnd": 23 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 1, "lineEnd": 157 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 293, "lineEnd": 304 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "C20", "reason": "页面展示设备是否支持沉浸式材质与材质等级查询结果。" }
+      ]
+    },
+    {
+      "id": "S04",
+      "description": "Button 演示区：主题色材质按钮（ULTRA_THIN，不设颜色属性）、带交互形变+默认流光按钮、自定义流光颜色按钮、禁用态按钮。",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 25, "lineEnd": 35 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 158, "lineEnd": 175 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "C01", "reason": "组件级 systemMaterial 开启，不设 buttonStyle/backgroundColor/材质颜色，默认 Button 主题色材质。" },
+        { "type": "criteria", "criteriaId": "C02", "reason": "fontColor 使用 $r('sys.color.font_primary') 可反色系统资源。" },
+        { "type": "criteria", "criteriaId": "C03", "reason": "Button 不依赖应用级默认开启，逐个显式设置 systemMaterial。" },
+        { "type": "criteria", "criteriaId": "C08", "reason": "开启 lightEffect 后由光感交互反馈替代默认按压/悬浮态。" },
+        { "type": "criteria", "criteriaId": "C09", "reason": "interactive: true 开启按压弹性形变。" },
+        { "type": "criteria", "criteriaId": "C10", "reason": "lightEffect: {} 默认白色流光与 lightEffect: { color } 自定义流光各一个实例。" }
+      ]
+    },
+    {
+      "id": "S05",
+      "description": "Select 演示区：实例一 systemMaterial(ULTRA_THIN+interactive+lightEffect) + menuSystemMaterial(THICK)；实例二菜单单独关闭 menuSystemMaterial(uiMaterial.Material.empty)。",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 37, "lineEnd": 45 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 176, "lineEnd": 205 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "C04", "reason": "下拉按钮 systemMaterial 与下拉菜单 menuSystemMaterial 双入口同时设置。" },
+        { "type": "criteria", "criteriaId": "C05", "reason": "第二实例用 Material.empty 单独关闭菜单材质，演示两入口相互独立。" },
+        { "type": "criteria", "criteriaId": "C06", "reason": "组件级取值与官网默认一致：按钮 ULTRA_THIN + interactive + lightEffect，菜单 THICK。" },
+        { "type": "criteria", "criteriaId": "C19", "reason": "empty 关闭语义在此落地。" }
+      ]
+    },
+    {
+      "id": "S06",
+      "description": "Toggle 演示区：默认开启的 Switch、单独关闭（empty）的 Switch、ToggleType.Button 形态开关。",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 47, "lineEnd": 49 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 206, "lineEnd": 241 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "C11", "reason": "Switch 形态设置 systemMaterial，参数仅作开关标记。" },
+        { "type": "criteria", "criteriaId": "C19", "reason": "对照实例 .systemMaterial(uiMaterial.Material.empty) 演示组件级关闭。" }
+      ]
+    },
+    {
+      "id": "S07",
+      "description": "Slider 演示区：blockStyle type 为 SliderBlockType.DEFAULT、style 为 SliderStyle.OutSet，设置 systemMaterial。",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 51, "lineEnd": 55 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 242, "lineEnd": 264 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "C12", "reason": "systemMaterial 传有效材质对象开启沉浸光感。" },
+        { "type": "criteria", "criteriaId": "C13", "reason": "显式 DEFAULT 滑块形状 + 非 NONE 样式，满足交互反馈生效条件。" }
+      ]
+    },
+    {
+      "id": "S08",
+      "description": "ChipGroup 演示区：backgroundSystemMaterial、selectedBackgroundSystemMaterial 与 IconGroupSuffix 的 iconBackgroundSystemMaterial 三入口。",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 57, "lineEnd": 74 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 116, "lineEnd": 127 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 265, "lineEnd": 277 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "C15", "reason": "普通/选中/图标三种材质入口齐全。" }
+      ]
+    },
+    {
+      "id": "S09",
+      "description": "SegmentButton 演示区：SegmentButtonOptions.capsule 单选 + backgroundSystemMaterial；CapsuleSegmentButtonV2 + backgroundSystemMaterial（拖拽跟随）。",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 76, "lineEnd": 101 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 278, "lineEnd": 292 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "C16", "reason": "SegmentButton 与 SegmentButtonV2 各自通过 options 的 backgroundSystemMaterial 接入。" },
+        { "type": "criteria", "criteriaId": "C18", "reason": "SegmentButtonV2 开启后支持选中项背景跟随手指拖拽。" }
+      ]
+    }
+  ]
+}

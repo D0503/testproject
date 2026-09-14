@@ -1,0 +1,3 @@
+$ devecocli ui dircfling --device 127.0.0.1:5555 up
+- Executing dircfling...
+[32m✔[39m dircfling up

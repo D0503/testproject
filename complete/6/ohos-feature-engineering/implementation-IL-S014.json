@@ -1,0 +1,231 @@
+{
+  "developmentMode": "demo",
+  "requirements": [
+    {
+      "criteriaId": "IL-S014-C01",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "游戏页 onDidScroll 中按测得的阈值切换 showTitle，当内容区标题滑动到标题栏区域时将内容嵌入 NavDestination 标题栏显示。",
+      "sources": [{ "snapshotId": "typical-scenes", "lineStart": 179, "lineEnd": 179, "sha256": "9092b73deca54918ceaff7ea6fc40a2f2b84117955c396732e43214a6d283ac8" }],
+      "review": { "status": "passed", "basis": "entry/src/main/ets/pages/GamePage.ets:79-93 onDidScroll 中 totalOffset 累计、curOffset = contentOffset - totalOffset 与 titleEnd 比较切换 showTitle 并 return，与示例逻辑一致；94-99 行 onShown 测量阈值" },
+      "samples": [{
+        "usage": "adopted",
+        "scope": "GamePage 完整示例：滚动切换与标题迁入",
+        "source": { "snapshotId": "typical-scenes", "lineStart": 224, "lineEnd": 331, "sha256": "e9fe2f4e59e46b9bc56d831ad4c2bbe60b65b2bfa1ea717b9a94ff6d68abf4ac" },
+        "keyPoints": [
+          { "description": "onDidScroll 中 totalOffset 累计、curOffset 与 titleEnd 比较切换 showTitle", "adaptation": "原样保留阈值切换逻辑；组件名适配为 GamePage 并导出路由构建函数；ForEach key 由 item.id 调整为 item.id.toString() 以满足 SDK keyGenerator 返回 string 的类型检查，语义不变", "review": { "status": "passed", "basis": "GamePage.ets:79-93 与示例 onDidScroll 一致；109-114 行导出 GamePageBuilder；68 行 key 为 item.id.toString()" } }
+        ]
+      }]
+    },
+    {
+      "criteriaId": "IL-S014-C02",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "提取内容区中小标题为独立组件 ClassifyComponent，标题栏与内容区复用同一组件。",
+      "sources": [{ "snapshotId": "typical-scenes", "lineStart": 182, "lineEnd": 182, "sha256": "54aad2e4b4c7cf39504351fd33530ac80d5bb99141e7cf98e7a8bf97289dc8ca" }],
+      "review": { "status": "passed", "basis": "entry/src/main/ets/components/ClassifyComponent.ets:4-5 以 @ComponentV2 export struct 导出为独立组件；GamePage.ets:21（标题栏）与 56（内容区）复用同一组件" },
+      "samples": [{
+        "usage": "adopted",
+        "scope": "ClassifyComponent 完整示例",
+        "source": { "snapshotId": "typical-scenes", "lineStart": 184, "lineEnd": 219, "sha256": "35e1c2b00eef6efc66f4dd0d177bceee18522ce89c2cc5e00ec0b1e5bef14890" },
+        "keyPoints": [
+          { "description": "export struct ClassifyComponent 以 @ComponentV2 导出供标题栏与内容区复用", "adaptation": "原样保留导出结构，置于 components/ClassifyComponent.ets", "review": { "status": "passed", "basis": "ClassifyComponent.ets:4-5 结构与示例一致，导出供两处复用" } }
+        ]
+      }]
+    },
+    {
+      "criteriaId": "IL-S014-C03",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "gameTitleBar builder 内 showTitle 为 true 时渲染 ClassifyComponent，实现内容区标题切换到标题栏中显示。",
+      "sources": [{ "snapshotId": "typical-scenes", "lineStart": 222, "lineEnd": 222, "sha256": "bed4900d166c19eb3c4cce512366950348ede6d9b53c9d6adb97a0052e0d5245" }],
+      "review": { "status": "passed", "basis": "entry/src/main/ets/pages/GamePage.ets:20-30 gameTitleBar 内 if (this.showTitle) 渲染 ClassifyComponent()，否则渲染 Text('游戏') 与 Blank，结构与示例一致" },
+      "samples": [{
+        "usage": "adopted",
+        "scope": "GamePage gameTitleBar builder",
+        "source": { "snapshotId": "typical-scenes", "lineStart": 224, "lineEnd": 331, "sha256": "e9fe2f4e59e46b9bc56d831ad4c2bbe60b65b2bfa1ea717b9a94ff6d68abf4ac" },
+        "keyPoints": [
+          { "description": "gameTitleBar 内 if (this.showTitle) 渲染 ClassifyComponent，否则渲染 Text('游戏') 与 Blank", "adaptation": "原样保留条件渲染结构", "review": { "status": "passed", "basis": "GamePage.ets:20-30 与示例一致，28 行 Text 保留 .id('text') 供测量" } }
+        ]
+      }]
+    },
+    {
+      "criteriaId": "IL-S014-C04",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "NavDestination onShown 中通过 getComponentUtils().getRectangleById('text') 与 ('content') 测量标题及内容区标题位置并 px2vp 换算阈值。",
+      "sources": [{ "snapshotId": "typical-scenes", "lineStart": 316, "lineEnd": 316, "sha256": "0e6036a9cb0661145976e25668cd2d07478ce5a78fb9aa2e7cb0f931a44f2311" }],
+      "review": { "status": "passed", "basis": "entry/src/main/ets/pages/GamePage.ets:94-99 onShown 中 getComponentUtils().getRectangleById('text') 取 windowOffset.y 与 size.height，getRectangleById('content') 取 windowOffset.y，均经 getUIContext().px2vp 换算" },
+      "samples": [{
+        "usage": "adopted",
+        "scope": "GamePage onShown 测量逻辑",
+        "source": { "snapshotId": "typical-scenes", "lineStart": 224, "lineEnd": 331, "sha256": "e9fe2f4e59e46b9bc56d831ad4c2bbe60b65b2bfa1ea717b9a94ff6d68abf4ac" },
+        "keyPoints": [
+          { "description": "onShown 中 getComponentUtils().getRectangleById('text')/('content') 取 windowOffset 与 size.height 并 px2vp 换算 titleStart/titleEnd/contentOffset", "adaptation": "原样保留测量与换算逻辑", "review": { "status": "passed", "basis": "GamePage.ets:94-99 与示例逐行对应" } }
+        ]
+      }]
+    },
+    {
+      "criteriaId": "IL-S014-C05",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "内容区 ClassifyComponent 以 visibility(this.showTitle ? Visibility.Hidden : Visibility.Visible) 避免迁入期间重复显示，回滑恢复。",
+      "sources": [{ "snapshotId": "typical-scenes", "lineStart": 277, "lineEnd": 277, "sha256": "0b90229646fc089ce62ed3a2bc628299635cb5d9b928cbeb6a99806f7682ee43" }],
+      "review": { "status": "passed", "basis": "entry/src/main/ets/pages/GamePage.ets:56 ClassifyComponent().id('content').visibility(this.showTitle ? Visibility.Hidden : Visibility.Visible)，showTitle 切换时避免重复显示并保留占位" },
+      "samples": [{
+        "usage": "adopted",
+        "scope": "GamePage 内容区标题可见性切换",
+        "source": { "snapshotId": "typical-scenes", "lineStart": 224, "lineEnd": 331, "sha256": "e9fe2f4e59e46b9bc56d831ad4c2bbe60b65b2bfa1ea717b9a94ff6d68abf4ac" },
+        "keyPoints": [
+          { "description": "内容区 ClassifyComponent().id('content').visibility(this.showTitle ? Visibility.Hidden : Visibility.Visible)", "adaptation": "原样保留", "review": { "status": "passed", "basis": "GamePage.ets:56 与示例一致，id('content') 供 onShown 测量" } }
+        ]
+      }]
+    },
+    {
+      "criteriaId": "IL-S014-C06",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "ClassifyComponent 内 selectedIndexes 状态经 onChange 更新，迁入标题栏后复用同一组件保留选择状态。",
+      "sources": [{ "snapshotId": "typical-scenes", "lineStart": 214, "lineEnd": 214, "sha256": "06a361db109f5a1a59b30568e4427f6d8922c23d2770e49f0e68658c0191f4c0" }],
+      "review": { "status": "passed", "basis": "entry/src/main/ets/components/ClassifyComponent.ets:5 @Local selectedIndexes、33-36 行 selectedIndexes 绑定与 onChange 回写 this.selectedIndexes = activeIndexes，迁入标题栏复用同一组件实例化结构" },
+      "samples": [{
+        "usage": "adopted",
+        "scope": "ClassifyComponent 选择状态维护",
+        "source": { "snapshotId": "typical-scenes", "lineStart": 184, "lineEnd": 219, "sha256": "35e1c2b00eef6efc66f4dd0d177bceee18522ce89c2cc5e00ec0b1e5bef14890" },
+        "keyPoints": [
+          { "description": "@Local selectedIndexes 经 onChange: (activeIndexes) => this.selectedIndexes = activeIndexes 维护", "adaptation": "原样保留", "review": { "status": "passed", "basis": "ClassifyComponent.ets:5/33-36 与示例一致" } }
+        ]
+      }]
+    },
+    {
+      "criteriaId": "IL-S014-C07",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "按钮选择类组件 ChipGroup、Button 分别以组件级入口设置材质；其余组件不在标题栏外设置沉浸光感。",
+      "sources": [{ "snapshotId": "constraints", "lineStart": 13, "lineEnd": 13, "sha256": "2e72b72d7214956e79a13bc19c729e2c87f7676c872fc1c5ef610d1b3244d776" }],
+      "review": { "status": "passed", "basis": "GamePage.ets 中 Button（31-38 行，标题栏内）与 ClassifyComponent 的 ChipGroup（按钮选择类组件）分别以组件级入口设置材质；Image/List 等其余组件未设置沉浸光感" }
+    },
+    {
+      "criteriaId": "IL-S014-C08",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "标题栏 Row 容器不设置 systemMaterial，Button 与 ChipGroup 分别以组件级入口设置，避免同一子树材质嵌套。",
+      "sources": [{ "snapshotId": "constraints", "lineStart": 60, "lineEnd": 60, "sha256": "56c8194ba8f769340a9f9dfabc0174247711dbdb6f80c2e1a3dba308321dbba1" }],
+      "review": { "status": "passed", "basis": "GamePage.ets:19-43 标题栏 Row 未设置 systemMaterial；材质仅 35-38 行 Button 与 ClassifyComponent.ets:29 ChipGroup 各设置一次，无同一子树父子嵌套" }
+    },
+    {
+      "criteriaId": "IL-S014-C09",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "根目录 build-profile.json5 目标 product 设置 targetSdkVersion 为 26.0.0；demo 无低版本兼容要求，compatibleSdkVersion 同为 26.0.0。",
+      "sources": [{ "snapshotId": "enable", "lineStart": 5, "lineEnd": 5, "sha256": "bb77936c5abd341381d20e9e89d8fa3bc80e3bcc45fac07f5dc581c7012a808e" }],
+      "review": { "status": "passed", "basis": "build-profile.json5:8-9 default product 的 targetSdkVersion 与 compatibleSdkVersion 均为 26.0.0" }
+    },
+    {
+      "criteriaId": "IL-S014-C10",
+      "strength": "example",
+      "disposition": "implement",
+      "approach": "NavDestination 标题栏 options 设置 barStyle STACK 与 scrollEffectOptions 的 GRADUAL_BLUR 标题栏模糊。",
+      "sources": [{ "snapshotId": "typical-scenes", "lineStart": 168, "lineEnd": 168, "sha256": "649e0cd368c620ae9c82e2ecab0205a7c77e3c2272cd2d1bde78b4cd65d84726" }],
+      "review": { "status": "passed", "basis": "entry/src/main/ets/pages/GamePage.ets:102-106 .title({ builder: this.gameTitleBar, height: this.titleHeight }, { barStyle: BarStyle.STACK, scrollEffectOptions: { scrollEffectType: ScrollEffectType.GRADUAL_BLUR } })" },
+      "samples": [{
+        "usage": "adopted",
+        "scope": "GamePage title options",
+        "source": { "snapshotId": "typical-scenes", "lineStart": 323, "lineEnd": 328, "sha256": "6e08ebb5fcfafa1ebcc7bf31fdffd179621d9c155c5e599f095a71c32faa521f" },
+        "keyPoints": [
+          { "description": ".title({ builder, height }, { barStyle: BarStyle.STACK, scrollEffectOptions: { scrollEffectType: ScrollEffectType.GRADUAL_BLUR } })", "adaptation": "原样保留", "review": { "status": "passed", "basis": "GamePage.ets:102-106 与示例逐项一致" } }
+        ]
+      }]
+    }
+  ],
+  "steps": [
+    {
+      "id": "T01",
+      "description": "build-profile.json5 目标 product 调整 targetSdkVersion 与 compatibleSdkVersion 为 26.0.0",
+      "status": "applied",
+      "locations": [
+        { "path": "build-profile.json5", "version": "before", "lineStart": 5, "lineEnd": 12 },
+        { "path": "build-profile.json5", "version": "after", "lineStart": 5, "lineEnd": 12 }
+      ],
+      "basis": [{ "type": "criteria", "criteriaId": "IL-S014-C09", "reason": "开启沉浸光感要求 targetSDKVersion 不低于 26.0.0" }]
+    },
+    {
+      "id": "T02",
+      "description": "module.json5 添加 routerMap 引用以启用系统路由表",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/module.json5", "version": "before", "lineStart": 10, "lineEnd": 15 },
+        { "path": "entry/src/main/module.json5", "version": "after", "lineStart": 10, "lineEnd": 16 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S014-C01", "reason": "游戏页 NavDestination 需要路由可达" },
+        { "type": "engineering_choice", "reason": "Navigation(name) 需要系统路由表解析目标页", "constraint": "官网示例注释使用系统路由表方式配置页面跳转，HarmonyOS 工程需在 module.json5 声明 routerMap" }
+      ]
+    },
+    {
+      "id": "T03",
+      "description": "新增 route_map.json 注册 game 路由与构建函数",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/resources/base/profile/route_map.json", "version": "after", "lineStart": 1, "lineEnd": 14 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S014-C01", "reason": "为游戏页 NavDestination 提供路由可达性" },
+        { "type": "engineering_choice", "reason": "系统路由表 JSON 为工程落地必需", "constraint": "routerMap 需要 resources/base/profile/route_map.json 文件承载" }
+      ]
+    },
+    {
+      "id": "T04",
+      "description": "新增 ListData.ets 提供示例引用的 ListItemData 与 listItems 数据",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/model/ListData.ets", "version": "after", "lineStart": 1, "lineEnd": 22 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S014-C04", "reason": "滚动测量与迁入联动需要列表内容填充页面" },
+        { "type": "engineering_choice", "reason": "示例引用 listItems 常量但未给出定义", "constraint": "以最小数据集补齐示例引用的 listItems，不引入业务页面" }
+      ]
+    },
+    {
+      "id": "T05",
+      "description": "Index.ets 实现底部 Tabs 悬浮主页：游戏页签承载 Navigation(game)",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "before", "lineStart": 1, "lineEnd": 23 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 1, "lineEnd": 66 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S014-C07", "reason": "底部 Tabs 悬浮沉浸光感符合生效区域约束，按钮选择类组件在页面内全部区域生效" },
+        { "type": "engineering_choice", "reason": "主页承载两个典型场景页签", "constraint": "用户要求同一 demo 内提供两个页面入口，采用官网示例的 Tabs 主页结构" }
+      ]
+    },
+    {
+      "id": "T06",
+      "description": "新增 ClassifyComponent.ets 内容区小标题独立组件（ChipGroup + backgroundSystemMaterial + selectedIndexes）",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/components/ClassifyComponent.ets", "version": "after", "lineStart": 1, "lineEnd": 39 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S014-C02", "reason": "提取内容区中小标题为独立组件" },
+        { "type": "criteria", "criteriaId": "IL-S014-C06", "reason": "selectedIndexes 与 onChange 维护选择状态" },
+        { "type": "criteria", "criteriaId": "IL-S014-C08", "reason": "仅叶子组件设置材质，避免同一子树嵌套" }
+      ]
+    },
+    {
+      "id": "T07",
+      "description": "新增 GamePage.ets 内容区标题栏页面（onShown 测量、迁入切换、Hidden/Visible、STACK+GRADUAL_BLUR）",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/GamePage.ets", "version": "after", "lineStart": 1, "lineEnd": 114 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S014-C01", "reason": "滚动到标题栏区域时嵌入标题栏显示" },
+        { "type": "criteria", "criteriaId": "IL-S014-C03", "reason": "showTitle 切换标题栏渲染 ClassifyComponent" },
+        { "type": "criteria", "criteriaId": "IL-S014-C04", "reason": "onShown 测量标题与内容位置确定阈值" },
+        { "type": "criteria", "criteriaId": "IL-S014-C05", "reason": "内容区标题 Hidden/Visible 切换" },
+        { "type": "criteria", "criteriaId": "IL-S014-C10", "reason": "STACK 与 GRADUAL_BLUR 标题栏配置" }
+      ]
+    }
+  ]
+}

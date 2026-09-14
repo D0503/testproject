@@ -1,0 +1,571 @@
+$ devecocli ui layout --device 7TZ0126602000513 --format json
+[
+  {
+    "bounds": [
+      0,
+      0,
+      1140,
+      2442
+    ],
+    "children": [
+      {
+        "id": "ContainerModalStack",
+        "type": "Stack",
+        "bounds": [
+          0,
+          117,
+          1140,
+          2442
+        ],
+        "children": [
+          {
+            "type": "Swiper",
+            "bounds": [
+              0,
+              117,
+              1140,
+              2442
+            ],
+            "scrollable": true,
+            "children": [
+              {
+                "type": "List",
+                "bounds": [
+                  0,
+                  117,
+                  1140,
+                  2358
+                ],
+                "scrollable": true,
+                "children": [
+                  {
+                    "type": "Text",
+                    "text": "A",
+                    "bounds": [
+                      0,
+                      117,
+                      1140,
+                      221
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "Alice",
+                    "bounds": [
+                      0,
+                      221,
+                      1140,
+                      377
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "Alan",
+                    "bounds": [
+                      0,
+                      377,
+                      1140,
+                      533
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "Amy",
+                    "bounds": [
+                      0,
+                      533,
+                      1140,
+                      689
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "B",
+                    "bounds": [
+                      0,
+                      689,
+                      1140,
+                      793
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "Bob",
+                    "bounds": [
+                      0,
+                      793,
+                      1140,
+                      949
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "Bella",
+                    "bounds": [
+                      0,
+                      949,
+                      1140,
+                      1105
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "Bruce",
+                    "bounds": [
+                      0,
+                      1105,
+                      1140,
+                      1261
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "C",
+                    "bounds": [
+                      0,
+                      1261,
+                      1140,
+                      1365
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "Cathy",
+                    "bounds": [
+                      0,
+                      1365,
+                      1140,
+                      1521
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "Carl",
+                    "bounds": [
+                      0,
+                      1521,
+                      1140,
+                      1677
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "Cindy",
+                    "bounds": [
+                      0,
+                      1677,
+                      1140,
+                      1833
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "D",
+                    "bounds": [
+                      0,
+                      1833,
+                      1140,
+                      1937
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "David",
+                    "bounds": [
+                      0,
+                      1937,
+                      1140,
+                      2093
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "Diana",
+                    "bounds": [
+                      0,
+                      2093,
+                      1140,
+                      2249
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "Derek",
+                    "bounds": [
+                      0,
+                      2249,
+                      1140,
+                      2358
+                    ],
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "type": "AlphabetIndexer",
+                "text": "A",
+                "bounds": [
+                  1068,
+                  602,
+                  1140,
+                  1874
+                ],
+                "children": [
+                  {
+                    "type": "Text",
+                    "text": "A",
+                    "bounds": [
+                      1080,
+                      614,
+                      1128,
+                      662
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "B",
+                    "bounds": [
+                      1080,
+                      662,
+                      1128,
+                      710
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "C",
+                    "bounds": [
+                      1080,
+                      710,
+                      1128,
+                      758
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "D",
+                    "bounds": [
+                      1080,
+                      758,
+                      1128,
+                      806
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "E",
+                    "bounds": [
+                      1080,
+                      806,
+                      1128,
+                      854
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "F",
+                    "bounds": [
+                      1080,
+                      854,
+                      1128,
+                      902
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "G",
+                    "bounds": [
+                      1080,
+                      902,
+                      1128,
+                      950
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "H",
+                    "bounds": [
+                      1080,
+                      950,
+                      1128,
+                      998
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "I",
+                    "bounds": [
+                      1080,
+                      998,
+                      1128,
+                      1046
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "J",
+                    "bounds": [
+                      1080,
+                      1046,
+                      1128,
+                      1094
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "K",
+                    "bounds": [
+                      1080,
+                      1094,
+                      1128,
+                      1142
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "L",
+                    "bounds": [
+                      1080,
+                      1142,
+                      1128,
+                      1190
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "M",
+                    "bounds": [
+                      1080,
+                      1190,
+                      1128,
+                      1238
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "N",
+                    "bounds": [
+                      1080,
+                      1238,
+                      1128,
+                      1286
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "O",
+                    "bounds": [
+                      1080,
+                      1286,
+                      1128,
+                      1334
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "P",
+                    "bounds": [
+                      1080,
+                      1334,
+                      1128,
+                      1382
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "Q",
+                    "bounds": [
+                      1080,
+                      1382,
+                      1128,
+                      1430
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "R",
+                    "bounds": [
+                      1080,
+                      1430,
+                      1128,
+                      1478
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "S",
+                    "bounds": [
+                      1080,
+                      1478,
+                      1128,
+                      1526
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "T",
+                    "bounds": [
+                      1080,
+                      1526,
+                      1128,
+                      1574
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "U",
+                    "bounds": [
+                      1080,
+                      1574,
+                      1128,
+                      1622
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "V",
+                    "bounds": [
+                      1080,
+                      1622,
+                      1128,
+                      1670
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "W",
+                    "bounds": [
+                      1080,
+                      1670,
+                      1128,
+                      1718
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "X",
+                    "bounds": [
+                      1080,
+                      1718,
+                      1128,
+                      1766
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "Y",
+                    "bounds": [
+                      1080,
+                      1766,
+                      1128,
+                      1814
+                    ],
+                    "children": []
+                  },
+                  {
+                    "type": "Text",
+                    "text": "Z",
+                    "bounds": [
+                      1080,
+                      1814,
+                      1128,
+                      1862
+                    ],
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "Column",
+            "bounds": [
+              354,
+              2118,
+              570,
+              2262
+            ],
+            "clickable": true,
+            "children": [
+              {
+                "type": "Text",
+                "text": "首页",
+                "bounds": [
+                  432,
+                  2212,
+                  492,
+                  2247
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "Column",
+            "bounds": [
+              570,
+              2118,
+              786,
+              2262
+            ],
+            "clickable": true,
+            "children": [
+              {
+                "type": "Text",
+                "text": "联系人",
+                "bounds": [
+                  633,
+                  2212,
+                  723,
+                  2247
+                ],
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+
+- Dumping layout…

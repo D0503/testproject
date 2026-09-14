@@ -1,0 +1,64 @@
+$ devecocli build --product default --build-mode debug
+
+[ohpm install] Running...
+ohpm INFO: remove project useless folder succeed: "D:\HW\testproject\complete\1.1\oh_modules\.ohpm\oh_modules\@ohos\hamock"
+ohpm INFO: remove project useless folder succeed: "D:\HW\testproject\complete\1.1\oh_modules\.ohpm\oh_modules\@ohos\hypium"
+ohpm INFO: delete useless empty folder succeed: "D:\HW\testproject\complete\1.1\oh_modules\.ohpm\oh_modules\@ohos"
+[32minstall completed in 0s 106ms[39m
+
+[hvigor sync] Skipped (configurations unchanged)
+
+[hvigor build] Running...
+> hvigor [32mhvigor client: Starting hvigor daemon.[39m
+> hvigor [32mHvigor Daemon started in 1.02 s[39m
+> hvigor [32mFinished ::PreBuildApp... after 3 ms [39m
+> hvigor [32mFinished :entry:default@PreBuild... after 427 ms [39m
+> hvigor [32mFinished ::DuplicateDependencyCheck... after 1 ms [39m
+> hvigor [32mFinished :entry:default@CreateModuleInfo... after 4 ms [39m
+> hvigor [32mFinished :entry:default@GenerateMetadata... after 7 ms [39m
+> hvigor [32mFinished :entry:default@ConfigureCmake... after 2 ms [39m
+> hvigor [32mFinished :entry:default@MergeProfile... after 16 ms [39m
+> hvigor [32mFinished :entry:default@CreateBuildProfile... after 3 ms [39m
+> hvigor [32mFinished :entry:default@PreCheckSyscap... after 3 ms [39m
+> hvigor [32mFinished :entry:default@GeneratePkgContextInfo... after 22 ms [39m
+> hvigor [32mFinished :entry:default@GeneratePkgSdkInfo... after 8 ms [39m
+> hvigor [32mFinished :entry:default@ProcessIntegratedHsp... after 4 ms [39m
+> hvigor [32mFinished :entry:default@BuildNativeWithCmake... after 2 ms [39m
+> hvigor [32mFinished :entry:default@MakePackInfo... after 13 ms [39m
+> hvigor [32mFinished :entry:default@SyscapTransform... after 4 ms [39m
+> hvigor [32mFinished :entry:default@ProcessProfile... after 2 s 642 ms [39m
+> hvigor [32mFinished :entry:default@ProcessRouterMap... after 8 ms [39m
+> hvigor [32mFinished :entry:default@ProcessShareConfig... after 6 ms [39m
+> hvigor [32mFinished :entry:default@ProcessStartupConfig... after 4 ms [39m
+> hvigor [32mFinished :entry:default@BuildNativeWithNinja... after 3 ms [39m
+> hvigor [32mFinished :entry:default@ProcessResource... after 11 ms [39m
+> hvigor [32mFinished :entry:default@GenerateLoaderJson... after 29 ms [39m
+> hvigor [32mFinished :entry:default@ProcessLibs... after 14 ms [39m
+> hvigor [32mFinished :entry:default@CompileResource... after 1 s 672 ms [39m
+> hvigor [32mFinished :entry:default@DoNativeStrip... after 4 ms [39m
+> hvigor [32mFinished :entry:default@BuildJS... after 5 ms [39m
+> hvigor [32mFinished :entry:default@CacheNativeLibs... after 23 ms [39m
+> hvigor [32mFinished :entry:default@CompileArkTS... after 6 s 265 ms [39m
+> hvigor [32mFinished :entry:default@GeneratePkgModuleJson... after 4 ms [39m
+> hvigor [32mFinished :entry:default@ProcessCompiledResources... after 1 ms [39m
+> hvigor [32mFinished :entry:default@PackageHap... after 959 ms [39m
+> hvigor [32mFinished :entry:default@PackingCheck... after 7 ms [39m
+> hvigor [32mFinished :entry:default@SignHap... after 725 ms [39m
+> hvigor [32mFinished :entry:default@CollectDebugSymbol... after 5 ms [39m
+> hvigor [32mFinished :entry:assembleHap... after 1 ms [39m
+> hvigor [32mFinished ::MakeProjectPackInfo... after 12 ms [39m
+> hvigor [32mFinished ::ProcessProjectPrivacyProfile... after 8 ms [39m
+> hvigor [32mFinished ::GeneratePackRes... after 2 ms [39m
+> hvigor [32mFinished ::PackageApp... after 704 ms [39m
+> hvigor [32mFinished ::SignPackagesFromApp... after 2 ms [39m
+> hvigor [32mFinished ::SignApp... after 416 ms [39m
+> hvigor [32mFinished ::assembleApp... after 1 ms [39m
+> hvigor [32mBUILD SUCCESSFUL in 23 s 612 ms [39m
+
+42 tasks in total: 42 executed, 0 up-to-date
+[32m
+Merged central compile_commands.json for C++ language server.[39m
+
+[32mBuild completed successfully[39m
+
+[33mEnsure the project source is trustworthy before proceeding.[39m

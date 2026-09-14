@@ -1,0 +1,268 @@
+{
+  "developmentMode": "demo",
+  "requirements": [
+    {
+      "criteriaId": "IL-S013-C01",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "在探索页 NavDestination 的 .title() 中以 builder 提供自定义标题栏并为页签页面标题栏区域开启沉浸光感（标题栏及其子组件）。",
+      "sources": [{ "snapshotId": "typical-scenes", "lineStart": 85, "lineEnd": 85, "sha256": "819be5bb0779835fa139e74ceefc9783bcf103d697c8ae3fc6eefb4876120c7d" }],
+      "review": { "status": "passed", "basis": "entry/src/main/ets/pages/ExplorePage.ets:78-86 NavDestination 以 .title({ builder: this.exploreTitleBar, height: this.titleHeight }, options) 提供自定义标题栏；builder（14-36 行）内为标题行与 ClassifyComponent，与示例结构一致" },
+      "samples": [{
+        "usage": "adopted",
+        "scope": "ExploreHomePage 完整示例：自定义标题栏 builder 与 NavDestination title 配置",
+        "source": { "snapshotId": "typical-scenes", "lineStart": 87, "lineEnd": 175, "sha256": "23b9615bdb7b3af80b057ac73f65689f030e5364f60ab7505e23831f2d406353" },
+        "keyPoints": [
+          { "description": "NavDestination 通过 .title({ builder: this.exploreTitleBar, height: this.titleHeight }, options) 提供自定义标题栏，height 随滚动联动", "adaptation": "原样保留 builder 结构与动态 height 绑定；组件名适配为 ExplorePage 并导出路由构建函数", "review": { "status": "passed", "basis": "ExplorePage.ets:78-86 title 配置、33 行 .height(this.titleHeight) 动态绑定、79 行 builder 引用均保留" } },
+          { "description": "标题栏 Column 内包含标题行（Text + Blank + Search）与 ClassifyComponent 分类列表", "adaptation": "原样保留结构与 ClassifyComponent() 调用，导入路径适配为独立组件文件", "review": { "status": "passed", "basis": "ExplorePage.ets:16-30 Column 内 Row（Text/Blank/Search）与 ClassifyComponent()，导入见 2 行" } }
+        ]
+      }]
+    },
+    {
+      "criteriaId": "IL-S013-C02",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "标题栏内 Search 组件通过通用属性 systemMaterial 设置 new uiMaterial.ImmersiveMaterial({})。",
+      "sources": [{ "snapshotId": "typical-scenes", "lineStart": 107, "lineEnd": 107, "sha256": "34d58ee334ce70cb108ff382b7851d916804e09b392953f12c634f1b94c8b022" }],
+      "review": { "status": "passed", "basis": "entry/src/main/ets/pages/ExplorePage.ets:20-24 Search({placeholder}).searchButton('搜索').height(40).width(220).systemMaterial(new uiMaterial.ImmersiveMaterial({}))，与示例逐项一致" },
+      "samples": [{
+        "usage": "adopted",
+        "scope": "ExploreHomePage 标题栏 Search 行",
+        "source": { "snapshotId": "typical-scenes", "lineStart": 87, "lineEnd": 175, "sha256": "23b9615bdb7b3af80b057ac73f65689f030e5364f60ab7505e23831f2d406353" },
+        "keyPoints": [
+          { "description": "Search({ placeholder }) .searchButton('搜索') .height(40) .width(220) .systemMaterial(new uiMaterial.ImmersiveMaterial({}))", "adaptation": "原样保留尺寸、搜索按钮与 systemMaterial 材质设置", "review": { "status": "passed", "basis": "ExplorePage.ets:20-24 与示例五行链式调用完全一致" } }
+        ]
+      }]
+    },
+    {
+      "criteriaId": "IL-S013-C03",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "分类列表项以 ChipGroup 的 backgroundSystemMaterial 字段开启沉浸光感，并配置 colorInvert 与 interactive。",
+      "sources": [{ "snapshotId": "typical-scenes", "lineStart": 85, "lineEnd": 85, "sha256": "819be5bb0779835fa139e74ceefc9783bcf103d697c8ae3fc6eefb4876120c7d" }],
+      "review": { "status": "passed", "basis": "entry/src/main/ets/components/ClassifyComponent.ets:22-37 ChipGroup 的 backgroundSystemMaterial: new uiMaterial.ImmersiveMaterial({ colorInvert: true, interactive: true })（29-32 行），itemStyle 与示例一致" },
+      "samples": [{
+        "usage": "adopted",
+        "scope": "ClassifyComponent 完整示例",
+        "source": { "snapshotId": "typical-scenes", "lineStart": 184, "lineEnd": 219, "sha256": "35e1c2b00eef6efc66f4dd0d177bceee18522ce89c2cc5e00ec0b1e5bef14890" },
+        "keyPoints": [
+          { "description": "ChipGroup 的 backgroundSystemMaterial: new uiMaterial.ImmersiveMaterial({ colorInvert: true, interactive: true })", "adaptation": "原样保留材质参数；组件抽取为 components/ClassifyComponent.ets 独立文件供页面复用", "review": { "status": "passed", "basis": "ClassifyComponent.ets:29-32 材质参数 colorInvert/interactive 与示例一致；独立文件导出供 ExplorePage.ets:30 与 GamePage.ets:56 复用" } },
+          { "description": "prefixSymbol 使用 SymbolGlyphModifier 配置 star_fill 图标的 activated/normal 两态", "adaptation": "原样保留", "review": { "status": "passed", "basis": "ClassifyComponent.ets:14-20 prefixSymbol 两态配置与示例一致" } }
+        ]
+      }]
+    },
+    {
+      "criteriaId": "IL-S013-C04",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "根目录 build-profile.json5 目标 product 设置 targetSdkVersion 为 26.0.0；demo 无低版本兼容要求，compatibleSdkVersion 同为 26.0.0。",
+      "sources": [{ "snapshotId": "enable", "lineStart": 5, "lineEnd": 5, "sha256": "bb77936c5abd341381d20e9e89d8fa3bc80e3bcc45fac07f5dc581c7012a808e" }],
+      "review": { "status": "passed", "basis": "build-profile.json5:8-9 default product 的 targetSdkVersion 与 compatibleSdkVersion 均为 26.0.0，满足不低于 26.0.0 的要求" }
+    },
+    {
+      "criteriaId": "IL-S013-C05",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "onDidScroll 累计 scrollOffset，在搜索框大小范围内更新 titleOffset 与 titleHeight，使上滑时标题栏显示范围随之缩小。",
+      "sources": [{ "snapshotId": "typical-scenes", "lineStart": 7, "lineEnd": 7, "sha256": "2ed24b143cb651d69d621570a5e5fb8c4efbe86abd1333c164a44677216afdf6" }],
+      "review": { "status": "passed", "basis": "entry/src/main/ets/pages/ExplorePage.ets:69-77 onDidScroll 中 scrollOffset 累计 yOffset，scrollOffset<=50 时 titleOffset=scrollOffset、titleHeight=totalTitleHeight-titleOffset；35 行 position({x:0,y:-this.titleOffset}) 上移缩小标题栏" },
+      "samples": [{
+        "usage": "adopted",
+        "scope": "ExploreHomePage onDidScroll 联动",
+        "source": { "snapshotId": "typical-scenes", "lineStart": 87, "lineEnd": 175, "sha256": "23b9615bdb7b3af80b057ac73f65689f030e5364f60ab7505e23831f2d406353" },
+        "keyPoints": [
+          { "description": "onDidScroll 中 this.scrollOffset += yOffset；scrollOffset <= 50 时同步 titleOffset = scrollOffset、titleHeight = totalTitleHeight - titleOffset", "adaptation": "原样保留累计与阈值计算逻辑；ForEach key 由 item.id 调整为 item.id.toString() 以满足 SDK keyGenerator 返回 string 的类型检查，语义不变", "review": { "status": "passed", "basis": "ExplorePage.ets:69-77 累计与阈值计算与示例一致；60 行 key 为 item.id.toString()" } },
+          { "description": "标题栏 Column 以 position({x: 0, y: -this.titleOffset}) 上移实现缩小", "adaptation": "原样保留", "review": { "status": "passed", "basis": "ExplorePage.ets:35 .position({ x: 0, y: -this.titleOffset }) 保留" } }
+        ]
+      }]
+    },
+    {
+      "criteriaId": "IL-S013-C06",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "滚动联动中 searchOpacity = 1 - titleOffset/50 控制搜索框隐藏；分类列表保留并突出显示（不随透明度联动）。",
+      "sources": [{ "snapshotId": "typical-scenes", "lineStart": 85, "lineEnd": 85, "sha256": "819be5bb0779835fa139e74ceefc9783bcf103d697c8ae3fc6eefb4876120c7d" }],
+      "review": { "status": "passed", "basis": "entry/src/main/ets/pages/ExplorePage.ets:75 searchOpacity = 1 - titleOffset/50；27 行 .opacity(this.searchOpacity) 仅作用于标题行 Row，30 行 ClassifyComponent 不在 opacity 作用范围内，分类列表保留" },
+      "samples": [{
+        "usage": "adopted",
+        "scope": "ExploreHomePage onDidScroll 与 searchOpacity",
+        "source": { "snapshotId": "typical-scenes", "lineStart": 121, "lineEnd": 162, "sha256": "80cc053565a851d01169ccec2000665af27959d95ad5e3f93b6eea73b0a73f65" },
+        "keyPoints": [
+          { "description": "this.searchOpacity = 1 - this.titleOffset / 50，仅作用于标题行 Row 的 .opacity，分类列表不受影响", "adaptation": "原样保留透明度计算与作用范围", "review": { "status": "passed", "basis": "ExplorePage.ets:75 计算、25-27 行 opacity 绑定在 Row 上，ClassifyComponent（30 行）不受影响" } }
+        ]
+      }]
+    },
+    {
+      "criteriaId": "IL-S013-C07",
+      "strength": "recommendation",
+      "disposition": "implement",
+      "approach": "NavDestination 标题栏 options 设置 barStyle 为 BarStyle.STACK，使内容区显示在标题栏下方实现透底效果。",
+      "sources": [{ "snapshotId": "typical-scenes", "lineStart": 85, "lineEnd": 85, "sha256": "819be5bb0779835fa139e74ceefc9783bcf103d697c8ae3fc6eefb4876120c7d" }],
+      "review": { "status": "passed", "basis": "entry/src/main/ets/pages/ExplorePage.ets:80 title 第二参数 barStyle: BarStyle.STACK 保留" },
+      "samples": [{
+        "usage": "adopted",
+        "scope": "ExploreHomePage title options",
+        "source": { "snapshotId": "typical-scenes", "lineStart": 163, "lineEnd": 171, "sha256": "bb85e9dd10a2a021d54bee9910ef62d411daa82020b1de05da501b60973da8e5" },
+        "keyPoints": [
+          { "description": "title 第二参数 options 中 barStyle: BarStyle.STACK", "adaptation": "原样保留", "review": { "status": "passed", "basis": "ExplorePage.ets:80-87 与示例 options 结构一致" } }
+        ]
+      }]
+    },
+    {
+      "criteriaId": "IL-S013-C08",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "Scroll 内容区设置 contentStartOffset(totalTitleHeight) 避让标题栏显示区域，NavDestination 与标题栏容器 expandSafeArea([SafeAreaType.SYSTEM]) 延伸至状态栏。",
+      "sources": [{ "snapshotId": "typical-scenes", "lineStart": 147, "lineEnd": 147, "sha256": "20caafc57f495dc65e19a4afdfc4afe83857a6ea80362d0aefbb81d10197f329" }],
+      "review": { "status": "passed", "basis": "entry/src/main/ets/pages/ExplorePage.ets:63-64 Scroll .contentStartOffset(this.totalTitleHeight)（含避让注释）；25、31 行标题栏容器与 86 行 NavDestination 均设置 .expandSafeArea([SafeAreaType.SYSTEM])" },
+      "samples": [{
+        "usage": "adopted",
+        "scope": "ExploreHomePage Scroll 避让配置",
+        "source": { "snapshotId": "typical-scenes", "lineStart": 87, "lineEnd": 175, "sha256": "23b9615bdb7b3af80b057ac73f65689f030e5364f60ab7505e23831f2d406353" },
+        "keyPoints": [
+          { "description": "Scroll .contentStartOffset(this.totalTitleOffset) 之外还需 .scrollable(Vertical)、.scrollBar(Off)、.edgeEffect(Spring) 等配套", "adaptation": "原样保留全部滚动配置，contentStartOffset 传入 totalTitleHeight", "review": { "status": "passed", "basis": "ExplorePage.ets:63-68 contentStartOffset/scrollable/scrollBar/edgeEffect 四项配置与示例一致" } },
+          { "description": "标题栏外层 Column 与 NavDestination 均设置 .expandSafeArea([SafeAreaType.SYSTEM])", "adaptation": "原样保留", "review": { "status": "passed", "basis": "ExplorePage.ets:31（Column）、86（NavDestination）、25（Row）均保留 expandSafeArea" } }
+        ]
+      }]
+    },
+    {
+      "criteriaId": "IL-S013-C09",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "主页 Tabs barPosition End、barOverlap(true)，通过 barFloatingStyle({ barBottomMargin: 8, systemMaterial }) 设置底部页签悬浮并开启沉浸光感。",
+      "sources": [{ "snapshotId": "typical-scenes", "lineStart": 10, "lineEnd": 10, "sha256": "fae201eb9486f68bbb8c9d9f184b3edbf62f76d4d6739b2ae533c8b79a9c4cce" }],
+      "review": { "status": "passed", "basis": "entry/src/main/ets/pages/Index.ets:53-56 Tabs .barPosition(BarPosition.End).barMode(BarMode.Fixed).barOverlap(true).barHeight(56).barFloatingStyle({ barBottomMargin: 8, systemMaterial: new uiMaterial.ImmersiveMaterial({}) })；57-60 行 scrollable/expandSafeArea/onChange 保留" },
+      "samples": [{
+        "usage": "adopted",
+        "scope": "BestPractise 主页 Tabs 悬浮示例",
+        "source": { "snapshotId": "typical-scenes", "lineStart": 12, "lineEnd": 82, "sha256": "e95e798514f4ae76039b2ce89684093f582dd55238f9b48643a1289d2ff779ea" },
+        "keyPoints": [
+          { "description": "Tabs .barPosition(BarPosition.End) .barMode(BarMode.Fixed) .barOverlap(true) .barHeight(56) .barFloatingStyle({ barBottomMargin: 8, systemMaterial: new uiMaterial.ImmersiveMaterial({}) })", "adaptation": "原样保留全部属性；页签按用户需求裁剪为探索/游戏两个（示例含 4 个页签，其中两个为空壳）", "review": { "status": "passed", "basis": "Index.ets:52-56 属性链与示例一致；37-51 行保留两个 TabContent（探索/游戏），去除示例中两个空 TabContent，未损失目标效果" } },
+          { "description": "每个 TabContent .expandSafeArea([SafeAreaType.SYSTEM])，Tabs 整体 .expandSafeArea 与 .onChange 维护 currentTab", "adaptation": "原样保留", "review": { "status": "passed", "basis": "Index.ets:45、50（TabContent）、58（Tabs）、59-61（onChange 更新 currentTab）均保留" } }
+        ]
+      }]
+    },
+    {
+      "criteriaId": "IL-S013-C10",
+      "strength": "example",
+      "disposition": "implement",
+      "approach": "标题栏 options 的 scrollEffectOptions 设置 scrollEffectType 为 GRADUAL_BLUR 标题栏模糊。",
+      "sources": [{ "snapshotId": "typical-scenes", "lineStart": 168, "lineEnd": 168, "sha256": "649e0cd368c620ae9c82e2ecab0205a7c77e3c2272cd2d1bde78b4cd65d84726" }],
+      "review": { "status": "passed", "basis": "entry/src/main/ets/pages/ExplorePage.ets:81-84 title options 中 scrollEffectOptions: { scrollEffectType: ScrollEffectType.GRADUAL_BLUR }（含标题栏模糊注释）" },
+      "samples": [{
+        "usage": "adopted",
+        "scope": "ExploreHomePage title scrollEffectOptions",
+        "source": { "snapshotId": "typical-scenes", "lineStart": 163, "lineEnd": 171, "sha256": "bb85e9dd10a2a021d54bee9910ef62d411daa82020b1de05da501b60973da8e5" },
+        "keyPoints": [
+          { "description": "title options 中 scrollEffectOptions: { scrollEffectType: ScrollEffectType.GRADUAL_BLUR }", "adaptation": "原样保留", "review": { "status": "passed", "basis": "ExplorePage.ets:81-84 与示例一致" } }
+        ]
+      }]
+    },
+    {
+      "criteriaId": "IL-S013-C11",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "材质仅设置在 NavDestination 标题栏子树内的 Search 与 ChipGroup 上，内容区不设置沉浸光感，满足生效区域约束。",
+      "sources": [{ "snapshotId": "constraints", "lineStart": 15, "lineEnd": 15, "sha256": "98b27c2205c0d36a73d2bc5a70a4ce7bbac0e11969cb5f34404bbe2722f04852" }],
+      "review": { "status": "passed", "basis": "ExplorePage.ets 中 systemMaterial 仅出现在 24 行（标题栏 builder 内 Search）与 ClassifyComponent 内部（经 30 行标题栏子树调用）；内容区 42-61 行（Image/List）未设置任何沉浸光感，符合仅在 Navigation/NavDestination 标题栏生效的约束" }
+    },
+    {
+      "criteriaId": "IL-S013-C12",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "标题栏外层容器（Column/Row）不设置 systemMaterial，仅叶子组件 Search、ChipGroup 各自设置一次，避免同一子树材质嵌套。",
+      "sources": [{ "snapshotId": "constraints", "lineStart": 60, "lineEnd": 60, "sha256": "56c8194ba8f769340a9f9dfabc0174247711dbdb6f80c2e1a3dba308321dbba1" }],
+      "review": { "status": "passed", "basis": "ExplorePage.ets:16-35 标题栏 Column/Row 均未设置 systemMaterial；材质仅 24 行 Search 与 ClassifyComponent.ets:29 ChipGroup 各设置一次，无同一子树父子嵌套" }
+    }
+  ],
+  "steps": [
+    {
+      "id": "S01",
+      "description": "build-profile.json5 目标 product 调整 targetSdkVersion 与 compatibleSdkVersion 为 26.0.0",
+      "status": "applied",
+      "locations": [
+        { "path": "build-profile.json5", "version": "before", "lineStart": 5, "lineEnd": 12 },
+        { "path": "build-profile.json5", "version": "after", "lineStart": 5, "lineEnd": 12 }
+      ],
+      "basis": [{ "type": "criteria", "criteriaId": "IL-S013-C04", "reason": "开启沉浸光感要求 targetSDKVersion 不低于 26.0.0" }]
+    },
+    {
+      "id": "S02",
+      "description": "module.json5 添加 routerMap 引用以启用系统路由表",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/module.json5", "version": "before", "lineStart": 10, "lineEnd": 15 },
+        { "path": "entry/src/main/module.json5", "version": "after", "lineStart": 10, "lineEnd": 16 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S013-C01", "reason": "示例通过系统路由表为跳转目标页面提供 NavDestination 页面" },
+        { "type": "engineering_choice", "reason": "Navigation(name) 需要系统路由表解析目标页", "constraint": "官网示例注释使用系统路由表方式配置页面跳转，HarmonyOS 工程需在 module.json5 声明 routerMap 并提供 route_map.json" }
+      ]
+    },
+    {
+      "id": "S03",
+      "description": "新增 route_map.json 注册 explore 路由与构建函数",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/resources/base/profile/route_map.json", "version": "after", "lineStart": 1, "lineEnd": 14 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S013-C01", "reason": "为探索页 NavDestination 提供路由可达性" },
+        { "type": "engineering_choice", "reason": "系统路由表 JSON 为工程落地必需", "constraint": "routerMap 需要 resources/base/profile/route_map.json 文件承载" }
+      ]
+    },
+    {
+      "id": "S04",
+      "description": "新增 ListData.ets 提供示例引用的 ListItemData 与 listItems 数据",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/model/ListData.ets", "version": "after", "lineStart": 1, "lineEnd": 22 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S013-C05", "reason": "滚动联动需要列表内容填充页面" },
+        { "type": "criteria", "criteriaId": "IL-S013-C06", "reason": "分类列表保留与上滑联动需要列表内容" },
+        { "type": "engineering_choice", "reason": "示例引用 listItems 常量但未给出定义", "constraint": "以最小数据集补齐示例引用的 listItems，不引入业务页面" }
+      ]
+    },
+    {
+      "id": "S05",
+      "description": "Index.ets 实现底部 Tabs 悬浮主页：探索页签承载 Navigation(explore)",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "before", "lineStart": 1, "lineEnd": 23 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 1, "lineEnd": 66 }
+      ],
+      "basis": [{ "type": "criteria", "criteriaId": "IL-S013-C09", "reason": "设置底部 Tabs 悬浮并为 Tabs 组件开启沉浸光感" }]
+    },
+    {
+      "id": "S06",
+      "description": "新增 ClassifyComponent.ets 分类独立组件（ChipGroup + backgroundSystemMaterial）",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/components/ClassifyComponent.ets", "version": "after", "lineStart": 1, "lineEnd": 39 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S013-C03", "reason": "分类列表项通过 backgroundSystemMaterial 开启沉浸光感" },
+        { "type": "criteria", "criteriaId": "IL-S013-C12", "reason": "仅叶子组件设置材质，避免同一子树嵌套" }
+      ]
+    },
+    {
+      "id": "S07",
+      "description": "新增 ExplorePage.ets 搜索框标题栏页面（STACK 透底、Search 材质、上滑联动、GRADUAL_BLUR）",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/ExplorePage.ets", "version": "after", "lineStart": 1, "lineEnd": 96 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-S013-C01", "reason": "标题栏及标题栏子组件开启沉浸光感" },
+        { "type": "criteria", "criteriaId": "IL-S013-C02", "reason": "Search 通过 systemMaterial 设置材质" },
+        { "type": "criteria", "criteriaId": "IL-S013-C05", "reason": "上滑标题栏显示范围缩小" },
+        { "type": "criteria", "criteriaId": "IL-S013-C06", "reason": "上滑时搜索框隐藏、分类列表保留" },
+        { "type": "criteria", "criteriaId": "IL-S013-C07", "reason": "BarStyle.STACK 实现透底" },
+        { "type": "criteria", "criteriaId": "IL-S013-C08", "reason": "contentStartOffset 避让与 expandSafeArea 延伸" },
+        { "type": "criteria", "criteriaId": "IL-S013-C10", "reason": "GRADUAL_BLUR 标题栏模糊" },
+        { "type": "criteria", "criteriaId": "IL-S013-C11", "reason": "材质仅在标题栏子树生效范围内设置" }
+      ]
+    }
+  ]
+}

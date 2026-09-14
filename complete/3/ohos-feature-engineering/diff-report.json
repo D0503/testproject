@@ -1,0 +1,140 @@
+{
+  "status": "changed",
+  "frozenAt": "2026-09-10T07:33:41.395Z",
+  "pages": [
+    {
+      "snapshotId": "component",
+      "status": "changed",
+      "category": "api-signature",
+      "addedLines": 104,
+      "removedLines": 1,
+      "removedExcerpt": [
+        "- [DatePicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-datepicker)、[TextPicker](https://developer.huawei.com/consu"
+      ],
+      "addedExcerpt": [
+        "# 组件适配沉浸光感",
+        "本文按导航类、弹窗类、按钮与选择类、其余组件四大场景分类，系统介绍各组件如何通过应用级开关与组件级配置开启沉浸光感，涵盖沉浸光感的视觉效果、设置方法及适配要点，帮助开发者快速完成沉浸光感的组件适配。",
+        "#### 导航类组件",
+        "导航类组件包括Navigation标题栏、底部页签、索引条，是页面导航与内容定位的辅助元素，通常固定在页面顶部或底部。沉浸光感为导航类组件赋予了通透的悬浮质感，让导航栏在滚动内容之上呈现轻盈的分层效果，内容透过材质层自然渗透，建立导航区域与内容之间的视觉层次。导航类组件通常使用较薄的材质样式（ULTRA_THIN或TH",
+        "#### [h2]Navigation标题栏",
+        "Navigation标题栏支持通过应用级开启、组件级开启方式开启沉浸光感。",
+        "应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，Navigation标题栏默认开启沉浸光感，沉浸式系统材质样式默",
+        "组件级开启：Navigation标题栏支持通过[NavigationTitleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navigationtitle",
+        "- 推荐将沉浸光感限定在顶部标题栏等需要凸显的局部区域，控制使用面积与层数，详见[沉浸光感功耗优化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints)。",
+        "- 沉浸光感针对标题栏生效的范围是：返回键、非自定义Menu。",
+        "- systemMaterial为undefined时，[MaterialState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)开关配置为DEFAULT时标",
+        "- 建议设置沉浸光感时，使用[barStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navigationtitleoptions11)为STACK样式，以便Na",
+        "组件开启沉浸光感的效果请参见[示例20（设置systemMaterial开启标题栏材质效果）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#%E7%A4%BA%E4%BE",
+        "#### [h2]底部页签（Tabs）",
+        "底部页签支持通过应用级开启、组件级开启方式开启沉浸光感。"
+      ]
+    },
+    {
+      "snapshotId": "common",
+      "status": "unchanged",
+      "category": null,
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "与上次审查一致。"
+    },
+    {
+      "snapshotId": "ui-material-api",
+      "status": "new",
+      "category": "new",
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "上次审查没有此页（新增入口）。"
+    },
+    {
+      "snapshotId": "enable",
+      "status": "unchanged",
+      "category": null,
+      "addedLines": 0,
+      "removedLines": 0,
+      "detail": "与上次审查一致。"
+    },
+    {
+      "snapshotId": "constraints",
+      "status": "changed",
+      "category": "api-signature",
+      "addedLines": 194,
+      "removedLines": 2,
+      "removedExcerpt": [
+        "-",
+        "弹窗类组件（AlertDialog、ActionSheet、CustomDialog、CalendarPickerDialog、DatePickerDialog、TimePickerDialog、TextPickerDialog、SelectionMenu、AlphabetIndexer弹窗、Text设置copyOpt"
+      ],
+      "addedExcerpt": [
+        "# 沉浸光感功耗优化",
+        "沉浸光感效果由材质滤镜、折射、高光、阴影等多层效果叠加而成，渲染时需要消耗GPU资源，不合理使用会显著增加功耗。",
+        "总体优化原则：沉浸光感效果作为一种\"稀缺\"视觉资源使用，需控制面积与层数、不应固定显示在视频动图动画等变化的内容之上。建议遵循以下功耗优化，获得沉浸光感体验的同时降低性能与功耗的影响。",
+        "#### 控制材质使用面积",
+        "沉浸式系统材质影响的区域越大，需要处理的像素越多，功耗越高。应避免在单个超大尺寸区域上使用沉浸式系统材质，也应避免在大量小区域上重复使用沉浸式系统材质；推荐在Navigation顶部标题栏和底部Tabs区域中少量使用，优先将沉浸式系统材质限定在需要凸显的局部区域中。",
+        "沉浸光感开启后，",
+        "- 弹窗类组件（AlertDialog、ActionSheet、CustomDialog、CalendarPickerDialog、DatePickerDialog、TimePickerDialog、TextPickerDialog、SelectionMenu、AlphabetIndexer弹窗、Text设置copyO",
+        "- 其他组件仅在Navigation/NavDestination标题栏或横向Tab中barPosition为BarPosition.End的底部TabBar中生效。在其他区域中设置沉浸光感效果不生效。",
+        "```",
+        "import { uiMaterial } from '@kit.ArkUI';",
+        "// 正例：在Navigation标题栏子树中为局部容器设置沉浸式系统材质，材质生效且面积可控",
+        "@Entry",
+        "@Component",
+        "struct MaterialAreaExample {",
+        "  @Builder"
+      ]
+    },
+    {
+      "snapshotId": "faq",
+      "status": "changed",
+      "category": "api-signature",
+      "addedLines": 299,
+      "removedLines": 7,
+      "removedExcerpt": [
+        "-",
+        "-",
+        "-",
+        "弹窗类组件（AlertDialog、ActionSheet、CustomDialog、CalendarPickerDialog、DatePickerDialog、TimePickerDialog、TextPickerDialog、SelectionMenu、AlphabetIndexer弹窗、Text设置copyOpt",
+        "将需要沉浸光感效果的组件置于Navigation/NavDestination标题栏区域，或横向Tabs中barPosition为BarPosition.End的底部TabBar区域中。",
+        "-",
+        "-"
+      ],
+      "addedExcerpt": [
+        "# 沉浸光感常见问题",
+        "本文提供沉浸光感开发过程中的常见问题及解决措施。沉浸光感的完整能力介绍及开发指导，请参见[沉浸光感简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-overview)。",
+        "#### uiMaterial与hdsMaterial的材质等级和材质样式差异对比",
+        "[uiMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial)与[hdsMaterial](https://developer.huawei.com/consumer/cn/doc",
+        "沉浸式材质等级差异",
+        "为了在不同算力设备上都能流畅地使用沉浸光感，uiMaterial和hdsMaterial均通过MaterialLevel定义了不同的材质等级，两者在使用上存在差异。",
+        "- uiMaterial.[MaterialLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materiallevel)：包含EXQUISITE、GENTLE、SMOOTH三个枚",
+        "- hdsMaterial.[MaterialLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsmaterial#materiallevel)：包含EXQUISITE、GENTLE、SMOOTH、A",
+        "沉浸式材质样式差异",
+        "- uiMaterial：提供[ImmersiveStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersivestyle)设置沉浸式材质样式。不同的材质样式对应不同的材质厚",
+        "- hdsMaterial：不提供与uiMaterial.ImmersiveStyle对等的材质厚薄程度样式配置。组件的最终材质效果由[SystemMaterialParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-d",
+        "#### 为组件设置了沉浸式系统材质但看不到材质效果",
+        "#### [h2]组件不在沉浸光感生效范围",
+        "问题现象",
+        "- 开启沉浸光感后，组件没有呈现沉浸光感效果。"
+      ]
+    }
+  ],
+  "highRisk": [
+    {
+      "snapshotId": "component",
+      "category": "api-signature",
+      "reason": "API 签名/参数/默认值特征变化"
+    },
+    {
+      "snapshotId": "ui-material-api",
+      "category": "new",
+      "reason": "新增入口，需整体现提判据。"
+    },
+    {
+      "snapshotId": "constraints",
+      "category": "api-signature",
+      "reason": "API 签名/参数/默认值特征变化"
+    },
+    {
+      "snapshotId": "faq",
+      "category": "api-signature",
+      "reason": "API 签名/参数/默认值特征变化"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S004",
+  "visual": {
+    "status": "inconclusive",
+    "basis": "用户在模拟器（127.0.0.1:5555）实际观察：四类弹窗（Toast、气泡Popup、菜单、AlertDialog/CustomDialog/ActionSheet/Sheet）均可正常打开与关闭，但弹窗背景未呈现沉浸光感材质（呈纯色）。官网冻结正文说明在不支持沉浸式材质的设备上可设置沉浸式材质但无效果；本模拟器疑似不支持沉浸式材质，视觉材质预期需在高算力真机复验，不能据此判定实现失败。",
+    "evidence": [
+      {
+        "type": "screenshot",
+        "path": "D:\\HW\\testproject\\complete\\2\\ohos-feature-engineering\\evidence\\images\\5197f9a18aa53ed6df817fda0abafd0da985018cbde7be477bcb402a5b6a5429.png"
+      }
+    ]
+  },
+  "matchedCriteriaRefs": [],
+  "runtime": {
+    "status": "passed",
+    "summary": "导航编排 14 步全部通过：Toast 触发、Popup 打开（组件树断言命中'气泡提示：Popup 沉浸式系统材质'）、Menu 打开（断言命中'菜单项一'）并选择关闭、AlertDialog 打开（断言命中'警告弹窗'）并取消、ActionSheet 打开（断言命中'选择操作'）并选择、bindSheet 打开（断言命中'半模态转场'）并关闭；用户确认全部弹窗打开关闭行为正常，无回调回归。"
+  }
+}

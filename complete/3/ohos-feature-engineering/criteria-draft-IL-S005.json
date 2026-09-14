@@ -1,0 +1,173 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S005",
+  "criteria": [
+    {
+      "id": "C01",
+      "topic": "控件组件（IL-F014）",
+      "statement": "Button 通过通用属性 systemMaterial 组件级开启沉浸光感；配置沉浸光感但未设置 buttonStyle、backgroundColor 等颜色相关属性且未设置材质颜色时，默认生效 Button 主题色的材质样式。",
+      "snapshotId": "component",
+      "anchor": "默认生效Button主题色的材质样式"
+    },
+    {
+      "id": "C02",
+      "topic": "控件组件（IL-F014）",
+      "statement": "Button 材质样式为 THIN 或 ULTRA_THIN 时，fontColor 使用系统预定义的可反色颜色资源，可随材质自动反色。",
+      "snapshotId": "component",
+      "anchor": "可随材质自动反色"
+    },
+    {
+      "id": "C03",
+      "topic": "控件组件（IL-F014）",
+      "statement": "应用级开关处于 ENABLE 模式下，按钮不会默认开启沉浸光感，需通过组件级 systemMaterial 显式设置。",
+      "snapshotId": "component",
+      "anchor": "按钮不会默认开启沉浸光感"
+    },
+    {
+      "id": "C04",
+      "topic": "控件组件（IL-F015）",
+      "statement": "Select 下拉按钮通过 systemMaterial 属性设置沉浸光感效果；下拉菜单通过独立的 menuSystemMaterial 接口设置沉浸光感效果。",
+      "snapshotId": "component",
+      "anchor": "下拉菜单通过独立的"
+    },
+    {
+      "id": "C05",
+      "topic": "控件组件（IL-F015）",
+      "statement": "下拉按钮与下拉菜单的沉浸光感相互独立，可分别开启或关闭；如需单独关闭沉浸光感，应设置 uiMaterial.Material.empty，而非将 systemMaterial 设置为 undefined。",
+      "snapshotId": "component",
+      "anchor": "下拉按钮与下拉菜单的沉浸光感相互独立"
+    },
+    {
+      "id": "C06",
+      "topic": "控件组件（IL-F015）",
+      "statement": "应用级 ENABLE 模式下下拉按钮与下拉菜单默认开启沉浸光感：下拉按钮材质样式默认 ULTRA_THIN 并默认开启交互形变（interactive）与光感交互反馈（lightEffect）；下拉菜单材质样式默认 THICK。",
+      "snapshotId": "component",
+      "anchor": "下拉按钮沉浸式系统材质样式默认取值为ULTRA_THIN"
+    },
+    {
+      "id": "C07",
+      "topic": "控件组件（IL-F016）",
+      "statement": "Toggle 的 ToggleType.Checkbox 形态当前未适配沉浸光感效果，设置后无沉浸光感效果，应保留普通样式。",
+      "snapshotId": "component",
+      "anchor": "当前未适配沉浸光感效果，设置后无沉浸光感效果"
+    },
+    {
+      "id": "C08",
+      "topic": "材质参数（IL-F019）",
+      "statement": "当沉浸光感启用了光感交互反馈效果（lightEffect）时，按钮默认的点击态和悬浮态视觉反馈不再展示，由材质的光感交互反馈效果替代。",
+      "snapshotId": "component",
+      "anchor": "按钮默认的点击态和悬浮态视觉反馈不再展示"
+    },
+    {
+      "id": "C09",
+      "topic": "材质参数（IL-F019）",
+      "statement": "通过 interactive 开启交互形变：组件在按压时产生弹性形变，松手后自动恢复，增强交互的视觉反馈。",
+      "snapshotId": "common",
+      "anchor": "组件在按压时产生弹性形变"
+    },
+    {
+      "id": "C10",
+      "topic": "材质参数（IL-F019）",
+      "statement": "通过 lightEffect 开启点光源：用户手指触摸组件时会产生流光跟随效果；lightEffect 传入有效对象即启用，传入 null 或 undefined 则不启用；对象中的 color 字段自定义流光颜色，默认值为 Color.White。",
+      "snapshotId": "common",
+      "anchor": "用户手指触摸组件时会产生流光跟随效果"
+    },
+    {
+      "id": "C11",
+      "topic": "选择控件差异与边界",
+      "statement": "ToggleType.Switch 传入的材质参数仅作为开启沉浸光感的开关标记，不影响实际视觉效果，实际使用组件内部预设的视觉参数，主要影响滑块大小、滑块样式、阴影等；材质效果随设备算力档位变化。",
+      "snapshotId": "component",
+      "anchor": "仅作为开启沉浸光感的开关标记，不影响实际视觉效果"
+    },
+    {
+      "id": "C12",
+      "topic": "选择控件差异与边界",
+      "statement": "Slider 传入的材质参数仅作为开启沉浸光感的开关标记；传入 undefined 时沉浸光感不生效，恢复为原先的 Slider 样式。",
+      "snapshotId": "component",
+      "anchor": "传入undefined时沉浸光感不生效，恢复为原先的Slider样式"
+    },
+    {
+      "id": "C13",
+      "topic": "选择控件差异与边界",
+      "statement": "Slider 沉浸光感的交互反馈效果仅在滑块形状为 SliderBlockType.DEFAULT 且 SliderStyle 不为 NONE 时生效。",
+      "snapshotId": "component",
+      "anchor": "不为NONE时生效"
+    },
+    {
+      "id": "C14",
+      "topic": "选择控件差异与边界",
+      "statement": "沉浸光感开启后，按钮与选择类组件（Slider、Toggle、Select）可在页面内全部区域生效，无需位于 Navigation 标题栏或底部 TabBar。",
+      "snapshotId": "constraints",
+      "anchor": "以及按钮与选择类组件（Slider、Toggle、Select）可在页面内全部区域生效"
+    },
+    {
+      "id": "C15",
+      "topic": "子页签与操作块入口",
+      "statement": "ChipGroup 通过 backgroundSystemMaterial、selectedBackgroundSystemMaterial（选中状态）和 iconBackgroundSystemMaterial（图标）三个字段设置沉浸光感效果。",
+      "snapshotId": "component",
+      "anchor": "的backgroundSystemMaterial、selectedBackgroundSystemMaterial（选中状态）和iconBackgroundSystemMaterial（图标）字段"
+    },
+    {
+      "id": "C16",
+      "topic": "子页签与操作块入口",
+      "statement": "SegmentButton 通过 SegmentButtonOptions 中的 backgroundSystemMaterial 字段设置沉浸光感效果；SegmentButtonV2 通过各类分段按钮 options 参数中的 backgroundSystemMaterial 字段设置。",
+      "snapshotId": "component",
+      "anchor": "SegmentButtonOptions中的backgroundSystemMaterial字段"
+    },
+    {
+      "id": "C17",
+      "topic": "子页签与操作块入口",
+      "statement": "SegmentButton 的胶囊类多选分段按钮（SegmentButtonOptions 的 type 为 capsule 且 multiply 为 true）不支持 backgroundSystemMaterial，设置后不生效。",
+      "snapshotId": "component",
+      "anchor": "不支持backgroundSystemMaterial，设置后不生效"
+    },
+    {
+      "id": "C18",
+      "topic": "子页签与操作块入口",
+      "statement": "SegmentButtonV2 开启沉浸光感后，支持选中项背景跟随手指拖拽，否则不支持跟随手指拖拽。",
+      "snapshotId": "component",
+      "anchor": "支持选中项背景跟随手指拖拽"
+    },
+    {
+      "id": "C19",
+      "topic": "选择控件差异与边界",
+      "statement": "uiMaterial.Material.empty 返回空材质对象，用于组件单独关闭沉浸式系统材质效果；undefined 表示恢复为组件默认的沉浸光感效果，两者含义不同。",
+      "snapshotId": "ui-material-api",
+      "anchor": "返回空材质对象，用于组件单独关闭沉浸式系统材质效果"
+    },
+    {
+      "id": "C20",
+      "topic": "选择控件差异与边界",
+      "statement": "在不支持沉浸式材质的设备上可设置沉浸式材质但无效果；可通过 uiMaterial.isImmersiveMaterialSupported 判断设备是否支持沉浸式材质。",
+      "snapshotId": "ui-material-api",
+      "anchor": "在不支持沉浸式材质的设备上可设置沉浸式材质但无效果"
+    }
+  ],
+  "conflictResolutions": [],
+  "confirmations": [
+    {
+      "snapshotId": "component",
+      "category": "api-signature",
+      "userDecision": "confirmed",
+      "note": "用户确认继续：按钮与选择类组件章节扩充（Button/Select/Toggle/Slider/ChipGroup/SegmentButton 组件级开启说明），作为本次判据主要来源。"
+    },
+    {
+      "snapshotId": "ui-material-api",
+      "category": "new",
+      "userDecision": "confirmed",
+      "note": "用户确认继续：新增 @ohos.arkui.uiMaterial API 参考页（ImmersiveMaterial、Material.empty、ImmersiveStyle、ImmersiveOptions、官方示例）。"
+    },
+    {
+      "snapshotId": "constraints",
+      "category": "api-signature",
+      "userDecision": "confirmed",
+      "note": "用户确认继续：功耗优化页更新，明确 Slider/Toggle/Select 可在页面内全部区域生效。"
+    },
+    {
+      "snapshotId": "faq",
+      "category": "api-signature",
+      "userDecision": "confirmed",
+      "note": "用户确认继续：常见问题页更新（生效范围、反色、阴影等），未发现删除类变化。"
+    }
+  ]
+}

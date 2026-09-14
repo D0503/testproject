@@ -1,0 +1,14 @@
+{
+  "routerMap": [
+    {
+      "buildMethod": "ExplorePageBuilder",
+      "name": "explore",
+      "pageSourceFile": "src/main/ets/pages/ExplorePage.ets"
+    },
+    {
+      "buildMethod": "GamePageBuilder",
+      "name": "game",
+      "pageSourceFile": "src/main/ets/pages/GamePage.ets"
+    }
+  ]
+}

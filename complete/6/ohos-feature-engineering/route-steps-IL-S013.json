@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0",
+  "targetDescription": "探索页签：搜索框标题栏沉浸光感，上滑隐藏搜索框",
+  "steps": [
+    { "stepId": "wait-launch", "action": "wait", "timeoutMs": 3000 },
+    { "stepId": "assert-explore", "action": "wait", "timeoutMs": 500, "expectPage": "探索" },
+    { "stepId": "swipe-up-collapse", "action": "swipe", "direction": "up" },
+    { "stepId": "wait-after-swipe", "action": "wait", "timeoutMs": 1500 }
+  ]
+}

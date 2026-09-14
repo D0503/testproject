@@ -1,0 +1,114 @@
+{
+  "IL-S006-C01": {
+    "snapshotId": "common",
+    "lineStart": 81,
+    "lineEnd": 81,
+    "sha256": "868d638408afd923be6ecd1b39baac730749a9dec70fd59c602b9554fbd49e64",
+    "preview": "通过[ImmersiveOptions](https://developer.huawei.com/consumer/c"
+  },
+  "IL-S006-C02": {
+    "snapshotId": "common",
+    "lineStart": 83,
+    "lineEnd": 83,
+    "sha256": "b1babdda8f8f39041fb50ed62224a99ee641b112a8ebc44f0737497db8bd691e",
+    "preview": "materialColor参数对所有档位的算力设备均生效。在高算力和中算力设备上，该参数为材质滤镜再混合一层纯色效果；在"
+  },
+  "IL-S006-C03": {
+    "snapshotId": "common",
+    "lineStart": 7,
+    "lineEnd": 7,
+    "sha256": "0380209d2936753c32f77cf2b96a6a43ea732a9977465164e57a6b50d251a6a0",
+    "preview": "当组件设置为透明度较高的沉浸式系统材质（如ULTRA_THIN或THIN）时，例如组件内的文字可能与背景色对比度不足，导"
+  },
+  "IL-S006-C04": {
+    "snapshotId": "common",
+    "lineStart": 60,
+    "lineEnd": 70,
+    "sha256": "2d53a4afe3d41554ec05e8972c4c60d6d913095f91063ec7eaf1db605206c1cd",
+    "preview": "      .barFloatingStyle({\n        adaptToHandedness: true,\n "
+  },
+  "IL-S006-C05": {
+    "snapshotId": "common",
+    "lineStart": 138,
+    "lineEnd": 138,
+    "sha256": "4f8cdf7e47d1822ccc5faf5b86d345e68e18b99183e853f18612e3da1de70b09",
+    "preview": "- 交互形变：通过[interactive](https://developer.huawei.com/consumer"
+  },
+  "IL-S006-C06": {
+    "snapshotId": "common",
+    "lineStart": 140,
+    "lineEnd": 140,
+    "sha256": "64769133539c0dc68dafbdba212de34ee1dba1e9069fb54f08c525cc21e8a0b8",
+    "preview": "- 点光源：通过[lightEffect](https://developer.huawei.com/consumer/"
+  },
+  "IL-S006-C07": {
+    "snapshotId": "common",
+    "lineStart": 193,
+    "lineEnd": 193,
+    "sha256": "7ba2a9249648ae82ccfcaa02d0072a9d59990022a3230ef5ad408b7df92877f8",
+    "preview": "沉浸式系统材质默认自带阴影效果（[applyShadow](https://developer.huawei.com/c"
+  },
+  "IL-S006-C08": {
+    "snapshotId": "ui-material-api",
+    "lineStart": 546,
+    "lineEnd": 552,
+    "sha256": "4d20792a29cb2f7f98e32bfb028aae6473d184f4a1a00d25ecf3bbe82efc950c",
+    "preview": "是否添加材质的阴影效果。\n\n当该参数为true时，材质中的阴影效果固定生效，优先于[shadow](https://de"
+  },
+  "IL-S006-C09": {
+    "snapshotId": "ui-material-api",
+    "lineStart": 564,
+    "lineEnd": 570,
+    "sha256": "6cc78c8bb32e2ace560d46ff51e948d851186651f6cfbe6f5816d64759147ae8",
+    "preview": "是否启用交互形变效果。交互形变效果是指组件在用户交互时产生形变的视觉反馈效果。\n\n当该参数为true时，启用交互形变效果"
+  },
+  "IL-S006-C10": {
+    "snapshotId": "ui-material-api",
+    "lineStart": 582,
+    "lineEnd": 586,
+    "sha256": "c05689f845becc787683b87e4840e1bd279e0d7dbc82f21e01d1ed1dd88e5ad6",
+    "preview": "光感交互反馈效果参数。传入LightEffectOptions对象时启用光感交互反馈；传入null时显式禁用光感交互反馈"
+  },
+  "IL-S006-C11": {
+    "snapshotId": "faq",
+    "lineStart": 256,
+    "lineEnd": 264,
+    "sha256": "7903c9fea59ab0668cfc53f3f6ca7e006b2e698f9ee43a3f581cf9995a1fe391",
+    "preview": "自动反色功能的生效需要同时满足以下条件。\n\n- 设备算力档位需为高算力或中算力，低算力设备上自动反色不产生视觉效果差异。"
+  },
+  "IL-S006-C12": {
+    "snapshotId": "faq",
+    "lineStart": 264,
+    "lineEnd": 264,
+    "sha256": "0f5da08fafb98df65482a9394d9d42081f0d2b78f2f7e378a4b983942894fc3b",
+    "preview": "- 自动反色仅对通过资源接口设置的颜色值生效，包括[Text](https://developer.huawei.com"
+  },
+  "IL-S006-C13": {
+    "snapshotId": "component",
+    "lineStart": 33,
+    "lineEnd": 35,
+    "sha256": "9a0409209ec18cebc1641df0abb723d9a8df4edfa99ad8a0b55fae343299b433",
+    "preview": "组件级开启：底部页签支持通过[barFloatingStyle](https://developer.huawei.co"
+  },
+  "IL-S006-C14": {
+    "snapshotId": "component",
+    "lineStart": 125,
+    "lineEnd": 125,
+    "sha256": "964dd3f52b4512f58770ce42259a38e9490b85f73ea5bfbe2a8bea76102de596",
+    "preview": "- 当沉浸光感启用了光感交互反馈效果（[lightEffect](https://developer.huawei.co"
+  },
+  "IL-S006-C15": {
+    "snapshotId": "common",
+    "lineStart": 203,
+    "lineEnd": 225,
+    "sha256": "af2ad057a749047eb20108074b90790ef7317b11aa886f2f6a3b5c3a958fb8c2",
+    "preview": "  @Builder\n  NavigationTitle() {\n    Row() {\n      Text('Tit"
+  },
+  "IL-S006-C16": {
+    "snapshotId": "faq",
+    "lineStart": 270,
+    "lineEnd": 272,
+    "sha256": "333b731a178915a6fc1244b1a8ef569510c2c566d49451dda3f96b605fa45652",
+    "preview": "- 确认文字颜色通过资源接口（如$r('app.color.xxx')）设置，而非硬编码颜色值。\n\n- 将系统沉浸光感配"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "baselineVersion": "1.0",
+  "projectRoot": "D:/HW/testproject/complete/1",
+  "capturedAt": "2026-09-10T11:30:12.480Z",
+  "files": [
+    {
+      "path": "entry/src/main/ets/pages/Index.ets",
+      "absolutePath": "D:/HW/testproject/complete/1/entry/src/main/ets/pages/Index.ets",
+      "existed": true,
+      "sha256": "a4a245f63c440ecbf347b0e0409ec38684c43fd1ec4104df5f9405292231d328",
+      "content": "@Entry\n@Component\nstruct Index {\n  @State message: string = 'Hello World';\n\n  build() {\n    RelativeContainer() {\n      Text(this.message)\n        .id('HelloWorld')\n        .fontSize($r('app.float.page_text_font_size'))\n        .fontWeight(FontWeight.Bold)\n        .alignRules({\n          center: { anchor: '__container__', align: VerticalAlign.Center },\n          middle: { anchor: '__container__', align: HorizontalAlign.Center }\n        })\n        .onClick(() => {\n          this.message = 'Welcome';\n        })\n    }\n    .height('100%')\n    .width('100%')\n  }\n}"
+    }
+  ]
+}

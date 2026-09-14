@@ -1,0 +1,220 @@
+$ devecocli ui layout --device 127.0.0.1:5555 --format json
+[
+  {
+    "bounds": [
+      0,
+      0,
+      1256,
+      2760
+    ],
+    "children": [
+      {
+        "type": "Scroll",
+        "bounds": [
+          0,
+          137,
+          1256,
+          2662
+        ],
+        "scrollable": true,
+        "children": [
+          {
+            "type": "Text",
+            "text": "弹窗类组件沉浸光感 Demo",
+            "bounds": [
+              164,
+              262,
+              1092,
+              352
+            ],
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "API 26 · 应用级 ENABLE · 组件级 systemMaterial",
+            "bounds": [
+              161,
+              422,
+              1096,
+              471
+            ],
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "即时反馈（Toast）",
+            "bounds": [
+              119,
+              583,
+              657,
+              657
+            ],
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "ShowToastOptions.systemMaterial · THICK",
+            "bounds": [
+              119,
+              671,
+              937,
+              720
+            ],
+            "children": []
+          },
+          {
+            "type": "Button",
+            "text": "显示 Toast",
+            "bounds": [
+              119,
+              762,
+              1137,
+              902
+            ],
+            "clickable": true,
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "气泡提示（Popup / Tips）",
+            "bounds": [
+              119,
+              1070,
+              869,
+              1144
+            ],
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "PopupOptions / TipsOptions.systemMaterial · THICK",
+            "bounds": [
+              119,
+              1158,
+              1123,
+              1207
+            ],
+            "children": []
+          },
+          {
+            "type": "Button",
+            "text": "气泡 Popup",
+            "bounds": [
+              119,
+              1249,
+              607,
+              1389
+            ],
+            "clickable": true,
+            "children": []
+          },
+          {
+            "type": "Button",
+            "text": "长按悬浮 Tips",
+            "bounds": [
+              649,
+              1249,
+              1137,
+              1389
+            ],
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "菜单（Menu）",
+            "bounds": [
+              119,
+              1557,
+              538,
+              1631
+            ],
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "ContextMenuOptions.systemMaterial · THICK",
+            "bounds": [
+              119,
+              1645,
+              994,
+              1694
+            ],
+            "children": []
+          },
+          {
+            "type": "Button",
+            "text": "打开菜单",
+            "bounds": [
+              119,
+              1736,
+              1137,
+              1876
+            ],
+            "clickable": true,
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "弹出框（Dialog）",
+            "bounds": [
+              119,
+              2044,
+              628,
+              2118
+            ],
+            "children": []
+          },
+          {
+            "type": "Text",
+            "text": "AlertDialogParam / CustomDialogControllerOptions / ActionSheetOptions / SheetOptions · ULTRA_THICK",
+            "bounds": [
+              119,
+              2132,
+              1135,
+              2230
+            ],
+            "children": []
+          },
+          {
+            "type": "Button",
+            "text": "AlertDialog 警告弹窗",
+            "bounds": [
+              119,
+              2272,
+              1137,
+              2412
+            ],
+            "clickable": true,
+            "children": []
+          },
+          {
+            "type": "Button",
+            "text": "CustomDialog 自定义弹窗",
+            "bounds": [
+              119,
+              2454,
+              1137,
+              2594
+            ],
+            "clickable": true,
+            "children": []
+          },
+          {
+            "type": "Button",
+            "text": "ActionSheet 选择列表",
+            "bounds": [
+              119,
+              2636,
+              1137,
+              2662
+            ],
+            "clickable": true,
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]
+
+- Dumping layout…

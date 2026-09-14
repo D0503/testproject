@@ -1,0 +1,172 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S004",
+  "criteria": [
+    {
+      "id": "IL-C001",
+      "topic": "弹窗组件（IL-F012）",
+      "statement": "Toast 支持通过 ShowToastOptions 中的 systemMaterial 字段设置沉浸光感效果；应用级 ENABLE 模式下 Toast 默认开启沉浸光感，材质样式默认取值为 THICK。",
+      "snapshotId": "component",
+      "anchor": "组件级开启：Toast支持通过"
+    },
+    {
+      "id": "IL-C002",
+      "topic": "弹窗组件（IL-F012）",
+      "statement": "气泡提示中，气泡通过 PopupOptions 中的 systemMaterial 字段设置沉浸光感效果，悬浮提示通过 TipsOptions 中的 systemMaterial 字段设置；应用级 ENABLE 模式下气泡提示不会默认开启沉浸光感，需组件级显式设置。",
+      "snapshotId": "component",
+      "anchor": "气泡支持通过"
+    },
+    {
+      "id": "IL-C003",
+      "topic": "弹窗组件（IL-F012）",
+      "statement": "菜单通过 ContextMenuOptions 中的 systemMaterial 字段设置沉浸光感效果；应用级 ENABLE 模式下菜单默认开启沉浸光感，材质样式默认取值为 THICK。",
+      "snapshotId": "component",
+      "anchor": "组件级开启：菜单支持通过"
+    },
+    {
+      "id": "IL-C004",
+      "topic": "弹窗组件（IL-F012）",
+      "statement": "弹出框通过 options 参数中的 systemMaterial 字段设置沉浸光感效果（如 CustomDialogControllerOptions、AlertDialogParam、ActionSheetOptions、SheetOptions 等）；应用级 ENABLE 模式下弹出框默认开启沉浸光感，材质样式默认取值为 ULTRA_THICK。",
+      "snapshotId": "component",
+      "anchor": "弹出框支持通过弹出框options参数中的systemMaterial字段设置沉浸光感效果"
+    },
+    {
+      "id": "IL-C005",
+      "topic": "弹窗组件（IL-F013）",
+      "statement": "沉浸光感开启后，如果 Toast 已主动设置 ShowToastOptions 中的 backgroundBlurStyle 或 backgroundColor，则不呈现沉浸光感效果；否则 ImmersiveStyle 默认取值为 THICK。",
+      "snapshotId": "component",
+      "anchor": "中的backgroundBlurStyle或backgroundColor，则不呈现沉浸光感效果"
+    },
+    {
+      "id": "IL-C006",
+      "topic": "弹窗组件（IL-F013）",
+      "statement": "弹出框沉浸光感开启后，如果已主动设置背景色、背景模糊等自定义样式属性，则不呈现沉浸光感效果，否则 ImmersiveStyle 默认取值为 ULTRA_THICK。",
+      "snapshotId": "component",
+      "anchor": "如果已主动设置背景色、背景模糊等自定义样式属性"
+    },
+    {
+      "id": "IL-C007",
+      "topic": "弹窗组件（IL-F013）",
+      "statement": "大面积的弹出框开启沉浸光感效果会带来更多的动效绘制开销，不建议开启，应保持弹窗尺寸在合理范围。",
+      "snapshotId": "component",
+      "anchor": "会带来更多的动效绘制开销"
+    },
+    {
+      "id": "IL-C008",
+      "topic": "弹窗组件（IL-F013）",
+      "statement": "DEFAULT 模式下 Dialog、Toast、AlphabetIndexer 等组件仅在未设置背景色、模糊参数和阴影参数时才会默认开启沉浸式系统材质；如需在保留这些属性的同时使用材质，应通过 systemMaterial 主动设置。",
+      "snapshotId": "faq",
+      "anchor": "仅在未设置背景色、模糊参数和阴影参数时才会默认开启沉浸式系统材质"
+    },
+    {
+      "id": "IL-C009",
+      "topic": "材质参数（IL-F017）",
+      "statement": "materialColor 需要带有一定的透明度，传入纯不透明颜色（如 Color.Red 或 '#FFFF0000'）会遮挡材质滤镜效果。",
+      "snapshotId": "common",
+      "anchor": "会遮挡材质滤镜效果"
+    },
+    {
+      "id": "IL-C010",
+      "topic": "性能约束（IL-F023）",
+      "statement": "沉浸式系统材质影响区域越大功耗越高，应避免在单个超大尺寸区域上使用，也应避免在大量小区域上重复使用，优先限定在需要凸显的局部区域中。",
+      "snapshotId": "constraints",
+      "anchor": "推荐在Navigation顶部标题栏和底部Tabs区域中少量使用"
+    },
+    {
+      "id": "IL-C011",
+      "topic": "性能约束（IL-F023）",
+      "statement": "高算力设备上 Dialog、Menu 组件默认附带形变、流光等沉浸式空间动效，弹窗面积越大动效的绘制开销越高，应避免接近全屏的超大面积 Dialog 或 Menu，保持弹窗尺寸在合理范围。",
+      "snapshotId": "constraints",
+      "anchor": "应避免接近全屏的超大面积Dialog或Menu"
+    },
+    {
+      "id": "IL-C012",
+      "topic": "弹窗具体类型与例外",
+      "statement": "CalendarPicker 组件拉起的弹出框目前暂不支持开启沉浸光感效果，通过通用属性设置的沉浸光感效果会体现在 CalendarPicker 组件本身。",
+      "snapshotId": "component",
+      "anchor": "目前暂不支持开启沉浸光感效果"
+    },
+    {
+      "id": "IL-C013",
+      "topic": "弹窗具体类型与例外",
+      "statement": "CalendarPickerDialog、DatePickerDialog、TextPickerDialog、TimePickerDialog 组件沉浸光感效果同 CustomDialog 相同。",
+      "snapshotId": "component",
+      "anchor": "沉浸光感效果同CustomDialog相同"
+    },
+    {
+      "id": "IL-C014",
+      "topic": "版本门槛",
+      "statement": "ArkUI 沉浸光感从 API 版本 26.0.0 开始提供，demo 工程 targetSdkVersion 不得低于 26.0.0。",
+      "snapshotId": "overview",
+      "anchor": "从API版本26.0.0开始，ArkUI新增沉浸光感"
+    },
+    {
+      "id": "IL-C015",
+      "topic": "应用级开关配置",
+      "statement": "应用级开关通过 entry 模块 module.json5 中 metadata 的 name 字段 ohos.arkui.UIMaterial.state 配置，value 为 default、enable 或 disable；该配置仅在 entry 类型的 module 中生效。",
+      "snapshotId": "enable",
+      "anchor": "ohos.arkui.UIMaterial.state"
+    },
+    {
+      "id": "IL-C016",
+      "topic": "弹窗生效范围",
+      "statement": "弹窗类组件和弹窗类接口（PromptAction、Popup 控制、Tips 控制、菜单控制、半模态转场等）可在页面内全部区域生效，不限于 Navigation 标题栏或底部 TabBar。",
+      "snapshotId": "enable",
+      "anchor": "可在页面内全部区域生效"
+    },
+    {
+      "id": "IL-C017",
+      "topic": "材质构造参数",
+      "statement": "组件级材质对象通过 new uiMaterial.ImmersiveMaterial(options) 构造，options 类型为 ImmersiveOptions，默认值 {style: ImmersiveStyle.REGULAR, materialColor: undefined, colorInvert: false, applyShadow: true, interactive: false, lightEffect: undefined}。",
+      "snapshotId": "ui-material-api",
+      "anchor": "constructor(options?: ImmersiveOptions)"
+    },
+    {
+      "id": "IL-C018",
+      "topic": "材质样式选择",
+      "statement": "ImmersiveStyle 提供 ULTRA_THIN、THIN、REGULAR、THICK、ULTRA_THICK 五种样式；弹窗类组件通常使用较厚的材质样式（THICK 或 ULTRA_THICK）以获得更强的背景模糊效果；需要强调层次感或遮挡背景的场景建议使用 THICK 或 ULTRA_THICK 样式。",
+      "snapshotId": "ui-material-api",
+      "anchor": "建议使用THICK或ULTRA_THICK样式"
+    },
+    {
+      "id": "IL-C019",
+      "topic": "关闭语义",
+      "statement": "将 systemMaterial 属性设置为 undefined 表示恢复为组件默认的沉浸光感效果；uiMaterial.Material.empty 是关闭沉浸光感效果；要关闭一个默认开启沉浸光感的组件应使用 uiMaterial.Material.empty。",
+      "snapshotId": "enable",
+      "anchor": "undefined表示恢复为组件默认的沉浸光感效果"
+    }
+  ],
+  "conflictResolutions": [],
+  "confirmations": [
+    {
+      "snapshotId": "component",
+      "category": "api-signature",
+      "userDecision": "confirmed",
+      "note": "用户确认弹窗章节 API 签名细化（Toast 默认 THICK、Popup/Tips 不默认开启、Menu/Dialog 组件级入口）以本次冻结为准。"
+    },
+    {
+      "snapshotId": "constraints",
+      "category": "api-signature",
+      "userDecision": "confirmed",
+      "note": "用户确认功耗优化细则（面积、嵌套、模糊叠加、弹窗尺寸）以本次冻结为准。"
+    },
+    {
+      "snapshotId": "ui-material-api",
+      "category": "new",
+      "userDecision": "confirmed",
+      "note": "用户确认新增页 @ohos.arkui.uiMaterial 作为本次判据来源整体现提。"
+    },
+    {
+      "snapshotId": "faq",
+      "category": "api-signature",
+      "userDecision": "confirmed",
+      "note": "用户确认 FAQ 变化（DEFAULT 模式下背景色/模糊/阴影导致不默认开启材质等）以本次冻结为准。"
+    },
+    {
+      "snapshotId": "overview",
+      "category": "version",
+      "userDecision": "confirmed",
+      "note": "用户确认版本声明变化（沉浸光感从 API 26.0.0 起提供）以本次冻结为准。"
+    }
+  ]
+}

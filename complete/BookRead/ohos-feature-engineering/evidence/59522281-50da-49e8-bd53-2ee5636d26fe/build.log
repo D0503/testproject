@@ -1,0 +1,1087 @@
+$ devecocli build --product default --build-mode debug
+
+[ohpm install] Running...
+[32minstall completed in 0s 792ms[39m
+
+[hvigor sync] Running...
+> hvigor [32mhvigor client: Starting hvigor daemon.[39m
+> hvigor [32mHvigor Daemon started in 1.02 s[39m
+> hvigor [32mFinished :entry:init... after 5 ms [39m
+> hvigor [32mFinished :common:init... after 2 ms [39m
+> hvigor [32mFinished :book_home:init... after 1 ms [39m
+> hvigor [32mFinished :book_person:init... after 1 ms [39m
+> hvigor [32mFinished :book_shelf:init... after 1 ms [39m
+> hvigor [32mFinished :book_read_kit:init... after 2 ms [39m
+> hvigor [32mFinished :book_sort:init... after 1 ms [39m
+> hvigor [32mFinished :swiper_card:init... after 1 ms [39m
+> hvigor [32mFinished :reader_tool_bar:init... after 1 ms [39m
+> hvigor [32mFinished :base_common:init... after 2 ms [39m
+> hvigor [32mFinished :aggregated_payment:init... after 1 ms [39m
+> hvigor [32mFinished :custom_push:init... after 1 ms [39m
+> hvigor [32mFinished :incentive_ad:init... after 1 ms [39m
+> hvigor [32mFinished :membership:init... after 2 ms [39m
+> hvigor [32mFinished :aggregated_share:init... after 1 ms [39m
+> hvigor [32mFinished :aggregated_ads:init... after 1 ms [39m
+> hvigor [32mFinished :module_ui_base:init... after 1 ms [39m
+> hvigor [32mFinished :module_privacy_agreement:init... after 2 ms [39m
+> hvigor [32mFinished :dial_panel:init... after 1 ms [39m
+> hvigor [32mFinished :image_preview:init... after 1 ms [39m
+> hvigor [32mFinished :customer_service_chat:init... after 1 ms [39m
+> hvigor [32mFinished ::init... after 1 ms [39m
+
+[hvigor build] Running...
+> hvigor [32mFinished ::PreBuildApp... after 3 ms [39m
+> hvigor [32mFinished :entry:default@PreBuild... after 780 ms [39m
+> hvigor [32mFinished :common:default@PreBuild... after 111 ms [39m
+> hvigor [32mFinished :base_common:default@PreBuild... after 33 ms [39m
+> hvigor [32mFinished :incentive_ad:default@PreBuild... after 60 ms [39m
+> hvigor [32mFinished :aggregated_payment:default@PreBuild... after 26 ms [39m
+> hvigor [32mFinished :book_home:default@PreBuild... after 33 ms [39m
+> hvigor [32mFinished :swiper_card:default@PreBuild... after 74 ms [39m
+> hvigor [32mFinished :book_person:default@PreBuild... after 46 ms [39m
+> hvigor [32mFinished :custom_push:default@PreBuild... after 38 ms [39m
+> hvigor [32mFinished :membership:default@PreBuild... after 86 ms [39m
+> hvigor [32mFinished :book_shelf:default@PreBuild... after 38 ms [39m
+> hvigor [32mFinished :book_read_kit:default@PreBuild... after 27 ms [39m
+> hvigor [32mFinished :reader_tool_bar:default@PreBuild... after 28 ms [39m
+> hvigor [32mFinished :aggregated_share:default@PreBuild... after 28 ms [39m
+> hvigor [32mFinished :aggregated_ads:default@PreBuild... after 30 ms [39m
+> hvigor [32mFinished :module_privacy_agreement:default@PreBuild... after 29 ms [39m
+> hvigor [32mFinished :module_ui_base:default@PreBuild... after 26 ms [39m
+> hvigor [32mFinished :dial_panel:default@PreBuild... after 29 ms [39m
+> hvigor [32mFinished :customer_service_chat:default@PreBuild... after 29 ms [39m
+> hvigor [32mFinished :image_preview:default@PreBuild... after 30 ms [39m
+> hvigor [32mFinished :book_sort:default@PreBuild... after 30 ms [39m
+> hvigor [32mFinished ::DuplicateDependencyCheck... after 2 ms [39m
+> hvigor [32mFinished :entry:default@CreateModuleInfo... after 4 ms [39m
+> hvigor [32mFinished :entry:default@GenerateMetadata... after 14 ms [39m
+> hvigor [32mFinished :entry:default@PreCheckSyscap... after 1 ms [39m
+> hvigor [32mFinished :entry:default@GeneratePkgContextInfo... after 53 ms [39m
+> hvigor [32mFinished :entry:default@GeneratePkgSdkInfo... after 14 ms [39m
+> hvigor [32mFinished :entry:default@ProcessIntegratedHsp... after 2 ms [39m
+> hvigor [32mFinished :base_common:default@CreateHarBuildProfile... after 4 ms [39m
+> hvigor [32mFinished :base_common:default@ConfigureCmake... after 2 ms [39m
+> hvigor [32mFinished :base_common:default@MergeProfile... after 16 ms [39m
+> hvigor [32mFinished :aggregated_payment:default@CreateHarBuildProfile... after 4 ms [39m
+> hvigor [32mFinished :aggregated_payment:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :aggregated_payment:default@MergeProfile... after 13 ms [39m
+> hvigor [32mFinished :membership:default@CreateHarBuildProfile... after 4 ms [39m
+> hvigor [32mFinished :membership:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :membership:default@MergeProfile... after 123 ms [39m
+> hvigor [32mFinished :aggregated_share:default@CreateHarBuildProfile... after 5 ms [39m
+> hvigor [32mFinished :aggregated_share:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :aggregated_share:default@MergeProfile... after 15 ms [39m
+> hvigor [32mFinished :aggregated_ads:default@CreateHarBuildProfile... after 4 ms [39m
+> hvigor [32mFinished :aggregated_ads:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :aggregated_ads:default@MergeProfile... after 20 ms [39m
+> hvigor [32mFinished :module_ui_base:default@CreateHarBuildProfile... after 10 ms [39m
+> hvigor [32mFinished :module_ui_base:default@ConfigureCmake... after 5 ms [39m
+> hvigor [32mFinished :module_ui_base:default@MergeProfile... after 15 ms [39m
+> hvigor [32mFinished :dial_panel:default@CreateHarBuildProfile... after 8 ms [39m
+> hvigor [32mFinished :dial_panel:default@ConfigureCmake... after 2 ms [39m
+> hvigor [32mFinished :dial_panel:default@MergeProfile... after 14 ms [39m
+> hvigor [32mFinished :image_preview:default@CreateHarBuildProfile... after 7 ms [39m
+> hvigor [32mFinished :image_preview:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :image_preview:default@MergeProfile... after 17 ms [39m
+> hvigor [32mFinished :entry:default@SyscapTransform... after 7 ms [39m
+> hvigor [32mFinished :entry:default@ProcessRouterMap... after 72 ms [39m
+> hvigor [32mFinished :entry:default@ProcessShareConfig... after 44 ms [39m
+> hvigor [32mFinished :entry:default@ProcessStartupConfig... after 21 ms [39m
+> hvigor [32mFinished :swiper_card:default@CreateHarBuildProfile... after 7 ms [39m
+> hvigor [32mFinished :reader_tool_bar:default@CreateHarBuildProfile... after 6 ms [39m
+> hvigor [32mFinished :custom_push:default@CreateHarBuildProfile... after 5 ms [39m
+> hvigor [32mFinished :incentive_ad:default@CreateHarBuildProfile... after 5 ms [39m
+> hvigor [32mFinished :base_common:default@BuildNativeWithCmake... after 2 ms [39m
+> hvigor [32mFinished :swiper_card:default@MergeProfile... after 19 ms [39m
+> hvigor [32mFinished :reader_tool_bar:default@MergeProfile... after 21 ms [39m
+> hvigor [32mFinished :custom_push:default@MergeProfile... after 27 ms [39m
+> hvigor [32mFinished :incentive_ad:default@MergeProfile... after 23 ms [39m
+> hvigor [32mFinished :aggregated_payment:default@BuildNativeWithCmake... after 2 ms [39m
+> hvigor [32mFinished :membership:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mFinished :aggregated_share:default@BuildNativeWithCmake... after 2 ms [39m
+> hvigor [32mFinished :aggregated_ads:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mFinished :module_privacy_agreement:default@CreateHarBuildProfile... after 4 ms [39m
+> hvigor [32mFinished :module_ui_base:default@BuildNativeWithCmake... after 5 ms [39m
+> hvigor [32mFinished :module_privacy_agreement:default@MergeProfile... after 13 ms [39m
+> hvigor [32mFinished :dial_panel:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mFinished :customer_service_chat:default@CreateHarBuildProfile... after 4 ms [39m
+> hvigor [32mFinished :image_preview:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mFinished :customer_service_chat:default@MergeProfile... after 13 ms [39m
+> hvigor [32mFinished :entry:default@GenerateLoaderJson... after 232 ms [39m
+> hvigor [32mFinished :common:default@CreateHarBuildProfile... after 4 ms [39m
+> hvigor [32mFinished :swiper_card:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :reader_tool_bar:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :base_common:default@BuildNativeWithNinja... after 6 ms [39m
+> hvigor [32mFinished :custom_push:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :incentive_ad:default@ConfigureCmake... after 2 ms [39m
+> hvigor [32mFinished :common:default@MergeProfile... after 19 ms [39m
+> hvigor [32mFinished :aggregated_payment:default@BuildNativeWithNinja... after 5 ms [39m
+> hvigor [32mFinished :membership:default@BuildNativeWithNinja... after 4 ms [39m
+> hvigor [32mFinished :aggregated_share:default@BuildNativeWithNinja... after 5 ms [39m
+> hvigor [32mFinished :aggregated_ads:default@BuildNativeWithNinja... after 5 ms [39m
+> hvigor [32mFinished :module_ui_base:default@BuildNativeWithNinja... after 6 ms [39m
+> hvigor [32mFinished :module_privacy_agreement:default@ConfigureCmake... after 2 ms [39m
+> hvigor [32mFinished :dial_panel:default@BuildNativeWithNinja... after 7 ms [39m
+> hvigor [32mFinished :image_preview:default@BuildNativeWithNinja... after 3 ms [39m
+> hvigor [32mFinished :customer_service_chat:default@ConfigureCmake... after 2 ms [39m
+> hvigor [32mFinished :book_home:default@CreateHarBuildProfile... after 3 ms [39m
+> hvigor [32mFinished :book_read_kit:default@CreateHarBuildProfile... after 4 ms [39m
+> hvigor [32mFinished :book_sort:default@CreateHarBuildProfile... after 5 ms [39m
+> hvigor [32mFinished :swiper_card:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mFinished :reader_tool_bar:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mFinished :base_common:default@ProcessLibs... after 12 ms [39m
+> hvigor [32mFinished :custom_push:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mFinished :incentive_ad:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mFinished :book_home:default@MergeProfile... after 11 ms [39m
+> hvigor [32mFinished :book_read_kit:default@MergeProfile... after 13 ms [39m
+> hvigor [32mFinished :book_sort:default@MergeProfile... after 14 ms [39m
+> hvigor [32mFinished :aggregated_payment:default@ProcessLibs... after 12 ms [39m
+> hvigor [32mFinished :membership:default@ProcessLibs... after 20 ms [39m
+> hvigor [32mFinished :aggregated_share:default@ProcessLibs... after 21 ms [39m
+> hvigor [32mFinished :aggregated_ads:default@ProcessLibs... after 12 ms [39m
+> hvigor [32mFinished :module_ui_base:default@ProcessLibs... after 8 ms [39m
+> hvigor [32mFinished :module_privacy_agreement:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mFinished :dial_panel:default@ProcessLibs... after 10 ms [39m
+> hvigor [32mFinished :image_preview:default@ProcessLibs... after 8 ms [39m
+> hvigor [32mFinished :customer_service_chat:default@BuildNativeWithCmake... after 3 ms [39m
+> hvigor [32mFinished :book_shelf:default@CreateHarBuildProfile... after 4 ms [39m
+> hvigor [32mFinished :base_common:default@DoNativeStrip... after 17 ms [39m
+> hvigor [32mFinished :common:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :book_shelf:default@MergeProfile... after 17 ms [39m
+> hvigor [32mFinished :aggregated_payment:default@DoNativeStrip... after 12 ms [39m
+> hvigor [32mFinished :membership:default@DoNativeStrip... after 23 ms [39m
+> hvigor [32mFinished :aggregated_share:default@DoNativeStrip... after 15 ms [39m
+> hvigor [32mFinished :aggregated_ads:default@DoNativeStrip... after 6 ms [39m
+> hvigor [32mFinished :module_ui_base:default@DoNativeStrip... after 11 ms [39m
+> hvigor [32mFinished :dial_panel:default@DoNativeStrip... after 13 ms [39m
+> hvigor [32mFinished :image_preview:default@DoNativeStrip... after 6 ms [39m
+> hvigor [32mFinished :book_person:default@CreateHarBuildProfile... after 4 ms [39m
+> hvigor [32mFinished :swiper_card:default@BuildNativeWithNinja... after 6 ms [39m
+> hvigor [32mFinished :reader_tool_bar:default@BuildNativeWithNinja... after 6 ms [39m
+> hvigor [32mFinished :custom_push:default@BuildNativeWithNinja... after 5 ms [39m
+> hvigor [32mFinished :incentive_ad:default@BuildNativeWithNinja... after 4 ms [39m
+> hvigor [32mFinished :common:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mFinished :book_person:default@MergeProfile... after 36 ms [39m
+> hvigor [32mFinished :module_privacy_agreement:default@BuildNativeWithNinja... after 4 ms [39m
+> hvigor [32mFinished :customer_service_chat:default@BuildNativeWithNinja... after 5 ms [39m
+> hvigor [32mFinished :entry:default@CreateBuildProfile... after 12 ms [39m
+> hvigor [32mFinished :swiper_card:default@ProcessLibs... after 11 ms [39m
+> hvigor [32mFinished :reader_tool_bar:default@ProcessLibs... after 10 ms [39m
+> hvigor [32mFinished :custom_push:default@ProcessLibs... after 14 ms [39m
+> hvigor [32mFinished :incentive_ad:default@ProcessLibs... after 11 ms [39m
+> hvigor [32mFinished :book_home:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :book_read_kit:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :book_sort:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :entry:default@MergeProfile... after 119 ms [39m
+> hvigor [32mFinished :module_privacy_agreement:default@ProcessLibs... after 9 ms [39m
+> hvigor [32mFinished :customer_service_chat:default@ProcessLibs... after 7 ms [39m
+> hvigor [32mFinished :swiper_card:default@DoNativeStrip... after 15 ms [39m
+> hvigor [32mFinished :reader_tool_bar:default@DoNativeStrip... after 8 ms [39m
+> hvigor [32mFinished :custom_push:default@DoNativeStrip... after 8 ms [39m
+> hvigor [32mFinished :incentive_ad:default@DoNativeStrip... after 6 ms [39m
+> hvigor [32mFinished :book_home:default@BuildNativeWithCmake... after 2 ms [39m
+> hvigor [32mFinished :book_read_kit:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mFinished :book_sort:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mFinished :entry:default@MakePackInfo... after 17 ms [39m
+> hvigor [32mFinished :entry:default@ProcessProfile... after 443 ms [39m
+> hvigor [32mFinished :module_privacy_agreement:default@DoNativeStrip... after 8 ms [39m
+> hvigor [32mFinished :customer_service_chat:default@DoNativeStrip... after 5 ms [39m
+> hvigor [32mFinished :common:default@BuildNativeWithNinja... after 5 ms [39m
+> hvigor [32mFinished :book_shelf:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :entry:default@ProcessResource... after 15 ms [39m
+> hvigor [32mFinished :common:default@ProcessLibs... after 15 ms [39m
+> hvigor [32mFinished :book_shelf:default@BuildNativeWithCmake... after 4 ms [39m
+> hvigor [32mFinished :entry:default@CompileResource... after 1 s 763 ms [39m
+> hvigor [32mFinished :common:default@DoNativeStrip... after 6 ms [39m
+> hvigor [32mFinished :book_person:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :entry:default@BuildJS... after 67 ms [39m
+> hvigor [32mFinished :book_home:default@BuildNativeWithNinja... after 25 ms [39m
+> hvigor [32mFinished :book_read_kit:default@BuildNativeWithNinja... after 35 ms [39m
+> hvigor [32mFinished :book_sort:default@BuildNativeWithNinja... after 31 ms [39m
+> hvigor [32mFinished :book_person:default@BuildNativeWithCmake... after 1 ms [39m
+> hvigor [32mFinished :book_home:default@ProcessLibs... after 17 ms [39m
+> hvigor [32mFinished :book_read_kit:default@ProcessLibs... after 12 ms [39m
+> hvigor [32mFinished :book_sort:default@ProcessLibs... after 9 ms [39m
+> hvigor [32mFinished :entry:default@ConfigureCmake... after 1 ms [39m
+> hvigor [32mFinished :book_home:default@DoNativeStrip... after 27 ms [39m
+> hvigor [32mFinished :book_read_kit:default@DoNativeStrip... after 9 ms [39m
+> hvigor [32mFinished :book_sort:default@DoNativeStrip... after 10 ms [39m
+> hvigor [32mFinished :entry:default@BuildNativeWithCmake... after 2 ms [39m
+> hvigor [32mFinished :book_shelf:default@BuildNativeWithNinja... after 5 ms [39m
+> hvigor [32mFinished :book_shelf:default@ProcessLibs... after 7 ms [39m
+> hvigor [32mFinished :book_shelf:default@DoNativeStrip... after 6 ms [39m
+> hvigor [32mFinished :book_person:default@BuildNativeWithNinja... after 4 ms [39m
+> hvigor [32mFinished :book_person:default@ProcessLibs... after 8 ms [39m
+> hvigor [32mFinished :book_person:default@DoNativeStrip... after 6 ms [39m
+> hvigor [32mFinished :entry:default@BuildNativeWithNinja... after 5 ms [39m
+> hvigor [32mFinished :entry:default@ProcessLibs... after 74 ms [39m
+> hvigor [32mFinished :entry:default@DoNativeStrip... after 1 s 928 ms [39m
+> hvigor [32mFinished :entry:default@CacheNativeLibs... after 21 ms [39m
+> hvigor [32mFinished :entry:default@CompileArkTS... after 1 min 39 s 274 ms [39m
+> hvigor [32mFinished :entry:default@GeneratePkgModuleJson... after 10 ms [39m
+> hvigor [32mFinished :entry:default@ProcessCompiledResources... after 2 ms [39m
+> hvigor [32mFinished :entry:default@PackageHap... after 1 s 242 ms [39m
+> hvigor [32mFinished :entry:default@PackingCheck... after 29 ms [39m
+> hvigor [32mFinished :entry:default@SignHap... after 9 ms [39m
+> hvigor [32mFinished :entry:default@CollectDebugSymbol... after 4 ms [39m
+> hvigor [32mFinished :entry:assembleHap... after 1 ms [39m
+> hvigor [32mFinished ::MakeProjectPackInfo... after 21 ms [39m
+> hvigor [32mFinished ::ProcessProjectPrivacyProfile... after 41 ms [39m
+> hvigor [32mFinished ::GeneratePackRes... after 3 ms [39m
+> hvigor [32mFinished ::PackageApp... after 1 s 56 ms [39m
+> hvigor [32mFinished ::SignPackagesFromApp... after 3 ms [39m
+> hvigor [32mFinished ::SignApp... after 6 ms [39m
+> hvigor [32mFinished ::assembleApp... after 1 ms [39m
+> hvigor [32mBUILD SUCCESSFUL in 1 min 59 s 171 ms [39m
+
+202 tasks in total: 202 executed, 0 up-to-date
+[32m
+Merged central compile_commands.json for C++ language server.[39m
+
+[32mBuild completed successfully[39m
+
+[33mEnsure the project source is trustworthy before proceeding.[39m
+> hvigor [33mWARN: Missing module info for local modules 'core'. Check project-level build-profile.json5. [39m
+> hvigor [33mWARN: Missing module info for local modules 'core'. Check project-level build-profile.json5. [39m
+> hvigor [33mWARN: Missing module info for local modules 'core'. Check project-level build-profile.json5. [39m
+> hvigor [33mWARN: Missing module info for local modules 'core'. Check project-level build-profile.json5. [39m
+> hvigor [33mWARN: Missing module info for local modules 'core'. Check project-level build-profile.json5. [39m
+> hvigor [33mWARN: D:\HW\testproject\complete\BookRead\components\aggregated_share\libs\weibo_open_sdk\src\main\module.json does not exist. This library will not be merged. This may occur when the project is manually modified and the local library is not declared in D:\HW\testproject\complete\BookRead\build-profile.json5. Please confirm the correctness of this module. You may try to solve the problem by declare it in entry build-profile.json5.[39m
+> hvigor [33mWARN: Warning: 'agcit_huawei_book_read' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\src\main\resources\base\element\string.json
+Warning: 'agcit_huawei_book_read' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\commons\common\src\main\resources\base\element\string.json
+Warning: 'app_name' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\commons\common\src\main\resources\base\element\string.json
+Warning: 'pure_white' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\AppScope\resources\base\element\color.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\commons\common\src\main\resources\base\element\color.json
+Warning: 'agcit_huawei_book_read' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\feature\book_home\src\main\resources\base\element\string.json
+Warning: 'agcit_huawei_book_read' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\feature\book_person\src\main\resources\base\element\string.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_home\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\feature\book_person\src\main\resources\base\element\string.json
+Warning: 'agcit_huawei_book_read' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\feature\book_shelf\src\main\resources\base\element\string.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_home\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\feature\book_shelf\src\main\resources\base\element\string.json
+Warning: 'agcit_huawei_book_read' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\feature\book_read_kit\src\main\resources\base\element\string.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_home\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\feature\book_read_kit\src\main\resources\base\element\string.json
+Warning: 'page_text_font_size' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_person\src\main\resources\base\element\float.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\feature\book_read_kit\src\main\resources\base\element\float.json
+Warning: 'agcit_huawei_book_read' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\feature\book_sort\src\main\resources\base\element\string.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_home\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\feature\book_sort\src\main\resources\base\element\string.json
+Warning: 'page_text_font_size' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_person\src\main\resources\base\element\float.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\feature\book_sort\src\main\resources\base\element\float.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_home\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\base_common\src\main\resources\base\element\string.json
+Warning: 'page_text_font_size' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_person\src\main\resources\base\element\float.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\base_common\src\main\resources\base\element\float.json
+Warning: 'pure_white' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\AppScope\resources\base\element\color.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\reader_tool_bar\src\main\resources\base\element\color.json
+Warning: 'font_modifier_inner_color' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\commons\common\src\main\resources\base\element\color.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\reader_tool_bar\src\main\resources\base\element\color.json
+Warning: 'reader_view_background_0' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\commons\common\src\main\resources\base\element\color.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\reader_tool_bar\src\main\resources\base\element\color.json
+Warning: 'reader_view_background_1' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\commons\common\src\main\resources\base\element\color.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\reader_tool_bar\src\main\resources\base\element\color.json
+Warning: 'reader_view_background_2' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\commons\common\src\main\resources\base\element\color.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\reader_tool_bar\src\main\resources\base\element\color.json
+Warning: 'reader_view_background_3' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\commons\common\src\main\resources\base\element\color.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\reader_tool_bar\src\main\resources\base\element\color.json
+Warning: 'slider_selected_color' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\commons\common\src\main\resources\base\element\color.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\reader_tool_bar\src\main\resources\base\element\color.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_home\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\reader_tool_bar\src\main\resources\base\element\string.json
+Warning: 'page_text_font_size' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_person\src\main\resources\base\element\float.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\reader_tool_bar\src\main\resources\base\element\float.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_home\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\swiper_card\src\main\resources\base\element\string.json
+Warning: 'page_text_font_size' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_person\src\main\resources\base\element\float.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\swiper_card\src\main\resources\base\element\float.json
+Warning: 'agcit_huawei_book_read' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\aggregated_payment\src\main\resources\base\element\string.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_home\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\aggregated_payment\src\main\resources\base\element\string.json
+Warning: 'page_text_font_size' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_person\src\main\resources\base\element\float.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\aggregated_payment\src\main\resources\base\element\float.json
+Warning: 'pure_white' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\AppScope\resources\base\element\color.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\custom_push\src\main\resources\base\element\color.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_home\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\custom_push\src\main\resources\base\element\string.json
+Warning: 'page_text_font_size' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_person\src\main\resources\base\element\float.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\custom_push\src\main\resources\base\element\float.json
+Warning: 'page_text_font_size' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_person\src\main\resources\base\element\float.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\aggregated_share\src\main\resources\base\element\float.json
+Warning: 'start_window_background' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\entry\src\main\resources\base\element\color.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@cashier_alipay+cashiersdk@15.8.29\oh_modules\@cashier_alipay\cashiersdk\src\main\resources\base\element\color.json
+Warning: 'app_name' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\incentive_ad\src\main\resources\base\element\string.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_home\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\incentive_ad\src\main\resources\base\element\string.json
+Warning: 'page_text_font_size' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_person\src\main\resources\base\element\float.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\incentive_ad\src\main\resources\base\element\float.json
+Warning: 'page_text_font_size' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_person\src\main\resources\base\element\float.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\membership\src\main\resources\base\element\float.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_home\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\aggregated_ads\src\main\resources\base\element\string.json
+Warning: 'page_text_font_size' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_person\src\main\resources\base\element\float.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\aggregated_ads\src\main\resources\base\element\float.json
+Warning: 'agcit_huawei_book_read' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\aggregated_share\libs\weibo_open_sdk\src\main\resources\base\element\string.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_home\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\aggregated_share\libs\weibo_open_sdk\src\main\resources\base\element\string.json
+Warning: 'page_text_font_size' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_person\src\main\resources\base\element\float.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\aggregated_share\libs\weibo_open_sdk\src\main\resources\base\element\float.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_home\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@alipay+blueshieldsdk@xy3aw+wprnwn5w0hnkn1+l8x1l+cy7hs8xj7upxeyw0=\oh_modules\@alipay\blueshieldsdk\src\main\resources\base\element\string.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_home\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\image_preview\src\main\resources\base\element\string.json
+Warning: 'page_text_font_size' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_person\src\main\resources\base\element\float.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\components\image_preview\src\main\resources\base\element\float.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_home\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@ohos+axios@2.2.4\oh_modules\@ohos\axios\src\main\resources\base\element\string.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@alipay+blueshieldsdk@xy3aw+wprnwn5w0hnkn1+l8x1l+cy7hs8xj7upxeyw0=\oh_modules\@alipay\blueshieldsdk\src\main\resources\en_US\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@ohos+axios@2.2.4\oh_modules\@ohos\axios\src\main\resources\en_US\element\string.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@alipay+blueshieldsdk@xy3aw+wprnwn5w0hnkn1+l8x1l+cy7hs8xj7upxeyw0=\oh_modules\@alipay\blueshieldsdk\src\main\resources\zh_CN\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@ohos+axios@2.2.4\oh_modules\@ohos\axios\src\main\resources\zh_CN\element\string.json
+Warning: 'agcit_huawei_book_read' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\AppScope\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\feature\book_home\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@alipay+blueshieldsdk@xy3aw+wprnwn5w0hnkn1+l8x1l+cy7hs8xj7upxeyw0=\oh_modules\@alipay\blueshieldsdk\src\main\resources\en_US\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\en_US\element\string.json
+Warning: 'page_show' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@alipay+blueshieldsdk@xy3aw+wprnwn5w0hnkn1+l8x1l+cy7hs8xj7upxeyw0=\oh_modules\@alipay\blueshieldsdk\src\main\resources\zh_CN\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\zh_CN\element\string.json
+Warning: 'msp_ssl_error' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@cashier_alipay+cashiersdk@15.8.29\oh_modules\@cashier_alipay\cashiersdk\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'msp_ssl_error' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@cashier_alipay+cashiersdk@15.8.29\oh_modules\@cashier_alipay\cashiersdk\src\main\resources\en_US\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\en_US\element\string.json
+Warning: 'msp_ssl_error' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@cashier_alipay+cashiersdk@15.8.29\oh_modules\@cashier_alipay\cashiersdk\src\main\resources\zh_CN\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\zh_CN\element\string.json
+Warning: 'msp_ssl_error_title' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@cashier_alipay+cashiersdk@15.8.29\oh_modules\@cashier_alipay\cashiersdk\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'msp_ssl_error_title' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@cashier_alipay+cashiersdk@15.8.29\oh_modules\@cashier_alipay\cashiersdk\src\main\resources\en_US\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\en_US\element\string.json
+Warning: 'msp_ssl_error_title' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@cashier_alipay+cashiersdk@15.8.29\oh_modules\@cashier_alipay\cashiersdk\src\main\resources\zh_CN\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\zh_CN\element\string.json
+Warning: 'ok' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@cashier_alipay+cashiersdk@15.8.29\oh_modules\@cashier_alipay\cashiersdk\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'ok' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@cashier_alipay+cashiersdk@15.8.29\oh_modules\@cashier_alipay\cashiersdk\src\main\resources\en_US\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\en_US\element\string.json
+Warning: 'ok' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@cashier_alipay+cashiersdk@15.8.29\oh_modules\@cashier_alipay\cashiersdk\src\main\resources\zh_CN\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\zh_CN\element\string.json
+Warning: 'agcit_agc_ui_base' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@hw-agconnect+ui-base@1.0.2\oh_modules\@hw-agconnect\ui-base\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'shared_desc' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@taobao-ohos+utdid_sdk@sxn5blz8wnmyyhhjqdjifot4kh4asf+8aeifzj4aaey=\oh_modules\@taobao-ohos\utdid_sdk\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'agcit_agc_util_log' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@hw-agconnect+util-log@1.0.0\oh_modules\@hw-agconnect\util-log\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'agcittype_agc_util_log' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@hw-agconnect+util-log@1.0.0\oh_modules\@hw-agconnect\util-log\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'agcit_agc_ui_countdown' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@hw-agconnect+ui-countdown@1.0.0\oh_modules\@hw-agconnect\ui-countdown\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'countdown_day' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@hw-agconnect+ui-countdown@1.0.0\oh_modules\@hw-agconnect\ui-countdown\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'countdown_day' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@hw-agconnect+ui-countdown@1.0.0\oh_modules\@hw-agconnect\ui-countdown\src\main\resources\en_US\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\en_US\element\string.json
+Warning: 'countdown_day' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@hw-agconnect+ui-countdown@1.0.0\oh_modules\@hw-agconnect\ui-countdown\src\main\resources\zh_CN\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\zh_CN\element\string.json
+Warning: 'countdown_hour' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@hw-agconnect+ui-countdown@1.0.0\oh_modules\@hw-agconnect\ui-countdown\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'countdown_hour' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@hw-agconnect+ui-countdown@1.0.0\oh_modules\@hw-agconnect\ui-countdown\src\main\resources\en_US\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\en_US\element\string.json
+Warning: 'countdown_hour' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@hw-agconnect+ui-countdown@1.0.0\oh_modules\@hw-agconnect\ui-countdown\src\main\resources\zh_CN\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\zh_CN\element\string.json
+Warning: 'countdown_minute' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@hw-agconnect+ui-countdown@1.0.0\oh_modules\@hw-agconnect\ui-countdown\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'countdown_minute' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@hw-agconnect+ui-countdown@1.0.0\oh_modules\@hw-agconnect\ui-countdown\src\main\resources\en_US\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\en_US\element\string.json
+Warning: 'countdown_minute' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@hw-agconnect+ui-countdown@1.0.0\oh_modules\@hw-agconnect\ui-countdown\src\main\resources\zh_CN\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\zh_CN\element\string.json
+Warning: 'countdown_second' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@hw-agconnect+ui-countdown@1.0.0\oh_modules\@hw-agconnect\ui-countdown\src\main\resources\base\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\base\element\string.json
+Warning: 'countdown_second' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@hw-agconnect+ui-countdown@1.0.0\oh_modules\@hw-agconnect\ui-countdown\src\main\resources\en_US\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\en_US\element\string.json
+Warning: 'countdown_second' conflict, first declared.
+at D:\HW\testproject\complete\BookRead\oh_modules\.ohpm\@hw-agconnect+ui-countdown@1.0.0\oh_modules\@hw-agconnect\ui-countdown\src\main\resources\zh_CN\element\string.json
+but declared again.
+at D:\HW\testproject\complete\BookRead\entry\build\default\intermediates\res\default\resource_str\zh_CN\element\string.json
+[39m
+> hvigor [33mWARN: [33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/constant/Constants.ets:107:21
+ Usage of 'ESObject' type is restricted (arkts-limited-esobj)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@hw-agconnect+ui-base@1.0.2/oh_modules/@hw-agconnect/ui-base/src/main/ets/common/GridSetting.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@hw-agconnect+ui-base@1.0.2/oh_modules/@hw-agconnect/ui-base/src/main/ets/common/BreakpointSystem.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@hw-agconnect+ui-base@1.0.2/oh_modules/@hw-agconnect/ui-base/src/main/ets/common/Logger.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@hw-agconnect+ui-base@1.0.2/oh_modules/@hw-agconnect/ui-base/src/main/ets/common/Model.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@hw-agconnect+ui-base@1.0.2/oh_modules/@hw-agconnect/ui-base/src/main/ets/common/UIBase.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@hw-agconnect+ui-base@1.0.2/oh_modules/@hw-agconnect/ui-base/src/main/ets/components/LayoutFull.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@hw-agconnect+ui-base@1.0.2/oh_modules/@hw-agconnect/ui-base/src/main/ets/common/AvoidAreaInfo.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@hw-agconnect+ui-base@1.0.2/oh_modules/@hw-agconnect/ui-base/src/main/ets/common/Constant.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@hw-agconnect+ui-base@1.0.2/oh_modules/@hw-agconnect/ui-base/Index.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@tencent+qq-open-sdk@1.0.3/oh_modules/@tencent/qq-open-sdk/src/main/ets/h.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@tencent+qq-open-sdk@1.0.3/oh_modules/@tencent/qq-open-sdk/src/main/ets/p/q.d.ets:7:62
+ Use explicit types instead of "any", "unknown" (arkts-no-any-unknown)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@tencent+qq-open-sdk@1.0.3/oh_modules/@tencent/qq-open-sdk/src/main/ets/p/q.d.ets:8:84
+ Use explicit types instead of "any", "unknown" (arkts-no-any-unknown)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@tencent+qq-open-sdk@1.0.3/oh_modules/@tencent/qq-open-sdk/src/main/ets/p/q.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@tencent+qq-open-sdk@1.0.3/oh_modules/@tencent/qq-open-sdk/src/main/ets/i/j.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@tencent+qq-open-sdk@1.0.3/oh_modules/@tencent/qq-open-sdk/src/main/ets/i/m.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@tencent+qq-open-sdk@1.0.3/oh_modules/@tencent/qq-open-sdk/src/main/ets/i/n.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@tencent+qq-open-sdk@1.0.3/oh_modules/@tencent/qq-open-sdk/src/main/ets/o.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@tencent+qq-open-sdk@1.0.3/oh_modules/@tencent/qq-open-sdk/src/main/ets/r/t.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@tencent+qq-open-sdk@1.0.3/oh_modules/@tencent/qq-open-sdk/src/main/ets/r/s.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@tencent+qq-open-sdk@1.0.3/oh_modules/@tencent/qq-open-sdk/src/main/ets/d.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@tencent+qq-open-sdk@1.0.3/oh_modules/@tencent/qq-open-sdk/src/main/ets/e.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@tencent+qq-open-sdk@1.0.3/oh_modules/@tencent/qq-open-sdk/src/main/ets/f/g.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@tencent+qq-open-sdk@1.0.3/oh_modules/@tencent/qq-open-sdk/src/main/ets/k/l.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@tencent+qq-open-sdk@1.0.3/oh_modules/@tencent/qq-open-sdk/src/main/ets/r/u.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@tencent+qq-open-sdk@1.0.3/oh_modules/@tencent/qq-open-sdk/Index.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@cashier_alipay+cashiersdk@15.8.29/oh_modules/@cashier_alipay/cashiersdk/src/main/ets/components/Loading.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@cashier_alipay+cashiersdk@15.8.29/oh_modules/@cashier_alipay/cashiersdk/src/main/ets/api/Pay.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@cashier_alipay+cashiersdk@15.8.29/oh_modules/@cashier_alipay/cashiersdk/src/main/ets/api/Log.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@cashier_alipay+cashiersdk@15.8.29/oh_modules/@cashier_alipay/cashiersdk/src/main/ets/components/h5page/AlipayH5Page.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@cashier_alipay+cashiersdk@15.8.29/oh_modules/@cashier_alipay/cashiersdk/src/main/ets/utils/Utils.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/oh_modules/.ohpm/@cashier_alipay+cashiersdk@15.8.29/oh_modules/@cashier_alipay/cashiersdk/Index.d.ets:2:1
+ Switching off type checks with in-place comments is not allowed (arkts-strict-typing-required)
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN: For details about ArkTS syntax errors, see FAQs[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/membership/src/main/ets/pages/MemberShipPage.ets:154:34
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/membership/src/main/ets/pages/MemberShipPage.ets:155:32
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/utils/FileUtils.ets:39:76
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/utils/FileUtils.ets:44:17
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/utils/FileUtils.ets:45:14
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/utils/FileUtils.ets:71:17
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/utils/FileUtils.ets:72:14
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/utils/FileUtils.ets:80:23
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/base_common/src/main/ets/components/ActionSheet.ets:141:26
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/base_common/src/main/ets/components/ActionSheet.ets:153:23
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/ui/CommonUI.ets:612:43
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/utils/EpubUtils.ets:11:76
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/utils/EpubUtils.ets:24:17
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/utils/EpubUtils.ets:25:14
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/utils/EpubUtils.ets:31:16
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/utils/EpubUtils.ets:43:17
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/utils/EpubUtils.ets:44:14
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/utils/EpubUtils.ets:47:16
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/utils/EpubUtils.ets:57:16
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/utils/EpubUtils.ets:58:14
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/utils/MathUtil.ets:20:62
+ The system capacity of this api 'createRandom' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/utils/MathUtil.ets:21:59
+ The system capacity of this api 'generateRandomSync' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/incentive_ad/src/main/ets/components/IncentiveAdvertising.ets:76:14
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/listener/ImmersiveListener.ets:17:18
+ This API is unavailable to tablet(earlier than API level 23).
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/commons/common/src/main/ets/listener/ImmersiveListener.ets:24:18
+ This API is unavailable to tablet(earlier than API level 23).
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/PopViewUtils.ets:15:20
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/PopViewUtils.ets:50:30
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/PopViewUtils.ets:73:32
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/model/ShareConfigModel.ets:23:28
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/model/ShareConfigModel.ets:25:36
+ 'px2vp' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/model/ShareConfigModel.ets:37:34
+ 'px2vp' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/model/ShareConfigModel.ets:47:28
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/model/ShareConfigModel.ets:60:28
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/model/ShareConfigModel.ets:73:28
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/FileUtils.ets:19:25
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/FileUtils.ets:33:10
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/FileUtils.ets:64:67
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/FileUtils.ets:88:20
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/FileUtils.ets:92:20
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/WXShareUtils.ets:38:7
+ 'AlertDialog' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/WXShareUtils.ets:38:19
+ 'show' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/WXShareUtils.ets:66:39
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/WXShareUtils.ets:91:38
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/WXShareUtils.ets:91:71
+ 'getMediaContent' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/WXShareUtils.ets:110:39
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/WXShareUtils.ets:136:22
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/WXShareUtils.ets:142:22
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/WXShareUtils.ets:145:22
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/QQShareUtils.ets:31:7
+ 'AlertDialog' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/QQShareUtils.ets:31:19
+ 'show' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/QQShareUtils.ets:46:22
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/QQShareUtils.ets:46:22
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/QQShareUtils.ets:52:22
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/QQShareUtils.ets:52:22
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/QQShareUtils.ets:55:22
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/QQShareUtils.ets:55:22
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/WeiboShareUtils.ets:19:46
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/WeiboShareUtils.ets:25:20
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/WeiboShareUtils.ets:32:20
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/WeiboShareUtils.ets:36:20
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/SystemShareUtils.ets:47:30
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/SystemShareUtils.ets:54:22
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/SystemShareUtils.ets:71:18
+ This API is unavailable to tablet(earlier than API level 23).
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/SystemShareUtils.ets:78:18
+ This API is unavailable to tablet(earlier than API level 23).
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/SystemShareUtils.ets:130:33
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/SystemShareUtils.ets:130:66
+ 'getMediaContent' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/utils/SystemShareUtils.ets:152:20
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_share/src/main/ets/views/ShareView.ets:57:25
+ 'get' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_person/src/main/ets/comp/MyInfoCard.ets:226:20
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_person/src/main/ets/comp/ServiceCard.ets:27:38
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_person/src/main/ets/views/AccountPage.ets:69:20
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_person/src/main/ets/views/SettingPage.ets:338:12
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_person/src/main/ets/views/SettingPage.ets:361:43
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_payment/src/main/ets/utils/SignUtils.ets:10:42
+ The system capacity of this api 'createAsyKeyGenerator' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_payment/src/main/ets/utils/SignUtils.ets:13:20
+ The system capacity of this api 'convertKey' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_payment/src/main/ets/utils/SignUtils.ets:14:38
+ The system capacity of this api 'createSign' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_payment/src/main/ets/utils/SignUtils.ets:15:16
+ The system capacity of this api 'init' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_payment/src/main/ets/utils/SignUtils.ets:15:29
+ The system capacity of this api 'priKey' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_payment/src/main/ets/utils/SignUtils.ets:18:42
+ The system capacity of this api 'sign' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/reader_tool_bar/src/main/ets/components/ReaderToolBar.ets:43:36
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/reader_tool_bar/src/main/ets/components/ReaderToolBar.ets:47:52
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_read_kit/src/main/ets/components/ShareBookCard.ets:35:42
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_read_kit/src/main/ets/components/ShareBookCard.ets:36:19
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_read_kit/src/main/ets/components/ShareBookCard.ets:44:10
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_read_kit/src/main/ets/components/ReaderTopCard.ets:106:43
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_read_kit/src/main/ets/components/ReaderPage.ets:85:38
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_read_kit/src/main/ets/components/ReaderPage.ets:261:69
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_read_kit/src/main/ets/components/ReaderPage.ets:263:18
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_read_kit/src/main/ets/components/ReaderPage.ets:267:51
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_read_kit/src/main/ets/components/ReaderPage.ets:269:45
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_read_kit/src/main/ets/components/ReaderPage.ets:545:43
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_read_kit/src/main/ets/pages/WriteCommentPage.ets:164:20
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_read_kit/src/main/ets/pages/WriteCommentPage.ets:173:20
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_read_kit/src/main/ets/pages/WriteCommentPage.ets:182:20
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_read_kit/src/main/ets/pages/WriteCommentPage.ets:216:20
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_person/src/main/ets/comp/SettingFontVM.ets:13:39
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/aggregated_ads/src/main/ets/components/HwAdService.ets:79:10
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/module_privacy_agreement/src/main/ets/utils/PreferenceUtils.ets:27:26
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/image_preview/src/main/ets/utils/PromptActionTool.ets:168:51
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/image_preview/src/main/ets/viewmodel/PreviewViewModel.ets:965:34
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/image_preview/src/main/ets/movingPhotoXComp/AvPlayerController.ets:38:51
+ The system capacity of this api 'media' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/image_preview/src/main/ets/movingPhotoXComp/AvPlayerController.ets:100:47
+ The system capacity of this api 'audio' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/image_preview/src/main/ets/movingPhotoXComp/AvPlayerController.ets:124:16
+ To use this API, you need to apply for the permissions: ohos.permission.VIBRATE
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/image_preview/src/main/ets/movingPhotoXComp/AvPlayerController.ets:168:38
+ The system capacity of this api 'media' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/image_preview/src/main/ets/components/ImagePreviewComponent.ets:194:38
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/image_preview/src/main/ets/components/ImagePreviewComponent.ets:201:50
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/image_preview/src/main/ets/components/ImagePreviewComponent.ets:202:50
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/customer_service_chat/src/main/ets/utils/FileUtil.ets:39:12
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/customer_service_chat/src/main/ets/utils/FileUtil.ets:42:12
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/customer_service_chat/src/main/ets/viewmodels/ChatVM.ets:39:55
+ The system capacity of this api 'TextAreaController' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/customer_service_chat/src/main/ets/viewmodels/ChatVM.ets:137:35
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/customer_service_chat/src/main/ets/components/ChatInput.ets:218:14
+ The 'fill' API is supported since SDK version 26.0.0. However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/entry/src/main/ets/pages/BookHomePage.ets:89:8
+ The 'barFloatingStyle' API is supported since SDK version 6.1.0(23). However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/entry/src/main/ets/pages/BookHomePage.ets:91:25
+ The 'hdsMaterial' API is supported since SDK version 6.1.0(23). However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/entry/src/main/ets/pages/BookHomePage.ets:91:37
+ The 'MaterialType' API is supported since SDK version 6.1.0(23). However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/entry/src/main/ets/pages/BookHomePage.ets:91:50
+ The 'ADAPTIVE' API is supported since SDK version 6.1.0(23). However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/entry/src/main/ets/pages/BookHomePage.ets:92:26
+ The 'hdsMaterial' API is supported since SDK version 6.1.0(23). However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/entry/src/main/ets/pages/BookHomePage.ets:92:38
+ The 'MaterialLevel' API is supported since SDK version 6.1.0(23). However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/entry/src/main/ets/pages/BookHomePage.ets:92:52
+ The 'ADAPTIVE' API is supported since SDK version 6.1.0(23). However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/entry/src/main/ets/pages/Index.ets:161:29
+ The 'hdsMaterial' API is supported since SDK version 6.1.0(23). However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/entry/src/main/ets/pages/Index.ets:161:41
+ The 'MaterialType' API is supported since SDK version 6.1.0(23). However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/entry/src/main/ets/pages/Index.ets:161:54
+ The 'ADAPTIVE' API is supported since SDK version 6.1.0(23). However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/entry/src/main/ets/pages/Index.ets:162:30
+ The 'hdsMaterial' API is supported since SDK version 6.1.0(23). However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/entry/src/main/ets/pages/Index.ets:162:42
+ The 'MaterialLevel' API is supported since SDK version 6.1.0(23). However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/entry/src/main/ets/pages/Index.ets:162:56
+ The 'ADAPTIVE' API is supported since SDK version 6.1.0(23). However, the current compatible SDK version is 6.0.0(20).
+ It is recommended to use apiAvailable to safeguard API compatibility.
+[39m[39m
+[33mWARN: [33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_person/src/main/ets/views/FeedbackRecordPage.ets:8:1
+ It's not a recommended way to export struct with '@Entry' decorator, which may cause ACE Engine error in component preview mode.[39m[39m
+[33mWARN: [33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_person/src/main/ets/views/LaunchAdPage.ets:5:1
+ It's not a recommended way to export struct with '@Entry' decorator, which may cause ACE Engine error in component preview mode.[39m[39m
+[33mWARN: [33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/feature/book_person/src/main/ets/views/CustomerServiceChatPage.ets:3:1
+ It's not a recommended way to export struct with '@Entry' decorator, which may cause ACE Engine error in component preview mode.[39m[39m
+[33mWARN: [33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/base_common/src/main/ets/components/ActionSheet.ets:191:21
+ '@BuilderParam' attribute 'customBuilder' can only be initialized by '@Builder' function or '@LocalBuilder' method in struct.[39m[39m
+[33mWARN: [33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/customer_service_chat/src/main/ets/components/BaseChatItem.ets:80:12
+ The '@Monitor' decorator needs to monitor the state variables that exist.[39m[39m
+[33mWARN: [33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/customer_service_chat/src/main/ets/components/BaseChatItem.ets:85:12
+ The '@Monitor' decorator needs to monitor the state variables that exist.[39m[39m
+[33mWARN: [33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/image_preview/src/main/ets/default/ImageMainPreview.ets:12:7
+ '@BuilderParam' attribute 'topBuilder' can only be initialized by '@Builder' function or '@LocalBuilder' method in struct.[39m[39m
+[33mWARN: [33mArkTS:WARN File: D:/HW/testproject/complete/BookRead/components/image_preview/src/main/ets/default/ImageMainPreview.ets:13:7
+ '@BuilderParam' attribute 'bottomBuilder' can only be initialized by '@Builder' function or '@LocalBuilder' method in struct.[39m[39m
+[33mWARN: [33m[33m[39m [33mArkTS:WARN Property 'sourceMapsPath' not found in '@hw-agconnect/ui-base'.[39m [33m[39m[39m[39m
+[33mWARN: [33m[33m[39m [33mArkTS:WARN Property 'sourceMapsPath' not found in '@hw-agconnect/ui-countdown'.[39m [33m[39m[39m[39m
+[33mWARN: [33m[33m[39m [33mArkTS:WARN Property 'sourceMapsPath' not found in '@cashier_alipay/cashiersdk'.[39m [33m[39m[39m[39m
+[33mWARN: [33m[33m[39m [33mArkTS:WARN Property 'sourceMapsPath' not found in '@tencent/qq-open-sdk'.[39m [33m[39m[39m[39m
+[33mWARN: [33m[33m[39m [33mArkTS:WARN Property 'sourceMapsPath' not found in '@alipay/blueshieldsdk'.[39m [33m[39m[39m[39m
+[33mWARN: [33m[33m[39m [33mArkTS:WARN Property 'sourceMapsPath' not found in '@hw-agconnect/util-log'.[39m [33m[39m[39m[39m
+[39m
+> hvigor [33mWARN: Will skip sign 'hos_hap'. No signingConfigs profile is configured in current project.
+             If needed, configure the signingConfigs in D:\HW\testproject\complete\BookRead\build-profile.json5.[39m
+> hvigor [33mWARN: Will skip sign 'app'. No signingConfigs profile is configured in current project.
+             If needed, configure the signingConfigs in D:\HW\testproject\complete\BookRead\build-profile.json5.[39m

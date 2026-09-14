@@ -1,0 +1,248 @@
+{
+  "developmentMode": "demo",
+  "requirements": [
+    {
+      "criteriaId": "IL-C001",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "Toast 通过 getUIContext().getPromptAction().showToast 的 ShowToastOptions.systemMaterial 设置 THICK 材质",
+      "sources": [{ "snapshotId": "component", "lineStart": 61, "lineEnd": 71, "sha256": "4b2d279fa7ff8d8b36e95d91a827b4f97692e712c895bdd5cbbf9071b3f18af4" }],
+      "review": { "status": "passed", "basis": "Index.ets showToastFeedback()（71-83 行）经 UIContext.getPromptAction().showToast 调用，options 内 systemMaterial 设置 ImmersiveStyle.THICK，与 Toast 组件级入口说明一致" }
+    },
+    {
+      "criteriaId": "IL-C002",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "气泡通过 bindPopup 的 PopupOptions.systemMaterial、悬浮提示通过 bindTips 的 TipsOptions.systemMaterial 显式设置（应用级 ENABLE 下不默认开启）",
+      "sources": [{ "snapshotId": "component", "lineStart": 73, "lineEnd": 81, "sha256": "3c2fa9f75bcefa243eb8b57a9f4c0c27db5229f317656190edf77b043ef6fad7" }],
+      "review": { "status": "passed", "basis": "Index.ets 213-224 行 bindPopup 的 PopupOptions 与 227-233 行 bindTips 的 TipsOptions 均显式设置 systemMaterial（THICK）；Popup/Tips 应用级不默认开启，必须组件级显式设置的要求得到满足" }
+    },
+    {
+      "criteriaId": "IL-C003",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "菜单通过 bindContextMenu 的 ContextMenuOptions.systemMaterial 设置 THICK 材质",
+      "sources": [{ "snapshotId": "component", "lineStart": 83, "lineEnd": 91, "sha256": "8b69d2695a2ca207484ff29ddc0f727318fb8d07103ff8a84fca833bdb83fa64" }],
+      "review": { "status": "passed", "basis": "Index.ets 245-249 行 bindContextMenu(this.showMenu, this.MenuBuilder, { systemMaterial: THICK })，入口类型为 ContextMenuOptions，与官网菜单组件级入口一致" }
+    },
+    {
+      "criteriaId": "IL-C004",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "弹出框分别通过 AlertDialog.show、CustomDialogController、ActionSheet.show 的 options.systemMaterial 与 bindSheet 的 SheetOptions.systemMaterial 设置 ULTRA_THICK 材质",
+      "sources": [{ "snapshotId": "component", "lineStart": 93, "lineEnd": 109, "sha256": "69a1e564622edba56339f448d6f472ef14f0250c503eb23b231742b36467dbb5" }],
+      "review": { "status": "passed", "basis": "AlertDialog.show（86-106 行）、CustomDialogController 构造（58-68 行）、ActionSheet.show（109-138 行）、bindSheet（274-284 行）四个弹出框入口各自在自己的 options 对象内设置 systemMaterial(ULTRA_THICK)，未跨类型复用同一 options 对象" }
+    },
+    {
+      "criteriaId": "IL-C005",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "Toast 的 ShowToastOptions 中不设置 backgroundBlurStyle 与 backgroundColor，避免覆盖材质",
+      "sources": [{ "snapshotId": "component", "lineStart": 61, "lineEnd": 71, "sha256": "4b2d279fa7ff8d8b36e95d91a827b4f97692e712c895bdd5cbbf9071b3f18af4" }],
+      "review": { "status": "passed", "basis": "Index.ets 71-83 行 ShowToastOptions 仅含 message/duration/systemMaterial，未设置 backgroundBlurStyle 或 backgroundColor" }
+    },
+    {
+      "criteriaId": "IL-C006",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "各弹出框 options 中不设置自定义背景色与背景模糊属性",
+      "sources": [{ "snapshotId": "component", "lineStart": 93, "lineEnd": 109, "sha256": "69a1e564622edba56339f448d6f472ef14f0250c503eb23b231742b36467dbb5" }],
+      "review": { "status": "passed", "basis": "全文件检索：AlertDialog/CustomDialog/ActionSheet/Sheet 的 options 对象均未出现 backgroundColor 或 backgroundBlurStyle 字段，弹窗 options 与普通背景无冲突" }
+    },
+    {
+      "criteriaId": "IL-C007",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "CustomDialog 内容区保持约 328x216 的合理尺寸，不接近全屏",
+      "sources": [{ "snapshotId": "component", "lineStart": 93, "lineEnd": 109, "sha256": "69a1e564622edba56339f448d6f472ef14f0250c503eb23b231742b36467dbb5" }],
+      "review": { "status": "passed", "basis": "MaterialDialog build() 根容器（Index.ets 26-28 行）width(328).height(216)，采用 constraints 正例尺寸" }
+    },
+    {
+      "criteriaId": "IL-C008",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "弹窗不设置背景色、模糊参数和阴影参数；demo 采用应用级 ENABLE 并对全部弹窗显式设置 systemMaterial",
+      "sources": [{ "snapshotId": "faq", "lineStart": 330, "lineEnd": 346, "sha256": "dfa2dbed81c239f454cf06a5896adde69cb71883be897a6f32ecd2d4fa5781cb" }],
+      "review": { "status": "passed", "basis": "全部弹窗 options 均未设置背景色/模糊/阴影；在 ENABLE 模式之上对四类弹窗全部显式设置 systemMaterial，符合如需保留属性时主动设置的建议路径" }
+    },
+    {
+      "criteriaId": "IL-C009",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "演示弹窗（ActionSheet）设置半透明 materialColor（如 'rgba(64,128,255,0.2)'），保留透明度不遮挡材质滤镜",
+      "sources": [{ "snapshotId": "common", "lineStart": 79, "lineEnd": 85, "sha256": "3af78d0f6db5737bf7e5ed7461d364609d422f277e94f1c441d29305fc934f7b" }],
+      "review": { "status": "passed", "basis": "Index.ets 132-135 行 ActionSheet 的 systemMaterial 设置 materialColor: 'rgba(64, 128, 255, 0.2)'，alpha=0.2 为半透明，未使用不透明颜色" }
+    },
+    {
+      "criteriaId": "IL-C010",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "材质只用于弹窗浮层本身，页面内容区不使用通用属性 systemMaterial，控制材质面积",
+      "sources": [{ "snapshotId": "constraints", "lineStart": 7, "lineEnd": 16, "sha256": "d4b05261b270d17bbca2240dd4181163c667452947846a5ed8e61723cc2b7579" }],
+      "review": { "status": "passed", "basis": "页面卡片与背景使用 linearGradient/透明色，无通用属性 systemMaterial 调用；材质仅出现在四类弹窗 options 的 systemMaterial 字段" }
+    },
+    {
+      "criteriaId": "IL-C011",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "全部弹窗（Dialog/Menu/Sheet）保持常规尺寸，避免接近全屏的超大面积",
+      "sources": [{ "snapshotId": "constraints", "lineStart": 110, "lineEnd": 112, "sha256": "629544a2ba49095f663cc26c07b1d34c15ec7c1a0d50a9e3b3f7ee52cfb636a4" }],
+      "review": { "status": "passed", "basis": "CustomDialog 内容 328x216；bindSheet height 320；Menu 仅三个 MenuItem 常规宽度；AlertDialog/ActionSheet 为系统默认尺寸，无接近全屏的弹窗" }
+    },
+    {
+      "criteriaId": "IL-C012",
+      "strength": "required",
+      "disposition": "not_applicable",
+      "approach": "不引入 CalendarPicker，避免为其拉起的弹出框强行配置材质入口",
+      "reason": "demo 需求为即时反馈、气泡提示、菜单、弹出框四类，不包含 CalendarPicker；不为其强行增加材质入口",
+      "sources": [{ "snapshotId": "component", "lineStart": 105, "lineEnd": 105, "sha256": "070f1420f8d0cfdb4c0f7aac894ceeb3aa067a9d8096a0423b5c45dfad23f492" }],
+      "review": { "status": "passed", "basis": "工程内无 CalendarPicker 及 CalendarPickerDialog 调用，未触及其不支持分支" }
+    },
+    {
+      "criteriaId": "IL-C013",
+      "strength": "required",
+      "disposition": "not_applicable",
+      "approach": "不引入各类 PickerDialog，其材质入口与 CustomDialog 相同的结论仅作知识保留",
+      "reason": "demo 需求不含各类 PickerDialog；其效果同 CustomDialog 的结论不影响本次实现",
+      "sources": [{ "snapshotId": "component", "lineStart": 107, "lineEnd": 107, "sha256": "760573ded3afae3ba05232978d54467533da6c542ac7f6f2ce368af55c466073" }],
+      "review": { "status": "passed", "basis": "工程内无 DatePickerDialog/TimePickerDialog/TextPickerDialog/CalendarPickerDialog 调用" }
+    },
+    {
+      "criteriaId": "IL-C014",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "build-profile.json5 目标 product 的 targetSdkVersion 与 compatibleSdkVersion 均改为 26.0.0",
+      "sources": [{ "snapshotId": "overview", "lineStart": 1, "lineEnd": 5, "sha256": "70419834f601e5532260baea32e2f39142601960a3425819633e2a3ceae8a978" }],
+      "review": { "status": "passed", "basis": "build-profile.json5 8-9 行 targetSdkVersion/compatibleSdkVersion 均为 \"26.0.0\"，满足不低于 26.0.0 的门槛" }
+    },
+    {
+      "criteriaId": "IL-C015",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "entry 模块 module.json5 添加 metadata name=ohos.arkui.UIMaterial.state value=enable",
+      "sources": [{ "snapshotId": "enable", "lineStart": 54, "lineEnd": 71, "sha256": "490b6dbd6f0aea0efe01bff879a52381ce1dc441bb8c2532dbd5936015854752" }],
+      "review": { "status": "passed", "basis": "module.json5 12-17 行在 entry 类型 module 的 metadata 中配置 name=ohos.arkui.UIMaterial.state、value=enable，与官网示例结构一致" }
+    },
+    {
+      "criteriaId": "IL-C016",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "demo 页面在普通内容区直接触发四类弹窗，不依赖 Navigation 标题栏或 TabBar 区域",
+      "sources": [{ "snapshotId": "enable", "lineStart": 8, "lineEnd": 10, "sha256": "5dcf28a88ed6b709b9062d9d6b5a7832de64263e276d38ba02b8b3bacaa658bf" }],
+      "review": { "status": "passed", "basis": "Index.ets 页面无 Navigation/Tabs 容器，四类弹窗按钮位于页面内容区，依赖弹窗类组件全区域生效能力" }
+    },
+    {
+      "criteriaId": "IL-C017",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "材质对象通过 new uiMaterial.ImmersiveMaterial({ style }) 构造后传入各弹窗 options 的 systemMaterial 字段",
+      "sources": [{ "snapshotId": "ui-material-api", "lineStart": 27, "lineEnd": 62, "sha256": "c89217eace03923fb35ab458a6672a45c16f37e71c494f28471043eae5c76281" }],
+      "review": { "status": "passed", "basis": "Index.ets 顶部 import { uiMaterial } from '@kit.ArkUI'，8 处 systemMaterial 均为 new uiMaterial.ImmersiveMaterial({ style: ... }) 构造实例，未使用空材质" }
+    },
+    {
+      "criteriaId": "IL-C018",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "Toast/Popup/Tips/Menu 使用 THICK，Dialog 系（AlertDialog/CustomDialog/ActionSheet/Sheet）使用 ULTRA_THICK",
+      "sources": [{ "snapshotId": "ui-material-api", "lineStart": 257, "lineEnd": 315, "sha256": "fde4ed94f69f1db27bc49a1eae9a8888747bf573bc194a3be722b115c1b39d32" }],
+      "review": { "status": "passed", "basis": "Toast/Popup/Tips/Menu 的 systemMaterial 为 ImmersiveStyle.THICK；AlertDialog/CustomDialog/ActionSheet/bindSheet 为 ImmersiveStyle.ULTRA_THICK，与弹窗类组件使用较厚样式及各默认样式取值一致" }
+    },
+    {
+      "criteriaId": "IL-C019",
+      "strength": "required",
+      "disposition": "not_applicable",
+      "approach": "demo 只开启材质，不实现关闭材质的交互入口",
+      "reason": "demo 需求是开启沉浸光感效果，不涉及关闭材质的交互；Material.empty 与 undefined 语义作为背景知识不在页面中展开",
+      "sources": [{ "snapshotId": "enable", "lineStart": 91, "lineEnd": 91, "sha256": "f1c0a5b901eeaf95fe189e589805737f4f36f6206fe1f088b49619ebf0483820" }],
+      "review": { "status": "passed", "basis": "代码未使用 Material.empty 或 undefined 关闭路径，无需关闭语义约束" }
+    }
+  ],
+  "samples": [
+    {
+      "usage": "adopted",
+      "scope": "CustomDialog 内容区合理尺寸正例（constraints 控制弹窗尺寸章节）",
+      "source": { "snapshotId": "constraints", "lineStart": 114, "lineEnd": 127, "sha256": "28f8df4f749cf1a7eb707586347cda299fa8fd9df00359e01e2f0fc2e7109ca5" },
+      "keyPoints": [
+        {
+          "description": "CustomDialog 内容区域保持合理尺寸（328x216），避免接近全屏的高动效绘制开销",
+          "adaptation": "保留内容容器 328x216 尺寸约束用于 demo 的 CustomDialog 内容区，仅替换文案与按钮结构",
+          "review": { "status": "passed", "basis": "Index.ets MaterialDialog 根容器 .width(328).height(216)（26-28 行），与正例一致" }
+        }
+      ]
+    },
+    {
+      "usage": "reference",
+      "scope": "uiMaterial 模块导入与 ImmersiveMaterial 构造写法（ui-material-api 示例1）",
+      "source": { "snapshotId": "ui-material-api", "lineStart": 815, "lineEnd": 830, "sha256": "e719340bce48b2be0482408f08d21b77fb88665f14177d7c44238e7e6c71d239" }
+    },
+    {
+      "usage": "reference",
+      "scope": "生效范围示例中 import { uiMaterial } from '@kit.ArkUI' 的导入方式（faq 组件不在生效范围示例）",
+      "source": { "snapshotId": "faq", "lineStart": 53, "lineEnd": 90, "sha256": "b7c48c54751b422af210f0f69822d157a5aa8628a1ddcbdf2119c3b200c1869f" }
+    }
+  ],
+  "steps": [
+    {
+      "id": "S01",
+      "description": "升级 build-profile.json5 的 targetSdkVersion/compatibleSdkVersion 至 26.0.0",
+      "status": "applied",
+      "locations": [
+        { "path": "build-profile.json5", "version": "before", "lineStart": 8, "lineEnd": 9 },
+        { "path": "build-profile.json5", "version": "after", "lineStart": 8, "lineEnd": 9 }
+      ],
+      "basis": [{ "type": "criteria", "criteriaId": "IL-C014", "reason": "沉浸光感自 API 26.0.0 起提供" }]
+    },
+    {
+      "id": "S02",
+      "description": "module.json5 添加 ohos.arkui.UIMaterial.state=enable 应用级开关",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/module.json5", "version": "after", "lineStart": 12, "lineEnd": 17 }
+      ],
+      "basis": [{ "type": "criteria", "criteriaId": "IL-C015", "reason": "entry 模块 metadata 配置应用级开启" }]
+    },
+    {
+      "id": "S03",
+      "description": "重写 Index.ets：渐变背景 + 四类弹窗演示（Toast/Popup/Tips/Menu/AlertDialog/CustomDialog/ActionSheet/bindSheet），各 options 显式设置 systemMaterial",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "before", "lineStart": 1, "lineEnd": 23 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 1, "lineEnd": 312 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-C001", "reason": "ShowToastOptions.systemMaterial" },
+        { "type": "criteria", "criteriaId": "IL-C002", "reason": "PopupOptions/TipsOptions.systemMaterial 显式设置" },
+        { "type": "criteria", "criteriaId": "IL-C003", "reason": "ContextMenuOptions.systemMaterial" },
+        { "type": "criteria", "criteriaId": "IL-C004", "reason": "弹出框各 options.systemMaterial" },
+        { "type": "criteria", "criteriaId": "IL-C016", "reason": "弹窗在页面内全部区域生效" },
+        { "type": "criteria", "criteriaId": "IL-C017", "reason": "ImmersiveMaterial 构造" },
+        { "type": "criteria", "criteriaId": "IL-C018", "reason": "THICK/ULTRA_THICK 样式选择" },
+        {
+          "type": "engineering_choice",
+          "constraint": "AlertDialog.show 与 ActionSheet.show 在 SDK 中标记 deprecated（severity 3 提示），但本次冻结官网组件适配页明确以 AlertDialogParam/ActionSheetOptions 作为弹出框沉浸光感组件级入口且 SDK 对应 d.ts 含 systemMaterial 字段，故按冻结原文保留该入口",
+          "reason": "判据来源为本次冻结快照，deprecation 提示不构成契约变更"
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "description": "弹窗 options 不设置 backgroundColor/backgroundBlurStyle/shadow；ActionSheet 演示半透明 materialColor；CustomDialog 保持 328x216；showToast 增加异常处理",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 58, "lineEnd": 68 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 71, "lineEnd": 83 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 109, "lineEnd": 138 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 274, "lineEnd": 284 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-C005", "reason": "Toast 不设背景/模糊" },
+        { "type": "criteria", "criteriaId": "IL-C006", "reason": "弹出框不设自定义背景/模糊" },
+        { "type": "criteria", "criteriaId": "IL-C008", "reason": "背景/模糊/阴影导致材质不呈现" },
+        { "type": "criteria", "criteriaId": "IL-C009", "reason": "materialColor 半透明" },
+        { "type": "criteria", "criteriaId": "IL-C010", "reason": "限制材质使用面积" },
+        { "type": "criteria", "criteriaId": "IL-C011", "reason": "控制弹窗尺寸" },
+        { "type": "criteria", "criteriaId": "IL-C007", "reason": "大面积弹出框不建议" }
+      ]
+    }
+  ]
+}

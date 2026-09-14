@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S005",
+  "visual": {
+    "status": "inconclusive",
+    "basis": "模型无图像输入能力无法判读截图；模拟器为 SMOOTH 低算力档位（材质样式滤镜参数不生效，仅背景色/边框/阴影方式实现）；out of scope 特征日志在模拟器 hilog 中不可得（Material 关键字 0 条）。button-effective-scope 冲突组（IL-C010/IL-C011 vs IL-C012）无法在本次环境裁决，需高算力真机复验。截图与组件树已留存供人工复核。",
+    "evidence": [
+      { "type": "screenshot", "path": "D:\\HW\\testproject\\complete\\4\\ohos-feature-engineering\\evidence-manual\\device-visual.png" },
+      { "type": "component_tree", "path": "D:\\HW\\testproject\\complete\\4\\ohos-feature-engineering\\evidence-manual\\device-layout.json" }
+    ]
+  },
+  "matchedCriteriaRefs": ["IL-C015"],
+  "runtime": {
+    "status": "passed",
+    "summary": "应用安装拉起成功；组件树证实标题栏 A1/A2 与内容区 B 三个 Button 探针及 Slider/Toggle/Select 对照组全部渲染在位（btnContent onClick 计数为 1，点击交互无回归）；能力查询实际返回 isImmersiveMaterialSupported=true、getGlobalMaterialLevel=SMOOTH(低算力)，与 IL-C015 查询守卫契约一致。"
+  }
+}

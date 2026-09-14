@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S005",
+  "runtime": {
+    "status": "passed",
+    "summary": "应用安装拉起成功；导航断言命中页面标题与底部操作块区块；组件树包含全部六大目标区块（Button/Select/Toggle/Slider/ChipGroup/SegmentButton）及其材质入口组件，运行结构符合判据预期。"
+  },
+  "visual": {
+    "status": "inconclusive",
+    "basis": "判图模型无法读取截图（当前环境不支持图片输入），用户选择跳过视觉判定；组件树仅能证明目标组件已渲染挂载，无法证明材质通透质感、弹性形变与流光反馈的视觉效果，视觉层保持待人工观察。",
+    "evidence": [
+      {
+        "type": "screenshot",
+        "path": "D:\\HW\\testproject\\complete\\3\\ohos-feature-engineering\\evidence\\images\\3e3495b694c0cf19695146e412718427eba4f45830b5f57405ee40e90b6ea380.png"
+      },
+      {
+        "type": "component_tree",
+        "path": "D:\\HW\\testproject\\complete\\3\\ohos-feature-engineering\\evidence\\2b290e26-61b3-48a8-8319-452f32c5829b\\nav-swipe-bottom.log"
+      }
+    ]
+  },
+  "matchedCriteriaRefs": ["C01", "C02", "C03", "C04", "C05", "C06", "C08", "C09", "C10", "C11", "C12", "C13", "C14", "C15", "C16", "C18", "C19", "C20"]
+}

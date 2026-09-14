@@ -1,0 +1,33 @@
+{
+  "frozenAt": "2026-09-10T11:24:23.031Z",
+  "snapshots": [
+    {
+      "snapshotId": "component",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation",
+      "contentSha256": "93703579547848f36423aa6055e5021b37eea66e5f1036723e5cc901c08e39a5",
+      "title": "组件适配沉浸光感",
+      "updatedDate": "2026-09-07 09:01:42"
+    },
+    {
+      "snapshotId": "ui-material-api",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial",
+      "contentSha256": "c71328c4454386c2c14db515c6c6747b159df1e664c5fdf9e4496523f0031011",
+      "title": "@ohos.arkui.uiMaterial (系统材质)",
+      "updatedDate": "2026-09-07 09:12:53"
+    },
+    {
+      "snapshotId": "enable",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable",
+      "contentSha256": "25a40e503b20d2cb3b864fad322d7abaa666a55206418de40a1bd33b6d81dbe7",
+      "title": "开启沉浸光感",
+      "updatedDate": "2026-09-07 09:01:26"
+    },
+    {
+      "snapshotId": "constraints",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints",
+      "contentSha256": "684f5939625da0ffce7af96d19900da8f8982a8a50a5a2f9b25b5ef25a1e1d5c",
+      "title": "沉浸光感功耗优化",
+      "updatedDate": "2026-09-07 09:00:29"
+    }
+  ]
+}

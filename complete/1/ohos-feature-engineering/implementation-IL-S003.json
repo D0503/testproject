@@ -1,0 +1,161 @@
+{
+  "developmentMode": "demo",
+  "requirements": [
+    {
+      "criteriaId": "C21",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "Tabs 配置 barPosition 为 BarPosition.End、barOverlap(true)，不设置 vertical（保持默认 false），三条件同时满足后通过 barFloatingStyle 的 systemMaterial 生效悬浮材质",
+      "sources": [
+        { "snapshotId": "component", "lineStart": 35, "lineEnd": 35, "sha256": "94198e120262759abd622682ecf20554cf1cbd961db1c4d73c14186017ac3ca1" }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "entry/src/main/ets/pages/Index.ets:82 Tabs({ barPosition: BarPosition.End })，:171 .barOverlap(true)，全文未设置 vertical 属性（Tabs 默认 vertical=false），悬浮样式三条件同时满足；:165-168 经 barFloatingStyle 的 systemMaterial 设置材质，满足判据的三条件生效约束"
+      }
+    },
+    {
+      "criteriaId": "C22",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "TabContent 仅设置 tabBar 与内容区，不为 TabContent 设置任何沉浸光感属性",
+      "sources": [
+        { "snapshotId": "component", "lineStart": 39, "lineEnd": 39, "sha256": "3aea8ca96225929c02f3d464b151dcbec5eb14ef64170001e262d36fd9ab582b" }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "entry/src/main/ets/pages/Index.ets:83 与 :120 两个 TabContent 仅构建内容区并设置 tabBar（:115-118、:160-163），未对 TabContent 设置 systemMaterial 等任何沉浸光感属性，符合 TabContent 不支持沉浸光感的约束"
+      }
+    },
+    {
+      "criteriaId": "C23",
+      "strength": "required",
+      "disposition": "not_applicable",
+      "approach": "无实施对象：demo 不包含 Navigation 标题栏，不配置 NavigationTitleOptions.systemMaterial",
+      "reason": "用户开发目标仅覆盖底部页签与索引条的沉浸光感效果，demo 不包含 Navigation 标题栏，该判据描述的标题栏生效子区域在本次工程中没有实施对象",
+      "sources": [
+        { "snapshotId": "component", "lineStart": 19, "lineEnd": 19, "sha256": "c3fb1c9b9e82ebb3128890ed13fef48522ee828453a36ce70ea6e1da39c64c2d" }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "entry/src/main/ets/pages/Index.ets 全文未使用 Navigation/NavDestination 组件，无标题栏返回键或非自定义 Menu 区域，判据无实施对象，标记不适用成立"
+      }
+    },
+    {
+      "criteriaId": "IL-F009",
+      "strength": "required",
+      "disposition": "not_applicable",
+      "approach": "无实施对象：demo 不包含 Navigation 标题栏，不配置 NavigationTitleOptions.systemMaterial",
+      "reason": "用户开发目标仅覆盖底部页签与索引条的沉浸光感效果，demo 不包含 Navigation 标题栏，无需通过 NavigationTitleOptions.systemMaterial 配置标题栏材质",
+      "sources": [
+        { "snapshotId": "component", "lineStart": 11, "lineEnd": 11, "sha256": "5250706190ec05e1b2643ffb6ff4b8bc75ce1461e9bd21b938d5759e8fddc6a1" }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "entry/src/main/ets/pages/Index.ets 全文未使用 Navigation 组件，未出现 NavigationTitleOptions，判据无实施对象，标记不适用成立"
+      }
+    },
+    {
+      "criteriaId": "IL-F010",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "底部页签通过 barFloatingStyle 中 FloatingTabBarStyle 的 systemMaterial 字段设置 THIN 沉浸材质（导航类组件使用较薄样式），并保持 maskColor 为透明；不设置 barBackgroundColor、barBackgroundBlurStyle 等栏背景，避免遮挡材质",
+      "sources": [
+        { "snapshotId": "component", "lineStart": 35, "lineEnd": 35, "sha256": "94198e120262759abd622682ecf20554cf1cbd961db1c4d73c14186017ac3ca1" }
+      ],
+      "samples": [
+        {
+          "usage": "adopted",
+          "scope": "Tabs 底部悬浮页签沉浸材质，来自 ui-material-api 示例1（设置沉浸式系统材质）",
+          "source": { "snapshotId": "ui-material-api", "lineStart": 809, "lineEnd": 901, "sha256": "30cc4956b07a3b40ec33cacecb30e47333df54c032ea4d2ee7da80e554c49b74" },
+          "keyPoints": [
+            {
+              "description": "Tabs({ barPosition: BarPosition.End }) 指定页签栏在底部",
+              "adaptation": "原样保留",
+              "review": {
+                "status": "passed",
+                "basis": "entry/src/main/ets/pages/Index.ets:82 与示例一致使用 Tabs({ barPosition: BarPosition.End })"
+              }
+            },
+            {
+              "description": ".barFloatingStyle({ systemMaterial: new uiMaterial.ImmersiveMaterial({ style }), maskColor: Color.Transparent }) 设置悬浮页签沉浸材质",
+              "adaptation": "结构原样保留，style 按导航类组件薄样式建议固定为 THIN，不保留示例中随页签切换 5 种样式的逻辑",
+              "review": {
+                "status": "passed",
+                "basis": "entry/src/main/ets/pages/Index.ets:162-166 与示例同构：barFloatingStyle 传入 systemMaterial（new uiMaterial.ImmersiveMaterial({ style: uiMaterial.ImmersiveStyle.THIN })）与 maskColor: Color.Transparent；未保留 onChange 切换样式逻辑，style 固定 THIN 符合组件指南导航类使用较薄样式的说明"
+              }
+            },
+            {
+              "description": ".barOverlap(true) 开启内容与页签栏重叠，使悬浮样式生效条件成立",
+              "adaptation": "原样保留",
+              "review": {
+                "status": "passed",
+                "basis": "entry/src/main/ets/pages/Index.ets:168 .barOverlap(true) 与示例一致"
+              }
+            },
+            {
+              "description": "TabContent 通过 new BottomTabBarStyle($r('sys.media.ohos_icon_mask_svg'), 'xx') 定义页签，并配 labelStyle/iconStyle 系统资源色",
+              "adaptation": "原样保留 BottomTabBarStyle 与系统资源色写法，页签数量从 5 个精简为 2 个（首页/联系人）并替换文案",
+              "review": {
+                "status": "passed",
+                "basis": "entry/src/main/ets/pages/Index.ets:115-118、:157-160 使用 new BottomTabBarStyle($r('sys.media.ohos_icon_mask_svg'), ...) 并按示例配置 labelStyle/iconStyle 的 selectedColor=brand、unselectedColor=font_primary；页签精简为首页/联系人两个"
+              }
+            },
+            {
+              "description": "示例内容区使用 Image($r('app.media.invert')) 全屏图并设置 barWidth(500)",
+              "adaptation": "本地模板无该图片资源，内容区改为彩色渐变卡片与联系人分组列表以呈现材质通透层次；不保留 barWidth(500) 示例取值",
+              "review": {
+                "status": "passed",
+                "basis": "entry/src/main/ets/pages/Index.ets:63-113 首页使用 8 张纯色卡片（多色背景便于观察材质滤镜通透差异），:120-152 联系人使用 A-Z 分组列表；全文未引用 app.media.invert，也未设置 barWidth"
+              }
+            }
+          ]
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "entry/src/main/ets/pages/Index.ets:165-169 barFloatingStyle 的 systemMaterial 设置 ImmersiveStyle.THIN 材质；全文检索无 barBackgroundColor/barBackgroundBlurStyle，页签栏无普通背景色或背景模糊遮挡，符合判据的材质入口与背景覆盖约束"
+      }
+    },
+    {
+      "criteriaId": "IL-F011",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "索引条不设置 popupBackground 与 popupBackgroundBlurStyle（避免与沉浸光感互斥导致无效果），通过通用属性 systemMaterial 显式设置 THICK 材质的提示弹窗沉浸光感",
+      "sources": [
+        { "snapshotId": "component", "lineStart": 53, "lineEnd": 53, "sha256": "ff6ebf70eed3e2e47f2c833f6d1476c43c04a9a7b11370e8dc261fd4011b158f" }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "entry/src/main/ets/pages/Index.ets:141-152 AlphabetIndexer 未设置 popupBackground 与 popupBackgroundBlurStyle（全文无这两个属性），并在 :150-152 通过通用属性 systemMaterial 显式设置 ImmersiveStyle.THICK 材质；:155-158 为 Stack 增加三色 linearGradient 渐变背景（观察材质通透的运行辅助，不作用于索引条本身），符合弹窗背景属性与沉浸光感互斥、须保持未设置并显式开启的判据"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "id": "S01",
+      "description": "实现底部页签悬浮样式与沉浸材质：Tabs 使用 barPosition End + barOverlap(true) + barFloatingStyle(FloatingTabBarStyle.systemMaterial THIN)，TabContent 仅设置 tabBar，不设置栏背景色或背景模糊",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "before", "lineStart": 1, "lineEnd": 23 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 1, "lineEnd": 176 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "C21", "reason": "悬浮样式三条件 barOverlap=true、vertical=false、barPosition=BarPosition.End 需同时满足" },
+        { "type": "criteria", "criteriaId": "C22", "reason": "TabContent 不支持沉浸光感，仅保留 tabBar" },
+        { "type": "criteria", "criteriaId": "IL-F010", "reason": "材质经 FloatingTabBarStyle.systemMaterial 设置且不得被栏背景覆盖" }
+      ]
+    },
+    {
+      "id": "S02",
+      "description": "实现联系人页签：A-Z 分组 List 与 AlphabetIndexer 联动滚动，索引条不设置 popupBackground/popupBackgroundBlurStyle，通过 systemMaterial 显式设置 THICK 提示弹窗材质；联系人页 Stack 增加三色渐变背景以便观察材质通透效果",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 120, "lineEnd": 159 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-F011", "reason": "弹窗背景属性与沉浸光感互斥，须保持未设置并以 systemMaterial 显式开启" }
+      ]
+    }
+  ]
+}

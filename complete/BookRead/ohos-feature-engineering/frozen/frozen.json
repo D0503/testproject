@@ -1,0 +1,33 @@
+{
+  "frozenAt": "2026-09-11T01:58:54.276Z",
+  "snapshots": [
+    {
+      "snapshotId": "hds-component-material-guide",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-hds-component-material",
+      "contentSha256": "5f92898926eabc25ebe72bf04602dc151d65730ca7ec96f7c92f2b449898f607",
+      "title": "沉浸光感",
+      "updatedDate": "2026-09-07 08:59:05"
+    },
+    {
+      "snapshotId": "hds-material-api",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsmaterial",
+      "contentSha256": "c4f7d3a9855b195d066d72a40d25aab8aef463ab7eae43d83322fe347b3977e1",
+      "title": "hdsMaterial (hds沉浸光感材质)",
+      "updatedDate": "2026-09-07 09:08:08"
+    },
+    {
+      "snapshotId": "hds-navigation-api",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation",
+      "contentSha256": "d232828351a8fd5f31fbce578a291bc18d9958b53dda6dd957e4fdbda08ece20",
+      "title": "HdsNavigation (导航根视图容器)",
+      "updatedDate": "2026-09-07 09:07:53"
+    },
+    {
+      "snapshotId": "hds-tabs-api",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdstabs",
+      "contentSha256": "f3722df205530854cd84bd7c11bafdd2d689f3422aa4abb06769cd02c648b357",
+      "title": "HdsTabs (底部页签)",
+      "updatedDate": "2026-09-07 09:08:27"
+    }
+  ]
+}

@@ -1,0 +1,1376 @@
+{
+  "developmentMode": "demo",
+  "requirements": [
+    {
+      "criteriaId": "IL-F027",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "将工程 targetSdkVersion/compatibleSdkVersion 从 6.0.1(21) 升级为 6.1.0(23)，满足 HDS 组件沉浸光感材质的版本门槛；工程为 Stage 模型（entry module.json5 声明），符合模型约束。",
+      "sources": [
+        {
+          "snapshotId": "hds-component-material-guide",
+          "lineStart": 3,
+          "lineEnd": 5,
+          "sha256": "e94b1df7928a75ce92af30c1d7a8f8a531d476fbe9e73cd8bedd302304607816"
+        }
+      ],
+      "samples": [
+        {
+          "usage": "adopted",
+          "scope": "官网《HDS组件使用沉浸光感材质指南》- 使用系统自适应的沉浸光感 - 自适应沉浸光感示例（HdsNavigation 包含 HdsTabs，标题栏 3 个菜单按钮 + 底部 3 个页签）",
+          "source": {
+            "snapshotId": "hds-component-material-guide",
+            "lineStart": 30,
+            "lineEnd": 163,
+            "sha256": "ee42946defe1249bb8e59383afe103ee06c2369c331e00c937af878ebe07649e"
+          },
+          "keyPoints": [
+            {
+              "description": "HdsNavigation 为页面根容器，titleBar 配置 content（mainTitle + 3 个菜单按钮）与 style（scrollEffectOpts + systemMaterialEffect），mode(Stack)、bindToScrollable、hideBackButton(false)、titleMode(MINI)、ignoreLayoutSafeArea(SYSTEM, TOP/BOTTOM)",
+              "adaptation": "原样保留全部组件关系与属性；仅将 mainTitle 文案从 'MainTitle' 调整为中文 '沉浸光感'（demo 命名适配，不改行为）。",
+              "review": {
+                "status": "passed",
+                "basis": "Index.ets 与示例结构一致：HdsNavigation 根容器、titleBar{content{mainTitle,menu},style{scrollEffectOpts,systemMaterialEffect}}、mode(Stack)/bindToScrollable/hideBackButton(false)/titleMode(MINI)/ignoreLayoutSafeArea(SYSTEM,TOP/BOTTOM) 全部保留；仅 mainTitle 文案改为中文'沉浸光感'，不影响行为。"
+              }
+            },
+            {
+              "description": "HdsTabs 每个 TabContent 内为 Stack{ Scroll(scrollerForScroll){ Column{ Image } } }.clipContent(ContentClipMode.SAFE_AREA).height('100%')，tabBar 使用 BottomTabBarStyle({normal/selected SymbolGlyphModifier}, label)",
+              "adaptation": "原样保留 Scroll/Stack/clipContent 结构与 BottomTabBarStyle(SymbolGlyphModifier) 用法；scenery01 替换为本地资源 $r('app.media.scenery')。",
+              "review": {
+                "status": "passed",
+                "basis": "TabContent 内 Stack{Scroll(scrollerForScroll){Column{Image}}}.clipContent(ContentClipMode.SAFE_AREA).height('100%') 与示例一致；tabBar 使用 BottomTabBarStyle({normal,selected},label)；Image 源替换为本地 $r('app.media.scenery')。"
+              }
+            },
+            {
+              "description": "HdsTabs 链式设置 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{materialType:ADAPTIVE, materialLevel:ADAPTIVE}})",
+              "adaptation": "原样保留，构成底部悬浮页签沉浸光感的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "HdsTabs 的 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{ADAPTIVE,ADAPTIVE}}) 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "titleBar.style 链式配置 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR} 与 systemMaterialEffect{materialType:ADAPTIVE, materialLevel:ADAPTIVE}，及 avoidLayoutSafeArea:false、enableComponentSafeArea:false",
+              "adaptation": "原样保留，构成标题栏按钮沉浸光感与滚动联动的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "titleBar.style 的 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR}、systemMaterialEffect{ADAPTIVE,ADAPTIVE}、avoidLayoutSafeArea:false、enableComponentSafeArea:false 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "MENU_CONFIG 数组提供 3 个页签数据（sys.symbol 图标、sys.color 未选中/选中双色 fontColor、label），MenuItem 含 defaultBgColor/hoverBgColor/pressBgColor 字段",
+              "adaptation": "原样保留 3 个页签（闹钟/时钟/秒表）及系统资源引用；仅移除 demo 未消费的冗余字段说明不影响行为——保留全部字段以贴近示例。",
+              "review": {
+                "status": "passed",
+                "basis": "TAB_CONFIG 保留 3 个页签（闹钟/时钟/秒表）的 sys.symbol 图标、sys.color 双色 fontColor 及 defaultBgColor/hoverBgColor/pressBgColor 全部字段，仅数组名从 MENU_CONFIG 改为 TAB_CONFIG 以匹配 demo 语义。"
+              }
+            }
+          ]
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "工程 build-profile.json5 已升级至 6.1.0(23)；entry/src/main/module.json5 为 Stage 模型声明（module.json5 含 extensionAbilities/abilities 结构），版本与模型约束满足。"
+      }
+    },
+    {
+      "criteriaId": "IL-F028",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "在 HdsNavigation 的 titleBar.style（TitleBarStyleOptions）中配置 systemMaterialEffect 字段，为标题栏按钮设置沉浸光感视效。",
+      "sources": [
+        {
+          "snapshotId": "hds-component-material-guide",
+          "lineStart": 7,
+          "lineEnd": 7,
+          "sha256": "1475cdeaea0987f38b1a4b65236e8f21ddd9971ed0e21adb29a3e655976fa2bc"
+        },
+        {
+          "snapshotId": "hds-navigation-api",
+          "lineStart": 1479,
+          "lineEnd": 1483,
+          "sha256": "997f30ce747627d3fdd61ec8c59faf324c83fb5e026fd97a74c08f54b4ce8b05"
+        }
+      ],
+      "samples": [
+        {
+          "usage": "adopted",
+          "scope": "官网《HDS组件使用沉浸光感材质指南》- 使用系统自适应的沉浸光感 - 自适应沉浸光感示例（HdsNavigation 包含 HdsTabs，标题栏 3 个菜单按钮 + 底部 3 个页签）",
+          "source": {
+            "snapshotId": "hds-component-material-guide",
+            "lineStart": 30,
+            "lineEnd": 163,
+            "sha256": "ee42946defe1249bb8e59383afe103ee06c2369c331e00c937af878ebe07649e"
+          },
+          "keyPoints": [
+            {
+              "description": "HdsNavigation 为页面根容器，titleBar 配置 content（mainTitle + 3 个菜单按钮）与 style（scrollEffectOpts + systemMaterialEffect），mode(Stack)、bindToScrollable、hideBackButton(false)、titleMode(MINI)、ignoreLayoutSafeArea(SYSTEM, TOP/BOTTOM)",
+              "adaptation": "原样保留全部组件关系与属性；仅将 mainTitle 文案从 'MainTitle' 调整为中文 '沉浸光感'（demo 命名适配，不改行为）。",
+              "review": {
+                "status": "passed",
+                "basis": "Index.ets 与示例结构一致：HdsNavigation 根容器、titleBar{content{mainTitle,menu},style{scrollEffectOpts,systemMaterialEffect}}、mode(Stack)/bindToScrollable/hideBackButton(false)/titleMode(MINI)/ignoreLayoutSafeArea(SYSTEM,TOP/BOTTOM) 全部保留；仅 mainTitle 文案改为中文'沉浸光感'，不影响行为。"
+              }
+            },
+            {
+              "description": "HdsTabs 每个 TabContent 内为 Stack{ Scroll(scrollerForScroll){ Column{ Image } } }.clipContent(ContentClipMode.SAFE_AREA).height('100%')，tabBar 使用 BottomTabBarStyle({normal/selected SymbolGlyphModifier}, label)",
+              "adaptation": "原样保留 Scroll/Stack/clipContent 结构与 BottomTabBarStyle(SymbolGlyphModifier) 用法；scenery01 替换为本地资源 $r('app.media.scenery')。",
+              "review": {
+                "status": "passed",
+                "basis": "TabContent 内 Stack{Scroll(scrollerForScroll){Column{Image}}}.clipContent(ContentClipMode.SAFE_AREA).height('100%') 与示例一致；tabBar 使用 BottomTabBarStyle({normal,selected},label)；Image 源替换为本地 $r('app.media.scenery')。"
+              }
+            },
+            {
+              "description": "HdsTabs 链式设置 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{materialType:ADAPTIVE, materialLevel:ADAPTIVE}})",
+              "adaptation": "原样保留，构成底部悬浮页签沉浸光感的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "HdsTabs 的 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{ADAPTIVE,ADAPTIVE}}) 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "titleBar.style 链式配置 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR} 与 systemMaterialEffect{materialType:ADAPTIVE, materialLevel:ADAPTIVE}，及 avoidLayoutSafeArea:false、enableComponentSafeArea:false",
+              "adaptation": "原样保留，构成标题栏按钮沉浸光感与滚动联动的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "titleBar.style 的 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR}、systemMaterialEffect{ADAPTIVE,ADAPTIVE}、avoidLayoutSafeArea:false、enableComponentSafeArea:false 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "MENU_CONFIG 数组提供 3 个页签数据（sys.symbol 图标、sys.color 未选中/选中双色 fontColor、label），MenuItem 含 defaultBgColor/hoverBgColor/pressBgColor 字段",
+              "adaptation": "原样保留 3 个页签（闹钟/时钟/秒表）及系统资源引用；仅移除 demo 未消费的冗余字段说明不影响行为——保留全部字段以贴近示例。",
+              "review": {
+                "status": "passed",
+                "basis": "TAB_CONFIG 保留 3 个页签（闹钟/时钟/秒表）的 sys.symbol 图标、sys.color 双色 fontColor 及 defaultBgColor/hoverBgColor/pressBgColor 全部字段，仅数组名从 MENU_CONFIG 改为 TAB_CONFIG 以匹配 demo 语义。"
+              }
+            }
+          ]
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "Index.ets titleBar.style.systemMaterialEffect 已配置，标题栏菜单按钮获得沉浸光感入口，字段用法与官网 TitleBarStyleOptions 一致。"
+      }
+    },
+    {
+      "criteriaId": "IL-F029",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "在 HdsTabs 的 barFloatingStyle（HdsTabsFloatingStyle）中配置 systemMaterialEffect 字段，为底部悬浮页签设置沉浸光感视效。",
+      "sources": [
+        {
+          "snapshotId": "hds-component-material-guide",
+          "lineStart": 9,
+          "lineEnd": 9,
+          "sha256": "02e570cd8fd60a2c39d537fef666868df1ebb939a5013433576e3b5eea15f55f"
+        },
+        {
+          "snapshotId": "hds-tabs-api",
+          "lineStart": 715,
+          "lineEnd": 719,
+          "sha256": "969fe73994deccb2bf9d74d68c24049f1e299a6a60ea50533dd8a88fa2625c24"
+        }
+      ],
+      "samples": [
+        {
+          "usage": "adopted",
+          "scope": "官网《HDS组件使用沉浸光感材质指南》- 使用系统自适应的沉浸光感 - 自适应沉浸光感示例（HdsNavigation 包含 HdsTabs，标题栏 3 个菜单按钮 + 底部 3 个页签）",
+          "source": {
+            "snapshotId": "hds-component-material-guide",
+            "lineStart": 30,
+            "lineEnd": 163,
+            "sha256": "ee42946defe1249bb8e59383afe103ee06c2369c331e00c937af878ebe07649e"
+          },
+          "keyPoints": [
+            {
+              "description": "HdsNavigation 为页面根容器，titleBar 配置 content（mainTitle + 3 个菜单按钮）与 style（scrollEffectOpts + systemMaterialEffect），mode(Stack)、bindToScrollable、hideBackButton(false)、titleMode(MINI)、ignoreLayoutSafeArea(SYSTEM, TOP/BOTTOM)",
+              "adaptation": "原样保留全部组件关系与属性；仅将 mainTitle 文案从 'MainTitle' 调整为中文 '沉浸光感'（demo 命名适配，不改行为）。",
+              "review": {
+                "status": "passed",
+                "basis": "Index.ets 与示例结构一致：HdsNavigation 根容器、titleBar{content{mainTitle,menu},style{scrollEffectOpts,systemMaterialEffect}}、mode(Stack)/bindToScrollable/hideBackButton(false)/titleMode(MINI)/ignoreLayoutSafeArea(SYSTEM,TOP/BOTTOM) 全部保留；仅 mainTitle 文案改为中文'沉浸光感'，不影响行为。"
+              }
+            },
+            {
+              "description": "HdsTabs 每个 TabContent 内为 Stack{ Scroll(scrollerForScroll){ Column{ Image } } }.clipContent(ContentClipMode.SAFE_AREA).height('100%')，tabBar 使用 BottomTabBarStyle({normal/selected SymbolGlyphModifier}, label)",
+              "adaptation": "原样保留 Scroll/Stack/clipContent 结构与 BottomTabBarStyle(SymbolGlyphModifier) 用法；scenery01 替换为本地资源 $r('app.media.scenery')。",
+              "review": {
+                "status": "passed",
+                "basis": "TabContent 内 Stack{Scroll(scrollerForScroll){Column{Image}}}.clipContent(ContentClipMode.SAFE_AREA).height('100%') 与示例一致；tabBar 使用 BottomTabBarStyle({normal,selected},label)；Image 源替换为本地 $r('app.media.scenery')。"
+              }
+            },
+            {
+              "description": "HdsTabs 链式设置 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{materialType:ADAPTIVE, materialLevel:ADAPTIVE}})",
+              "adaptation": "原样保留，构成底部悬浮页签沉浸光感的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "HdsTabs 的 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{ADAPTIVE,ADAPTIVE}}) 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "titleBar.style 链式配置 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR} 与 systemMaterialEffect{materialType:ADAPTIVE, materialLevel:ADAPTIVE}，及 avoidLayoutSafeArea:false、enableComponentSafeArea:false",
+              "adaptation": "原样保留，构成标题栏按钮沉浸光感与滚动联动的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "titleBar.style 的 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR}、systemMaterialEffect{ADAPTIVE,ADAPTIVE}、avoidLayoutSafeArea:false、enableComponentSafeArea:false 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "MENU_CONFIG 数组提供 3 个页签数据（sys.symbol 图标、sys.color 未选中/选中双色 fontColor、label），MenuItem 含 defaultBgColor/hoverBgColor/pressBgColor 字段",
+              "adaptation": "原样保留 3 个页签（闹钟/时钟/秒表）及系统资源引用；仅移除 demo 未消费的冗余字段说明不影响行为——保留全部字段以贴近示例。",
+              "review": {
+                "status": "passed",
+                "basis": "TAB_CONFIG 保留 3 个页签（闹钟/时钟/秒表）的 sys.symbol 图标、sys.color 双色 fontColor 及 defaultBgColor/hoverBgColor/pressBgColor 全部字段，仅数组名从 MENU_CONFIG 改为 TAB_CONFIG 以匹配 demo 语义。"
+              }
+            }
+          ]
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "Index.ets barFloatingStyle.systemMaterialEffect 已配置，底部悬浮页签获得沉浸光感入口，字段用法与官网 HdsTabsFloatingStyle 一致。"
+      }
+    },
+    {
+      "criteriaId": "IL-F030",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "两处 systemMaterialEffect 均显式写入 materialType 与 materialLevel（materialType 默认 NONE，省略不等于启用材质，故必须显式指定）。",
+      "sources": [
+        {
+          "snapshotId": "hds-navigation-api",
+          "lineStart": 2055,
+          "lineEnd": 2066,
+          "sha256": "f108ae25742c9d40fc4e2ec6e53ec0ed147272d24e1748b1e614156ea04e140e"
+        }
+      ],
+      "samples": [
+        {
+          "usage": "adopted",
+          "scope": "官网《HDS组件使用沉浸光感材质指南》- 使用系统自适应的沉浸光感 - 自适应沉浸光感示例（HdsNavigation 包含 HdsTabs，标题栏 3 个菜单按钮 + 底部 3 个页签）",
+          "source": {
+            "snapshotId": "hds-component-material-guide",
+            "lineStart": 30,
+            "lineEnd": 163,
+            "sha256": "ee42946defe1249bb8e59383afe103ee06c2369c331e00c937af878ebe07649e"
+          },
+          "keyPoints": [
+            {
+              "description": "HdsNavigation 为页面根容器，titleBar 配置 content（mainTitle + 3 个菜单按钮）与 style（scrollEffectOpts + systemMaterialEffect），mode(Stack)、bindToScrollable、hideBackButton(false)、titleMode(MINI)、ignoreLayoutSafeArea(SYSTEM, TOP/BOTTOM)",
+              "adaptation": "原样保留全部组件关系与属性；仅将 mainTitle 文案从 'MainTitle' 调整为中文 '沉浸光感'（demo 命名适配，不改行为）。",
+              "review": {
+                "status": "passed",
+                "basis": "Index.ets 与示例结构一致：HdsNavigation 根容器、titleBar{content{mainTitle,menu},style{scrollEffectOpts,systemMaterialEffect}}、mode(Stack)/bindToScrollable/hideBackButton(false)/titleMode(MINI)/ignoreLayoutSafeArea(SYSTEM,TOP/BOTTOM) 全部保留；仅 mainTitle 文案改为中文'沉浸光感'，不影响行为。"
+              }
+            },
+            {
+              "description": "HdsTabs 每个 TabContent 内为 Stack{ Scroll(scrollerForScroll){ Column{ Image } } }.clipContent(ContentClipMode.SAFE_AREA).height('100%')，tabBar 使用 BottomTabBarStyle({normal/selected SymbolGlyphModifier}, label)",
+              "adaptation": "原样保留 Scroll/Stack/clipContent 结构与 BottomTabBarStyle(SymbolGlyphModifier) 用法；scenery01 替换为本地资源 $r('app.media.scenery')。",
+              "review": {
+                "status": "passed",
+                "basis": "TabContent 内 Stack{Scroll(scrollerForScroll){Column{Image}}}.clipContent(ContentClipMode.SAFE_AREA).height('100%') 与示例一致；tabBar 使用 BottomTabBarStyle({normal,selected},label)；Image 源替换为本地 $r('app.media.scenery')。"
+              }
+            },
+            {
+              "description": "HdsTabs 链式设置 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{materialType:ADAPTIVE, materialLevel:ADAPTIVE}})",
+              "adaptation": "原样保留，构成底部悬浮页签沉浸光感的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "HdsTabs 的 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{ADAPTIVE,ADAPTIVE}}) 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "titleBar.style 链式配置 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR} 与 systemMaterialEffect{materialType:ADAPTIVE, materialLevel:ADAPTIVE}，及 avoidLayoutSafeArea:false、enableComponentSafeArea:false",
+              "adaptation": "原样保留，构成标题栏按钮沉浸光感与滚动联动的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "titleBar.style 的 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR}、systemMaterialEffect{ADAPTIVE,ADAPTIVE}、avoidLayoutSafeArea:false、enableComponentSafeArea:false 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "MENU_CONFIG 数组提供 3 个页签数据（sys.symbol 图标、sys.color 未选中/选中双色 fontColor、label），MenuItem 含 defaultBgColor/hoverBgColor/pressBgColor 字段",
+              "adaptation": "原样保留 3 个页签（闹钟/时钟/秒表）及系统资源引用；仅移除 demo 未消费的冗余字段说明不影响行为——保留全部字段以贴近示例。",
+              "review": {
+                "status": "passed",
+                "basis": "TAB_CONFIG 保留 3 个页签（闹钟/时钟/秒表）的 sys.symbol 图标、sys.color 双色 fontColor 及 defaultBgColor/hoverBgColor/pressBgColor 全部字段，仅数组名从 MENU_CONFIG 改为 TAB_CONFIG 以匹配 demo 语义。"
+              }
+            }
+          ]
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "两处 systemMaterialEffect 均显式写入 materialType 与 materialLevel，未省略 materialType，规避默认 NONE（无材质）。"
+      }
+    },
+    {
+      "criteriaId": "IL-F031",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "materialType 采用 hdsMaterial.MaterialType.ADAPTIVE（自适应系统材质，默认为沉浸式材质）。",
+      "sources": [
+        {
+          "snapshotId": "hds-material-api",
+          "lineStart": 60,
+          "lineEnd": 66,
+          "sha256": "58ad7edbea837a5110b3f54c1730bfb4f485ca0e1238be3b6c04e606095298fd"
+        }
+      ],
+      "samples": [
+        {
+          "usage": "adopted",
+          "scope": "官网《HDS组件使用沉浸光感材质指南》- 使用系统自适应的沉浸光感 - 自适应沉浸光感示例（HdsNavigation 包含 HdsTabs，标题栏 3 个菜单按钮 + 底部 3 个页签）",
+          "source": {
+            "snapshotId": "hds-component-material-guide",
+            "lineStart": 30,
+            "lineEnd": 163,
+            "sha256": "ee42946defe1249bb8e59383afe103ee06c2369c331e00c937af878ebe07649e"
+          },
+          "keyPoints": [
+            {
+              "description": "HdsNavigation 为页面根容器，titleBar 配置 content（mainTitle + 3 个菜单按钮）与 style（scrollEffectOpts + systemMaterialEffect），mode(Stack)、bindToScrollable、hideBackButton(false)、titleMode(MINI)、ignoreLayoutSafeArea(SYSTEM, TOP/BOTTOM)",
+              "adaptation": "原样保留全部组件关系与属性；仅将 mainTitle 文案从 'MainTitle' 调整为中文 '沉浸光感'（demo 命名适配，不改行为）。",
+              "review": {
+                "status": "passed",
+                "basis": "Index.ets 与示例结构一致：HdsNavigation 根容器、titleBar{content{mainTitle,menu},style{scrollEffectOpts,systemMaterialEffect}}、mode(Stack)/bindToScrollable/hideBackButton(false)/titleMode(MINI)/ignoreLayoutSafeArea(SYSTEM,TOP/BOTTOM) 全部保留；仅 mainTitle 文案改为中文'沉浸光感'，不影响行为。"
+              }
+            },
+            {
+              "description": "HdsTabs 每个 TabContent 内为 Stack{ Scroll(scrollerForScroll){ Column{ Image } } }.clipContent(ContentClipMode.SAFE_AREA).height('100%')，tabBar 使用 BottomTabBarStyle({normal/selected SymbolGlyphModifier}, label)",
+              "adaptation": "原样保留 Scroll/Stack/clipContent 结构与 BottomTabBarStyle(SymbolGlyphModifier) 用法；scenery01 替换为本地资源 $r('app.media.scenery')。",
+              "review": {
+                "status": "passed",
+                "basis": "TabContent 内 Stack{Scroll(scrollerForScroll){Column{Image}}}.clipContent(ContentClipMode.SAFE_AREA).height('100%') 与示例一致；tabBar 使用 BottomTabBarStyle({normal,selected},label)；Image 源替换为本地 $r('app.media.scenery')。"
+              }
+            },
+            {
+              "description": "HdsTabs 链式设置 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{materialType:ADAPTIVE, materialLevel:ADAPTIVE}})",
+              "adaptation": "原样保留，构成底部悬浮页签沉浸光感的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "HdsTabs 的 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{ADAPTIVE,ADAPTIVE}}) 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "titleBar.style 链式配置 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR} 与 systemMaterialEffect{materialType:ADAPTIVE, materialLevel:ADAPTIVE}，及 avoidLayoutSafeArea:false、enableComponentSafeArea:false",
+              "adaptation": "原样保留，构成标题栏按钮沉浸光感与滚动联动的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "titleBar.style 的 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR}、systemMaterialEffect{ADAPTIVE,ADAPTIVE}、avoidLayoutSafeArea:false、enableComponentSafeArea:false 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "MENU_CONFIG 数组提供 3 个页签数据（sys.symbol 图标、sys.color 未选中/选中双色 fontColor、label），MenuItem 含 defaultBgColor/hoverBgColor/pressBgColor 字段",
+              "adaptation": "原样保留 3 个页签（闹钟/时钟/秒表）及系统资源引用；仅移除 demo 未消费的冗余字段说明不影响行为——保留全部字段以贴近示例。",
+              "review": {
+                "status": "passed",
+                "basis": "TAB_CONFIG 保留 3 个页签（闹钟/时钟/秒表）的 sys.symbol 图标、sys.color 双色 fontColor 及 defaultBgColor/hoverBgColor/pressBgColor 全部字段，仅数组名从 MENU_CONFIG 改为 TAB_CONFIG 以匹配 demo 语义。"
+              }
+            }
+          ]
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "materialType 取 hdsMaterial.MaterialType.ADAPTIVE（值 100，自适应系统材质且默认沉浸式材质）。"
+      }
+    },
+    {
+      "criteriaId": "IL-F032",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "materialLevel 采用 hdsMaterial.MaterialLevel.ADAPTIVE，由系统按设备算力自适应材质等级。",
+      "sources": [
+        {
+          "snapshotId": "hds-material-api",
+          "lineStart": 80,
+          "lineEnd": 96,
+          "sha256": "1a2b274e1396653764b72062e52864d6fe786a561f1c4352c4a7dd6d160bb1f2"
+        }
+      ],
+      "samples": [
+        {
+          "usage": "adopted",
+          "scope": "官网《HDS组件使用沉浸光感材质指南》- 使用系统自适应的沉浸光感 - 自适应沉浸光感示例（HdsNavigation 包含 HdsTabs，标题栏 3 个菜单按钮 + 底部 3 个页签）",
+          "source": {
+            "snapshotId": "hds-component-material-guide",
+            "lineStart": 30,
+            "lineEnd": 163,
+            "sha256": "ee42946defe1249bb8e59383afe103ee06c2369c331e00c937af878ebe07649e"
+          },
+          "keyPoints": [
+            {
+              "description": "HdsNavigation 为页面根容器，titleBar 配置 content（mainTitle + 3 个菜单按钮）与 style（scrollEffectOpts + systemMaterialEffect），mode(Stack)、bindToScrollable、hideBackButton(false)、titleMode(MINI)、ignoreLayoutSafeArea(SYSTEM, TOP/BOTTOM)",
+              "adaptation": "原样保留全部组件关系与属性；仅将 mainTitle 文案从 'MainTitle' 调整为中文 '沉浸光感'（demo 命名适配，不改行为）。",
+              "review": {
+                "status": "passed",
+                "basis": "Index.ets 与示例结构一致：HdsNavigation 根容器、titleBar{content{mainTitle,menu},style{scrollEffectOpts,systemMaterialEffect}}、mode(Stack)/bindToScrollable/hideBackButton(false)/titleMode(MINI)/ignoreLayoutSafeArea(SYSTEM,TOP/BOTTOM) 全部保留；仅 mainTitle 文案改为中文'沉浸光感'，不影响行为。"
+              }
+            },
+            {
+              "description": "HdsTabs 每个 TabContent 内为 Stack{ Scroll(scrollerForScroll){ Column{ Image } } }.clipContent(ContentClipMode.SAFE_AREA).height('100%')，tabBar 使用 BottomTabBarStyle({normal/selected SymbolGlyphModifier}, label)",
+              "adaptation": "原样保留 Scroll/Stack/clipContent 结构与 BottomTabBarStyle(SymbolGlyphModifier) 用法；scenery01 替换为本地资源 $r('app.media.scenery')。",
+              "review": {
+                "status": "passed",
+                "basis": "TabContent 内 Stack{Scroll(scrollerForScroll){Column{Image}}}.clipContent(ContentClipMode.SAFE_AREA).height('100%') 与示例一致；tabBar 使用 BottomTabBarStyle({normal,selected},label)；Image 源替换为本地 $r('app.media.scenery')。"
+              }
+            },
+            {
+              "description": "HdsTabs 链式设置 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{materialType:ADAPTIVE, materialLevel:ADAPTIVE}})",
+              "adaptation": "原样保留，构成底部悬浮页签沉浸光感的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "HdsTabs 的 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{ADAPTIVE,ADAPTIVE}}) 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "titleBar.style 链式配置 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR} 与 systemMaterialEffect{materialType:ADAPTIVE, materialLevel:ADAPTIVE}，及 avoidLayoutSafeArea:false、enableComponentSafeArea:false",
+              "adaptation": "原样保留，构成标题栏按钮沉浸光感与滚动联动的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "titleBar.style 的 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR}、systemMaterialEffect{ADAPTIVE,ADAPTIVE}、avoidLayoutSafeArea:false、enableComponentSafeArea:false 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "MENU_CONFIG 数组提供 3 个页签数据（sys.symbol 图标、sys.color 未选中/选中双色 fontColor、label），MenuItem 含 defaultBgColor/hoverBgColor/pressBgColor 字段",
+              "adaptation": "原样保留 3 个页签（闹钟/时钟/秒表）及系统资源引用；仅移除 demo 未消费的冗余字段说明不影响行为——保留全部字段以贴近示例。",
+              "review": {
+                "status": "passed",
+                "basis": "TAB_CONFIG 保留 3 个页签（闹钟/时钟/秒表）的 sys.symbol 图标、sys.color 双色 fontColor 及 defaultBgColor/hoverBgColor/pressBgColor 全部字段，仅数组名从 MENU_CONFIG 改为 TAB_CONFIG 以匹配 demo 语义。"
+              }
+            }
+          ]
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "materialLevel 取 hdsMaterial.MaterialLevel.ADAPTIVE（值 10，系统按设备算力自适应等级）。"
+      }
+    },
+    {
+      "criteriaId": "IL-F033",
+      "strength": "recommendation",
+      "disposition": "implement",
+      "approach": "标题栏与底部页签均采用官网推荐的系统自适应沉浸光感（materialType=ADAPTIVE + materialLevel=ADAPTIVE），系统按设备算力动态平衡材质效果和性能。",
+      "sources": [
+        {
+          "snapshotId": "hds-component-material-guide",
+          "lineStart": 11,
+          "lineEnd": 13,
+          "sha256": "f2212a12749be1d6112bce51e53cd3e0d7d5068fd8721947a708695d4f1eb61d"
+        }
+      ],
+      "samples": [
+        {
+          "usage": "adopted",
+          "scope": "官网《HDS组件使用沉浸光感材质指南》- 使用系统自适应的沉浸光感 - 自适应沉浸光感示例（HdsNavigation 包含 HdsTabs，标题栏 3 个菜单按钮 + 底部 3 个页签）",
+          "source": {
+            "snapshotId": "hds-component-material-guide",
+            "lineStart": 30,
+            "lineEnd": 163,
+            "sha256": "ee42946defe1249bb8e59383afe103ee06c2369c331e00c937af878ebe07649e"
+          },
+          "keyPoints": [
+            {
+              "description": "HdsNavigation 为页面根容器，titleBar 配置 content（mainTitle + 3 个菜单按钮）与 style（scrollEffectOpts + systemMaterialEffect），mode(Stack)、bindToScrollable、hideBackButton(false)、titleMode(MINI)、ignoreLayoutSafeArea(SYSTEM, TOP/BOTTOM)",
+              "adaptation": "原样保留全部组件关系与属性；仅将 mainTitle 文案从 'MainTitle' 调整为中文 '沉浸光感'（demo 命名适配，不改行为）。",
+              "review": {
+                "status": "passed",
+                "basis": "Index.ets 与示例结构一致：HdsNavigation 根容器、titleBar{content{mainTitle,menu},style{scrollEffectOpts,systemMaterialEffect}}、mode(Stack)/bindToScrollable/hideBackButton(false)/titleMode(MINI)/ignoreLayoutSafeArea(SYSTEM,TOP/BOTTOM) 全部保留；仅 mainTitle 文案改为中文'沉浸光感'，不影响行为。"
+              }
+            },
+            {
+              "description": "HdsTabs 每个 TabContent 内为 Stack{ Scroll(scrollerForScroll){ Column{ Image } } }.clipContent(ContentClipMode.SAFE_AREA).height('100%')，tabBar 使用 BottomTabBarStyle({normal/selected SymbolGlyphModifier}, label)",
+              "adaptation": "原样保留 Scroll/Stack/clipContent 结构与 BottomTabBarStyle(SymbolGlyphModifier) 用法；scenery01 替换为本地资源 $r('app.media.scenery')。",
+              "review": {
+                "status": "passed",
+                "basis": "TabContent 内 Stack{Scroll(scrollerForScroll){Column{Image}}}.clipContent(ContentClipMode.SAFE_AREA).height('100%') 与示例一致；tabBar 使用 BottomTabBarStyle({normal,selected},label)；Image 源替换为本地 $r('app.media.scenery')。"
+              }
+            },
+            {
+              "description": "HdsTabs 链式设置 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{materialType:ADAPTIVE, materialLevel:ADAPTIVE}})",
+              "adaptation": "原样保留，构成底部悬浮页签沉浸光感的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "HdsTabs 的 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{ADAPTIVE,ADAPTIVE}}) 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "titleBar.style 链式配置 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR} 与 systemMaterialEffect{materialType:ADAPTIVE, materialLevel:ADAPTIVE}，及 avoidLayoutSafeArea:false、enableComponentSafeArea:false",
+              "adaptation": "原样保留，构成标题栏按钮沉浸光感与滚动联动的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "titleBar.style 的 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR}、systemMaterialEffect{ADAPTIVE,ADAPTIVE}、avoidLayoutSafeArea:false、enableComponentSafeArea:false 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "MENU_CONFIG 数组提供 3 个页签数据（sys.symbol 图标、sys.color 未选中/选中双色 fontColor、label），MenuItem 含 defaultBgColor/hoverBgColor/pressBgColor 字段",
+              "adaptation": "原样保留 3 个页签（闹钟/时钟/秒表）及系统资源引用；仅移除 demo 未消费的冗余字段说明不影响行为——保留全部字段以贴近示例。",
+              "review": {
+                "status": "passed",
+                "basis": "TAB_CONFIG 保留 3 个页签（闹钟/时钟/秒表）的 sys.symbol 图标、sys.color 双色 fontColor 及 defaultBgColor/hoverBgColor/pressBgColor 全部字段，仅数组名从 MENU_CONFIG 改为 TAB_CONFIG 以匹配 demo 语义。"
+              }
+            }
+          ]
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "标题栏与页签均为 ADAPTIVE/ADAPTIVE 组合，符合官网系统自适应推荐。"
+      }
+    },
+    {
+      "criteriaId": "IL-F035",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "demo 目标为 Phone 设备（材质可直接调用）；材质采用 ADAPTIVE 自适应策略，Phone/Tablet 路径不触发 PC/2in1 的 getSystemMaterialTypes 预查询要求，也不运行在 TV 上。",
+      "sources": [
+        {
+          "snapshotId": "hds-navigation-api",
+          "lineStart": 2043,
+          "lineEnd": 2053,
+          "sha256": "eba8e98b56598f1ecb195b3ffbc232ae59b1897de8b2fa644371153c7c832ba0"
+        },
+        {
+          "snapshotId": "hds-tabs-api",
+          "lineStart": 641,
+          "lineEnd": 645,
+          "sha256": "31537b249bd6eb9075af941f4218541d7136f70d79691e65cd65b92dc2c44c6b"
+        }
+      ],
+      "samples": [
+        {
+          "usage": "adopted",
+          "scope": "官网《HDS组件使用沉浸光感材质指南》- 使用系统自适应的沉浸光感 - 自适应沉浸光感示例（HdsNavigation 包含 HdsTabs，标题栏 3 个菜单按钮 + 底部 3 个页签）",
+          "source": {
+            "snapshotId": "hds-component-material-guide",
+            "lineStart": 30,
+            "lineEnd": 163,
+            "sha256": "ee42946defe1249bb8e59383afe103ee06c2369c331e00c937af878ebe07649e"
+          },
+          "keyPoints": [
+            {
+              "description": "HdsNavigation 为页面根容器，titleBar 配置 content（mainTitle + 3 个菜单按钮）与 style（scrollEffectOpts + systemMaterialEffect），mode(Stack)、bindToScrollable、hideBackButton(false)、titleMode(MINI)、ignoreLayoutSafeArea(SYSTEM, TOP/BOTTOM)",
+              "adaptation": "原样保留全部组件关系与属性；仅将 mainTitle 文案从 'MainTitle' 调整为中文 '沉浸光感'（demo 命名适配，不改行为）。",
+              "review": {
+                "status": "passed",
+                "basis": "Index.ets 与示例结构一致：HdsNavigation 根容器、titleBar{content{mainTitle,menu},style{scrollEffectOpts,systemMaterialEffect}}、mode(Stack)/bindToScrollable/hideBackButton(false)/titleMode(MINI)/ignoreLayoutSafeArea(SYSTEM,TOP/BOTTOM) 全部保留；仅 mainTitle 文案改为中文'沉浸光感'，不影响行为。"
+              }
+            },
+            {
+              "description": "HdsTabs 每个 TabContent 内为 Stack{ Scroll(scrollerForScroll){ Column{ Image } } }.clipContent(ContentClipMode.SAFE_AREA).height('100%')，tabBar 使用 BottomTabBarStyle({normal/selected SymbolGlyphModifier}, label)",
+              "adaptation": "原样保留 Scroll/Stack/clipContent 结构与 BottomTabBarStyle(SymbolGlyphModifier) 用法；scenery01 替换为本地资源 $r('app.media.scenery')。",
+              "review": {
+                "status": "passed",
+                "basis": "TabContent 内 Stack{Scroll(scrollerForScroll){Column{Image}}}.clipContent(ContentClipMode.SAFE_AREA).height('100%') 与示例一致；tabBar 使用 BottomTabBarStyle({normal,selected},label)；Image 源替换为本地 $r('app.media.scenery')。"
+              }
+            },
+            {
+              "description": "HdsTabs 链式设置 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{materialType:ADAPTIVE, materialLevel:ADAPTIVE}})",
+              "adaptation": "原样保留，构成底部悬浮页签沉浸光感的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "HdsTabs 的 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{ADAPTIVE,ADAPTIVE}}) 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "titleBar.style 链式配置 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR} 与 systemMaterialEffect{materialType:ADAPTIVE, materialLevel:ADAPTIVE}，及 avoidLayoutSafeArea:false、enableComponentSafeArea:false",
+              "adaptation": "原样保留，构成标题栏按钮沉浸光感与滚动联动的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "titleBar.style 的 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR}、systemMaterialEffect{ADAPTIVE,ADAPTIVE}、avoidLayoutSafeArea:false、enableComponentSafeArea:false 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "MENU_CONFIG 数组提供 3 个页签数据（sys.symbol 图标、sys.color 未选中/选中双色 fontColor、label），MenuItem 含 defaultBgColor/hoverBgColor/pressBgColor 字段",
+              "adaptation": "原样保留 3 个页签（闹钟/时钟/秒表）及系统资源引用；仅移除 demo 未消费的冗余字段说明不影响行为——保留全部字段以贴近示例。",
+              "review": {
+                "status": "passed",
+                "basis": "TAB_CONFIG 保留 3 个页签（闹钟/时钟/秒表）的 sys.symbol 图标、sys.color 双色 fontColor 及 defaultBgColor/hoverBgColor/pressBgColor 全部字段，仅数组名从 MENU_CONFIG 改为 TAB_CONFIG 以匹配 demo 语义。"
+              }
+            }
+          ]
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "demo 面向 Phone 设备运行（材质可直接调用）；未实现 PC/2in1 专用查询路径与 TV 目标，材质策略本身采用系统自适应，设备差异约束在 demo 范围内满足。"
+      }
+    },
+    {
+      "criteriaId": "IL-F036",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "以官网自适应示例为最小适配基础：导入清单与示例一致（@kit.UIDesignKit 组件/枚举 + @kit.ArkUI 的 SymbolGlyphModifier）；示例中的 scenery01 按原文要求替换为本地资源 entry/src/main/resources/base/media/scenery.jpg（$r('app.media.scenery')）。",
+      "sources": [
+        {
+          "snapshotId": "hds-component-material-guide",
+          "lineStart": 17,
+          "lineEnd": 23,
+          "sha256": "0164a656d0ccc3f6c24d40a5fc4a96dccfd301d9e866bb9d4db45058d4b760c4"
+        },
+        {
+          "snapshotId": "hds-component-material-guide",
+          "lineStart": 63,
+          "lineEnd": 67,
+          "sha256": "a86f7abd07eab45c59e644d18afa3eeac2bf2e6eb1397fb91fa905f699ea576a"
+        }
+      ],
+      "samples": [
+        {
+          "usage": "adopted",
+          "scope": "官网《HDS组件使用沉浸光感材质指南》- 使用系统自适应的沉浸光感 - 自适应沉浸光感示例（HdsNavigation 包含 HdsTabs，标题栏 3 个菜单按钮 + 底部 3 个页签）",
+          "source": {
+            "snapshotId": "hds-component-material-guide",
+            "lineStart": 30,
+            "lineEnd": 163,
+            "sha256": "ee42946defe1249bb8e59383afe103ee06c2369c331e00c937af878ebe07649e"
+          },
+          "keyPoints": [
+            {
+              "description": "HdsNavigation 为页面根容器，titleBar 配置 content（mainTitle + 3 个菜单按钮）与 style（scrollEffectOpts + systemMaterialEffect），mode(Stack)、bindToScrollable、hideBackButton(false)、titleMode(MINI)、ignoreLayoutSafeArea(SYSTEM, TOP/BOTTOM)",
+              "adaptation": "原样保留全部组件关系与属性；仅将 mainTitle 文案从 'MainTitle' 调整为中文 '沉浸光感'（demo 命名适配，不改行为）。",
+              "review": {
+                "status": "passed",
+                "basis": "Index.ets 与示例结构一致：HdsNavigation 根容器、titleBar{content{mainTitle,menu},style{scrollEffectOpts,systemMaterialEffect}}、mode(Stack)/bindToScrollable/hideBackButton(false)/titleMode(MINI)/ignoreLayoutSafeArea(SYSTEM,TOP/BOTTOM) 全部保留；仅 mainTitle 文案改为中文'沉浸光感'，不影响行为。"
+              }
+            },
+            {
+              "description": "HdsTabs 每个 TabContent 内为 Stack{ Scroll(scrollerForScroll){ Column{ Image } } }.clipContent(ContentClipMode.SAFE_AREA).height('100%')，tabBar 使用 BottomTabBarStyle({normal/selected SymbolGlyphModifier}, label)",
+              "adaptation": "原样保留 Scroll/Stack/clipContent 结构与 BottomTabBarStyle(SymbolGlyphModifier) 用法；scenery01 替换为本地资源 $r('app.media.scenery')。",
+              "review": {
+                "status": "passed",
+                "basis": "TabContent 内 Stack{Scroll(scrollerForScroll){Column{Image}}}.clipContent(ContentClipMode.SAFE_AREA).height('100%') 与示例一致；tabBar 使用 BottomTabBarStyle({normal,selected},label)；Image 源替换为本地 $r('app.media.scenery')。"
+              }
+            },
+            {
+              "description": "HdsTabs 链式设置 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{materialType:ADAPTIVE, materialLevel:ADAPTIVE}})",
+              "adaptation": "原样保留，构成底部悬浮页签沉浸光感的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "HdsTabs 的 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{ADAPTIVE,ADAPTIVE}}) 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "titleBar.style 链式配置 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR} 与 systemMaterialEffect{materialType:ADAPTIVE, materialLevel:ADAPTIVE}，及 avoidLayoutSafeArea:false、enableComponentSafeArea:false",
+              "adaptation": "原样保留，构成标题栏按钮沉浸光感与滚动联动的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "titleBar.style 的 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR}、systemMaterialEffect{ADAPTIVE,ADAPTIVE}、avoidLayoutSafeArea:false、enableComponentSafeArea:false 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "MENU_CONFIG 数组提供 3 个页签数据（sys.symbol 图标、sys.color 未选中/选中双色 fontColor、label），MenuItem 含 defaultBgColor/hoverBgColor/pressBgColor 字段",
+              "adaptation": "原样保留 3 个页签（闹钟/时钟/秒表）及系统资源引用；仅移除 demo 未消费的冗余字段说明不影响行为——保留全部字段以贴近示例。",
+              "review": {
+                "status": "passed",
+                "basis": "TAB_CONFIG 保留 3 个页签（闹钟/时钟/秒表）的 sys.symbol 图标、sys.color 双色 fontColor 及 defaultBgColor/hoverBgColor/pressBgColor 全部字段，仅数组名从 MENU_CONFIG 改为 TAB_CONFIG 以匹配 demo 语义。"
+              }
+            }
+          ]
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "导入清单与示例一致（HdsNavigation/HdsNavigationTitleMode/HdsTabs/HdsTabsController/HdsNavigationMenuContentOptions/ScrollEffectType/hdsMaterial + SymbolGlyphModifier）；scenery01 已替换为本地资源 scenery.jpg；示例无异常处理代码，demo 保持一致不额外添加。"
+      }
+    },
+    {
+      "criteriaId": "IL-S011-D01",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "titleBar.style 不显式配置 originalStyle/scrollEffectStyle 背景色；按 GRADIENT_BLUR + systemMaterialEffect + enableScrollEffect=false 组合，originalStyle 背景色默认 $r('sys.color.comp_background_gray')、scrollEffectStyle 背景色不生效，全部交给官网默认联动规则。",
+      "sources": [
+        {
+          "snapshotId": "hds-navigation-api",
+          "lineStart": 1144,
+          "lineEnd": 1158,
+          "sha256": "efa0366a85f9afcae57b1d9d092e9ebe51201af1c5165eb08ae7f2b9725ff6f4"
+        }
+      ],
+      "samples": [
+        {
+          "usage": "adopted",
+          "scope": "官网《HDS组件使用沉浸光感材质指南》- 使用系统自适应的沉浸光感 - 自适应沉浸光感示例（HdsNavigation 包含 HdsTabs，标题栏 3 个菜单按钮 + 底部 3 个页签）",
+          "source": {
+            "snapshotId": "hds-component-material-guide",
+            "lineStart": 30,
+            "lineEnd": 163,
+            "sha256": "ee42946defe1249bb8e59383afe103ee06c2369c331e00c937af878ebe07649e"
+          },
+          "keyPoints": [
+            {
+              "description": "HdsNavigation 为页面根容器，titleBar 配置 content（mainTitle + 3 个菜单按钮）与 style（scrollEffectOpts + systemMaterialEffect），mode(Stack)、bindToScrollable、hideBackButton(false)、titleMode(MINI)、ignoreLayoutSafeArea(SYSTEM, TOP/BOTTOM)",
+              "adaptation": "原样保留全部组件关系与属性；仅将 mainTitle 文案从 'MainTitle' 调整为中文 '沉浸光感'（demo 命名适配，不改行为）。",
+              "review": {
+                "status": "passed",
+                "basis": "Index.ets 与示例结构一致：HdsNavigation 根容器、titleBar{content{mainTitle,menu},style{scrollEffectOpts,systemMaterialEffect}}、mode(Stack)/bindToScrollable/hideBackButton(false)/titleMode(MINI)/ignoreLayoutSafeArea(SYSTEM,TOP/BOTTOM) 全部保留；仅 mainTitle 文案改为中文'沉浸光感'，不影响行为。"
+              }
+            },
+            {
+              "description": "HdsTabs 每个 TabContent 内为 Stack{ Scroll(scrollerForScroll){ Column{ Image } } }.clipContent(ContentClipMode.SAFE_AREA).height('100%')，tabBar 使用 BottomTabBarStyle({normal/selected SymbolGlyphModifier}, label)",
+              "adaptation": "原样保留 Scroll/Stack/clipContent 结构与 BottomTabBarStyle(SymbolGlyphModifier) 用法；scenery01 替换为本地资源 $r('app.media.scenery')。",
+              "review": {
+                "status": "passed",
+                "basis": "TabContent 内 Stack{Scroll(scrollerForScroll){Column{Image}}}.clipContent(ContentClipMode.SAFE_AREA).height('100%') 与示例一致；tabBar 使用 BottomTabBarStyle({normal,selected},label)；Image 源替换为本地 $r('app.media.scenery')。"
+              }
+            },
+            {
+              "description": "HdsTabs 链式设置 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{materialType:ADAPTIVE, materialLevel:ADAPTIVE}})",
+              "adaptation": "原样保留，构成底部悬浮页签沉浸光感的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "HdsTabs 的 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{ADAPTIVE,ADAPTIVE}}) 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "titleBar.style 链式配置 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR} 与 systemMaterialEffect{materialType:ADAPTIVE, materialLevel:ADAPTIVE}，及 avoidLayoutSafeArea:false、enableComponentSafeArea:false",
+              "adaptation": "原样保留，构成标题栏按钮沉浸光感与滚动联动的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "titleBar.style 的 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR}、systemMaterialEffect{ADAPTIVE,ADAPTIVE}、avoidLayoutSafeArea:false、enableComponentSafeArea:false 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "MENU_CONFIG 数组提供 3 个页签数据（sys.symbol 图标、sys.color 未选中/选中双色 fontColor、label），MenuItem 含 defaultBgColor/hoverBgColor/pressBgColor 字段",
+              "adaptation": "原样保留 3 个页签（闹钟/时钟/秒表）及系统资源引用；仅移除 demo 未消费的冗余字段说明不影响行为——保留全部字段以贴近示例。",
+              "review": {
+                "status": "passed",
+                "basis": "TAB_CONFIG 保留 3 个页签（闹钟/时钟/秒表）的 sys.symbol 图标、sys.color 双色 fontColor 及 defaultBgColor/hoverBgColor/pressBgColor 全部字段，仅数组名从 MENU_CONFIG 改为 TAB_CONFIG 以匹配 demo 语义。"
+              }
+            }
+          ]
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "代码未设置 originalStyle/scrollEffectStyle/背景色；按 GRADIENT_BLUR+systemMaterialEffect+enableScrollEffect=false 组合，originalStyle 背景色默认 $r('sys.color.comp_background_gray')、scrollEffectStyle 背景色不生效，全部按官网默认规则联动。"
+      }
+    },
+    {
+      "criteriaId": "IL-S011-D02",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "不显式配置 blurRadius；按 GRADIENT_BLUR + enableScrollEffect=false + systemMaterialEffect 组合，originalStyle 模糊半径取官网默认 12.0。",
+      "sources": [
+        {
+          "snapshotId": "hds-navigation-api",
+          "lineStart": 1181,
+          "lineEnd": 1191,
+          "sha256": "2f0e8d628699f51e1cb2d09386d14ccc920686c9056c51c7883de85d727254ee"
+        }
+      ],
+      "samples": [
+        {
+          "usage": "adopted",
+          "scope": "官网《HDS组件使用沉浸光感材质指南》- 使用系统自适应的沉浸光感 - 自适应沉浸光感示例（HdsNavigation 包含 HdsTabs，标题栏 3 个菜单按钮 + 底部 3 个页签）",
+          "source": {
+            "snapshotId": "hds-component-material-guide",
+            "lineStart": 30,
+            "lineEnd": 163,
+            "sha256": "ee42946defe1249bb8e59383afe103ee06c2369c331e00c937af878ebe07649e"
+          },
+          "keyPoints": [
+            {
+              "description": "HdsNavigation 为页面根容器，titleBar 配置 content（mainTitle + 3 个菜单按钮）与 style（scrollEffectOpts + systemMaterialEffect），mode(Stack)、bindToScrollable、hideBackButton(false)、titleMode(MINI)、ignoreLayoutSafeArea(SYSTEM, TOP/BOTTOM)",
+              "adaptation": "原样保留全部组件关系与属性；仅将 mainTitle 文案从 'MainTitle' 调整为中文 '沉浸光感'（demo 命名适配，不改行为）。",
+              "review": {
+                "status": "passed",
+                "basis": "Index.ets 与示例结构一致：HdsNavigation 根容器、titleBar{content{mainTitle,menu},style{scrollEffectOpts,systemMaterialEffect}}、mode(Stack)/bindToScrollable/hideBackButton(false)/titleMode(MINI)/ignoreLayoutSafeArea(SYSTEM,TOP/BOTTOM) 全部保留；仅 mainTitle 文案改为中文'沉浸光感'，不影响行为。"
+              }
+            },
+            {
+              "description": "HdsTabs 每个 TabContent 内为 Stack{ Scroll(scrollerForScroll){ Column{ Image } } }.clipContent(ContentClipMode.SAFE_AREA).height('100%')，tabBar 使用 BottomTabBarStyle({normal/selected SymbolGlyphModifier}, label)",
+              "adaptation": "原样保留 Scroll/Stack/clipContent 结构与 BottomTabBarStyle(SymbolGlyphModifier) 用法；scenery01 替换为本地资源 $r('app.media.scenery')。",
+              "review": {
+                "status": "passed",
+                "basis": "TabContent 内 Stack{Scroll(scrollerForScroll){Column{Image}}}.clipContent(ContentClipMode.SAFE_AREA).height('100%') 与示例一致；tabBar 使用 BottomTabBarStyle({normal,selected},label)；Image 源替换为本地 $r('app.media.scenery')。"
+              }
+            },
+            {
+              "description": "HdsTabs 链式设置 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{materialType:ADAPTIVE, materialLevel:ADAPTIVE}})",
+              "adaptation": "原样保留，构成底部悬浮页签沉浸光感的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "HdsTabs 的 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{ADAPTIVE,ADAPTIVE}}) 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "titleBar.style 链式配置 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR} 与 systemMaterialEffect{materialType:ADAPTIVE, materialLevel:ADAPTIVE}，及 avoidLayoutSafeArea:false、enableComponentSafeArea:false",
+              "adaptation": "原样保留，构成标题栏按钮沉浸光感与滚动联动的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "titleBar.style 的 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR}、systemMaterialEffect{ADAPTIVE,ADAPTIVE}、avoidLayoutSafeArea:false、enableComponentSafeArea:false 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "MENU_CONFIG 数组提供 3 个页签数据（sys.symbol 图标、sys.color 未选中/选中双色 fontColor、label），MenuItem 含 defaultBgColor/hoverBgColor/pressBgColor 字段",
+              "adaptation": "原样保留 3 个页签（闹钟/时钟/秒表）及系统资源引用；仅移除 demo 未消费的冗余字段说明不影响行为——保留全部字段以贴近示例。",
+              "review": {
+                "status": "passed",
+                "basis": "TAB_CONFIG 保留 3 个页签（闹钟/时钟/秒表）的 sys.symbol 图标、sys.color 双色 fontColor 及 defaultBgColor/hoverBgColor/pressBgColor 全部字段，仅数组名从 MENU_CONFIG 改为 TAB_CONFIG 以匹配 demo 语义。"
+              }
+            }
+          ]
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "代码未设置 blurRadius；按 GRADIENT_BLUR+enableScrollEffect=false+配置 systemMaterialEffect 组合，originalStyle 模糊半径默认 12.0（未配置时 16.0 的分支不适用），符合官网默认值。"
+      }
+    },
+    {
+      "criteriaId": "IL-S011-D03",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "scrollEffectOpts 显式设置 enableScrollEffect:false（与官网示例一致），标题栏不随内容区滚动动态切换样式，仅生效 originalStyle；scrollEffectType 设置为 GRADIENT_BLUR。",
+      "sources": [
+        {
+          "snapshotId": "hds-navigation-api",
+          "lineStart": 1379,
+          "lineEnd": 1395,
+          "sha256": "401a03d2ab4c06d5c56ca5a495fe8d06d2c00a8ec66d1ef08e33e89053104d68"
+        }
+      ],
+      "samples": [
+        {
+          "usage": "adopted",
+          "scope": "官网《HDS组件使用沉浸光感材质指南》- 使用系统自适应的沉浸光感 - 自适应沉浸光感示例（HdsNavigation 包含 HdsTabs，标题栏 3 个菜单按钮 + 底部 3 个页签）",
+          "source": {
+            "snapshotId": "hds-component-material-guide",
+            "lineStart": 30,
+            "lineEnd": 163,
+            "sha256": "ee42946defe1249bb8e59383afe103ee06c2369c331e00c937af878ebe07649e"
+          },
+          "keyPoints": [
+            {
+              "description": "HdsNavigation 为页面根容器，titleBar 配置 content（mainTitle + 3 个菜单按钮）与 style（scrollEffectOpts + systemMaterialEffect），mode(Stack)、bindToScrollable、hideBackButton(false)、titleMode(MINI)、ignoreLayoutSafeArea(SYSTEM, TOP/BOTTOM)",
+              "adaptation": "原样保留全部组件关系与属性；仅将 mainTitle 文案从 'MainTitle' 调整为中文 '沉浸光感'（demo 命名适配，不改行为）。",
+              "review": {
+                "status": "passed",
+                "basis": "Index.ets 与示例结构一致：HdsNavigation 根容器、titleBar{content{mainTitle,menu},style{scrollEffectOpts,systemMaterialEffect}}、mode(Stack)/bindToScrollable/hideBackButton(false)/titleMode(MINI)/ignoreLayoutSafeArea(SYSTEM,TOP/BOTTOM) 全部保留；仅 mainTitle 文案改为中文'沉浸光感'，不影响行为。"
+              }
+            },
+            {
+              "description": "HdsTabs 每个 TabContent 内为 Stack{ Scroll(scrollerForScroll){ Column{ Image } } }.clipContent(ContentClipMode.SAFE_AREA).height('100%')，tabBar 使用 BottomTabBarStyle({normal/selected SymbolGlyphModifier}, label)",
+              "adaptation": "原样保留 Scroll/Stack/clipContent 结构与 BottomTabBarStyle(SymbolGlyphModifier) 用法；scenery01 替换为本地资源 $r('app.media.scenery')。",
+              "review": {
+                "status": "passed",
+                "basis": "TabContent 内 Stack{Scroll(scrollerForScroll){Column{Image}}}.clipContent(ContentClipMode.SAFE_AREA).height('100%') 与示例一致；tabBar 使用 BottomTabBarStyle({normal,selected},label)；Image 源替换为本地 $r('app.media.scenery')。"
+              }
+            },
+            {
+              "description": "HdsTabs 链式设置 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{materialType:ADAPTIVE, materialLevel:ADAPTIVE}})",
+              "adaptation": "原样保留，构成底部悬浮页签沉浸光感的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "HdsTabs 的 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{ADAPTIVE,ADAPTIVE}}) 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "titleBar.style 链式配置 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR} 与 systemMaterialEffect{materialType:ADAPTIVE, materialLevel:ADAPTIVE}，及 avoidLayoutSafeArea:false、enableComponentSafeArea:false",
+              "adaptation": "原样保留，构成标题栏按钮沉浸光感与滚动联动的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "titleBar.style 的 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR}、systemMaterialEffect{ADAPTIVE,ADAPTIVE}、avoidLayoutSafeArea:false、enableComponentSafeArea:false 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "MENU_CONFIG 数组提供 3 个页签数据（sys.symbol 图标、sys.color 未选中/选中双色 fontColor、label），MenuItem 含 defaultBgColor/hoverBgColor/pressBgColor 字段",
+              "adaptation": "原样保留 3 个页签（闹钟/时钟/秒表）及系统资源引用；仅移除 demo 未消费的冗余字段说明不影响行为——保留全部字段以贴近示例。",
+              "review": {
+                "status": "passed",
+                "basis": "TAB_CONFIG 保留 3 个页签（闹钟/时钟/秒表）的 sys.symbol 图标、sys.color 双色 fontColor 及 defaultBgColor/hoverBgColor/pressBgColor 全部字段，仅数组名从 MENU_CONFIG 改为 TAB_CONFIG 以匹配 demo 语义。"
+              }
+            }
+          ]
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "scrollEffectOpts.enableScrollEffect 显式 false，标题栏仅生效 originalStyle、不随滚动动态切换；scrollEffectType 为 GRADIENT_BLUR；行为与官网描述一致。"
+      }
+    },
+    {
+      "criteriaId": "IL-S011-D04",
+      "strength": "recommendation",
+      "disposition": "implement",
+      "approach": "systemMaterialEffect 与 ScrollEffectType.GRADIENT_BLUR 搭配使用（官网推荐的非沉浸式列表类场景组合），并保持 enableScrollEffect=false 直接生效模糊的用法。",
+      "sources": [
+        {
+          "snapshotId": "hds-navigation-api",
+          "lineStart": 2899,
+          "lineEnd": 2911,
+          "sha256": "088ee611827b5f34e18376609f3c5f7de850b333a84140a1da8dd6af1180df75"
+        }
+      ],
+      "samples": [
+        {
+          "usage": "adopted",
+          "scope": "官网《HDS组件使用沉浸光感材质指南》- 使用系统自适应的沉浸光感 - 自适应沉浸光感示例（HdsNavigation 包含 HdsTabs，标题栏 3 个菜单按钮 + 底部 3 个页签）",
+          "source": {
+            "snapshotId": "hds-component-material-guide",
+            "lineStart": 30,
+            "lineEnd": 163,
+            "sha256": "ee42946defe1249bb8e59383afe103ee06c2369c331e00c937af878ebe07649e"
+          },
+          "keyPoints": [
+            {
+              "description": "HdsNavigation 为页面根容器，titleBar 配置 content（mainTitle + 3 个菜单按钮）与 style（scrollEffectOpts + systemMaterialEffect），mode(Stack)、bindToScrollable、hideBackButton(false)、titleMode(MINI)、ignoreLayoutSafeArea(SYSTEM, TOP/BOTTOM)",
+              "adaptation": "原样保留全部组件关系与属性；仅将 mainTitle 文案从 'MainTitle' 调整为中文 '沉浸光感'（demo 命名适配，不改行为）。",
+              "review": {
+                "status": "passed",
+                "basis": "Index.ets 与示例结构一致：HdsNavigation 根容器、titleBar{content{mainTitle,menu},style{scrollEffectOpts,systemMaterialEffect}}、mode(Stack)/bindToScrollable/hideBackButton(false)/titleMode(MINI)/ignoreLayoutSafeArea(SYSTEM,TOP/BOTTOM) 全部保留；仅 mainTitle 文案改为中文'沉浸光感'，不影响行为。"
+              }
+            },
+            {
+              "description": "HdsTabs 每个 TabContent 内为 Stack{ Scroll(scrollerForScroll){ Column{ Image } } }.clipContent(ContentClipMode.SAFE_AREA).height('100%')，tabBar 使用 BottomTabBarStyle({normal/selected SymbolGlyphModifier}, label)",
+              "adaptation": "原样保留 Scroll/Stack/clipContent 结构与 BottomTabBarStyle(SymbolGlyphModifier) 用法；scenery01 替换为本地资源 $r('app.media.scenery')。",
+              "review": {
+                "status": "passed",
+                "basis": "TabContent 内 Stack{Scroll(scrollerForScroll){Column{Image}}}.clipContent(ContentClipMode.SAFE_AREA).height('100%') 与示例一致；tabBar 使用 BottomTabBarStyle({normal,selected},label)；Image 源替换为本地 $r('app.media.scenery')。"
+              }
+            },
+            {
+              "description": "HdsTabs 链式设置 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{materialType:ADAPTIVE, materialLevel:ADAPTIVE}})",
+              "adaptation": "原样保留，构成底部悬浮页签沉浸光感的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "HdsTabs 的 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{ADAPTIVE,ADAPTIVE}}) 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "titleBar.style 链式配置 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR} 与 systemMaterialEffect{materialType:ADAPTIVE, materialLevel:ADAPTIVE}，及 avoidLayoutSafeArea:false、enableComponentSafeArea:false",
+              "adaptation": "原样保留，构成标题栏按钮沉浸光感与滚动联动的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "titleBar.style 的 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR}、systemMaterialEffect{ADAPTIVE,ADAPTIVE}、avoidLayoutSafeArea:false、enableComponentSafeArea:false 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "MENU_CONFIG 数组提供 3 个页签数据（sys.symbol 图标、sys.color 未选中/选中双色 fontColor、label），MenuItem 含 defaultBgColor/hoverBgColor/pressBgColor 字段",
+              "adaptation": "原样保留 3 个页签（闹钟/时钟/秒表）及系统资源引用；仅移除 demo 未消费的冗余字段说明不影响行为——保留全部字段以贴近示例。",
+              "review": {
+                "status": "passed",
+                "basis": "TAB_CONFIG 保留 3 个页签（闹钟/时钟/秒表）的 sys.symbol 图标、sys.color 双色 fontColor 及 defaultBgColor/hoverBgColor/pressBgColor 全部字段，仅数组名从 MENU_CONFIG 改为 TAB_CONFIG 以匹配 demo 语义。"
+              }
+            }
+          ]
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "systemMaterialEffect 与 ScrollEffectType.GRADIENT_BLUR 搭配（非沉浸式列表类场景推荐组合），且 enableScrollEffect=false 时直接生效模糊，与官网建议用法一致。"
+      }
+    },
+    {
+      "criteriaId": "IL-S011-D05",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "HdsTabs 同时设置 barFloatingStyle、barOverlap(true)、vertical(false)、barPosition(BarPosition.End)，满足页签栏悬浮样式的全部配套条件。",
+      "sources": [
+        {
+          "snapshotId": "hds-tabs-api",
+          "lineStart": 1601,
+          "lineEnd": 1604,
+          "sha256": "2b873fdc99720e7ea58617104253a74f7e1db4c9f3c75a68a6f3b4d4e2c36508"
+        }
+      ],
+      "samples": [
+        {
+          "usage": "adopted",
+          "scope": "官网《HDS组件使用沉浸光感材质指南》- 使用系统自适应的沉浸光感 - 自适应沉浸光感示例（HdsNavigation 包含 HdsTabs，标题栏 3 个菜单按钮 + 底部 3 个页签）",
+          "source": {
+            "snapshotId": "hds-component-material-guide",
+            "lineStart": 30,
+            "lineEnd": 163,
+            "sha256": "ee42946defe1249bb8e59383afe103ee06c2369c331e00c937af878ebe07649e"
+          },
+          "keyPoints": [
+            {
+              "description": "HdsNavigation 为页面根容器，titleBar 配置 content（mainTitle + 3 个菜单按钮）与 style（scrollEffectOpts + systemMaterialEffect），mode(Stack)、bindToScrollable、hideBackButton(false)、titleMode(MINI)、ignoreLayoutSafeArea(SYSTEM, TOP/BOTTOM)",
+              "adaptation": "原样保留全部组件关系与属性；仅将 mainTitle 文案从 'MainTitle' 调整为中文 '沉浸光感'（demo 命名适配，不改行为）。",
+              "review": {
+                "status": "passed",
+                "basis": "Index.ets 与示例结构一致：HdsNavigation 根容器、titleBar{content{mainTitle,menu},style{scrollEffectOpts,systemMaterialEffect}}、mode(Stack)/bindToScrollable/hideBackButton(false)/titleMode(MINI)/ignoreLayoutSafeArea(SYSTEM,TOP/BOTTOM) 全部保留；仅 mainTitle 文案改为中文'沉浸光感'，不影响行为。"
+              }
+            },
+            {
+              "description": "HdsTabs 每个 TabContent 内为 Stack{ Scroll(scrollerForScroll){ Column{ Image } } }.clipContent(ContentClipMode.SAFE_AREA).height('100%')，tabBar 使用 BottomTabBarStyle({normal/selected SymbolGlyphModifier}, label)",
+              "adaptation": "原样保留 Scroll/Stack/clipContent 结构与 BottomTabBarStyle(SymbolGlyphModifier) 用法；scenery01 替换为本地资源 $r('app.media.scenery')。",
+              "review": {
+                "status": "passed",
+                "basis": "TabContent 内 Stack{Scroll(scrollerForScroll){Column{Image}}}.clipContent(ContentClipMode.SAFE_AREA).height('100%') 与示例一致；tabBar 使用 BottomTabBarStyle({normal,selected},label)；Image 源替换为本地 $r('app.media.scenery')。"
+              }
+            },
+            {
+              "description": "HdsTabs 链式设置 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{materialType:ADAPTIVE, materialLevel:ADAPTIVE}})",
+              "adaptation": "原样保留，构成底部悬浮页签沉浸光感的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "HdsTabs 的 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{ADAPTIVE,ADAPTIVE}}) 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "titleBar.style 链式配置 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR} 与 systemMaterialEffect{materialType:ADAPTIVE, materialLevel:ADAPTIVE}，及 avoidLayoutSafeArea:false、enableComponentSafeArea:false",
+              "adaptation": "原样保留，构成标题栏按钮沉浸光感与滚动联动的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "titleBar.style 的 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR}、systemMaterialEffect{ADAPTIVE,ADAPTIVE}、avoidLayoutSafeArea:false、enableComponentSafeArea:false 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "MENU_CONFIG 数组提供 3 个页签数据（sys.symbol 图标、sys.color 未选中/选中双色 fontColor、label），MenuItem 含 defaultBgColor/hoverBgColor/pressBgColor 字段",
+              "adaptation": "原样保留 3 个页签（闹钟/时钟/秒表）及系统资源引用；仅移除 demo 未消费的冗余字段说明不影响行为——保留全部字段以贴近示例。",
+              "review": {
+                "status": "passed",
+                "basis": "TAB_CONFIG 保留 3 个页签（闹钟/时钟/秒表）的 sys.symbol 图标、sys.color 双色 fontColor 及 defaultBgColor/hoverBgColor/pressBgColor 全部字段，仅数组名从 MENU_CONFIG 改为 TAB_CONFIG 以匹配 demo 语义。"
+              }
+            }
+          ]
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "HdsTabs 同时具备 barFloatingStyle、barOverlap(true)、vertical(false)、barPosition(BarPosition.End)，悬浮样式四项条件全部落实。"
+      }
+    },
+    {
+      "criteriaId": "IL-S011-D06",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "显式设置 barOverlap(true)，TabBar 背后变模糊并叠加在 TabContent 之上，构成悬浮布局条件之一。",
+      "sources": [
+        {
+          "snapshotId": "hds-tabs-api",
+          "lineStart": 371,
+          "lineEnd": 397,
+          "sha256": "a5485721070dcb918931c61630c49567fdd73e38f760fa1f96d093109a4bcce2"
+        }
+      ],
+      "samples": [
+        {
+          "usage": "adopted",
+          "scope": "官网《HDS组件使用沉浸光感材质指南》- 使用系统自适应的沉浸光感 - 自适应沉浸光感示例（HdsNavigation 包含 HdsTabs，标题栏 3 个菜单按钮 + 底部 3 个页签）",
+          "source": {
+            "snapshotId": "hds-component-material-guide",
+            "lineStart": 30,
+            "lineEnd": 163,
+            "sha256": "ee42946defe1249bb8e59383afe103ee06c2369c331e00c937af878ebe07649e"
+          },
+          "keyPoints": [
+            {
+              "description": "HdsNavigation 为页面根容器，titleBar 配置 content（mainTitle + 3 个菜单按钮）与 style（scrollEffectOpts + systemMaterialEffect），mode(Stack)、bindToScrollable、hideBackButton(false)、titleMode(MINI)、ignoreLayoutSafeArea(SYSTEM, TOP/BOTTOM)",
+              "adaptation": "原样保留全部组件关系与属性；仅将 mainTitle 文案从 'MainTitle' 调整为中文 '沉浸光感'（demo 命名适配，不改行为）。",
+              "review": {
+                "status": "passed",
+                "basis": "Index.ets 与示例结构一致：HdsNavigation 根容器、titleBar{content{mainTitle,menu},style{scrollEffectOpts,systemMaterialEffect}}、mode(Stack)/bindToScrollable/hideBackButton(false)/titleMode(MINI)/ignoreLayoutSafeArea(SYSTEM,TOP/BOTTOM) 全部保留；仅 mainTitle 文案改为中文'沉浸光感'，不影响行为。"
+              }
+            },
+            {
+              "description": "HdsTabs 每个 TabContent 内为 Stack{ Scroll(scrollerForScroll){ Column{ Image } } }.clipContent(ContentClipMode.SAFE_AREA).height('100%')，tabBar 使用 BottomTabBarStyle({normal/selected SymbolGlyphModifier}, label)",
+              "adaptation": "原样保留 Scroll/Stack/clipContent 结构与 BottomTabBarStyle(SymbolGlyphModifier) 用法；scenery01 替换为本地资源 $r('app.media.scenery')。",
+              "review": {
+                "status": "passed",
+                "basis": "TabContent 内 Stack{Scroll(scrollerForScroll){Column{Image}}}.clipContent(ContentClipMode.SAFE_AREA).height('100%') 与示例一致；tabBar 使用 BottomTabBarStyle({normal,selected},label)；Image 源替换为本地 $r('app.media.scenery')。"
+              }
+            },
+            {
+              "description": "HdsTabs 链式设置 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{materialType:ADAPTIVE, materialLevel:ADAPTIVE}})",
+              "adaptation": "原样保留，构成底部悬浮页签沉浸光感的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "HdsTabs 的 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{ADAPTIVE,ADAPTIVE}}) 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "titleBar.style 链式配置 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR} 与 systemMaterialEffect{materialType:ADAPTIVE, materialLevel:ADAPTIVE}，及 avoidLayoutSafeArea:false、enableComponentSafeArea:false",
+              "adaptation": "原样保留，构成标题栏按钮沉浸光感与滚动联动的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "titleBar.style 的 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR}、systemMaterialEffect{ADAPTIVE,ADAPTIVE}、avoidLayoutSafeArea:false、enableComponentSafeArea:false 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "MENU_CONFIG 数组提供 3 个页签数据（sys.symbol 图标、sys.color 未选中/选中双色 fontColor、label），MenuItem 含 defaultBgColor/hoverBgColor/pressBgColor 字段",
+              "adaptation": "原样保留 3 个页签（闹钟/时钟/秒表）及系统资源引用；仅移除 demo 未消费的冗余字段说明不影响行为——保留全部字段以贴近示例。",
+              "review": {
+                "status": "passed",
+                "basis": "TAB_CONFIG 保留 3 个页签（闹钟/时钟/秒表）的 sys.symbol 图标、sys.color 双色 fontColor 及 defaultBgColor/hoverBgColor/pressBgColor 全部字段，仅数组名从 MENU_CONFIG 改为 TAB_CONFIG 以匹配 demo 语义。"
+              }
+            }
+          ]
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "barOverlap 显式 true：TabBar 背后模糊并叠加在 TabContent 之上（默认模糊材质 BlurStyle 值为 COMPONENT_THICK），语义与官网一致。"
+      }
+    },
+    {
+      "criteriaId": "IL-S011-D07",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "barFloatingStyle 中显式配置 systemMaterialEffect（默认 undefined 即无新材质，须显式给出）与 barBottomMargin:28（ vp 数值，非百分比），使底部悬浮页签获得沉浸光感；demo 不运行在 TV。",
+      "sources": [
+        {
+          "snapshotId": "hds-tabs-api",
+          "lineStart": 655,
+          "lineEnd": 719,
+          "sha256": "641e5ff236367981592de85c58e462bb85272dae8f241d05314341fc6d98fed7"
+        }
+      ],
+      "samples": [
+        {
+          "usage": "adopted",
+          "scope": "官网《HDS组件使用沉浸光感材质指南》- 使用系统自适应的沉浸光感 - 自适应沉浸光感示例（HdsNavigation 包含 HdsTabs，标题栏 3 个菜单按钮 + 底部 3 个页签）",
+          "source": {
+            "snapshotId": "hds-component-material-guide",
+            "lineStart": 30,
+            "lineEnd": 163,
+            "sha256": "ee42946defe1249bb8e59383afe103ee06c2369c331e00c937af878ebe07649e"
+          },
+          "keyPoints": [
+            {
+              "description": "HdsNavigation 为页面根容器，titleBar 配置 content（mainTitle + 3 个菜单按钮）与 style（scrollEffectOpts + systemMaterialEffect），mode(Stack)、bindToScrollable、hideBackButton(false)、titleMode(MINI)、ignoreLayoutSafeArea(SYSTEM, TOP/BOTTOM)",
+              "adaptation": "原样保留全部组件关系与属性；仅将 mainTitle 文案从 'MainTitle' 调整为中文 '沉浸光感'（demo 命名适配，不改行为）。",
+              "review": {
+                "status": "passed",
+                "basis": "Index.ets 与示例结构一致：HdsNavigation 根容器、titleBar{content{mainTitle,menu},style{scrollEffectOpts,systemMaterialEffect}}、mode(Stack)/bindToScrollable/hideBackButton(false)/titleMode(MINI)/ignoreLayoutSafeArea(SYSTEM,TOP/BOTTOM) 全部保留；仅 mainTitle 文案改为中文'沉浸光感'，不影响行为。"
+              }
+            },
+            {
+              "description": "HdsTabs 每个 TabContent 内为 Stack{ Scroll(scrollerForScroll){ Column{ Image } } }.clipContent(ContentClipMode.SAFE_AREA).height('100%')，tabBar 使用 BottomTabBarStyle({normal/selected SymbolGlyphModifier}, label)",
+              "adaptation": "原样保留 Scroll/Stack/clipContent 结构与 BottomTabBarStyle(SymbolGlyphModifier) 用法；scenery01 替换为本地资源 $r('app.media.scenery')。",
+              "review": {
+                "status": "passed",
+                "basis": "TabContent 内 Stack{Scroll(scrollerForScroll){Column{Image}}}.clipContent(ContentClipMode.SAFE_AREA).height('100%') 与示例一致；tabBar 使用 BottomTabBarStyle({normal,selected},label)；Image 源替换为本地 $r('app.media.scenery')。"
+              }
+            },
+            {
+              "description": "HdsTabs 链式设置 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{materialType:ADAPTIVE, materialLevel:ADAPTIVE}})",
+              "adaptation": "原样保留，构成底部悬浮页签沉浸光感的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "HdsTabs 的 .barOverlap(true).vertical(false).barPosition(BarPosition.End).barFloatingStyle({barBottomMargin:28, systemMaterialEffect:{ADAPTIVE,ADAPTIVE}}) 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "titleBar.style 链式配置 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR} 与 systemMaterialEffect{materialType:ADAPTIVE, materialLevel:ADAPTIVE}，及 avoidLayoutSafeArea:false、enableComponentSafeArea:false",
+              "adaptation": "原样保留，构成标题栏按钮沉浸光感与滚动联动的完整配置。",
+              "review": {
+                "status": "passed",
+                "basis": "titleBar.style 的 scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR}、systemMaterialEffect{ADAPTIVE,ADAPTIVE}、avoidLayoutSafeArea:false、enableComponentSafeArea:false 与示例逐项一致。"
+              }
+            },
+            {
+              "description": "MENU_CONFIG 数组提供 3 个页签数据（sys.symbol 图标、sys.color 未选中/选中双色 fontColor、label），MenuItem 含 defaultBgColor/hoverBgColor/pressBgColor 字段",
+              "adaptation": "原样保留 3 个页签（闹钟/时钟/秒表）及系统资源引用；仅移除 demo 未消费的冗余字段说明不影响行为——保留全部字段以贴近示例。",
+              "review": {
+                "status": "passed",
+                "basis": "TAB_CONFIG 保留 3 个页签（闹钟/时钟/秒表）的 sys.symbol 图标、sys.color 双色 fontColor 及 defaultBgColor/hoverBgColor/pressBgColor 全部字段，仅数组名从 MENU_CONFIG 改为 TAB_CONFIG 以匹配 demo 语义。"
+              }
+            }
+          ]
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "barFloatingStyle 内显式配置 systemMaterialEffect（默认 undefined 无新材质，显式给出才能启用）；barBottomMargin:28 为数值 vp 非百分比；demo 不面向 TV（TV 无效果约束自然规避）。"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "id": "S01",
+      "description": "升级 build-profile.json5 的 targetSdkVersion/compatibleSdkVersion 至 6.1.0(23)",
+      "status": "applied",
+      "basis": [
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F027",
+          "reason": "HDS 沉浸光感材质从 6.1.0(23) 起提供，工程 SDK 声明须达到该版本"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F028",
+          "reason": "systemMaterialEffect 字段从 6.1.0(23) 起提供"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F029",
+          "reason": "HdsTabsFloatingStyle.systemMaterialEffect 从 6.1.0(23) 起提供"
+        }
+      ],
+      "locations": [
+        {
+          "path": "build-profile.json5",
+          "version": "before",
+          "lineStart": 8,
+          "lineEnd": 9
+        },
+        {
+          "path": "build-profile.json5",
+          "version": "after",
+          "lineStart": 8,
+          "lineEnd": 9
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "build-profile.json5 第 8-9 行 targetSdkVersion/compatibleSdkVersion 均为 6.1.0(23)，满足 HDS 沉浸光感材质 6.1.0(23) 版本门槛与 hds-api23 路线 minCompatibleApi/minTargetApi=23 的要求。"
+      }
+    },
+    {
+      "id": "S02",
+      "description": "新增本地图片资源 entry/src/main/resources/base/media/scenery.jpg 替换示例 scenery01",
+      "status": "applied",
+      "basis": [
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F036",
+          "reason": "官网示例注明 scenery 为自定义资源，需替换为本地资源"
+        }
+      ],
+      "locations": [
+        {
+          "path": "entry/src/main/resources/base/media/scenery.jpg",
+          "version": "after",
+          "lineStart": 1,
+          "lineEnd": 517
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "entry/src/main/resources/base/media/scenery.jpg 已生成（本地渐变图），Index.ets 中以 $r('app.media.scenery') 引用，完成官网示例 scenery01 的本地资源替换。"
+      }
+    },
+    {
+      "id": "S03",
+      "description": "重写 Index.ets：HdsNavigation 标题栏（titleBar.style.systemMaterialEffect + GRADIENT_BLUR + enableScrollEffect:false）",
+      "status": "applied",
+      "basis": [
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F028",
+          "reason": "标题栏沉浸光感入口"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F030",
+          "reason": "systemMaterialEffect 显式 materialType/materialLevel"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F031",
+          "reason": "materialType 取 ADAPTIVE"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F032",
+          "reason": "materialLevel 取 ADAPTIVE"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F033",
+          "reason": "官网推荐自适应沉浸光感"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S011-D01",
+          "reason": "背景色默认联动（不显式配置 original/scrollEffectStyle 背景色）"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S011-D02",
+          "reason": "blurRadius 默认联动（不显式配置）"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S011-D03",
+          "reason": "enableScrollEffect 显式 false"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S011-D04",
+          "reason": "与 GRADIENT_BLUR 搭配（非沉浸式列表类场景推荐）"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F036",
+          "reason": "导入清单与示例一致"
+        }
+      ],
+      "locations": [
+        {
+          "path": "entry/src/main/ets/pages/Index.ets",
+          "version": "before",
+          "lineStart": 1,
+          "lineEnd": 23
+        },
+        {
+          "path": "entry/src/main/ets/pages/Index.ets",
+          "version": "after",
+          "lineStart": 1,
+          "lineEnd": 147
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "Index.ets 重写后：titleBar.style 内配置 systemMaterialEffect{materialType:ADAPTIVE, materialLevel:ADAPTIVE}（标题栏按钮沉浸光感）；scrollEffectOpts{enableScrollEffect:false, scrollEffectType:GRADIENT_BLUR} 与官网示例一致；未显式配置 originalStyle/scrollEffectStyle 背景色与 blurRadius，按官网默认联动生效；导入清单与示例一致（@kit.UIDesignKit + @kit.ArkUI SymbolGlyphModifier）。"
+      }
+    },
+    {
+      "id": "S04",
+      "description": "重写 Index.ets：HdsTabs 底部悬浮页签（barOverlap/vertical/barPosition + barFloatingStyle.systemMaterialEffect）",
+      "status": "applied",
+      "basis": [
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F029",
+          "reason": "底部页签沉浸光感入口"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F030",
+          "reason": "页签 systemMaterialEffect 显式参数"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F033",
+          "reason": "页签同样采用 ADAPTIVE/ADAPTIVE 自适应"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S011-D05",
+          "reason": "悬浮布局四项配套条件"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S011-D06",
+          "reason": "barOverlap(true) 语义"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-S011-D07",
+          "reason": "systemMaterialEffect 默认 undefined 须显式配置；barBottomMargin 数值单位"
+        },
+        {
+          "type": "criteria",
+          "criteriaId": "IL-F035",
+          "reason": "Phone 设备直接可用，无 PC/2in1 预查询需求"
+        }
+      ],
+      "locations": [
+        {
+          "path": "entry/src/main/ets/pages/Index.ets",
+          "version": "after",
+          "lineStart": 1,
+          "lineEnd": 147
+        }
+      ],
+      "review": {
+        "status": "passed",
+        "basis": "Index.ets 重写后：HdsTabs 链式设置 .barOverlap(true).vertical(false).barPosition(BarPosition.End)，barFloatingStyle 内显式 systemMaterialEffect{ADAPTIVE,ADAPTIVE} 与 barBottomMargin:28（数值 vp，非百分比），四项悬浮布局条件齐备；TabContent/BottomTabBarStyle(SymbolGlyphModifier) 与示例一致。"
+      }
+    }
+  ]
+}

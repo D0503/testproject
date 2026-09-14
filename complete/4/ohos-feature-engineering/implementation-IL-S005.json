@@ -1,0 +1,280 @@
+{
+  "developmentMode": "demo",
+  "goal": "生成 HarmonyOS demo，验证 Button 组件沉浸光感（systemMaterial）的生效区域是否具有限制：对比 Navigation 标题栏内与页面内容区的 Button 材质表现，并以 Slider/Toggle/Select 作清单内对照组。",
+  "requirements": [
+    {
+      "criteriaId": "IL-C001",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "标题栏与内容区 Button 均通过通用属性 systemMaterial 显式设置沉浸光感。",
+      "sources": [{ "snapshotId": "component", "lineStart": 115, "lineEnd": 129, "sha256": "1744a35c9491e3fe09cd45989728d0d3cdf0fdb32999e580dbd5139c167b52c2" }],
+      "review": { "status": "passed", "basis": "Index.ets L38/L48（标题栏 A1/A2）与 L100（内容区 B）均在样式属性末尾调用 .systemMaterial(this.plainMaterial / this.interactiveMaterial)，材质对象为 uiMaterial.ImmersiveMaterial。" }
+    },
+    {
+      "criteriaId": "IL-C002",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "demo 不配置应用级 metadata（default 模式），Button 一律组件级显式设置 systemMaterial，验证组件级开启路径。",
+      "sources": [{ "snapshotId": "component", "lineStart": 115, "lineEnd": 129, "sha256": "1744a35c9491e3fe09cd45989728d0d3cdf0fdb32999e580dbd5139c167b52c2" }],
+      "review": { "status": "passed", "basis": "entry/src/main/module.json5 未配置 ohos.arkui.UIMaterial.state metadata（default 模式）；Index.ets 三个 Button 均为组件级显式 systemMaterial 设置，不依赖应用级默认开启。" }
+    },
+    {
+      "criteriaId": "IL-C003",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "对照组 Select 通过 systemMaterial 属性设置下拉按钮材质（本 demo 不接下拉菜单 menuSystemMaterial，仅验证按钮区域表现）。",
+      "sources": [{ "snapshotId": "component", "lineStart": 131, "lineEnd": 143, "sha256": "aa5d7d5929b567b2ccf15854b7db2b45e1f4a656bef413055dfc77e5ec9b540a" }],
+      "review": { "status": "passed", "basis": "Index.ets L134-145 Select 使用通用属性 systemMaterial（L145），本 demo 仅验证按钮入口；menuSystemMaterial 属菜单独立入口，不在生效区域验证目标内。" }
+    },
+    {
+      "criteriaId": "IL-C004",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "对照组 Toggle 使用 ToggleType.Switch 形态设置材质，不使用 Checkbox 形态（Checkbox 不适配沉浸光感）。",
+      "sources": [{ "snapshotId": "component", "lineStart": 145, "lineEnd": 155, "sha256": "988db6a652beeee1bb2cf6d441b78ad89505e6e7fd18675e651103dc4bab442d" }],
+      "review": { "status": "passed", "basis": "Index.ets L129 Toggle({ type: ToggleType.Switch, isOn: false })，全工程无 ToggleType.Checkbox，规避不适配形态。" }
+    },
+    {
+      "criteriaId": "IL-C005",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "标题栏内提供一个开启 interactive 与 lightEffect 的 Button 变体，运行时观察默认点击态/悬浮态反馈被光感交互反馈替代。",
+      "sources": [{ "snapshotId": "component", "lineStart": 115, "lineEnd": 129, "sha256": "1744a35c9491e3fe09cd45989728d0d3cdf0fdb32999e580dbd5139c167b52c2" }],
+      "review": { "status": "passed", "basis": "Index.ets L24-28 interactiveMaterial 含 interactive:true 与 lightEffect:{}，供标题栏 A2（L41-53）使用；点击计数保持交互可用，视觉替代行为留待运行观察。" }
+    },
+    {
+      "criteriaId": "IL-C006",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "Toggle.Switch 传入材质参数仅作为开启标记，demo 不预期其视觉随参数变化。",
+      "sources": [{ "snapshotId": "component", "lineStart": 153, "lineEnd": 159, "sha256": "2e0233bd19f5e93413eee6c1922d04b6b2ae9de2b4dc401e8fb943563c4e1e3a" }],
+      "review": { "status": "passed", "basis": "Index.ets L129-131 Toggle(Switch) 设置与 Slider/Select 相同的 plainMaterial；按判据其参数仅作开关标记，页面文案与判定说明未对该组作视觉断言。" }
+    },
+    {
+      "criteriaId": "IL-C007",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "对照组 Slider 保持默认滑块形状（SliderBlockType.DEFAULT）与默认样式（非 NONE）后设置材质。",
+      "sources": [{ "snapshotId": "component", "lineStart": 163, "lineEnd": 175, "sha256": "febdd458fb3e4a6f2ce6bc9b0c3f00044a69406b1bdc8a4daea413541b18a694" }],
+      "review": { "status": "passed", "basis": "Index.ets L125-128 Slider({ value: 40, min: 0, max: 100 }) 未设置 blockType 与 style，保持默认 DEFAULT 形状与非 NONE 样式，交互反馈条件满足。" }
+    },
+    {
+      "criteriaId": "IL-C008",
+      "strength": "example",
+      "disposition": "not_applicable",
+      "approach": "不在本 demo 实现 ChipGroup 三入口，仅保留判据与来源供后续场景复用。",
+      "reason": "demo 开发目标限定为 Button 生效区域验证，ChipGroup 三入口不在本轮实现范围；判据保留供后续场景使用。",
+      "sources": [{ "snapshotId": "component", "lineStart": 177, "lineEnd": 199, "sha256": "7131c960d7df688ead55ebf93765e741897a02d7b2b3f42cdbe15bea8dd6ac91" }],
+      "review": { "status": "passed", "basis": "工程内无 ChipGroup 相关代码，与本判据无冲突；不适用范围明确（demo 未触及子页签组件）。" }
+    },
+    {
+      "criteriaId": "IL-C009",
+      "strength": "example",
+      "disposition": "not_applicable",
+      "approach": "不在本 demo 实现 SegmentButton 及其胶囊多选限制，仅保留判据与来源供后续场景复用。",
+      "reason": "demo 开发目标限定为 Button 生效区域验证，SegmentButton 胶囊多选限制不在本轮实现范围；判据保留供后续场景使用。",
+      "sources": [{ "snapshotId": "component", "lineStart": 177, "lineEnd": 199, "sha256": "7131c960d7df688ead55ebf93765e741897a02d7b2b3f42cdbe15bea8dd6ac91" }],
+      "review": { "status": "passed", "basis": "工程内无 SegmentButton 相关代码，与本判据无冲突；不适用范围明确（demo 未触及操作块组件）。" }
+    },
+    {
+      "criteriaId": "IL-C010",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "内容区布置 Button 探针：按清单字面 Button 不在全页面生效清单（仅 Slider、Toggle、Select），页面文案标注该预期，运行时以视觉与日志裁决。",
+      "sources": [{ "snapshotId": "constraints", "lineStart": 7, "lineEnd": 15, "sha256": "4eb94b184f3a85d4200f2909503b622550131175db43fe022faeeae6e1503fa0" }],
+      "review": { "status": "passed", "basis": "Index.ets L93-117 内容区 Button B（位于 Navigation 内容子树，非标题栏/TabBar）；L81 状态卡与 L109 预期分歧文案标注清单字面预期，实测裁决待运行验证。" }
+    },
+    {
+      "criteriaId": "IL-C011",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "同上内容区 Button 探针同时承载『清单外组件仅标题栏/底部TabBar 生效』的字面预期，与 IL-C012 构成 button-effective-scope 冲突组双预期，验证按状态机裁决。",
+      "sources": [{ "snapshotId": "constraints", "lineStart": 7, "lineEnd": 15, "sha256": "4eb94b184f3a85d4200f2909503b622550131175db43fe022faeeae6e1503fa0" }],
+      "review": { "status": "passed", "basis": "判据集 IL-C010/IL-C011 与 IL-C012 同标 conflictGroup=button-effective-scope；demo 同时实现两侧探针（标题栏 A vs 内容区 B），未提前选边，运行后按冲突状态机裁决。" }
+    },
+    {
+      "criteriaId": "IL-C012",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "Button 章节提供组件级 systemMaterial 入口且未标注区域限制——demo 在标题栏与内容区同时设置，实测两侧预期；保留冲突组不提前选边。",
+      "sources": [{ "snapshotId": "component", "lineStart": 115, "lineEnd": 129, "sha256": "1744a35c9491e3fe09cd45989728d0d3cdf0fdb32999e580dbd5139c167b52c2" }],
+      "review": { "status": "passed", "basis": "Index.ets 标题栏（L33-53）与内容区（L99-108）Button 使用同一 plainMaterial 对象与等尺寸设置，仅位置不同，构成入口侧预期的实测探针。" }
+    },
+    {
+      "criteriaId": "IL-C013",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "demo 页面注明观察点：运行时抓取 hilog 中的『Material inactive: out of scope』特征日志作为内容区 Button 是否受限的诊断信号。",
+      "sources": [{ "snapshotId": "faq", "lineStart": 25, "lineEnd": 47, "sha256": "0ca7364f29e090f79b43751020c625e92e9f618460bca06a1b28131c34db5d57" }],
+      "review": { "status": "passed", "basis": "Index.ets L84 状态卡与 L163-166 判定说明第 3 条均标注 out of scope 日志观察点；运行阶段以 hilog 采集为准。" }
+    },
+    {
+      "criteriaId": "IL-C014",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "所有探针 Button 显式设置 width/height（并配 borderRadius），使材质渲染区域（布局区域）与可视区域一致，避免误判。",
+      "sources": [{ "snapshotId": "faq", "lineStart": 348, "lineEnd": 368, "sha256": "565e7587fe4924effabb8d545f6421c656d8909cb02b2bbb83194ea5bece147d" }],
+      "review": { "status": "passed", "basis": "Index.ets 三个 Button 分别显式设置 width(136/136/200)、height(44/44/48) 与 borderRadius(22/22/24)，材质渲染区域与可视区域一致。" }
+    },
+    {
+      "criteriaId": "IL-C015",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "页面顶部展示 isImmersiveMaterialSupported() 与 getGlobalMaterialLevel() 结果，并以 isSupported 守卫材质设置（不支持时降级普通样式）。",
+      "sources": [{ "snapshotId": "ui-material-api", "lineStart": 389, "lineEnd": 414, "sha256": "661037db5e1e2ec692e3a195205626706b112f5b5505b3ef364b2721d2d8a828" }],
+      "review": { "status": "passed", "basis": "Index.ets L11-12 一次性读取 isSupported 与 materialLevel；L15-29 aboutToAppear 中仅当 isSupported 为 true 才构造材质对象（否则保持 undefined，不设置材质降级普通样式）；L77-83 状态卡展示两项结果。" }
+    },
+    {
+      "criteriaId": "IL-C016",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "build-profile.json5 targetSdkVersion 使用 26.0.0（工程配置约束，非官网判据数值格式的来源）。",
+      "sources": [{ "snapshotId": "ui-material-api", "lineStart": 811, "lineEnd": 816, "sha256": "c8aa7e3cfe532ac9b63c5796b5762fc2c21be17f960801e8fc622e7df11eb07f" }],
+      "review": { "status": "passed", "basis": "build-profile.json5 default product targetSdkVersion=\"26.0.0\"（L8），满足 API 26 起提供的要求。" }
+    },
+    {
+      "criteriaId": "IL-C017",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "build-profile.json5 targetSdkVersion 不低于 26.0.0（设为 26.0.0）。",
+      "sources": [{ "snapshotId": "enable", "lineStart": 3, "lineEnd": 5, "sha256": "c003ddbb00e5b13a5867c02a29c3de2440704c60da43d4cdc492694a75d6150d" }],
+      "review": { "status": "passed", "basis": "build-profile.json5 L8 targetSdkVersion=\"26.0.0\"，不低于 26.0.0。" }
+    },
+    {
+      "criteriaId": "IL-C018",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "demo 采用组件级显式 systemMaterial（优先级高于应用级），不依赖应用级开关。",
+      "sources": [{ "snapshotId": "enable", "lineStart": 75, "lineEnd": 77, "sha256": "fd84b7c5d2d6ca1e1376dc7c02cf7e38f61885e7dea295da0f90b626f6901f52" }],
+      "review": { "status": "passed", "basis": "demo 未配置应用级 metadata，全部材质经组件级 systemMaterial 显式设置（Index.ets L43/L53/L108/L128/L131/L145），组件级优先级高于应用级。" }
+    },
+    {
+      "criteriaId": "IL-C019",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "探针 Button 不设置 buttonStyle/backgroundColor 等颜色属性，验证属性生效后背景恢复透明/默认 Button 主题色材质的信号。",
+      "sources": [{ "snapshotId": "ui-material-api", "lineStart": 15, "lineEnd": 25, "sha256": "9509b47214a584bab8ede8703965257ced041dbf140bf6b666e2f123ebd374a3" }],
+      "review": { "status": "passed", "basis": "Index.ets 三个 Button 均未设置 buttonStyle/backgroundColor；L168 判定说明第 2 条注明『材质生效后背景恢复透明，可作生效信号』，运行时以此观察。" }
+    },
+    {
+      "criteriaId": "IL-C020",
+      "strength": "required",
+      "disposition": "implement",
+      "approach": "所有 systemMaterial 属性调用放在其他样式属性（宽度、圆角、背景等）之后设置。",
+      "sources": [{ "snapshotId": "faq", "lineStart": 300, "lineEnd": 312, "sha256": "d12e72442f118c256e14b2054461490b9667d1adb0c35e8083bb44788d7eb576" }],
+      "review": { "status": "passed", "basis": "Index.ets 全部 6 处 .systemMaterial(...) 均位于各自组件样式链的最后（L43、L53、L108、L128、L131、L145），先设置尺寸/字体等属性再设置材质。" }
+    }
+  ],
+  "samples": [
+    {
+      "usage": "adopted",
+      "scope": "Navigation STACK 标题栏与内容区的材质生效范围对比结构",
+      "source": { "snapshotId": "faq", "lineStart": 53, "lineEnd": 141, "sha256": "decec9358bae27f4627da4059125f4ad3f9c30f22931a16cad03c1e4f2b1e7c7" },
+      "keyPoints": [
+        {
+          "description": "Navigation 通过 .title(this.NavigationTitle, { barStyle: BarStyle.STACK }) 让内容延伸至标题栏区域",
+          "adaptation": "原样保留",
+          "review": { "status": "passed", "basis": "Index.ets L197 .title(this.NavigationTitle, { barStyle: BarStyle.STACK })，与示例一致。" }
+        },
+        {
+          "description": "内容区使用 linearGradient 渐变背景，便于观察材质折射/模糊差异",
+          "adaptation": "原样保留渐变结构，颜色值沿用示例",
+          "review": { "status": "passed", "basis": "Index.ets L180-187 linearGradient 使用示例同款三段渐变色（#004AAF/#2787D9/#F0FAFF），角度改为 180 纵向以便上下对比。" }
+        },
+        {
+          "description": "示例在标题栏与内容区分别放置 systemMaterial 探针（Column）对比生效范围",
+          "adaptation": "探针组件替换为 demo 验证目标 Button，并按清单增加 Slider/Toggle/Select 对照组与能力状态卡",
+          "review": { "status": "passed", "basis": "标题栏 A1/A2 与内容区 B 探针均为 Button+systemMaterial（同材质对象），对照组与状态卡为本 demo 目标新增，示例对比结构保留。" }
+        }
+      ]
+    },
+    {
+      "usage": "adopted",
+      "scope": "isImmersiveMaterialSupported/getGlobalMaterialLevel 能力查询与降级模式",
+      "source": { "snapshotId": "ui-material-api", "lineStart": 1143, "lineEnd": 1223, "sha256": "9d4a6e886fb35e948de47282e80d3e61d15039082f9ce7ee06909d01576a3b60" },
+      "keyPoints": [
+        {
+          "description": "私有成员一次性读取 isSupported 与 materialLevel，设备运行期间不变",
+          "adaptation": "原样保留查询方式，并在页面顶部文本展示两项状态",
+          "review": { "status": "passed", "basis": "Index.ets L11-12 私有成员一次性读取；L77-83 状态卡展示 isSupported 与等级文本（aboutToAppear 映射为 EXQUISITE/GENTLE/SMOOTH 名称）。" }
+        }
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": "S01",
+      "description": "build-profile.json5 将 targetSdkVersion 与 compatibleSdkVersion 设置为 26.0.0",
+      "status": "applied",
+      "locations": [
+        { "path": "build-profile.json5", "version": "before", "lineStart": 8, "lineEnd": 9 },
+        { "path": "build-profile.json5", "version": "after", "lineStart": 8, "lineEnd": 9 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-C016", "reason": "ImmersiveMaterial/systemMaterial 自 API 26 提供" },
+        { "type": "criteria", "criteriaId": "IL-C017", "reason": "开启沉浸光感需 targetSDKVersion 不低于 26.0.0" }
+      ]
+    },
+    {
+      "id": "S02",
+      "description": "页面骨架与能力状态卡：isImmersiveMaterialSupported/getGlobalMaterialLevel 查询展示、守卫降级、渐变背景骨架",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "before", "lineStart": 1, "lineEnd": 23 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 1, "lineEnd": 29 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 59, "lineEnd": 90 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 173, "lineEnd": 195 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-C015", "reason": "运行时能力查询与不支持降级" }
+      ]
+    },
+    {
+      "id": "S03",
+      "description": "Navigation STACK 标题栏内 Button 探针（纯材质版 + interactive/lightEffect 版），systemMaterial 置于样式之后；demo 不配置应用级 metadata，标题栏与内容区探针全部走组件级显式设置",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 30, "lineEnd": 58 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 196, "lineEnd": 200 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-C001", "reason": "Button 组件级 systemMaterial 入口" },
+        { "type": "criteria", "criteriaId": "IL-C002", "reason": "应用级 ENABLE 下按钮不默认开启，demo 以组件级显式设置验证" },
+        { "type": "criteria", "criteriaId": "IL-C005", "reason": "lightEffect 替代默认点击/悬浮反馈" },
+        { "type": "criteria", "criteriaId": "IL-C012", "reason": "冲突组：入口侧未标注区域限制" },
+        { "type": "criteria", "criteriaId": "IL-C018", "reason": "组件级开启优先级高于应用级，直接覆盖" },
+        { "type": "criteria", "criteriaId": "IL-C014", "reason": "显式 width/height 控制渲染区域" },
+        { "type": "criteria", "criteriaId": "IL-C019", "reason": "不设颜色属性观察生效信号" },
+        { "type": "criteria", "criteriaId": "IL-C020", "reason": "systemMaterial 放最后" }
+      ]
+    },
+    {
+      "id": "S04",
+      "description": "内容区 Button 探针（清单字面生效范围外）+ 观察点与判定说明文案（out of scope 日志特征、双预期说明）",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 91, "lineEnd": 117 },
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 157, "lineEnd": 172 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-C010", "reason": "清单未列 Button" },
+        { "type": "criteria", "criteriaId": "IL-C011", "reason": "清单外组件仅标题栏/TabBar 生效" },
+        { "type": "criteria", "criteriaId": "IL-C013", "reason": "out of scope 日志诊断特征" }
+      ]
+    },
+    {
+      "id": "S05",
+      "description": "内容区对照组：Slider（默认形状）+ Toggle(ToggleType.Switch) + Select(systemMaterial) 与说明文案",
+      "status": "applied",
+      "locations": [
+        { "path": "entry/src/main/ets/pages/Index.ets", "version": "after", "lineStart": 118, "lineEnd": 156 }
+      ],
+      "basis": [
+        { "type": "criteria", "criteriaId": "IL-C003", "reason": "Select 按钮入口" },
+        { "type": "criteria", "criteriaId": "IL-C004", "reason": "Checkbox 不适配，使用 Switch" },
+        { "type": "criteria", "criteriaId": "IL-C006", "reason": "Switch 材质参数仅标记" },
+        { "type": "criteria", "criteriaId": "IL-C007", "reason": "Slider DEFAULT/NONE 条件" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "category": "implementation_error",
+  "decision": "repair_according_to_official",
+  "summary": "系统路由表 JSON 使用了旧字段名 buildMethod，而 API 26 hvigor 的 routerMapJsonValidate schema 要求必填字段 buildFunction（allowedValues: name/pageSourceFile/buildFunction/data/customData），entry:default@PreBuild 阶段 schema 校验失败导致构建退出码 1。属工程配置实现错误：官网典型场景仅说明“通过系统路由表的方式配置对应的页面跳转”，未规定路由表字段名；修复为将两个条目的 buildMethod 重命名为 buildFunction，构建函数名与页面文件保持不变。",
+  "buildLog": {
+    "path": "D:\\HW\\testproject\\complete\\6\\ohos-feature-engineering\\evidence\\3f95eb72-e32a-42bd-8f41-df41f931a840\\build.log",
+    "sha256": "b0cd51b08ba58de0296dbc1a0bfa619b2d05b0c6ea7819942b3dc03faa44d11f"
+  },
+  "evidence": [
+    {
+      "type": "code",
+      "path": "D:\\HW\\testproject\\complete\\6\\ohos-feature-engineering\\evidence\\3f95eb72-e32a-42bd-8f41-df41f931a840\\build-inputs\\code\\entry\\src\\main\\resources\\base\\profile\\route_map.json",
+      "sha256": "0db16c3ae662fe6f596a4e24d4c335863bdf9747df8e380da6dd530311ddd6fc",
+      "lineStart": 4,
+      "lineEnd": 9
+    }
+  ]
+}

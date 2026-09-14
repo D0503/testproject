@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "targetDescription": "游戏页签：内容区标题栏沉浸光感，上滑触发内容区标题迁入标题栏",
+  "steps": [
+    { "stepId": "wait-launch", "action": "wait", "timeoutMs": 3000 },
+    { "stepId": "tap-game-tab", "action": "tap", "locator": { "by": "text", "value": "游戏" }, "expectPage": "游戏" },
+    { "stepId": "wait-game-loaded", "action": "wait", "timeoutMs": 1500 },
+    { "stepId": "swipe-up-migrate", "action": "swipe", "direction": "up" },
+    { "stepId": "wait-after-swipe", "action": "wait", "timeoutMs": 1500 }
+  ]
+}

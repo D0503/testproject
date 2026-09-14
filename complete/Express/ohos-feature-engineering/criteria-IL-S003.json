@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S003",
+  "frozenAt": "2026-09-10T13:20:57.988Z",
+  "validatedAt": "2026-09-10T13:21:27.231Z",
+  "strategy": "reuse",
+  "snapshots": [
+    {
+      "snapshotId": "component",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation",
+      "title": "组件适配沉浸光感",
+      "contentSha256": "93703579547848f36423aa6055e5021b37eea66e5f1036723e5cc901c08e39a5",
+      "updatedDate": "2026-09-07 09:01:42"
+    },
+    {
+      "snapshotId": "ui-material-api",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial",
+      "title": "@ohos.arkui.uiMaterial (系统材质)",
+      "contentSha256": "c71328c4454386c2c14db515c6c6747b159df1e664c5fdf9e4496523f0031011",
+      "updatedDate": "2026-09-07 09:12:53"
+    },
+    {
+      "snapshotId": "enable",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable",
+      "title": "开启沉浸光感",
+      "contentSha256": "25a40e503b20d2cb3b864fad322d7abaa666a55206418de40a1bd33b6d81dbe7",
+      "updatedDate": "2026-09-07 09:01:26"
+    },
+    {
+      "snapshotId": "constraints",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints",
+      "title": "沉浸光感功耗优化",
+      "contentSha256": "684f5939625da0ffce7af96d19900da8f8982a8a50a5a2f9b25b5ef25a1e1d5c",
+      "updatedDate": "2026-09-07 09:00:29"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "C21",
+      "type": "navigation",
+      "topic": "导航材质生效条件",
+      "statement": "Tabs 悬浮样式仅在 barOverlap 为 true、vertical 为 false、barPosition 为 BarPosition.End 时生效，三个条件需同时满足，否则 systemMaterial 设置不生效。",
+      "snapshotId": "component",
+      "anchor": "否则systemMaterial设置不生效",
+      "status": "reused",
+      "lines": [
+        35,
+        35
+      ]
+    },
+    {
+      "id": "C22",
+      "type": "navigation",
+      "topic": "导航材质生效条件",
+      "statement": "TabContent 不支持设置沉浸光感。",
+      "snapshotId": "component",
+      "anchor": "TabContent不支持设置沉浸光感",
+      "status": "reused",
+      "lines": [
+        39,
+        39
+      ]
+    },
+    {
+      "id": "C23",
+      "type": "navigation",
+      "topic": "导航材质生效条件",
+      "statement": "沉浸光感针对 Navigation 标题栏生效的范围是返回键、非自定义 Menu。",
+      "snapshotId": "component",
+      "anchor": "返回键、非自定义Menu",
+      "status": "reused",
+      "lines": [
+        19,
+        19
+      ]
+    },
+    {
+      "id": "IL-F009",
+      "type": "navigation",
+      "topic": "导航组件（IL-F009）",
+      "statement": "Navigation 标题栏可通过 NavigationTitleOptions.systemMaterial 配置；默认材质受应用状态影响。",
+      "snapshotId": "component",
+      "anchor": "Navigation标题栏支持通过应用级开启",
+      "status": "reused",
+      "lines": [
+        11,
+        11
+      ]
+    },
+    {
+      "id": "IL-F010",
+      "type": "navigation",
+      "topic": "导航组件（IL-F010）",
+      "statement": "Tabs 使用 FloatingTabBarStyle.systemMaterial，且材质会被栏背景色或背景模糊覆盖。",
+      "snapshotId": "component",
+      "anchor": "三个条件需同时满足",
+      "status": "reused",
+      "lines": [
+        35,
+        35
+      ]
+    },
+    {
+      "id": "IL-F011",
+      "type": "navigation",
+      "topic": "导航组件（IL-F011）",
+      "statement": "AlphabetIndexer 弹窗材质与 popupBackground、popupBackgroundBlurStyle 存在互斥覆盖关系。",
+      "snapshotId": "component",
+      "anchor": "属性和沉浸光感能力互斥",
+      "status": "reused",
+      "lines": [
+        53,
+        53
+      ]
+    }
+  ],
+  "conflictResolutions": [
+    {
+      "probeId": "disable-scope",
+      "verdict": "persists",
+      "basis": "v1.5 审查：enable 页同时存在『全局禁用，应用级或组件级开启均不生效』与『只针对应用级开启的组件』两种表述，尚未真机裁决。"
+    },
+    {
+      "probeId": "search-title-nesting",
+      "verdict": "resolved",
+      "basis": "typical-scenes 搜索框标题栏示例中标题栏外层容器（Column/Row）未设置 systemMaterial，Search 与 ChipGroup 分类项分别以组件级入口（systemMaterial / backgroundSystemMaterial）开启材质，属兄弟/叶子节点各自设置，未构成 constraints 所述同一子树父子嵌套（同一子树中只需在最外层设置一次沉浸式系统材质，内层节点不应再设置），两侧表述不冲突。"
+    },
+    {
+      "probeId": "content-title-nesting",
+      "verdict": "resolved",
+      "basis": "typical-scenes 内容区标题栏示例中标题栏 Row 容器未设置 systemMaterial，Button 与迁入的 ClassifyComponent（ChipGroup 的 backgroundSystemMaterial）分别以组件级入口设置材质，属兄弟节点各自设置，未构成 constraints 所述同一子树父子嵌套（同一子树中只需在最外层设置一次沉浸式系统材质，内层节点不应再设置），两侧表述不冲突。"
+    }
+  ],
+  "confirmations": []
+}

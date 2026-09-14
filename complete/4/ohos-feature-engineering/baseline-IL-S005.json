@@ -1,0 +1,21 @@
+{
+  "baselineVersion": "1.0",
+  "projectRoot": "D:/HW/testproject/complete/4",
+  "capturedAt": "2026-09-10T08:04:49.303Z",
+  "files": [
+    {
+      "path": "build-profile.json5",
+      "absolutePath": "D:/HW/testproject/complete/4/build-profile.json5",
+      "existed": true,
+      "sha256": "12b986eeb2ae25ba52e34e23e5a0d1079fa1bce32216e64baf7164283077b56b",
+      "content": "{\n  \"app\": {\n    \"signingConfigs\": [],\n    \"products\": [\n      {\n        \"name\": \"default\",\n        \"signingConfig\": \"default\",\n        \"targetSdkVersion\": \"6.0.1(21)\",\n        \"compatibleSdkVersion\": \"6.0.1(21)\",\n        \"runtimeOS\": \"HarmonyOS\",\n        \"buildOption\": {\n          \"strictMode\": {\n            \"caseSensitiveCheck\": true,\n            \"useNormalizedOHMUrl\": true\n          }\n        }\n      }\n    ],\n    \"buildModeSet\": [\n      {\n        \"name\": \"debug\",\n      },\n      {\n        \"name\": \"release\"\n      }\n    ]\n  },\n  \"modules\": [\n    {\n      \"name\": \"entry\",\n      \"srcPath\": \"./entry\",\n      \"targets\": [\n        {\n          \"name\": \"default\",\n          \"applyToProducts\": [\n            \"default\"\n          ]\n        }\n      ]\n    }\n  ]\n}"
+    },
+    {
+      "path": "entry/src/main/ets/pages/Index.ets",
+      "absolutePath": "D:/HW/testproject/complete/4/entry/src/main/ets/pages/Index.ets",
+      "existed": true,
+      "sha256": "a4a245f63c440ecbf347b0e0409ec38684c43fd1ec4104df5f9405292231d328",
+      "content": "@Entry\n@Component\nstruct Index {\n  @State message: string = 'Hello World';\n\n  build() {\n    RelativeContainer() {\n      Text(this.message)\n        .id('HelloWorld')\n        .fontSize($r('app.float.page_text_font_size'))\n        .fontWeight(FontWeight.Bold)\n        .alignRules({\n          center: { anchor: '__container__', align: VerticalAlign.Center },\n          middle: { anchor: '__container__', align: HorizontalAlign.Center }\n        })\n        .onClick(() => {\n          this.message = 'Welcome';\n        })\n    }\n    .height('100%')\n    .width('100%')\n  }\n}"
+    }
+  ]
+}

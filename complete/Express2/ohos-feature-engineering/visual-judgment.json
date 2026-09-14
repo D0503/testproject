@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioId": "IL-S006",
+  "visual": {
+    "status": "passed",
+    "basis": "用户明确观察确认：底部 TabBar 呈半透明红色调（materialColor rgba(255,0,0,0.2) 赋色可见，未遮挡材质滤镜）；标题栏右侧圆形（50x50 沉浸材质）可见；标题栏/TabBar 沉浸材质阴影可见；按压/触摸 tab 有弹性形变与流光跟随（interactive+lightEffect 生效）。",
+    "evidence": [
+      { "type": "screenshot", "path": "D:\\HW\\testproject\\complete\\Express2\\ohos-feature-engineering\\evidence\\images\\910443936ff34626253783fbdc1e7077e04ba3e2842695646ac72b0da9bd8d5c.png" }
+    ]
+  },
+  "matchedCriteriaRefs": ["IL-S006-C01", "IL-S006-C05", "IL-S006-C06", "IL-S006-C07", "IL-S006-C08", "IL-S006-C15"],
+  "runtime": {
+    "status": "passed",
+    "summary": "导航编排断言命中主页（首页/查快递/福利/我的 tab 全部渲染，组件树 Tabs/TabContent 在场，无崩溃）；用户确认 tab 交互弹性形变与流光跟随生效。"
+  }
+}

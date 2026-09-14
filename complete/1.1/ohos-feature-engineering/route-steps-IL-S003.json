@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "targetDescription": "等待应用就绪后横滑切换到联系人页签，坐标点击字母索引条触发提示弹窗",
+  "steps": [
+    { "stepId": "N0", "action": "wait", "timeoutMs": 3000 },
+    { "stepId": "N1", "action": "swipe", "from": [900, 1200], "to": [200, 1200], "expectPage": "Alice" },
+    { "stepId": "N2", "action": "wait", "timeoutMs": 800 },
+    { "stepId": "N3", "action": "swipe", "from": [1104, 1238], "to": [1104, 1240] },
+    { "stepId": "N4", "action": "wait", "timeoutMs": 500 }
+  ]
+}

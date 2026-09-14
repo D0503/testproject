@@ -1,0 +1,3 @@
+$ devecocli ui swipe --device 127.0.0.1:5555 600 2000 600 700
+- Executing swipe...
+[32m✔[39m swipe from (600, 2000) to (600, 700)

@@ -1,0 +1,11 @@
+{"at":"2026-09-14T03:56:16.158Z","runId":"98a55d7e-e7de-4be0-8f9d-8730d1eeccb4","pid":65120,"event":"verify_start","parentPid":70108,"script":"C:\\Users\\CuteDuan\\.config\\opencode\\skills\\harmonyos-feature-engineering2\\scripts\\verify-development.mjs","node":"E:\\nodejs\\node.exe","project":"D:\\HW\\testproject\\complete\\1.1"}
+{"at":"2026-09-14T03:56:16.908Z","runId":"98a55d7e-e7de-4be0-8f9d-8730d1eeccb4","pid":65120,"event":"build_spawn","childPid":40668,"command":"E:\\nodejs\\node.exe","args":["E:\\nodejs\\node_global\\node_modules\\@deveco\\deveco-cli\\dist\\cli.js","build","--product","default","--build-mode","debug"],"stdoutPath":"D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\evidence\\98a55d7e-e7de-4be0-8f9d-8730d1eeccb4\\build-stdout.log","stderrPath":"D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\evidence\\98a55d7e-e7de-4be0-8f9d-8730d1eeccb4\\build-stderr.log"}
+{"at":"2026-09-14T03:56:31.168Z","runId":"98a55d7e-e7de-4be0-8f9d-8730d1eeccb4","pid":65120,"event":"heartbeat","resources":["PipeWrap","ProcessWrap"]}
+{"at":"2026-09-14T03:56:31.712Z","runId":"98a55d7e-e7de-4be0-8f9d-8730d1eeccb4","pid":65120,"event":"build_exit","childPid":40668,"code":0,"signal":null}
+{"at":"2026-09-14T03:56:31.714Z","runId":"98a55d7e-e7de-4be0-8f9d-8730d1eeccb4","pid":65120,"event":"build_close","childPid":40668,"code":0,"signal":null}
+{"at":"2026-09-14T03:56:31.956Z","runId":"98a55d7e-e7de-4be0-8f9d-8730d1eeccb4","pid":65120,"event":"command_spawn","childPid":24368,"args":["run","--skip-build","--device","7TZ0126602000513"]}
+{"at":"2026-09-14T03:56:35.989Z","runId":"98a55d7e-e7de-4be0-8f9d-8730d1eeccb4","pid":65120,"event":"command_exit","childPid":24368,"code":0,"signal":null}
+{"at":"2026-09-14T03:56:35.990Z","runId":"98a55d7e-e7de-4be0-8f9d-8730d1eeccb4","pid":65120,"event":"command_close","childPid":24368,"code":0,"signal":null}
+{"at":"2026-09-14T03:56:35.995Z","runId":"98a55d7e-e7de-4be0-8f9d-8730d1eeccb4","pid":65120,"event":"verify_error","message":"route-steps 无效: schemaVersion 必须为 1.0"}
+{"at":"2026-09-14T03:56:35.997Z","runId":"98a55d7e-e7de-4be0-8f9d-8730d1eeccb4","pid":65120,"event":"verify_before_exit","code":2}
+{"at":"2026-09-14T03:56:35.998Z","runId":"98a55d7e-e7de-4be0-8f9d-8730d1eeccb4","pid":65120,"event":"verify_exit","code":2}

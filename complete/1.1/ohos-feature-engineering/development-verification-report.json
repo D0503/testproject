@@ -1,0 +1,2710 @@
+{
+  "collectionVersion": "1.0",
+  "mode": "code-development-validation",
+  "project": "D:\\HW\\testproject\\complete\\1.1",
+  "reports": [
+    {
+      "verificationVersion": "1.0",
+      "mode": "code-development-validation",
+      "input": {
+        "feature": "immersive-light",
+        "project": "D:\\HW\\testproject\\complete\\1.1",
+        "goal": "对索引条（AlphabetIndexer）开启提示弹窗并设置沉浸光感",
+        "module": null,
+        "component": null,
+        "targetFiles": [],
+        "product": "default",
+        "buildMode": "debug",
+        "device": "7TZ0126602000513",
+        "navigation": "D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\route-steps-IL-S003.json",
+        "criteria": "D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\criteria-IL-S003.json"
+      },
+      "capabilityPackage": {
+        "featureId": "immersive-light",
+        "packageVersion": null,
+        "scenarioId": "IL-S003",
+        "route": "arkui-api26",
+        "criteriaStrategy": "fresh",
+        "frozenAt": "2026-09-14T02:46:30.107Z",
+        "requiredChecks": [
+          "static",
+          "sdk",
+          "build",
+          "install",
+          "runtime",
+          "visual"
+        ],
+        "criteriaRefs": [
+          "IL-F009",
+          "IL-F010",
+          "IL-F011",
+          "IL-F011-mutex",
+          "IL-F011-device",
+          "IL-F011-default-state",
+          "IL-COND-popup-area",
+          "IL-COND-nav-scope",
+          "IL-APP-metadata",
+          "IL-APP-disable",
+          "IL-APP-priority"
+        ],
+        "conflictingCriteriaRefs": []
+      },
+      "projectBaseline": {
+        "inspectionVersion": "1.0",
+        "projectRoot": "D:/HW/testproject/complete/1.1",
+        "inspectedAt": "2026-09-14T04:07:53.871Z",
+        "route": {
+          "id": "arkui-api26",
+          "displayName": "ArkUI 沉浸光感 API 26",
+          "minCompileApi": 26,
+          "minTargetApi": 26,
+          "minCompatibleApi": null
+        },
+        "buildProfile": {
+          "path": "D:/HW/testproject/complete/1.1/build-profile.json5",
+          "sha256": "2d764bcdf62d3b2dadea178a5cdd4d0bfac97dd329f6e04a73e8031f83695f7b"
+        },
+        "product": {
+          "requested": null,
+          "available": [
+            {
+              "name": "default",
+              "compatibleApi": 26,
+              "targetApi": 26,
+              "compileApi": null
+            }
+          ],
+          "selected": {
+            "name": "default",
+            "compatibleApi": 26,
+            "targetApi": 26,
+            "compileApi": null
+          }
+        },
+        "buildMode": {
+          "requested": null,
+          "available": [
+            "debug",
+            "release"
+          ],
+          "selected": "debug"
+        },
+        "model": "stage",
+        "modules": [
+          {
+            "name": "entry",
+            "path": "entry",
+            "descriptor": "entry/src/main/module.json5",
+            "type": "entry",
+            "metadataDetected": false,
+            "metadataValue": null
+          }
+        ],
+        "sdk": {
+          "status": "available",
+          "source": "env:DEVECO_SDK_HOME",
+          "path": "E:/DevEco Studio/sdk/default",
+          "manifestPath": "E:/DevEco Studio/sdk/default/sdk-pkg.json",
+          "apiVersion": 26,
+          "version": "26.0.0.105",
+          "platformVersion": "26.0.0",
+          "releaseType": "Release",
+          "declarations": [
+            {
+              "path": "E:/DevEco Studio/sdk/default/openharmony/ets/api/@ohos.arkui.uiMaterial.d.ts",
+              "sha256": "d609002869f80307090bc11803b91049e86ff301f46e472e72430d954a40fd30"
+            },
+            {
+              "path": "E:/DevEco Studio/sdk/default/openharmony/ets/component/common.d.ts",
+              "sha256": "2662a40432b2fa6efcfe387c3bc4bdc79ac9a993de1e415042b37a78d6315614"
+            }
+          ],
+          "missingSymbols": []
+        },
+        "git": {
+          "repository": true,
+          "dirty": true,
+          "entries": [
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/cache/file-cache.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/cache/last-build-info.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/cache/meta.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/cache/project-config.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/cache/task-cache.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/dependencyMap/dependencyMap.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/dependencyMap/entry/oh-package.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/dependencyMap/oh-package.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/outputs/build-logs/build.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/outputs/build-logs/build.log.1"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/outputs/logs/details/details.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/outputs/records/performance-recorder.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/outputs/sync/current.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/outputs/sync/fileCache.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/outputs/sync/output.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/outputs/sync/taskInfo.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/report/report-202609141038459920.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/report/report-202609141044449450.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/report/report-202609141102344730.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/report/report-202609141125058250.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/report/report-202609141125491370.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/report/report-202609141134471800.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/report/report-202609141156232790.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/report/report-202609141157048450.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/report/report-202609141158101640.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.hvigor/report/report-202609141205085610.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.idea/.deveco/cxx/.clang-format"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.idea/.deveco/cxx/cpp-source-manifest.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.idea/.deveco/module/entry.cache.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.idea/.deveco/project.cache.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.idea/.gitignore"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/.idea/vcs.xml"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/AppScope/app.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/AppScope/resources/base/element/string.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/AppScope/resources/base/media/background.png"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/AppScope/resources/base/media/foreground.png"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/AppScope/resources/base/media/layered_image.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/build-profile.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/build/outputs/default/1-default-unsigned.app"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/build/outputs/default/1.1-default-signed.app"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/build/outputs/default/1.1-default-unsigned.app"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/build/outputs/default/pac.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/build/outputs/default/pack.info"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/code-linter.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/.gitignore"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/build-profile.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/hvigorfile.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/obfuscation-rules.txt"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/oh-package.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/src/main/ets/entryability/EntryAbility.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/src/main/ets/entrybackupability/EntryBackupAbility.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/src/main/ets/pages/Index.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/src/main/module.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/src/main/resources/base/element/color.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/src/main/resources/base/element/float.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/src/main/resources/base/element/string.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/src/main/resources/base/media/background.png"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/src/main/resources/base/media/foreground.png"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/src/main/resources/base/media/layered_image.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/src/main/resources/base/media/startIcon.png"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/src/main/resources/base/profile/backup_config.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/src/main/resources/base/profile/main_pages.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/src/main/resources/dark/element/color.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/src/mock/mock-config.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/src/ohosTest/ets/test/Ability.test.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/src/ohosTest/ets/test/List.test.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/src/ohosTest/module.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/src/test/List.test.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/entry/src/test/LocalUnit.test.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/hvigor/hvigor-config.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/hvigorfile.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/local.properties"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh-package-lock.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh-package.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/CHANGELOG.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/LICENSE"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/README.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/build-profile.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/hvigorfile.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/hvigorfile.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/index.d.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/index.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/index.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/index.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/oh-package.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/src/main/mock/ArgumentMatchers.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/src/main/mock/ArgumentMatchers.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/src/main/mock/ExtendInterface.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/src/main/mock/ExtendInterface.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/src/main/mock/MockKit.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/src/main/mock/MockKit.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/src/main/mock/VerificationMode.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/src/main/mock/VerificationMode.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/src/main/module.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hamock@1.0.0/oh_modules/@ohos/hamock/src/res/schemas/mock-config-json5-schema.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/BuildProfile.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/CHANGELOG.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/LICENSE"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/README.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/build-profile.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/consumer-rules.txt"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/hvigorfile.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/index.d.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/index.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/index.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/index.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/obfuscation-rules.txt"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/oh-package.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/Constant.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/core.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/event.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/interface.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/ExpectExtend.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertClose.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertContain.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertFail.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertFalse.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertInstanceOf.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertLarger.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertLargerOrEqual.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertLess.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertLessOrEqual.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertNaN.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertNegUnlimited.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertNull.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertPosUnlimited.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertPromiseIsPending.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertPromiseIsRejected.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertPromiseIsRejectedWith.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertPromiseIsRejectedWithError.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertPromiseIsResolved.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertPromiseIsResolvedWith.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertThrowError.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/assertUndefined.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/deepEquals/DeepTypeUtils.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/deepEquals/assertDeepEquals.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/assert/isPromiseLike.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/config/DataDriver.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/config/Filter.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/config/configService.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/coverage/coverageCollect.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/kit/SysTestKit.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/mock/ArgumentMatchers.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/mock/ExtendInterface.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/mock/MockKit.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/mock/VerificationMode.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/report/LogExpectError.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/report/OhReport.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/module/report/ReportExtend.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/testrunner/OpenHarmonyTestRunner.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/lock.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/CHANGELOG.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/LICENSE"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/README.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/build-profile.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/hvigorfile.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/hvigorfile.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/index.d.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/index.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/index.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/index.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/oh-package.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/src/main/mock/ArgumentMatchers.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/src/main/mock/ArgumentMatchers.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/src/main/mock/ExtendInterface.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/src/main/mock/ExtendInterface.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/src/main/mock/MockKit.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/src/main/mock/MockKit.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/src/main/mock/VerificationMode.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/src/main/mock/VerificationMode.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/src/main/module.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hamock/src/res/schemas/mock-config-json5-schema.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/BuildProfile.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/CHANGELOG.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/LICENSE"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/README.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/build-profile.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/consumer-rules.txt"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/hvigorfile.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/index.d.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/index.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/index.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/index.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/obfuscation-rules.txt"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/oh-package.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/Constant.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/core.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/event.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/interface.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/ExpectExtend.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertClose.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertContain.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertFail.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertFalse.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertInstanceOf.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertLarger.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertLargerOrEqual.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertLess.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertLessOrEqual.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertNaN.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertNegUnlimited.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertNull.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertPosUnlimited.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertPromiseIsPending.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertPromiseIsRejected.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertPromiseIsRejectedWith.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertPromiseIsRejectedWithError.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertPromiseIsResolved.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertPromiseIsResolvedWith.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertThrowError.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/assertUndefined.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/deepEquals/DeepTypeUtils.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/deepEquals/assertDeepEquals.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/assert/isPromiseLike.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/config/DataDriver.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/config/Filter.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/config/configService.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/coverage/coverageCollect.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/kit/SysTestKit.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/mock/ArgumentMatchers.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/mock/ExtendInterface.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/mock/MockKit.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/mock/VerificationMode.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/report/LogExpectError.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/report/OhReport.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/module/report/ReportExtend.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/service.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/.ohpm/oh_modules/@ohos/hypium/src/main/testrunner/OpenHarmonyTestRunner.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/CHANGELOG.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/LICENSE"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/README.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/build-profile.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/hvigorfile.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/hvigorfile.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/index.d.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/index.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/index.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/index.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/oh-package.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/src/main/mock/ArgumentMatchers.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/src/main/mock/ArgumentMatchers.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/src/main/mock/ExtendInterface.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/src/main/mock/ExtendInterface.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/src/main/mock/MockKit.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/src/main/mock/MockKit.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/src/main/mock/VerificationMode.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/src/main/mock/VerificationMode.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/src/main/module.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hamock/src/res/schemas/mock-config-json5-schema.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/BuildProfile.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/CHANGELOG.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/LICENSE"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/README.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/build-profile.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/consumer-rules.txt"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/hvigorfile.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/index.d.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/index.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/index.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/index.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/obfuscation-rules.txt"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/oh-package.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/Constant.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/core.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/event.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/interface.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/ExpectExtend.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertClose.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertContain.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertFail.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertFalse.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertInstanceOf.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertLarger.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertLargerOrEqual.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertLess.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertLessOrEqual.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertNaN.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertNegUnlimited.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertNull.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertPosUnlimited.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertPromiseIsPending.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertPromiseIsRejected.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertPromiseIsRejectedWith.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertPromiseIsRejectedWithError.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertPromiseIsResolved.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertPromiseIsResolvedWith.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertThrowError.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/assertUndefined.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/deepEquals/DeepTypeUtils.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/deepEquals/assertDeepEquals.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/assert/isPromiseLike.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/config/DataDriver.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/config/Filter.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/config/configService.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/coverage/coverageCollect.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/kit/SysTestKit.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/mock/ArgumentMatchers.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/mock/ExtendInterface.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/mock/MockKit.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/mock/VerificationMode.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/report/LogExpectError.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/report/OhReport.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/module/report/ReportExtend.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/service.js"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/oh_modules/@ohos/hypium/src/main/testrunner/OpenHarmonyTestRunner.ts"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/baseline-IL-S003.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/baseline-compare-IL-S003.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/criteria-IL-S003.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/criteria-draft-IL-S003.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/development-verification-report.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/development-verification-report.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/diff-report.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/0d2e1a33-8fca-4277-9a71-8a38fa72571c/build-inputs/code/entry/src/main/ets/pages/Index.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/0d2e1a33-8fca-4277-9a71-8a38fa72571c/build-inputs/code/entry/src/main/module.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/0d2e1a33-8fca-4277-9a71-8a38fa72571c/build-inputs/official/component.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/0d2e1a33-8fca-4277-9a71-8a38fa72571c/build-inputs/official/constraints.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/0d2e1a33-8fca-4277-9a71-8a38fa72571c/build-inputs/official/enable.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/0d2e1a33-8fca-4277-9a71-8a38fa72571c/build-inputs/official/ui-material-api.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/0d2e1a33-8fca-4277-9a71-8a38fa72571c/build-stderr.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/0d2e1a33-8fca-4277-9a71-8a38fa72571c/build-stdout.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/0d2e1a33-8fca-4277-9a71-8a38fa72571c/build.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/0d2e1a33-8fca-4277-9a71-8a38fa72571c/lifecycle.jsonl"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/28ecce02-03a4-43f3-a78a-9a6f253c127a/build-inputs/code/entry/src/main/ets/pages/Index.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/28ecce02-03a4-43f3-a78a-9a6f253c127a/build-inputs/code/entry/src/main/module.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/28ecce02-03a4-43f3-a78a-9a6f253c127a/build-inputs/official/component.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/28ecce02-03a4-43f3-a78a-9a6f253c127a/build-inputs/official/constraints.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/28ecce02-03a4-43f3-a78a-9a6f253c127a/build-inputs/official/enable.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/28ecce02-03a4-43f3-a78a-9a6f253c127a/build-inputs/official/ui-material-api.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/28ecce02-03a4-43f3-a78a-9a6f253c127a/build-stderr.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/28ecce02-03a4-43f3-a78a-9a6f253c127a/build-stdout.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/28ecce02-03a4-43f3-a78a-9a6f253c127a/build.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/28ecce02-03a4-43f3-a78a-9a6f253c127a/lifecycle.jsonl"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/4bbd763c-6cbc-4e74-b5b4-70d2aeeea7b0/lifecycle.jsonl"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/518a5a80-db4f-4c45-af49-58762a6e7bc3/build-inputs/code/entry/src/main/ets/pages/Index.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/518a5a80-db4f-4c45-af49-58762a6e7bc3/build-inputs/code/entry/src/main/module.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/518a5a80-db4f-4c45-af49-58762a6e7bc3/build-inputs/official/component.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/518a5a80-db4f-4c45-af49-58762a6e7bc3/build-inputs/official/constraints.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/518a5a80-db4f-4c45-af49-58762a6e7bc3/build-inputs/official/enable.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/518a5a80-db4f-4c45-af49-58762a6e7bc3/build-inputs/official/ui-material-api.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/518a5a80-db4f-4c45-af49-58762a6e7bc3/build-stderr.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/518a5a80-db4f-4c45-af49-58762a6e7bc3/build-stdout.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/518a5a80-db4f-4c45-af49-58762a6e7bc3/build.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/518a5a80-db4f-4c45-af49-58762a6e7bc3/lifecycle.jsonl"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/76a6f44e-1592-4899-90d5-3170756ee30f/lifecycle.jsonl"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/7a5dc004-1568-4400-92c9-312abe2e8b1c/build-inputs/code/entry/src/main/ets/pages/Index.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/7a5dc004-1568-4400-92c9-312abe2e8b1c/build-inputs/code/entry/src/main/module.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/7a5dc004-1568-4400-92c9-312abe2e8b1c/build-inputs/official/component.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/7a5dc004-1568-4400-92c9-312abe2e8b1c/build-inputs/official/constraints.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/7a5dc004-1568-4400-92c9-312abe2e8b1c/build-inputs/official/enable.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/7a5dc004-1568-4400-92c9-312abe2e8b1c/build-inputs/official/ui-material-api.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/7a5dc004-1568-4400-92c9-312abe2e8b1c/build-stderr.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/7a5dc004-1568-4400-92c9-312abe2e8b1c/build-stdout.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/7a5dc004-1568-4400-92c9-312abe2e8b1c/build.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/7a5dc004-1568-4400-92c9-312abe2e8b1c/lifecycle.jsonl"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/98a55d7e-e7de-4be0-8f9d-8730d1eeccb4/build-inputs/code/entry/src/main/ets/pages/Index.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/98a55d7e-e7de-4be0-8f9d-8730d1eeccb4/build-inputs/code/entry/src/main/module.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/98a55d7e-e7de-4be0-8f9d-8730d1eeccb4/build-inputs/official/component.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/98a55d7e-e7de-4be0-8f9d-8730d1eeccb4/build-inputs/official/constraints.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/98a55d7e-e7de-4be0-8f9d-8730d1eeccb4/build-inputs/official/enable.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/98a55d7e-e7de-4be0-8f9d-8730d1eeccb4/build-inputs/official/ui-material-api.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/98a55d7e-e7de-4be0-8f9d-8730d1eeccb4/build-stderr.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/98a55d7e-e7de-4be0-8f9d-8730d1eeccb4/build-stdout.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/98a55d7e-e7de-4be0-8f9d-8730d1eeccb4/build.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/98a55d7e-e7de-4be0-8f9d-8730d1eeccb4/device-run.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/98a55d7e-e7de-4be0-8f9d-8730d1eeccb4/lifecycle.jsonl"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/ba4d492d-9cdb-430b-9587-0dfdf4ff99da/lifecycle.jsonl"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f016b5d0-4325-4e1b-bde6-e3fb7ef95b3e/build-inputs/code/entry/src/main/ets/pages/Index.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f016b5d0-4325-4e1b-bde6-e3fb7ef95b3e/build-inputs/code/entry/src/main/module.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f016b5d0-4325-4e1b-bde6-e3fb7ef95b3e/build-inputs/official/component.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f016b5d0-4325-4e1b-bde6-e3fb7ef95b3e/build-inputs/official/constraints.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f016b5d0-4325-4e1b-bde6-e3fb7ef95b3e/build-inputs/official/enable.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f016b5d0-4325-4e1b-bde6-e3fb7ef95b3e/build-inputs/official/ui-material-api.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f016b5d0-4325-4e1b-bde6-e3fb7ef95b3e/build-stderr.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f016b5d0-4325-4e1b-bde6-e3fb7ef95b3e/build-stdout.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f016b5d0-4325-4e1b-bde6-e3fb7ef95b3e/build.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f016b5d0-4325-4e1b-bde6-e3fb7ef95b3e/device-run.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f016b5d0-4325-4e1b-bde6-e3fb7ef95b3e/lifecycle.jsonl"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f016b5d0-4325-4e1b-bde6-e3fb7ef95b3e/nav-N1-layout-failed.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f016b5d0-4325-4e1b-bde6-e3fb7ef95b3e/nav-N1-layout.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f6b3bbd1-671f-46bb-af71-aaaa5ac5ee71/build-inputs/code/entry/src/main/ets/pages/Index.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f6b3bbd1-671f-46bb-af71-aaaa5ac5ee71/build-inputs/code/entry/src/main/module.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f6b3bbd1-671f-46bb-af71-aaaa5ac5ee71/build-inputs/official/component.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f6b3bbd1-671f-46bb-af71-aaaa5ac5ee71/build-inputs/official/constraints.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f6b3bbd1-671f-46bb-af71-aaaa5ac5ee71/build-inputs/official/enable.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f6b3bbd1-671f-46bb-af71-aaaa5ac5ee71/build-inputs/official/ui-material-api.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f6b3bbd1-671f-46bb-af71-aaaa5ac5ee71/build-stderr.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f6b3bbd1-671f-46bb-af71-aaaa5ac5ee71/build-stdout.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f6b3bbd1-671f-46bb-af71-aaaa5ac5ee71/build.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f6b3bbd1-671f-46bb-af71-aaaa5ac5ee71/device-run.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f6b3bbd1-671f-46bb-af71-aaaa5ac5ee71/lifecycle.jsonl"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f6b3bbd1-671f-46bb-af71-aaaa5ac5ee71/nav-N1-layout-failed.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/f6b3bbd1-671f-46bb-af71-aaaa5ac5ee71/nav-N1-layout.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/fac4c24c-566a-4107-bd56-f613b2d46e92/build-inputs/code/entry/src/main/ets/pages/Index.ets"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/fac4c24c-566a-4107-bd56-f613b2d46e92/build-inputs/code/entry/src/main/module.json5"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/fac4c24c-566a-4107-bd56-f613b2d46e92/build-inputs/official/component.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/fac4c24c-566a-4107-bd56-f613b2d46e92/build-inputs/official/constraints.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/fac4c24c-566a-4107-bd56-f613b2d46e92/build-inputs/official/enable.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/fac4c24c-566a-4107-bd56-f613b2d46e92/build-inputs/official/ui-material-api.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/fac4c24c-566a-4107-bd56-f613b2d46e92/build-stderr.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/fac4c24c-566a-4107-bd56-f613b2d46e92/build-stdout.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/fac4c24c-566a-4107-bd56-f613b2d46e92/build.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/fac4c24c-566a-4107-bd56-f613b2d46e92/device-run.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/fac4c24c-566a-4107-bd56-f613b2d46e92/lifecycle.jsonl"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/fac4c24c-566a-4107-bd56-f613b2d46e92/nav-N1.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/fac4c24c-566a-4107-bd56-f613b2d46e92/nav-N3-layout-failed.log"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/evidence/fac4c24c-566a-4107-bd56-f613b2d46e92/nav-N3-layout.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/frozen/frozen.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/frozen/snapshots/component.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/frozen/snapshots/constraints.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/frozen/snapshots/enable.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/frozen/snapshots/ui-material-api.md"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/implementation-IL-S003.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/materials-IL-S003.json"
+            },
+            {
+              "status": "??",
+              "path": "complete/1.1/ohos-feature-engineering/route-steps-IL-S003.json"
+            }
+          ]
+        },
+        "targets": {
+          "requestedModule": null,
+          "requestedComponent": null,
+          "requestedFiles": [],
+          "detectedComponents": [
+            {
+              "component": "Tabs",
+              "signal": "component",
+              "path": "entry/src/main/ets/pages/Index.ets",
+              "line": 82,
+              "excerpt": "Tabs({ barPosition: BarPosition.End }) {"
+            },
+            {
+              "component": "AlphabetIndexer",
+              "signal": "component",
+              "path": "entry/src/main/ets/pages/Index.ets",
+              "line": 145,
+              "excerpt": "AlphabetIndexer({ arrayValue: this.alphabets, selected: this.selectedIndex })"
+            }
+          ]
+        },
+        "signals": [
+          {
+            "id": "ui-material-import",
+            "detected": true,
+            "evidence": [
+              {
+                "signal": "ui-material-import",
+                "path": "entry/src/main/ets/entryability/EntryAbility.ets",
+                "line": 3,
+                "excerpt": "import { window } from '@kit.ArkUI';"
+              },
+              {
+                "signal": "ui-material-import",
+                "path": "entry/src/main/ets/pages/Index.ets",
+                "line": 1,
+                "excerpt": "import { uiMaterial } from '@kit.ArkUI';"
+              },
+              {
+                "signal": "ui-material-import",
+                "path": "entry/src/main/ets/pages/Index.ets",
+                "line": 1,
+                "excerpt": "import { uiMaterial } from '@kit.ArkUI';"
+              },
+              {
+                "signal": "ui-material-import",
+                "path": "entry/src/main/ets/pages/Index.ets",
+                "line": 154,
+                "excerpt": ".systemMaterial(new uiMaterial.ImmersiveMaterial({"
+              },
+              {
+                "signal": "ui-material-import",
+                "path": "entry/src/main/ets/pages/Index.ets",
+                "line": 155,
+                "excerpt": "style: uiMaterial.ImmersiveStyle.THICK"
+              },
+              {
+                "signal": "ui-material-import",
+                "path": "entry/src/main/ets/pages/Index.ets",
+                "line": 171,
+                "excerpt": "systemMaterial: new uiMaterial.ImmersiveMaterial({"
+              },
+              {
+                "signal": "ui-material-import",
+                "path": "entry/src/main/ets/pages/Index.ets",
+                "line": 172,
+                "excerpt": "style: uiMaterial.ImmersiveStyle.THIN"
+              }
+            ]
+          },
+          {
+            "id": "material-entry",
+            "detected": true,
+            "evidence": [
+              {
+                "signal": "material-entry",
+                "path": "entry/src/main/ets/pages/Index.ets",
+                "line": 154,
+                "excerpt": ".systemMaterial(new uiMaterial.ImmersiveMaterial({"
+              },
+              {
+                "signal": "material-entry",
+                "path": "entry/src/main/ets/pages/Index.ets",
+                "line": 171,
+                "excerpt": "systemMaterial: new uiMaterial.ImmersiveMaterial({"
+              }
+            ]
+          },
+          {
+            "id": "application-state",
+            "detected": false,
+            "evidence": []
+          },
+          {
+            "id": "capability-guard",
+            "detected": false,
+            "evidence": []
+          },
+          {
+            "id": "version-guard",
+            "detected": false,
+            "evidence": []
+          }
+        ],
+        "compatibility": {
+          "status": "supported",
+          "reasons": [],
+          "authorizationRequired": [],
+          "canModify": true,
+          "canBuild": true
+        }
+      },
+      "changes": [
+        {
+          "path": "entry/src/main/module.json5",
+          "absolutePath": "D:/HW/testproject/complete/1.1/entry/src/main/module.json5",
+          "status": "modified",
+          "beforeSha256": "ab956fa84579579cb65974603369b3d4e0a50320ea3744b0c3cd1bf90d02dff9",
+          "afterSha256": "95045053098ced28f3f807767014815b5a26b0203f16de619b0c66eca93c42dc",
+          "diff": "--- a/entry/src/main/module.json5\n+++ b/entry/src/main/module.json5\n@@ -42,10 +42,6 @@\n           {\n             \"name\": \"ohos.extension.backup\",\n             \"resource\": \"$profile:backup_config\"\n-          },\n-          {\n-            \"name\": \"ohos.arkui.UIMaterial.state\",\n-            \"value\": \"disable\"\n           }\n         ],\n       }\n"
+        },
+        {
+          "path": "entry/src/main/ets/pages/Index.ets",
+          "absolutePath": "D:/HW/testproject/complete/1.1/entry/src/main/ets/pages/Index.ets",
+          "status": "modified",
+          "beforeSha256": "738aba8a34b3023d7b6622b96aabddedc68255c69b1a2615247e6ac0effa6585",
+          "afterSha256": "445f1704c641b366fa5caae0878b57677654a447c95eee700866ffb0a3323edf",
+          "diff": "--- a/entry/src/main/ets/pages/Index.ets\n+++ b/entry/src/main/ets/pages/Index.ets\n@@ -144,15 +144,16 @@\n \n           AlphabetIndexer({ arrayValue: this.alphabets, selected: this.selectedIndex })\n             .selected(this.selectedIndex)\n-            // .color($r('sys.color.font_on_primary'))\n-            // .selectedColor($r('sys.color.font_on_primary'))\n-            .onSelect((index: number) => {\n-              this.selectedIndex = index;\n-              this.scroller.scrollToIndex(index, false);\n-            })\n-            // .systemMaterial(new uiMaterial.ImmersiveMaterial({\n-            //   style: uiMaterial.ImmersiveStyle.ULTRA_THIN\n-            // }))\n+            .usingPopup(true)\n+            // .color($r('sys.color.font_on_primary'))\n+            // .selectedColor($r('sys.color.font_on_primary'))\n+            .onSelect((index: number) => {\n+              this.selectedIndex = index;\n+              this.scroller.scrollToIndex(index, false);\n+            })\n+            .systemMaterial(new uiMaterial.ImmersiveMaterial({\n+              style: uiMaterial.ImmersiveStyle.THICK\n+            }))\n             }))\n         }\n         .width('100%')\n"
+        }
+      ],
+      "implementation": {
+        "developmentMode": "existing_project",
+        "requirements": [
+          {
+            "criteriaId": "IL-F009",
+            "strength": "required",
+            "disposition": "not_applicable",
+            "reason": "工程未使用 Navigation 标题栏组件，本次开发目标为 AlphabetIndexer 索引条提示弹窗的沉浸光感，判据目标组件不存在于工程，无需实施。",
+            "approach": "确认工程页面结构中无 Navigation/NavDestination 标题栏，不产生改动。",
+            "sources": [
+              {
+                "snapshotId": "component",
+                "lineStart": 11,
+                "lineEnd": 15,
+                "sha256": "e3a0c36fc96ca967aceadcc7624c47d2455edceac16a9f85b2dcdeb4e7e29106"
+              }
+            ],
+            "review": {
+              "status": "passed",
+              "basis": "通读修改后 entry/src/main/ets/pages/Index.ets 全文：页面结构为 Tabs+TabContent+Stack+List+AlphabetIndexer，全文无 Navigation/NavDestination 组件，判据在工程中无实施目标，不适用结论成立。"
+            }
+          },
+          {
+            "criteriaId": "IL-F010",
+            "strength": "required",
+            "disposition": "not_applicable",
+            "reason": "本次开发目标不涉及 Tabs 改动；工程现有 Tabs 已按本判据配置（barFloatingStyle.systemMaterial 为 ImmersiveMaterial(THIN)、barOverlap(true)、barPosition 为 BarPosition.End、未设置 barBackgroundColor/barBackgroundBlurStyle、TabContent 未设置材质），已满足契约，无需修改。",
+            "approach": "保留现有 Tabs 悬浮页签材质配置，不产生改动。",
+            "sources": [
+              {
+                "snapshotId": "component",
+                "lineStart": 29,
+                "lineEnd": 39,
+                "sha256": "521fd8a635b3689f5a366c3d192ea7061211d64d34dce1b41d41b9bab5b6f78d"
+              }
+            ],
+            "review": {
+              "status": "passed",
+              "basis": "Index.ets L82 Tabs({ barPosition: BarPosition.End })、L169-175 barFloatingStyle({ systemMaterial: new uiMaterial.ImmersiveMaterial({ style: THIN }), maskColor: Color.Transparent })、L176 barOverlap(true)，全文件未出现 barBackgroundColor/barBackgroundBlurStyle，两个 TabContent 均未设置任何材质属性；悬浮样式三条件同时满足且无背景遮挡，现有配置已满足判据，本次未修改该区域。"
+            }
+          },
+          {
+            "criteriaId": "IL-F011",
+            "strength": "required",
+            "disposition": "implement",
+            "approach": "为 AlphabetIndexer 显式开启提示弹窗（usingPopup(true)），不设置 popupBackground/popupBackgroundBlurStyle，并通过通用属性 systemMaterial 主动设置沉浸光感，材质样式取 ImmersiveStyle.THICK（与官网索引条提示弹窗默认材质样式一致）。",
+            "sources": [
+              {
+                "snapshotId": "component",
+                "lineStart": 45,
+                "lineEnd": 49,
+                "sha256": "771cb4eac02069b187f72eb9ad88872cc53321b05c531353c555b82f1f42f3b1"
+              }
+            ],
+            "review": {
+              "status": "passed",
+              "basis": "Index.ets L147 .usingPopup(true) 显式开启提示弹窗；L154-156 .systemMaterial(new uiMaterial.ImmersiveMaterial({ style: uiMaterial.ImmersiveStyle.THICK })) 主动设置沉浸光感，入口为官网判据所述 systemMaterial 属性，材质样式 THICK 与判据默认材质样式一致。"
+            }
+          },
+          {
+            "criteriaId": "IL-F011-mutex",
+            "strength": "required",
+            "disposition": "implement",
+            "approach": "保持提示弹窗不设置 popupBackground 与 popupBackgroundBlurStyle，避免与沉浸光感能力互斥导致无材质效果。",
+            "sources": [
+              {
+                "snapshotId": "component",
+                "lineStart": 51,
+                "lineEnd": 53,
+                "sha256": "4a31e8a1dcb671a38981344b071fea1fc29cb7139bd38d093b96aea0f01a4c74"
+              }
+            ],
+            "review": {
+              "status": "passed",
+              "basis": "Index.ets L145-156 AlphabetIndexer 全部属性链（selected/usingPopup/onSelect/systemMaterial 及注释行）中不存在 popupBackground 或 popupBackgroundBlurStyle 设置，互斥属性保持未设置，符合判据。"
+            }
+          },
+          {
+            "criteriaId": "IL-F011-device",
+            "strength": "required",
+            "disposition": "implement",
+            "approach": "材质样式采用 THICK，接受官网描述的算力分档表现：高/中算力设备显示沉浸光感 THICK 样式，低算力设备不显示沉浸光感而显示白色背景，代码不做设备分支。",
+            "sources": [
+              {
+                "snapshotId": "component",
+                "lineStart": 51,
+                "lineEnd": 53,
+                "sha256": "4a31e8a1dcb671a38981344b071fea1fc29cb7139bd38d093b96aea0f01a4c74"
+              }
+            ],
+            "review": {
+              "status": "passed",
+              "basis": "Index.ets L155 材质样式固定为 ImmersiveStyle.THICK，未引入任何设备算力分支代码；分档表现（高/中算力 THICK、低算力白色背景）由设备运行时决定，与判据描述一致。"
+            }
+          },
+          {
+            "criteriaId": "IL-F011-default-state",
+            "strength": "required",
+            "disposition": "implement",
+            "approach": "移除工程中错误放置于 EntryBackupAbility（extensionAbilities.metadata）的 ohos.arkui.UIMaterial.state=disable 配置；移除后工程未配置该字段，应用处于 DEFAULT 模式，AlphabetIndexer 在未设置背景颜色、模糊参数和阴影参数时默认开启沉浸式系统材质。",
+            "sources": [
+              {
+                "snapshotId": "ui-material-api",
+                "lineStart": 162,
+                "lineEnd": 162,
+                "sha256": "958536c27787f02ab6ccc59d60a00135b9ba49fce1c3f60895367e04c3422435"
+              }
+            ],
+            "review": {
+              "status": "passed",
+              "basis": "修改后 module.json5 全文（含 extensionAbilities.metadata L41-46）不再出现 ohos.arkui.UIMaterial.state，应用进入 DEFAULT 模式；Index.ets AlphabetIndexer 未设置背景颜色、模糊参数和阴影参数，提示弹窗按判据默认开启沉浸式系统材质，并由 systemMaterial 显式设置加固。"
+            }
+          },
+          {
+            "criteriaId": "IL-COND-popup-area",
+            "strength": "required",
+            "disposition": "implement",
+            "approach": "AlphabetIndexer 弹窗属弹窗类组件，沉浸光感可在页面内全部区域生效；索引条保持现有页面位置（联系人页 Stack 右侧），不移入标题栏区域即可生效。",
+            "sources": [
+              {
+                "snapshotId": "constraints",
+                "lineStart": 13,
+                "lineEnd": 15,
+                "sha256": "d14a54c3d3a95783915329db8226a3b2be1a7fc5440b5c7b0c380cde29f7a308"
+              }
+            ],
+            "review": {
+              "status": "passed",
+              "basis": "Index.ets L125-163 AlphabetIndexer 位于联系人 TabContent 的 Stack 内（列表右侧、页面中部），不处于 Navigation/NavDestination 标题栏或底部 TabBar 区域；其提示弹窗属判据所列弹窗类组件（AlphabetIndexer弹窗），材质在页面内全部区域生效，现有位置无需调整。"
+            }
+          },
+          {
+            "criteriaId": "IL-COND-nav-scope",
+            "strength": "required",
+            "disposition": "not_applicable",
+            "reason": "工程无 Navigation 标题栏，该生效范围条款不涉及本次目标组件。",
+            "approach": "确认工程无 Navigation 标题栏，不产生改动。",
+            "sources": [
+              {
+                "snapshotId": "component",
+                "lineStart": 19,
+                "lineEnd": 19,
+                "sha256": "c3fb1c9b9e82ebb3128890ed13fef48522ee828453a36ce70ea6e1da39c64c2d"
+              }
+            ],
+            "review": {
+              "status": "passed",
+              "basis": "Index.ets 全文无 Navigation/NavDestination 组件，标题栏生效范围条款（返回键、非自定义 Menu）在工程中无对应目标，不适用结论成立。"
+            }
+          },
+          {
+            "criteriaId": "IL-APP-metadata",
+            "strength": "required",
+            "disposition": "implement",
+            "approach": "删除挂在 extensionAbilities（EntryBackupAbility）metadata 下的 ohos.arkui.UIMaterial.state 配置条目（保留 ohos.extension.backup 条目）；不在 module 级新增该配置，应用保持 default 模式。",
+            "sources": [
+              {
+                "snapshotId": "enable",
+                "lineStart": 54,
+                "lineEnd": 54,
+                "sha256": "262b44203b74df76b0be17d678d9dee2a256f537ceaa97f0218ae0cdd965437b"
+              }
+            ],
+            "review": {
+              "status": "passed",
+              "basis": "修改后 module.json5：extensionAbilities.metadata 仅保留 ohos.extension.backup 条目（L41-46），全文件无 ohos.arkui.UIMaterial.state；工程不再持有该开关的非标准（extensionAbility 级）配置，按判据该配置仅在 entry 类型 module 生效，未配置即不干预，应用保持默认模式。"
+            }
+          },
+          {
+            "criteriaId": "IL-APP-disable",
+            "strength": "required",
+            "disposition": "implement",
+            "approach": "移除 disable 值的 UIMaterial.state 配置，避免应用级 disable 全局禁用沉浸光感、导致应用级或组件级开启均不生效，阻塞索引条提示弹窗材质目标。",
+            "sources": [
+              {
+                "snapshotId": "enable",
+                "lineStart": 75,
+                "lineEnd": 75,
+                "sha256": "419812d77f4fd5b9b52a0fea6382ffc5d4ef84dfba30d8121224bef94aee0337"
+              }
+            ],
+            "review": {
+              "status": "passed",
+              "basis": "原 module.json5 L46-49 的 { name: ohos.arkui.UIMaterial.state, value: disable } 条目已删除（基线 diff before L45-48），工程内不存在 disable 值配置，不再触发判据所述全局禁用沉浸光感的行为，索引条提示弹窗组件级设置可正常生效。"
+            }
+          },
+          {
+            "criteriaId": "IL-APP-priority",
+            "strength": "required",
+            "disposition": "implement",
+            "approach": "在 AlphabetIndexer 上通过组件级通用属性 systemMaterial 显式设置材质（组件级开启优先级高于应用级），确保提示弹窗稳定呈现指定沉浸光感效果。",
+            "sources": [
+              {
+                "snapshotId": "enable",
+                "lineStart": 77,
+                "lineEnd": 77,
+                "sha256": "a73256981c4512bbacc6941facabe02972ef65399c19b89a3f90c902b6a74dcd"
+              }
+            ],
+            "review": {
+              "status": "passed",
+              "basis": "Index.ets L154-156 AlphabetIndexer 通过组件级通用属性 systemMaterial 显式设置 ImmersiveMaterial(THICK)；按判据组件级开启优先级高于应用级开启，提示弹窗材质效果不依赖应用级开关状态，实现方式与判据一致。"
+            }
+          }
+        ],
+        "recordStatus": "recorded",
+        "baselineAvailable": true,
+        "steps": [
+          {
+            "id": "S01",
+            "description": "module.json5：移除 EntryBackupAbility extensionAbilities.metadata 中错误放置的 ohos.arkui.UIMaterial.state=disable 条目，保留 ohos.extension.backup 条目，使应用回到 default 模式。",
+            "status": "applied",
+            "locations": [
+              {
+                "path": "entry/src/main/module.json5",
+                "version": "before",
+                "lineStart": 45,
+                "lineEnd": 48,
+                "correlation": "matched",
+                "beforeSha256": "ab956fa84579579cb65974603369b3d4e0a50320ea3744b0c3cd1bf90d02dff9",
+                "afterSha256": "95045053098ced28f3f807767014815b5a26b0203f16de619b0c66eca93c42dc"
+              }
+            ],
+            "basis": [
+              {
+                "type": "criteria",
+                "criteriaId": "IL-APP-metadata",
+                "reason": "该配置仅在 entry 类型的 module 生效，应位于 module 级 metadata；错误挂在 extensionAbility 下的 disable 条目须移除"
+              },
+              {
+                "type": "criteria",
+                "criteriaId": "IL-APP-disable",
+                "reason": "disable 会全局禁用沉浸光感，应用级或组件级开启均不生效，与本次开启目标冲突"
+              },
+              {
+                "type": "criteria",
+                "criteriaId": "IL-F011-default-state",
+                "reason": "移除后工程未配置该字段处于 DEFAULT 模式，AlphabetIndexer 未设置背景/模糊/阴影时默认开启沉浸式系统材质"
+              }
+            ],
+            "issues": []
+          },
+          {
+            "id": "S02",
+            "description": "Index.ets：AlphabetIndexer 显式开启提示弹窗 usingPopup(true)，保持不设置 popupBackground/popupBackgroundBlurStyle，并新增通用属性 systemMaterial(ImmersiveMaterial(THICK)) 主动设置提示弹窗沉浸光感。",
+            "status": "applied",
+            "locations": [
+              {
+                "path": "entry/src/main/ets/pages/Index.ets",
+                "version": "before",
+                "lineStart": 147,
+                "lineEnd": 155,
+                "correlation": "matched",
+                "beforeSha256": "738aba8a34b3023d7b6622b96aabddedc68255c69b1a2615247e6ac0effa6585",
+                "afterSha256": "445f1704c641b366fa5caae0878b57677654a447c95eee700866ffb0a3323edf"
+              },
+              {
+                "path": "entry/src/main/ets/pages/Index.ets",
+                "version": "after",
+                "lineStart": 147,
+                "lineEnd": 156,
+                "correlation": "matched",
+                "beforeSha256": "738aba8a34b3023d7b6622b96aabddedc68255c69b1a2615247e6ac0effa6585",
+                "afterSha256": "445f1704c641b366fa5caae0878b57677654a447c95eee700866ffb0a3323edf"
+              }
+            ],
+            "basis": [
+              {
+                "type": "criteria",
+                "criteriaId": "IL-F011",
+                "reason": "提示弹窗默认材质样式为 THICK，也可通过 systemMaterial 属性主动设置沉浸光感效果"
+              },
+              {
+                "type": "criteria",
+                "criteriaId": "IL-F011-mutex",
+                "reason": "popupBackground/popupBackgroundBlurStyle 与沉浸光感互斥，须保持未设置"
+              },
+              {
+                "type": "criteria",
+                "criteriaId": "IL-F011-device",
+                "reason": "THICK 在高/中算力设备显示沉浸光感样式，低算力设备显示白色背景，为官网描述的分档行为"
+              },
+              {
+                "type": "criteria",
+                "criteriaId": "IL-COND-popup-area",
+                "reason": "AlphabetIndexer 弹窗属弹窗类组件，沉浸光感在页面内全部区域生效，现有页面位置无需调整"
+              },
+              {
+                "type": "criteria",
+                "criteriaId": "IL-APP-priority",
+                "reason": "组件级 systemMaterial 显式设置优先级高于应用级开关，确保效果稳定"
+              }
+            ],
+            "issues": []
+          }
+        ],
+        "uncoveredChanges": []
+      },
+      "normativeBasis": [
+        {
+          "id": "IL-F011",
+          "statement": "索引条支持应用级开启、组件级开启方式开启沉浸光感；索引条参数 popupBackground 和 popupBackgroundBlurStyle 均未主动设置（或参数 value 传入 undefined）时，提示弹窗默认开启沉浸光感，默认材质样式为 THICK；也可通过 systemMaterial 属性主动设置沉浸光感效果。",
+          "normativeStatus": "clear",
+          "derivation": "fresh",
+          "conflictGroup": null,
+          "usage": "direct",
+          "sources": [
+            {
+              "snapshotId": "component",
+              "anchor": "提示弹窗默认开启沉浸光感",
+              "lines": [
+                49,
+                49
+              ],
+              "sha256": "93703579547848f36423aa6055e5021b37eea66e5f1036723e5cc901c08e39a5",
+              "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation",
+              "title": "组件适配沉浸光感",
+              "frozenAt": "2026-09-14T02:46:30.107Z"
+            }
+          ]
+        },
+        {
+          "id": "IL-F011-mutex",
+          "statement": "popupBackground、popupBackgroundBlurStyle 属性和沉浸光感能力互斥，主动设置 popupBackground 或 popupBackgroundBlurStyle 后无沉浸光感效果。",
+          "normativeStatus": "clear",
+          "derivation": "fresh",
+          "conflictGroup": null,
+          "usage": "direct",
+          "sources": [
+            {
+              "snapshotId": "component",
+              "anchor": "属性和沉浸光感能力互斥",
+              "lines": [
+                53,
+                53
+              ],
+              "sha256": "93703579547848f36423aa6055e5021b37eea66e5f1036723e5cc901c08e39a5",
+              "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation",
+              "title": "组件适配沉浸光感",
+              "frozenAt": "2026-09-14T02:46:30.107Z"
+            }
+          ]
+        },
+        {
+          "id": "IL-F011-device",
+          "statement": "索引条沉浸光感存在设备算力分档：高算力、中算力设备默认显示为沉浸光感 THICK 样式，低算力设备不显示沉浸光感效果，显示为白色背景。",
+          "normativeStatus": "clear",
+          "derivation": "fresh",
+          "conflictGroup": null,
+          "usage": "direct",
+          "sources": [
+            {
+              "snapshotId": "component",
+              "anchor": "低算力设备不显示沉浸光感效果，显示为白色背景",
+              "lines": [
+                51,
+                51
+              ],
+              "sha256": "93703579547848f36423aa6055e5021b37eea66e5f1036723e5cc901c08e39a5",
+              "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation",
+              "title": "组件适配沉浸光感",
+              "frozenAt": "2026-09-14T02:46:30.107Z"
+            }
+          ]
+        },
+        {
+          "id": "IL-F011-default-state",
+          "statement": "MaterialState 为 DEFAULT（默认模式）时，AlphabetIndexer 在组件本身未设置背景颜色、模糊参数和阴影参数时默认开启沉浸式系统材质。",
+          "normativeStatus": "clear",
+          "derivation": "fresh",
+          "conflictGroup": null,
+          "usage": "direct",
+          "sources": [
+            {
+              "snapshotId": "ui-material-api",
+              "anchor": "在组件本身未设置背景颜色、模糊参数和阴影参数时默认开启沉浸式系统材质",
+              "lines": [
+                162,
+                162
+              ],
+              "sha256": "c71328c4454386c2c14db515c6c6747b159df1e664c5fdf9e4496523f0031011",
+              "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial",
+              "title": "@ohos.arkui.uiMaterial (系统材质)",
+              "frozenAt": "2026-09-14T02:46:30.107Z"
+            }
+          ]
+        },
+        {
+          "id": "IL-COND-popup-area",
+          "statement": "AlphabetIndexer 弹窗属于弹窗类组件，沉浸光感开启后可在页面内全部区域生效；其他组件仅在 Navigation/NavDestination 标题栏或横向 Tab 中 barPosition 为 BarPosition.End 的底部 TabBar 中生效，在其他区域中设置沉浸光感效果不生效。",
+          "normativeStatus": "clear",
+          "derivation": "fresh",
+          "conflictGroup": null,
+          "usage": "direct",
+          "sources": [
+            {
+              "snapshotId": "constraints",
+              "anchor": "可在页面内全部区域生效",
+              "lines": [
+                13,
+                13
+              ],
+              "sha256": "684f5939625da0ffce7af96d19900da8f8982a8a50a5a2f9b25b5ef25a1e1d5c",
+              "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints",
+              "title": "沉浸光感功耗优化",
+              "frozenAt": "2026-09-14T02:46:30.107Z"
+            }
+          ]
+        },
+        {
+          "id": "IL-APP-metadata",
+          "statement": "应用级开关在 module.json5 中将 metadata 参数的 name 字段配置为 ohos.arkui.UIMaterial.state，value 字段为 default 或 enable 时开启、为 disable 时关闭，该配置仅在 entry 类型的 module 中生效。",
+          "normativeStatus": "clear",
+          "derivation": "fresh",
+          "conflictGroup": null,
+          "usage": "direct",
+          "sources": [
+            {
+              "snapshotId": "enable",
+              "anchor": "该配置仅在entry类型的module中生效",
+              "lines": [
+                54,
+                54
+              ],
+              "sha256": "25a40e503b20d2cb3b864fad322d7abaa666a55206418de40a1bd33b6d81dbe7",
+              "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable",
+              "title": "开启沉浸光感",
+              "frozenAt": "2026-09-14T02:46:30.107Z"
+            }
+          ]
+        },
+        {
+          "id": "IL-APP-disable",
+          "statement": "应用级开关设置为 disable 时，会全局禁用沉浸光感，应用级或组件级开启的设置均不生效。",
+          "normativeStatus": "clear",
+          "derivation": "fresh",
+          "conflictGroup": null,
+          "usage": "direct",
+          "sources": [
+            {
+              "snapshotId": "enable",
+              "anchor": "会全局禁用沉浸光感",
+              "lines": [
+                75,
+                75
+              ],
+              "sha256": "25a40e503b20d2cb3b864fad322d7abaa666a55206418de40a1bd33b6d81dbe7",
+              "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable",
+              "title": "开启沉浸光感",
+              "frozenAt": "2026-09-14T02:46:30.107Z"
+            }
+          ]
+        },
+        {
+          "id": "IL-APP-priority",
+          "statement": "组件级开启的优先级高于应用级开启，开发者通过组件的沉浸式系统材质接口可以直接覆盖应用级开关开启的组件效果。",
+          "normativeStatus": "clear",
+          "derivation": "fresh",
+          "conflictGroup": null,
+          "usage": "direct",
+          "sources": [
+            {
+              "snapshotId": "enable",
+              "anchor": "组件级开启的优先级高于应用级开启",
+              "lines": [
+                77,
+                77
+              ],
+              "sha256": "25a40e503b20d2cb3b864fad322d7abaa666a55206418de40a1bd33b6d81dbe7",
+              "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable",
+              "title": "开启沉浸光感",
+              "frozenAt": "2026-09-14T02:46:30.107Z"
+            }
+          ]
+        }
+      ],
+      "buildInputs": [
+        {
+          "type": "code",
+          "originalPath": "D:\\HW\\testproject\\complete\\1.1\\entry\\src\\main\\module.json5",
+          "path": "D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\evidence\\ba4d492d-9cdb-430b-9587-0dfdf4ff99da\\build-inputs\\code\\entry\\src\\main\\module.json5",
+          "sha256": "95045053098ced28f3f807767014815b5a26b0203f16de619b0c66eca93c42dc"
+        },
+        {
+          "type": "code",
+          "originalPath": "D:\\HW\\testproject\\complete\\1.1\\entry\\src\\main\\ets\\pages\\Index.ets",
+          "path": "D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\evidence\\ba4d492d-9cdb-430b-9587-0dfdf4ff99da\\build-inputs\\code\\entry\\src\\main\\ets\\pages\\Index.ets",
+          "sha256": "445f1704c641b366fa5caae0878b57677654a447c95eee700866ffb0a3323edf"
+        },
+        {
+          "type": "official_source",
+          "snapshotId": "component",
+          "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation",
+          "originalPath": "D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\frozen\\snapshots\\component.md",
+          "path": "D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\evidence\\ba4d492d-9cdb-430b-9587-0dfdf4ff99da\\build-inputs\\official\\component.md",
+          "sha256": "93703579547848f36423aa6055e5021b37eea66e5f1036723e5cc901c08e39a5"
+        },
+        {
+          "type": "official_source",
+          "snapshotId": "ui-material-api",
+          "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial",
+          "originalPath": "D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\frozen\\snapshots\\ui-material-api.md",
+          "path": "D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\evidence\\ba4d492d-9cdb-430b-9587-0dfdf4ff99da\\build-inputs\\official\\ui-material-api.md",
+          "sha256": "c71328c4454386c2c14db515c6c6747b159df1e664c5fdf9e4496523f0031011"
+        },
+        {
+          "type": "official_source",
+          "snapshotId": "enable",
+          "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable",
+          "originalPath": "D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\frozen\\snapshots\\enable.md",
+          "path": "D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\evidence\\ba4d492d-9cdb-430b-9587-0dfdf4ff99da\\build-inputs\\official\\enable.md",
+          "sha256": "25a40e503b20d2cb3b864fad322d7abaa666a55206418de40a1bd33b6d81dbe7"
+        },
+        {
+          "type": "official_source",
+          "snapshotId": "constraints",
+          "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints",
+          "originalPath": "D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\frozen\\snapshots\\constraints.md",
+          "path": "D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\evidence\\ba4d492d-9cdb-430b-9587-0dfdf4ff99da\\build-inputs\\official\\constraints.md",
+          "sha256": "684f5939625da0ffce7af96d19900da8f8982a8a50a5a2f9b25b5ef25a1e1d5c"
+        }
+      ],
+      "compatibility": {
+        "status": "supported",
+        "reasons": [],
+        "authorizationRequired": [],
+        "canModify": true,
+        "canBuild": true
+      },
+      "checks": {
+        "static": {
+          "required": true,
+          "status": "passed",
+          "summary": "场景静态规则通过。",
+          "evidenceRefs": [
+            "EVID-001"
+          ]
+        },
+        "sdk": {
+          "required": true,
+          "status": "passed",
+          "summary": "ArkUI 沉浸光感 API 26：SDK API 26，必需符号已找到",
+          "evidenceRefs": [
+            "EVID-002",
+            "EVID-003"
+          ]
+        },
+        "build": {
+          "required": true,
+          "status": "passed",
+          "summary": "真实 debug 构建通过。",
+          "evidenceRefs": [
+            "EVID-004"
+          ],
+          "command": "devecocli build --product default --build-mode debug",
+          "exitCode": 0,
+          "repairAttempts": 0
+        },
+        "install": {
+          "required": true,
+          "status": "passed",
+          "summary": "应用安装并拉起。",
+          "evidenceRefs": [
+            "EVID-005"
+          ],
+          "command": "devecocli run --skip-build --device 7TZ0126602000513",
+          "exitCode": 0
+        },
+        "runtime": {
+          "required": true,
+          "status": "inconclusive",
+          "summary": "应用已拉起，但尚无可区分规范预期的运行观察。",
+          "evidenceRefs": [
+            "EVID-005"
+          ]
+        },
+        "visual": {
+          "required": true,
+          "status": "not_run",
+          "summary": "没有截图、录屏、模型判定或用户明确观察，不能判定视觉成功。",
+          "evidenceRefs": []
+        }
+      },
+      "evidence": [
+        {
+          "id": "EVID-001",
+          "type": "static",
+          "path": null,
+          "sha256": "ba7699cdd50eca667fea1a0d5f839940b95bbc09f5d6a112906a887bf260f42d",
+          "capturedAt": "2026-09-14T04:07:53.902Z",
+          "summary": "场景静态规则：passed",
+          "details": {
+            "status": "passed",
+            "rules": [
+              {
+                "id": "navigation-entry",
+                "status": "passed",
+                "message": "未发现目标导航组件入口。",
+                "evidence": [
+                  {
+                    "signal": "navigation-entry",
+                    "path": "entry/src/main/ets/pages/Index.ets",
+                    "line": 170,
+                    "excerpt": ".barFloatingStyle({"
+                  },
+                  {
+                    "signal": "navigation-entry",
+                    "path": "entry/src/main/ets/pages/Index.ets",
+                    "line": 145,
+                    "excerpt": "AlphabetIndexer({ arrayValue: this.alphabets, selected: this.selectedIndex })"
+                  }
+                ]
+              },
+              {
+                "id": "tabs-material",
+                "status": "passed",
+                "message": "FloatingTabBarStyle 缺少 systemMaterial。",
+                "evidence": [
+                  {
+                    "signal": "tabs-material",
+                    "path": "entry/src/main/ets/pages/Index.ets",
+                    "line": 154,
+                    "excerpt": ".systemMaterial(new uiMaterial.ImmersiveMaterial({"
+                  }
+                ]
+              },
+              {
+                "id": "tabs-background-conflict",
+                "status": "passed",
+                "message": "Tabs 栏普通背景可能覆盖材质，需核对同一配置对象。",
+                "evidence": []
+              },
+              {
+                "id": "indexer-background-conflict",
+                "status": "passed",
+                "message": "AlphabetIndexer 弹窗背景可能覆盖材质。",
+                "evidence": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "EVID-002",
+          "type": "sdk_declaration",
+          "path": "E:/DevEco Studio/sdk/default/openharmony/ets/api/@ohos.arkui.uiMaterial.d.ts",
+          "sha256": "d609002869f80307090bc11803b91049e86ff301f46e472e72430d954a40fd30",
+          "capturedAt": "2026-09-14T04:07:53.871Z",
+          "summary": "本机 SDK 声明文件"
+        },
+        {
+          "id": "EVID-003",
+          "type": "sdk_declaration",
+          "path": "E:/DevEco Studio/sdk/default/openharmony/ets/component/common.d.ts",
+          "sha256": "2662a40432b2fa6efcfe387c3bc4bdc79ac9a993de1e415042b37a78d6315614",
+          "capturedAt": "2026-09-14T04:07:53.871Z",
+          "summary": "本机 SDK 声明文件"
+        },
+        {
+          "id": "EVID-004",
+          "type": "build_log",
+          "path": "D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\evidence\\ba4d492d-9cdb-430b-9587-0dfdf4ff99da\\build.log",
+          "sha256": "64a606447c9ad238b85d17de99f38a4a9642230bf04d086dec54b3c48941e6db",
+          "capturedAt": "2026-09-14T04:08:06.494Z",
+          "summary": "devecocli build 成功",
+          "command": "devecocli build --product default --build-mode debug",
+          "exitCode": 0,
+          "excerpt": " \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@ProcessRouterMap...  \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@ProcessShareConfig...  \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@ProcessStartupConfig... after 6 ms \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@BuildNativeWithNinja... after 2 ms \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@ProcessResource...  \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@GenerateLoaderJson...  \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@ProcessLibs...  \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@CompileResource...  \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@DoNativeStrip...  \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@CompileArkTS...  \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@BuildJS... after 9 ms \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@CacheNativeLibs...  \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@GeneratePkgModuleJson...  \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@ProcessCompiledResources... after 2 ms \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@PackageHap...  \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@PackingCheck... after 9 ms \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE :entry:default@SignHap...  \u001b[39m\n> hvigor \u001b[32mFinished :entry:default@CollectDebugSymbol... after 2 ms \u001b[39m\n> hvigor \u001b[32mFinished :entry:assembleHap... after 1 ms \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE ::MakeProjectPackInfo...  \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE ::ProcessProjectPrivacyProfile...  \u001b[39m\n> hvigor \u001b[32mUP-TO-DATE ::GeneratePackRes...  \u001b[39m\n> hvigor \u001b[32mFinished ::PackageApp... after 928 ms \u001b[39m\n> hvigor \u001b[32mFinished ::SignPackagesFromApp... after 4 ms \u001b[39m\n> hvigor \u001b[32mFinished ::SignApp... after 169 ms \u001b[39m\n> hvigor \u001b[32mFinished ::assembleApp... after 1 ms \u001b[39m\n> hvigor \u001b[32mBUILD SUCCESSFUL in 1 s 970 ms \u001b[39m\n\n42 tasks in total: 20 executed, 22 up-to-date\n\u001b[32m\nMerged central compile_commands.json for C++ language server.\u001b[39m\n\n\u001b[32mBuild completed successfully\u001b[39m\n\n\u001b[33mEnsure the project source is trustworthy before proceeding.\u001b[39m\n"
+        },
+        {
+          "id": "EVID-005",
+          "type": "device_log",
+          "path": "D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\evidence\\ba4d492d-9cdb-430b-9587-0dfdf4ff99da\\device-run.log",
+          "sha256": "955278cb2d4848540658b78c6c53d30f43ebd6aaf3aa92ef5d85492d83c69d1c",
+          "capturedAt": "2026-09-14T04:08:10.633Z",
+          "summary": "devecocli run 安装并拉起成功",
+          "command": "devecocli run --skip-build --device 7TZ0126602000513",
+          "exitCode": 0,
+          "excerpt": "$ devecocli run --skip-build --device 7TZ0126602000513\nAuto-selected module: entry\n\nInstalling artifacts to device 7TZ0126602000513...\nApp installed successfully\nLaunching com.il.1/EntryAbility...\n\u001b[32m\nApplication 'com.il.1': start ability successfully.\u001b[39m\n\n\u001b[33mEnsure the project source is trusted before proceeding.\u001b[39m\n"
+        },
+        {
+          "id": "EVID-006",
+          "type": "device_log",
+          "path": "D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\evidence\\ba4d492d-9cdb-430b-9587-0dfdf4ff99da\\nav-N1.log",
+          "sha256": "da47d3d5bf7ef6d8e2ec6df8404ee7df63fad1ff80124a1a59e5d56f793cbece",
+          "capturedAt": "2026-09-14T04:08:17.679Z",
+          "summary": "导航步骤 N1：坐标滑动。",
+          "command": "devecocli ui swipe --device 7TZ0126602000513 900 1200 200 1200",
+          "exitCode": 0,
+          "excerpt": "$ devecocli ui swipe --device 7TZ0126602000513 900 1200 200 1200\n- Executing swipe...\n\u001b[32m√\u001b[39m swipe from (900, 1200) to (200, 1200)\n"
+        },
+        {
+          "id": "EVID-007",
+          "type": "device_log",
+          "path": "D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\evidence\\ba4d492d-9cdb-430b-9587-0dfdf4ff99da\\nav-N3.log",
+          "sha256": "aa7654e8d15765ad89fbf43ce81300f57177cdd5ba05044ca52a332ce0f77863",
+          "capturedAt": "2026-09-14T04:08:23.886Z",
+          "summary": "导航步骤 N3：坐标滑动。",
+          "command": "devecocli ui swipe --device 7TZ0126602000513 1104 1238 1104 1240",
+          "exitCode": 0,
+          "excerpt": "$ devecocli ui swipe --device 7TZ0126602000513 1104 1238 1104 1240\n- Executing swipe...\n\u001b[32m√\u001b[39m swipe from (1104, 1238) to (1104, 1240)\n"
+        },
+        {
+          "id": "EVID-008",
+          "type": "device_log",
+          "path": null,
+          "sha256": "99cbb10bf859fdcc49cc9f682f0ee3ff39fca0ff4e99516182b0e9f67b030b41",
+          "capturedAt": "2026-09-14T04:08:24.393Z",
+          "summary": "导航编排：passed",
+          "details": {
+            "status": "passed",
+            "targetDescription": "等待应用就绪后横滑切换到联系人页签，坐标点击字母索引条触发提示弹窗",
+            "executedSteps": [
+              {
+                "stepId": "N0",
+                "action": "wait",
+                "status": "passed",
+                "detail": "等待 3000ms。"
+              },
+              {
+                "stepId": "N1",
+                "action": "swipe",
+                "status": "passed",
+                "evidenceId": "EVID-006",
+                "expectPage": "Alice",
+                "expectPageMatched": true
+              },
+              {
+                "stepId": "N2",
+                "action": "wait",
+                "status": "passed",
+                "detail": "等待 800ms。"
+              },
+              {
+                "stepId": "N3",
+                "action": "swipe",
+                "status": "passed",
+                "evidenceId": "EVID-007"
+              },
+              {
+                "stepId": "N4",
+                "action": "wait",
+                "status": "passed",
+                "detail": "等待 500ms。"
+              }
+            ],
+            "failure": null
+          }
+        },
+        {
+          "id": "EVID-009",
+          "type": "screenshot",
+          "path": "D:\\HW\\testproject\\complete\\1.1\\ohos-feature-engineering\\evidence\\images\\1ac383b9d38d8f1eea23c87f6cdf5f7fd8d198ae7465e565596a5f20da898e79.png",
+          "sha256": "1ac383b9d38d8f1eea23c87f6cdf5f7fd8d198ae7465e565596a5f20da898e79",
+          "capturedAt": "2026-09-14T04:08:28.423Z",
+          "summary": "设备屏幕截图（devecocli ui screenshot）。"
+        }
+      ],
+      "pendingVerifications": [
+        {
+          "id": "PENDING-001",
+          "level": "runtime",
+          "reason": "应用已拉起，但尚无可区分规范预期的运行观察。",
+          "required": true
+        },
+        {
+          "id": "PENDING-002",
+          "level": "visual",
+          "reason": "没有截图、录屏、模型判定或用户明确观察，不能判定视觉成功。",
+          "required": true
+        }
+      ],
+      "verdict": {
+        "status": "inconclusive",
+        "summary": "已执行的证据不足以区分规范预期或确认必需层。",
+        "matchedCriteriaRefs": []
+      }
+    }
+  ]
+}

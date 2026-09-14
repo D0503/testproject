@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "targetDescription": "启动应用，等待广告结束后进入主页（MainEntry 底部页签）",
+  "steps": [
+    { "stepId": "N1", "action": "launch", "target": "kdwl.1.xxxxxx/EntryAbility" },
+    { "stepId": "N2", "action": "wait", "timeoutMs": 12000 },
+    { "stepId": "N3", "action": "wait", "timeoutMs": 8000, "expectPage": "首页" }
+  ]
+}

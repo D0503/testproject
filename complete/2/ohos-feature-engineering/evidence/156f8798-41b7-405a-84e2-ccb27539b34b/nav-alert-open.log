@@ -1,0 +1,3 @@
+$ devecocli ui click --device 127.0.0.1:5555 628 2342
+- Executing click...
+[32m✔[39m click at (628, 2342)

@@ -1,0 +1,410 @@
+[
+  {
+    "bounds": [
+      0,
+      0,
+      1256,
+      2760
+    ],
+    "children": [
+      {
+        "type": "root",
+        "bounds": [
+          0,
+          137,
+          1256,
+          2760
+        ],
+        "children": [
+          {
+            "type": "Column",
+            "bounds": [
+              0,
+              137,
+              1256,
+              2662
+            ],
+            "children": [
+              {
+                "type": "Navigation",
+                "bounds": [
+                  0,
+                  137,
+                  1256,
+                  2760
+                ],
+                "children": [
+                  {
+                    "type": "NavBar",
+                    "bounds": [
+                      0,
+                      137,
+                      1256,
+                      2760
+                    ],
+                    "children": [
+                      {
+                        "type": "TitleBar",
+                        "bounds": [
+                          0,
+                          137,
+                          1256,
+                          528
+                        ],
+                        "children": [
+                          {
+                            "type": "Column",
+                            "bounds": [
+                              0,
+                              332,
+                              1256,
+                              528
+                            ],
+                            "children": [
+                              {
+                                "type": "Text",
+                                "text": "A · 标题栏内 Button（生效范围内，预期材质生效）",
+                                "bounds": [
+                                  144,
+                                  360,
+                                  1113,
+                                  409
+                                ],
+                                "children": []
+                              },
+                              {
+                                "type": "Row",
+                                "bounds": [
+                                  131,
+                                  437,
+                                  1125,
+                                  528
+                                ],
+                                "children": [
+                                  {
+                                    "id": "btnTitlePlain",
+                                    "type": "Button",
+                                    "text": "A1 纯材质 0",
+                                    "bounds": [
+                                      131,
+                                      437,
+                                      607,
+                                      528
+                                    ],
+                                    "clickable": true,
+                                    "children": []
+                                  },
+                                  {
+                                    "id": "btnTitleLight",
+                                    "type": "Button",
+                                    "text": "A2 流光 0",
+                                    "bounds": [
+                                      649,
+                                      437,
+                                      1125,
+                                      528
+                                    ],
+                                    "clickable": true,
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "NavBarContent",
+                        "bounds": [
+                          0,
+                          137,
+                          1256,
+                          2760
+                        ],
+                        "children": [
+                          {
+                            "type": "Scroll",
+                            "bounds": [
+                              0,
+                              137,
+                              1256,
+                              2662
+                            ],
+                            "children": [
+                              {
+                                "type": "Column",
+                                "bounds": [
+                                  0,
+                                  186,
+                                  1256,
+                                  2613
+                                ],
+                                "children": [
+                                  {
+                                    "type": "Column",
+                                    "bounds": [
+                                      56,
+                                      242,
+                                      1200,
+                                      850
+                                    ],
+                                    "children": [
+                                      {
+                                        "type": "Text",
+                                        "text": "验证目标：Button 沉浸光感生效区域是否具有限制",
+                                        "bounds": [
+                                          105,
+                                          291,
+                                          1147,
+                                          423
+                                        ],
+                                        "children": []
+                                      },
+                                      {
+                                        "type": "Text",
+                                        "text": "设备支持沉浸材质: true",
+                                        "bounds": [
+                                          105,
+                                          444,
+                                          542,
+                                          493
+                                        ],
+                                        "children": []
+                                      },
+                                      {
+                                        "type": "Text",
+                                        "text": "全局材质等级: SMOOTH(低算力)",
+                                        "bounds": [
+                                          105,
+                                          514,
+                                          713,
+                                          563
+                                        ],
+                                        "children": []
+                                      },
+                                      {
+                                        "type": "Text",
+                                        "text": "官网清单：Slider/Toggle/Select 可全页面生效；Button 未列入该清单",
+                                        "bounds": [
+                                          105,
+                                          584,
+                                          1149,
+                                          682
+                                        ],
+                                        "children": []
+                                      },
+                                      {
+                                        "type": "Text",
+                                        "text": "观察点：内容区组件受限时 hilog 出现 Material inactive: out of scope",
+                                        "bounds": [
+                                          105,
+                                          703,
+                                          1151,
+                                          801
+                                        ],
+                                        "children": []
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "Column",
+                                    "bounds": [
+                                      56,
+                                      906,
+                                      1200,
+                                      1389
+                                    ],
+                                    "children": [
+                                      {
+                                        "type": "Text",
+                                        "text": "B · 内容区 Button（清单字面：生效范围外）",
+                                        "bounds": [
+                                          105,
+                                          955,
+                                          1101,
+                                          1012
+                                        ],
+                                        "children": []
+                                      },
+                                      {
+                                        "id": "btnContent",
+                                        "type": "Button",
+                                        "text": "B 内容区Button 1",
+                                        "bounds": [
+                                          105,
+                                          1047,
+                                          805,
+                                          1215
+                                        ],
+                                        "clickable": true,
+                                        "children": []
+                                      },
+                                      {
+                                        "type": "Text",
+                                        "text": "预期分歧：按清单字面不生效并打印 out of scope 日志；按组件章入口侧则生效。以本页实测裁决。",
+                                        "bounds": [
+                                          105,
+                                          1250,
+                                          1116,
+                                          1340
+                                        ],
+                                        "children": []
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "Column",
+                                    "bounds": [
+                                      56,
+                                      1445,
+                                      1200,
+                                      2013
+                                    ],
+                                    "children": [
+                                      {
+                                        "type": "Text",
+                                        "text": "C · 清单内对照组（Slider/Toggle/Select，预期全页面生效）",
+                                        "bounds": [
+                                          105,
+                                          1494,
+                                          1104,
+                                          1608
+                                        ],
+                                        "children": []
+                                      },
+                                      {
+                                        "type": "Row",
+                                        "bounds": [
+                                          105,
+                                          1643,
+                                          894,
+                                          1783
+                                        ],
+                                        "children": [
+                                          {
+                                            "id": "sliderContent",
+                                            "type": "Slider",
+                                            "text": "40.000000",
+                                            "bounds": [
+                                              105,
+                                              1643,
+                                              700,
+                                              1783
+                                            ],
+                                            "clickable": true,
+                                            "scrollable": true,
+                                            "children": []
+                                          },
+                                          {
+                                            "id": "toggleSwitch",
+                                            "type": "Toggle",
+                                            "bounds": [
+                                              762,
+                                              1678,
+                                              888,
+                                              1748
+                                            ],
+                                            "clickable": true,
+                                            "checkable": true,
+                                            "children": []
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "Row",
+                                        "bounds": [
+                                          105,
+                                          1818,
+                                          1151,
+                                          1964
+                                        ],
+                                        "children": [
+                                          {
+                                            "id": "selectContent",
+                                            "type": "Select",
+                                            "text": "选项一",
+                                            "bounds": [
+                                              105,
+                                              1818,
+                                              630,
+                                              1964
+                                            ],
+                                            "clickable": true,
+                                            "children": []
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "Column",
+                                    "bounds": [
+                                      56,
+                                      2069,
+                                      1200,
+                                      2557
+                                    ],
+                                    "children": [
+                                      {
+                                        "type": "Text",
+                                        "text": "判定说明",
+                                        "bounds": [
+                                          105,
+                                          2118,
+                                          302,
+                                          2175
+                                        ],
+                                        "children": []
+                                      },
+                                      {
+                                        "type": "Text",
+                                        "text": "1. A 组与 B 组 Button 使用同一材质对象与尺寸，仅位置不同（标题栏 vs 内容区）。",
+                                        "bounds": [
+                                          105,
+                                          2196,
+                                          1137,
+                                          2286
+                                        ],
+                                        "children": []
+                                      },
+                                      {
+                                        "type": "Text",
+                                        "text": "2. 探针未设置 buttonStyle/backgroundColor；材质生效后背景恢复透明，可作生效信号。",
+                                        "bounds": [
+                                          105,
+                                          2307,
+                                          1143,
+                                          2397
+                                        ],
+                                        "children": []
+                                      },
+                                      {
+                                        "type": "Text",
+                                        "text": "3. C 组为清单内组件对照：若 C 生效而 B 不生效并伴随 out of scope 日志，则 Button 生效区域受限成立。",
+                                        "bounds": [
+                                          105,
+                                          2418,
+                                          1124,
+                                          2508
+                                        ],
+                                        "children": []
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

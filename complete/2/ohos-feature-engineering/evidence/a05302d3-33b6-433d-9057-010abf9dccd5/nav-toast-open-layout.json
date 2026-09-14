@@ -1,0 +1,424 @@
+[
+  {
+    "bounds": [
+      0,
+      0,
+      1256,
+      2760
+    ],
+    "children": [
+      {
+        "id": "session11",
+        "type": "WindowScene",
+        "bounds": [
+          0,
+          137,
+          1256,
+          2760
+        ],
+        "children": [
+          {
+            "id": "SCBDesktop_Image_container",
+            "type": "EffectComponent",
+            "bounds": [
+              0,
+              137,
+              1256,
+              2760
+            ],
+            "children": [
+              {
+                "id": "SCBDesktop_Flex_Desktop",
+                "type": "Flex",
+                "bounds": [
+                  0,
+                  137,
+                  1256,
+                  2760
+                ],
+                "clickable": true,
+                "longClickable": true,
+                "children": [
+                  {
+                    "id": "SCBDesktop_Column_PageDesktopLayout",
+                    "type": "Column",
+                    "bounds": [
+                      0,
+                      137,
+                      1256,
+                      2382
+                    ],
+                    "children": [
+                      {
+                        "type": "__Common__",
+                        "bounds": [
+                          0,
+                          137,
+                          1256,
+                          2382
+                        ],
+                        "longClickable": true,
+                        "children": [
+                          {
+                            "id": "GridSwiper_stack_snap",
+                            "type": "Stack",
+                            "bounds": [
+                              0,
+                              137,
+                              1256,
+                              2382
+                            ],
+                            "children": [
+                              {
+                                "id": "GridSwiper_Stack_Swiper",
+                                "type": "Swiper",
+                                "bounds": [
+                                  0,
+                                  137,
+                                  1256,
+                                  2382
+                                ],
+                                "scrollable": true,
+                                "children": [
+                                  {
+                                    "id": "SwiperPage_Grid_WorkSpace_1",
+                                    "type": "Grid",
+                                    "bounds": [
+                                      30,
+                                      230,
+                                      1226,
+                                      2204
+                                    ],
+                                    "children": [
+                                      {
+                                        "id": "SwiperPage_GridItem_[com.ohos.contacts___218103811___0,1]",
+                                        "type": "GridItem",
+                                        "bounds": [
+                                          30,
+                                          230,
+                                          329,
+                                          559
+                                        ],
+                                        "longClickable": true,
+                                        "children": [
+                                          {
+                                            "id": "Container_AppIcon_Image_com.ohos.contactscom.ohos.contacts.EntryAbilityentry0_undefined_0",
+                                            "type": "RelativeContainer",
+                                            "bounds": [
+                                              30,
+                                              230,
+                                              329,
+                                              559
+                                            ],
+                                            "clickable": true,
+                                            "children": [
+                                              {
+                                                "id": "AppIcon_Image_com.ohos.contactscom.ohos.contacts.EntryAbilityentry0_undefined_0",
+                                                "type": "Image",
+                                                "bounds": [
+                                                  88,
+                                                  260,
+                                                  270,
+                                                  442
+                                                ],
+                                                "clickable": true,
+                                                "longClickable": true,
+                                                "children": []
+                                              },
+                                              {
+                                                "id": "ea497f03-ed5d-4883-bb7f-1f24f9ef0c7f",
+                                                "type": "Text",
+                                                "text": "联系人",
+                                                "bounds": [
+                                                  102,
+                                                  454,
+                                                  257,
+                                                  504
+                                                ],
+                                                "children": []
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "id": "SwiperPage_GridItem_[com.example.app___16777219___0,1]",
+                                        "type": "GridItem",
+                                        "bounds": [
+                                          628,
+                                          230,
+                                          927,
+                                          559
+                                        ],
+                                        "longClickable": true,
+                                        "children": [
+                                          {
+                                            "id": "Container_AppIcon_Image_com.example.appEntryAbilityentry0_undefined_0",
+                                            "type": "RelativeContainer",
+                                            "bounds": [
+                                              628,
+                                              230,
+                                              927,
+                                              559
+                                            ],
+                                            "clickable": true,
+                                            "children": [
+                                              {
+                                                "id": "AppIcon_Image_com.example.appEntryAbilityentry0_undefined_0",
+                                                "type": "Image",
+                                                "bounds": [
+                                                  686,
+                                                  260,
+                                                  868,
+                                                  442
+                                                ],
+                                                "clickable": true,
+                                                "longClickable": true,
+                                                "children": []
+                                              },
+                                              {
+                                                "id": "f1a0ba11-0b09-496f-b313-775090f534df",
+                                                "type": "Text",
+                                                "text": "label",
+                                                "bounds": [
+                                                  717,
+                                                  454,
+                                                  837,
+                                                  504
+                                                ],
+                                                "children": []
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "id": "SwiperPage_GridItem_[kdwl.1.xxxxxx___201326598___0,1]",
+                                        "type": "GridItem",
+                                        "bounds": [
+                                          329,
+                                          230,
+                                          628,
+                                          559
+                                        ],
+                                        "longClickable": true,
+                                        "children": [
+                                          {
+                                            "id": "Container_AppIcon_Image_kdwl.1.xxxxxxEntryAbilityentry0_undefined_0",
+                                            "type": "RelativeContainer",
+                                            "bounds": [
+                                              329,
+                                              230,
+                                              628,
+                                              559
+                                            ],
+                                            "clickable": true,
+                                            "children": [
+                                              {
+                                                "id": "AppIcon_Image_kdwl.1.xxxxxxEntryAbilityentry0_undefined_0",
+                                                "type": "Image",
+                                                "bounds": [
+                                                  387,
+                                                  260,
+                                                  569,
+                                                  442
+                                                ],
+                                                "clickable": true,
+                                                "longClickable": true,
+                                                "children": []
+                                              },
+                                              {
+                                                "id": "833ee455-4d39-49a6-845c-a26dcf2634b9",
+                                                "type": "Text",
+                                                "text": "快递模板",
+                                                "bounds": [
+                                                  380,
+                                                  454,
+                                                  577,
+                                                  504
+                                                ],
+                                                "children": []
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "id": "SwiperIndicator_indicator",
+                                "type": "Stack",
+                                "bounds": [
+                                  569,
+                                  2286,
+                                  688,
+                                  2314
+                                ],
+                                "children": [
+                                  {
+                                    "id": "SwiperIndicator_ic_negative_screen_indicator",
+                                    "type": "Image",
+                                    "bounds": [
+                                      569,
+                                      2286,
+                                      590,
+                                      2314
+                                    ],
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "SCBDesktop_Column_smartDock",
+                    "type": "Column",
+                    "bounds": [
+                      0,
+                      2382,
+                      1256,
+                      2760
+                    ],
+                    "longClickable": true,
+                    "children": [
+                      {
+                        "id": "ResidentLayout",
+                        "type": "Stack",
+                        "bounds": [
+                          0,
+                          2382,
+                          1256,
+                          2648
+                        ],
+                        "children": [
+                          {
+                            "id": "SmartDock_V_ResidentLayout_Rect_placeholder",
+                            "type": "Column",
+                            "bounds": [
+                              537,
+                              2424,
+                              719,
+                              2606
+                            ],
+                            "hitTestBehavior": "None",
+                            "children": []
+                          },
+                          {
+                            "id": "ResidentLayout_AppItem_com.ohos.contactscom.ohos.contacts.MainAbility_Wrap",
+                            "type": "ListItem",
+                            "bounds": [
+                              387,
+                              2424,
+                              569,
+                              2606
+                            ],
+                            "children": [
+                              {
+                                "id": "ResidentLayout_AppItem_com.ohos.contactscom.ohos.contacts.MainAbility",
+                                "type": "ListItem",
+                                "bounds": [
+                                  387,
+                                  2424,
+                                  569,
+                                  2606
+                                ],
+                                "children": [
+                                  {
+                                    "id": "Container_AppIcon_Image_com.ohos.contactscom.ohos.contacts.MainAbilityentry0_undefined_1",
+                                    "type": "RelativeContainer",
+                                    "bounds": [
+                                      387,
+                                      2424,
+                                      569,
+                                      2606
+                                    ],
+                                    "clickable": true,
+                                    "children": [
+                                      {
+                                        "id": "AppIcon_Image_com.ohos.contactscom.ohos.contacts.MainAbilityentry0_undefined_1",
+                                        "type": "Image",
+                                        "bounds": [
+                                          387,
+                                          2424,
+                                          569,
+                                          2606
+                                        ],
+                                        "clickable": true,
+                                        "longClickable": true,
+                                        "children": []
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "id": "ResidentLayout_AppItem_com.huawei.hmos.browser_Wrap",
+                            "type": "ListItem",
+                            "bounds": [
+                              686,
+                              2424,
+                              868,
+                              2606
+                            ],
+                            "children": [
+                              {
+                                "id": "ResidentLayout_AppItem_com.huawei.hmos.browser",
+                                "type": "ListItem",
+                                "bounds": [
+                                  686,
+                                  2424,
+                                  868,
+                                  2606
+                                ],
+                                "children": [
+                                  {
+                                    "id": "Container_AppIcon_Image_com.huawei.hmos.browserMainAbilityentry0_undefined_1",
+                                    "type": "RelativeContainer",
+                                    "bounds": [
+                                      686,
+                                      2424,
+                                      868,
+                                      2606
+                                    ],
+                                    "clickable": true,
+                                    "children": [
+                                      {
+                                        "id": "AppIcon_Image_com.huawei.hmos.browserMainAbilityentry0_undefined_1",
+                                        "type": "Image",
+                                        "bounds": [
+                                          686,
+                                          2424,
+                                          868,
+                                          2606
+                                        ],
+                                        "clickable": true,
+                                        "longClickable": true,
+                                        "children": []
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

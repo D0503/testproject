@@ -7,6 +7,7 @@
 - **结论范围**：仅覆盖本文记录的文档版本、代码版本、设备和验证点。
 - **填写方式**：验证点为待核对清单，按实际判据补充或拆分；对比实验合并为一条验证点，在同一条内记录各配置的结果。
 - **历史报告**：原自动验证结果按实际覆盖范围引用；模拟器截图不作为本次真机视觉通过证据。
+- **官网修复跟踪**：问题发现日期按 2026-09-10 记录；官网更新日期为 2026-09-14；修复状态记录更新日期为 2026-09-15。原实测结果与官网修复状态分别保留，官网已修复不等同于真机复测通过。
 
 | 状态 | 含义 |
 |---|---|
@@ -22,7 +23,7 @@
 
 | 编号 | 工程目录 | Demo 名称 | 已通过 / 适用验证点数 | 实现符合性 | 真机效果一致性 | 明细 |
 |---|---|---|---|---|---|---|
-| D01 | `1/` | 底部页签与索引条沉浸光感 | 1 / 4（2 项不通过、1 项无法判定） | 当前核心配置符合，变体待核对 | 默认参数与 THIN 存在差异；索引条显式 THIN 无效果 | [详情](#d01) |
+| D01 | `1/` | 底部页签与索引条沉浸光感 | 原实测 1 / 4（2 项不通过、1 项无法判定） | 当前核心配置符合，变体待核对 | D01-02 官网 2026-09-14 已修复，待复测；其余问题修复状态待核实 | [详情](#d01) |
 | D02 | `2/` | 弹窗类组件沉浸光感 | 待统计 | 待核对 | 待验证 | [详情](#d02) |
 | D03 | `3/` | 按钮与选择类组件沉浸光感 | 待统计 | 待核对 | 待验证 | [详情](#d03) |
 | D04 | `4/` | Button 沉浸光感生效区域 | 待统计 | 待核对 | 待验证 | [详情](#d04) |
@@ -74,19 +75,31 @@
 
 **D01-02：索引提示弹窗 systemMaterial THIN / 背景模糊对比**
 
-验证操作：全局沉浸光感开关设为 ENABLE，进入联系人页并触发索引提示弹窗。第一组显式配置 `.systemMaterial(new uiMaterial.ImmersiveMaterial({ style: uiMaterial.ImmersiveStyle.THIN }))`；第二组配置 `.popupBackgroundBlurStyle(BlurStyle.BlurStyle.NONE)`，对比两组效果。
+问题发现日期：2026-09-10。
+
+官网修复状态：**官网 2026-09-14 已修复（用户确认）**；修复后的真机复测结果待补充。
+
+状态记录日期：2026-09-15。
+
+验证操作：全局沉浸光感开关设为 ENABLE，进入联系人页并触发索引提示弹窗。第一组显式配置 `.systemMaterial(new uiMaterial.ImmersiveMaterial({ style: uiMaterial.ImmersiveStyle.THIN }))`；第二组配置 `.popupBackgroundBlurStyle(BlurStyle.NONE)`，对比两组效果。
 
 文档预期：根据[组件适配沉浸光感：索引条（AlphabetIndexer）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation)，应用级开关为 ENABLE 时，索引条默认开启沉浸光感，默认材质为 THICK；也可通过 systemMaterial 主动设置沉浸光感效果。popupBackground、popupBackgroundBlurStyle 与沉浸光感互斥，主动设置后不再显示沉浸光感效果。
 
 真机结果：第一张图显式设置 systemMaterial 为 THIN，但实测没有沉浸光感效果，仅显示浅色提示弹窗背板；第二张图设置 popupBackgroundBlurStyle 为 BlurStyle.NONE 后，实测有效果，弹窗周围的明暗过渡更明显。两组测试的全局开关均已开启。
 
-验证状态：**不通过（按实测记录，systemMaterial THIN 未呈现预期效果）**。第二组有效果，但背景模糊本身也会产生视觉变化，是否属于沉浸光感仍需区分；该现象记录为疑似文档或实现差异。
+原实测状态：**不通过（按实测记录，systemMaterial THIN 未呈现预期效果）**。第二组有效果，但背景模糊本身也会产生视觉变化，是否属于沉浸光感仍需区分；该现象记录为疑似文档或实现差异。
 
 | systemMaterial：THIN，全局 ENABLE，无效果 | popupBackgroundBlurStyle：BlurStyle.NONE，全局 ENABLE，有效果 |
 | :---: | :---: |
 | <img src="screenshots/1/AlphabetIndexer_popup.png" alt="systemMaterial THIN 实测无沉浸光感效果" width="240" height="520" style="object-fit: contain;"> | <img src="screenshots/1/AlphabetIndexer_popup_bgblur.png" alt="BlurStyle.NONE 背景模糊配置实测有效果" width="240" height="520" style="object-fit: contain;"> |
 
 **D01-03：全局 DISABLE / ENABLE / DEFAULT 对比**
+
+问题发现日期：2026-09-10。
+
+官网修复状态：待核实（官网 2026-09-14 更新后尚未确认是否修复）。
+
+状态记录日期：2026-09-15。
 
 验证操作：保持底部页签配置不变，分别将应用级沉浸光感配置设为 DISABLE、ENABLE、DEFAULT，观察底部页签效果。
 
@@ -101,6 +114,12 @@
 | ![全局 DISABLE 下的底部页签](screenshots/1/disable.png) | ![全局 ENABLE 下的底部页签](screenshots/1/enable.png) | ![全局 DEFAULT 下的底部页签](screenshots/1/default.png) |
 
 **D01-04：默认参数 / THIN / ULTRA_THIN 对比**
+
+问题发现日期：2026-09-10。
+
+官网修复状态：待核实（官网 2026-09-14 更新后尚未确认是否修复）。
+
+状态记录日期：2026-09-15。
 
 验证操作：分别使用 barFloatingStyle 默认参数、显式 THIN、显式 ULTRA_THIN，观察青色与橙色内容交界处的材质效果。
 
@@ -121,7 +140,7 @@
 | 代码实现是否符合开发指南 | 当前代码的底部页签核心配置符合；各实测变体待补充核对 | [Index.ets](1/entry/src/main/ets/pages/Index.ets) 使用 BarPosition.End、barOverlap(true)、barFloatingStyle.systemMaterial 显式 THIN；vertical 未设置，沿用默认值。当前代码不能代表所有截图对应变体。 |
 | 底部页签能否实现沉浸光感 | 通过 | 用户实测与 E01–E03 支持底部页签材质生效。 |
 | 全局开关影响 | 三种已测取值效果基本一致且均开启 | 用户实测认为本场景由 barFloatingStyle 配置决定开启。结论限于本次 DISABLE、ENABLE、DEFAULT 及已测组件配置，不扩展到所有参数组合。 |
-| 索引提示弹窗是否符合文档 | 不通过，存在疑似差异 | 全局 ENABLE 下，显式 systemMaterial THIN 实测无效果，BACKGROUND_THIN 背景模糊配置实测有效果；后者是否属于沉浸光感需区分。 |
+| 索引提示弹窗是否符合文档 | 原实测不通过；官网 2026-09-14 已修复 | 用户确认官网已修复。原实测为全局 ENABLE 下 systemMaterial THIN 无效果、popupBackgroundBlurStyle(BlurStyle.NONE) 有效果；修复后的真机复测结果待补充。 |
 | 默认材质是否符合文档 | 不通过，存在疑似冲突 | 用户实测默认参数效果与显式 THIN 不一致，与“默认取值为 THIN”的描述存在差异。 |
 | 未覆盖项及结论限制 | 待补充 | 完整系统版本、各配置代码及安装包标识未提供；默认参数对比截图的裁剪与背景相对位置存在差异。未设置 barFloatingStyle 的对照结果尚未提供。 |
 

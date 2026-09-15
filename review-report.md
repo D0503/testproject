@@ -22,6 +22,10 @@
 
 ### DOC-001 · 应用级 disable 的作用范围在同一文档内直接矛盾
 
+- 发现日期：2026-09-10
+- 官网修复状态：已修复（官网 2026-09-14 更新）
+- 状态记录日期：2026-09-15
+
 - 维度：`consistency`
 - 状态 / 严重度 / 置信度：`confirmed` / `High` / `certain`
 - 位置：[arkts-immersive-light-sense-enable · 沉浸光感开启方式对比（行 43）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable)
@@ -44,6 +48,10 @@
 
 ### DOC-002 · '按钮与选择类组件'分类成员集与全页面生效枚举跨文档不一致
 
+- 发现日期：2026-09-10
+- 官网修复状态：待核实（官网 2026-09-14 更新后尚未确认是否修复）
+- 状态记录日期：2026-09-15
+
 - 维度：`consistency`
 - 状态 / 严重度 / 置信度：`ambiguous` / `High` / `high`
 - 位置：[arkts-immersive-light-sense-component-adaptation · 按钮与选择类组件（行 106）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation)
@@ -57,6 +65,10 @@
 建议：统一两处口径——在组件适配指南 Button、ChipGroup、SegmentButton 小节显式补充生效区域说明（如'生效区域同其余组件，仅 Navigation/NavDestination 标题栏或 BarPosition.End 底部 TabBar'），或将开启指南等五处枚举改为与六成员分类一致（以官方实际行为为准）；并避免两页复用同一类目名表达不同成员集。
 
 ### DOC-003 · 典型场景示例 materialColor 传入纯不透明颜色，违反赋色规则
+
+- 发现日期：2026-09-10
+- 官网修复状态：待核实（官网 2026-09-14 更新后尚未确认是否修复）
+- 状态记录日期：2026-09-15
 
 - 维度：`technical_correctness`
 - 状态 / 严重度 / 置信度：`confirmed` / `High` / `high`
@@ -74,6 +86,10 @@
 
 ### DOC-004 · DEFAULT 模式下'组件默认开启沉浸光感'的范围表述歧义
 
+- 发现日期：2026-09-10
+- 官网修复状态：待核实（官网 2026-09-14 更新后尚未确认是否修复）
+- 状态记录日期：2026-09-15
+
 - 维度：`consistency`
 - 状态 / 严重度 / 置信度：`ambiguous` / `Medium` / `high`
 - 位置：[arkts-immersive-light-sense-enable · 沉浸光感开启方式对比（行 19）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable)
@@ -87,6 +103,10 @@
 建议：在开启指南第 19 行补充组件范围限定，与 MaterialState.DEFAULT 枚举说明对齐，例如：'…组件默认开启沉浸光感（默认开启的组件清单详见 MaterialState.DEFAULT 说明，如 Dialog、Toast、AlphabetIndexer 等；Navigation 标题栏等其他组件仍需主动设置或配置 ENABLE 模式）'。
 
 ### DOC-005 · 材质与背景色的层级关系表述在 FAQ 与 API 参考/示例之间不一致
+
+- 发现日期：2026-09-10
+- 官网修复状态：待核实（官网 2026-09-14 更新后尚未确认是否修复）
+- 状态记录日期：2026-09-15
 
 - 维度：`context_clarity`
 - 状态 / 严重度 / 置信度：`ambiguous` / `Medium` / `high`
@@ -102,6 +122,10 @@
 
 ### DOC-006 · 索引条'组件开启沉浸光感'引文指向互斥的 popupBackgroundBlurStyle 示例
 
+- 发现日期：2026-09-10
+- 官网修复状态：已修复（官网 2026-09-14 更新，用户确认）
+- 状态记录日期：2026-09-15
+
 - 维度：`consistency`
 - 状态 / 严重度 / 置信度：`confirmed` / `Medium` / `certain`
 - 位置：[arkts-immersive-light-sense-component-adaptation · 索引条（AlphabetIndexer）（行 51）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation)
@@ -115,6 +139,10 @@
 建议：将第 51 行引文替换为不设置 popupBackground/popupBackgroundBlurStyle（应用级 ENABLE 模式下默认 THICK）或通过通用属性 systemMaterial 开启沉浸光感的示例；若暂无此类示例，应删除该引文并显式提示'示例3演示的是与沉浸光感互斥的背景模糊材质效果，开启沉浸光感时不应调用该参数'。
 
 ### DOC-007 · lightEffect 省略时的行为表述不一致
+
+- 发现日期：2026-09-10
+- 官网修复状态：待核实（官网 2026-09-14 更新后尚未确认是否修复）
+- 状态记录日期：2026-09-15
 
 - 维度：`consistency`
 - 状态 / 严重度 / 置信度：`ambiguous` / `Low` / `high`
@@ -130,6 +158,10 @@
 
 ### DOC-008 · empty 关闭材质的模式覆盖范围说明不一致
 
+- 发现日期：2026-09-10
+- 官网修复状态：待核实（官网 2026-09-14 更新后尚未确认是否修复）
+- 状态记录日期：2026-09-15
+
 - 维度：`completeness`
 - 状态 / 严重度 / 置信度：`editorial` / `Low` / `high`
 - 位置：[arkts-apis-uimaterial · empty（行 69）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial)
@@ -143,6 +175,10 @@
 建议：将 API 参考 empty 条目的模式说明扩展为与指南一致：'可通过设置 systemMaterial(uiMaterial.Material.empty) 单独关闭组件的沉浸式系统材质效果（含 ENABLE 模式下默认开启的组件，以及 DEFAULT 模式下默认开启的弹窗类组件）'。
 
 ### DOC-009 · 典型场景示例代码块缺少 import 与完整变量上下文
+
+- 发现日期：2026-09-10
+- 官网修复状态：待核实（官网 2026-09-14 更新后尚未确认是否修复）
+- 状态记录日期：2026-09-15
 
 - 维度：`developer_usability`
 - 状态 / 严重度 / 置信度：`editorial` / `Low` / `certain`
@@ -158,6 +194,10 @@
 
 ### DOC-010 · 示例代码存在少量格式瑕疵
 
+- 发现日期：2026-09-10
+- 官网修复状态：待核实（官网 2026-09-14 更新后尚未确认是否修复）
+- 状态记录日期：2026-09-15
+
 - 维度：`developer_usability`
 - 状态 / 严重度 / 置信度：`editorial` / `Suggestion` / `certain`
 - 位置：[arkts-immersive-light-sample · 搜索框标题栏效果（行 30）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sample)
@@ -171,6 +211,10 @@
 建议：统一示例缩进并为代码围栏补充 arkts 语言标注。
 
 ### DOC-011 · 术语大小写不统一与循环表述
+
+- 发现日期：2026-09-10
+- 官网修复状态：待核实（官网 2026-09-14 更新后尚未确认是否修复）
+- 状态记录日期：2026-09-15
 
 - 维度：`developer_usability`
 - 状态 / 严重度 / 置信度：`editorial` / `Suggestion` / `high`

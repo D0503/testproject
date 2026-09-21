@@ -87,13 +87,14 @@ export struct BookHomePage {
       .vertical(this.isTablet)
       .barOverlap(!this.isTablet)
       .barFloatingStyle(this.isTablet ? undefined : {
+        // barWidth: {smallWidth: 328},
         systemMaterialEffect: {
           materialType: hdsMaterial.MaterialType.ADAPTIVE,
           materialLevel: hdsMaterial.MaterialLevel.ADAPTIVE
         }
       })
       .barWidth(this.isTablet ? 96 : '100%')
-      .barHeight(this.isDeleteShelf ? 0 : 'auto')
+      .barHeight('auto')
       .onAnimationStart((targetIndex: number) => {
         this.currentIndexTab = targetIndex;
       })

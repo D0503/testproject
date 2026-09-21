@@ -1,6 +1,20 @@
 {
   "app": {
-    "signingConfigs": [],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/ming/.ohos/config/default_ImmersiveLightDemo_n8W1HIgRKICHkK-rxvEj54WNh9PtnBi5VDnQw6NvRKI=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001A57E826B76D15D76C0C2BEE4574B43AC1EBC9F8EC0BFD365ED67C1D30E2B6C8C708902FF7FC60",
+          "profile": "/Users/ming/.ohos/config/default_ImmersiveLightDemo_n8W1HIgRKICHkK-rxvEj54WNh9PtnBi5VDnQw6NvRKI=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/ming/.ohos/config/default_ImmersiveLightDemo_n8W1HIgRKICHkK-rxvEj54WNh9PtnBi5VDnQw6NvRKI=.p12",
+          "storePassword": "0000001A89B9A8D85184413EE5490B176C7A326CD5922D3CC80A4D24F73E417A2D00DE9D6618BF44B6F5"
+        }
+      }
+    ],
     "products": [
       {
         "name": "default",

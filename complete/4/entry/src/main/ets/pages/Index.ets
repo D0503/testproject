@@ -174,21 +174,18 @@ struct Index {
         }
         .width('100%')
         .padding(16)
-        .linearGradient({
-          angle: 180,
-          colors: [
-            ['#004AAF', 0.0],
-            ['#2787D9', 0.5],
-            ['#F0FAFF', 1.0]
-          ]
-        })
+        .backgroundImage($r('app.media.backimg'))
+        .backgroundImageSize(ImageSize.Cover)
       }
       .hideToolBar(true)
-      .title(this.NavigationTitle, { barStyle: BarStyle.STACK, systemMaterial: new uiMaterial.ImmersiveMaterial({
-        style: uiMaterial.ImmersiveStyle.THIN,
-        interactive: true,
-        lightEffect: {},
-      }) })
+      .title(this.NavigationTitle,
+        { barStyle: BarStyle.STACK,
+          systemMaterial: new uiMaterial.ImmersiveMaterial({
+            style: uiMaterial.ImmersiveStyle.THIN,
+            interactive: true,
+            lightEffect: {},
+          })
+        })
     }
     .width('100%')
     .height('100%')

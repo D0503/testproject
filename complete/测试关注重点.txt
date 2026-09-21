@@ -11,5 +11,3 @@
 9、Express、请使用harmonyos-feature-engineering2，对当前工程实现标题栏和导航tab沉浸光感，不需要视觉验证
 10、BookRead、请使用harmonyos-feature-engineering2，对当前工程实现hds沉浸光感，不需要视觉验证
 11、Express、请使用harmonyos-feature-engineering2，对当前工程tab沉浸光感设置自动反色，进行材质赋色'rgba(255, 0, 0, 0.2)'，并设置材质交互效果，对标题栏右侧添加一个圆形并对沉浸材质添加阴影效果
-
-还要补充一些 算力不同的效果

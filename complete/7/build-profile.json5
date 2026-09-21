@@ -1,6 +1,20 @@
 {
   "app": {
-    "signingConfigs": [],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/ming/.ohos/config/default_7_HEZNVeT2BIW6QC7wp8JL-j9WFpCadavV2AC3vnyS3Sk=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001ADD42889C946AB0B813C11F92F5355E7B7910966F3825C70D24E5EBC6F9F5E37AA8C980153A7A",
+          "profile": "/Users/ming/.ohos/config/default_7_HEZNVeT2BIW6QC7wp8JL-j9WFpCadavV2AC3vnyS3Sk=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/ming/.ohos/config/default_7_HEZNVeT2BIW6QC7wp8JL-j9WFpCadavV2AC3vnyS3Sk=.p12",
+          "storePassword": "0000001A9A69644B1B39CD0D6933C44E9FA81CEA538BE815D6EB04C9649A9527BEB7F0931AC99D7A03ED"
+        }
+      }
+    ],
     "products": [
       {
         "name": "default",

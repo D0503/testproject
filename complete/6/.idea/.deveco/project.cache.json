@@ -9,7 +9,7 @@
 		"SELECT_BUILD_PRODUCT":"default",
 		"BUNDLE_NAME":"com.example.app",
 		"BUILD_PATH":{
-			"OUTPUT_PATH":"D:\\HW\\testproject\\complete\\6\\build\\outputs\\default"
+			"OUTPUT_PATH":"/Users/ming/Desktop/HarmonyProject/testproject/complete/6/build/outputs/default"
 		},
 		"SELECT_BUILD_MODE":""
 	},

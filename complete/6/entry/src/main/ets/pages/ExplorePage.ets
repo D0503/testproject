@@ -4,15 +4,17 @@ import { ListItemData, getListItems } from '../model/ListData'
 
 @ComponentV2
 struct ExplorePage {
+  @Local currentIndex: number = 0
   @Local searchOpacity: number = 1
+  @Local classifyType: Array<string> = []
   totalTitleHeight = 110
-  @Local titleHeight: number = this.totalTitleHeight
+  @Local titleHeight:number = this.totalTitleHeight
   @Local scrollOffset: number = 0
   @Local titleOffset: number = 0
   listItems: Array<ListItemData> = getListItems()
 
   @Builder
-  exploreTitleBar() {
+  ExplorePageBuilder() {
     Column() {
       Row() {
         Text('探索').fontSize(28).fontWeight(FontWeight.Bold).fontColor('#1A1A1A')
@@ -26,15 +28,13 @@ struct ExplorePage {
       .width('100%')
       .opacity(this.searchOpacity)
       .height(50)
-
       ClassifyComponent()
     }.expandSafeArea([SafeAreaType.SYSTEM])
     .width('100%')
     .height(this.titleHeight)
-    .padding({ left: 20, right: 20 })
-    .position({ x: 0, y: -this.titleOffset })
+    .padding({ left: 20, right: 20})
+    .position({x: 0, y: -this.titleOffset})
   }
-
   build() {
     NavDestination() {
       Scroll() {
@@ -44,14 +44,13 @@ struct ExplorePage {
             .borderRadius(12)
             .backgroundColor('#e0e0e0')
             .objectFit(ImageFit.Cover)
-
           List() {
             ForEach(this.listItems, (item: ListItemData) => {
               ListItem() {
                 Row() {
                   SymbolGlyph(item.image).fontSize(36)
                     .fontColor(['#007dff'])
-                    .margin({ right: 16 })
+                    .margin({ right: 16})
                   Text(item.name).fontSize(16)
                     .fontColor('#333333')
                 }.width('100%')
@@ -78,7 +77,7 @@ struct ExplorePage {
         }
       })
     }.title(
-      { builder: this.exploreTitleBar, height: this.titleHeight },
+      { builder: this.ExplorePageBuilder, height: this.titleHeight },
       { barStyle: BarStyle.STACK,
         // 设置标题栏模糊
         scrollEffectOptions: {

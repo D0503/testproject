@@ -1,9 +1,23 @@
 {
   "app": {
-/*
-        :todo 补充手动签名
-        */
-    "signingConfigs": [],
+    /*
+            :todo 补充手动签名
+            */
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/ming/.ohos/config/default_Express2_bmk21tqIh_DUDwVLWgdYqNXejwZsDDFu1yI18t-4nRs=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001A47FD88402B61CAE268979B3705FC09C85BB859439263D666EB96ABFCDEBEB336C3890A1FEA1A",
+          "profile": "/Users/ming/.ohos/config/default_Express2_bmk21tqIh_DUDwVLWgdYqNXejwZsDDFu1yI18t-4nRs=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/ming/.ohos/config/default_Express2_bmk21tqIh_DUDwVLWgdYqNXejwZsDDFu1yI18t-4nRs=.p12",
+          "storePassword": "0000001A0401652466673824C26476D2B4657882075886857DFF9B779628C5311344611CABF24433E1EB"
+        }
+      }
+    ],
     "products": [
       {
         "name": "default",

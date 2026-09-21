@@ -9,11 +9,11 @@
 | 安全合规 | 3 | 92 | 无敏感信息泄露；[功耗优化文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-constraints)提供温控、算力自适应等性能合规建议；元服务/卡片能力边界标注完备。 |
 | 版本兼容性 | 12 | 88 | ArkUI 路线（API 26.0.0 起）与 HDS 路线（6.1.0(23) 起）分层清晰；[开启沉浸光感](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-enable)明确 targetSDKVersion 不低于 26.0.0 的前置条件并提供低版本兼容指引链接；各 API 起始版本、元服务/卡片能力标注完备一致。未发现 compatibleSdkVersion/targetSdkVersion/compileSdkVersion 关系错误。 |
 | 行文逻辑与信息架构 | 10 | 85 | 容器页→简介→开发指导（开启/组件适配/材质视效）→功耗优化→FAQ→典型场景的信息架构清晰；容器页（[arkts-immersive-light-sense](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense) / [development](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-development)）为纯导航页且链接完整；README 索引与实际文件一一对应，并如实记录 compatibility 页已下线的情况。 |
-| 完整性 | 10 | 78 | empty 关闭能力的模式覆盖在 [API 参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial)中仅提 ENABLE，开启指南另述默认开启组件也可用 empty 关闭（DOC-008）；lightEffect 省略时'取决于组件是否默认有交互光感效果'但未提供默认具备该效果的组件清单（DOC-007）；DEFAULT 模式下默认开启组件的完整清单分散在 API 参考与 FAQ 两处（DOC-004）。 |
-| 上下文清晰与歧义 | 10 | 72 | DOC-005：FAQ 称材质视觉层级位于背景色之下会被遮挡，而 API 参考与示例5 表明高/中算力设备材质生效后背景色自动恢复透明、且官方推荐同时设置背景色作降级兜底，两套表述未对齐算力/组件作用域，开发者难以调和。DOC-004 的'组件默认开启'未限定组件范围亦属条件限定不足。 |
-| 开发者易用性与可复现性 | 15 | 70 | DOC-009：典型场景示例四个代码块均使用 uiMaterial 但无一提供 import 语句，listItems 虽有注释提示但整体不可直接复制运行；DOC-010：示例代码存在异常缩进等格式瑕疵与未标注语言的代码围栏；DOC-011：术语大小写不统一与循环表述降低检索效率。正面：FAQ 每条问题均含现象/原因/措施/示例四段，排障路径完备。 |
-| 技术正确性 | 25 | 62 | DOC-001（disable 语义文档内直接矛盾，API 参考与官网实时版本佐证'全局禁用'一侧）与 DOC-003（典型场景示例 materialColor 传入纯不透明色，违反三处文档一致声明的赋色规则，官网 API 实时版本再次确认该规则）为核心技术主张层面的已确认缺陷。其余 API 名称、参数默认值、枚举值交叉核对未见错误。 |
-| 一致性 | 10 | 60 | DOC-001 为同文档内直接矛盾；DOC-002（'按钮与选择类组件'成员集与生效枚举不一致）为组件适配页与五处生效范围表述的类目级冲突；DOC-004（DEFAULT 模式默认开启范围）为跨文档范围歧义；DOC-006（索引条沉浸光感引文指向互斥的模糊材质示例，官网参考页 2026-09-10 实时取证确认）为已确认的指南-参考引文冲突；DOC-007（lightEffect 省略行为）为指南与 API 参考表述不一致。正面：生效范围约束在简介/开启/功耗优化/FAQ/API 参考五处互相一致，但与组件适配页同名类目成员集不一致（DOC-002）；UI Design Kit 与 ArkUI 两条路线的分工说明一致；hdsMaterial.MaterialLevel 枚举在 FAQ 与 hdsMaterial 参考中一致。 |
+| 完整性 | 10 | 72 | HdsTabs 文档分别列出组件级 barWidth / barHeight 与 HdsTabsFloatingStyle.barWidth，却遗漏悬浮模式下的优先级、百分比宽度和 auto 高度限制（DOC-014）；empty 关闭能力的模式覆盖在 API 参考中仅提 ENABLE，开启指南另述默认开启组件也可用 empty 关闭（DOC-008）；lightEffect 省略时缺少默认组件清单（DOC-007）。 |
+| 上下文清晰与歧义 | 10 | 66 | DOC-014 未说明 HdsTabs.barWidth 会覆盖悬浮分档宽度，且 barHeight 章节称横向 Tabs 可用 auto，却未声明悬浮模式例外；DOC-005 的背景色层级表述未对齐算力 / 组件作用域；DOC-004 的“组件默认开启”未限定组件范围。 |
+| 开发者易用性与可复现性 | 15 | 64 | DOC-014 使从普通 Tabs 迁移 HdsTabs 时沿用 `barWidth='100%'`、`barHeight='auto'` 即可破坏悬浮材质，文档没有可操作的规避说明；DOC-009 示例缺少 import 与完整上下文，DOC-010 / DOC-011 还存在格式和术语问题。 |
+| 技术正确性 | 25 | 62 | DOC-001（disable 语义文档内直接矛盾，API 参考与官网实时版本佐证'全局禁用'一侧）与 DOC-003（典型场景示例 materialColor 传入纯不透明色，违反三处文档一致声明的赋色规则，官网 API 实时版本再次确认该规则）为核心技术主张层面的已确认缺陷。DOC-012 与 DOC-013 分别将 Popup/Tips、Button 描述为支持应用级开启，但相邻说明均称 ENABLE 模式不会默认开启，且 MaterialState.ENABLE 默认开启清单未包含这些对象。其余 API 名称、参数默认值、枚举值交叉核对未见错误。 |
+| 一致性 | 10 | 56 | DOC-001 为同文档内直接矛盾；DOC-002（'按钮与选择类组件'成员集与生效枚举不一致）为组件适配页与五处生效范围表述的类目级冲突；DOC-004（DEFAULT 模式默认开启范围）为跨文档范围歧义；DOC-006（索引条沉浸光感引文指向互斥的模糊材质示例，官网参考页 2026-09-10 实时取证确认）为已确认的指南-参考引文冲突；DOC-012（Popup/Tips 是否支持应用级开启）与 DOC-013（Button 是否支持应用级开启）均为同一小节相邻两句直接冲突；DOC-007（lightEffect 省略行为）为指南与 API 参考表述不一致。正面：生效范围约束在简介/开启/功耗优化/FAQ/API 参考五处互相一致，但与组件适配页同名类目成员集不一致（DOC-002）；UI Design Kit 与 ArkUI 两条路线的分工说明一致；hdsMaterial.MaterialLevel 枚举在 FAQ 与 hdsMaterial 参考中一致。 |
 | 链接资源 | 5 | 100 | 正文官网交叉链接保留完整、锚点规范。 |
 
 ## Findings
@@ -212,8 +212,8 @@
 
 ### DOC-011 · 术语大小写不统一与循环表述
 
-- 发现日期：2026-09-10
-- 官网修复状态：待核实（官网 2026-09-14 更新后尚未确认是否修复）
+- 发现日期：2026-09-15
+- 官网修复状态：待核实
 - 状态记录日期：2026-09-15
 
 - 维度：`developer_usability`
@@ -227,3 +227,64 @@ targetSDKVersion 的拼写与工程配置文件字段 targetSdkVersion 不一致
 影响：降低检索效率与首读可理解性。
 
 建议：统一使用 targetSdkVersion（或与所链发布说明页保持一致）；第 43 行改为指向组件适配页的具体分类或 MaterialState 清单的明确表述。
+
+### DOC-012 · Popup/Tips 是否支持应用级开启的表述直接冲突
+- 发现日期：2026-09-10
+- 官网修复状态：待核实（官网 2026-09-14 更新后尚未确认是否修复）
+- 状态记录日期：2026-09-15
+
+- 维度：`consistency`
+- 状态 / 严重度 / 置信度：`confirmed` / `Medium` / `certain`
+- 位置：[arkts-immersive-light-sense-component-adaptation · 气泡提示（Popup和Tips）（行 75-77）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation)
+- 原文：Popup和Tips支持通过应用级开启、组件级开启方式开启沉浸光感。应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，气泡提示不会默认开启沉浸光感。
+- 被检验主张：Popup 和 Tips 能否仅通过将应用级开关设为 ENABLE 而开启沉浸光感。
+
+同一小节相邻两句对应用级开启给出互斥结论：第 75 行明确称 Popup 和 Tips 支持“应用级开启”，第 77 行却说明应用级开关处于 ENABLE 模式时气泡提示不会默认开启沉浸光感。如果 ENABLE 不会使其默认开启，则仅设置应用级开关不能完成所谓“应用级开启”，仍必须通过 PopupOptions.systemMaterial 或 TipsOptions.systemMaterial 进行组件级主动设置。[MaterialState.ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate) 的默认开启组件清单也未包含 Popup 和 Tips，进一步佐证二者不支持仅靠应用级开关开启。
+
+影响：开发者按首句只配置应用级 ENABLE 后，Popup/Tips 不会呈现沉浸光感，容易误判配置未生效；同时“应用级开启”段落给不出实际可用的应用级开启路径，增加排障成本。
+
+建议：删除“应用级开启”能力描述，将首句改为“Popup和Tips支持通过组件级开启方式开启沉浸光感”；保留并明确 ENABLE 模式不会默认开启二者，开发者必须分别通过 PopupOptions.systemMaterial 和 TipsOptions.systemMaterial 主动设置。
+
+### DOC-013 · Button 是否支持应用级开启的表述直接冲突
+
+- 发现日期：2026-09-15
+- 官网修复状态：待核实
+- 状态记录日期：2026-09-15
+
+- 维度：`consistency`
+- 状态 / 严重度 / 置信度：`confirmed` / `Medium` / `certain`
+- 位置：[arkts-immersive-light-sense-component-adaptation · 按钮（Button）（行 110-114）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-immersive-light-sense-component-adaptation)
+- 原文：按钮支持通过应用级开启、组件级开启方式开启沉浸光感。应用级开启：应用级开关处于[ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate)模式下，按钮不会默认开启沉浸光感。
+- 被检验主张：Button 能否仅通过将应用级开关设为 ENABLE 而开启沉浸光感。
+
+同一小节相邻两句对应用级开启给出互斥结论：第 110 行明确称 Button 支持“应用级开启”，第 112 行却说明应用级开关处于 ENABLE 模式时，Button 不会默认开启沉浸光感。如果 ENABLE 不会使其默认开启，则仅设置应用级开关不能完成所谓“应用级开启”，仍必须通过通用属性 systemMaterial 进行组件级主动设置。[MaterialState.ENABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#materialstate) 的默认开启组件清单也未包含 Button，并明确其他组件需开发者主动设置，进一步佐证 Button 不支持仅靠应用级开关开启。
+
+影响：开发者按首句只配置应用级 ENABLE 后，Button 不会呈现沉浸光感，容易误判配置未生效；同时“应用级开启”段落给不出实际可用的应用级开启路径，增加排障成本。
+
+本项与 DOC-002 不重复：DOC-002 关注 Button 的沉浸光感生效区域，本项关注仅设置应用级 ENABLE 能否开启 Button 的沉浸光感。
+
+建议：删除“应用级开启”能力描述，将首句改为“按钮支持通过组件级开启方式开启沉浸光感”；保留并明确 ENABLE 模式不会默认开启 Button，开发者必须通过通用属性 systemMaterial 主动设置。
+
+### DOC-014 · HdsTabs 悬浮样式的宽高优先级与取值限制缺失
+
+- 发现日期：2026-09-17
+- 官网修复状态：未修复（官网 HdsTabs API 2026-09-17 实时复核）
+- 状态记录日期：2026-09-17
+
+- 维度：`completeness` / `context_clarity` / `developer_usability`
+- 状态 / 严重度 / 置信度：`confirmed` / `Medium` / `high`
+- 位置：[HdsTabs · barWidth / barHeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdstabs#barwidth)；[HdsTabsFloatingStyle · barWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdstabs#hdstabsfloatingstyle)
+- 被检验主张：HdsTabs 开启 barFloatingStyle 后，组件级 barWidth / barHeight 与悬浮样式内部 barWidth 如何共同生效，以及百分比宽度和 auto 高度是否可用。
+
+API 参考分别提供两套同名宽度入口：HdsTabs.barWidth(value: Length) 和 HdsTabsFloatingStyle.barWidth(HdsBarWidthRangeOptions)。后者明确 smallWidth / mediumWidth / largeWidth 不支持百分比，但文档未说明两套 barWidth 同时设置时的优先级。BookRead 真机对照显示，同时设置 `barFloatingStyle.barWidth.smallWidth=328` 与 HdsTabs `barWidth='100%'` 后，悬浮材质背板只覆盖右侧部分页签；改用有效数值型 HdsTabs barWidth 时，四项页签完整位于背板内。由此可确认 HdsTabs.barWidth 的实际优先级高于 HdsTabsFloatingStyle.barWidth，且悬浮模式不能沿用百分比 `'100%'`。
+
+barHeight 章节明确写明 `'auto'` 在横向 Tabs 下有效，同时只补充悬浮样式的默认高度为 56vp，没有声明 auto 与 barFloatingStyle 不兼容。真机设置 `vertical(false)`、barOverlap、barFloatingStyle.systemMaterialEffect 并使用 `barHeight='auto'` 后，四个页签内容仍显示，但圆角半透明悬浮材质背板完全消失。现有说明会使开发者合理地误判横向悬浮页签也可安全使用 auto。
+
+影响：既有 ArkUI Tabs / HdsTabs 工程迁移到 HDS 悬浮材质时，常见的 `barWidth='100%'` 和 `barHeight='auto'` 会导致材质背板错位或消失；静态检查与构建均可通过，只能在运行时发现，排障成本较高。
+
+建议：在 barFloatingStyle、HdsTabsFloatingStyle.barWidth、HdsTabs.barWidth 和 barHeight 四处交叉补充：
+
+- HdsTabs.barWidth 与 HdsTabsFloatingStyle.barWidth 同设时的明确优先级；按实测应说明 HdsTabs.barWidth 优先。
+- 悬浮样式下 HdsTabs.barWidth 不支持百分比，建议省略或使用经验证的 vp 数值；分档宽度应通过 HdsTabsFloatingStyle.barWidth 设置。
+- 悬浮样式下 HdsTabs.barHeight 不支持 `'auto'`，建议省略以使用 56vp 默认高度，或设置经验证的 vp 数值。
+- 在“页签栏悬浮样式”示例后增加普通 Tabs 迁移提示，明确清理遗留的百分比宽度和 auto 高度。

@@ -19,8 +19,9 @@ struct Index {
   @State segSelected: number[] = [0];
   @State segV2Selected: number = 0;
 
-  private isMaterialSupported: boolean = uiMaterial.isImmersiveMaterialSupported();
-  private materialLevel: uiMaterial.MaterialLevel = uiMaterial.getGlobalMaterialLevel();
+  // private isMaterialSupported: boolean = uiMaterial.isImmersiveMaterialSupported();
+  // private materialLevel: uiMaterial.MaterialLevel = uiMaterial.getGlobalMaterialLevel();
+  private materialInfo: uiMaterial.MaterialInfo = uiMaterial.getMaterialInfo();
 
   private buttonThemeMaterial: uiMaterial.Material = new uiMaterial.ImmersiveMaterial({
     style: uiMaterial.ImmersiveStyle.ULTRA_THIN,
@@ -59,7 +60,7 @@ struct Index {
   });
 
   private chipSelectedMaterial: uiMaterial.Material = new uiMaterial.ImmersiveMaterial({
-    style: uiMaterial.ImmersiveStyle.THICK
+    style: uiMaterial.ImmersiveStyle.ULTRA_THIN
   });
 
   private chipIconMaterial: uiMaterial.Material = new uiMaterial.ImmersiveMaterial({
@@ -132,15 +133,8 @@ struct Index {
       Column()
         .width('100%')
         .height('100%')
-        .linearGradient({
-          angle: 200,
-          colors: [
-            ['#0A2A6B', 0.0],
-            ['#1E6FD9', 0.35],
-            ['#3FBF9F', 0.7],
-            ['#F2E8C9', 1.0]
-          ]
-        })
+        .backgroundImage($r('app.media.backimg'))
+        .backgroundImageSize(ImageSize.Cover)
 
       Scroll() {
         Column({ space: 28 }) {
@@ -149,7 +143,8 @@ struct Index {
               .fontSize(24)
               .fontWeight(FontWeight.Bold)
               .fontColor(Color.White)
-            Text(`设备支持沉浸式材质: ${this.isMaterialSupported} ｜ 材质等级: ${this.materialLevel}`)
+            // Text(`设备支持沉浸式材质: ${this.isMaterialSupported} ｜ 材质等级: ${this.materialLevel}`)
+            Text(`材质状态: ${this.materialInfo.state} ｜ 材质类型: ${this.materialInfo.type}`)
               .fontSize(12)
               .fontColor('#D9FFFFFF')
           }
@@ -161,14 +156,14 @@ struct Index {
             Row({ space: 14 }) {
               Button('主题色')
                 .fontColor($r('sys.color.font_primary'))
-                .systemMaterial(this.buttonThemeMaterial)
+                // .systemMaterial(this.buttonThemeMaterial)
               Button('自定义流光')
                 .fontColor($r('sys.color.font_primary'))
-                .systemMaterial(this.buttonCustomLightMaterial)
+                // .systemMaterial(this.buttonCustomLightMaterial)
               Button('禁用态')
                 .enabled(false)
                 .fontColor($r('sys.color.font_secondary'))
-                .systemMaterial(this.buttonThemeMaterial)
+                // .systemMaterial(this.buttonThemeMaterial)
             }
           }
           .width('100%')
@@ -226,7 +221,9 @@ struct Index {
               }
 
               Column({ space: 6 }) {
-                Toggle({ type: ToggleType.Button, isOn: this.toggleBtnOn })
+                Toggle({ type: ToggleType.Button, isOn: this.toggleBtnOn }) {
+                  Text('Button').fontColor('#182431').fontSize(12)
+                }
                   .systemMaterial(this.switchMaterial)
                   .onChange((isOn: boolean) => {
                     this.toggleBtnOn = isOn;

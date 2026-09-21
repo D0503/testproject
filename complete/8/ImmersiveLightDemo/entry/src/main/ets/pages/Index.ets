@@ -91,7 +91,7 @@ struct Index {
               Scroll(this.scrollerForScroll) {
                 Column() {
                   // 本地资源，替换官网示例中的 scenery01
-                  Image($r('app.media.scenery')).width('100%')
+                  Image($r('app.media.backimg')).width('100%').height('100%')
                 }
               }
               .clipContent(ContentClipMode.SAFE_AREA)

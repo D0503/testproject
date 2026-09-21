@@ -7,11 +7,11 @@ struct Index {
   private materialLevel: uiMaterial.MaterialLevel = uiMaterial.getGlobalMaterialLevel();
 
   private plainMaterial: uiMaterial.ImmersiveMaterial =
-    new uiMaterial.ImmersiveMaterial({ style: uiMaterial.ImmersiveStyle.THIN });
+    new uiMaterial.ImmersiveMaterial({ style: uiMaterial.ImmersiveStyle.ULTRA_THIN });
   private opaqueColorMaterial: uiMaterial.ImmersiveMaterial =
-    new uiMaterial.ImmersiveMaterial({ style: uiMaterial.ImmersiveStyle.THIN, materialColor: Color.Red });
+    new uiMaterial.ImmersiveMaterial({ style: uiMaterial.ImmersiveStyle.ULTRA_THIN, materialColor: Color.Red });
   private translucentColorMaterial: uiMaterial.ImmersiveMaterial =
-    new uiMaterial.ImmersiveMaterial({ style: uiMaterial.ImmersiveStyle.THIN, materialColor: '#80FF0000' });
+    new uiMaterial.ImmersiveMaterial({ style: uiMaterial.ImmersiveStyle.ULTRA_THIN, materialColor: '#80FF0000' });
 
   @Builder
   SectionHeader(title: string, subtitle: string) {
@@ -169,35 +169,11 @@ struct Index {
 
   build() {
     Column() {
-      Navigation() {
-        Column() {
-          Row() {
-            Column().layoutWeight(1).height(220).backgroundColor('#FFD9453C')
-            Column().layoutWeight(1).height(220).backgroundColor('#FFF7A331')
-            Column().layoutWeight(1).height(220).backgroundColor('#FF67B14B')
-          }
-          .width('100%')
-
-          Row() {
-            Column().layoutWeight(1).height(220).backgroundColor('#FF3B7DD9')
-            Column().layoutWeight(1).height(220).backgroundColor('#FF7B5BD9')
-            Column().layoutWeight(1).height(220).backgroundColor('#FFD94BB4')
-          }
-          .width('100%')
-        }
-        .width('100%')
-        .height('100%')
-        .linearGradient({
-          angle: 180,
-          colors: [
-            ['#004AAF', 0.0],
-            ['#2787D9', 0.5],
-            ['#F0FAFF', 1.0]
-          ]
-        })
-      }
+      Navigation() {}
       .title({ builder: this.MaterialDemoList, height: '100%' })
     }
+    .backgroundImage($r('app.media.backimg'))
+    .backgroundImageSize(ImageSize.Cover)
     .width('100%')
     .height('100%')
   }

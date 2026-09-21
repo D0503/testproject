@@ -12,7 +12,7 @@
     "metadata": [
       {
         "name": "ohos.arkui.UIMaterial.state",
-        "value": "enable"
+        "value": "disable"
       }
     ],
     "pages": "$profile:main_pages",

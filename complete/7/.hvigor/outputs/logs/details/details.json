@@ -5,7 +5,7 @@
         "MODULE_NAME": "923fe53966c6cd9343e11af776cd4b05be315ea4b200b02e4d5dfb0f929b73bf",
         "API_TYPE": "stageMode",
         "INCLUDE_IN_BUILD": true,
-        "IS_COMMAND_LINE_ENTRY_MODULE": false,
+        "IS_COMMAND_LINE_ENTRY_MODULE": true,
         "BUILD_OPTION": [
           {
             "path": "debuggable",
@@ -71,32 +71,24 @@
     "BUILD_ANALYSIS_MODE": "normal",
     "OPTIMIZATION_STRATEGY": "memory",
     "TASK_TIME": {
-      "APP": {
-        "PreBuildApp": 553300,
-        "DuplicateDependencyCheck": 478300,
-        "PackageApp": 936169500,
-        "SignPackagesFromApp": 1739000,
-        "SignApp": 2057500,
-        "assembleApp": 311900
-      },
       "923fe53966c6cd9343e11af776cd4b05be315ea4b200b02e4d5dfb0f929b73bf": {
-        "CreateModuleInfo": 1264900,
-        "ConfigureCmake": 800900,
-        "PreCheckSyscap": 1140200,
-        "GeneratePkgSdkInfo": 2369400,
-        "ProcessIntegratedHsp": 2443000,
-        "BuildNativeWithCmake": 530000,
-        "SyscapTransform": 2533900,
-        "ProcessStartupConfig": 2872900,
-        "BuildNativeWithNinja": 853600,
-        "BuildJS": 3036900,
-        "CompileArkTS": 10388781400,
-        "ProcessCompiledResources": 1277700,
-        "PackageHap": 2398928500,
-        "PackingCheck": 4634900,
-        "SignHap": 2299500,
-        "CollectDebugSymbol": 1419300,
-        "assembleHap": 759200
+        "CreateModuleInfo": 103625,
+        "ConfigureCmake": 46166,
+        "PreCheckSyscap": 41000,
+        "GeneratePkgSdkInfo": 152791,
+        "ProcessIntegratedHsp": 90916,
+        "BuildNativeWithCmake": 41292,
+        "SyscapTransform": 217292,
+        "ProcessStartupConfig": 345708,
+        "BuildNativeWithNinja": 1421084,
+        "BuildJS": 242792,
+        "CompileArkTS": 195945583,
+        "ProcessCompiledResources": 101541,
+        "PackageHap": 367586417,
+        "PackingCheck": 786958,
+        "SignHap": 33212167,
+        "CollectDebugSymbol": 142875,
+        "assembleHap": 44500
       }
     },
     "CUSTOM_TASK_TIME": {},
@@ -109,8 +101,8 @@
       "ENABLE_CPP_FUNCTION_LEVEL_INCREMENTAL": false
     },
     "CONFIG_PROPERTIES": {},
-    "PID": 63948,
-    "TOTAL_TIME": 14044171200,
-    "BUILD_ID": "202609111535368450"
+    "PID": 42097,
+    "TOTAL_TIME": 658431084,
+    "BUILD_ID": "202609171107067800"
   }
 }

@@ -8,13 +8,13 @@
         "name": "default",
         "type": "HarmonyOS",
         "material": {
-          "certpath": "C:\\Users\\CuteDuan\\.ohos\\config\\default_Express_kF9PMc-_A3Tgxw2R0hvr38audcfzm1g2Gt06TeORYbI=.cer",
+          "certpath": "/Users/ming/.ohos/config/default_Express_Vc-VXepN36bDczJW99as2KzGefsp8E4TxXMiEquQVhk=.cer",
           "keyAlias": "debugKey",
-          "keyPassword": "0000001BAB2D9BF4716D7A15D1A57FAA295AE3A6916AE8EC2A11DA47F5A666F60FE231AC108D1E53FFB846",
-          "profile": "C:\\Users\\CuteDuan\\.ohos\\config\\default_Express_kF9PMc-_A3Tgxw2R0hvr38audcfzm1g2Gt06TeORYbI=.p7b",
+          "keyPassword": "0000001A0192017EE8A348EC1BA1CAAF4FC86085617CC6EDCAC7FA846D00A427F05FC341653FCDD455AE",
+          "profile": "/Users/ming/.ohos/config/default_Express_Vc-VXepN36bDczJW99as2KzGefsp8E4TxXMiEquQVhk=.p7b",
           "signAlg": "SHA256withECDSA",
-          "storeFile": "C:\\Users\\CuteDuan\\.ohos\\config\\default_Express_kF9PMc-_A3Tgxw2R0hvr38audcfzm1g2Gt06TeORYbI=.p12",
-          "storePassword": "0000001B726C8DDEF448001A63F72D051E7FE62F34E0C39FE6C9353A478FAB8BE628CF5E27C6C019211BAC"
+          "storeFile": "/Users/ming/.ohos/config/default_Express_Vc-VXepN36bDczJW99as2KzGefsp8E4TxXMiEquQVhk=.p12",
+          "storePassword": "0000001A5A75EC39E65DEF4D0C2C79230ECCFFB92FD6907A68534DAC0CF26D4C7ED85C7B592E912D4B8E"
         }
       }
     ],

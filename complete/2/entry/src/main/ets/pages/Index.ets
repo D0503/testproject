@@ -14,7 +14,7 @@ struct MaterialDialog {
       Text('自定义弹窗')
         .fontSize(20)
         .fontWeight(FontWeight.Bold)
-      Text('CustomDialogControllerOptions.systemMaterial 设置沉浸式系统材质，样式 ULTRA_THICK。')
+      Text('CustomDialogControllerOptions.systemMaterial 设置沉浸式系统材质。')
         .fontSize(14)
         .fontColor($r('sys.color.font_secondary'))
         .textAlign(TextAlign.Center)
@@ -59,7 +59,7 @@ struct Index {
   dialogController: CustomDialogController = new CustomDialogController({
     builder: MaterialDialog(),
     systemMaterial: new uiMaterial.ImmersiveMaterial({
-      style: uiMaterial.ImmersiveStyle.ULTRA_THICK
+      style: uiMaterial.ImmersiveStyle.ULTRA_THIN
     }),
     autoCancel: true,
     alignment: DialogAlignment.Center,
@@ -72,10 +72,11 @@ struct Index {
   showToastFeedback(): void {
     try {
       this.getUIContext().getPromptAction().showToast({
-        message: '即时反馈：Toast 沉浸式系统材质（THICK）',
+        message: '即时反馈：Toast 沉浸式系统材质',
         duration: 2500,
+        // backgroundBlurStyle: BlurStyle.Thin,
         systemMaterial: new uiMaterial.ImmersiveMaterial({
-          style: uiMaterial.ImmersiveStyle.THICK
+          style: uiMaterial.ImmersiveStyle.ULTRA_THIN
         })
       });
     } catch (error) {
@@ -87,7 +88,7 @@ struct Index {
   showAlertDialog(): void {
     AlertDialog.show({
       title: '警告弹窗',
-      message: 'AlertDialog 通过 AlertDialogParam.systemMaterial 设置沉浸式系统材质（ULTRA_THICK）。',
+      message: 'AlertDialog 通过 AlertDialogParam.systemMaterial 设置沉浸式系统材质。',
       primaryButton: {
         value: '取消',
         action: () => {
@@ -101,7 +102,7 @@ struct Index {
         }
       },
       systemMaterial: new uiMaterial.ImmersiveMaterial({
-        style: uiMaterial.ImmersiveStyle.ULTRA_THICK
+        style: uiMaterial.ImmersiveStyle.ULTRA_THIN
       })
     });
   }
@@ -132,7 +133,7 @@ struct Index {
         }
       ],
       systemMaterial: new uiMaterial.ImmersiveMaterial({
-        style: uiMaterial.ImmersiveStyle.ULTRA_THICK,
+        style: uiMaterial.ImmersiveStyle.ULTRA_THIN,
         materialColor: 'rgba(64, 128, 255, 0.2)'
       })
     });
@@ -155,7 +156,7 @@ struct Index {
       Text('半模态转场')
         .fontSize(20)
         .fontWeight(FontWeight.Bold)
-      Text('SheetOptions.systemMaterial 设置沉浸式系统材质（ULTRA_THICK）。')
+      Text('SheetOptions.systemMaterial 设置沉浸式系统材质。')
         .fontSize(14)
         .fontColor($r('sys.color.font_secondary'))
         .textAlign(TextAlign.Center)
@@ -197,7 +198,7 @@ struct Index {
           .fontColor($r('sys.color.font_secondary'))
 
         DemoCard() {
-          this.CardTitle('即时反馈（Toast）', 'ShowToastOptions.systemMaterial · THICK')
+          this.CardTitle('即时反馈（Toast）', 'ShowToastOptions.systemMaterial')
           Button('显示 Toast')
             .width('100%')
             .onClick(() => {
@@ -206,7 +207,7 @@ struct Index {
         }
 
         DemoCard() {
-          this.CardTitle('气泡提示（Popup / Tips）', 'PopupOptions / TipsOptions.systemMaterial · THICK')
+          this.CardTitle('气泡提示（Popup / Tips）', 'PopupOptions / TipsOptions.systemMaterial')
           Row({ space: 12 }) {
             Button('气泡 Popup')
               .layoutWeight(1)
@@ -214,7 +215,7 @@ struct Index {
                 this.showPopup = !this.showPopup;
               })
               .bindPopup(this.showPopup, {
-                message: '气泡提示：Popup 沉浸式系统材质（THICK）',
+                message: '气泡提示：Popup 沉浸式系统材质',
                 placement: Placement.Top,
                 onStateChange: (state: PopupStateChangeParam) => {
                   if (!state.isVisible) {
@@ -222,12 +223,12 @@ struct Index {
                   }
                 },
                 systemMaterial: new uiMaterial.ImmersiveMaterial({
-                  style: uiMaterial.ImmersiveStyle.THICK
+                  style: uiMaterial.ImmersiveStyle.ULTRA_THIN
                 })
               })
             Button('长按悬浮 Tips')
               .layoutWeight(1)
-              .bindTips('悬浮提示：Tips 沉浸式系统材质（THICK）', {
+              .bindTips('悬浮提示：Tips 沉浸式系统材质', {
                 appearingTime: 300,
                 disappearingTime: 2000,
                 systemMaterial: new uiMaterial.ImmersiveMaterial({
@@ -239,7 +240,7 @@ struct Index {
         }
 
         DemoCard() {
-          this.CardTitle('菜单（Menu）', 'ContextMenuOptions.systemMaterial · THICK')
+          this.CardTitle('菜单（Menu）', 'ContextMenuOptions.systemMaterial')
           Button('打开菜单')
             .width('100%')
             .onClick(() => {
@@ -247,13 +248,13 @@ struct Index {
             })
             .bindContextMenu(this.showMenu, this.MenuBuilder, {
               systemMaterial: new uiMaterial.ImmersiveMaterial({
-                style: uiMaterial.ImmersiveStyle.THICK
+                style: uiMaterial.ImmersiveStyle.ULTRA_THIN
               })
             })
         }
 
         DemoCard() {
-          this.CardTitle('弹出框（Dialog）', 'AlertDialogParam / CustomDialogControllerOptions / ActionSheetOptions / SheetOptions · ULTRA_THICK')
+          this.CardTitle('弹出框（Dialog）', 'AlertDialogParam / CustomDialogControllerOptions / ActionSheetOptions / SheetOptions ')
           Button('AlertDialog 警告弹窗')
             .width('100%')
             .onClick(() => {
@@ -280,9 +281,9 @@ struct Index {
               onDisappear: () => {
                 console.info('Sheet dismiss');
               },
-              systemMaterial: new uiMaterial.ImmersiveMaterial({
-                style: uiMaterial.ImmersiveStyle.ULTRA_THICK
-              })
+              // systemMaterial: new uiMaterial.ImmersiveMaterial({
+              //   style: uiMaterial.ImmersiveStyle.ULTRA_THIN
+              // })
             })
         }
 
@@ -299,13 +300,7 @@ struct Index {
     .width('100%')
     .height('100%')
     .align(Alignment.Top)
-    .linearGradient({
-      angle: 180,
-      colors: [
-        ['#0A3D91', 0],
-        ['#2E7CD6', 0.5],
-        ['#B8E4FF', 1]
-      ]
-    })
+    .backgroundImage($r('app.media.backimg'))
+    .backgroundImageSize(ImageSize.Cover)
   }
 }

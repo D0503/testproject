@@ -31,7 +31,7 @@ class TabBarMaterialModifier implements AttributeModifier<TabsAttribute> {
   }
 
   applyNormalAttribute(instance: TabsAttribute): void {
-    instance.barFloatingStyle({ systemMaterial: this.material });
+    instance.barFloatingStyle({ adaptToHandedness: true, systemMaterial: this.material });
   }
 }
 
@@ -48,9 +48,13 @@ export function createImmersiveModifiers(): ImmersiveModifierHolder | undefined 
   return {
     titleBar: new TitleBarMaterialModifier(new uiMaterial.ImmersiveMaterial({
       style: uiMaterial.ImmersiveStyle.ULTRA_THIN,
+
     })),
     tabBar: new TabBarMaterialModifier(new uiMaterial.ImmersiveMaterial({
       style: uiMaterial.ImmersiveStyle.THIN,
+      applyShadow: true,
+      interactive: true,
+      lightEffect: { color: Color.White }
     })),
   };
 }

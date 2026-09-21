@@ -2,49 +2,49 @@
   "version": 1,
   "ohos-module-entry": {
     "SELECT_TARGET": "default",
-    "MODULE_BUILD_DIR": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build",
+    "MODULE_BUILD_DIR": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build",
     "TARGETS": {
       "default": {
-        "SOURCE_ROOT": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\src\\main",
+        "SOURCE_ROOT": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/src/main",
         "RESOURCES_PATH": [
-          "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\src\\main\\resources"
+          "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/src/main/resources"
         ],
         "BUILD_PATH": {
-          "OUTPUT_PATH": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\outputs\\default",
-          "INTERMEDIA_PATH": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\intermediates",
-          "JS_ASSETS_PATH": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\intermediates\\loader_out\\default",
-          "JS_LITE_ASSETS_PATH": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\intermediates\\loader_out_lite\\default",
-          "RES_PATH": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\intermediates\\res\\default",
-          "RES_PROFILE_PATH": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\intermediates\\res\\default\\resources\\base\\profile",
-          "ETS_SUPER_VISUAL_PATH": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\cache\\default\\default@CompileArkTS\\esmodule",
-          "JS_SUPER_VISUAL_PATH": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\cache\\default\\default@CompileJS\\jsbundle",
-          "WORKER_LOADER": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\intermediates\\loader\\default\\loader.json",
-          "MANIFEST_JSON": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\intermediates\\manifest\\default",
-          "OUTPUT_METADATA_JSON": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\intermediates\\hap_metadata\\default\\output_metadata.json",
-          "SOURCE_MAP_DIR": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\intermediates\\source_map\\default"
+          "OUTPUT_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/outputs/default",
+          "INTERMEDIA_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/intermediates",
+          "JS_ASSETS_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/intermediates/loader_out/default",
+          "JS_LITE_ASSETS_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/intermediates/loader_out_lite/default",
+          "RES_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/intermediates/res/default",
+          "RES_PROFILE_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/intermediates/res/default/resources/base/profile",
+          "ETS_SUPER_VISUAL_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/cache/default/default@CompileArkTS/esmodule",
+          "JS_SUPER_VISUAL_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/cache/default/default@CompileJS/jsbundle",
+          "WORKER_LOADER": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/intermediates/loader/default/loader.json",
+          "MANIFEST_JSON": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/intermediates/manifest/default",
+          "OUTPUT_METADATA_JSON": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/intermediates/hap_metadata/default/output_metadata.json",
+          "SOURCE_MAP_DIR": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/intermediates/source_map/default"
         },
         "BUILD_OPTION": {
           "debuggable": true
         }
       },
       "ohosTest": {
-        "SOURCE_ROOT": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\src\\ohosTest",
+        "SOURCE_ROOT": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/src/ohosTest",
         "RESOURCES_PATH": [
-          "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\src\\ohosTest\\resources"
+          "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/src/ohosTest/resources"
         ],
         "BUILD_PATH": {
-          "OUTPUT_PATH": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\outputs\\ohosTest",
-          "INTERMEDIA_PATH": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\intermediates",
-          "JS_ASSETS_PATH": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\intermediates\\loader_out\\ohosTest",
-          "JS_LITE_ASSETS_PATH": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\intermediates\\loader_out_lite\\ohosTest",
-          "RES_PATH": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\intermediates\\res\\ohosTest",
-          "RES_PROFILE_PATH": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\intermediates\\res\\ohosTest\\resources\\base\\profile",
-          "ETS_SUPER_VISUAL_PATH": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\cache\\ohosTest\\ohosTest@OhosTestCompileArkTS\\esmodule",
-          "JS_SUPER_VISUAL_PATH": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\cache\\ohosTest\\ohosTest@OhosTestCompileJS\\jsbundle",
-          "WORKER_LOADER": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\intermediates\\loader\\ohosTest\\loader.json",
-          "MANIFEST_JSON": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\intermediates\\manifest\\ohosTest",
-          "OUTPUT_METADATA_JSON": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\intermediates\\hap_metadata\\ohosTest\\output_metadata.json",
-          "SOURCE_MAP_DIR": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry\\build\\default\\intermediates\\source_map\\ohosTest"
+          "OUTPUT_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/outputs/ohosTest",
+          "INTERMEDIA_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/intermediates",
+          "JS_ASSETS_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/intermediates/loader_out/ohosTest",
+          "JS_LITE_ASSETS_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/intermediates/loader_out_lite/ohosTest",
+          "RES_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/intermediates/res/ohosTest",
+          "RES_PROFILE_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/intermediates/res/ohosTest/resources/base/profile",
+          "ETS_SUPER_VISUAL_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/cache/ohosTest/ohosTest@OhosTestCompileArkTS/esmodule",
+          "JS_SUPER_VISUAL_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/cache/ohosTest/ohosTest@OhosTestCompileJS/jsbundle",
+          "WORKER_LOADER": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/intermediates/loader/ohosTest/loader.json",
+          "MANIFEST_JSON": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/intermediates/manifest/ohosTest",
+          "OUTPUT_METADATA_JSON": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/intermediates/hap_metadata/ohosTest/output_metadata.json",
+          "SOURCE_MAP_DIR": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry/build/default/intermediates/source_map/ohosTest"
         },
         "BUILD_OPTION": {
           "debuggable": true
@@ -110,17 +110,17 @@
   },
   "ohos-project": {
     "SELECT_PRODUCT_NAME": "default",
-    "MODULE_BUILD_DIR": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\build",
+    "MODULE_BUILD_DIR": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/build",
     "BUNDLE_NAME": "com.example.app",
     "VERSION_CODE": 1000000,
     "VERSION_NAME": "1.0.0",
     "BUILD_PATH": {
-      "OUTPUT_PATH": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\build\\outputs\\default"
+      "OUTPUT_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/build/outputs/default"
     },
     "MODULES": [
       {
         "name": "entry",
-        "srcPath": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo\\entry",
+        "srcPath": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo/entry",
         "targets": [
           {
             "name": "default",
@@ -129,12 +129,26 @@
             ]
           }
         ],
-        "belongProjectPath": "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo"
+        "belongProjectPath": "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo"
       }
     ],
     "PROFILE_OPT": {
       "app": {
-        "signingConfigs": [],
+        "signingConfigs": [
+          {
+            "name": "default",
+            "type": "HarmonyOS",
+            "material": {
+              "certpath": "/Users/ming/.ohos/config/default_ImmersiveLightDemo_n8W1HIgRKICHkK-rxvEj54WNh9PtnBi5VDnQw6NvRKI=.cer",
+              "keyAlias": "debugKey",
+              "keyPassword": "0000001A57E826B76D15D76C0C2BEE4574B43AC1EBC9F8EC0BFD365ED67C1D30E2B6C8C708902FF7FC60",
+              "profile": "/Users/ming/.ohos/config/default_ImmersiveLightDemo_n8W1HIgRKICHkK-rxvEj54WNh9PtnBi5VDnQw6NvRKI=.p7b",
+              "signAlg": "SHA256withECDSA",
+              "storeFile": "/Users/ming/.ohos/config/default_ImmersiveLightDemo_n8W1HIgRKICHkK-rxvEj54WNh9PtnBi5VDnQw6NvRKI=.p12",
+              "storePassword": "0000001A89B9A8D85184413EE5490B176C7A326CD5922D3CC80A4D24F73E417A2D00DE9D6618BF44B6F5"
+            }
+          }
+        ],
         "products": [
           {
             "name": "default",
@@ -180,7 +194,7 @@
       "hvigor.keepDependency": true
     },
     "OVERALL_PROJECT_PATHS": [
-      "D:\\HW\\testproject\\complete\\8\\ImmersiveLightDemo"
+      "/Users/ming/Desktop/HarmonyProject/testproject/complete/8/ImmersiveLightDemo"
     ],
     "BUILD_CACHE_DIR": ""
   }

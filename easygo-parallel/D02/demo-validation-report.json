@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "featureName": "平行视界",
+  "scenarioId": "EP-S002",
+  "demoId": "D02",
+  "demoOrder": 2,
+  "demoName": "主页与关联页首次分栏组合",
+  "demoDescription": "验证 homePage=navBar 与 relatedPage=CategoryPage 配置：同时配置时启动即主页+关联页分栏；只配置主页时右侧为占位页。",
+  "project": "/Users/ming/harmonyos-validation/easygo-parallel/D02/test-demo",
+  "navigation": "启动应用直接观察首次分栏（关联页为静态页面，无动态参数）",
+  "buildIdentity": "debug assembleApp（D02 test-demo，两变体构建通过）",
+  "verifiedAt": "2026-10-08",
+  "verifier": "opencode 自动验证 + 截图判图",
+  "environment":{"deviceType":"emulator","device":"Huawei_TripleFold (模拟器, serial 127.0.0.1:5557)","systemVersion":"HarmonyOS 7.0.0(26.0.0)","sdkApi":"API 26 (SDK 26.0.0.105 Release)","capability":"三折叠展开态宽屏窗口，支持平行视界分栏；不支持应用内拉起系统分屏的可见效果","displaySettings":"展开态全屏显示，默认深浅色为浅色"},
+  "points": [{
+    "id": "D02-01",
+    "operation": "两变体分别重建安装，启动后截图对比首次分栏",
+    "actual": "home-related：启动即左主页+右关联页（商品分类）；home-only：左主页+右系统占位页",
+    "status": "通过",
+    "statusReason": "与官网 homePage/relatedPage 约束及首次分栏组合描述一致（relatedPage 需 homePage 前置、不配置则无关联页能力）",
+    "variants": [
+      { "id": "home-related", "actual": "左商品列表 + 右商品分类关联页（evidence: D02-01-home-related.png）" },
+      { "id": "home-only", "actual": "左商品列表 + 右占位页（evidence: D02-01-home-only.png）" }
+    ],
+    "evidence": [
+      { "type": "screenshot", "path": "/Users/ming/harmonyos-validation/easygo-parallel/D02/evidence/emulator/D02-01-home-related.png", "label": "主页+关联页" },
+      { "type": "screenshot", "path": "/Users/ming/harmonyos-validation/easygo-parallel/D02/evidence/emulator/D02-01-home-only.png", "label": "只配置主页" }
+    ]
+  }],
+  "implementationConformance": "符合",
+  "implementationBasis": "homePage=navBar（Navigation 首页）、relatedPage=CategoryPage（NavDestination name，无动态参数静态页面），格式与官网要求一致（判据 C01-C05 落实，门禁 applied 通过）",
+  "summary": "2/2 变体符合官网描述",
+  "evidenceSummary": "两变体截图各 1 张；home-related 变体 expectPage=商品分类（关联页）组件树断言命中",
+  "automationRelation": "自动构建安装+组件树断言+截图，判图人工核对",
+  "automationBasis": "verify-development 验证：home-related 全层 passed；home-only 静态规则 relatedPage 缺失为有意对照（inconclusive 预期内）",
+  "documentationIssue": "未发现",
+  "documentationIssueBasis": "首次分栏组合与文档效果图描述一致",
+  "limitations": "Router 路由格式未覆盖（Demo 为 Navigation 路由）",
+  "limitationBasis": "场景路由选择 Navigation 路线"
+}

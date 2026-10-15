@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "developmentMode": "demo",
+  "createdAt": "2026-09-30T01:24:37.491Z",
+  "sourceTemplate": "assets/demo-template",
+  "name": "EasyGoFullDemo",
+  "bundleName": "com.example.easygofull",
+  "prompt": "验证平行视界官网文档：全屏页与恢复分栏（EP-S005）"
+}

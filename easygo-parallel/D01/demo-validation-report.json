@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "featureName": "平行视界",
+  "scenarioId": "EP-S001",
+  "demoId": "D01",
+  "demoOrder": 1,
+  "demoName": "基础平行视界分栏（navigationSplit vs original）",
+  "demoDescription": "验证 easy_go.json 基础配置：entry 模块 easyGo 引用、两层结构、wideWindowMode/squareWindowMode=navigationSplit 进入分栏，original 关闭兼容行为。Navigation 固定 Stack 模式以排除自身分栏干扰。",
+  "project": "/Users/ming/harmonyos-validation/easygo-parallel/D01/test-demo",
+  "navigation": "启动应用 → 点击商品 Alpha 进入详情页",
+  "buildIdentity": "debug assembleApp（D01 test-demo，build 通过，构建日志见 verify 报告）",
+  "verifiedAt": "2026-10-08",
+  "verifier": "opencode 自动验证 + 截图判图",
+  "environment":{"deviceType":"emulator","device":"Huawei_TripleFold (模拟器, serial 127.0.0.1:5557)","systemVersion":"HarmonyOS 7.0.0(26.0.0)","sdkApi":"API 26 (SDK 26.0.0.105 Release)","capability":"三折叠展开态宽屏窗口，支持平行视界分栏；不支持应用内拉起系统分屏的可见效果","displaySettings":"展开态全屏显示，默认深浅色为浅色"},
+  "points": [{
+    "id": "D01-01",
+    "operation": "两变体分别重建安装，进入商品详情页截图对比",
+    "actual": "parallel-enabled：左侧主页列表+右侧详情页 1:1 分栏；parallel-original：详情页单页全宽无分栏",
+    "status": "通过",
+    "statusReason": "官网描述与实际效果一致：navigationSplit 进入平行视界默认 1:1 分栏，original 关闭窗口显示模式兼容行为",
+    "variants": [
+      { "id": "parallel-enabled", "actual": "左主页右详情 1:1 分栏，中间分割线可见（evidence: D01-01-parallel-enabled.png）" },
+      { "id": "parallel-original", "actual": "详情页单页全宽显示，无分栏（evidence: D01-01-parallel-original.png）" }
+    ],
+    "evidence": [
+      { "type": "screenshot", "path": "/Users/ming/harmonyos-validation/easygo-parallel/D01/evidence/emulator/D01-01-parallel-enabled.png", "label": "navigationSplit 分栏" },
+      { "type": "screenshot", "path": "/Users/ming/harmonyos-validation/easygo-parallel/D01/evidence/emulator/D01-01-parallel-original.png", "label": "original 单页基线" }
+    ]
+  }],
+  "implementationConformance": "符合",
+  "implementationBasis": "module.json5 仅 entry 模块引用 $profile:easy_go；easy_go.json 两层结构 common+displayModeOptions；Navigation 路由配置 navigationSplitOptions，未混用 routerSplitOptions（判据 C01-C09 全部落实，实施记录门禁 applied 通过）",
+  "summary": "2/2 变体符合官网描述",
+  "evidenceSummary": "两变体截图各 1 张，另含构建日志、导航日志、组件树（verify 报告 evidence）",
+  "automationRelation": "自动构建安装+导航点击+截图，判图结论基于截图人工核对",
+  "automationBasis": "verify-development 六层验证：static/sdk/build/install/runtime/visual 均 passed（original 变体 static 层按预期失败：有意不配置 splitOptions）",
+  "documentationIssue": "未发现",
+  "documentationIssueBasis": "官网配置说明、默认值与 deviceTypes 行为均与实测一致",
+  "limitations": "仅验证宽屏（长方形）窗口；方形窗口形态未单独覆盖",
+  "limitationBasis": "模拟器 TripleFold 展开态为长方形宽屏窗口"
+}

@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "developmentMode": "demo",
+  "createdAt": "2026-09-30T01:24:50.589Z",
+  "sourceTemplate": "assets/demo-template",
+  "name": "EasyGoRatioDemo",
+  "bundleName": "com.example.easygoratio",
+  "prompt": "验证平行视界官网文档：分栏比例拖拽分割线（EP-S009）"
+}

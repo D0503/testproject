@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "developmentMode": "demo",
+  "createdAt": "2026-09-30T01:24:50.555Z",
+  "sourceTemplate": "assets/demo-template",
+  "name": "EasyGoContainerDemo",
+  "bundleName": "com.example.easygocont",
+  "prompt": "验证平行视界官网文档：虚拟容器与页面尺寸（EP-S007）"
+}

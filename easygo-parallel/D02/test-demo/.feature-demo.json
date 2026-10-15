@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "developmentMode": "demo",
+  "createdAt": "2026-09-30T01:24:37.457Z",
+  "sourceTemplate": "assets/demo-template",
+  "name": "EasyGoHomeDemo",
+  "bundleName": "com.example.easygohome",
+  "prompt": "验证平行视界官网文档：主页与关联页分栏（EP-S002）"
+}

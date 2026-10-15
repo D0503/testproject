@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "developmentMode": "demo",
+  "createdAt": "2026-09-30T01:24:50.519Z",
+  "sourceTemplate": "assets/demo-template",
+  "name": "EasyGoLandscapeDemo",
+  "bundleName": "com.example.easygoland",
+  "prompt": "验证平行视界官网文档：横屏全屏策略（EP-S006）"
+}

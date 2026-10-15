@@ -1,0 +1,9 @@
+.DS_Store
+.idea/
+.hvigor/
+build/
+oh_modules/
+local.properties
+oh-package-lock.json5
+ohos-feature-engineering/
+**/build/

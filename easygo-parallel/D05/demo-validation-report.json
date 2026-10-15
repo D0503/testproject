@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0",
+  "featureName": "平行视界",
+  "scenarioId": "EP-S005",
+  "demoId": "D05",
+  "demoOrder": 5,
+  "demoName": "全屏页进入退出分栏与返回恢复",
+  "demoDescription": "验证 fullScreenPages：进入 FullScreenImagePage 退出分栏全屏显示，返回后恢复平行视界分栏。Navigation 固定 Stack 模式排除自身分栏干扰。",
+  "project": "/Users/ming/harmonyos-validation/easygo-parallel/D05/test-demo",
+  "navigation": "启动 → 商品 Alpha 进详情页 → 查看大图进全屏页 → 返回分栏",
+  "buildIdentity": "debug assembleApp（D05 test-demo，构建通过）",
+  "verifiedAt": "2026-10-08",
+  "verifier": "opencode 自动验证 + 截图判图",
+  "environment":{"deviceType":"emulator","device":"Huawei_TripleFold (模拟器, serial 127.0.0.1:5557)","systemVersion":"HarmonyOS 7.0.0(26.0.0)","sdkApi":"API 26 (SDK 26.0.0.105 Release)","capability":"三折叠展开态宽屏窗口，支持平行视界分栏；不支持应用内拉起系统分屏的可见效果","displaySettings":"展开态全屏显示，默认深浅色为浅色"},
+  "points": [{
+    "id": "D05-01",
+    "operation": "进入全屏页截图，返回后再截图，对比两个时刻",
+    "actual": "进入全屏页：退出分栏独占全窗口；返回后：恢复左主页+右详情 1:1 分栏且路由状态保持",
+    "status": "通过",
+    "statusReason": "与官网对应页面展示时暂时退出分栏、页面隐藏时恢复分栏显示的描述一致",
+    "variants": [
+      { "id": "configured-fullscreen-page", "actual": "FullScreenImagePage 全屏显示（D05-01-fullscreen.png）；返回后恢复分栏（D05-01-restore.png）" }
+    ],
+    "interactions": [
+      { "id": "open-fullscreen", "actual": "从分栏详情页点击查看看大图后目标页全屏显示", "status": "通过", "statusReason": "expectPage=全屏图片页（已退出分栏）断言命中组件树，截图确认全屏" },
+      { "id": "back-to-split", "actual": "从全屏页点击返回分栏后恢复进入前的平行视界分栏", "status": "通过", "statusReason": "expectPage=详情页（右侧分栏）断言命中，截图确认 1:1 分栏恢复" }
+    ],
+    "evidence": [
+      { "type": "screenshot", "path": "/Users/ming/harmonyos-validation/easygo-parallel/D05/evidence/emulator/D05-01-fullscreen.png", "label": "全屏页退出分栏" },
+      { "type": "screenshot", "path": "/Users/ming/harmonyos-validation/easygo-parallel/D05/evidence/emulator/D05-01-restore.png", "label": "返回恢复分栏" }
+    ]
+  }],
+  "implementationConformance": "符合",
+  "implementationBasis": "fullScreenPages=[FullScreenImagePage]，未与 homePage/relatedPage 重复（判据 C01-C03 落实，门禁 applied 通过）",
+  "summary": "进入全屏与返回恢复两时刻均符合官网描述",
+  "evidenceSummary": "两时刻截图各 1 张，组件树断言 2 次命中",
+  "automationRelation": "自动导航（点击+断言）+截图，判图人工核对",
+  "automationBasis": "verify-development 两个目标（进入全屏/返回恢复）六层均 passed",
+  "documentationIssue": "未发现",
+  "documentationIssueBasis": "进入退出行为与文档一致",
+  "limitations": "未验证全屏页与横屏叠加场景",
+  "limitationBasis": "超出本场景范围（EP-S006 单独覆盖横屏）"
+}

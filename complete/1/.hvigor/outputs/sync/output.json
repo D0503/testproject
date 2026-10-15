@@ -2,49 +2,49 @@
   "version": 1,
   "ohos-module-entry": {
     "SELECT_TARGET": "default",
-    "MODULE_BUILD_DIR": "D:\\HW\\testproject\\complete\\1\\entry\\build",
+    "MODULE_BUILD_DIR": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build",
     "TARGETS": {
       "default": {
-        "SOURCE_ROOT": "D:\\HW\\testproject\\complete\\1\\entry\\src\\main",
+        "SOURCE_ROOT": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/src/main",
         "RESOURCES_PATH": [
-          "D:\\HW\\testproject\\complete\\1\\entry\\src\\main\\resources"
+          "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/src/main/resources"
         ],
         "BUILD_PATH": {
-          "OUTPUT_PATH": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\outputs\\default",
-          "INTERMEDIA_PATH": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\intermediates",
-          "JS_ASSETS_PATH": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\intermediates\\loader_out\\default",
-          "JS_LITE_ASSETS_PATH": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\intermediates\\loader_out_lite\\default",
-          "RES_PATH": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\intermediates\\res\\default",
-          "RES_PROFILE_PATH": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\intermediates\\res\\default\\resources\\base\\profile",
-          "ETS_SUPER_VISUAL_PATH": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\cache\\default\\default@CompileArkTS\\esmodule",
-          "JS_SUPER_VISUAL_PATH": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\cache\\default\\default@CompileJS\\jsbundle",
-          "WORKER_LOADER": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\intermediates\\loader\\default\\loader.json",
-          "MANIFEST_JSON": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\intermediates\\manifest\\default",
-          "OUTPUT_METADATA_JSON": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\intermediates\\hap_metadata\\default\\output_metadata.json",
-          "SOURCE_MAP_DIR": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\intermediates\\source_map\\default"
+          "OUTPUT_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/outputs/default",
+          "INTERMEDIA_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/intermediates",
+          "JS_ASSETS_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/intermediates/loader_out/default",
+          "JS_LITE_ASSETS_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/intermediates/loader_out_lite/default",
+          "RES_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/intermediates/res/default",
+          "RES_PROFILE_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/intermediates/res/default/resources/base/profile",
+          "ETS_SUPER_VISUAL_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/cache/default/default@CompileArkTS/esmodule",
+          "JS_SUPER_VISUAL_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/cache/default/default@CompileJS/jsbundle",
+          "WORKER_LOADER": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/intermediates/loader/default/loader.json",
+          "MANIFEST_JSON": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/intermediates/manifest/default",
+          "OUTPUT_METADATA_JSON": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/intermediates/hap_metadata/default/output_metadata.json",
+          "SOURCE_MAP_DIR": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/intermediates/source_map/default"
         },
         "BUILD_OPTION": {
           "debuggable": true
         }
       },
       "ohosTest": {
-        "SOURCE_ROOT": "D:\\HW\\testproject\\complete\\1\\entry\\src\\ohosTest",
+        "SOURCE_ROOT": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/src/ohosTest",
         "RESOURCES_PATH": [
-          "D:\\HW\\testproject\\complete\\1\\entry\\src\\ohosTest\\resources"
+          "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/src/ohosTest/resources"
         ],
         "BUILD_PATH": {
-          "OUTPUT_PATH": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\outputs\\ohosTest",
-          "INTERMEDIA_PATH": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\intermediates",
-          "JS_ASSETS_PATH": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\intermediates\\loader_out\\ohosTest",
-          "JS_LITE_ASSETS_PATH": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\intermediates\\loader_out_lite\\ohosTest",
-          "RES_PATH": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\intermediates\\res\\ohosTest",
-          "RES_PROFILE_PATH": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\intermediates\\res\\ohosTest\\resources\\base\\profile",
-          "ETS_SUPER_VISUAL_PATH": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\cache\\ohosTest\\ohosTest@OhosTestCompileArkTS\\esmodule",
-          "JS_SUPER_VISUAL_PATH": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\cache\\ohosTest\\ohosTest@OhosTestCompileJS\\jsbundle",
-          "WORKER_LOADER": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\intermediates\\loader\\ohosTest\\loader.json",
-          "MANIFEST_JSON": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\intermediates\\manifest\\ohosTest",
-          "OUTPUT_METADATA_JSON": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\intermediates\\hap_metadata\\ohosTest\\output_metadata.json",
-          "SOURCE_MAP_DIR": "D:\\HW\\testproject\\complete\\1\\entry\\build\\default\\intermediates\\source_map\\ohosTest"
+          "OUTPUT_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/outputs/ohosTest",
+          "INTERMEDIA_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/intermediates",
+          "JS_ASSETS_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/intermediates/loader_out/ohosTest",
+          "JS_LITE_ASSETS_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/intermediates/loader_out_lite/ohosTest",
+          "RES_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/intermediates/res/ohosTest",
+          "RES_PROFILE_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/intermediates/res/ohosTest/resources/base/profile",
+          "ETS_SUPER_VISUAL_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/cache/ohosTest/ohosTest@OhosTestCompileArkTS/esmodule",
+          "JS_SUPER_VISUAL_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/cache/ohosTest/ohosTest@OhosTestCompileJS/jsbundle",
+          "WORKER_LOADER": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/intermediates/loader/ohosTest/loader.json",
+          "MANIFEST_JSON": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/intermediates/manifest/ohosTest",
+          "OUTPUT_METADATA_JSON": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/intermediates/hap_metadata/ohosTest/output_metadata.json",
+          "SOURCE_MAP_DIR": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry/build/default/intermediates/source_map/ohosTest"
         },
         "BUILD_OPTION": {
           "debuggable": true
@@ -110,17 +110,17 @@
   },
   "ohos-project": {
     "SELECT_PRODUCT_NAME": "default",
-    "MODULE_BUILD_DIR": "D:\\HW\\testproject\\complete\\1\\build",
+    "MODULE_BUILD_DIR": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/build",
     "BUNDLE_NAME": "com.il.1",
     "VERSION_CODE": 1000000,
     "VERSION_NAME": "1.0.0",
     "BUILD_PATH": {
-      "OUTPUT_PATH": "D:\\HW\\testproject\\complete\\1\\build\\outputs\\default"
+      "OUTPUT_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/build/outputs/default"
     },
     "MODULES": [
       {
         "name": "entry",
-        "srcPath": "D:\\HW\\testproject\\complete\\1\\entry",
+        "srcPath": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1/entry",
         "targets": [
           {
             "name": "default",
@@ -129,7 +129,7 @@
             ]
           }
         ],
-        "belongProjectPath": "D:\\HW\\testproject\\complete\\1"
+        "belongProjectPath": "/Users/ming/Desktop/HarmonyProject/testproject/complete/1"
       }
     ],
     "PROFILE_OPT": {
@@ -139,13 +139,13 @@
             "name": "default",
             "type": "HarmonyOS",
             "material": {
-              "certpath": "C:\\Users\\CuteDuan\\.ohos\\config\\default_1_BhzYZEydDVfZJ61mGi925yNWoqQ3wx2qwnAWE_X8vXg=.cer",
+              "certpath": "/Users/ming/.ohos/config/default_1_YTKtHbfzBHL_bgdapEhPoybSrNukFg2-m1BpKvprIDI=.cer",
               "keyAlias": "debugKey",
-              "keyPassword": "0000001BB3926DAC36AB3898C3839B09C79EE8FB43A497906388E850AD51E75017780230AFFEA072ADB6B8",
-              "profile": "C:\\Users\\CuteDuan\\.ohos\\config\\default_1_BhzYZEydDVfZJ61mGi925yNWoqQ3wx2qwnAWE_X8vXg=.p7b",
+              "keyPassword": "0000001B046A3166D83618C5403BE3ED6D29B2ED7FE4F5AABA20AA954BD90AD2504A34DB29420BCE9CA3EA",
+              "profile": "/Users/ming/.ohos/config/default_1_YTKtHbfzBHL_bgdapEhPoybSrNukFg2-m1BpKvprIDI=.p7b",
               "signAlg": "SHA256withECDSA",
-              "storeFile": "C:\\Users\\CuteDuan\\.ohos\\config\\default_1_BhzYZEydDVfZJ61mGi925yNWoqQ3wx2qwnAWE_X8vXg=.p12",
-              "storePassword": "0000001B5DCD0628018D528EF2B185570C400B5FE7B3704C9E8146FCD5E09C76783D68303D73E9A3FA272D"
+              "storeFile": "/Users/ming/.ohos/config/default_1_YTKtHbfzBHL_bgdapEhPoybSrNukFg2-m1BpKvprIDI=.p12",
+              "storePassword": "0000001B9CAF4F0A259ACFCB1DE1F05B18D2181F1C649A92BDCA099A46AD17CDC84B59E81D9035B3E89BB9"
             }
           }
         ],
@@ -194,7 +194,7 @@
       "hvigor.keepDependency": true
     },
     "OVERALL_PROJECT_PATHS": [
-      "D:\\HW\\testproject\\complete\\1"
+      "/Users/ming/Desktop/HarmonyProject/testproject/complete/1"
     ],
     "BUILD_CACHE_DIR": ""
   }

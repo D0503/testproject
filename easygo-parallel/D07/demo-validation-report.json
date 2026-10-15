@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "featureName": "平行视界",
+  "scenarioId": "EP-S007",
+  "demoId": "D07",
+  "demoOrder": 7,
+  "demoName": "虚拟容器与页面尺寸适配（enableReducedContainerSize）",
+  "demoDescription": "验证虚拟容器开关：同一 600lpx 固定宽内容，关闭时按原始窗口尺寸计算被截断，开启后按右侧页面缩小比例完整显示。",
+  "project": "/Users/ming/harmonyos-validation/easygo-parallel/D07/test-demo",
+  "navigation": "启动 → 固定宽内容样例 A 进固定宽内容页",
+  "buildIdentity": "debug assembleApp（D07 test-demo，两变体构建通过）",
+  "verifiedAt": "2026-10-08",
+  "verifier": "opencode 自动验证 + 截图判图",
+  "environment":{"deviceType":"emulator","device":"Huawei_TripleFold (模拟器, serial 127.0.0.1:5557)","systemVersion":"HarmonyOS 7.0.0(26.0.0)","sdkApi":"API 26 (SDK 26.0.0.105 Release)","capability":"三折叠展开态宽屏窗口，支持平行视界分栏；不支持应用内拉起系统分屏的可见效果","displaySettings":"展开态全屏显示，默认深浅色为浅色"},
+  "points": [{
+    "id": "D07-01",
+    "operation": "两变体分别重建安装，同一固定宽 600lpx 内容截图对比",
+    "actual": "off：600lpx 渐变条超出右分栏被截断（右标尺不可见）；on：同一内容在右分栏内完整显示（左右标尺均可见）",
+    "status": "通过",
+    "statusReason": "与官网 lpx 等单位关闭用原始尺寸、开启用缩小比例按右侧页面尺寸计算的描述一致；FAQ 截断问题与虚拟容器方案均复现验证",
+    "variants": [
+      { "id": "reduced-container-off", "actual": "内容截断（evidence: D07-01-reduced-container-off.png）" },
+      { "id": "reduced-container-on", "actual": "内容完整显示（evidence: D07-01-reduced-container-on.png）" }
+    ],
+    "evidence": [
+      { "type": "screenshot", "path": "/Users/ming/harmonyos-validation/easygo-parallel/D07/evidence/emulator/D07-01-reduced-container-off.png", "label": "关闭时截断" },
+      { "type": "screenshot", "path": "/Users/ming/harmonyos-validation/easygo-parallel/D07/evidence/emulator/D07-01-reduced-container-on.png", "label": "开启后完整" }
+    ]
+  }],
+  "implementationConformance": "符合",
+  "implementationBasis": "仅切换 enableReducedContainerSize，内容与窗口不变（判据 C01-C05 落实，门禁 applied 通过；初版 vp 固定宽不随开关变化，按官网 lpx 语义修正为 600lpx 后对比成立）",
+  "summary": "2/2 变体符合官网描述",
+  "evidenceSummary": "两变体截图各 1 张，截断与完整对比明确",
+  "automationRelation": "自动构建安装+导航+截图，判图人工核对",
+  "automationBasis": "verify-development 两变体六层均 passed",
+  "documentationIssue": "未发现",
+  "documentationIssueBasis": "虚拟容器语义与实测一致；注意 lpx 才受虚拟容器影响，vp 固定宽度不受影响（文档列举单位为 lpx/断点/窗口宽度/屏幕宽度，与实测一致）",
+  "limitations": "退出分栏自动失效与分屏下屏幕宽度回退未单独截图",
+  "limitationBasis": "需联动全屏页/分屏场景，超出本验证点最小范围"
+}

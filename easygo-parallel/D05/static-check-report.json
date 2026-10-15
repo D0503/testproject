@@ -1,0 +1,24 @@
+{
+  "demoId": "D05",
+  "checkedAt": "2026-10-08T07:31:12.519Z",
+  "static": {
+    "required": true,
+    "status": "passed",
+    "summary": "场景静态规则通过。",
+    "evidenceRefs": [
+      "EVID-001"
+    ]
+  },
+  "sdk": {
+    "required": true,
+    "status": "passed",
+    "summary": "EasyGo 平行视界基础配置（API 23）：SDK API 26，必需符号已找到",
+    "evidenceRefs": [
+      "EVID-002"
+    ]
+  },
+  "build": {
+    "status": "passed",
+    "summary": "真实 debug 构建通过。"
+  }
+}

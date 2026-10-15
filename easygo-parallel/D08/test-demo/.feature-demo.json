@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "developmentMode": "demo",
+  "createdAt": "2026-10-08T04:03:53.322Z",
+  "sourceTemplate": "assets/demo-template",
+  "name": "EasyGoSplitScreenDemo",
+  "bundleName": "com.example.easygosplitdemo",
+  "prompt": "验证官网平行视界文档准确性：EP-S008 窗口分屏中继续保持平行视界 enableInSplitScreen"
+}

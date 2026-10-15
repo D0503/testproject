@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0",
+  "featureName": "平行视界",
+  "scenarioId": "EP-S008",
+  "demoId": "D08",
+  "demoOrder": 8,
+  "demoName": "窗口分屏中继续保持平行视界（enableInSplitScreen）",
+  "demoDescription": "验证 enableInSplitScreen 与配套运行态判断：详情页分屏按钮仅在 isEasySplit()=true 且非分屏态显示，点击后 startAbility(WINDOW_MODE_SPLIT_PRIMARY, PRIMARY_DOMINANT) 拉起系统分屏。",
+  "project": "/Users/ming/harmonyos-validation/easygo-parallel/D08/test-demo",
+  "navigation": "启动 → 商品 Alpha 进详情页 → 点击分屏比价",
+  "buildIdentity": "debug assembleApp（D08 test-demo，构建通过）",
+  "verifiedAt": "2026-10-08",
+  "verifier": "opencode 自动验证 + 截图判图",
+  "environment":{"deviceType":"emulator","device":"Huawei_TripleFold (模拟器, serial 127.0.0.1:5557)","systemVersion":"HarmonyOS 7.0.0(26.0.0)","sdkApi":"API 26 (SDK 26.0.0.105 Release)","capability":"三折叠展开态宽屏窗口，支持平行视界分栏；不支持应用内拉起系统分屏的可见效果","displaySettings":"展开态全屏显示，默认深浅色为浅色"},
+  "points": [{
+    "id": "D08-01",
+    "operation": "enableInSplitScreen=true 变体进入详情页确认分栏态与按钮显隐，点击分屏按钮尝试进入系统分屏并截图",
+    "actual": "分栏态下 isEasySplit=true、windowStatusType=1(FULL_SCREEN) 显示正确，按钮可见；点击后应用日志 startAbility 成功，但模拟器未呈现系统分屏窗口，无法观察分屏中平行视界是否保持",
+    "status": "无法判定",
+    "statusReason": "分栏态判断与入口显隐符合官网（isEasySplit/getWindowStatus 实测正确）；startAbility 调用成功但 TripleFold 模拟器不呈现应用内系统分屏，分屏中保持平行视界的视觉效果需真机验证",
+    "variants": [
+      { "id": "split-easygo-off", "actual": "未执行：模拟器无法进入可见系统分屏，off/on 差异不可观察" },
+      { "id": "split-easygo-on", "actual": "分栏态与按钮条件验证通过；分屏后平行视界保持效果未观察到（evidence: D08-01-split-entry.png）" }
+    ],
+    "evidence": [
+      { "type": "screenshot", "path": "/Users/ming/harmonyos-validation/easygo-parallel/D08/evidence/emulator/D08-01-split-entry.png", "label": "分栏态与分屏入口" }
+    ]
+  }],
+  "implementationConformance": "符合",
+  "implementationBasis": "easy_go.json 配置 enableInSplitScreen；按钮 visibility 按官网示例 isEasySplit() 且 windowStatusType!==SPLIT_SCREEN；startAbility 参数 WINDOW_MODE_SPLIT_PRIMARY+PRIMARY_DOMINANT 与官网一致（判据 C01-C07 落实，门禁 applied 通过；windowStatusType 经 Window.getWindowStatus() 获取，官网示例的 mainWindowInfo.windowStatusType 字段位于 WindowInfo 接口）",
+  "summary": "配置、运行态判断与入口行为符合官网；分屏中保持平行视界的最终视觉效果模拟器无法判定",
+  "evidenceSummary": "分栏态截图 1 张（含 isEasySplit=true 界面回显），设备日志显示 startAbility 成功",
+  "automationRelation": "自动构建安装+导航+截图+设备日志；分屏效果需人工真机复核",
+  "automationBasis": "verify-development：static/sdk/build/install passed，runtime/visual inconclusive（模拟器能力限制）",
+  "documentationIssue": "未发现",
+  "documentationIssueBasis": "实现修正点均为 SDK 接口归属理解问题（getWindowStatus/WindowInfo），与官网文字不冲突",
+  "limitations": "系统分屏中的平行视界保持、enableInSplitScreen=false 对照均未覆盖",
+  "limitationBasis": "TripleFold 模拟器上 startAbility(WINDOW_MODE_SPLIT_PRIMARY) 成功返回但无可见分屏会话，需真机（平板/三折叠真机）验证"
+}

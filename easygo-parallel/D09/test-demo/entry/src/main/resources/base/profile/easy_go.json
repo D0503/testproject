@@ -1,0 +1,19 @@
+{
+  "common": {
+    "displayModeOptions": {
+      "wideWindowMode": "navigationSplit",
+      "squareWindowMode": "navigationSplit",
+      "navigationSplitOptions": {
+        "homePage": "navBar",
+        "wideSplit": {
+          "ratio": "1 | 1",
+          "isDraggable": false
+        },
+        "splitDividerColor": {
+          "light": "#33FFFFFF",
+          "dark": "#33000000"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1428 @@
+{
+  "schemaVersion": "1.0",
+  "featureId": "easygo-parallel",
+  "demos": [
+    {
+      "plan": {
+        "schemaVersion": "1.0",
+        "mode": "demo-development-validation",
+        "generatedAt": "2026-10-08T06:05:05.178Z",
+        "featureId": "easygo-parallel",
+        "scenarioId": "EP-S001",
+        "goal": "验证官网平行视界文档准确性：开启平行视界 easy_go.json navigationSplit 分栏，对比 original 基线",
+        "frozenAt": "2026-10-08T03:36:01.631Z",
+        "criteriaStrategy": "fresh",
+        "layoutPolicy": "single_page_preferred",
+        "backgroundResource": "app.media.background",
+        "demoReusePolicy": {
+          "mode": "existing_project_first",
+          "variantStrategy": "runtime_controls_or_state_switch",
+          "compileTimeChanges": "edit_and_rebuild_same_project",
+          "deviceChanges": "reuse_same_project",
+          "pointIdsDoNotAllocateProjects": true,
+          "splitRequiresReason": true
+        },
+        "scopePolicy": {
+          "selection": "prompt_strong_relevance_only",
+          "prerequisiteHandling": "setup_or_static_only",
+          "excludedByDefault": [
+            "未点名的设备矩阵",
+            "未点名的高级配置",
+            "性能专项"
+          ],
+          "excludedCriterionTypes": [
+            "version",
+            "capability",
+            "performance"
+          ],
+          "includeExcludedTypeWhenPromptContains": {
+            "version": [
+              "API",
+              "SDK",
+              "版本",
+              "兼容"
+            ],
+            "capability": [
+              "设备",
+              "窗口形态",
+              "折叠屏",
+              "平板"
+            ],
+            "performance": [
+              "性能",
+              "功耗",
+              "帧率"
+            ]
+          }
+        },
+        "points": [
+          {
+            "id": "D01-01",
+            "title": "基础平行视界分栏效果",
+            "execution": "rebuild_per_variant",
+            "criteriaTopics": [
+              "设备与显示模式",
+              "路由框架一致性"
+            ],
+            "demoSetupRequirements": [
+              {
+                "id": "two-routable-pages",
+                "description": "提供可从主页进入详情页的最小路由与稳定测试数据。",
+                "enforcement": "implementation_and_static_gate",
+                "countsAsFeatureValidation": false
+              }
+            ],
+            "variants": [
+              {
+                "id": "parallel-enabled",
+                "label": "所选路由框架分栏",
+                "parameters": {
+                  "wideWindowMode": "match_project_router",
+                  "splitOptions": "match_project_router"
+                }
+              },
+              {
+                "id": "parallel-original",
+                "label": "original 基线",
+                "parameters": {
+                  "wideWindowMode": "original"
+                }
+              }
+            ],
+            "buildPolicy": {
+              "mode": "rebuild_per_variant",
+              "instruction": "默认逐变体构建；只有确认差异全部是运行时状态且构建输入哈希一致时才可复用。"
+            },
+            "criteriaRefs": [
+              "C03",
+              "C04",
+              "C05",
+              "C06",
+              "C07",
+              "C08",
+              "C09",
+              "C10"
+            ],
+            "expectedFromCurrentSnapshot": [
+              {
+                "criteriaId": "C03",
+                "statement": "easy_go.json是一个标准的Object类型JSON文件，整体结构分为两层：第一层配置设备类型（common/phone/tablet），第二层配置对应设备类型下的显示模式（displayModeOptions）。",
+                "snapshotId": "easygo-guide",
+                "anchor": "整体结构分为两层。第一层配置设备类型；第二层配置对应设备类型下的显示模式"
+              },
+              {
+                "criteriaId": "C04",
+                "statement": "common为通用设备配置，为所有设备类型提供基础默认配置，不可缺省；phone和tablet为可选配置，配置后common配置在对应类型设备上不再生效。",
+                "snapshotId": "easygo-guide",
+                "anchor": "配置后common配置在phone类型设备上不再生效"
+              },
+              {
+                "criteriaId": "C05",
+                "statement": "wideWindowMode（不可缺省）控制应用在比直板机宽的长方形宽屏窗口（>= 600vp，宽/高 > 1.2）上的显示方式；squareWindowMode（可选）控制应用在比直板机宽的方形宽屏窗口（>= 600vp，高/宽 <= 1.2，宽/高 <= 1.2）上的显示方式。",
+                "snapshotId": "easygo-guide",
+                "anchor": "控制应用在比直板机宽的长方形宽屏窗口（>= 600vp，宽/高 > 1.2）上的显示方式"
+              },
+              {
+                "criteriaId": "C06",
+                "statement": "wideWindowMode/squareWindowMode取值为original时表示关闭窗口显示模式的兼容运行行为，可用于为特定设备（如tablet）单独关闭平行视界效果。",
+                "snapshotId": "easygo-guide",
+                "anchor": "关闭窗口显示模式的兼容运行行为"
+              },
+              {
+                "criteriaId": "C07",
+                "statement": "开启平行视界并分栏显示时，应用会在一个窗口中同时显示两个页面，默认情况下两页按1:1平分窗口；从API版本23开始支持开发者自配置。",
+                "snapshotId": "easygo-guide",
+                "anchor": "从API版本23开始，支持开发者自配置"
+              },
+              {
+                "criteriaId": "C08",
+                "statement": "wideWindowMode/squareWindowMode设置为navigationSplit代表应用路由由navigation组件实现，必须配合navigationSplitOptions字段一起使用；设置为routerSplit代表应用路由由router模块实现，必须配合routerSplitOptions字段一起使用。",
+                "snapshotId": "easygo-guide",
+                "anchor": "必须配合navigationSplitOptions字段一起使用"
+              },
+              {
+                "criteriaId": "C09",
+                "statement": "routerSplitOptions和navigationSplitOptions不能同时存在；开启平行视界后，混用Router和Navigation会导致部分行为异常，因此不建议在启用平行视界的应用中混用两种路由框架（原文为不建议，非强制禁止）。",
+                "snapshotId": "easygo-guide",
+                "anchor": "routerSplitOptions和navigationSplitOptions不能同时存在"
+              },
+              {
+                "criteriaId": "C10",
+                "statement": "在官方路由选型指导中，组件导航（Navigation）为推荐方案，页面路由（@ohos.router）为不推荐方案。",
+                "snapshotId": "navigation-routing",
+                "anchor": "组件导航(Navigation) (推荐)"
+              }
+            ],
+            "capture": {
+              "strategy": "rebuild_each_variant",
+              "instruction": "每次只修改该参数，重新执行实施门禁、构建、安装并在相同页面状态截图；保存源码与 HAP 哈希。"
+            }
+          }
+        ]
+      },
+      "results": {
+        "schemaVersion": "1.0",
+        "featureName": "平行视界",
+        "scenarioId": "EP-S001",
+        "demoId": "D01",
+        "demoOrder": 1,
+        "demoName": "基础平行视界分栏（navigationSplit vs original）",
+        "demoDescription": "验证 easy_go.json 基础配置：entry 模块 easyGo 引用、两层结构、wideWindowMode/squareWindowMode=navigationSplit 进入分栏，original 关闭兼容行为。Navigation 固定 Stack 模式以排除自身分栏干扰。",
+        "project": "/Users/ming/harmonyos-validation/easygo-parallel/D01/test-demo",
+        "navigation": "启动应用 → 点击商品 Alpha 进入详情页",
+        "buildIdentity": "debug assembleApp（D01 test-demo，build 通过，构建日志见 verify 报告）",
+        "verifiedAt": "2026-10-08",
+        "verifier": "opencode 自动验证 + 截图判图",
+        "environment": {
+          "deviceType": "emulator",
+          "device": "Huawei_TripleFold (模拟器, serial 127.0.0.1:5557)",
+          "systemVersion": "HarmonyOS 7.0.0(26.0.0)",
+          "sdkApi": "API 26 (SDK 26.0.0.105 Release)",
+          "capability": "三折叠展开态宽屏窗口，支持平行视界分栏；不支持应用内拉起系统分屏的可见效果",
+          "displaySettings": "展开态全屏显示，默认深浅色为浅色"
+        },
+        "points": [
+          {
+            "id": "D01-01",
+            "operation": "两变体分别重建安装，进入商品详情页截图对比",
+            "actual": "parallel-enabled：左侧主页列表+右侧详情页 1:1 分栏；parallel-original：详情页单页全宽无分栏",
+            "status": "通过",
+            "statusReason": "官网描述与实际效果一致：navigationSplit 进入平行视界默认 1:1 分栏，original 关闭窗口显示模式兼容行为",
+            "variants": [
+              {
+                "id": "parallel-enabled",
+                "actual": "左主页右详情 1:1 分栏，中间分割线可见（evidence: D01-01-parallel-enabled.png）"
+              },
+              {
+                "id": "parallel-original",
+                "actual": "详情页单页全宽显示，无分栏（evidence: D01-01-parallel-original.png）"
+              }
+            ],
+            "evidence": [
+              {
+                "type": "screenshot",
+                "path": "/Users/ming/harmonyos-validation/easygo-parallel/D01/evidence/emulator/D01-01-parallel-enabled.png",
+                "label": "navigationSplit 分栏"
+              },
+              {
+                "type": "screenshot",
+                "path": "/Users/ming/harmonyos-validation/easygo-parallel/D01/evidence/emulator/D01-01-parallel-original.png",
+                "label": "original 单页基线"
+              }
+            ]
+          }
+        ],
+        "implementationConformance": "符合",
+        "implementationBasis": "module.json5 仅 entry 模块引用 $profile:easy_go；easy_go.json 两层结构 common+displayModeOptions；Navigation 路由配置 navigationSplitOptions，未混用 routerSplitOptions（判据 C01-C09 全部落实，实施记录门禁 applied 通过）",
+        "summary": "2/2 变体符合官网描述",
+        "evidenceSummary": "两变体截图各 1 张，另含构建日志、导航日志、组件树（verify 报告 evidence）",
+        "automationRelation": "自动构建安装+导航点击+截图，判图结论基于截图人工核对",
+        "automationBasis": "verify-development 六层验证：static/sdk/build/install/runtime/visual 均 passed（original 变体 static 层按预期失败：有意不配置 splitOptions）",
+        "documentationIssue": "未发现",
+        "documentationIssueBasis": "官网配置说明、默认值与 deviceTypes 行为均与实测一致",
+        "limitations": "仅验证宽屏（长方形）窗口；方形窗口形态未单独覆盖",
+        "limitationBasis": "模拟器 TripleFold 展开态为长方形宽屏窗口"
+      }
+    },
+    {
+      "plan": {
+        "schemaVersion": "1.0",
+        "mode": "demo-development-validation",
+        "generatedAt": "2026-10-08T06:05:35.291Z",
+        "featureId": "easygo-parallel",
+        "scenarioId": "EP-S002",
+        "goal": "验证官网平行视界文档准确性：主页与关联页 homePage relatedPage 首次分栏组合",
+        "frozenAt": "2026-10-08T03:36:01.631Z",
+        "criteriaStrategy": "fresh",
+        "layoutPolicy": "single_page_preferred",
+        "backgroundResource": "app.media.background",
+        "demoReusePolicy": {
+          "mode": "existing_project_first",
+          "variantStrategy": "runtime_controls_or_state_switch",
+          "compileTimeChanges": "edit_and_rebuild_same_project",
+          "deviceChanges": "reuse_same_project",
+          "pointIdsDoNotAllocateProjects": true,
+          "splitRequiresReason": true
+        },
+        "scopePolicy": {
+          "selection": "prompt_strong_relevance_only",
+          "prerequisiteHandling": "setup_or_static_only",
+          "excludedByDefault": [
+            "路由模式对比",
+            "全屏与分屏专项"
+          ],
+          "excludedCriterionTypes": [
+            "version",
+            "capability",
+            "performance"
+          ],
+          "includeExcludedTypeWhenPromptContains": {
+            "version": [
+              "API",
+              "版本"
+            ],
+            "capability": [
+              "设备",
+              "窗口"
+            ],
+            "performance": [
+              "性能",
+              "功耗"
+            ]
+          }
+        },
+        "points": [
+          {
+            "id": "D02-01",
+            "title": "主页与关联页初始分栏效果",
+            "execution": "rebuild_per_variant",
+            "criteriaTopics": [
+              "主页标识",
+              "关联页约束",
+              "首次分栏结果"
+            ],
+            "variants": [
+              {
+                "id": "home-related",
+                "label": "同时配置主页与关联页",
+                "parameters": {
+                  "homePage": "configured",
+                  "relatedPage": "configured"
+                }
+              },
+              {
+                "id": "home-only",
+                "label": "只配置主页",
+                "parameters": {
+                  "homePage": "configured",
+                  "relatedPage": "omitted"
+                }
+              }
+            ],
+            "buildPolicy": {
+              "mode": "rebuild_per_variant",
+              "instruction": "默认逐变体构建；只有确认差异全部是运行时状态且构建输入哈希一致时才可复用。"
+            },
+            "criteriaRefs": [
+              "C01",
+              "C02",
+              "C03",
+              "C04",
+              "C05"
+            ],
+            "expectedFromCurrentSnapshot": [
+              {
+                "criteriaId": "C01",
+                "statement": "homePage为主页名称，不配置时系统采用默认的策略进行主页识别；对于Navigation路由，如果将NavDestination做为主页则配置为NavDestination的name，如果将Navigation首页作为主页则配置为\"navBar\"，官方建议将Navigation实际主页配置为homePage；对于Router路由，配置为页面绝对路径，由配置文件中pages列表提供，例如\"pages/Index\"。",
+                "snapshotId": "easygo-guide",
+                "anchor": "建议将Navigation实际主页配置为homePage"
+              },
+              {
+                "criteriaId": "C02",
+                "statement": "relatedPage为关联页名称，不配置时没有关联页能力；内容格式和homePage保持一致；必须有homePage才能配置relatedPage；不支持传递参数，建议配置无需动态参数的静态页面作为关联页。",
+                "snapshotId": "easygo-guide",
+                "anchor": "必须有homePage才能配置relatedPage"
+              },
+              {
+                "criteriaId": "C03",
+                "statement": "relatedPage不支持传递参数，官方建议配置无需动态参数的静态页面作为关联页。",
+                "snapshotId": "easygo-guide",
+                "anchor": "不支持传递参数，建议配置无需动态参数的静态页面作为关联页"
+              },
+              {
+                "criteriaId": "C04",
+                "statement": "平行视界提供配置主页及关联页能力，通过homePage属性设置主页，通过relatedPage属性设置关联页；官方给出同时配置主页和关联页与只配置主页两种场景的分栏效果对照。",
+                "snapshotId": "easygo-guide",
+                "anchor": "通过homePage属性设置主页，通过relatedPage属性设置关联页"
+              },
+              {
+                "criteriaId": "C05",
+                "statement": "默认情况下系统会将应用的某个页面识别为主页，但该机制在有些场景下不能准确识别主页，官方建议开发者主动配置主页，需要的话还可以配置关联页（如将首页设置为主页、首个商品分类页设置为启动关联页）。",
+                "snapshotId": "easygo-guide",
+                "anchor": "建议开发者主动配置主页，需要的话，还可以配置关联页"
+              }
+            ],
+            "capture": {
+              "strategy": "rebuild_each_variant",
+              "instruction": "每次只修改该参数，重新执行实施门禁、构建、安装并在相同页面状态截图；保存源码与 HAP 哈希。"
+            }
+          }
+        ]
+      },
+      "results": {
+        "schemaVersion": "1.0",
+        "featureName": "平行视界",
+        "scenarioId": "EP-S002",
+        "demoId": "D02",
+        "demoOrder": 2,
+        "demoName": "主页与关联页首次分栏组合",
+        "demoDescription": "验证 homePage=navBar 与 relatedPage=CategoryPage 配置：同时配置时启动即主页+关联页分栏；只配置主页时右侧为占位页。",
+        "project": "/Users/ming/harmonyos-validation/easygo-parallel/D02/test-demo",
+        "navigation": "启动应用直接观察首次分栏（关联页为静态页面，无动态参数）",
+        "buildIdentity": "debug assembleApp（D02 test-demo，两变体构建通过）",
+        "verifiedAt": "2026-10-08",
+        "verifier": "opencode 自动验证 + 截图判图",
+        "environment": {
+          "deviceType": "emulator",
+          "device": "Huawei_TripleFold (模拟器, serial 127.0.0.1:5557)",
+          "systemVersion": "HarmonyOS 7.0.0(26.0.0)",
+          "sdkApi": "API 26 (SDK 26.0.0.105 Release)",
+          "capability": "三折叠展开态宽屏窗口，支持平行视界分栏；不支持应用内拉起系统分屏的可见效果",
+          "displaySettings": "展开态全屏显示，默认深浅色为浅色"
+        },
+        "points": [
+          {
+            "id": "D02-01",
+            "operation": "两变体分别重建安装，启动后截图对比首次分栏",
+            "actual": "home-related：启动即左主页+右关联页（商品分类）；home-only：左主页+右系统占位页",
+            "status": "通过",
+            "statusReason": "与官网 homePage/relatedPage 约束及首次分栏组合描述一致（relatedPage 需 homePage 前置、不配置则无关联页能力）",
+            "variants": [
+              {
+                "id": "home-related",
+                "actual": "左商品列表 + 右商品分类关联页（evidence: D02-01-home-related.png）"
+              },
+              {
+                "id": "home-only",
+                "actual": "左商品列表 + 右占位页（evidence: D02-01-home-only.png）"
+              }
+            ],
+            "evidence": [
+              {
+                "type": "screenshot",
+                "path": "/Users/ming/harmonyos-validation/easygo-parallel/D02/evidence/emulator/D02-01-home-related.png",
+                "label": "主页+关联页"
+              },
+              {
+                "type": "screenshot",
+                "path": "/Users/ming/harmonyos-validation/easygo-parallel/D02/evidence/emulator/D02-01-home-only.png",
+                "label": "只配置主页"
+              }
+            ]
+          }
+        ],
+        "implementationConformance": "符合",
+        "implementationBasis": "homePage=navBar（Navigation 首页）、relatedPage=CategoryPage（NavDestination name，无动态参数静态页面），格式与官网要求一致（判据 C01-C05 落实，门禁 applied 通过）",
+        "summary": "2/2 变体符合官网描述",
+        "evidenceSummary": "两变体截图各 1 张；home-related 变体 expectPage=商品分类（关联页）组件树断言命中",
+        "automationRelation": "自动构建安装+组件树断言+截图，判图人工核对",
+        "automationBasis": "verify-development 验证：home-related 全层 passed；home-only 静态规则 relatedPage 缺失为有意对照（inconclusive 预期内）",
+        "documentationIssue": "未发现",
+        "documentationIssueBasis": "首次分栏组合与文档效果图描述一致",
+        "limitations": "Router 路由格式未覆盖（Demo 为 Navigation 路由）",
+        "limitationBasis": "场景路由选择 Navigation 路线"
+      }
+    },
+    {
+      "plan": {
+        "schemaVersion": "1.0",
+        "mode": "demo-development-validation",
+        "generatedAt": "2026-10-08T06:05:35.317Z",
+        "featureId": "easygo-parallel",
+        "scenarioId": "EP-S005",
+        "goal": "验证官网平行视界文档准确性：fullScreenPages 全屏页进入退出分栏并返回恢复",
+        "frozenAt": "2026-10-08T03:36:01.631Z",
+        "criteriaStrategy": "fresh",
+        "layoutPolicy": "single_page_preferred",
+        "backgroundResource": "app.media.background",
+        "demoReusePolicy": {
+          "mode": "existing_project_first",
+          "variantStrategy": "runtime_controls_or_state_switch",
+          "compileTimeChanges": "edit_and_rebuild_same_project",
+          "deviceChanges": "reuse_same_project",
+          "pointIdsDoNotAllocateProjects": true,
+          "splitRequiresReason": true
+        },
+        "scopePolicy": {
+          "selection": "prompt_strong_relevance_only",
+          "prerequisiteHandling": "setup_or_static_only",
+          "excludedByDefault": [
+            "横屏与分屏专项"
+          ],
+          "excludedCriterionTypes": [
+            "version",
+            "capability",
+            "performance"
+          ],
+          "includeExcludedTypeWhenPromptContains": {
+            "version": [
+              "API",
+              "版本"
+            ],
+            "capability": [
+              "设备",
+              "窗口"
+            ],
+            "performance": [
+              "性能",
+              "功耗"
+            ]
+          }
+        },
+        "points": [
+          {
+            "id": "D05-01",
+            "title": "全屏页进入 / 返回恢复效果",
+            "execution": "single_page",
+            "criteriaTopics": [
+              "进入与退出全屏"
+            ],
+            "interactionRequirements": [
+              {
+                "id": "open-fullscreen",
+                "description": "从分栏详情页进入配置的全屏页。",
+                "expected": "目标页全屏显示。"
+              },
+              {
+                "id": "back-to-split",
+                "description": "从全屏页返回。",
+                "expected": "恢复进入前的平行视界分栏。"
+              }
+            ],
+            "variants": [
+              {
+                "id": "configured-fullscreen-page",
+                "label": "fullScreenPages 目标页",
+                "parameters": {
+                  "fullScreenPages": [
+                    "FullScreenImagePage"
+                  ]
+                }
+              }
+            ],
+            "buildPolicy": {
+              "mode": "reuse_build",
+              "rebuildWhen": [
+                "source",
+                "resource",
+                "configuration",
+                "sdk",
+                "dependency",
+                "signing"
+              ],
+              "instruction": "本轮构建安装一次；仅运行时参数或页面状态变化时复用安装包，重置页面后逐变体采集证据。文件或构建输入变化则重新执行门禁并构建。"
+            },
+            "criteriaRefs": [
+              "C03"
+            ],
+            "expectedFromCurrentSnapshot": [
+              {
+                "criteriaId": "C03",
+                "statement": "通过fullScreenPages字段指定全屏页后，对应页面展示时将暂时退出分栏模式、切换为全屏显示；页面隐藏时恢复分栏显示。",
+                "snapshotId": "easygo-guide",
+                "anchor": "将暂时退出分栏模式，切换为全屏显示。页面隐藏时，恢复分栏显示"
+              }
+            ],
+            "capture": {
+              "strategy": "one_page_comparison",
+              "instruction": "优先在同一 Demo 使用参数控件或状态入口切换变体，也可同页并列；保持对照条件一致，重置状态后逐变体截图，不新建工程。"
+            }
+          }
+        ]
+      },
+      "results": {
+        "schemaVersion": "1.0",
+        "featureName": "平行视界",
+        "scenarioId": "EP-S005",
+        "demoId": "D05",
+        "demoOrder": 5,
+        "demoName": "全屏页进入退出分栏与返回恢复",
+        "demoDescription": "验证 fullScreenPages：进入 FullScreenImagePage 退出分栏全屏显示，返回后恢复平行视界分栏。Navigation 固定 Stack 模式排除自身分栏干扰。",
+        "project": "/Users/ming/harmonyos-validation/easygo-parallel/D05/test-demo",
+        "navigation": "启动 → 商品 Alpha 进详情页 → 查看大图进全屏页 → 返回分栏",
+        "buildIdentity": "debug assembleApp（D05 test-demo，构建通过）",
+        "verifiedAt": "2026-10-08",
+        "verifier": "opencode 自动验证 + 截图判图",
+        "environment": {
+          "deviceType": "emulator",
+          "device": "Huawei_TripleFold (模拟器, serial 127.0.0.1:5557)",
+          "systemVersion": "HarmonyOS 7.0.0(26.0.0)",
+          "sdkApi": "API 26 (SDK 26.0.0.105 Release)",
+          "capability": "三折叠展开态宽屏窗口，支持平行视界分栏；不支持应用内拉起系统分屏的可见效果",
+          "displaySettings": "展开态全屏显示，默认深浅色为浅色"
+        },
+        "points": [
+          {
+            "id": "D05-01",
+            "operation": "进入全屏页截图，返回后再截图，对比两个时刻",
+            "actual": "进入全屏页：退出分栏独占全窗口；返回后：恢复左主页+右详情 1:1 分栏且路由状态保持",
+            "status": "通过",
+            "statusReason": "与官网对应页面展示时暂时退出分栏、页面隐藏时恢复分栏显示的描述一致",
+            "variants": [
+              {
+                "id": "configured-fullscreen-page",
+                "actual": "FullScreenImagePage 全屏显示（D05-01-fullscreen.png）；返回后恢复分栏（D05-01-restore.png）"
+              }
+            ],
+            "interactions": [
+              {
+                "id": "open-fullscreen",
+                "actual": "从分栏详情页点击查看看大图后目标页全屏显示",
+                "status": "通过",
+                "statusReason": "expectPage=全屏图片页（已退出分栏）断言命中组件树，截图确认全屏"
+              },
+              {
+                "id": "back-to-split",
+                "actual": "从全屏页点击返回分栏后恢复进入前的平行视界分栏",
+                "status": "通过",
+                "statusReason": "expectPage=详情页（右侧分栏）断言命中，截图确认 1:1 分栏恢复"
+              }
+            ],
+            "evidence": [
+              {
+                "type": "screenshot",
+                "path": "/Users/ming/harmonyos-validation/easygo-parallel/D05/evidence/emulator/D05-01-fullscreen.png",
+                "label": "全屏页退出分栏"
+              },
+              {
+                "type": "screenshot",
+                "path": "/Users/ming/harmonyos-validation/easygo-parallel/D05/evidence/emulator/D05-01-restore.png",
+                "label": "返回恢复分栏"
+              }
+            ]
+          }
+        ],
+        "implementationConformance": "符合",
+        "implementationBasis": "fullScreenPages=[FullScreenImagePage]，未与 homePage/relatedPage 重复（判据 C01-C03 落实，门禁 applied 通过）",
+        "summary": "进入全屏与返回恢复两时刻均符合官网描述",
+        "evidenceSummary": "两时刻截图各 1 张，组件树断言 2 次命中",
+        "automationRelation": "自动导航（点击+断言）+截图，判图人工核对",
+        "automationBasis": "verify-development 两个目标（进入全屏/返回恢复）六层均 passed",
+        "documentationIssue": "未发现",
+        "documentationIssueBasis": "进入退出行为与文档一致",
+        "limitations": "未验证全屏页与横屏叠加场景",
+        "limitationBasis": "超出本场景范围（EP-S006 单独覆盖横屏）"
+      }
+    },
+    {
+      "plan": {
+        "schemaVersion": "1.0",
+        "mode": "demo-development-validation",
+        "generatedAt": "2026-10-08T06:05:35.344Z",
+        "featureId": "easygo-parallel",
+        "scenarioId": "EP-S006",
+        "goal": "验证官网平行视界文档准确性：supportLandscapeFullscreen 主动横屏时全屏或保持分栏",
+        "frozenAt": "2026-10-08T03:36:01.631Z",
+        "criteriaStrategy": "fresh",
+        "layoutPolicy": "single_page_preferred",
+        "backgroundResource": "app.media.background",
+        "demoReusePolicy": {
+          "mode": "existing_project_first",
+          "variantStrategy": "runtime_controls_or_state_switch",
+          "compileTimeChanges": "edit_and_rebuild_same_project",
+          "deviceChanges": "reuse_same_project",
+          "pointIdsDoNotAllocateProjects": true,
+          "splitRequiresReason": true
+        },
+        "scopePolicy": {
+          "selection": "prompt_strong_relevance_only",
+          "prerequisiteHandling": "setup_or_static_only",
+          "excludedByDefault": [
+            "其他全屏与路由模式专项"
+          ],
+          "excludedCriterionTypes": [
+            "version",
+            "capability",
+            "performance"
+          ],
+          "includeExcludedTypeWhenPromptContains": {
+            "version": [
+              "API",
+              "版本"
+            ],
+            "capability": [
+              "设备",
+              "窗口"
+            ],
+            "performance": [
+              "性能",
+              "功耗"
+            ]
+          }
+        },
+        "points": [
+          {
+            "id": "D06-01",
+            "title": "横屏请求下全屏 / 保持分栏对比",
+            "execution": "rebuild_per_variant",
+            "criteriaTopics": [
+              "横屏全屏开关",
+              "窗口级方向请求"
+            ],
+            "demoSetupRequirements": [
+              {
+                "id": "orientation-action",
+                "description": "提供同一页面上的主动横屏操作，并在离开时恢复方向。",
+                "enforcement": "implementation_and_static_gate",
+                "countsAsFeatureValidation": false
+              }
+            ],
+            "variants": [
+              {
+                "id": "landscape-fullscreen",
+                "label": "supportLandscapeFullscreen=true",
+                "parameters": {
+                  "supportLandscapeFullscreen": true
+                }
+              },
+              {
+                "id": "landscape-split",
+                "label": "supportLandscapeFullscreen=false",
+                "parameters": {
+                  "supportLandscapeFullscreen": false
+                }
+              }
+            ],
+            "buildPolicy": {
+              "mode": "rebuild_per_variant",
+              "instruction": "默认逐变体构建；只有确认差异全部是运行时状态且构建输入哈希一致时才可复用。"
+            },
+            "criteriaRefs": [
+              "C01",
+              "C02",
+              "C03",
+              "C04"
+            ],
+            "expectedFromCurrentSnapshot": [
+              {
+                "criteriaId": "C01",
+                "statement": "supportLandscapeFullscreen控制应用主动请求横屏时是否全屏显示，默认值为true：true表示当应用主动请求横屏时会退出分栏全屏显示；false表示当应用主动请求横屏时仍然保持平行视界效果。",
+                "snapshotId": "easygo-guide",
+                "anchor": "应用主动请求横屏时是否全屏显示，默认值为true"
+              },
+              {
+                "criteriaId": "C02",
+                "statement": "supportLandscapeFullscreen配置为false时，当应用主动请求横屏，仍然保持平行视界效果（不退出分栏）。",
+                "snapshotId": "easygo-guide",
+                "anchor": "当应用主动请求横屏时，仍然保持平行视界效果"
+              },
+              {
+                "criteriaId": "C03",
+                "statement": "平行视界场景下会同时显示左右两个页面，两个页面方向需要一致，因此NavDestination组件的preferredOrientation页面级方向属性不生效；官方推荐使用窗口级方案，通过window提供的setPreferredOrientation()接口设置窗口策略。",
+                "snapshotId": "easygo-guide",
+                "anchor": "两个页面方向需要一致"
+              },
+              {
+                "criteriaId": "C04",
+                "statement": "window模块提供setPreferredOrientation(orientation: Orientation): Promise&lt;void&gt;接口（API 9+）设置窗口显示方向。",
+                "snapshotId": "window-api",
+                "anchor": "setPreferredOrientation(orientation: Orientation): Promise<void>"
+              }
+            ],
+            "capture": {
+              "strategy": "rebuild_each_variant",
+              "instruction": "每次只修改该参数，重新执行实施门禁、构建、安装并在相同页面状态截图；保存源码与 HAP 哈希。"
+            }
+          }
+        ]
+      },
+      "results": {
+        "schemaVersion": "1.0",
+        "featureName": "平行视界",
+        "scenarioId": "EP-S006",
+        "demoId": "D06",
+        "demoOrder": 6,
+        "demoName": "主动横屏时全屏策略（supportLandscapeFullscreen）",
+        "demoDescription": "验证 supportLandscapeFullscreen：true 时主动请求横屏退出分栏全屏；false 时保持平行视界分栏。方向请求采用窗口级 setPreferredOrientation，离开页面恢复 UNSPECIFIED。",
+        "project": "/Users/ming/harmonyos-validation/easygo-parallel/D06/test-demo",
+        "navigation": "启动 → 视频 Alpha 进视频页 → 点击请求横屏",
+        "buildIdentity": "debug assembleApp（D06 test-demo，两变体构建通过）",
+        "verifiedAt": "2026-10-08",
+        "verifier": "opencode 自动验证 + 截图判图",
+        "environment": {
+          "deviceType": "emulator",
+          "device": "Huawei_TripleFold (模拟器, serial 127.0.0.1:5557)",
+          "systemVersion": "HarmonyOS 7.0.0(26.0.0)",
+          "sdkApi": "API 26 (SDK 26.0.0.105 Release)",
+          "capability": "三折叠展开态宽屏窗口，支持平行视界分栏；不支持应用内拉起系统分屏的可见效果",
+          "displaySettings": "展开态全屏显示，默认深浅色为浅色"
+        },
+        "points": [
+          {
+            "id": "D06-01",
+            "operation": "两变体分别重建安装，同一页面点击请求横屏后截图对比",
+            "actual": "true：请求横屏后视频页退出分栏独占全窗口；false：保持左列表+右视频页分栏",
+            "status": "通过",
+            "statusReason": "与官网 supportLandscapeFullscreen 默认值 true 及 true/false 行为描述一致；窗口级方向接口生效（FAQ 页面级方案不生效结论亦一致）",
+            "variants": [
+              {
+                "id": "landscape-fullscreen",
+                "actual": "横屏请求后退出分栏全屏显示（evidence: D06-01-landscape-fullscreen.png）"
+              },
+              {
+                "id": "landscape-split",
+                "actual": "横屏请求后仍保持平行视界分栏（evidence: D06-01-landscape-split.png）"
+              }
+            ],
+            "evidence": [
+              {
+                "type": "screenshot",
+                "path": "/Users/ming/harmonyos-validation/easygo-parallel/D06/evidence/emulator/D06-01-landscape-fullscreen.png",
+                "label": "true 退出分栏全屏"
+              },
+              {
+                "type": "screenshot",
+                "path": "/Users/ming/harmonyos-validation/easygo-parallel/D06/evidence/emulator/D06-01-landscape-split.png",
+                "label": "false 保持分栏"
+              }
+            ]
+          }
+        ],
+        "implementationConformance": "符合",
+        "implementationBasis": "窗口级 window.getLastWindow().setPreferredOrientation(LANDSCAPE)，aboutToDisappear 恢复 UNSPECIFIED（判据 C01-C05 落实，门禁 applied 通过；修复了旧代码 UIContext.getWindow 不存在于 SDK 26 的实现错误）",
+        "summary": "2/2 变体符合官网描述",
+        "evidenceSummary": "两变体截图各 1 张，导航点击日志完整",
+        "automationRelation": "自动构建安装+导航+截图，判图人工核对",
+        "automationBasis": "verify-development：landscape-fullscreen 全层 passed；landscape-split 运行时保持分栏态确认",
+        "documentationIssue": "未发现",
+        "documentationIssueBasis": "默认值与两取向行为均与实测一致",
+        "limitations": "未在竖屏窗口态重复验证（模拟器展开态即宽屏）",
+        "limitationBasis": "TripleFold 展开态为宽屏形态"
+      }
+    },
+    {
+      "plan": {
+        "schemaVersion": "1.0",
+        "mode": "demo-development-validation",
+        "generatedAt": "2026-10-08T06:05:35.371Z",
+        "featureId": "easygo-parallel",
+        "scenarioId": "EP-S007",
+        "goal": "验证官网平行视界文档准确性：enableReducedContainerSize 虚拟容器与页面截断",
+        "frozenAt": "2026-10-08T03:36:01.631Z",
+        "criteriaStrategy": "fresh",
+        "layoutPolicy": "single_page_preferred",
+        "backgroundResource": "app.media.background",
+        "demoReusePolicy": {
+          "mode": "existing_project_first",
+          "variantStrategy": "runtime_controls_or_state_switch",
+          "compileTimeChanges": "edit_and_rebuild_same_project",
+          "deviceChanges": "reuse_same_project",
+          "pointIdsDoNotAllocateProjects": true,
+          "splitRequiresReason": true
+        },
+        "scopePolicy": {
+          "selection": "prompt_strong_relevance_only",
+          "prerequisiteHandling": "setup_or_static_only",
+          "excludedByDefault": [
+            "通用多设备适配全集"
+          ],
+          "excludedCriterionTypes": [
+            "version",
+            "capability",
+            "performance"
+          ],
+          "includeExcludedTypeWhenPromptContains": {
+            "version": [
+              "API",
+              "版本"
+            ],
+            "capability": [
+              "设备",
+              "窗口",
+              "断点"
+            ],
+            "performance": [
+              "性能",
+              "功耗"
+            ]
+          }
+        },
+        "points": [
+          {
+            "id": "D07-01",
+            "title": "虚拟容器关闭 / 开启布局对比",
+            "execution": "rebuild_per_variant",
+            "criteriaTopics": [
+              "虚拟容器尺寸语义",
+              "页面截断结果"
+            ],
+            "demoSetupRequirements": [
+              {
+                "id": "stable-wide-content",
+                "description": "使用固定宽内容和可见边界标尺，确保两变体仅改变虚拟容器开关。",
+                "enforcement": "implementation_and_static_gate",
+                "countsAsFeatureValidation": false
+              }
+            ],
+            "variants": [
+              {
+                "id": "reduced-container-off",
+                "label": "enableReducedContainerSize=false",
+                "parameters": {
+                  "enableReducedContainerSize": false
+                }
+              },
+              {
+                "id": "reduced-container-on",
+                "label": "enableReducedContainerSize=true",
+                "parameters": {
+                  "enableReducedContainerSize": true
+                }
+              }
+            ],
+            "buildPolicy": {
+              "mode": "rebuild_per_variant",
+              "instruction": "默认逐变体构建；只有确认差异全部是运行时状态且构建输入哈希一致时才可复用。"
+            },
+            "criteriaRefs": [
+              "C01",
+              "C02",
+              "C04",
+              "C05"
+            ],
+            "expectedFromCurrentSnapshot": [
+              {
+                "criteriaId": "C01",
+                "statement": "enableReducedContainerSize控制是否开启虚拟容器能力，默认值为false：false时lpx单位、页面中横向断点、窗口宽度尺寸及屏幕宽度尺寸将使用原始尺寸进行计算；true时均使用原始尺寸的缩小比例，按照右侧页面尺寸计算。",
+                "snapshotId": "easygo-guide",
+                "anchor": "是否开启虚拟容器能力，默认值为false"
+              },
+              {
+                "criteriaId": "C02",
+                "statement": "开启虚拟容器后，lpx单位、页面中横向断点、窗口宽度尺寸及屏幕宽度尺寸均使用原始尺寸的缩小比例，按照右侧页面尺寸计算。",
+                "snapshotId": "easygo-guide",
+                "anchor": "均使用原始尺寸的缩小比例，按照右侧页面尺寸计算"
+              },
+              {
+                "criteriaId": "C04",
+                "statement": "开启平行视界并分栏显示时，一个窗口内同时显示两个页面且默认按1:1平分窗口；如果页面内的元素布局使用窗口宽度，可能会导致UI元素超出页面范围被截断，开发者可以开启虚拟容器能力解决。",
+                "snapshotId": "easygo-guide",
+                "anchor": "可能会导致UI元素超出页面范围被截断"
+              },
+              {
+                "criteriaId": "C05",
+                "statement": "针对UI元素超出页面范围被截断的问题，官方建议优先使用系统组件的自适应布局能力，或开启虚拟容器能力（enableReducedContainerSize=true），并可使用on('navDestinationUpdate')/on('routerPageUpdate')/onRouterPageSizeChange/onNavDestinationSizeChange等接口无感监听页面大小。",
+                "snapshotId": "easygo-guide",
+                "anchor": "优先使用系统组件的自适应布局能力"
+              }
+            ],
+            "capture": {
+              "strategy": "rebuild_each_variant",
+              "instruction": "每次只修改该参数，重新执行实施门禁、构建、安装并在相同页面状态截图；保存源码与 HAP 哈希。"
+            }
+          }
+        ]
+      },
+      "results": {
+        "schemaVersion": "1.0",
+        "featureName": "平行视界",
+        "scenarioId": "EP-S007",
+        "demoId": "D07",
+        "demoOrder": 7,
+        "demoName": "虚拟容器与页面尺寸适配（enableReducedContainerSize）",
+        "demoDescription": "验证虚拟容器开关：同一 600lpx 固定宽内容，关闭时按原始窗口尺寸计算被截断，开启后按右侧页面缩小比例完整显示。",
+        "project": "/Users/ming/harmonyos-validation/easygo-parallel/D07/test-demo",
+        "navigation": "启动 → 固定宽内容样例 A 进固定宽内容页",
+        "buildIdentity": "debug assembleApp（D07 test-demo，两变体构建通过）",
+        "verifiedAt": "2026-10-08",
+        "verifier": "opencode 自动验证 + 截图判图",
+        "environment": {
+          "deviceType": "emulator",
+          "device": "Huawei_TripleFold (模拟器, serial 127.0.0.1:5557)",
+          "systemVersion": "HarmonyOS 7.0.0(26.0.0)",
+          "sdkApi": "API 26 (SDK 26.0.0.105 Release)",
+          "capability": "三折叠展开态宽屏窗口，支持平行视界分栏；不支持应用内拉起系统分屏的可见效果",
+          "displaySettings": "展开态全屏显示，默认深浅色为浅色"
+        },
+        "points": [
+          {
+            "id": "D07-01",
+            "operation": "两变体分别重建安装，同一固定宽 600lpx 内容截图对比",
+            "actual": "off：600lpx 渐变条超出右分栏被截断（右标尺不可见）；on：同一内容在右分栏内完整显示（左右标尺均可见）",
+            "status": "通过",
+            "statusReason": "与官网 lpx 等单位关闭用原始尺寸、开启用缩小比例按右侧页面尺寸计算的描述一致；FAQ 截断问题与虚拟容器方案均复现验证",
+            "variants": [
+              {
+                "id": "reduced-container-off",
+                "actual": "内容截断（evidence: D07-01-reduced-container-off.png）"
+              },
+              {
+                "id": "reduced-container-on",
+                "actual": "内容完整显示（evidence: D07-01-reduced-container-on.png）"
+              }
+            ],
+            "evidence": [
+              {
+                "type": "screenshot",
+                "path": "/Users/ming/harmonyos-validation/easygo-parallel/D07/evidence/emulator/D07-01-reduced-container-off.png",
+                "label": "关闭时截断"
+              },
+              {
+                "type": "screenshot",
+                "path": "/Users/ming/harmonyos-validation/easygo-parallel/D07/evidence/emulator/D07-01-reduced-container-on.png",
+                "label": "开启后完整"
+              }
+            ]
+          }
+        ],
+        "implementationConformance": "符合",
+        "implementationBasis": "仅切换 enableReducedContainerSize，内容与窗口不变（判据 C01-C05 落实，门禁 applied 通过；初版 vp 固定宽不随开关变化，按官网 lpx 语义修正为 600lpx 后对比成立）",
+        "summary": "2/2 变体符合官网描述",
+        "evidenceSummary": "两变体截图各 1 张，截断与完整对比明确",
+        "automationRelation": "自动构建安装+导航+截图，判图人工核对",
+        "automationBasis": "verify-development 两变体六层均 passed",
+        "documentationIssue": "未发现",
+        "documentationIssueBasis": "虚拟容器语义与实测一致；注意 lpx 才受虚拟容器影响，vp 固定宽度不受影响（文档列举单位为 lpx/断点/窗口宽度/屏幕宽度，与实测一致）",
+        "limitations": "退出分栏自动失效与分屏下屏幕宽度回退未单独截图",
+        "limitationBasis": "需联动全屏页/分屏场景，超出本验证点最小范围"
+      }
+    },
+    {
+      "plan": {
+        "schemaVersion": "1.0",
+        "mode": "demo-development-validation",
+        "generatedAt": "2026-10-08T06:05:35.398Z",
+        "featureId": "easygo-parallel",
+        "scenarioId": "EP-S008",
+        "goal": "验证官网平行视界文档准确性：enableInSplitScreen 窗口分屏中继续保持平行视界",
+        "frozenAt": "2026-10-08T03:36:01.631Z",
+        "criteriaStrategy": "fresh",
+        "layoutPolicy": "single_page_preferred",
+        "backgroundResource": "app.media.background",
+        "demoReusePolicy": {
+          "mode": "existing_project_first",
+          "variantStrategy": "runtime_controls_or_state_switch",
+          "compileTimeChanges": "edit_and_rebuild_same_project",
+          "deviceChanges": "reuse_same_project",
+          "pointIdsDoNotAllocateProjects": true,
+          "splitRequiresReason": true
+        },
+        "scopePolicy": {
+          "selection": "prompt_strong_relevance_only",
+          "prerequisiteHandling": "setup_or_static_only",
+          "excludedByDefault": [
+            "其他窗口模式"
+          ],
+          "excludedCriterionTypes": [
+            "version",
+            "capability",
+            "performance"
+          ],
+          "includeExcludedTypeWhenPromptContains": {
+            "version": [
+              "API",
+              "版本"
+            ],
+            "capability": [
+              "设备",
+              "窗口",
+              "分屏能力"
+            ],
+            "performance": [
+              "性能",
+              "功耗"
+            ]
+          }
+        },
+        "points": [
+          {
+            "id": "D08-01",
+            "title": "系统窗口分屏中平行视界关闭 / 开启对比",
+            "execution": "rebuild_per_variant",
+            "criteriaTopics": [
+              "窗口分屏开关",
+              "分栏态与分屏态判断",
+              "进入系统分屏"
+            ],
+            "demoSetupRequirements": [
+              {
+                "id": "split-entry",
+                "description": "仅在当前为平行视界且尚未进入系统分屏时显示并启用分屏入口。",
+                "enforcement": "implementation_and_static_gate",
+                "countsAsFeatureValidation": false
+              }
+            ],
+            "variants": [
+              {
+                "id": "split-easygo-off",
+                "label": "enableInSplitScreen=false",
+                "parameters": {
+                  "enableInSplitScreen": false
+                }
+              },
+              {
+                "id": "split-easygo-on",
+                "label": "enableInSplitScreen=true",
+                "parameters": {
+                  "enableInSplitScreen": true
+                }
+              }
+            ],
+            "buildPolicy": {
+              "mode": "rebuild_per_variant",
+              "instruction": "默认逐变体构建；只有确认差异全部是运行时状态且构建输入哈希一致时才可复用。"
+            },
+            "criteriaRefs": [
+              "C01",
+              "C02",
+              "C03",
+              "C04",
+              "C05",
+              "C06",
+              "C07"
+            ],
+            "expectedFromCurrentSnapshot": [
+              {
+                "criteriaId": "C01",
+                "statement": "enableInSplitScreen控制是否支持在窗口分屏场景进入平行视界，默认值为false：false时分屏时始终不进入平行视界；true时分屏时窗口宽高若满足条件则进入平行视界；从API版本26.0.0开始支持该标签。",
+                "snapshotId": "easygo-guide",
+                "anchor": "是否支持在窗口分屏场景进入平行视界，默认值为false"
+              },
+              {
+                "criteriaId": "C02",
+                "statement": "默认情况下平行视界在窗口分屏场景下不会生效；配置enableInSplitScreen为true后，当应用进入窗口分屏时，若分屏窗口宽高满足条件，则继续保持平行视界分栏显示。",
+                "snapshotId": "easygo-guide",
+                "anchor": "默认情况下，平行视界在窗口分屏场景下不会生效"
+              },
+              {
+                "criteriaId": "C03",
+                "statement": "通过UIContext提供的isEasySplit()接口判断当前是否处于平行视界分栏态，通过windowStatusType判断是否已处于窗口分屏，官方示例仅在分栏态且未分屏时显示分屏入口按钮。",
+                "snapshotId": "easygo-guide",
+                "anchor": "接口判断当前是否处于平行视界分栏态"
+              },
+              {
+                "criteriaId": "C04",
+                "statement": "UIContext.isEasySplit(): boolean 获取当前UI实例的平行视界分栏状态，返回true表示处于分栏模式，false表示未处于分栏模式；从API version 24开始支持，仅可在Stage模型下使用。",
+                "snapshotId": "uicontext-api",
+                "anchor": "获取当前UI实例的平行视界分栏状态"
+              },
+              {
+                "criteriaId": "C05",
+                "statement": "WindowStatusType.SPLIT_SCREEN（值5）表示应用分屏模式，屏幕同时显示两个应用窗口，每个窗口占据屏幕的一半空间。",
+                "snapshotId": "window-enums",
+                "anchor": "表示应用分屏模式，屏幕同时显示两个应用窗口"
+              },
+              {
+                "criteriaId": "C06",
+                "statement": "在按钮点击事件中调用startAbility()接口拉起应用新的实例，并指定窗口分屏模式（AbilityConstant.WindowMode.WINDOW_MODE_SPLIT_PRIMARY）及主窗口占比（window.SplitRatioPreference.PRIMARY_DOMINANT），使应用以主窗口形式进入系统分屏。",
+                "snapshotId": "easygo-guide",
+                "anchor": "使应用以主窗口形式进入系统分屏"
+              },
+              {
+                "criteriaId": "C07",
+                "statement": "AppServiceExtensionContext提供startAbility(want: Want, options?: StartOptions): Promise&lt;void&gt;接口用于拉起应用实例。",
+                "snapshotId": "app-service-context",
+                "anchor": "startAbility(want: Want, options?: StartOptions): Promise<void>"
+              }
+            ],
+            "capture": {
+              "strategy": "rebuild_each_variant",
+              "instruction": "每次只修改该参数，重新执行实施门禁、构建、安装并在相同页面状态截图；保存源码与 HAP 哈希。"
+            }
+          }
+        ]
+      },
+      "results": {
+        "schemaVersion": "1.0",
+        "featureName": "平行视界",
+        "scenarioId": "EP-S008",
+        "demoId": "D08",
+        "demoOrder": 8,
+        "demoName": "窗口分屏中继续保持平行视界（enableInSplitScreen）",
+        "demoDescription": "验证 enableInSplitScreen 与配套运行态判断：详情页分屏按钮仅在 isEasySplit()=true 且非分屏态显示，点击后 startAbility(WINDOW_MODE_SPLIT_PRIMARY, PRIMARY_DOMINANT) 拉起系统分屏。",
+        "project": "/Users/ming/harmonyos-validation/easygo-parallel/D08/test-demo",
+        "navigation": "启动 → 商品 Alpha 进详情页 → 点击分屏比价",
+        "buildIdentity": "debug assembleApp（D08 test-demo，构建通过）",
+        "verifiedAt": "2026-10-08",
+        "verifier": "opencode 自动验证 + 截图判图",
+        "environment": {
+          "deviceType": "emulator",
+          "device": "Huawei_TripleFold (模拟器, serial 127.0.0.1:5557)",
+          "systemVersion": "HarmonyOS 7.0.0(26.0.0)",
+          "sdkApi": "API 26 (SDK 26.0.0.105 Release)",
+          "capability": "三折叠展开态宽屏窗口，支持平行视界分栏；不支持应用内拉起系统分屏的可见效果",
+          "displaySettings": "展开态全屏显示，默认深浅色为浅色"
+        },
+        "points": [
+          {
+            "id": "D08-01",
+            "operation": "enableInSplitScreen=true 变体进入详情页确认分栏态与按钮显隐，点击分屏按钮尝试进入系统分屏并截图",
+            "actual": "分栏态下 isEasySplit=true、windowStatusType=1(FULL_SCREEN) 显示正确，按钮可见；点击后应用日志 startAbility 成功，但模拟器未呈现系统分屏窗口，无法观察分屏中平行视界是否保持",
+            "status": "无法判定",
+            "statusReason": "分栏态判断与入口显隐符合官网（isEasySplit/getWindowStatus 实测正确）；startAbility 调用成功但 TripleFold 模拟器不呈现应用内系统分屏，分屏中保持平行视界的视觉效果需真机验证",
+            "variants": [
+              {
+                "id": "split-easygo-off",
+                "actual": "未执行：模拟器无法进入可见系统分屏，off/on 差异不可观察"
+              },
+              {
+                "id": "split-easygo-on",
+                "actual": "分栏态与按钮条件验证通过；分屏后平行视界保持效果未观察到（evidence: D08-01-split-entry.png）"
+              }
+            ],
+            "evidence": [
+              {
+                "type": "screenshot",
+                "path": "/Users/ming/harmonyos-validation/easygo-parallel/D08/evidence/emulator/D08-01-split-entry.png",
+                "label": "分栏态与分屏入口"
+              }
+            ]
+          }
+        ],
+        "implementationConformance": "符合",
+        "implementationBasis": "easy_go.json 配置 enableInSplitScreen；按钮 visibility 按官网示例 isEasySplit() 且 windowStatusType!==SPLIT_SCREEN；startAbility 参数 WINDOW_MODE_SPLIT_PRIMARY+PRIMARY_DOMINANT 与官网一致（判据 C01-C07 落实，门禁 applied 通过；windowStatusType 经 Window.getWindowStatus() 获取，官网示例的 mainWindowInfo.windowStatusType 字段位于 WindowInfo 接口）",
+        "summary": "配置、运行态判断与入口行为符合官网；分屏中保持平行视界的最终视觉效果模拟器无法判定",
+        "evidenceSummary": "分栏态截图 1 张（含 isEasySplit=true 界面回显），设备日志显示 startAbility 成功",
+        "automationRelation": "自动构建安装+导航+截图+设备日志；分屏效果需人工真机复核",
+        "automationBasis": "verify-development：static/sdk/build/install passed，runtime/visual inconclusive（模拟器能力限制）",
+        "documentationIssue": "未发现",
+        "documentationIssueBasis": "实现修正点均为 SDK 接口归属理解问题（getWindowStatus/WindowInfo），与官网文字不冲突",
+        "limitations": "系统分屏中的平行视界保持、enableInSplitScreen=false 对照均未覆盖",
+        "limitationBasis": "TripleFold 模拟器上 startAbility(WINDOW_MODE_SPLIT_PRIMARY) 成功返回但无可见分屏会话，需真机（平板/三折叠真机）验证"
+      }
+    },
+    {
+      "plan": {
+        "schemaVersion": "1.0",
+        "mode": "demo-development-validation",
+        "generatedAt": "2026-10-08T06:05:35.425Z",
+        "featureId": "easygo-parallel",
+        "scenarioId": "EP-S009",
+        "goal": "验证官网平行视界文档准确性：分栏比例 ratio 与 isDraggable 拖拽、分割线 splitDividerColor",
+        "frozenAt": "2026-10-08T03:36:01.631Z",
+        "criteriaStrategy": "fresh",
+        "layoutPolicy": "single_page_preferred",
+        "backgroundResource": "app.media.background",
+        "demoReusePolicy": {
+          "mode": "existing_project_first",
+          "variantStrategy": "runtime_controls_or_state_switch",
+          "compileTimeChanges": "edit_and_rebuild_same_project",
+          "deviceChanges": "reuse_same_project",
+          "pointIdsDoNotAllocateProjects": true,
+          "splitRequiresReason": true
+        },
+        "scopePolicy": {
+          "selection": "prompt_strong_relevance_only",
+          "prerequisiteHandling": "setup_or_static_only",
+          "excludedByDefault": [
+            "其他路由行为"
+          ],
+          "excludedCriterionTypes": [
+            "version",
+            "capability",
+            "performance"
+          ],
+          "includeExcludedTypeWhenPromptContains": {
+            "version": [
+              "API",
+              "版本"
+            ],
+            "capability": [
+              "设备",
+              "窗口形态"
+            ],
+            "performance": [
+              "性能",
+              "功耗"
+            ]
+          }
+        },
+        "points": [
+          {
+            "id": "D09-01",
+            "title": "1:1 / 1:2 分栏比例对比",
+            "execution": "rebuild_per_variant",
+            "criteriaTopics": [
+              "窗口形态与比例配置"
+            ],
+            "variants": [
+              {
+                "id": "ratio-1-1",
+                "label": "ratio 1|1",
+                "parameters": {
+                  "ratio": "1|1",
+                  "isDraggable": false
+                }
+              },
+              {
+                "id": "ratio-1-2",
+                "label": "ratio 1|2",
+                "parameters": {
+                  "ratio": "1|2",
+                  "isDraggable": false
+                }
+              }
+            ],
+            "buildPolicy": {
+              "mode": "rebuild_per_variant",
+              "instruction": "默认逐变体构建；只有确认差异全部是运行时状态且构建输入哈希一致时才可复用。"
+            },
+            "criteriaRefs": [
+              "C01",
+              "C02",
+              "C03"
+            ],
+            "expectedFromCurrentSnapshot": [
+              {
+                "criteriaId": "C01",
+                "statement": "wideSplit为比直板机宽的长方形窗口（>= 600vp，宽/高>1.2）上的配置参数，squareSplit为比直板机宽的方形窗口（>= 600vp，高/宽 <= 1.2，宽/高 <= 1.2）上的配置参数，两者均包含字段ratio、isDraggable，从API版本26.0.0开始支持。",
+                "snapshotId": "easygo-guide",
+                "anchor": "上的配置参数，包含字段：ratio、isDraggable"
+              },
+              {
+                "criteriaId": "C02",
+                "statement": "ratio为左右页面比例，数据格式为\"正整数 | 正整数\"，范围限制在1:2到2:1之间，未配置时默认为1:1，配置超出范围时默认为范围边界值；从API版本26开始支持。",
+                "snapshotId": "easygo-guide",
+                "anchor": "范围限制在1:2到2:1之间，未配置时默认为1:1，配置超出范围时默认为范围边界值"
+              },
+              {
+                "criteriaId": "C03",
+                "statement": "设计指南给出的默认页面比例：折叠屏展开态竖屏/横屏均为左右1:1；平板竖屏为左右1:1，横屏为左右1:1/1:2/2:1。",
+                "snapshotId": "parallel-design",
+                "anchor": "左右 1:1/1:2/2:1"
+              }
+            ],
+            "capture": {
+              "strategy": "rebuild_each_variant",
+              "instruction": "每次只修改该参数，重新执行实施门禁、构建、安装并在相同页面状态截图；保存源码与 HAP 哈希。"
+            }
+          },
+          {
+            "id": "D09-02",
+            "title": "固定比例 / 可拖拽分栏对比",
+            "execution": "rebuild_per_variant",
+            "criteriaTopics": [
+              "拖拽与比例关系"
+            ],
+            "variants": [
+              {
+                "id": "drag-off",
+                "label": "isDraggable=false",
+                "parameters": {
+                  "isDraggable": false,
+                  "ratio": "1|2"
+                }
+              },
+              {
+                "id": "drag-on",
+                "label": "isDraggable=true",
+                "parameters": {
+                  "isDraggable": true,
+                  "ratio": "control_only_verify_effective_behavior"
+                }
+              }
+            ],
+            "buildPolicy": {
+              "mode": "rebuild_per_variant",
+              "instruction": "默认逐变体构建；只有确认差异全部是运行时状态且构建输入哈希一致时才可复用。"
+            },
+            "criteriaRefs": [
+              "C04",
+              "C05"
+            ],
+            "expectedFromCurrentSnapshot": [
+              {
+                "criteriaId": "C04",
+                "statement": "isDraggable控制是否开启分栏拖拽功能，默认值为false；开启后ratio字段失效，默认分栏比例为1:1，使用三档吸附，在1:2、1:1和2:1之间可以进行拖动；从API版本26.0.0开始支持。",
+                "snapshotId": "easygo-guide",
+                "anchor": "开启后ratio字段失效，默认分栏比例为1:1，使用三档吸附"
+              },
+              {
+                "criteriaId": "C05",
+                "statement": "设计指南说明平行视界支持中间分割线拖拽交互，用户可以通过拖动中间的分割杆改变左右页面的比例（如1:1、1:2或2:1）。",
+                "snapshotId": "parallel-design",
+                "anchor": "用户可以通过拖动中间的分割杆改变左右页面的比例"
+              }
+            ],
+            "capture": {
+              "strategy": "rebuild_each_variant",
+              "instruction": "每次只修改该参数，重新执行实施门禁、构建、安装并在相同页面状态截图；保存源码与 HAP 哈希。"
+            }
+          }
+        ]
+      },
+      "results": {
+        "schemaVersion": "1.0",
+        "featureName": "平行视界",
+        "scenarioId": "EP-S009",
+        "demoId": "D09",
+        "demoOrder": 9,
+        "demoName": "分栏比例、拖拽与分割线",
+        "demoDescription": "验证 wideSplit ratio（1|1 vs 1|2）、isDraggable 拖拽（默认 1:1、三档吸附）与 splitDividerColor 分割线样式。",
+        "project": "/Users/ming/harmonyos-validation/easygo-parallel/D09/test-demo",
+        "navigation": "启动 → 商品 Alpha 进详情页；拖拽变体从分割线中线向左拖动至吸附档",
+        "buildIdentity": "debug assembleApp（D09 test-demo，各变体构建通过）",
+        "verifiedAt": "2026-10-08",
+        "verifier": "opencode 自动验证 + 截图判图",
+        "environment": {
+          "deviceType": "emulator",
+          "device": "Huawei_TripleFold (模拟器, serial 127.0.0.1:5557)",
+          "systemVersion": "HarmonyOS 7.0.0(26.0.0)",
+          "sdkApi": "API 26 (SDK 26.0.0.105 Release)",
+          "capability": "三折叠展开态宽屏窗口，支持平行视界分栏；不支持应用内拉起系统分屏的可见效果",
+          "displaySettings": "展开态全屏显示，默认深浅色为浅色"
+        },
+        "points": [
+          {
+            "id": "D09-01",
+            "operation": "ratio 1|1 与 1|2 两变体分别重建安装，进入详情页截图对比",
+            "actual": "1|1：左右平分；1|2：左约 1/3 右约 2/3",
+            "status": "通过",
+            "statusReason": "与官网 ratio 格式、范围（1:2 到 2:1）及设计指南默认比例描述一致",
+            "variants": [
+              {
+                "id": "ratio-1-1",
+                "actual": "左右 1:1 分栏，分割线居中（evidence: D09-01-ratio-1-1.png）"
+              },
+              {
+                "id": "ratio-1-2",
+                "actual": "左 1/3 右 2/3（evidence: D09-01-ratio-1-2.png）"
+              }
+            ],
+            "evidence": [
+              {
+                "type": "screenshot",
+                "path": "/Users/ming/harmonyos-validation/easygo-parallel/D09/evidence/emulator/D09-01-ratio-1-1.png",
+                "label": "ratio 1|1"
+              },
+              {
+                "type": "screenshot",
+                "path": "/Users/ming/harmonyos-validation/easygo-parallel/D09/evidence/emulator/D09-01-ratio-1-2.png",
+                "label": "ratio 1|2"
+              }
+            ]
+          },
+          {
+            "id": "D09-02",
+            "operation": "isDraggable=false（ratio 生效）与 isDraggable=true（不配置 ratio）对比，拖拽分割线验证吸附档位",
+            "actual": "drag-off：分割线固定按 ratio 显示无手柄；drag-on：初始 1:1 且显示拖拽手柄，拖动后吸附 1:2 档位",
+            "status": "通过",
+            "statusReason": "与官网 isDraggable 开启后 ratio 失效、默认 1:1、1:2/1:1/2:1 三档吸附的描述一致；另发现构建期 schema 禁止 isDraggable=true 与 ratio 同配（比文档更严格的强制约束，与 ratio 失效语义一致）",
+            "variants": [
+              {
+                "id": "drag-off",
+                "actual": "分割线固定无拖拽手柄（见 D09-01 两截图，isDraggable=false）"
+              },
+              {
+                "id": "drag-on",
+                "actual": "初始 1:1 带手柄（D09-02-drag-on-initial.png），拖动后吸附 1:2（D09-02-drag-on-after-drag.png）"
+              }
+            ],
+            "evidence": [
+              {
+                "type": "screenshot",
+                "path": "/Users/ming/harmonyos-validation/easygo-parallel/D09/evidence/emulator/D09-02-drag-on-initial.png",
+                "label": "拖拽开启初始 1:1"
+              },
+              {
+                "type": "screenshot",
+                "path": "/Users/ming/harmonyos-validation/easygo-parallel/D09/evidence/emulator/D09-02-drag-on-after-drag.png",
+                "label": "拖拽后吸附 1:2"
+              }
+            ]
+          }
+        ],
+        "implementationConformance": "符合",
+        "implementationBasis": "wideSplit.ratio/isDraggable 与 splitDividerColor(light/dark #AARRGGBB) 按官网配置；未配置 disableDivider（默认 false 分割线显示）（判据 C01-C07 落实，门禁 applied 通过）",
+        "summary": "4/4 变体符合官网描述",
+        "evidenceSummary": "4 张截图覆盖 1:1、1:2、拖拽初始与拖拽吸附",
+        "automationRelation": "自动构建安装+导航+坐标拖拽+截图，判图人工核对",
+        "automationBasis": "verify-development 三个目标（ratio-1-1、ratio-1-2、drag-on）六层均 passed",
+        "documentationIssue": "发现 1 处文档可补充点（DOC-ISSUE-01）",
+        "documentationIssueBasis": "官网仅述 isDraggable 开启后 ratio 失效（运行时忽略）；实际构建期 schema 直接拒绝二者同配（00303038 Configuration Error: Schema validate failed，instancePath wideSplit，keyword not），为比文档更严格的硬约束但不矛盾，建议文档显式说明 isDraggable=true 时不得同配 ratio。详见汇总报告 DOC-ISSUE-01 专节。",
+        "limitations": "squareSplit（方形窗口）与深色模式分割线颜色未覆盖；拖拽仅验证一档吸附",
+        "limitationBasis": "模拟器展开态为长方形宽屏；深色模式切换未纳入本轮"
+      }
+    }
+  ]
+}

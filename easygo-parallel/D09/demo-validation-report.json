@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0",
+  "featureName": "平行视界",
+  "scenarioId": "EP-S009",
+  "demoId": "D09",
+  "demoOrder": 9,
+  "demoName": "分栏比例、拖拽与分割线",
+  "demoDescription": "验证 wideSplit ratio（1|1 vs 1|2）、isDraggable 拖拽（默认 1:1、三档吸附）与 splitDividerColor 分割线样式。",
+  "project": "/Users/ming/harmonyos-validation/easygo-parallel/D09/test-demo",
+  "navigation": "启动 → 商品 Alpha 进详情页；拖拽变体从分割线中线向左拖动至吸附档",
+  "buildIdentity": "debug assembleApp（D09 test-demo，各变体构建通过）",
+  "verifiedAt": "2026-10-08",
+  "verifier": "opencode 自动验证 + 截图判图",
+  "environment": {
+    "deviceType": "emulator",
+    "device": "Huawei_TripleFold (模拟器, serial 127.0.0.1:5557)",
+    "systemVersion": "HarmonyOS 7.0.0(26.0.0)",
+    "sdkApi": "API 26 (SDK 26.0.0.105 Release)",
+    "capability": "三折叠展开态宽屏窗口，支持平行视界分栏；不支持应用内拉起系统分屏的可见效果",
+    "displaySettings": "展开态全屏显示，默认深浅色为浅色"
+  },
+  "points": [
+    {
+      "id": "D09-01",
+      "operation": "ratio 1|1 与 1|2 两变体分别重建安装，进入详情页截图对比",
+      "actual": "1|1：左右平分；1|2：左约 1/3 右约 2/3",
+      "status": "通过",
+      "statusReason": "与官网 ratio 格式、范围（1:2 到 2:1）及设计指南默认比例描述一致",
+      "variants": [
+        {
+          "id": "ratio-1-1",
+          "actual": "左右 1:1 分栏，分割线居中（evidence: D09-01-ratio-1-1.png）"
+        },
+        {
+          "id": "ratio-1-2",
+          "actual": "左 1/3 右 2/3（evidence: D09-01-ratio-1-2.png）"
+        }
+      ],
+      "evidence": [
+        {
+          "type": "screenshot",
+          "path": "/Users/ming/harmonyos-validation/easygo-parallel/D09/evidence/emulator/D09-01-ratio-1-1.png",
+          "label": "ratio 1|1"
+        },
+        {
+          "type": "screenshot",
+          "path": "/Users/ming/harmonyos-validation/easygo-parallel/D09/evidence/emulator/D09-01-ratio-1-2.png",
+          "label": "ratio 1|2"
+        }
+      ]
+    },
+    {
+      "id": "D09-02",
+      "operation": "isDraggable=false（ratio 生效）与 isDraggable=true（不配置 ratio）对比，拖拽分割线验证吸附档位",
+      "actual": "drag-off：分割线固定按 ratio 显示无手柄；drag-on：初始 1:1 且显示拖拽手柄，拖动后吸附 1:2 档位",
+      "status": "通过",
+      "statusReason": "与官网 isDraggable 开启后 ratio 失效、默认 1:1、1:2/1:1/2:1 三档吸附的描述一致；另发现构建期 schema 禁止 isDraggable=true 与 ratio 同配（比文档更严格的强制约束，与 ratio 失效语义一致）",
+      "variants": [
+        {
+          "id": "drag-off",
+          "actual": "分割线固定无拖拽手柄（见 D09-01 两截图，isDraggable=false）"
+        },
+        {
+          "id": "drag-on",
+          "actual": "初始 1:1 带手柄（D09-02-drag-on-initial.png），拖动后吸附 1:2（D09-02-drag-on-after-drag.png）"
+        }
+      ],
+      "evidence": [
+        {
+          "type": "screenshot",
+          "path": "/Users/ming/harmonyos-validation/easygo-parallel/D09/evidence/emulator/D09-02-drag-on-initial.png",
+          "label": "拖拽开启初始 1:1"
+        },
+        {
+          "type": "screenshot",
+          "path": "/Users/ming/harmonyos-validation/easygo-parallel/D09/evidence/emulator/D09-02-drag-on-after-drag.png",
+          "label": "拖拽后吸附 1:2"
+        }
+      ]
+    }
+  ],
+  "implementationConformance": "符合",
+  "implementationBasis": "wideSplit.ratio/isDraggable 与 splitDividerColor(light/dark #AARRGGBB) 按官网配置；未配置 disableDivider（默认 false 分割线显示）（判据 C01-C07 落实，门禁 applied 通过）",
+  "summary": "4/4 变体符合官网描述",
+  "evidenceSummary": "4 张截图覆盖 1:1、1:2、拖拽初始与拖拽吸附",
+  "automationRelation": "自动构建安装+导航+坐标拖拽+截图，判图人工核对",
+  "automationBasis": "verify-development 三个目标（ratio-1-1、ratio-1-2、drag-on）六层均 passed",
+  "documentationIssue": "发现 1 处文档可补充点（DOC-ISSUE-01）",
+  "documentationIssueBasis": "官网仅述 isDraggable 开启后 ratio 失效（运行时忽略）；实际构建期 schema 直接拒绝二者同配（00303038 Configuration Error: Schema validate failed，instancePath wideSplit，keyword not），为比文档更严格的硬约束但不矛盾，建议文档显式说明 isDraggable=true 时不得同配 ratio。详见汇总报告 DOC-ISSUE-01 专节。",
+  "limitations": "squareSplit（方形窗口）与深色模式分割线颜色未覆盖；拖拽仅验证一档吸附",
+  "limitationBasis": "模拟器展开态为长方形宽屏；深色模式切换未纳入本轮"
+}

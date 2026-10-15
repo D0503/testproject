@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "featureName": "平行视界",
+  "scenarioId": "EP-S006",
+  "demoId": "D06",
+  "demoOrder": 6,
+  "demoName": "主动横屏时全屏策略（supportLandscapeFullscreen）",
+  "demoDescription": "验证 supportLandscapeFullscreen：true 时主动请求横屏退出分栏全屏；false 时保持平行视界分栏。方向请求采用窗口级 setPreferredOrientation，离开页面恢复 UNSPECIFIED。",
+  "project": "/Users/ming/harmonyos-validation/easygo-parallel/D06/test-demo",
+  "navigation": "启动 → 视频 Alpha 进视频页 → 点击请求横屏",
+  "buildIdentity": "debug assembleApp（D06 test-demo，两变体构建通过）",
+  "verifiedAt": "2026-10-08",
+  "verifier": "opencode 自动验证 + 截图判图",
+  "environment":{"deviceType":"emulator","device":"Huawei_TripleFold (模拟器, serial 127.0.0.1:5557)","systemVersion":"HarmonyOS 7.0.0(26.0.0)","sdkApi":"API 26 (SDK 26.0.0.105 Release)","capability":"三折叠展开态宽屏窗口，支持平行视界分栏；不支持应用内拉起系统分屏的可见效果","displaySettings":"展开态全屏显示，默认深浅色为浅色"},
+  "points": [{
+    "id": "D06-01",
+    "operation": "两变体分别重建安装，同一页面点击请求横屏后截图对比",
+    "actual": "true：请求横屏后视频页退出分栏独占全窗口；false：保持左列表+右视频页分栏",
+    "status": "通过",
+    "statusReason": "与官网 supportLandscapeFullscreen 默认值 true 及 true/false 行为描述一致；窗口级方向接口生效（FAQ 页面级方案不生效结论亦一致）",
+    "variants": [
+      { "id": "landscape-fullscreen", "actual": "横屏请求后退出分栏全屏显示（evidence: D06-01-landscape-fullscreen.png）" },
+      { "id": "landscape-split", "actual": "横屏请求后仍保持平行视界分栏（evidence: D06-01-landscape-split.png）" }
+    ],
+    "evidence": [
+      { "type": "screenshot", "path": "/Users/ming/harmonyos-validation/easygo-parallel/D06/evidence/emulator/D06-01-landscape-fullscreen.png", "label": "true 退出分栏全屏" },
+      { "type": "screenshot", "path": "/Users/ming/harmonyos-validation/easygo-parallel/D06/evidence/emulator/D06-01-landscape-split.png", "label": "false 保持分栏" }
+    ]
+  }],
+  "implementationConformance": "符合",
+  "implementationBasis": "窗口级 window.getLastWindow().setPreferredOrientation(LANDSCAPE)，aboutToDisappear 恢复 UNSPECIFIED（判据 C01-C05 落实，门禁 applied 通过；修复了旧代码 UIContext.getWindow 不存在于 SDK 26 的实现错误）",
+  "summary": "2/2 变体符合官网描述",
+  "evidenceSummary": "两变体截图各 1 张，导航点击日志完整",
+  "automationRelation": "自动构建安装+导航+截图，判图人工核对",
+  "automationBasis": "verify-development：landscape-fullscreen 全层 passed；landscape-split 运行时保持分栏态确认",
+  "documentationIssue": "未发现",
+  "documentationIssueBasis": "默认值与两取向行为均与实测一致",
+  "limitations": "未在竖屏窗口态重复验证（模拟器展开态即宽屏）",
+  "limitationBasis": "TripleFold 展开态为宽屏形态"
+}

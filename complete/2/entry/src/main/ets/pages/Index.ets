@@ -281,9 +281,9 @@ struct Index {
               onDisappear: () => {
                 console.info('Sheet dismiss');
               },
-              // systemMaterial: new uiMaterial.ImmersiveMaterial({
-              //   style: uiMaterial.ImmersiveStyle.ULTRA_THIN
-              // })
+            //   systemMaterial: new uiMaterial.ImmersiveMaterial({
+            //     style: uiMaterial.ImmersiveStyle.ULTRA_THICK
+            //   })
             })
         }
 

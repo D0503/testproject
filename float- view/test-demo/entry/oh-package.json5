@@ -1,0 +1,9 @@
+{
+  "name": "entry",
+  "version": "1.0.0",
+  "description": "Entry module for float-view CUSTOM-S001 unbind validation demo.",
+  "main": "",
+  "author": "",
+  "license": "",
+  "dependencies": {}
+}

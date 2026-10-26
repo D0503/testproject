@@ -1,0 +1,24 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "float-view CUSTOM-S001 unbind demo module"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "float view stop then unbind scenario demo"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "FloatViewUnbind"
+    },
+    {
+      "name": "float_view_permission_reason",
+      "value": "用于在桌面或其他应用上展示闪控窗并验证解绑后窗球关系"
+    },
+    {
+      "name": "float_ball_permission_reason",
+      "value": "用于启动闪控球并验证解绑后与闪控窗的切换行为"
+    }
+  ]
+}

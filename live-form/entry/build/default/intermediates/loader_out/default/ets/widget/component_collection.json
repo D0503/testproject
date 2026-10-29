@@ -1,0 +1,12 @@
+{
+  "entry/src/main/ets/widget/pages/WidgetCard.ets": [
+    "Row",
+    "Column",
+    "Text"
+  ],
+  "entry/src/main/ets/widget/pages/FunInteractionCard.ets": [
+    "Row",
+    "Column",
+    "Text"
+  ]
+}

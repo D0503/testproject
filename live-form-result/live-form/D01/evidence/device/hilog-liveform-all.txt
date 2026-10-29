@@ -1,0 +1,17 @@
+10-29 16:03:36.880 14221 14221 I A0FF00/com.example.liveformdemo/EntryAbility: playByActionCall playActionType:PLAY
+10-29 16:03:36.886 14221 14221 I A0FF00/com.example.liveformdemo/FormUtils: updateForm success formId: 1541277334
+10-29 16:03:36.888 14221 14221 I A0FF00/com.example.liveformdemo/FormUtils: updateForm success formId: 1889708923
+10-29 16:03:41.915 14221 14221 I A0FF00/com.example.liveformdemo/FormUtils: updateForm success formId: 1541277334
+10-29 16:03:41.922 14221 14221 I A0FF00/com.example.liveformdemo/FormUtils: updateForm success formId: 1889708923
+10-29 16:03:51.073 14221 14221 I A0FF00/com.example.liveformdemo/FormUtils: updateForm success formId: 1541277334
+10-29 16:03:51.075 14221 14221 I A0FF00/com.example.liveformdemo/FormUtils: updateForm success formId: 1889708923
+10-29 16:03:51.077 14221 14221 I A0FF00/com.example.liveformdemo/EntryAbility: playByActionCall playActionType:PREVIOUS
+10-29 16:03:51.081 14221 14221 I A0FF00/com.example.liveformdemo/FormUtils: updateForm success formId: 1541277334
+10-29 16:03:51.083 14221 14221 I A0FF00/com.example.liveformdemo/FormUtils: updateForm success formId: 1889708923
+10-29 16:03:56.084 14221 14221 I A0FF00/com.example.liveformdemo/FormUtils: updateForm success formId: 1541277334
+10-29 16:03:56.091 14221 14221 I A0FF00/com.example.liveformdemo/FormUtils: updateForm success formId: 1889708923
+10-29 16:03:57.165 14221 14221 I A0FF00/com.example.liveformdemo/FormUtils: updateForm success formId: 1541277334
+10-29 16:03:57.167 14221 14221 I A0FF00/com.example.liveformdemo/FormUtils: updateForm success formId: 1889708923
+10-29 16:03:57.169 14221 14221 I A0FF00/com.example.liveformdemo/FormUtils: updateForm success formId: 1541277334
+10-29 16:04:01.091 14221 14221 I A0FF00/com.example.liveformdemo/FormUtils: updateForm success formId: 1541277334
+10-29 16:04:01.096 14221 14221 I A0FF00/com.example.liveformdemo/FormUtils: updateForm success formId: 1889708923

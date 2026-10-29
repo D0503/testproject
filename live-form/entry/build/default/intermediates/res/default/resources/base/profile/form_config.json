@@ -1,0 +1,53 @@
+{
+	"forms":	[{
+			"name":	"widget",
+			"displayName":	"$string:16777232",
+			"description":	"$string:16777231",
+			"src":	"./ets/widget/pages/WidgetCard.ets",
+			"uiSyntax":	"arkts",
+			"window":	{
+				"designWidth":	720,
+				"autoDesignWidth":	true
+			},
+			"colorMode":	"auto",
+			"isDefault":	true,
+			"updateEnabled":	true,
+			"scheduledUpdateTime":	"10:30",
+			"updateDuration":	1,
+			"defaultDimension":	"2*2",
+			"supportDimensions":	["2*2"],
+			"formConfigAbility":	"ability://EntryAbility",
+			"dataProxyEnabled":	false,
+			"isDynamic":	true,
+			"transparencyEnabled":	false,
+			"metadata":	[],
+			"sceneAnimationParams":	{
+				"abilityName":	"MyLiveFormExtensionAbility",
+				"triggerTypes":	["shake"]
+			}
+		}, {
+			"name":	"FunInteractionCard",
+			"displayName":	"$string:16777225",
+			"description":	"$string:16777224",
+			"src":	"./ets/widget/pages/FunInteractionCard.ets",
+			"uiSyntax":	"arkts",
+			"window":	{
+				"designWidth":	720,
+				"autoDesignWidth":	true
+			},
+			"colorMode":	"auto",
+			"isDefault":	false,
+			"updateEnabled":	false,
+			"defaultDimension":	"2*2",
+			"supportDimensions":	["2*2"],
+			"formConfigAbility":	"ability://EntryAbility",
+			"dataProxyEnabled":	false,
+			"isDynamic":	true,
+			"transparencyEnabled":	false,
+			"metadata":	[],
+			"funInteractionParams":	{
+				"targetBundleName":	"com.example.liveformdemo.funinteraction",
+				"keepStateDuration":	10000
+			}
+		}]
+}

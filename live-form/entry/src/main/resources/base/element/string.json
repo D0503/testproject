@@ -1,0 +1,56 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "互动卡片演示模块"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "互动卡片演示入口"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "互动卡片Demo"
+    },
+    {
+      "name": "EntryFormAbility_label",
+      "value": "互动卡片"
+    },
+    {
+      "name": "EntryFormAbility_desc",
+      "value": "互动卡片卡片提供方扩展"
+    },
+    {
+      "name": "MyLiveFormExtensionAbility_desc",
+      "value": "场景动效互动卡片扩展"
+    },
+    {
+      "name": "widget_display_name",
+      "value": "场景动效卡片"
+    },
+    {
+      "name": "widget_desc",
+      "value": "点击触发破框动效的场景动效互动卡片"
+    },
+    {
+      "name": "liveform_click1",
+      "value": "点击触发互动卡片动效"
+    },
+    {
+      "name": "button_cancel",
+      "value": "强制取消动效"
+    },
+    {
+      "name": "fun_interaction_card_display_name",
+      "value": "趣味小游戏"
+    },
+    {
+      "name": "fun_interaction_card_desc",
+      "value": "趣味交互类型互动卡片（快游戏承载）"
+    },
+    {
+      "name": "fun_interaction_hint",
+      "value": "点击卡片开始小游戏"
+    }
+  ]
+}

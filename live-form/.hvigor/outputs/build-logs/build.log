@@ -1,0 +1,1367 @@
+[2026-10-29T17:31:07.019] [DEBUG] debug-file - env: nodejsVersion=v24.14.1
+[2026-10-29T17:31:07.105] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: false,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-10-29T17:31:07.438] [DEBUG] debug-file - Starting plugin build process
+[2026-10-29T17:31:07.438] [DEBUG] debug-file - hvigorfile, require result:  { default: { system: [Function: appTasks], plugins: [] } }
+[2026-10-29T17:31:07.493] [DEBUG] debug-file - App plugin register hook start...
+[2026-10-29T17:31:07.495] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-10-29T17:31:07.497] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2026-10-29T17:31:07.512] [DEBUG] debug-file - Project task initialization takes 2 ms 
+[2026-10-29T17:31:07.515] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/hooks/cangjie-register.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/strategy/stage-init-strategy.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/abstract-plugin-builder.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/app-plugin-builder.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/factory/plugin-factory.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/index.js
+- /Users/ming/Desktop/HarmonyProject/testproject/live-form/hvigorfile.ts
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/boot/index.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/cli/main/cli.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/bin/hvigor.js
+[2026-10-29T17:31:07.521] [DEBUG] debug-file - project has submodules:entry
+[2026-10-29T17:31:07.518] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-10-29T17:31:07.521] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2026-10-29T17:31:07.523] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-10-29T17:31:07.527] [DEBUG] debug-file - Executing task :entry:default@PreBuild
+[2026-10-29T17:31:07.533] [DEBUG] debug-file - Executing task :entry:default@CreateBuildProfile
+[2026-10-29T17:31:07.534] [DEBUG] debug-file - Executing task :entry:default@GeneratePkgContextInfo
+[2026-10-29T17:31:07.533] [DEBUG] debug-file - Executing task :entry:default@PreCheckSyscap
+[2026-10-29T17:31:07.531] [DEBUG] debug-file - Executing task :entry:default@GenerateMetadata
+[2026-10-29T17:31:07.537] [DEBUG] debug-file - Executing task :entry:default@ProcessIntegratedHsp
+[2026-10-29T17:31:07.538] [DEBUG] debug-file - Executing task :entry:default@BuildNativeWithCmake
+[2026-10-29T17:31:07.538] [DEBUG] debug-file - Executing task :entry:default@MakePackInfo
+[2026-10-29T17:31:07.545] [DEBUG] debug-file - Executing task :entry:default@ProcessProfile
+[2026-10-29T17:31:07.546] [DEBUG] debug-file - Executing task :entry:default@ProcessRouterMap
+[2026-10-29T17:31:07.539] [DEBUG] debug-file - Executing task :entry:default@SyscapTransform
+[2026-10-29T17:31:07.546] [DEBUG] debug-file - Executing task :entry:default@ProcessShareConfig
+[2026-10-29T17:31:07.547] [DEBUG] debug-file - Executing task :entry:default@ProcessStartupConfig
+[2026-10-29T17:31:07.547] [DEBUG] debug-file - Executing task :entry:default@BuildNativeWithNinja
+[2026-10-29T17:31:07.548] [DEBUG] debug-file - Executing task :entry:default@ProcessResource
+[2026-10-29T17:31:07.551] [DEBUG] debug-file - Executing task :entry:default@ProcessLibs
+[2026-10-29T17:31:07.552] [DEBUG] debug-file - Executing task :entry:default@CompileResource
+[2026-10-29T17:31:07.553] [DEBUG] debug-file - Executing task :entry:default@DoNativeStrip
+[2026-10-29T17:31:07.554] [DEBUG] debug-file - Executing task :entry:default@CompileArkTS
+[2026-10-29T17:31:07.556] [DEBUG] debug-file - Executing task :entry:default@BuildJS
+[2026-10-29T17:31:07.549] [DEBUG] debug-file - Executing task :entry:default@GenerateLoaderJson
+[2026-10-29T17:31:07.556] [DEBUG] debug-file - Executing task :entry:default@CacheNativeLibs
+[2026-10-29T17:31:07.557] [DEBUG] debug-file - Executing task :entry:default@PackageHap
+[2026-10-29T17:31:07.560] [DEBUG] debug-file - Executing task :entry:default@SignHap
+[2026-10-29T17:31:07.562] [DEBUG] debug-file - Executing task :entry:default@CollectDebugSymbol
+[2026-10-29T17:31:07.558] [DEBUG] debug-file - Executing task :entry:default@PackingCheck
+[2026-10-29T17:31:07.019] [DEBUG] debug-file - env: hvigor-config.json5 content = { modelVersion: '6.0.1', dependencies: {} }
+[2026-10-29T17:31:07.108] [DEBUG] debug-file - Cache service initialization finished in 3 ms 
+[2026-10-29T17:31:07.438] [DEBUG] debug-file - App plugin prepare start...
+[2026-10-29T17:31:07.438] [DEBUG] debug-file - hvigorfile, binding system plugins [Function: appTasks]
+[2026-10-29T17:31:07.494] [DEBUG] debug-file - App plugin register hook end...
+[2026-10-29T17:31:07.495] [DEBUG] debug-file - /Users/ming/Desktop/HarmonyProject/testproject/live-form/build/cache/default/remote_hsp/remoteHspCache.json not exists.
+[2026-10-29T17:31:07.510] [DEBUG] debug-file - Sdk init in 15 ms 
+[2026-10-29T17:31:07.512] [DEBUG] debug-file - hvigorfile, begin to bind custom plugins...
+[2026-10-29T17:31:07.518] [DEBUG] debug-file - Target 'default' config initialized
+[2026-10-29T17:31:07.521] [DEBUG] debug-file - load to the disk finished
+[2026-10-29T17:31:07.523] [DEBUG] debug-file - Module entry Collected Dependency: 
+[2026-10-29T17:31:07.528] [DEBUG] debug-file - Task 'entry:default@PreBuild' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.533] [DEBUG] debug-file - Task 'entry:default@CreateBuildProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.536] [DEBUG] debug-file - Task 'entry:default@GeneratePkgContextInfo' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.534] [DEBUG] debug-file - entry : default@PreCheckSyscap cost memory 0.0312042236328125
+[2026-10-29T17:31:07.531] [DEBUG] debug-file - Task 'entry:default@GenerateMetadata' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.537] [DEBUG] debug-file - entry:default@ProcessIntegratedHsp is not up-to-date, since the output file '/Users/ming/Desktop/HarmonyProject/testproject/live-form/build/cache/default/integrated_hsp/integratedHspCache.json' does not exist.
+[2026-10-29T17:31:07.538] [DEBUG] debug-file - entry : default@BuildNativeWithCmake cost memory 0.01815032958984375
+[2026-10-29T17:31:07.538] [DEBUG] debug-file - Incremental task entry:default@MakePackInfo pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.545] [DEBUG] debug-file - Task 'entry:default@ProcessProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.546] [DEBUG] debug-file - Incremental task entry:default@ProcessRouterMap pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.539] [DEBUG] debug-file - File: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/src/main/syscap.json' from 'sysCapJsonPath' is not exists, just ignore.
+[2026-10-29T17:31:07.546] [DEBUG] debug-file - Incremental task entry:default@ProcessShareConfig pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.547] [DEBUG] debug-file - Task 'entry:default@ProcessStartupConfig' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.547] [DEBUG] debug-file - entry : default@BuildNativeWithNinja cost memory 0.0244293212890625
+[2026-10-29T17:31:07.548] [DEBUG] debug-file - Task 'entry:default@ProcessResource' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.551] [DEBUG] debug-file - Task 'entry:default@ProcessLibs' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.553] [DEBUG] debug-file - Incremental task entry:default@CompileResource pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.553] [DEBUG] debug-file - File: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/binxo/default' from 'doBinxoNativeLibs' is not exists, just ignore.
+[2026-10-29T17:31:07.554] [DEBUG] debug-file - obfuscationOptions: undefined
+[2026-10-29T17:31:07.556] [DEBUG] debug-file - Task 'entry:default@BuildJS' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.549] [DEBUG] debug-file - Task 'entry:default@GenerateLoaderJson' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.556] [DEBUG] debug-file - File: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/binxo/default' from 'cacheBinxoNativeLibs' is not exists, just ignore.
+[2026-10-29T17:31:07.558] [DEBUG] debug-file - Incremental task entry:default@PackageHap pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.560] [DEBUG] debug-file - Incremental task entry:default@SignHap pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.562] [DEBUG] debug-file - entry : default@CollectDebugSymbol cost memory 0.09751129150390625
+[2026-10-29T17:31:07.560] [DEBUG] debug-file - entry : default@PackingCheck cost memory 0.4552764892578125
+[2026-10-29T17:31:07.020] [DEBUG] debug-file - env: daemon=false
+[2026-10-29T17:31:07.108] [DEBUG] debug-file - hvigorfile, resolving /Users/ming/Desktop/HarmonyProject/testproject/live-form/hvigorfile.ts
+[2026-10-29T17:31:07.438] [DEBUG] debug-file - App plugin prepare end...
+[2026-10-29T17:31:07.494] [DEBUG] debug-file - Plugin build process completed
+[2026-10-29T17:31:07.496] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2026-10-29T17:31:07.512] [DEBUG] debug-file - hvigorfile, no custom plugins were found in /Users/ming/Desktop/HarmonyProject/testproject/live-form/hvigorfile.ts
+[2026-10-29T17:31:07.518] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-10-29T17:31:07.521] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-10-29T17:31:07.523] [DEBUG] debug-file - Module entry's total dependency: 0
+[2026-10-29T17:31:07.530] [DEBUG] debug-file - Incremental task entry:default@PreBuild pre-execution cost: 2 ms .
+[2026-10-29T17:31:07.533] [DEBUG] debug-file - Incremental task entry:default@CreateBuildProfile pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.536] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgContextInfo pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.534] [DEBUG] debug-file - runTaskFromQueue task cost before running: 431 ms 
+[2026-10-29T17:31:07.532] [DEBUG] debug-file - Incremental task entry:default@GenerateMetadata pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.537] [DEBUG] debug-file - Incremental task entry:default@ProcessIntegratedHsp pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.538] [DEBUG] debug-file - runTaskFromQueue task cost before running: 435 ms 
+[2026-10-29T17:31:07.538] [DEBUG] debug-file - entry : default@MakePackInfo cost memory 0.5915145874023438
+[2026-10-29T17:31:07.545] [DEBUG] debug-file - Incremental task entry:default@ProcessProfile pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.546] [DEBUG] debug-file - entry : default@ProcessRouterMap cost memory 0.15616607666015625
+[2026-10-29T17:31:07.539] [DEBUG] debug-file - Task 'entry:default@SyscapTransform' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.546] [DEBUG] debug-file - entry : default@ProcessShareConfig cost memory 0.675140380859375
+[2026-10-29T17:31:07.547] [DEBUG] debug-file - entry:default@ProcessStartupConfig is not up-to-date, since the output file '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/startup/default/startup_config.json' does not exist.
+[2026-10-29T17:31:07.548] [DEBUG] debug-file - Incremental task entry:default@ProcessResource pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.551] [DEBUG] debug-file - Incremental task entry:default@ProcessLibs pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.553] [DEBUG] debug-file - entry : default@CompileResource cost memory 0.39600372314453125
+[2026-10-29T17:31:07.553] [DEBUG] debug-file - Task 'entry:default@DoNativeStrip' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.554] [DEBUG] debug-file - Task 'entry:default@CompileArkTS' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.556] [DEBUG] debug-file - entry : default@BuildJS cost memory 0.17060089111328125
+[2026-10-29T17:31:07.550] [DEBUG] debug-file - Incremental task entry:default@GenerateLoaderJson pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.556] [DEBUG] debug-file - Task 'entry:default@CacheNativeLibs' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.547] [DEBUG] debug-file - runTaskFromQueue task cost before running: 445 ms 
+[2026-10-29T17:31:07.558] [DEBUG] debug-file - entry : default@PackageHap cost memory 0.28643798828125
+[2026-10-29T17:31:07.560] [DEBUG] debug-file - entry : default@SignHap cost memory 0.11052703857421875
+[2026-10-29T17:31:07.562] [DEBUG] debug-file - runTaskFromQueue task cost before running: 459 ms 
+[2026-10-29T17:31:07.560] [DEBUG] debug-file - runTaskFromQueue task cost before running: 457 ms 
+[2026-10-29T17:31:07.020] [DEBUG] debug-file - no-daemon, use the parent process.execArgv --max-old-space-size=8192,--max-semi-space-size=16,--expose-gc
+[2026-10-29T17:31:07.438] [DEBUG] debug-file - App plugin creating...
+[2026-10-29T17:31:07.494] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2026-10-29T17:31:07.496] [DEBUG] debug-file - Local scan or download hmscore sdk components toolchains,ets,native
+[2026-10-29T17:31:07.512] [DEBUG] debug-file - hvigorfile, resolve finished /Users/ming/Desktop/HarmonyProject/testproject/live-form/hvigorfile.ts
+[2026-10-29T17:31:07.518] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-10-29T17:31:07.522] [DEBUG] debug-file - Module live-form Collected Dependency: 
+[2026-10-29T17:31:07.524] [DEBUG] debug-file - Configuration phase cost:417 ms 
+[2026-10-29T17:31:07.530] [DEBUG] debug-file - entry : default@PreBuild cost memory 1.2888565063476562
+[2026-10-29T17:31:07.533] [DEBUG] debug-file - entry : default@CreateBuildProfile cost memory 0.1121673583984375
+[2026-10-29T17:31:07.536] [DEBUG] debug-file - entry : default@GeneratePkgContextInfo cost memory 0.39357757568359375
+[2026-10-29T17:31:07.534] [INFO] debug-file - Finished :entry:default@PreCheckSyscap... after 1 ms 
+[2026-10-29T17:31:07.532] [DEBUG] debug-file - entry : default@GenerateMetadata cost memory 0.11412811279296875
+[2026-10-29T17:31:07.537] [DEBUG] debug-file - entry : default@ProcessIntegratedHsp cost memory 0.063873291015625
+[2026-10-29T17:31:07.538] [INFO] debug-file - Finished :entry:default@BuildNativeWithCmake... after 1 ms 
+[2026-10-29T17:31:07.538] [INFO] debug-file - UP-TO-DATE :entry:default@MakePackInfo...  
+[2026-10-29T17:31:07.545] [DEBUG] debug-file - entry : default@ProcessProfile cost memory 0.18225860595703125
+[2026-10-29T17:31:07.546] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessRouterMap...  
+[2026-10-29T17:31:07.544] [DEBUG] debug-file - entry:default@SyscapTransform is not up-to-date, since the output file '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/syscap/default/rpcid.sc' does not exist.
+[2026-10-29T17:31:07.546] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessShareConfig...  
+[2026-10-29T17:31:07.547] [DEBUG] debug-file - Incremental task entry:default@ProcessStartupConfig pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.548] [DEBUG] debug-file - entry : default@ProcessResource cost memory 0.13866424560546875
+[2026-10-29T17:31:07.551] [DEBUG] debug-file - entry : default@ProcessLibs cost memory 0.11771392822265625
+[2026-10-29T17:31:07.553] [INFO] debug-file - UP-TO-DATE :entry:default@CompileResource...  
+[2026-10-29T17:31:07.553] [DEBUG] debug-file - Incremental task entry:default@DoNativeStrip pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.555] [DEBUG] debug-file - Incremental task entry:default@CompileArkTS pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.556] [DEBUG] debug-file - runTaskFromQueue task cost before running: 453 ms 
+[2026-10-29T17:31:07.550] [DEBUG] debug-file - entry : default@GenerateLoaderJson cost memory 0.6131439208984375
+[2026-10-29T17:31:07.556] [DEBUG] debug-file - Incremental task entry:default@CacheNativeLibs pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.558] [INFO] debug-file - UP-TO-DATE :entry:default@PackageHap...  
+[2026-10-29T17:31:07.547] [INFO] debug-file - Finished :entry:default@BuildNativeWithNinja... after 1 ms 
+[2026-10-29T17:31:07.561] [INFO] debug-file - UP-TO-DATE :entry:default@SignHap...  
+[2026-10-29T17:31:07.562] [INFO] debug-file - Finished :entry:default@CollectDebugSymbol... after 1 ms 
+[2026-10-29T17:31:07.560] [INFO] debug-file - Finished :entry:default@PackingCheck... after 2 ms 
+[2026-10-29T17:31:07.494] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2026-10-29T17:31:07.513] [DEBUG] debug-file - hvigorfile, resolving /Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/hvigorfile.ts
+[2026-10-29T17:31:07.518] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2026-10-29T17:31:07.522] [DEBUG] debug-file - Module live-form's total dependency: 0
+[2026-10-29T17:31:07.525] [DEBUG] debug-file - Configuration task cost before running: 422 ms 
+[2026-10-29T17:31:07.530] [INFO] debug-file - UP-TO-DATE :entry:default@PreBuild...  
+[2026-10-29T17:31:07.533] [INFO] debug-file - UP-TO-DATE :entry:default@CreateBuildProfile...  
+[2026-10-29T17:31:07.536] [INFO] debug-file - UP-TO-DATE :entry:default@GeneratePkgContextInfo...  
+[2026-10-29T17:31:07.532] [INFO] debug-file - UP-TO-DATE :entry:default@GenerateMetadata...  
+[2026-10-29T17:31:07.537] [DEBUG] debug-file - runTaskFromQueue task cost before running: 435 ms 
+[2026-10-29T17:31:07.545] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessProfile...  
+[2026-10-29T17:31:07.544] [DEBUG] debug-file - Incremental task entry:default@SyscapTransform pre-execution cost: 5 ms .
+[2026-10-29T17:31:07.547] [DEBUG] debug-file - entry : default@ProcessStartupConfig cost memory 0.11852264404296875
+[2026-10-29T17:31:07.548] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessResource...  
+[2026-10-29T17:31:07.551] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessLibs...  
+[2026-10-29T17:31:07.553] [DEBUG] debug-file - entry : default@DoNativeStrip cost memory 0.31320953369140625
+[2026-10-29T17:31:07.555] [DEBUG] debug-file - entry : default@CompileArkTS cost memory 0.6109390258789062
+[2026-10-29T17:31:07.556] [DEBUG] debug-file - entry : default@CacheNativeLibs cost memory 0.09537506103515625
+[2026-10-29T17:31:07.551] [INFO] debug-file - UP-TO-DATE :entry:default@GenerateLoaderJson...  
+[2026-10-29T17:31:07.556] [INFO] debug-file - Finished :entry:default@BuildJS... after 1 ms 
+[2026-10-29T17:31:07.548] [DEBUG] debug-file - restool module names: entry; moduleName=entry, taskName=default@ProcessResource
+[2026-10-29T17:31:07.562] [DEBUG] debug-file - Executing task :entry:assembleHap
+[2026-10-29T17:31:07.494] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-10-29T17:31:07.515] [DEBUG] debug-file - hvigorfile, require result:  { default: { system: [Function: hapTasks], plugins: [] } }
+[2026-10-29T17:31:07.518] [DEBUG] debug-file - Target 'default' config initialized
+[2026-10-29T17:31:07.525] [DEBUG] debug-file - Executing task ::PreBuildApp
+[2026-10-29T17:31:07.530] [DEBUG] debug-file - Executing task ::DuplicateDependencyCheck
+[2026-10-29T17:31:07.536] [DEBUG] debug-file - Executing task :entry:default@GeneratePkgSdkInfo
+[2026-10-29T17:31:07.532] [DEBUG] debug-file - Executing task :entry:default@ConfigureCmake
+[2026-10-29T17:31:07.537] [INFO] debug-file - Finished :entry:default@ProcessIntegratedHsp... after 1 ms 
+[2026-10-29T17:31:07.544] [DEBUG] debug-file - entry : default@SyscapTransform cost memory 0.1296234130859375
+[2026-10-29T17:31:07.547] [DEBUG] debug-file - runTaskFromQueue task cost before running: 444 ms 
+[2026-10-29T17:31:07.552] [DEBUG] debug-file - restool module names: entry; moduleName=entry, taskName=default@CompileResource
+[2026-10-29T17:31:07.553] [INFO] debug-file - UP-TO-DATE :entry:default@DoNativeStrip...  
+[2026-10-29T17:31:07.555] [INFO] debug-file - UP-TO-DATE :entry:default@CompileArkTS...  
+[2026-10-29T17:31:07.556] [INFO] debug-file - UP-TO-DATE :entry:default@CacheNativeLibs...  
+[2026-10-29T17:31:07.562] [DEBUG] debug-file - entry : assembleHap cost memory 0.0148468017578125
+[2026-10-29T17:31:07.494] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2026-10-29T17:31:07.515] [DEBUG] debug-file - hvigorfile, binding system plugins [Function: hapTasks]
+[2026-10-29T17:31:07.518] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-10-29T17:31:07.525] [DEBUG] debug-file - live-form : PreBuildApp cost memory 0.032470703125
+[2026-10-29T17:31:07.530] [DEBUG] debug-file - live-form : DuplicateDependencyCheck cost memory 0.0169219970703125
+[2026-10-29T17:31:07.537] [DEBUG] debug-file - Task 'entry:default@GeneratePkgSdkInfo' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.532] [DEBUG] debug-file - entry : default@ConfigureCmake cost memory 0.01740264892578125
+[2026-10-29T17:31:07.544] [DEBUG] debug-file - runTaskFromQueue task cost before running: 441 ms 
+[2026-10-29T17:31:07.547] [INFO] debug-file - Finished :entry:default@ProcessStartupConfig... after 1 ms 
+[2026-10-29T17:31:07.557] [DEBUG] debug-file - Executing task :entry:default@GeneratePkgModuleJson
+[2026-10-29T17:31:07.562] [DEBUG] debug-file - runTaskFromQueue task cost before running: 459 ms 
+[2026-10-29T17:31:07.515] [DEBUG] debug-file - Starting plugin build process
+[2026-10-29T17:31:07.519] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-10-29T17:31:07.525] [DEBUG] debug-file - runTaskFromQueue task cost before running: 422 ms 
+[2026-10-29T17:31:07.530] [DEBUG] debug-file - runTaskFromQueue task cost before running: 428 ms 
+[2026-10-29T17:31:07.537] [DEBUG] debug-file - entry : default@GeneratePkgSdkInfo cost memory -0.04860687255859375
+[2026-10-29T17:31:07.532] [DEBUG] debug-file - runTaskFromQueue task cost before running: 429 ms 
+[2026-10-29T17:31:07.544] [INFO] debug-file - Finished :entry:default@SyscapTransform... after 6 ms 
+[2026-10-29T17:31:07.557] [DEBUG] debug-file - File: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/preload/default/preload.json' from 'preloadSoJsonPath' is not exists, just ignore.
+[2026-10-29T17:31:07.562] [INFO] debug-file - Finished :entry:assembleHap... after 1 ms 
+[2026-10-29T17:31:07.515] [DEBUG] debug-file - Hap plugin creating...
+[2026-10-29T17:31:07.519] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-10-29T17:31:07.525] [INFO] debug-file - Finished ::PreBuildApp... after 1 ms 
+[2026-10-29T17:31:07.530] [INFO] debug-file - Finished ::DuplicateDependencyCheck... after 1 ms 
+[2026-10-29T17:31:07.537] [DEBUG] debug-file - runTaskFromQueue task cost before running: 434 ms 
+[2026-10-29T17:31:07.532] [INFO] debug-file - Finished :entry:default@ConfigureCmake... after 1 ms 
+[2026-10-29T17:31:07.557] [DEBUG] debug-file - Error occurs while handling @Input 'shouldDeduplicateHar': The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received undefined
+[2026-10-29T17:31:07.562] [DEBUG] debug-file - Executing task ::MakeProjectPackInfo
+[2026-10-29T17:31:07.569] [DEBUG] debug-file - current process  memoryUsage: {
+  rss: 278003712,
+  heapTotal: 167591936,
+  heapUsed: 138073848,
+  external: 3864186,
+  arrayBuffers: 55973
+} os memoryUsage :15.81427001953125
+[2026-10-29T17:31:07.519] [DEBUG] debug-file - Target 'default' config initialized
+[2026-10-29T17:31:07.531] [DEBUG] debug-file - Executing task :entry:default@CreateModuleInfo
+[2026-10-29T17:31:07.537] [INFO] debug-file - Finished :entry:default@GeneratePkgSdkInfo... after 1 ms 
+[2026-10-29T17:31:07.532] [DEBUG] debug-file - Executing task :entry:default@MergeProfile
+[2026-10-29T17:31:07.557] [DEBUG] debug-file - Task 'entry:default@GeneratePkgModuleJson' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.562] [DEBUG] debug-file - Task ':MakeProjectPackInfo' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.519] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-10-29T17:31:07.531] [DEBUG] debug-file - Task 'entry:default@CreateModuleInfo' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.532] [DEBUG] debug-file - Task 'entry:default@MergeProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.562] [DEBUG] debug-file - Incremental task :MakeProjectPackInfo pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.519] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-10-29T17:31:07.531] [DEBUG] debug-file - entry : default@CreateModuleInfo cost memory 0.06101226806640625
+[2026-10-29T17:31:07.557] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgModuleJson pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.562] [DEBUG] debug-file - live-form : MakeProjectPackInfo cost memory 0.1591033935546875
+[2026-10-29T17:31:07.532] [DEBUG] debug-file - Incremental task entry:default@MergeProfile pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.519] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2026-10-29T17:31:07.531] [DEBUG] debug-file - runTaskFromQueue task cost before running: 428 ms 
+[2026-10-29T17:31:07.557] [DEBUG] debug-file - entry : default@GeneratePkgModuleJson cost memory 0.0881805419921875
+[2026-10-29T17:31:07.562] [INFO] debug-file - UP-TO-DATE ::MakeProjectPackInfo...  
+[2026-10-29T17:31:07.532] [DEBUG] debug-file - entry : default@MergeProfile cost memory 0.275177001953125
+[2026-10-29T17:31:07.520] [DEBUG] debug-file - Module entry task initialization takes 2 ms 
+[2026-10-29T17:31:07.531] [INFO] debug-file - Finished :entry:default@CreateModuleInfo... after 1 ms 
+[2026-10-29T17:31:07.557] [INFO] debug-file - UP-TO-DATE :entry:default@GeneratePkgModuleJson...  
+[2026-10-29T17:31:07.562] [DEBUG] debug-file - Executing task ::ProcessProjectPrivacyProfile
+[2026-10-29T17:31:07.533] [INFO] debug-file - UP-TO-DATE :entry:default@MergeProfile...  
+[2026-10-29T17:31:07.520] [DEBUG] debug-file - Hap plugin register hook start...
+[2026-10-29T17:31:07.557] [DEBUG] debug-file - Executing task :entry:default@ProcessCompiledResources
+[2026-10-29T17:31:07.563] [DEBUG] debug-file - Incremental task :ProcessProjectPrivacyProfile pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.520] [DEBUG] debug-file - Hap plugin register hook end...
+[2026-10-29T17:31:07.557] [DEBUG] debug-file - File: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/preload/default/preload.json' from 'preloadSoJsonPath' is not exists, just ignore.
+[2026-10-29T17:31:07.563] [DEBUG] debug-file - live-form : ProcessProjectPrivacyProfile cost memory 0.0978546142578125
+[2026-10-29T17:31:07.520] [DEBUG] debug-file - Plugin build process completed
+[2026-10-29T17:31:07.557] [DEBUG] debug-file - Task 'entry:default@ProcessCompiledResources' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.563] [INFO] debug-file - UP-TO-DATE ::ProcessProjectPrivacyProfile...  
+[2026-10-29T17:31:07.520] [DEBUG] debug-file - hvigorfile, begin to bind custom plugins...
+[2026-10-29T17:31:07.557] [DEBUG] debug-file - entry : default@ProcessCompiledResources cost memory 0.063751220703125
+[2026-10-29T17:31:07.563] [DEBUG] debug-file - Executing task ::GeneratePackRes
+[2026-10-29T17:31:07.557] [DEBUG] debug-file - runTaskFromQueue task cost before running: 454 ms 
+[2026-10-29T17:31:07.520] [DEBUG] debug-file - hvigorfile, no custom plugins were found in /Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/hvigorfile.ts
+[2026-10-29T17:31:07.563] [DEBUG] debug-file - Incremental task :GeneratePackRes pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.557] [INFO] debug-file - Finished :entry:default@ProcessCompiledResources... after 1 ms 
+[2026-10-29T17:31:07.520] [DEBUG] debug-file - hvigorfile, resolve finished /Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/hvigorfile.ts
+[2026-10-29T17:31:07.563] [DEBUG] debug-file - live-form : GeneratePackRes cost memory 0.04730224609375
+[2026-10-29T17:31:07.563] [INFO] debug-file - UP-TO-DATE ::GeneratePackRes...  
+[2026-10-29T17:31:07.563] [DEBUG] debug-file - Executing task ::PackageApp
+[2026-10-29T17:31:07.563] [DEBUG] debug-file - Task ':PackageApp' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:31:07.563] [DEBUG] debug-file - :PackageApp is not up-to-date, since the output file '/Users/ming/Desktop/HarmonyProject/testproject/live-form/build/outputs/default/symbol/debug' does not exist.
+[2026-10-29T17:31:07.563] [DEBUG] debug-file - Incremental task :PackageApp pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.569] [DEBUG] debug-file - Use tool [PackageApp]
+ [
+  'java',
+  '-Dfile.encoding=utf-8',
+  '-jar',
+  '/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/lib/app_packing_tool.jar',
+  '--mode',
+  'app',
+  '--pack-info-path',
+  '/Users/ming/Desktop/HarmonyProject/testproject/live-form/build/outputs/default/pack.info',
+  '--hap-path',
+  '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/outputs/default/app/entry-default.hap',
+  '--hsp-path',
+  '',
+  '--force',
+  'true',
+  '--out-path',
+  '/Users/ming/Desktop/HarmonyProject/testproject/live-form/build/outputs/default/live-form-default-unsigned.app',
+  '--main-module-limit',
+  '2',
+  '--normal-module-limit',
+  '2',
+  '--pac-json-path',
+  '/Users/ming/Desktop/HarmonyProject/testproject/live-form/build/outputs/default/pac.json'
+]
+[2026-10-29T17:31:07.720] [DEBUG] debug-file - live-form : PackageApp cost memory 2.9975662231445312
+[2026-10-29T17:31:07.720] [DEBUG] debug-file - runTaskFromQueue task cost before running: 617 ms 
+[2026-10-29T17:31:07.723] [DEBUG] debug-file - current process  memoryUsage: {
+  rss: 278233088,
+  heapTotal: 167591936,
+  heapUsed: 139075520,
+  external: 3865131,
+  arrayBuffers: 56886
+} os memoryUsage :15.811080932617188
+[2026-10-29T17:31:07.720] [INFO] debug-file - Finished ::PackageApp... after 157 ms 
+[2026-10-29T17:31:07.720] [DEBUG] debug-file - Executing task ::SignPackagesFromApp
+[2026-10-29T17:31:07.720] [DEBUG] debug-file - :SignPackagesFromApp is not up-to-date, since the input file '/Users/ming/Desktop/HarmonyProject/testproject/live-form/build/outputs/default/live-form-default-unsigned.app' has been changed.
+[2026-10-29T17:31:07.720] [DEBUG] debug-file - Incremental task :SignPackagesFromApp pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.720] [DEBUG] debug-file - live-form : SignPackagesFromApp cost memory 0.083892822265625
+[2026-10-29T17:31:07.720] [DEBUG] debug-file - runTaskFromQueue task cost before running: 618 ms 
+[2026-10-29T17:31:07.720] [INFO] debug-file - Finished ::SignPackagesFromApp... after 1 ms 
+[2026-10-29T17:31:07.720] [DEBUG] debug-file - Executing task ::SignApp
+[2026-10-29T17:31:07.720] [DEBUG] debug-file - signingConfigName of signApp is :  default
+[2026-10-29T17:31:07.720] [DEBUG] debug-file - :SignApp is not up-to-date, since the input file '/Users/ming/Desktop/HarmonyProject/testproject/live-form/build/outputs/default/live-form-default-unsigned.app' has been changed.
+[2026-10-29T17:31:07.720] [DEBUG] debug-file - Incremental task :SignApp pre-execution cost: 1 ms .
+[2026-10-29T17:31:07.888] [DEBUG] debug-file - 10-29 17:31:07.887  INFO - Start verify-profile
+
+[2026-10-29T17:31:07.984] [DEBUG] debug-file - 10-29 17:31:07.984  INFO - verify-profile success
+
+[2026-10-29T17:31:07.989] [DEBUG] debug-file - current process  memoryUsage: {
+  rss: 278265856,
+  heapTotal: 167591936,
+  heapUsed: 139463760,
+  external: 3865243,
+  arrayBuffers: 56998
+} os memoryUsage :15.831756591796875
+[2026-10-29T17:31:08.164] [DEBUG] debug-file - 10-29 17:31:08.164  INFO - Start sign-app
+
+[2026-10-29T17:31:08.234] [DEBUG] debug-file - 10-29 17:31:08.234  INFO - certificate in profile: 李雅娴(1993645154203866945)\,Development
+
+[2026-10-29T17:31:08.239] [DEBUG] debug-file - 10-29 17:31:08.239  INFO - no need to sign code for :app
+
+[2026-10-29T17:31:08.239] [DEBUG] debug-file - 10-29 17:31:08.239  INFO - no need to sign permission for: app
+
+[2026-10-29T17:31:08.243] [DEBUG] debug-file - 10-29 17:31:08.243  INFO - /Users/ming/.ohos/config/default_test-demo_PkWpclh8gacFhorevbzUQCv2Ck4mn05aBvobqF4vDDQ=.p12 is exist. Try to load it with given passwd
+
+[2026-10-29T17:31:08.300] [DEBUG] debug-file - 10-29 17:31:08.300  INFO - Add sign data in sign info list success.
+
+[2026-10-29T17:31:08.303] [DEBUG] debug-file - 10-29 17:31:08.303  INFO - Generate signing block success, begin write it to output file
+
+[2026-10-29T17:31:08.303] [DEBUG] debug-file - 10-29 17:31:08.303  INFO - Sign Hap success!
+
+[2026-10-29T17:31:08.303] [DEBUG] debug-file - 10-29 17:31:08.303  INFO - sign-app success
+
+[2026-10-29T17:31:08.306] [DEBUG] debug-file - live-form : SignApp cost memory 1.001861572265625
+[2026-10-29T17:31:08.306] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 203 ms 
+[2026-10-29T17:31:08.313] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2026-10-29T17:31:08.306] [INFO] debug-file - Finished ::SignApp... after 586 ms 
+[2026-10-29T17:31:08.314] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2026-10-29T17:31:08.306] [DEBUG] debug-file - Executing task ::assembleApp
+[2026-10-29T17:31:08.314] [DEBUG] debug-file - Current worker pool is stopped or closed.
+[2026-10-29T17:31:08.306] [DEBUG] debug-file - live-form : assembleApp cost memory 0.01544952392578125
+[2026-10-29T17:31:08.314] [DEBUG] debug-file - Clear worker 0.
+[2026-10-29T17:31:08.306] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 204 ms 
+[2026-10-29T17:31:08.314] [DEBUG] debug-file - Clear worker 1.
+[2026-10-29T17:31:08.306] [INFO] debug-file - Finished ::assembleApp... after 1 ms 
+[2026-10-29T17:31:08.314] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-10-29T17:31:08.307] [INFO] debug-file - BUILD SUCCESSFUL in 1 s 204 ms 
+[2026-10-29T17:31:08.307] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@PreBuild is up-to-date.
+[2026-10-29T17:31:08.307] [DEBUG] debug-file - Update task entry:default@CreateModuleInfo output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/generated/profile/default/ModuleInfo.ts cache.
+[2026-10-29T17:31:08.307] [DEBUG] debug-file - Incremental task entry:default@CreateModuleInfo post-execution cost:1 ms .
+[2026-10-29T17:31:08.307] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@GenerateMetadata is up-to-date.
+[2026-10-29T17:31:08.307] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@MergeProfile is up-to-date.
+[2026-10-29T17:31:08.307] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@CreateBuildProfile is up-to-date.
+[2026-10-29T17:31:08.307] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@GeneratePkgContextInfo is up-to-date.
+[2026-10-29T17:31:08.307] [DEBUG] debug-file - Update task entry:default@GeneratePkgSdkInfo output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader/default/pkgSdkInfo.json cache.
+[2026-10-29T17:31:08.307] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgSdkInfo post-execution cost:1 ms .
+[2026-10-29T17:31:08.307] [DEBUG] debug-file - Update task entry:default@ProcessIntegratedHsp output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/build/cache/default/integrated_hsp/integratedHspCache.json cache.
+[2026-10-29T17:31:08.307] [DEBUG] debug-file - Incremental task entry:default@ProcessIntegratedHsp post-execution cost:1 ms .
+[2026-10-29T17:31:08.307] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@MakePackInfo is up-to-date.
+[2026-10-29T17:31:08.307] [DEBUG] debug-file - Update task entry:default@SyscapTransform input file:/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/syscap_tool cache by regenerate.
+[2026-10-29T17:31:08.307] [DEBUG] debug-file - Update task entry:default@SyscapTransform input file:/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/device-define cache by regenerate.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task entry:default@SyscapTransform output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/syscap/default/rpcid.sc cache.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Incremental task entry:default@SyscapTransform post-execution cost:1 ms .
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessProfile is up-to-date.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessRouterMap is up-to-date.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessShareConfig is up-to-date.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task entry:default@ProcessStartupConfig input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader/default/pkgContextInfo.json cache by regenerate.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task entry:default@ProcessStartupConfig output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/startup/default/startup_config.json cache.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Incremental task entry:default@ProcessStartupConfig post-execution cost:1 ms .
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessResource is up-to-date.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@GenerateLoaderJson is up-to-date.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessLibs is up-to-date.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@CompileResource is up-to-date.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@DoNativeStrip is up-to-date.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@CompileArkTS is up-to-date.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task entry:default@BuildJS input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader/default cache by regenerate.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task entry:default@BuildJS input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/res/default/ResourceTable.txt cache by regenerate.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task entry:default@BuildJS input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/res/default/ark_module.json cache by regenerate.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task entry:default@BuildJS input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/res/default/resources/base/profile cache by regenerate.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task entry:default@BuildJS input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader/default/pkgContextInfo.json cache by regenerate.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task entry:default@BuildJS output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader_out/default/js cache.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Incremental task entry:default@BuildJS post-execution cost:1 ms .
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@CacheNativeLibs is up-to-date.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@GeneratePkgModuleJson is up-to-date.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Incremental task entry:default@ProcessCompiledResources post-execution cost:1 ms .
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@PackageHap is up-to-date.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@SignHap is up-to-date.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader_out/default/ets/sourceMaps.map cache by regenerate.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/libs/default cache by regenerate.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/outputs/default/symbol cache.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Incremental task entry:default@CollectDebugSymbol post-execution cost:1 ms .
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task :MakeProjectPackInfo is up-to-date.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task :ProcessProjectPrivacyProfile is up-to-date.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task :GeneratePackRes is up-to-date.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task :PackageApp input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/build/outputs/default/pack.info cache by regenerate.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task :PackageApp input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/outputs/default/entry-default-unsigned.hap cache by regenerate.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task :PackageApp input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/build/outputs/default/pac.json cache by regenerate.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task :PackageApp output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/build/outputs/default/live-form-default-unsigned.app cache.
+[2026-10-29T17:31:08.316] [DEBUG] debug-file - worker[0] exits with exit code 0.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task :PackageApp output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/outputs/default/app/entry-default.hap cache.
+[2026-10-29T17:31:08.316] [DEBUG] debug-file - Worker 0 has been cleared.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task :PackageApp output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/build/outputs/default/symbol/debug cache.
+[2026-10-29T17:31:08.316] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Incremental task :PackageApp post-execution cost:1 ms .
+[2026-10-29T17:31:08.316] [DEBUG] debug-file - Current busy worker size: 0.
+[2026-10-29T17:31:08.316] [DEBUG] debug-file - worker[1] exits with exit code 0.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task :SignPackagesFromApp input file:/Users/ming/.ohos/config/default_test-demo_PkWpclh8gacFhorevbzUQCv2Ck4mn05aBvobqF4vDDQ=.cer cache by regenerate.
+[2026-10-29T17:31:08.316] [DEBUG] debug-file - Worker 1 has been cleared.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task :SignPackagesFromApp input file:/Users/ming/.ohos/config/default_test-demo_PkWpclh8gacFhorevbzUQCv2Ck4mn05aBvobqF4vDDQ=.p7b cache by regenerate.
+[2026-10-29T17:31:08.316] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task :SignPackagesFromApp input file:/Users/ming/.ohos/config/default_test-demo_PkWpclh8gacFhorevbzUQCv2Ck4mn05aBvobqF4vDDQ=.p12 cache by regenerate.
+[2026-10-29T17:31:08.316] [DEBUG] debug-file - Current busy worker size: 0.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task :SignPackagesFromApp input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/build/outputs/default/live-form-default-unsigned.app cache from map.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Incremental task :SignPackagesFromApp post-execution cost:1 ms .
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task :SignApp input file:/Users/ming/.ohos/config/default_test-demo_PkWpclh8gacFhorevbzUQCv2Ck4mn05aBvobqF4vDDQ=.cer cache by regenerate.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task :SignApp input file:/Users/ming/.ohos/config/default_test-demo_PkWpclh8gacFhorevbzUQCv2Ck4mn05aBvobqF4vDDQ=.p7b cache by regenerate.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task :SignApp input file:/Users/ming/.ohos/config/default_test-demo_PkWpclh8gacFhorevbzUQCv2Ck4mn05aBvobqF4vDDQ=.p12 cache by regenerate.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task :SignApp input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/build/outputs/default/live-form-default-unsigned.app cache from map.
+[2026-10-29T17:31:08.308] [DEBUG] debug-file - Update task :SignApp output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/build/outputs/default/live-form-default-signed.app cache.
+[2026-10-29T17:31:08.309] [DEBUG] debug-file - Incremental task :SignApp post-execution cost:1 ms .
+[2026-10-29T17:31:08.317] [DEBUG] debug-file - Current worker pool is terminated.
+[2026-10-29T17:31:08.313] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2026-10-29T17:31:08.317] [DEBUG] debug-file - Current worker pool is terminated.
+[2026-10-29T17:31:08.313] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2026-10-29T17:38:26.972] [DEBUG] debug-file - env: nodejsVersion=v24.14.1
+[2026-10-29T17:38:26.979] [DEBUG] debug-file - env: daemon=true
+[2026-10-29T17:38:26.973] [DEBUG] debug-file - env: hvigor-config.json5 content = { modelVersion: '6.0.1', dependencies: {} }
+[2026-10-29T17:38:27.102] [DEBUG] debug-file - hvigor java daemon: Starting java daemon. jvmXmxValue=512m, jarPath=/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/lib/hvigor-java-daemon.jar
+[2026-10-29T17:38:27.102] [DEBUG] debug-file - hvigor java daemon: Read cache file, 
+    port=45050, pid=33801, sessionId exists=true
+[2026-10-29T17:38:27.102] [DEBUG] debug-file - hvigor java daemon: Killing existing java daemon by pid=33801
+[2026-10-29T17:38:27.119] [DEBUG] debug-file - hvigor java daemon: tryConnect success
+[2026-10-29T17:38:27.124] [DEBUG] debug-file - session manager: set active socket. socketId=-uKqBJFMllneTTfzAAAB
+[2026-10-29T17:38:27.280] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-10-29T17:38:27.281] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2026-10-29T17:38:27.281] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2026-10-29T17:38:27.281] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2026-10-29T17:38:27.282] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2026-10-29T17:38:27.282] [DEBUG] debug-file - Workers' log level updated to INFO
+[2026-10-29T17:38:27.285] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-10-29T17:38:27.290] [DEBUG] debug-file - Cache service initialization finished in 6 ms 
+[2026-10-29T17:38:27.290] [DEBUG] debug-file - hvigorfile, resolving /Users/ming/Desktop/HarmonyProject/testproject/live-form/hvigorfile.ts
+[2026-10-29T17:38:27.669] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-10-29T17:38:27.669] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-10-29T17:38:27.669] [DEBUG] debug-file - Starting plugin build process
+[2026-10-29T17:38:27.669] [DEBUG] debug-file - App plugin prepare start...
+[2026-10-29T17:38:27.669] [DEBUG] debug-file - App plugin prepare end...
+[2026-10-29T17:38:27.669] [DEBUG] debug-file - App plugin creating...
+[2026-10-29T17:38:27.726] [DEBUG] debug-file - App plugin register hook start...
+[2026-10-29T17:38:27.726] [DEBUG] debug-file - App plugin register hook end...
+[2026-10-29T17:38:27.726] [DEBUG] debug-file - Plugin build process completed
+[2026-10-29T17:38:27.726] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2026-10-29T17:38:27.726] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2026-10-29T17:38:27.727] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-10-29T17:38:27.727] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2026-10-29T17:38:27.727] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-10-29T17:38:27.728] [DEBUG] debug-file - /Users/ming/Desktop/HarmonyProject/testproject/live-form/build/cache/default/remote_hsp/remoteHspCache.json not exists.
+[2026-10-29T17:38:27.728] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2026-10-29T17:38:27.729] [DEBUG] debug-file - Local scan or download hmscore sdk components toolchains,ets,native
+[2026-10-29T17:38:27.729] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2026-10-29T17:38:27.744] [DEBUG] debug-file - Sdk init in 17 ms 
+[2026-10-29T17:38:27.746] [DEBUG] debug-file - Project task initialization takes 2 ms 
+[2026-10-29T17:38:27.746] [DEBUG] debug-file - hvigorfile, begin to bind custom plugins...
+[2026-10-29T17:38:27.746] [DEBUG] debug-file - hvigorfile, no custom plugins were found in /Users/ming/Desktop/HarmonyProject/testproject/live-form/hvigorfile.ts
+[2026-10-29T17:38:27.746] [DEBUG] debug-file - hvigorfile, resolve finished /Users/ming/Desktop/HarmonyProject/testproject/live-form/hvigorfile.ts
+[2026-10-29T17:38:27.746] [DEBUG] debug-file - hvigorfile, resolving /Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/hvigorfile.ts
+[2026-10-29T17:38:27.748] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-10-29T17:38:27.748] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-10-29T17:38:27.748] [DEBUG] debug-file - Starting plugin build process
+[2026-10-29T17:38:27.748] [DEBUG] debug-file - Hap plugin creating...
+[2026-10-29T17:38:27.749] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/hooks/cangjie-register.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/strategy/stage-init-strategy.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/abstract-plugin-builder.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/app-plugin-builder.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/factory/plugin-factory.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/index.js
+- /Users/ming/Desktop/HarmonyProject/testproject/live-form/hvigorfile.ts
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/boot/index.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/cluster/worker-process-lifecycle.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/process/daemon-process-boot-script.js
+[2026-10-29T17:38:27.755] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-10-29T17:38:27.755] [DEBUG] debug-file - Target 'default' config initialized
+[2026-10-29T17:38:27.755] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-10-29T17:38:27.755] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-10-29T17:38:27.755] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2026-10-29T17:38:27.755] [DEBUG] debug-file - Target 'default' config initialized
+[2026-10-29T17:38:27.755] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-10-29T17:38:27.755] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-10-29T17:38:27.755] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-10-29T17:38:27.755] [DEBUG] debug-file - Target 'default' config initialized
+[2026-10-29T17:38:27.755] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-10-29T17:38:27.755] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-10-29T17:38:27.755] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2026-10-29T17:38:27.757] [DEBUG] debug-file - Module entry task initialization takes 2 ms 
+[2026-10-29T17:38:27.757] [DEBUG] debug-file - Hap plugin register hook start...
+[2026-10-29T17:38:27.757] [DEBUG] debug-file - Hap plugin register hook end...
+[2026-10-29T17:38:27.757] [DEBUG] debug-file - Plugin build process completed
+[2026-10-29T17:38:27.757] [DEBUG] debug-file - hvigorfile, begin to bind custom plugins...
+[2026-10-29T17:38:27.757] [DEBUG] debug-file - hvigorfile, no custom plugins were found in /Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/hvigorfile.ts
+[2026-10-29T17:38:27.757] [DEBUG] debug-file - hvigorfile, resolve finished /Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/hvigorfile.ts
+[2026-10-29T17:38:27.782] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 25 ms 
+[2026-10-29T17:38:27.782] [DEBUG] debug-file - project has submodules:entry
+[2026-10-29T17:38:27.783] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2026-10-29T17:38:27.783] [DEBUG] debug-file - load to the disk finished
+[2026-10-29T17:38:27.783] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-10-29T17:38:27.784] [DEBUG] debug-file - Module live-form Collected Dependency: 
+[2026-10-29T17:38:27.784] [DEBUG] debug-file - Module live-form's total dependency: 0
+[2026-10-29T17:38:27.784] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-10-29T17:38:27.785] [DEBUG] debug-file - Module entry Collected Dependency: 
+[2026-10-29T17:38:27.785] [DEBUG] debug-file - Module entry's total dependency: 0
+[2026-10-29T17:38:27.785] [DEBUG] debug-file - Configuration phase cost:496 ms 
+[2026-10-29T17:38:27.786] [DEBUG] debug-file - Configuration task cost before running: 504 ms 
+[2026-10-29T17:38:27.786] [DEBUG] debug-file - Executing task :entry:init
+[2026-10-29T17:38:27.786] [DEBUG] debug-file - entry : init cost memory 0.02496337890625
+[2026-10-29T17:38:27.786] [DEBUG] debug-file - runTaskFromQueue task cost before running: 504 ms 
+[2026-10-29T17:38:27.787] [INFO] debug-file - Finished :entry:init... after 1 ms 
+[2026-10-29T17:38:27.787] [DEBUG] debug-file - Executing task ::init
+[2026-10-29T17:38:27.787] [DEBUG] debug-file - live-form : init cost memory 0.014190673828125
+[2026-10-29T17:38:27.787] [DEBUG] debug-file - runTaskFromQueue task cost before running: 505 ms 
+[2026-10-29T17:38:27.787] [INFO] debug-file - Finished ::init... after 1 ms 
+[2026-10-29T17:38:27.787] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2026-10-29T17:38:27.788] [DEBUG] debug-file - Cleanup worker 0.
+[2026-10-29T17:38:27.788] [DEBUG] debug-file - Cleanup worker 1.
+[2026-10-29T17:38:27.788] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-10-29T17:38:27.838] [DEBUG] debug-file - worker[1] exits with exit code 1.
+[2026-10-29T17:38:27.838] [DEBUG] debug-file - worker[0] exits with exit code 1.
+[2026-10-29T17:38:27.838] [DEBUG] debug-file - Worker 1 has been cleaned up.
+[2026-10-29T17:38:27.838] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-10-29T17:38:27.838] [DEBUG] debug-file - Current resident worker size: 0.
+[2026-10-29T17:38:27.838] [DEBUG] debug-file - Worker 0 has been cleaned up.
+[2026-10-29T17:38:27.838] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-10-29T17:38:27.838] [DEBUG] debug-file - Current resident worker size: 0.
+[2026-10-29T17:38:27.845] [DEBUG] debug-file - session manager: send message to worker process. WorkerThreadId: 0, data: {"type":"hvigor_failed","reason":"Server has disconnected."}
+[2026-10-29T17:38:27.846] [DEBUG] debug-file - session manager: send message to worker process. WorkerThreadId: 0, data: {"type":"CloseWatch","reason":"Server has disconnected."}
+[2026-10-29T17:38:27.846] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-10-29T17:38:27.846] [DEBUG] debug-file - ABORT_WORK sent to workers.
+[2026-10-29T17:38:27.846] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-10-29T17:38:30.164] [DEBUG] debug-file - session manager: set active socket. socketId=kd6wAF6xw9wMwiLjAAAD
+[2026-10-29T17:38:30.164] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-10-29T17:38:30.166] [DEBUG] debug-file - Workers' log level updated to INFO
+[2026-10-29T17:38:30.167] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-10-29T17:38:30.169] [DEBUG] debug-file - Cache service initialization finished in 3 ms 
+[2026-10-29T17:38:30.169] [DEBUG] debug-file - hvigorfile, resolving /Users/ming/Desktop/HarmonyProject/testproject/live-form/hvigorfile.ts
+[2026-10-29T17:38:30.172] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-10-29T17:38:30.172] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-10-29T17:38:30.172] [DEBUG] debug-file - Starting plugin build process
+[2026-10-29T17:38:30.172] [DEBUG] debug-file - App plugin prepare start...
+[2026-10-29T17:38:30.172] [DEBUG] debug-file - App plugin prepare end...
+[2026-10-29T17:38:30.172] [DEBUG] debug-file - App plugin creating...
+[2026-10-29T17:38:30.173] [DEBUG] debug-file - App plugin register hook start...
+[2026-10-29T17:38:30.173] [DEBUG] debug-file - App plugin register hook end...
+[2026-10-29T17:38:30.173] [DEBUG] debug-file - Plugin build process completed
+[2026-10-29T17:38:30.173] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2026-10-29T17:38:30.173] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2026-10-29T17:38:30.173] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-10-29T17:38:30.173] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2026-10-29T17:38:30.173] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-10-29T17:38:30.174] [DEBUG] debug-file - /Users/ming/Desktop/HarmonyProject/testproject/live-form/build/cache/default/remote_hsp/remoteHspCache.json not exists.
+[2026-10-29T17:38:30.174] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2026-10-29T17:38:30.184] [DEBUG] debug-file - Sdk init in 11 ms 
+[2026-10-29T17:38:30.185] [DEBUG] debug-file - Project task initialization takes 1 ms 
+[2026-10-29T17:38:30.185] [DEBUG] debug-file - hvigorfile, begin to bind custom plugins...
+[2026-10-29T17:38:30.185] [DEBUG] debug-file - hvigorfile, no custom plugins were found in /Users/ming/Desktop/HarmonyProject/testproject/live-form/hvigorfile.ts
+[2026-10-29T17:38:30.185] [DEBUG] debug-file - hvigorfile, resolve finished /Users/ming/Desktop/HarmonyProject/testproject/live-form/hvigorfile.ts
+[2026-10-29T17:38:30.185] [DEBUG] debug-file - hvigorfile, resolving /Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/hvigorfile.ts
+[2026-10-29T17:38:30.186] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-10-29T17:38:30.187] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-10-29T17:38:30.187] [DEBUG] debug-file - Starting plugin build process
+[2026-10-29T17:38:30.187] [DEBUG] debug-file - Hap plugin creating...
+[2026-10-29T17:38:30.187] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/hooks/cangjie-register.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/strategy/stage-init-strategy.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/abstract-plugin-builder.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/app-plugin-builder.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/factory/plugin-factory.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/index.js
+- /Users/ming/Desktop/HarmonyProject/testproject/live-form/hvigorfile.ts
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/boot/index.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/cluster/worker-process-lifecycle.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/process/daemon-process-boot-script.js
+[2026-10-29T17:38:30.187] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-10-29T17:38:30.187] [DEBUG] debug-file - Target 'default' config initialized
+[2026-10-29T17:38:30.187] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-10-29T17:38:30.187] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-10-29T17:38:30.187] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2026-10-29T17:38:30.187] [DEBUG] debug-file - Target 'default' config initialized
+[2026-10-29T17:38:30.187] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-10-29T17:38:30.187] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-10-29T17:38:30.187] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-10-29T17:38:30.187] [DEBUG] debug-file - Target 'default' config initialized
+[2026-10-29T17:38:30.187] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-10-29T17:38:30.187] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-10-29T17:38:30.187] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2026-10-29T17:38:30.188] [DEBUG] debug-file - Module entry task initialization takes 1 ms 
+[2026-10-29T17:38:30.188] [DEBUG] debug-file - Hap plugin register hook start...
+[2026-10-29T17:38:30.188] [DEBUG] debug-file - Hap plugin register hook end...
+[2026-10-29T17:38:30.188] [DEBUG] debug-file - Plugin build process completed
+[2026-10-29T17:38:30.188] [DEBUG] debug-file - hvigorfile, begin to bind custom plugins...
+[2026-10-29T17:38:30.188] [DEBUG] debug-file - hvigorfile, no custom plugins were found in /Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/hvigorfile.ts
+[2026-10-29T17:38:30.188] [DEBUG] debug-file - hvigorfile, resolve finished /Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/hvigorfile.ts
+[2026-10-29T17:38:30.216] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 29 ms 
+[2026-10-29T17:38:30.216] [DEBUG] debug-file - project has submodules:entry
+[2026-10-29T17:38:30.216] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2026-10-29T17:38:30.217] [DEBUG] debug-file - load to the disk finished
+[2026-10-29T17:38:30.217] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-10-29T17:38:30.217] [DEBUG] debug-file - Module live-form Collected Dependency: 
+[2026-10-29T17:38:30.217] [DEBUG] debug-file - Module live-form's total dependency: 0
+[2026-10-29T17:38:30.217] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-10-29T17:38:30.217] [DEBUG] debug-file - Module entry Collected Dependency: 
+[2026-10-29T17:38:30.217] [DEBUG] debug-file - Module entry's total dependency: 0
+[2026-10-29T17:38:30.217] [DEBUG] debug-file - Configuration phase cost:49 ms 
+[2026-10-29T17:38:30.218] [DEBUG] debug-file - Configuration task cost before running: 52 ms 
+[2026-10-29T17:38:30.218] [DEBUG] debug-file - Executing task :entry:init
+[2026-10-29T17:38:30.218] [DEBUG] debug-file - entry : init cost memory 0.01296234130859375
+[2026-10-29T17:38:30.218] [DEBUG] debug-file - runTaskFromQueue task cost before running: 52 ms 
+[2026-10-29T17:38:30.218] [INFO] debug-file - Finished :entry:init... after 1 ms 
+[2026-10-29T17:38:30.218] [DEBUG] debug-file - Executing task ::init
+[2026-10-29T17:38:30.218] [DEBUG] debug-file - live-form : init cost memory 0.01259613037109375
+[2026-10-29T17:38:30.218] [DEBUG] debug-file - runTaskFromQueue task cost before running: 52 ms 
+[2026-10-29T17:38:30.218] [INFO] debug-file - Finished ::init... after 1 ms 
+[2026-10-29T17:38:30.218] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2026-10-29T17:38:30.218] [DEBUG] debug-file - There's no busy workers and idle workers need cleanup.
+[2026-10-29T17:38:30.218] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-10-29T17:38:30.234] [DEBUG] debug-file - session manager: send message to worker process. WorkerThreadId: 0, data: {"type":"hvigor_failed","reason":"Server has disconnected."}
+[2026-10-29T17:38:30.234] [DEBUG] debug-file - session manager: send message to worker process. WorkerThreadId: 0, data: {"type":"CloseWatch","reason":"Server has disconnected."}
+[2026-10-29T17:38:30.234] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-10-29T17:38:30.234] [DEBUG] debug-file - ABORT_WORK sent to workers.
+[2026-10-29T17:38:30.234] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-10-29T17:38:30.347] [DEBUG] debug-file - session manager: set active socket. socketId=w8DMZB5ZpoQmZ1T8AAAF
+[2026-10-29T17:38:30.349] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-10-29T17:38:30.349] [DEBUG] debug-file - Workers' log level updated to INFO
+[2026-10-29T17:38:30.350] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-10-29T17:38:30.352] [DEBUG] debug-file - Cache service initialization finished in 3 ms 
+[2026-10-29T17:38:30.353] [DEBUG] debug-file - hvigorfile, resolving /Users/ming/Desktop/HarmonyProject/testproject/live-form/hvigorfile.ts
+[2026-10-29T17:38:30.354] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-10-29T17:38:30.354] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-10-29T17:38:30.354] [DEBUG] debug-file - Starting plugin build process
+[2026-10-29T17:38:30.354] [DEBUG] debug-file - App plugin prepare start...
+[2026-10-29T17:38:30.354] [DEBUG] debug-file - App plugin prepare end...
+[2026-10-29T17:38:30.354] [DEBUG] debug-file - App plugin creating...
+[2026-10-29T17:38:30.355] [DEBUG] debug-file - App plugin register hook start...
+[2026-10-29T17:38:30.355] [DEBUG] debug-file - App plugin register hook end...
+[2026-10-29T17:38:30.355] [DEBUG] debug-file - Plugin build process completed
+[2026-10-29T17:38:30.355] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2026-10-29T17:38:30.355] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2026-10-29T17:38:30.355] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-10-29T17:38:30.355] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2026-10-29T17:38:30.355] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-10-29T17:38:30.356] [DEBUG] debug-file - /Users/ming/Desktop/HarmonyProject/testproject/live-form/build/cache/default/remote_hsp/remoteHspCache.json not exists.
+[2026-10-29T17:38:30.356] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2026-10-29T17:38:30.366] [DEBUG] debug-file - Sdk init in 11 ms 
+[2026-10-29T17:38:30.367] [DEBUG] debug-file - Project task initialization takes 2 ms 
+[2026-10-29T17:38:30.367] [DEBUG] debug-file - hvigorfile, begin to bind custom plugins...
+[2026-10-29T17:38:30.367] [DEBUG] debug-file - hvigorfile, no custom plugins were found in /Users/ming/Desktop/HarmonyProject/testproject/live-form/hvigorfile.ts
+[2026-10-29T17:38:30.367] [DEBUG] debug-file - hvigorfile, resolve finished /Users/ming/Desktop/HarmonyProject/testproject/live-form/hvigorfile.ts
+[2026-10-29T17:38:30.368] [DEBUG] debug-file - hvigorfile, resolving /Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/hvigorfile.ts
+[2026-10-29T17:38:30.369] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-10-29T17:38:30.369] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-10-29T17:38:30.369] [DEBUG] debug-file - Starting plugin build process
+[2026-10-29T17:38:30.369] [DEBUG] debug-file - Hap plugin creating...
+[2026-10-29T17:38:30.369] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/hooks/cangjie-register.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/strategy/stage-init-strategy.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/abstract-plugin-builder.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/app-plugin-builder.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/factory/plugin-factory.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/index.js
+- /Users/ming/Desktop/HarmonyProject/testproject/live-form/hvigorfile.ts
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/boot/index.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/cluster/worker-process-lifecycle.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/process/daemon-process-boot-script.js
+[2026-10-29T17:38:30.369] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-10-29T17:38:30.369] [DEBUG] debug-file - Target 'default' config initialized
+[2026-10-29T17:38:30.369] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-10-29T17:38:30.369] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-10-29T17:38:30.369] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2026-10-29T17:38:30.369] [DEBUG] debug-file - Target 'default' config initialized
+[2026-10-29T17:38:30.369] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-10-29T17:38:30.369] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-10-29T17:38:30.369] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-10-29T17:38:30.369] [DEBUG] debug-file - Target 'default' config initialized
+[2026-10-29T17:38:30.369] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-10-29T17:38:30.369] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-10-29T17:38:30.369] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2026-10-29T17:38:30.370] [DEBUG] debug-file - Module entry task initialization takes 1 ms 
+[2026-10-29T17:38:30.370] [DEBUG] debug-file - Hap plugin register hook start...
+[2026-10-29T17:38:30.370] [DEBUG] debug-file - Hap plugin register hook end...
+[2026-10-29T17:38:30.370] [DEBUG] debug-file - Plugin build process completed
+[2026-10-29T17:38:30.370] [DEBUG] debug-file - hvigorfile, begin to bind custom plugins...
+[2026-10-29T17:38:30.370] [DEBUG] debug-file - hvigorfile, no custom plugins were found in /Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/hvigorfile.ts
+[2026-10-29T17:38:30.370] [DEBUG] debug-file - hvigorfile, resolve finished /Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/hvigorfile.ts
+[2026-10-29T17:38:30.396] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 27 ms 
+[2026-10-29T17:38:30.396] [DEBUG] debug-file - project has submodules:entry
+[2026-10-29T17:38:30.396] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2026-10-29T17:38:30.397] [DEBUG] debug-file - load to the disk finished
+[2026-10-29T17:38:30.397] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-10-29T17:38:30.397] [DEBUG] debug-file - Module live-form Collected Dependency: 
+[2026-10-29T17:38:30.397] [DEBUG] debug-file - Module live-form's total dependency: 0
+[2026-10-29T17:38:30.397] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-10-29T17:38:30.397] [DEBUG] debug-file - Module entry Collected Dependency: 
+[2026-10-29T17:38:30.397] [DEBUG] debug-file - Module entry's total dependency: 0
+[2026-10-29T17:38:30.397] [DEBUG] debug-file - Configuration phase cost:45 ms 
+[2026-10-29T17:38:30.398] [DEBUG] debug-file - Configuration task cost before running: 48 ms 
+[2026-10-29T17:38:30.399] [DEBUG] debug-file - Executing task :entry:default@PreBuild
+[2026-10-29T17:38:30.400] [DEBUG] debug-file - Task 'entry:default@PreBuild' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:38:30.402] [DEBUG] debug-file - entry:default@PreBuild is not up-to-date, since the task snapshots are different.
+[2026-10-29T17:38:30.402] [DEBUG] debug-file - Incremental task entry:default@PreBuild pre-execution cost: 1 ms .
+[2026-10-29T17:38:30.464] [DEBUG] debug-file - current product is not Atomic service.
+[2026-10-29T17:38:30.464] [DEBUG] debug-file - Use tool [darwin: JAVA_HOME, CLASSPATH]
+ [
+  {
+    JAVA_HOME: '/Applications/DevEco-Studio.app/Contents/jbr/Contents/Home'
+  },
+  { CLASSPATH: undefined }
+]
+[2026-10-29T17:38:30.464] [DEBUG] debug-file - Use tool [darwin: NODE_HOME]
+ [
+  { NODE_HOME: '/Applications/DevEco-Studio.app/Contents/tools/node' }
+]
+[2026-10-29T17:38:30.465] [DEBUG] debug-file - entry : default@PreBuild cost memory 19.62744903564453
+[2026-10-29T17:38:30.465] [DEBUG] debug-file - runTaskFromQueue task cost before running: 116 ms 
+[2026-10-29T17:38:30.465] [INFO] debug-file - Finished :entry:default@PreBuild... after 66 ms 
+[2026-10-29T17:38:30.466] [DEBUG] debug-file - Executing task :entry:default@CreateModuleInfo
+[2026-10-29T17:38:30.466] [DEBUG] debug-file - Task 'entry:default@CreateModuleInfo' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:38:30.466] [DEBUG] debug-file - entry : default@CreateModuleInfo cost memory 0.04650115966796875
+[2026-10-29T17:38:30.466] [DEBUG] debug-file - runTaskFromQueue task cost before running: 117 ms 
+[2026-10-29T17:38:30.466] [INFO] debug-file - Finished :entry:default@CreateModuleInfo... after 1 ms 
+[2026-10-29T17:38:30.467] [DEBUG] debug-file - Executing task :entry:default@GenerateMetadata
+[2026-10-29T17:38:30.467] [DEBUG] debug-file - Task 'entry:default@GenerateMetadata' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:38:30.468] [DEBUG] debug-file - Incremental task entry:default@GenerateMetadata pre-execution cost: 1 ms .
+[2026-10-29T17:38:30.468] [DEBUG] debug-file - entry : default@GenerateMetadata cost memory 0.11684417724609375
+[2026-10-29T17:38:30.468] [INFO] debug-file - UP-TO-DATE :entry:default@GenerateMetadata...  
+[2026-10-29T17:38:30.468] [DEBUG] debug-file - Executing task :entry:default@ConfigureCmake
+[2026-10-29T17:38:30.468] [DEBUG] debug-file - entry : default@ConfigureCmake cost memory -0.26844024658203125
+[2026-10-29T17:38:30.468] [DEBUG] debug-file - runTaskFromQueue task cost before running: 119 ms 
+[2026-10-29T17:38:30.468] [INFO] debug-file - Finished :entry:default@ConfigureCmake... after 1 ms 
+[2026-10-29T17:38:30.468] [DEBUG] debug-file - Executing task :entry:default@MergeProfile
+[2026-10-29T17:38:30.468] [DEBUG] debug-file - Task 'entry:default@MergeProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:38:30.469] [DEBUG] debug-file - Incremental task entry:default@MergeProfile pre-execution cost: 1 ms .
+[2026-10-29T17:38:30.469] [DEBUG] debug-file - entry : default@MergeProfile cost memory 0.247039794921875
+[2026-10-29T17:38:30.469] [INFO] debug-file - UP-TO-DATE :entry:default@MergeProfile...  
+[2026-10-29T17:38:30.469] [DEBUG] debug-file - Executing task :entry:default@CreateBuildProfile
+[2026-10-29T17:38:30.469] [DEBUG] debug-file - Task 'entry:default@CreateBuildProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:38:30.469] [DEBUG] debug-file - Incremental task entry:default@CreateBuildProfile pre-execution cost: 1 ms .
+[2026-10-29T17:38:30.469] [DEBUG] debug-file - entry : default@CreateBuildProfile cost memory 0.599334716796875
+[2026-10-29T17:38:30.469] [INFO] debug-file - UP-TO-DATE :entry:default@CreateBuildProfile...  
+[2026-10-29T17:38:30.469] [DEBUG] debug-file - Executing task :entry:default@PreCheckSyscap
+[2026-10-29T17:38:30.469] [DEBUG] debug-file - entry : default@PreCheckSyscap cost memory 0.01769256591796875
+[2026-10-29T17:38:30.470] [DEBUG] debug-file - runTaskFromQueue task cost before running: 120 ms 
+[2026-10-29T17:38:30.470] [INFO] debug-file - Finished :entry:default@PreCheckSyscap... after 1 ms 
+[2026-10-29T17:38:30.470] [DEBUG] debug-file - Executing task :entry:default@GeneratePkgContextInfo
+[2026-10-29T17:38:30.472] [DEBUG] debug-file - Task 'entry:default@GeneratePkgContextInfo' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:38:30.473] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgContextInfo pre-execution cost: 1 ms .
+[2026-10-29T17:38:30.473] [DEBUG] debug-file - entry : default@GeneratePkgContextInfo cost memory 0.41172027587890625
+[2026-10-29T17:38:30.473] [INFO] debug-file - UP-TO-DATE :entry:default@GeneratePkgContextInfo...  
+[2026-10-29T17:38:30.473] [DEBUG] debug-file - Executing task :entry:default@GeneratePkgSdkInfo
+[2026-10-29T17:38:30.473] [DEBUG] debug-file - Task 'entry:default@GeneratePkgSdkInfo' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:38:30.473] [DEBUG] debug-file - entry : default@GeneratePkgSdkInfo cost memory 0.2496185302734375
+[2026-10-29T17:38:30.473] [DEBUG] debug-file - runTaskFromQueue task cost before running: 124 ms 
+[2026-10-29T17:38:30.473] [INFO] debug-file - Finished :entry:default@GeneratePkgSdkInfo... after 1 ms 
+[2026-10-29T17:38:30.474] [DEBUG] debug-file - Executing task :entry:default@ProcessIntegratedHsp
+[2026-10-29T17:38:30.474] [DEBUG] debug-file - entry:default@ProcessIntegratedHsp is not up-to-date, since the output file '/Users/ming/Desktop/HarmonyProject/testproject/live-form/build/cache/default/integrated_hsp/integratedHspCache.json' does not exist.
+[2026-10-29T17:38:30.474] [DEBUG] debug-file - Incremental task entry:default@ProcessIntegratedHsp pre-execution cost: 1 ms .
+[2026-10-29T17:38:30.474] [DEBUG] debug-file - entry : default@ProcessIntegratedHsp cost memory 0.06211090087890625
+[2026-10-29T17:38:30.474] [DEBUG] debug-file - runTaskFromQueue task cost before running: 125 ms 
+[2026-10-29T17:38:30.474] [INFO] debug-file - Finished :entry:default@ProcessIntegratedHsp... after 1 ms 
+[2026-10-29T17:38:30.474] [DEBUG] debug-file - Executing task :entry:default@BuildNativeWithCmake
+[2026-10-29T17:38:30.474] [DEBUG] debug-file - entry : default@BuildNativeWithCmake cost memory 0.01519012451171875
+[2026-10-29T17:38:30.474] [DEBUG] debug-file - runTaskFromQueue task cost before running: 125 ms 
+[2026-10-29T17:38:30.474] [INFO] debug-file - Finished :entry:default@BuildNativeWithCmake... after 1 ms 
+[2026-10-29T17:38:30.474] [DEBUG] debug-file - Executing task :entry:default@MakePackInfo
+[2026-10-29T17:38:30.475] [DEBUG] debug-file - Incremental task entry:default@MakePackInfo pre-execution cost: 1 ms .
+[2026-10-29T17:38:30.475] [DEBUG] debug-file - entry : default@MakePackInfo cost memory 0.13019561767578125
+[2026-10-29T17:38:30.475] [INFO] debug-file - UP-TO-DATE :entry:default@MakePackInfo...  
+[2026-10-29T17:38:30.475] [DEBUG] debug-file - Executing task :entry:default@SyscapTransform
+[2026-10-29T17:38:30.476] [DEBUG] debug-file - File: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/src/main/syscap.json' from 'sysCapJsonPath' is not exists, just ignore.
+[2026-10-29T17:38:30.476] [DEBUG] debug-file - Task 'entry:default@SyscapTransform' cost while wrapping incremental declarations: 2 ms 
+[2026-10-29T17:38:30.481] [DEBUG] debug-file - entry:default@SyscapTransform is not up-to-date, since the output file '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/syscap/default/rpcid.sc' does not exist.
+[2026-10-29T17:38:30.481] [DEBUG] debug-file - Incremental task entry:default@SyscapTransform pre-execution cost: 6 ms .
+[2026-10-29T17:38:30.482] [DEBUG] debug-file - entry : default@SyscapTransform cost memory -11.339286804199219
+[2026-10-29T17:38:30.482] [DEBUG] debug-file - runTaskFromQueue task cost before running: 132 ms 
+[2026-10-29T17:38:30.482] [INFO] debug-file - Finished :entry:default@SyscapTransform... after 7 ms 
+[2026-10-29T17:38:30.482] [DEBUG] debug-file - Executing task :entry:default@ProcessProfile
+[2026-10-29T17:38:30.483] [DEBUG] debug-file - Task 'entry:default@ProcessProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:38:30.483] [DEBUG] debug-file - Incremental task entry:default@ProcessProfile pre-execution cost: 1 ms .
+[2026-10-29T17:38:30.483] [DEBUG] debug-file - entry : default@ProcessProfile cost memory 0.16150665283203125
+[2026-10-29T17:38:30.483] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessProfile...  
+[2026-10-29T17:38:30.483] [DEBUG] debug-file - Executing task :entry:default@ProcessRouterMap
+[2026-10-29T17:38:30.483] [DEBUG] debug-file - Incremental task entry:default@ProcessRouterMap pre-execution cost: 1 ms .
+[2026-10-29T17:38:30.484] [DEBUG] debug-file - entry : default@ProcessRouterMap cost memory 0.13701629638671875
+[2026-10-29T17:38:30.484] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessRouterMap...  
+[2026-10-29T17:38:30.484] [DEBUG] debug-file - Executing task :entry:default@ProcessShareConfig
+[2026-10-29T17:38:30.485] [DEBUG] debug-file - Incremental task entry:default@ProcessShareConfig pre-execution cost: 1 ms .
+[2026-10-29T17:38:30.485] [DEBUG] debug-file - entry : default@ProcessShareConfig cost memory 0.300201416015625
+[2026-10-29T17:38:30.485] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessShareConfig...  
+[2026-10-29T17:38:30.485] [DEBUG] debug-file - Executing task :entry:default@ProcessStartupConfig
+[2026-10-29T17:38:30.485] [DEBUG] debug-file - Task 'entry:default@ProcessStartupConfig' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:38:30.485] [DEBUG] debug-file - entry:default@ProcessStartupConfig is not up-to-date, since the output file '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/startup/default/startup_config.json' does not exist.
+[2026-10-29T17:38:30.485] [DEBUG] debug-file - Incremental task entry:default@ProcessStartupConfig pre-execution cost: 1 ms .
+[2026-10-29T17:38:30.485] [DEBUG] debug-file - entry : default@ProcessStartupConfig cost memory 0.40908050537109375
+[2026-10-29T17:38:30.485] [DEBUG] debug-file - runTaskFromQueue task cost before running: 136 ms 
+[2026-10-29T17:38:30.485] [INFO] debug-file - Finished :entry:default@ProcessStartupConfig... after 1 ms 
+[2026-10-29T17:38:30.486] [DEBUG] debug-file - Executing task :entry:default@BuildNativeWithNinja
+[2026-10-29T17:38:30.486] [DEBUG] debug-file - entry : default@BuildNativeWithNinja cost memory 0.0215301513671875
+[2026-10-29T17:38:30.486] [DEBUG] debug-file - runTaskFromQueue task cost before running: 137 ms 
+[2026-10-29T17:38:30.486] [INFO] debug-file - Finished :entry:default@BuildNativeWithNinja... after 1 ms 
+[2026-10-29T17:38:30.486] [DEBUG] debug-file - restool module names: entry; moduleName=entry, taskName=default@ProcessResource
+[2026-10-29T17:38:30.487] [DEBUG] debug-file - Executing task :entry:default@ProcessResource
+[2026-10-29T17:38:30.487] [DEBUG] debug-file - Task 'entry:default@ProcessResource' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:38:30.487] [DEBUG] debug-file - Incremental task entry:default@ProcessResource pre-execution cost: 1 ms .
+[2026-10-29T17:38:30.487] [DEBUG] debug-file - entry : default@ProcessResource cost memory 0.13718414306640625
+[2026-10-29T17:38:30.487] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessResource...  
+[2026-10-29T17:38:30.488] [DEBUG] debug-file - Executing task :entry:default@GenerateLoaderJson
+[2026-10-29T17:38:30.488] [DEBUG] debug-file - Task 'entry:default@GenerateLoaderJson' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:38:30.490] [DEBUG] debug-file - entry:default@GenerateLoaderJson is not up-to-date, since the task snapshots are different.
+[2026-10-29T17:38:30.490] [DEBUG] debug-file - Incremental task entry:default@GenerateLoaderJson pre-execution cost: 1 ms .
+[2026-10-29T17:38:30.491] [DEBUG] debug-file - entry : default@GenerateLoaderJson cost memory 0.6588668823242188
+[2026-10-29T17:38:30.491] [DEBUG] debug-file - runTaskFromQueue task cost before running: 142 ms 
+[2026-10-29T17:38:30.491] [INFO] debug-file - Finished :entry:default@GenerateLoaderJson... after 3 ms 
+[2026-10-29T17:38:30.492] [DEBUG] debug-file - Executing task :entry:default@ProcessLibs
+[2026-10-29T17:38:30.492] [DEBUG] debug-file - Task 'entry:default@ProcessLibs' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:38:30.492] [DEBUG] debug-file - Incremental task entry:default@ProcessLibs pre-execution cost: 1 ms .
+[2026-10-29T17:38:30.492] [DEBUG] debug-file - entry : default@ProcessLibs cost memory -0.30979156494140625
+[2026-10-29T17:38:30.492] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessLibs...  
+[2026-10-29T17:38:30.492] [DEBUG] debug-file - restool module names: entry; moduleName=entry, taskName=default@CompileResource
+[2026-10-29T17:38:30.492] [DEBUG] debug-file - Executing task :entry:default@CompileResource
+[2026-10-29T17:38:30.493] [DEBUG] debug-file - Incremental task entry:default@CompileResource pre-execution cost: 1 ms .
+[2026-10-29T17:38:30.493] [DEBUG] debug-file - entry : default@CompileResource cost memory 0.5468063354492188
+[2026-10-29T17:38:30.494] [INFO] debug-file - UP-TO-DATE :entry:default@CompileResource...  
+[2026-10-29T17:38:30.494] [DEBUG] debug-file - Executing task :entry:default@DoNativeStrip
+[2026-10-29T17:38:30.494] [DEBUG] debug-file - File: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/binxo/default' from 'doBinxoNativeLibs' is not exists, just ignore.
+[2026-10-29T17:38:30.494] [DEBUG] debug-file - Task 'entry:default@DoNativeStrip' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:38:30.494] [DEBUG] debug-file - Incremental task entry:default@DoNativeStrip pre-execution cost: 1 ms .
+[2026-10-29T17:38:30.494] [DEBUG] debug-file - entry : default@DoNativeStrip cost memory 0.074981689453125
+[2026-10-29T17:38:30.494] [INFO] debug-file - UP-TO-DATE :entry:default@DoNativeStrip...  
+[2026-10-29T17:38:30.495] [DEBUG] debug-file - Executing task :entry:default@CompileArkTS
+[2026-10-29T17:38:30.495] [DEBUG] debug-file - obfuscationOptions: undefined
+[2026-10-29T17:38:30.495] [DEBUG] debug-file - Task 'entry:default@CompileArkTS' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:38:30.496] [DEBUG] debug-file - entry:default@CompileArkTS is not up-to-date, since the input file '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader/default' has been changed.
+[2026-10-29T17:38:30.496] [DEBUG] debug-file - Incremental task entry:default@CompileArkTS pre-execution cost: 1 ms .
+[2026-10-29T17:38:30.499] [DEBUG] debug-file - build config:
+[2026-10-29T17:38:30.499] [DEBUG] debug-file - {
+  moduleType: 'entry',
+  perf: 0,
+  targetName: '.default',
+  packageManagerType: 'ohpm',
+  localPropertiesPath: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/local.properties',
+  isPreview: false,
+  isOhosTest: false,
+  isLocalTest: false,
+  buildMode: 'Debug',
+  hotReloadBuild: undefined,
+  watchMode: 'false',
+  aceProfilePath: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/res/default/resources/base/profile',
+  etsLoaderPath: '/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader',
+  modulePath: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry',
+  testFrameworkPar: {
+    testMode: undefined,
+    coveragePathFilter: undefined,
+    coverageMode: undefined
+  },
+  needCoverageInsert: false,
+  debugLine: false,
+  projectTopDir: '/Users/ming/Desktop/HarmonyProject/testproject/live-form',
+  compileSdkVersion: 26,
+  compatibleSdkVersion: 26,
+  originCompatibleSdkVersion: '26.0.0',
+  compatibleSdkVersionStage: undefined,
+  bundleName: 'c***o',
+  etsLoaderVersion: '26.0.0.105',
+  etsLoaderReleaseType: 'Release',
+  aotCompileMode: 'type',
+  apPath: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/modules.ap',
+  entryModuleName: 'entry',
+  entryModuleVersion: '1.0.0',
+  entryPackageName: 'entry',
+  allModuleNameHash: 'b8d413cf04a7edf2a1a7d1c3193a30647c776c52d8c3bc483cc405ac8e77bbfc',
+  externalApiPaths: [ '/Applications/DevEco-Studio.app/Contents/sdk/default/hms/ets' ],
+  compilerTypes: [],
+  isCrossplatform: false,
+  hvigorPluginFile: undefined,
+  compilePluginPath: undefined,
+  buildGeneratedProfilePath: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/generated/profile/default',
+  bundleType: 'app',
+  arkTSVersion: undefined,
+  apiVersion: 26,
+  needCompleteSourcesMap: false,
+  isFaMode: false,
+  buildDir: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build',
+  buildCacheProjectDir: '/Users/ming/Desktop/HarmonyProject/testproject/live-form',
+  deviceTypes: [ 'phone', 'tablet' ],
+  pkgContextInfo: {
+    entry: {
+      packageName: 'entry',
+      bundleName: '*****',
+      moduleName: '',
+      version: '',
+      entryPath: 'src/main/',
+      isSO: false,
+      dependencyAlias: ''
+    }
+  },
+  ohPackagePathMap: {},
+  dependencyAliasMap: {},
+  permission: { requestPermissions: undefined, definePermissions: undefined },
+  useGetCurrentBundleName: false,
+  projectArkOption: undefined,
+  sourceMapDir: undefined,
+  branchElimination: false,
+  transformLib: undefined,
+  tsImportSendable: false,
+  resolveConflictMode: false,
+  depName2RootPath: {},
+  depName2DepInfo: {},
+  depName2OhExports: {},
+  rootPathSet: [ '/Users/ming/Desktop/HarmonyProject/testproject/live-form' ],
+  useNativeResolver: true,
+  shouldEmitJs: true,
+  useUnifiedAst: false,
+  useTscResolve: false,
+  singleFileEmit: false,
+  userProjectConfig: {
+    autoLazyImport: false,
+    allowEmptyBundleName: false,
+    reExportCheckMode: 'noCheck',
+    executionMode: 'memory',
+    usePathPlaceholder: false,
+    writeRollupCache: true,
+    isExpandImportEnabled: false,
+    expandImportExclude: '',
+    lazyImportExclude: '',
+    lazyImportInclude: '',
+    ignoreCrossplatformCheck: false,
+    isHarDeduplicateEnabled: false,
+    skipOhModulesLint: false,
+    enableStrictCheckOHModule: false,
+    disableSendableCheckRules: [],
+    useDeclarationFileSignature: false,
+    customizedOptions: undefined,
+    integratedHsp: false,
+    tsImportSoCheck: false,
+    isPreloadSoEnabled: false
+  },
+  executionMode: 'memory',
+  arkCompileCachePath: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/cache/default/default@CompileArkTS/esmodule',
+  autoLazyFilter: undefined,
+  isHarDeduplicateEnabled: false,
+  intermediateHarDuplicateDirPath: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/har_duplicate/default',
+  autoLazyImport: false,
+  allowEmptyBundleName: false,
+  reExportCheckMode: 'noCheck',
+  usePathPlaceholder: false,
+  writeRollupCache: true,
+  isExpandImportEnabled: false,
+  expandImportExclude: '',
+  lazyImportExclude: '',
+  lazyImportInclude: '',
+  ignoreCrossplatformCheck: false,
+  skipOhModulesLint: false,
+  enableStrictCheckOHModule: false,
+  disableSendableCheckRules: [],
+  useDeclarationFileSignature: false,
+  customizedOptions: undefined,
+  integratedHsp: false,
+  tsImportSoCheck: false,
+  isPreloadSoEnabled: false,
+  strictMode: {
+    caseSensitiveCheck: true,
+    useNormalizedOHMUrl: true,
+    noExternalImportByPath: true
+  },
+  useNormalizedOHMUrl: true,
+  caseSensitiveCheck: true,
+  strictCheckerOnly: false,
+  aceModuleJsonPath: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/res/default/ark_module.json',
+  appResource: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/res/default/ResourceTable.txt',
+  rawFileResource: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/res/default/resources/rawfile',
+  resourceTableHash: 'dbc64a6e57088783c203f5519055912c768456c7039f283497dce2e2050d429b',
+  runtimeOS: 'HarmonyOS',
+  sdkInfo: 'false:26:26.0.0.105:Release',
+  aceModuleRoot: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/src/main/ets',
+  compileMode: 'esmodule',
+  aceSuperVisualPath: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/src/main/supervisual',
+  aceBuildJson: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader/default/loader.json',
+  cachePath: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/cache/default/default@CompileArkTS/esmodule/debug',
+  aceModuleBuild: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader_out/default/ets',
+  supportChunks: true,
+  declaredFilesPath: undefined,
+  shouldCollectDirectImportees: false,
+  isByteCodeHarOptimize: false,
+  expandImportPath: undefined,
+  resourceTableTs: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/generated/r/default/ResourceTable.ts',
+  moduleMetaInfoFiles: [
+    {
+      filePath: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/generated/r/default/ResourceTable.ts',
+      ohmurl: '&entry/build/generated/r/ResourceTable&'
+    }
+  ],
+  pkgNameToPkgBriefInfo: {
+    entry: {
+      pkgRoot: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry',
+      originalSourceRoots: undefined,
+      sourceRoots: [Array],
+      pkgName: 'entry'
+    }
+  },
+  projectModel: {
+    '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/src/main': {
+      moduleName: 'entry',
+      modulePkgPath: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry',
+      belongProjectPath: '/Users/ming/Desktop/HarmonyProject/testproject/live-form'
+    },
+    '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry': {
+      moduleName: 'entry',
+      modulePkgPath: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry',
+      belongProjectPath: '/Users/ming/Desktop/HarmonyProject/testproject/live-form'
+    },
+    '/Users/ming/Desktop/HarmonyProject/testproject/live-form': {
+      moduleName: 'live-form',
+      modulePkgPath: '/Users/ming/Desktop/HarmonyProject/testproject/live-form',
+      belongProjectPath: '/Users/ming/Desktop/HarmonyProject/testproject/live-form'
+    }
+  },
+  pkgJsonFileHash: '26aea0df2d7014e66744561152f05fba7b0ea30dcdb8f012bae2681c020c74c0',
+  allModulePaths: [ '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry' ],
+  routerMap: {},
+  obfuscationOptions: undefined,
+  byteCodeHarToDependencyKeys: undefined,
+  compileBlockPkg: [],
+  mockParams: {
+    decorator: '@MockSetup',
+    packageName: '@ohos/hamock',
+    etsSourceRootPath: 'src/main/ets',
+    mockConfigPath: undefined,
+    mockConfigKey2ModuleInfo: {},
+    source2ModuleIdMap: {}
+  },
+  copyCodeResourceEnable: false,
+  copyCodeResourceExcludes: [],
+  copyCodeResourceIncludes: undefined,
+  uiTransformOptimization: false,
+  sdkPath: '/Applications/DevEco-Studio.app/Contents/sdk',
+  needPreloadSoFileSet: {},
+  preloadSoFilePath: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/preload/default/preload.json',
+  useSourceHash: false,
+  localModuleParamMap: {},
+  otherPaths: {
+    'entry/*': [ '../*', '../../../build/default/generated/profile/default/*' ]
+  },
+  collectImportersConfig: undefined
+}
+[2026-10-29T17:38:30.499] [DEBUG] debug-file - Compile arkts with external api path: /Applications/DevEco-Studio.app/Contents/sdk/default/hms/ets
+[2026-10-29T17:38:30.499] [DEBUG] debug-file - before submitting ArkTS compile task to worker pool, config.buildDir: /Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build
+[2026-10-29T17:38:30.499] [DEBUG] debug-file - default@CompileArkTS work[0] is submitted.
+[2026-10-29T17:38:30.499] [DEBUG] debug-file - default@CompileArkTS work[0] is pushed to ready queue.
+[2026-10-29T17:38:30.499] [DEBUG] debug-file - default@CompileArkTS work[0] is not dispatched.
+[2026-10-29T17:38:30.500] [DEBUG] debug-file - before submitting ArkTS compile task to worker pool, config.buildDir: /Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build
+[2026-10-29T17:38:30.500] [DEBUG] debug-file - default@CompileArkTS work[1] is submitted.
+[2026-10-29T17:38:30.500] [DEBUG] debug-file - default@CompileArkTS work[1] is pushed to ready queue.
+[2026-10-29T17:38:30.500] [DEBUG] debug-file - default@CompileArkTS work[1] is not dispatched.
+[2026-10-29T17:38:30.500] [DEBUG] debug-file - entry : default@CompileArkTS cost memory 1.7772674560546875
+[2026-10-29T17:38:30.501] [DEBUG] debug-file - Executing task :entry:default@BuildJS
+[2026-10-29T17:38:30.501] [DEBUG] debug-file - Task 'entry:default@BuildJS' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:38:30.501] [DEBUG] debug-file - entry : default@BuildJS cost memory 0.1311492919921875
+[2026-10-29T17:38:30.501] [DEBUG] debug-file - runTaskFromQueue task cost before running: 152 ms 
+[2026-10-29T17:38:30.501] [INFO] debug-file - Finished :entry:default@BuildJS... after 1 ms 
+[2026-10-29T17:38:30.501] [DEBUG] debug-file - Executing task :entry:default@CacheNativeLibs
+[2026-10-29T17:38:30.501] [DEBUG] debug-file - File: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/binxo/default' from 'cacheBinxoNativeLibs' is not exists, just ignore.
+[2026-10-29T17:38:30.501] [DEBUG] debug-file - Task 'entry:default@CacheNativeLibs' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:38:30.501] [DEBUG] debug-file - Incremental task entry:default@CacheNativeLibs pre-execution cost: 1 ms .
+[2026-10-29T17:38:30.501] [DEBUG] debug-file - entry : default@CacheNativeLibs cost memory 0.09278106689453125
+[2026-10-29T17:38:30.502] [INFO] debug-file - UP-TO-DATE :entry:default@CacheNativeLibs...  
+[2026-10-29T17:38:30.600] [DEBUG] debug-file - A work dispatched to worker[9] failed because unable to get work from ready queue.
+[2026-10-29T17:38:30.600] [DEBUG] debug-file - A work dispatched to worker[8] failed because unable to get work from ready queue.
+[2026-10-29T17:38:30.600] [DEBUG] debug-file - A work dispatched to worker[7] failed because unable to get work from ready queue.
+[2026-10-29T17:38:30.600] [DEBUG] debug-file - A work dispatched to worker[6] failed because unable to get work from ready queue.
+[2026-10-29T17:38:30.600] [DEBUG] debug-file - A work dispatched to worker[5] failed because unable to get work from ready queue.
+[2026-10-29T17:38:30.600] [DEBUG] debug-file - Create  resident worker with id: 4.
+[2026-10-29T17:38:30.603] [DEBUG] debug-file - default@CompileArkTS work[0] has been dispatched to worker[4].
+[2026-10-29T17:38:30.603] [DEBUG] debug-file - A work dispatched to worker[9] failed because unable to get work from ready queue.
+[2026-10-29T17:38:30.603] [DEBUG] debug-file - A work dispatched to worker[8] failed because unable to get work from ready queue.
+[2026-10-29T17:38:30.603] [DEBUG] debug-file - A work dispatched to worker[7] failed because unable to get work from ready queue.
+[2026-10-29T17:38:30.603] [DEBUG] debug-file - A work dispatched to worker[6] failed because unable to get work from ready queue.
+[2026-10-29T17:38:30.603] [DEBUG] debug-file - A work dispatched to worker[5] failed because unable to get work from ready queue.
+[2026-10-29T17:38:30.603] [DEBUG] debug-file - A work dispatched to worker[4] failed because of worker busy.
+[2026-10-29T17:38:30.604] [DEBUG] debug-file - Create  resident worker with id: 3.
+[2026-10-29T17:38:30.604] [DEBUG] debug-file - default@CompileArkTS work[1] has been dispatched to worker[3].
+[2026-10-29T17:38:32.333] [DEBUG] debug-file - worker[3] has one work done.
+[2026-10-29T17:38:32.333] [DEBUG] debug-file - Ark compile task finished.finished time is 11044651776339500
+[2026-10-29T17:38:32.333] [DEBUG] debug-file - default@CompileArkTS work[1] done.
+[2026-10-29T17:38:32.333] [DEBUG] debug-file - A work dispatched to worker[3] failed because unable to get work from ready queue.
+[2026-10-29T17:38:32.334] [WARN] debug-file - [33mWARN: [33m[33mArkTS:WARN File: /Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/src/main/ets/entryformability/EntryFormAbility.ets:21:56
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/src/main/ets/myliveformextensionability/MyLiveFormExtensionAbility.ets:26:13
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+
+[2026-10-29T17:38:32.334] [DEBUG] debug-file - Ark compile task finished.finished time is 11044651777775291
+[2026-10-29T17:38:32.334] [DEBUG] debug-file - worker[4] has one work done.
+[2026-10-29T17:38:32.335] [DEBUG] debug-file - default@CompileArkTS work[0] done.
+[2026-10-29T17:38:32.335] [DEBUG] debug-file - A work dispatched to worker[4] failed because unable to get work from ready queue.
+[2026-10-29T17:38:32.335] [INFO] debug-file - Finished :entry:default@CompileArkTS... after 1 s 251 ms 
+[2026-10-29T17:38:32.335] [DEBUG] debug-file - Executing task :entry:default@GeneratePkgModuleJson
+[2026-10-29T17:38:32.335] [DEBUG] debug-file - File: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/preload/default/preload.json' from 'preloadSoJsonPath' is not exists, just ignore.
+[2026-10-29T17:38:32.335] [DEBUG] debug-file - Error occurs while handling @Input 'shouldDeduplicateHar': The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received undefined
+[2026-10-29T17:38:32.335] [DEBUG] debug-file - Task 'entry:default@GeneratePkgModuleJson' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:38:32.336] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgModuleJson pre-execution cost: 1 ms .
+[2026-10-29T17:38:32.336] [DEBUG] debug-file - entry : default@GeneratePkgModuleJson cost memory 0.0885162353515625
+[2026-10-29T17:38:32.336] [INFO] debug-file - UP-TO-DATE :entry:default@GeneratePkgModuleJson...  
+[2026-10-29T17:38:32.336] [DEBUG] debug-file - Executing task :entry:default@ProcessCompiledResources
+[2026-10-29T17:38:32.336] [DEBUG] debug-file - File: '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/preload/default/preload.json' from 'preloadSoJsonPath' is not exists, just ignore.
+[2026-10-29T17:38:32.336] [DEBUG] debug-file - Task 'entry:default@ProcessCompiledResources' cost while wrapping incremental declarations: 1 ms 
+[2026-10-29T17:38:32.336] [DEBUG] debug-file - entry : default@ProcessCompiledResources cost memory 0.05370330810546875
+[2026-10-29T17:38:32.336] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 987 ms 
+[2026-10-29T17:38:32.336] [INFO] debug-file - Finished :entry:default@ProcessCompiledResources... after 1 ms 
+[2026-10-29T17:38:32.336] [DEBUG] debug-file - Executing task :entry:default@PackageHap
+[2026-10-29T17:38:32.337] [DEBUG] debug-file - entry:default@PackageHap is not up-to-date, since the input file '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader_out/default/ets' has been changed.
+[2026-10-29T17:38:32.337] [DEBUG] debug-file - Incremental task entry:default@PackageHap pre-execution cost: 1 ms .
+[2026-10-29T17:38:32.338] [DEBUG] debug-file - Use tool [/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/lib/app_packing_tool.jar]
+ [
+  'java',
+  '-Dfile.encoding=utf-8',
+  '-jar',
+  '/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/lib/app_packing_tool.jar',
+  '--mode',
+  'hap',
+  '--force',
+  'true',
+  '--lib-path',
+  '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/stripped_native_libs/default',
+  '--json-path',
+  '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/package/default/module.json',
+  '--resources-path',
+  '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/res/default/resources',
+  '--index-path',
+  '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/res/default/resources.index',
+  '--pack-info-path',
+  '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/outputs/default/pack.info',
+  '--out-path',
+  '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/outputs/default/entry-default-unsigned.hap',
+  '--ets-path',
+  '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader_out/default/ets',
+  '--pkg-context-path',
+  '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader/default/pkgContextInfo.json'
+]
+[2026-10-29T17:38:32.338] [DEBUG] debug-file - default@PackageHap work[2] is submitted.
+[2026-10-29T17:38:32.338] [DEBUG] debug-file - default@PackageHap work[2] is pushed to ready queue.
+[2026-10-29T17:38:32.338] [DEBUG] debug-file - A work dispatched to worker[9] failed because unable to get work from ready queue.
+[2026-10-29T17:38:32.338] [DEBUG] debug-file - Create  resident worker with id: 8.
+[2026-10-29T17:38:32.338] [DEBUG] debug-file - default@PackageHap work[2] has been dispatched to worker[8].
+[2026-10-29T17:38:32.338] [DEBUG] debug-file - default@PackageHap work[2] is dispatched.
+[2026-10-29T17:38:32.339] [DEBUG] debug-file - entry : default@PackageHap cost memory 0.5004959106445312
+[2026-10-29T17:38:32.525] [DEBUG] debug-file - current process  memoryUsage: {
+  rss: 1135886336,
+  heapTotal: 79183872,
+  heapUsed: 48037344,
+  external: 3815832,
+  arrayBuffers: 18671
+} os memoryUsage :15.8841552734375
+[2026-10-29T17:38:32.697] [DEBUG] debug-file - worker[8] has one work done.
+[2026-10-29T17:38:32.698] [DEBUG] debug-file - default@PackageHap work[2] done.
+[2026-10-29T17:38:32.698] [DEBUG] debug-file - A work dispatched to worker[8] failed because unable to get work from ready queue.
+[2026-10-29T17:38:32.698] [INFO] debug-file - Finished :entry:default@PackageHap... after 176 ms 
+[2026-10-29T17:38:32.699] [DEBUG] debug-file - Executing task :entry:default@PackingCheck
+[2026-10-29T17:38:32.700] [DEBUG] debug-file - entry : default@PackingCheck cost memory 0.5045547485351562
+[2026-10-29T17:38:32.700] [DEBUG] debug-file - runTaskFromQueue task cost before running: 2 s 351 ms 
+[2026-10-29T17:38:32.700] [INFO] debug-file - Finished :entry:default@PackingCheck... after 2 ms 
+[2026-10-29T17:38:32.701] [DEBUG] debug-file - Executing task :entry:default@SignHap
+[2026-10-29T17:38:32.701] [DEBUG] debug-file - entry:default@SignHap is not up-to-date, since the input file '/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/outputs/default/entry-default-unsigned.hap' has been changed.
+[2026-10-29T17:38:32.701] [DEBUG] debug-file - Incremental task entry:default@SignHap pre-execution cost: 1 ms .
+[2026-10-29T17:38:32.755] [DEBUG] debug-file - java daemon socket received message:{"code":0,"message":"verify profile success"}
+[2026-10-29T17:38:32.756] [DEBUG] debug-file - java daemon socket close code:1000 reason:close by user
+[2026-10-29T17:38:32.805] [DEBUG] debug-file - java daemon socket received message:{"code":0,"message":"sign app success"}
+[2026-10-29T17:38:32.806] [DEBUG] debug-file - entry : default@SignHap cost memory 1.093994140625
+[2026-10-29T17:38:32.806] [DEBUG] debug-file - runTaskFromQueue task cost before running: 2 s 457 ms 
+[2026-10-29T17:38:32.806] [INFO] debug-file - Finished :entry:default@SignHap... after 105 ms 
+[2026-10-29T17:38:32.806] [DEBUG] debug-file - Executing task :entry:default@CollectDebugSymbol
+[2026-10-29T17:38:32.806] [DEBUG] debug-file - entry : default@CollectDebugSymbol cost memory 0.086273193359375
+[2026-10-29T17:38:32.806] [DEBUG] debug-file - runTaskFromQueue task cost before running: 2 s 457 ms 
+[2026-10-29T17:38:32.806] [INFO] debug-file - Finished :entry:default@CollectDebugSymbol... after 1 ms 
+[2026-10-29T17:38:32.807] [DEBUG] debug-file - Executing task :entry:assembleHap
+[2026-10-29T17:38:32.807] [DEBUG] debug-file - entry : assembleHap cost memory 0.01479339599609375
+[2026-10-29T17:38:32.807] [DEBUG] debug-file - runTaskFromQueue task cost before running: 2 s 458 ms 
+[2026-10-29T17:38:32.807] [INFO] debug-file - Finished :entry:assembleHap... after 1 ms 
+[2026-10-29T17:38:32.807] [INFO] debug-file - BUILD SUCCESSFUL in 2 s 458 ms 
+[2026-10-29T17:38:32.807] [DEBUG] debug-file - Update task entry:default@PreBuild input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/AppScope/app.json5 cache by regenerate.
+[2026-10-29T17:38:32.807] [DEBUG] debug-file - Update task entry:default@PreBuild input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/src/main/module.json5 cache by regenerate.
+[2026-10-29T17:38:32.807] [DEBUG] debug-file - Update task entry:default@PreBuild input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/src/main/resources/base/profile/form_config.json cache by regenerate.
+[2026-10-29T17:38:32.807] [DEBUG] debug-file - Update task entry:default@PreBuild input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/build-profile.json5 cache by regenerate.
+[2026-10-29T17:38:32.807] [DEBUG] debug-file - Update task entry:default@PreBuild input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build-profile.json5 cache by regenerate.
+[2026-10-29T17:38:32.807] [DEBUG] debug-file - Update task entry:default@PreBuild input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/src/main/resources/base/profile/main_pages.json cache by regenerate.
+[2026-10-29T17:38:32.807] [DEBUG] debug-file - Update task entry:default@PreBuild input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/hvigor/hvigor-config.json5 cache by regenerate.
+[2026-10-29T17:38:32.807] [DEBUG] debug-file - Update task entry:default@PreBuild input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/oh-package.json5 cache by regenerate.
+[2026-10-29T17:38:32.807] [DEBUG] debug-file - Update task entry:default@PreBuild input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/oh-package.json5 cache by regenerate.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Incremental task entry:default@PreBuild post-execution cost:1 ms .
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Update task entry:default@CreateModuleInfo output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/generated/profile/default/ModuleInfo.ts cache.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Incremental task entry:default@CreateModuleInfo post-execution cost:1 ms .
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@GenerateMetadata is up-to-date.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@MergeProfile is up-to-date.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@CreateBuildProfile is up-to-date.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@GeneratePkgContextInfo is up-to-date.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Update task entry:default@GeneratePkgSdkInfo output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader/default/pkgSdkInfo.json cache.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgSdkInfo post-execution cost:1 ms .
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Update task entry:default@ProcessIntegratedHsp output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/build/cache/default/integrated_hsp/integratedHspCache.json cache.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Incremental task entry:default@ProcessIntegratedHsp post-execution cost:1 ms .
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@MakePackInfo is up-to-date.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Update task entry:default@SyscapTransform input file:/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/syscap_tool cache by regenerate.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Update task entry:default@SyscapTransform input file:/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/device-define cache by regenerate.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Update task entry:default@SyscapTransform output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/syscap/default/rpcid.sc cache.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Incremental task entry:default@SyscapTransform post-execution cost:1 ms .
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessProfile is up-to-date.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessRouterMap is up-to-date.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessShareConfig is up-to-date.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Update task entry:default@ProcessStartupConfig input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader/default/pkgContextInfo.json cache by regenerate.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Update task entry:default@ProcessStartupConfig output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/startup/default/startup_config.json cache.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Incremental task entry:default@ProcessStartupConfig post-execution cost:1 ms .
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessResource is up-to-date.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Update task entry:default@GenerateLoaderJson input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader/default/pkgContextInfo.json cache by regenerate.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Update task entry:default@GenerateLoaderJson input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/router_map/default/temp-router-map.json cache by regenerate.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Update task entry:default@GenerateLoaderJson output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader/default/loader.json cache.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Update task entry:default@GenerateLoaderJson output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader/default/widget_loader.json cache.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Incremental task entry:default@GenerateLoaderJson post-execution cost:1 ms .
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessLibs is up-to-date.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@CompileResource is up-to-date.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@DoNativeStrip is up-to-date.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader/default cache from map.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/res/default/ResourceTable.txt cache by regenerate.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/res/default/ark_module.json cache by regenerate.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/res/default/resources/base/profile cache by regenerate.
+[2026-10-29T17:38:32.808] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/src/main/ets cache by regenerate.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader/default/pkgContextInfo.json cache by regenerate.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/src/main/resources/base/profile/form_config.json cache by regenerate.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/generated/profile/default/BuildProfile.ets cache by regenerate.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@CompileArkTS output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader_out/default/ets cache.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Incremental task entry:default@CompileArkTS post-execution cost:1 ms .
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@BuildJS input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader/default cache by regenerate.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@BuildJS input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/res/default/ResourceTable.txt cache by regenerate.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@BuildJS input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/res/default/ark_module.json cache by regenerate.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@BuildJS input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/res/default/resources/base/profile cache by regenerate.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@BuildJS input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader/default/pkgContextInfo.json cache by regenerate.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@BuildJS output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader_out/default/js cache.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Incremental task entry:default@BuildJS post-execution cost:1 ms .
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@CacheNativeLibs is up-to-date.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@GeneratePkgModuleJson is up-to-date.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Incremental task entry:default@ProcessCompiledResources post-execution cost:1 ms .
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@PackageHap input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/outputs/default/pack.info cache by regenerate.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@PackageHap input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/stripped_native_libs/default cache by regenerate.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@PackageHap input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/res/default/module.json cache by regenerate.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@PackageHap input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/res/default/resources cache by regenerate.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@PackageHap input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/res/default/resources.index cache by regenerate.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@PackageHap input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader_out/default/ets cache from map.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@PackageHap input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader/default/pkgContextInfo.json cache by regenerate.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@PackageHap input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/package/default/module.json cache by regenerate.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@PackageHap input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader_out/default/ets/sourceMaps.map cache by regenerate.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@PackageHap input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/generated/profile/default/BuildProfile.ets cache by regenerate.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@PackageHap output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/outputs/default/entry-default-unsigned.hap cache.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@PackageHap output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/source_map/default/sourceMaps.map cache.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@PackageHap output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/outputs/default/mapping/sourceMaps.map cache.
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Incremental task entry:default@PackageHap post-execution cost:1 ms .
+[2026-10-29T17:38:32.809] [DEBUG] debug-file - Update task entry:default@SignHap input file:/Users/ming/.ohos/config/default_test-demo_PkWpclh8gacFhorevbzUQCv2Ck4mn05aBvobqF4vDDQ=.cer cache by regenerate.
+[2026-10-29T17:38:32.810] [DEBUG] debug-file - Update task entry:default@SignHap input file:/Users/ming/.ohos/config/default_test-demo_PkWpclh8gacFhorevbzUQCv2Ck4mn05aBvobqF4vDDQ=.p7b cache by regenerate.
+[2026-10-29T17:38:32.810] [DEBUG] debug-file - Update task entry:default@SignHap input file:/Users/ming/.ohos/config/default_test-demo_PkWpclh8gacFhorevbzUQCv2Ck4mn05aBvobqF4vDDQ=.p12 cache by regenerate.
+[2026-10-29T17:38:32.810] [DEBUG] debug-file - Update task entry:default@SignHap input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/outputs/default/entry-default-unsigned.hap cache from map.
+[2026-10-29T17:38:32.810] [DEBUG] debug-file - Update task entry:default@SignHap output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/outputs/default/entry-default-signed.hap cache.
+[2026-10-29T17:38:32.810] [DEBUG] debug-file - Incremental task entry:default@SignHap post-execution cost:1 ms .
+[2026-10-29T17:38:32.810] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader_out/default/ets/sourceMaps.map cache by regenerate.
+[2026-10-29T17:38:32.810] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol input file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/libs/default cache by regenerate.
+[2026-10-29T17:38:32.810] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol output file:/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/outputs/default/symbol cache.
+[2026-10-29T17:38:32.810] [DEBUG] debug-file - Incremental task entry:default@CollectDebugSymbol post-execution cost:1 ms .
+[2026-10-29T17:38:32.816] [DEBUG] debug-file - Cleanup worker 8.
+[2026-10-29T17:38:32.816] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-10-29T17:38:32.816] [DEBUG] debug-file - java daemon socket close code:1000 reason:close by user
+[2026-10-29T17:38:32.817] [DEBUG] debug-file - worker[8] exits with exit code 1.
+[2026-10-29T17:38:32.817] [DEBUG] debug-file - Worker 8 has been cleaned up.
+[2026-10-29T17:38:32.817] [DEBUG] debug-file - Current idle worker size: 2.
+[2026-10-29T17:38:32.817] [DEBUG] debug-file - Current resident worker size: 2.
+[2026-10-29T17:38:32.819] [DEBUG] debug-file - session manager: send message to worker process. WorkerThreadId: 0, data: {"type":"hvigor_failed","reason":"Server has disconnected."}
+[2026-10-29T17:38:32.819] [DEBUG] debug-file - session manager: send message to worker process. WorkerThreadId: 0, data: {"type":"CloseWatch","reason":"Server has disconnected."}
+[2026-10-29T17:38:32.820] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-10-29T17:38:32.820] [DEBUG] debug-file - ABORT_WORK sent to workers.
+[2026-10-29T17:38:32.820] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.

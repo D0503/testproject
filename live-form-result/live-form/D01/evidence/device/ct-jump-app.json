@@ -1,0 +1,162 @@
+[
+  {
+    "bounds": [
+      0,
+      0,
+      1140,
+      2442
+    ],
+    "children": [
+      {
+        "type": "root",
+        "bounds": [
+          0,
+          117,
+          1140,
+          2442
+        ],
+        "children": [
+          {
+            "type": "ContainerModal",
+            "bounds": [
+              0,
+              117,
+              1140,
+              2442
+            ],
+            "children": [
+              {
+                "type": "Column",
+                "bounds": [
+                  0,
+                  117,
+                  1140,
+                  2442
+                ],
+                "children": [
+                  {
+                    "id": "ContainerModalStack",
+                    "type": "Stack",
+                    "bounds": [
+                      0,
+                      117,
+                      1140,
+                      2442
+                    ],
+                    "children": [
+                      {
+                        "type": "Column",
+                        "bounds": [
+                          0,
+                          117,
+                          1140,
+                          2358
+                        ],
+                        "children": [
+                          {
+                            "type": "Text",
+                            "text": "互动卡片 Demo",
+                            "bounds": [
+                              316,
+                              894,
+                              824,
+                              978
+                            ],
+                            "children": []
+                          },
+                          {
+                            "type": "Text",
+                            "text": "当前歌曲：晨星 - 演示歌手A",
+                            "bounds": [
+                              265,
+                              1026,
+                              875,
+                              1082
+                            ],
+                            "children": []
+                          },
+                          {
+                            "type": "Text",
+                            "text": "已暂停",
+                            "bounds": [
+                              507,
+                              1130,
+                              634,
+                              1179
+                            ],
+                            "children": []
+                          },
+                          {
+                            "type": "Row",
+                            "bounds": [
+                              161,
+                              1227,
+                              980,
+                              1347
+                            ],
+                            "children": [
+                              {
+                                "type": "Button",
+                                "text": "上一首",
+                                "bounds": [
+                                  161,
+                                  1227,
+                                  402,
+                                  1347
+                                ],
+                                "clickable": true,
+                                "children": []
+                              },
+                              {
+                                "type": "Button",
+                                "text": "播放",
+                                "bounds": [
+                                  474,
+                                  1227,
+                                  667,
+                                  1347
+                                ],
+                                "clickable": true,
+                                "children": []
+                              },
+                              {
+                                "type": "Button",
+                                "text": "下一首",
+                                "bounds": [
+                                  739,
+                                  1227,
+                                  980,
+                                  1347
+                                ],
+                                "clickable": true,
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "type": "Text",
+                            "text": "在桌面长按应用图标可添加卡片：场景动效卡片（widget）、音乐播控（PlayControlCard）、动态歌词（DynamicLyricCard）、心动歌词（HeartLyricCard）、歌单推荐（RecommendCard）、趣味小游戏（FunInteractionCard）",
+                            "bounds": [
+                              81,
+                              1467,
+                              1059,
+                              1677
+                            ],
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+
+New cli version 1.3.10 available, run `devecocli update` to update
+New docs version 1.3.10 available, run `devecocli docs update` to upgrade

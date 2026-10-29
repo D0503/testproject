@@ -1,0 +1,29 @@
+{
+  "modulePathMap": {
+    "entry": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry"
+  },
+  "compileMode": "esmodule",
+  "projectRootPath": "/Users/ming/Desktop/HarmonyProject/testproject/live-form",
+  "nodeModulesPath": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader_out/default/node_modules",
+  "byteCodeHarInfo": {},
+  "declarationEntry": [],
+  "moduleName": "entry",
+  "hspNameOhmMap": {},
+  "harNameOhmMap": {},
+  "packageManagerType": "ohpm",
+  "compileEntry": [
+    "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/generated/r/default/ResourceTable.ts"
+  ],
+  "otherCompileFiles": [],
+  "dynamicImportLibInfo": {},
+  "routerMap": [],
+  "hspResourcesMap": {},
+  "updateVersionInfo": {},
+  "customizedHar": false,
+  "anBuildOutPut": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader_out/default/an/arm64-v8a",
+  "anBuildMode": "type",
+  "patchConfig": {
+    "changedFileList": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/patch/default/changedFileList.json"
+  },
+  "pkgName2OtherCompileFiles": {}
+}

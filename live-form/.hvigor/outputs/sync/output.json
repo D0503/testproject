@@ -1,0 +1,153 @@
+{
+  "version": 1,
+  "ohos-module-entry": {
+    "SELECT_TARGET": "default",
+    "MODULE_BUILD_DIR": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build",
+    "TARGETS": {
+      "default": {
+        "SOURCE_ROOT": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/src/main",
+        "RESOURCES_PATH": [
+          "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/src/main/resources"
+        ],
+        "BUILD_PATH": {
+          "OUTPUT_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/outputs/default",
+          "INTERMEDIA_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates",
+          "JS_ASSETS_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader_out/default",
+          "JS_LITE_ASSETS_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader_out_lite/default",
+          "RES_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/res/default",
+          "RES_PROFILE_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/res/default/resources/base/profile",
+          "ETS_SUPER_VISUAL_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/cache/default/default@CompileArkTS/esmodule",
+          "JS_SUPER_VISUAL_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/cache/default/default@CompileJS/jsbundle",
+          "WORKER_LOADER": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/loader/default/loader.json",
+          "MANIFEST_JSON": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/manifest/default",
+          "OUTPUT_METADATA_JSON": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/hap_metadata/default/output_metadata.json",
+          "SOURCE_MAP_DIR": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry/build/default/intermediates/source_map/default"
+        },
+        "BUILD_OPTION": {
+          "debuggable": true
+        }
+      }
+    },
+    "BUILD_OPTION": {
+      "default-default": {
+        "debuggable": true,
+        "copyFrom": "default",
+        "strictMode": {
+          "caseSensitiveCheck": true,
+          "useNormalizedOHMUrl": true
+        },
+        "resOptions": {
+          "copyCodeResource": {
+            "enable": false
+          }
+        }
+      }
+    },
+    "BUILD_PROFILE_OPT": {
+      "apiType": "stageMode",
+      "buildOption": {
+        "resOptions": {
+          "copyCodeResource": {
+            "enable": false
+          }
+        }
+      },
+      "targets": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    "BUILD_CACHE_DIR": ""
+  },
+  "ohos-project": {
+    "SELECT_PRODUCT_NAME": "default",
+    "MODULE_BUILD_DIR": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/build",
+    "BUNDLE_NAME": "com.example.liveformdemo",
+    "VERSION_CODE": 1000000,
+    "VERSION_NAME": "1.0.0",
+    "BUILD_PATH": {
+      "OUTPUT_PATH": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/build/outputs/default"
+    },
+    "MODULES": [
+      {
+        "name": "entry",
+        "srcPath": "/Users/ming/Desktop/HarmonyProject/testproject/live-form/entry",
+        "targets": [
+          {
+            "name": "default",
+            "applyToProducts": [
+              "default"
+            ]
+          }
+        ],
+        "belongProjectPath": "/Users/ming/Desktop/HarmonyProject/testproject/live-form"
+      }
+    ],
+    "PROFILE_OPT": {
+      "app": {
+        "signingConfigs": [
+          {
+            "name": "default",
+            "type": "HarmonyOS",
+            "material": {
+              "certpath": "/Users/ming/.ohos/config/default_test-demo_PkWpclh8gacFhorevbzUQCv2Ck4mn05aBvobqF4vDDQ=.cer",
+              "keyAlias": "debugKey",
+              "keyPassword": "0000001B5A586C3F719C267830B164DBD0CF24B637B2D5B74FFC8DD71091864E51EC6828A3C013F1871048",
+              "profile": "/Users/ming/.ohos/config/default_test-demo_PkWpclh8gacFhorevbzUQCv2Ck4mn05aBvobqF4vDDQ=.p7b",
+              "signAlg": "SHA256withECDSA",
+              "storeFile": "/Users/ming/.ohos/config/default_test-demo_PkWpclh8gacFhorevbzUQCv2Ck4mn05aBvobqF4vDDQ=.p12",
+              "storePassword": "0000001B73BEBA158D8615DEFB5A402139600353B30C44704FD816F6426DAA8AB81FB6DE9FEA85A033F856"
+            }
+          }
+        ],
+        "products": [
+          {
+            "signingConfig": "default",
+            "name": "default",
+            "targetSdkVersion": "26.0.0",
+            "compatibleSdkVersion": "26.0.0",
+            "runtimeOS": "HarmonyOS",
+            "buildOption": {
+              "strictMode": {
+                "caseSensitiveCheck": true,
+                "useNormalizedOHMUrl": true
+              }
+            }
+          }
+        ],
+        "buildModeSet": [
+          {
+            "name": "debug"
+          },
+          {
+            "name": "release"
+          }
+        ]
+      },
+      "modules": [
+        {
+          "name": "entry",
+          "srcPath": "./entry",
+          "targets": [
+            {
+              "name": "default",
+              "applyToProducts": [
+                "default"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "CONFIG_PROPERTIES": {
+      "enableSignTask": true,
+      "skipNativeIncremental": false,
+      "hvigor.keepDependency": true
+    },
+    "OVERALL_PROJECT_PATHS": [
+      "/Users/ming/Desktop/HarmonyProject/testproject/live-form"
+    ],
+    "BUILD_CACHE_DIR": ""
+  }
+}

@@ -1,0 +1,737 @@
+[
+  {
+    "bounds": [
+      0,
+      0,
+      1140,
+      2442
+    ],
+    "children": [
+      {
+        "id": "session12",
+        "type": "WindowScene",
+        "bounds": [
+          0,
+          117,
+          1140,
+          2442
+        ],
+        "children": [
+          {
+            "id": "SCBDesktop_Image_container",
+            "type": "EffectComponent",
+            "bounds": [
+              0,
+              117,
+              1140,
+              2442
+            ],
+            "children": [
+              {
+                "type": "Stack",
+                "bounds": [
+                  0,
+                  117,
+                  1140,
+                  2442
+                ],
+                "children": [
+                  {
+                    "id": "SCBDesktop_Flex_Desktop",
+                    "type": "Flex",
+                    "bounds": [
+                      0,
+                      117,
+                      1140,
+                      2442
+                    ],
+                    "clickable": true,
+                    "longClickable": true,
+                    "children": [
+                      {
+                        "id": "SCBDesktop_Column_PageDesktopLayout",
+                        "type": "Column",
+                        "bounds": [
+                          0,
+                          117,
+                          1140,
+                          2127
+                        ],
+                        "children": [
+                          {
+                            "type": "__Common__",
+                            "bounds": [
+                              0,
+                              117,
+                              1140,
+                              2127
+                            ],
+                            "longClickable": true,
+                            "children": [
+                              {
+                                "type": "UnionEffectContainer",
+                                "bounds": [
+                                  0,
+                                  117,
+                                  1140,
+                                  2127
+                                ],
+                                "children": [
+                                  {
+                                    "id": "GridSwiper_stack_snap",
+                                    "type": "Stack",
+                                    "bounds": [
+                                      0,
+                                      117,
+                                      1140,
+                                      2127
+                                    ],
+                                    "children": [
+                                      {
+                                        "id": "GridSwiper_Stack_Swiper",
+                                        "type": "Swiper",
+                                        "bounds": [
+                                          0,
+                                          117,
+                                          1140,
+                                          2127
+                                        ],
+                                        "scrollable": true,
+                                        "children": [
+                                          {
+                                            "type": "Stack",
+                                            "bounds": [
+                                              0,
+                                              117,
+                                              1140,
+                                              2127
+                                            ],
+                                            "children": [
+                                              {
+                                                "type": "Stack",
+                                                "bounds": [
+                                                  0,
+                                                  117,
+                                                  1140,
+                                                  2127
+                                                ],
+                                                "children": [
+                                                  {
+                                                    "id": "SwiperPage_Grid_WorkSpace_2",
+                                                    "type": "Grid",
+                                                    "bounds": [
+                                                      24,
+                                                      188,
+                                                      1116,
+                                                      1988
+                                                    ],
+                                                    "children": [
+                                                      {
+                                                        "id": "SwiperPage_GridItem_[com.example.liveformdemo__1263917827_undefined___0,2]",
+                                                        "type": "GridItem",
+                                                        "bounds": [
+                                                          24,
+                                                          188,
+                                                          570,
+                                                          788
+                                                        ],
+                                                        "longClickable": true,
+                                                        "children": [
+                                                          {
+                                                            "id": "SwiperPage_FormItem_com.example.liveformdemo_1263917827",
+                                                            "type": "RelativeContainer",
+                                                            "bounds": [
+                                                              24,
+                                                              222,
+                                                              570,
+                                                              754
+                                                            ],
+                                                            "children": [
+                                                              {
+                                                                "id": "FormItem_com.example.liveformdemo_1263917827column",
+                                                                "type": "Stack",
+                                                                "bounds": [
+                                                                  69,
+                                                                  222,
+                                                                  525,
+                                                                  678
+                                                                ],
+                                                                "clickable": true,
+                                                                "longClickable": true,
+                                                                "children": [
+                                                                  {
+                                                                    "id": "OverflowFormItem_com.example.liveformdemo_1263917827",
+                                                                    "type": "Stack",
+                                                                    "bounds": [
+                                                                      69,
+                                                                      222,
+                                                                      525,
+                                                                      678
+                                                                    ],
+                                                                    "children": [
+                                                                      {
+                                                                        "type": "Stack",
+                                                                        "bounds": [
+                                                                          69,
+                                                                          222,
+                                                                          525,
+                                                                          678
+                                                                        ],
+                                                                        "children": [
+                                                                          {
+                                                                            "id": "1263917827_UIExtensionComponent",
+                                                                            "type": "UIExtensionComponent",
+                                                                            "bounds": [
+                                                                              23,
+                                                                              154,
+                                                                              571,
+                                                                              747
+                                                                            ],
+                                                                            "clickable": true,
+                                                                            "children": [
+                                                                              {
+                                                                                "type": "root",
+                                                                                "bounds": [
+                                                                                  23,
+                                                                                  154,
+                                                                                  571,
+                                                                                  747
+                                                                                ],
+                                                                                "children": [
+                                                                                  {
+                                                                                    "type": "Stack",
+                                                                                    "bounds": [
+                                                                                      23,
+                                                                                      154,
+                                                                                      571,
+                                                                                      747
+                                                                                    ],
+                                                                                    "clickable": true,
+                                                                                    "children": [
+                                                                                      {
+                                                                                        "type": "Column",
+                                                                                        "bounds": [
+                                                                                          69,
+                                                                                          222,
+                                                                                          525,
+                                                                                          678
+                                                                                        ],
+                                                                                        "children": []
+                                                                                      },
+                                                                                      {
+                                                                                        "type": "Stack",
+                                                                                        "bounds": [
+                                                                                          23,
+                                                                                          154,
+                                                                                          571,
+                                                                                          747
+                                                                                        ],
+                                                                                        "children": [
+                                                                                          {
+                                                                                            "type": "Button",
+                                                                                            "text": "强制取消动效",
+                                                                                            "bounds": [
+                                                                                              98,
+                                                                                              388,
+                                                                                              496,
+                                                                                              513
+                                                                                            ],
+                                                                                            "clickable": true,
+                                                                                            "children": []
+                                                                                          }
+                                                                                        ]
+                                                                                      }
+                                                                                    ]
+                                                                                  }
+                                                                                ]
+                                                                              }
+                                                                            ]
+                                                                          },
+                                                                          {
+                                                                            "type": "Image",
+                                                                            "bounds": [
+                                                                              69,
+                                                                              222,
+                                                                              525,
+                                                                              678
+                                                                            ],
+                                                                            "hitTestBehavior": "None",
+                                                                            "children": []
+                                                                          }
+                                                                        ]
+                                                                      }
+                                                                    ]
+                                                                  }
+                                                                ]
+                                                              },
+                                                              {
+                                                                "type": "__Common__",
+                                                                "bounds": [
+                                                                  182,
+                                                                  678,
+                                                                  413,
+                                                                  724
+                                                                ],
+                                                                "children": [
+                                                                  {
+                                                                    "id": "AppName_text__互动卡片Demo_mvtcb37m8di6r63pamf",
+                                                                    "type": "Text",
+                                                                    "text": "互动卡片Demo",
+                                                                    "bounds": [
+                                                                      182,
+                                                                      688,
+                                                                      413,
+                                                                      724
+                                                                    ],
+                                                                    "children": []
+                                                                  }
+                                                                ]
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "__Common__",
+                                        "bounds": [
+                                          435,
+                                          2060,
+                                          705,
+                                          2084
+                                        ],
+                                        "children": [
+                                          {
+                                            "id": "SwiperIndicator_indicator",
+                                            "type": "Stack",
+                                            "bounds": [
+                                              435,
+                                              2060,
+                                              705,
+                                              2084
+                                            ],
+                                            "children": [
+                                              {
+                                                "type": "Row",
+                                                "bounds": [
+                                                  435,
+                                                  2060,
+                                                  705,
+                                                  2084
+                                                ],
+                                                "children": [
+                                                  {
+                                                    "id": "SwiperIndicator_ic_negative_screen_indicator",
+                                                    "type": "Image",
+                                                    "bounds": [
+                                                      435,
+                                                      2060,
+                                                      453,
+                                                      2084
+                                                    ],
+                                                    "children": []
+                                                  },
+                                                  {
+                                                    "type": "Stack",
+                                                    "bounds": [
+                                                      477,
+                                                      2063,
+                                                      495,
+                                                      2081
+                                                    ],
+                                                    "hitTestBehavior": "Transparent",
+                                                    "children": []
+                                                  },
+                                                  {
+                                                    "type": "Stack",
+                                                    "bounds": [
+                                                      519,
+                                                      2063,
+                                                      537,
+                                                      2081
+                                                    ],
+                                                    "hitTestBehavior": "Transparent",
+                                                    "children": []
+                                                  },
+                                                  {
+                                                    "type": "Stack",
+                                                    "bounds": [
+                                                      561,
+                                                      2063,
+                                                      579,
+                                                      2081
+                                                    ],
+                                                    "hitTestBehavior": "Transparent",
+                                                    "children": []
+                                                  },
+                                                  {
+                                                    "type": "Stack",
+                                                    "bounds": [
+                                                      603,
+                                                      2063,
+                                                      621,
+                                                      2081
+                                                    ],
+                                                    "hitTestBehavior": "Transparent",
+                                                    "children": []
+                                                  },
+                                                  {
+                                                    "type": "Stack",
+                                                    "bounds": [
+                                                      645,
+                                                      2063,
+                                                      663,
+                                                      2081
+                                                    ],
+                                                    "hitTestBehavior": "Transparent",
+                                                    "children": []
+                                                  },
+                                                  {
+                                                    "type": "Stack",
+                                                    "bounds": [
+                                                      687,
+                                                      2063,
+                                                      705,
+                                                      2081
+                                                    ],
+                                                    "hitTestBehavior": "Transparent",
+                                                    "children": []
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "type": "Stack",
+                                                "bounds": [
+                                                  552,
+                                                  2063,
+                                                  588,
+                                                  2081
+                                                ],
+                                                "hitTestBehavior": "Transparent",
+                                                "children": []
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "id": "SCBDesktop_Column_smartDock",
+                        "type": "Column",
+                        "bounds": [
+                          0,
+                          2127,
+                          1140,
+                          2442
+                        ],
+                        "longClickable": true,
+                        "children": [
+                          {
+                            "type": "UnionEffectContainer",
+                            "bounds": [
+                              0,
+                              2127,
+                              1140,
+                              2442
+                            ],
+                            "children": [
+                              {
+                                "type": "Row",
+                                "bounds": [
+                                  0,
+                                  2127,
+                                  1140,
+                                  2442
+                                ],
+                                "children": [
+                                  {
+                                    "id": "ResidentLayout",
+                                    "type": "Stack",
+                                    "bounds": [
+                                      0,
+                                      2127,
+                                      1140,
+                                      2355
+                                    ],
+                                    "children": [
+                                      {
+                                        "id": "SmartDock_V_ResidentLayout_Rect_placeholder",
+                                        "type": "Column",
+                                        "bounds": [
+                                          492,
+                                          2163,
+                                          648,
+                                          2319
+                                        ],
+                                        "hitTestBehavior": "None",
+                                        "children": []
+                                      },
+                                      {
+                                        "type": "List",
+                                        "bounds": [
+                                          0,
+                                          2127,
+                                          1140,
+                                          2355
+                                        ],
+                                        "children": [
+                                          {
+                                            "id": "ResidentLayout_AppItem_com.ohos.contactscom.ohos.contacts.MainAbility_Wrap",
+                                            "type": "ListItem",
+                                            "bounds": [
+                                              82,
+                                              2163,
+                                              238,
+                                              2319
+                                            ],
+                                            "children": [
+                                              {
+                                                "id": "ResidentLayout_AppItem_com.ohos.contactscom.ohos.contacts.MainAbility",
+                                                "type": "ListItem",
+                                                "bounds": [
+                                                  82,
+                                                  2163,
+                                                  238,
+                                                  2319
+                                                ],
+                                                "children": [
+                                                  {
+                                                    "id": "Container_AppIcon_Image_com.ohos.contactscom.ohos.contacts.MainAbilityentry0_undefined_1",
+                                                    "type": "RelativeContainer",
+                                                    "bounds": [
+                                                      82,
+                                                      2163,
+                                                      238,
+                                                      2319
+                                                    ],
+                                                    "clickable": true,
+                                                    "children": [
+                                                      {
+                                                        "id": "AppIcon_Image_com.ohos.contactscom.ohos.contacts.MainAbilityentry0_undefined_1",
+                                                        "type": "Image",
+                                                        "bounds": [
+                                                          82,
+                                                          2163,
+                                                          238,
+                                                          2319
+                                                        ],
+                                                        "clickable": true,
+                                                        "longClickable": true,
+                                                        "children": []
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "id": "ResidentLayout_AppItem_com.ohos.mms_Wrap",
+                                            "type": "ListItem",
+                                            "bounds": [
+                                              355,
+                                              2163,
+                                              511,
+                                              2319
+                                            ],
+                                            "children": [
+                                              {
+                                                "id": "ResidentLayout_AppItem_com.ohos.mms",
+                                                "type": "ListItem",
+                                                "bounds": [
+                                                  355,
+                                                  2163,
+                                                  511,
+                                                  2319
+                                                ],
+                                                "children": [
+                                                  {
+                                                    "id": "Container_AppIcon_Image_com.ohos.mmscom.ohos.mms.MainAbilityentry0_undefined_1",
+                                                    "type": "RelativeContainer",
+                                                    "bounds": [
+                                                      355,
+                                                      2163,
+                                                      511,
+                                                      2319
+                                                    ],
+                                                    "clickable": true,
+                                                    "children": [
+                                                      {
+                                                        "id": "AppIcon_Image_com.ohos.mmscom.ohos.mms.MainAbilityentry0_undefined_1",
+                                                        "type": "Image",
+                                                        "bounds": [
+                                                          355,
+                                                          2163,
+                                                          511,
+                                                          2319
+                                                        ],
+                                                        "clickable": true,
+                                                        "longClickable": true,
+                                                        "children": []
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "id": "ResidentLayout_AppItem_com.huawei.hmos.browser_Wrap",
+                                            "type": "ListItem",
+                                            "bounds": [
+                                              628,
+                                              2163,
+                                              784,
+                                              2319
+                                            ],
+                                            "children": [
+                                              {
+                                                "id": "ResidentLayout_AppItem_com.huawei.hmos.browser",
+                                                "type": "ListItem",
+                                                "bounds": [
+                                                  628,
+                                                  2163,
+                                                  784,
+                                                  2319
+                                                ],
+                                                "children": [
+                                                  {
+                                                    "id": "Container_AppIcon_Image_com.huawei.hmos.browserMainAbilityentry0_undefined_1",
+                                                    "type": "RelativeContainer",
+                                                    "bounds": [
+                                                      628,
+                                                      2163,
+                                                      784,
+                                                      2319
+                                                    ],
+                                                    "clickable": true,
+                                                    "children": [
+                                                      {
+                                                        "id": "AppIcon_Image_com.huawei.hmos.browserMainAbilityentry0_undefined_1",
+                                                        "type": "Image",
+                                                        "bounds": [
+                                                          628,
+                                                          2163,
+                                                          784,
+                                                          2319
+                                                        ],
+                                                        "clickable": true,
+                                                        "longClickable": true,
+                                                        "children": []
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "id": "ResidentLayout_AppItem_com.huawei.hmos.camera_Wrap",
+                                            "type": "ListItem",
+                                            "bounds": [
+                                              901,
+                                              2163,
+                                              1057,
+                                              2319
+                                            ],
+                                            "children": [
+                                              {
+                                                "id": "ResidentLayout_AppItem_com.huawei.hmos.camera",
+                                                "type": "ListItem",
+                                                "bounds": [
+                                                  901,
+                                                  2163,
+                                                  1057,
+                                                  2319
+                                                ],
+                                                "children": [
+                                                  {
+                                                    "id": "Container_AppIcon_Image_com.huawei.hmos.cameracom.huawei.hmos.camera.MainAbilityphone0_undefined_1",
+                                                    "type": "RelativeContainer",
+                                                    "bounds": [
+                                                      901,
+                                                      2163,
+                                                      1057,
+                                                      2319
+                                                    ],
+                                                    "clickable": true,
+                                                    "children": [
+                                                      {
+                                                        "id": "AppIcon_Image_com.huawei.hmos.cameracom.huawei.hmos.camera.MainAbilityphone0_undefined_1",
+                                                        "type": "Image",
+                                                        "bounds": [
+                                                          901,
+                                                          2163,
+                                                          1057,
+                                                          2319
+                                                        ],
+                                                        "clickable": true,
+                                                        "longClickable": true,
+                                                        "children": []
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "Column",
+                    "bounds": [
+                      570,
+                      1221,
+                      571,
+                      1222
+                    ],
+                    "children": [
+                      {
+                        "type": "Column",
+                        "bounds": [
+                          570,
+                          1221,
+                          571,
+                          1222
+                        ],
+                        "hitTestBehavior": "None",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+
+New cli version 1.3.10 available, run `devecocli update` to update
+New docs version 1.3.10 available, run `devecocli docs update` to upgrade

@@ -1,0 +1,20 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "MDM Kit 验证 Demo 模块"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "主入口"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "MDM验证Demo"
+    },
+    {
+      "name": "EnterpriseAdminExtAbility_desc",
+      "value": "企业设备管理扩展能力"
+    }
+  ]
+}

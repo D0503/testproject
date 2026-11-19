@@ -1,0 +1,11 @@
+{
+  "modelVersion": "6.0.1",
+  "name": "knock-precise-share-demo",
+  "version": "1.0.0",
+  "description": "Knock precise share (Share Kit harmonyShare) demo for KPS-S003/KPS-S004",
+  "main": "",
+  "author": "",
+  "license": "",
+  "dependencies": {},
+  "devDependencies": {}
+}

@@ -1,0 +1,43 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "storeFile": "/Users/ming/Downloads/MDM1118.p12",
+          "storePassword": "00000018522B8EDB659F0BF7C7942078E7F8E9DE9C02BB4D15677B39F0664E6681B9DDCB9E07D39E",
+          "keyAlias": "MDM",
+          "keyPassword": "0000001863F7E033121B37A8633BD77F23F8978046AE0244926A46A3BF6A4EDEBE19F77B0B6C9F81",
+          "signAlg": "SHA256withECDSA",
+          "profile": "/Users/ming/Downloads/MDM1118Debug.p7b",
+          "certpath": "/Users/ming/Downloads/MDM1118.cer"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compatibleSdkVersion": "5.0.0(12)",
+        "compileSdkVersion": "26.0.0",
+        "targetSdkVersion": "26.0.0",
+        "runtimeOS": "HarmonyOS"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "ohos-module-entry": {
+    "SELECT_TARGET": "default",
+    "MODULE_BUILD_DIR": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry/build",
+    "TARGETS": {
+      "default": {
+        "SOURCE_ROOT": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry/src/main",
+        "RESOURCES_PATH": [
+          "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry/src/main/resources"
+        ],
+        "BUILD_PATH": {
+          "OUTPUT_PATH": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry/build/default/outputs/default",
+          "INTERMEDIA_PATH": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry/build/default/intermediates",
+          "JS_ASSETS_PATH": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry/build/default/intermediates/loader_out/default",
+          "JS_LITE_ASSETS_PATH": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry/build/default/intermediates/loader_out_lite/default",
+          "RES_PATH": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry/build/default/intermediates/res/default",
+          "RES_PROFILE_PATH": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry/build/default/intermediates/res/default/resources/base/profile",
+          "ETS_SUPER_VISUAL_PATH": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry/build/default/cache/default/default@CompileArkTS/esmodule",
+          "JS_SUPER_VISUAL_PATH": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry/build/default/cache/default/default@CompileJS/jsbundle",
+          "WORKER_LOADER": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry/build/default/intermediates/loader/default/loader.json",
+          "MANIFEST_JSON": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry/build/default/intermediates/manifest/default",
+          "OUTPUT_METADATA_JSON": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry/build/default/intermediates/hap_metadata/default/output_metadata.json",
+          "SOURCE_MAP_DIR": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry/build/default/intermediates/source_map/default"
+        },
+        "BUILD_OPTION": {
+          "debuggable": true
+        }
+      }
+    },
+    "BUILD_OPTION": {
+      "default-default": {
+        "debuggable": true,
+        "copyFrom": "default"
+      }
+    },
+    "BUILD_PROFILE_OPT": {
+      "apiType": "stageMode",
+      "buildOption": {},
+      "targets": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    "BUILD_CACHE_DIR": ""
+  },
+  "ohos-project": {
+    "SELECT_PRODUCT_NAME": "default",
+    "MODULE_BUILD_DIR": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/build",
+    "BUNDLE_NAME": "com.example.knocksharedemo",
+    "VERSION_CODE": 1000000,
+    "VERSION_NAME": "1.0.0",
+    "BUILD_PATH": {
+      "OUTPUT_PATH": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/build/outputs/default"
+    },
+    "MODULES": [
+      {
+        "name": "entry",
+        "srcPath": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry",
+        "targets": [
+          {
+            "name": "default",
+            "applyToProducts": [
+              "default"
+            ]
+          }
+        ],
+        "belongProjectPath": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo"
+      }
+    ],
+    "PROFILE_OPT": {
+      "app": {
+        "signingConfigs": [
+          {
+            "name": "default",
+            "type": "HarmonyOS",
+            "material": {
+              "certpath": "/Users/ming/.ohos/config/default_test-demo_Sv0pO34COOFGdLj2eS77CQcxRFk6S3SDeftZfmJszy0=.cer",
+              "keyAlias": "debugKey",
+              "keyPassword": "0000001B53515C44ECCE00BA9F6C217035D69E70D56345EA960C0C0B6D6DDE7999853C390919D2EA9B5531",
+              "profile": "/Users/ming/.ohos/config/default_test-demo_Sv0pO34COOFGdLj2eS77CQcxRFk6S3SDeftZfmJszy0=.p7b",
+              "signAlg": "SHA256withECDSA",
+              "storeFile": "/Users/ming/.ohos/config/default_test-demo_Sv0pO34COOFGdLj2eS77CQcxRFk6S3SDeftZfmJszy0=.p12",
+              "storePassword": "0000001BB70E364A07AD0B0A65CD4BA42B62F963DAB5DEE2B6A017B82E82BEC3F2D87DA20F5B714B2A725B"
+            }
+          }
+        ],
+        "products": [
+          {
+            "name": "default",
+            "signingConfig": "default",
+            "compatibleSdkVersion": "26.0.0",
+            "targetSdkVersion": "26.0.0",
+            "runtimeOS": "HarmonyOS",
+            "arkTSVersion": "1.1"
+          }
+        ],
+        "buildModeSet": [
+          {
+            "name": "debug"
+          },
+          {
+            "name": "release"
+          }
+        ]
+      },
+      "modules": [
+        {
+          "name": "entry",
+          "srcPath": "./entry",
+          "targets": [
+            {
+              "name": "default",
+              "applyToProducts": [
+                "default"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "CONFIG_PROPERTIES": {
+      "enableSignTask": true,
+      "skipNativeIncremental": false,
+      "hvigor.keepDependency": true
+    },
+    "OVERALL_PROJECT_PATHS": [
+      "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo"
+    ],
+    "BUILD_CACHE_DIR": ""
+  }
+}

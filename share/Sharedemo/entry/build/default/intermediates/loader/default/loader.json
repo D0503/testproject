@@ -1,0 +1,28 @@
+{
+  "modulePathMap": {
+    "entry": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry"
+  },
+  "compileMode": "esmodule",
+  "projectRootPath": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo",
+  "nodeModulesPath": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry/build/default/intermediates/loader_out/default/node_modules",
+  "byteCodeHarInfo": {},
+  "declarationEntry": [],
+  "moduleName": "entry",
+  "hspNameOhmMap": {},
+  "harNameOhmMap": {},
+  "packageManagerType": "ohpm",
+  "compileEntry": [
+    "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry/build/default/generated/r/default/ResourceTable.ts"
+  ],
+  "otherCompileFiles": [],
+  "dynamicImportLibInfo": {},
+  "routerMap": [],
+  "hspResourcesMap": {},
+  "updateVersionInfo": {},
+  "customizedHar": false,
+  "anBuildOutPut": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry/build/default/intermediates/loader_out/default/an/arm64-v8a",
+  "anBuildMode": "type",
+  "patchConfig": {
+    "changedFileList": "/Users/ming/Desktop/HarmonyProject/harmonyos-feature-platform/outputs/tasks/HE-048713e2-fc32-490d-b51e-54a16c2b9ee6/2026-11-17_104736/knock-precise-share/D01/test-demo/entry/build/default/intermediates/patch/default/changedFileList.json"
+  }
+}

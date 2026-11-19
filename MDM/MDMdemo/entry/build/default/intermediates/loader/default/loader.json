@@ -1,0 +1,28 @@
+{
+  "modulePathMap": {
+    "entry": "/Users/ming/enterprise-device-management/D01/test-demo/entry"
+  },
+  "compileMode": "esmodule",
+  "projectRootPath": "/Users/ming/enterprise-device-management/D01/test-demo",
+  "nodeModulesPath": "/Users/ming/enterprise-device-management/D01/test-demo/entry/build/default/intermediates/loader_out/default/node_modules",
+  "byteCodeHarInfo": {},
+  "declarationEntry": [],
+  "moduleName": "entry",
+  "hspNameOhmMap": {},
+  "harNameOhmMap": {},
+  "packageManagerType": "ohpm",
+  "compileEntry": [
+    "/Users/ming/enterprise-device-management/D01/test-demo/entry/build/default/generated/r/default/ResourceTable.ts"
+  ],
+  "otherCompileFiles": [],
+  "dynamicImportLibInfo": {},
+  "routerMap": [],
+  "hspResourcesMap": {},
+  "updateVersionInfo": {},
+  "customizedHar": false,
+  "anBuildOutPut": "/Users/ming/enterprise-device-management/D01/test-demo/entry/build/default/intermediates/loader_out/default/an/arm64-v8a",
+  "anBuildMode": "type",
+  "patchConfig": {
+    "changedFileList": "/Users/ming/enterprise-device-management/D01/test-demo/entry/build/default/intermediates/patch/default/changedFileList.json"
+  }
+}

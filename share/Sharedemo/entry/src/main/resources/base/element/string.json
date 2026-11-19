@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "app_name",
+      "value": "碰一碰分享Demo"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "碰一碰分享Demo"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "Knock precise share demo (harmonyShare knockShare/dataReceive)"
+    }
+  ]
+}

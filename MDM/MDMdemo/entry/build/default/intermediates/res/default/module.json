@@ -1,0 +1,88 @@
+{
+	"app":	{
+		"bundleName":	"com.huaagcwei.mdm.hm",
+		"vendor":	"example",
+		"versionCode":	1000000,
+		"versionName":	"1.0.0",
+		"icon":	"$media:app_icon",
+		"label":	"$string:app_name",
+		"apiReleaseType":	"Release",
+		"compileSdkVersion":	"26.0.0.105",
+		"targetAPIVersion":	260000026,
+		"minAPIVersion":	50000012,
+		"compileSdkType":	"HarmonyOS",
+		"targetMinorAPIVersion":	0,
+		"targetPatchAPIVersion":	0,
+		"minMinorAPIVersion":	0,
+		"minPatchAPIVersion":	0,
+		"appEnvironments":	[],
+		"bundleType":	"app",
+		"buildMode":	"debug",
+		"debug":	true,
+		"iconId":	16777222,
+		"labelId":	16777216
+	},
+	"module":	{
+		"name":	"entry",
+		"type":	"entry",
+		"description":	"$string:module_desc",
+		"mainElement":	"EntryAbility",
+		"deviceTypes":	["phone", "tablet", "2in1"],
+		"deliveryWithInstall":	true,
+		"installationFree":	false,
+		"pages":	"$profile:main_pages",
+		"abilities":	[{
+				"name":	"EntryAbility",
+				"srcEntry":	"./ets/entryability/EntryAbility.ets",
+				"description":	"$string:EntryAbility_desc",
+				"icon":	"$media:app_icon",
+				"label":	"$string:EntryAbility_label",
+				"startWindowIcon":	"$media:app_icon",
+				"startWindowBackground":	"$color:start_window_background",
+				"exported":	true,
+				"descriptionId":	16777218,
+				"iconId":	16777222,
+				"labelId":	16777219,
+				"startWindowIconId":	16777222,
+				"startWindowBackgroundId":	16777221
+			}],
+		"extensionAbilities":	[{
+				"name":	"EnterpriseAdminExtAbility",
+				"srcEntry":	"./ets/enterpriseadminability/EnterpriseAdminExtAbility.ets",
+				"description":	"$string:EnterpriseAdminExtAbility_desc",
+				"type":	"enterpriseAdmin",
+				"exported":	false,
+				"descriptionId":	16777217
+			}],
+		"requestPermissions":	[{
+				"name":	"ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS"
+			}, {
+				"name":	"ohos.permission.ENTERPRISE_SET_USER_RESTRICTION"
+			}, {
+				"name":	"ohos.permission.ENTERPRISE_MANAGE_APPLICATION"
+			}, {
+				"name":	"ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT"
+			}, {
+				"name":	"ohos.permission.ENTERPRISE_MANAGE_DEVICE_ADMIN"
+			}, {
+				"name":	"ohos.permission.ENTERPRISE_DEACTIVATE_DEVICE_ADMIN"
+			}, {
+				"name":	"ohos.permission.ENTERPRISE_ACTIVATE_DEVICE_ADMIN"
+			}, {
+				"name":	"ohos.permission.ENTERPRISE_MANAGE_DELEGATED_POLICY"
+			}, {
+				"name":	"ohos.permission.START_PROVISIONING_MESSAGE"
+			}, {
+				"name":	"ohos.permission.ENTERPRISE_MANAGE_SYSTEM"
+			}, {
+				"name":	"ohos.permission.ENTERPRISE_READ_LOG"
+			}, {
+				"name":	"ohos.permission.ENTERPRISE_START_ABILITIES"
+			}],
+		"packageName":	"entry",
+		"virtualMachine":	"ark12.0.2.0",
+		"compileMode":	"esmodule",
+		"dependencies":	[],
+		"descriptionId":	16777220
+	}
+}

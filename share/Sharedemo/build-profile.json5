@@ -1,0 +1,51 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/ming/.ohos/config/default_test-demo_Sv0pO34COOFGdLj2eS77CQcxRFk6S3SDeftZfmJszy0=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B53515C44ECCE00BA9F6C217035D69E70D56345EA960C0C0B6D6DDE7999853C390919D2EA9B5531",
+          "profile": "/Users/ming/.ohos/config/default_test-demo_Sv0pO34COOFGdLj2eS77CQcxRFk6S3SDeftZfmJszy0=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/ming/.ohos/config/default_test-demo_Sv0pO34COOFGdLj2eS77CQcxRFk6S3SDeftZfmJszy0=.p12",
+          "storePassword": "0000001BB70E364A07AD0B0A65CD4BA42B62F963DAB5DEE2B6A017B82E82BEC3F2D87DA20F5B714B2A725B"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compatibleSdkVersion": "26.0.0",
+        "targetSdkVersion": "26.0.0",
+        "runtimeOS": "HarmonyOS",
+        "arkTSVersion": "1.1"
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug"
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}

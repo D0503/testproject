@@ -114,21 +114,35 @@
       "schemaVersion": "1.0"
     },
     {
+      "id": "knock-precise-share",
+      "displayName": "碰一碰精准分享",
+      "aliases": [
+        "碰一碰分享",
+        "碰一碰",
+        "超近场分享",
+        "knockShare",
+        "knock share",
+        "harmonyShare",
+        "华为分享"
+      ],
+      "description": "基于HarmonyOS Share Kit的碰一碰（超近场）分享能力：手机间内容分享、手机与PC/2in1/Tablet文件分享与沙箱接收、目标设备一步直达与指定应用直达、基于轻碰坐标的精准分享，以及碰一碰卡片模板设计规范、错误码与异常排查。不含普通系统分享面板的通用分享场景。",
+      "status": "ready",
+      "scenarios": "capabilities/knock-precise-share/scenarios.json",
+      "routingReference": "capabilities/knock-precise-share/routing.md",
+      "packageVersion": "1.0.0",
+      "schemaVersion": "1.0"
+    },
+    {
       "id": "spatial-audio",
       "displayName": "空间音频",
       "aliases": [
-        "空间音频",
         "空间音频渲染",
-        "空间渲染",
-        "spatial audio",
-        "AudioSpatializationManager",
-        "OHAudioSuite",
-        "HOA空间渲染",
-        "空间音频查询订阅"
+        "空间化",
+        "AudioSpatialization",
+        "SpaceRender"
       ],
-      "description": "覆盖空间音频两条路线：C/C++ OHAudioSuite 空间渲染管线（引擎/管线/节点生命周期、REALTIME 实时预览、固定摆位/旋转/扩展三模式参数、HOA 节点约束）与 ArkTS AudioSpatializationManager 设备能力查询、开关状态查询与状态订阅。",
+      "description": "覆盖空间音频两块官网能力：C/C++ OHAudioSuite 三维空间音频渲染（管线构建、实时预览、固定摆位/旋转/扩展三模式、HOA 节点）与 ArkTS AudioSpatializationManager 设备空间音频能力查询、渲染开关状态查询与订阅。不含空间音频开关的设置类接口（确认资料未含）与其他音频特效（均衡器、变声、降噪等，仅在引擎参考中作为依赖出现）。",
       "status": "ready",
-      "readinessMeaning": "能力包登记空间音频两路线场景、官网入口与判据骨架；渲染效果依赖真机与耳机双耳重放，开发判据从本次冻结官网现提，API 行为与错误码按运行检查验证。",
       "scenarios": "capabilities/spatial-audio/scenarios.json",
       "routingReference": "capabilities/spatial-audio/routing.md",
       "packageVersion": "1.0.0",

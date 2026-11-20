@@ -1,0 +1,1760 @@
+{
+  "schemaVersion": "1.0",
+  "featureId": "knock-precise-share",
+  "displayName": "碰一碰精准分享",
+  "defaultRoute": "share-kit-knock",
+  "routes": [
+    {
+      "id": "share-kit-knock",
+      "displayName": "Share Kit 碰一碰分享路线",
+      "status": "ready",
+      "projectRequirements": {
+        "model": "stage",
+        "minCompileApi": 26,
+        "minTargetApi": 20,
+        "minCompatibleApi": null,
+        "compatibleApiMayBeLower": true,
+        "compatibilityPolicy": "各接口起始版本以本次冻结官网快照现提为准，不得仅按能力名称推断：harmonyShare模块仅Stage模型、起步5.0.0(12)；on('dataReceive')沙箱接收、on('knockShare')带SendCapabilityRegistry重载、updateShareData、指定应用直达均自6.0.0(20)起；clarifyNonShare自6.0.2(22)；Tablet互通与dataReceive在Tablet可用自6.1.0(23)；SharableTarget/ReceivableTarget的getInfo()轻碰坐标自26.0.0。轻碰坐标等高版本接口须按官网指引做运行时版本与设备校验（如deviceInfo校验后降级为普通碰一碰分享）。"
+      },
+      "sdk": {
+        "preferredApi": 26,
+        "validatedLocalVersion": null,
+        "requiredDeclarationGlobs": [
+          "**/@kit.ShareKit.d.ts"
+        ],
+        "requiredSymbols": [
+          "harmonyShare",
+          "systemShare"
+        ]
+      },
+      "supportedTargets": {
+        "harmonyShare": [
+          "on",
+          "off",
+          "SharableTarget",
+          "ReceivableTarget",
+          "SendCapabilityRegistry",
+          "RecvCapabilityRegistry",
+          "RecvCapability",
+          "ShareResultCode",
+          "SharableErrorCode",
+          "ReceivableErrorCode"
+        ],
+        "systemShare": [
+          "SharedData",
+          "SharedRecord",
+          "getSharedData",
+          "getWant"
+        ]
+      },
+      "intentPatterns": [
+        "碰一碰",
+        "knockShare",
+        "knock share",
+        "harmonyShare",
+        "华为分享",
+        "超近场分享"
+      ]
+    }
+  ],
+  "projectSignals": [
+    {
+      "id": "share-kit-import",
+      "route": "share-kit-knock",
+      "extensions": [
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "@kit\\.ShareKit"
+    },
+    {
+      "id": "harmony-share-events",
+      "route": "share-kit-knock",
+      "extensions": [
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "harmonyShare\\.(on|off)\\s*\\(\\s*['\"](knockShare|dataReceive)['\"]"
+    },
+    {
+      "id": "knock-share-targets",
+      "route": "share-kit-knock",
+      "extensions": [
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "(sharableTarget|receivableTarget)\\.(share|receive|reject|getInfo|updateShareData|clarifyNonShare)\\s*\\("
+    },
+    {
+      "id": "knock-coordinate",
+      "route": "share-kit-knock",
+      "extensions": [
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "coordinate\\??\\.(screenX|screenY)"
+    },
+    {
+      "id": "system-share-data",
+      "route": "share-kit-knock",
+      "extensions": [
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "systemShare\\.Shared(Data|Record)|systemShare\\.getSharedData\\s*\\("
+    },
+    {
+      "id": "designated-app-direct-metadata",
+      "route": "share-kit-knock",
+      "extensions": [
+        ".json",
+        ".json5"
+      ],
+      "pattern": "shareType|shareBundleName"
+    }
+  ],
+  "safety": {
+    "modifyMinimumScope": true,
+    "preserveDirtyFiles": true,
+    "keepFailedChanges": true,
+    "automaticRollback": false,
+    "automaticSdkUpgrade": false,
+    "automaticEmulatorDownload": false,
+    "automaticUninstall": false,
+    "maxDirectedRepairRounds": 2
+  },
+  "verification": {
+    "layerStatuses": [
+      "passed",
+      "failed",
+      "blocked",
+      "not_run",
+      "inconclusive"
+    ],
+    "verdicts": [
+      "passed",
+      "passed_with_spec_conflict",
+      "build_passed_runtime_pending",
+      "inconclusive",
+      "failed",
+      "blocked"
+    ],
+    "visualSuccessRequiresObservation": true,
+    "buildCommand": "devecocli build",
+    "runCommand": "devecocli run",
+    "devicePolicy": "run-only-when-requested-and-exactly-one-device-selected"
+  },
+  "entryPoints": [
+    {
+      "snapshotId": "doc-4d6176984d73949355f2",
+      "title": "碰一碰文件分享",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-advanced-features/bpta-application-knock-file-share"
+    },
+    {
+      "snapshotId": "doc-f711e61c84a2c427a113",
+      "title": "概述",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/knock-share-pc-phones-overview"
+    },
+    {
+      "snapshotId": "doc-31a9aa66283177125531",
+      "title": "harmonyShare（华为分享）",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/share-harmony-share"
+    },
+    {
+      "snapshotId": "doc-0e959cbf27f28fe46a0a",
+      "title": "目标设备接收分享数据一步直达体验",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/share-access-one-step"
+    },
+    {
+      "snapshotId": "doc-72f096aae754c118bb39",
+      "title": "systemShare（分享）",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/share-system-share"
+    },
+    {
+      "snapshotId": "doc-d8dcad5a7b0058ce32ca",
+      "title": "分享内容直达应用界面",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/knock-share-pc-phones-sandbox"
+    },
+    {
+      "snapshotId": "doc-d40d684304271d423dad",
+      "title": "手机与PC/2in1、手机与Tablet间相互分享",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/knock-share-pc-phones-mutually"
+    },
+    {
+      "snapshotId": "doc-c5e31f70f0dddf3b5d42",
+      "title": "ArkTS API错误码",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/share-error-code"
+    },
+    {
+      "snapshotId": "doc-2f8df6501e4f8ae067d1",
+      "title": "内容分享",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/knock-share-between-phones-content"
+    },
+    {
+      "snapshotId": "doc-8d178ef3e5880e44c7ff",
+      "title": "碰一碰",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/design-guides/onehop-0000002354602581"
+    },
+    {
+      "snapshotId": "doc-09e5b83c03534aa5efc1",
+      "title": "分享数据类型不支持",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/share-faq-2"
+    },
+    {
+      "snapshotId": "doc-4699d6373dffaf17af23",
+      "title": "分享时提示“您选择的文件不支持分享”",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/share-faq-3"
+    }
+  ],
+  "reviewDocuments": [
+    {
+      "snapshotId": "doc-4d6176984d73949355f2",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-f711e61c84a2c427a113",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-31a9aa66283177125531",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-0e959cbf27f28fe46a0a",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-72f096aae754c118bb39",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-d8dcad5a7b0058ce32ca",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-d40d684304271d423dad",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-c5e31f70f0dddf3b5d42",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-2f8df6501e4f8ae067d1",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-8d178ef3e5880e44c7ff",
+      "role": "ux"
+    },
+    {
+      "snapshotId": "doc-09e5b83c03534aa5efc1",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-4699d6373dffaf17af23",
+      "role": "guide"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "KPS-S001",
+      "displayName": "手机间碰一碰内容分享（发送端）",
+      "route": "share-kit-knock",
+      "intentPatterns": [
+        "手机间碰一碰内容分享",
+        "发送分享数据",
+        "碰一碰发送端",
+        "knockShare注册",
+        "SharableTarget",
+        "updateShareData",
+        "clarifyNonShare",
+        "碰一碰卡片模板",
+        "对端身份展示"
+      ],
+      "intentGroups": [
+        [
+          "碰一碰",
+          "发送"
+        ],
+        [
+          "碰一碰",
+          "内容分享"
+        ],
+        [
+          "knockShare",
+          "监听"
+        ]
+      ],
+      "intentPriority": 1,
+      "targets": [
+        "harmonyShare.on",
+        "SendCapabilityRegistry",
+        "SharableTarget",
+        "systemShare.SharedData",
+        "updateShareData",
+        "clarifyNonShare"
+      ],
+      "sources": [
+        "doc-2f8df6501e4f8ae067d1",
+        "doc-31a9aa66283177125531",
+        "doc-72f096aae754c118bb39"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "knockShare事件注册与生命周期",
+            "hint": "核对harmonyShare.on/off('knockShare')的注册与解除时机（含切后台经eventHub解除监听）、重复注册风险，以及PC/2in1使用带SendCapabilityRegistry重载的场景。",
+            "mustResolve": true
+          },
+          {
+            "topic": "SendCapabilityRegistry窗口与发送约束",
+            "hint": "核对windowId取值要求（真实窗口ID，如经window.getLastWindow获取）与sendOnly语义（默认false；双端true时双向分享被拦截）在冻结快照中的表述。",
+            "mustResolve": true
+          },
+          {
+            "topic": "分享数据构造约束",
+            "hint": "核对SharedData/SharedRecord：utd必填、content与uri至少一项非空、缩略图大小限制、记录数上限；文件与纯文本不可混合、不支持多条纯文本。",
+            "mustResolve": true
+          },
+          {
+            "topic": "卡片模板自动生成规则",
+            "hint": "核对title/description是否传入与预览图宽高比如何决定纯图片/沉浸式大卡/白卡上下布局，以及标题约2行、描述1行、预览图超限压缩等展示限制。",
+            "mustResolve": true
+          },
+          {
+            "topic": "链接分享utd与跳转差异",
+            "hint": "核对链接分享utd必须为general.hyperlink，以及App Linking未安装拉起浏览器/应用市场与Deep Linking未安装弹窗提示的差异。",
+            "mustResolve": true
+          },
+          {
+            "topic": "预览图延迟更新",
+            "hint": "核对sharableTarget.updateShareData(UpdatedData.thumbnailUri)的适用前提（云端内容先发核心数据再延迟更新）、仅碰一碰支持的表述与起始版本（摘要记录6.0.0(20)，现提核对）。",
+            "mustResolve": true
+          },
+          {
+            "topic": "异常终止与拒绝策略",
+            "hint": "核对clarifyNonShare（摘要记录起始6.0.2(22)、仅碰一碰）与reject(SharableErrorCode: NO_CONTENT_ERROR/NO_INTERNET_ERROR/DOWNLOAD_ERROR)的适用场景与选择依据。",
+            "mustResolve": true
+          },
+          {
+            "topic": "对端身份展示与安全策略",
+            "hint": "核对轻碰后展示对端华为账号昵称/头像或设备信息的起始版本（摘要记录NEXT 5.0.0.123 SP16）及其不可绕过性。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "KPS-S001-P01",
+            "topic": "updateShareData适用范围",
+            "positions": [
+              "harmonyShare参考将updateShareData标注为仅碰一碰分享支持（摘要记录6.0.0(20)起）",
+              "内容分享指南将其用于云端预览图延迟更新场景——需现提确认两处描述的适用条件一致"
+            ]
+          },
+          {
+            "id": "KPS-S001-P02",
+            "topic": "卡片模板分类口径",
+            "positions": [
+              "内容分享指南按title/description与预览图宽高比自动生成三类布局",
+              "设计指南按数据类型给出五类模板（图片视频/文件/链接名片/其他）——需现提确认开发侧参数与设计侧模板的对应关系"
+            ]
+          },
+          {
+            "id": "KPS-S001-P03",
+            "topic": "reject错误码触发条件",
+            "positions": [
+              "NO_CONTENT_ERROR/NO_INTERNET_ERROR/DOWNLOAD_ERROR分别对应无内容/无网络/下载失败场景",
+              "实际触发链路（如云端内容下载失败）需以冻结快照描述与真机行为为准"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "在满足版本与同账号约束的设备上，发送端注册knockShare监听，轻碰触发后按卡片模板规则构造合法SharedData并完成share()，系统呈现对端身份展示与分享卡片，完成后按生命周期解除监听。",
+          "criteriaTopics": [
+            "knockShare事件注册与生命周期",
+            "SendCapabilityRegistry窗口与发送约束",
+            "分享数据构造约束",
+            "卡片模板自动生成规则",
+            "对端身份展示与安全策略"
+          ]
+        },
+        {
+          "assertion": "链接分享按判据配置general.hyperlink的utd后，接收端按App Linking/Deep Linking规则直达或提示；utd或数据构成非法时分享失败并给出明确错误反馈而非静默丢弃。",
+          "criteriaTopics": [
+            "链接分享utd与跳转差异",
+            "分享数据构造约束"
+          ]
+        },
+        {
+          "assertion": "异常场景（无内容/无网络/下载失败）按判据选择clarifyNonShare或reject终止分享；云端预览图先发核心数据、再经updateShareData更新成功。",
+          "criteriaTopics": [
+            "预览图延迟更新",
+            "异常终止与拒绝策略"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "按本次冻结判据核对设备/版本/同账号前提，明确发送端形态；PC/2in1或Tablet使用带SendCapabilityRegistry的on('knockShare')重载并传入真实windowId。",
+          "在页面aboutToAppear注册监听、aboutToDisappear或后台事件（eventHub）解除监听，避免重复注册与后台残留。",
+          "回调中构造systemShare.SharedData：utd必填、content与uri至少一项非空；链接分享utd使用general.hyperlink；按卡片模板规则设置title/description/thumbnailUri并遵守文本与预览图限制。",
+          "调用sharableTarget.share(shareData)发起分享；云端内容先发核心数据，随后按需updateShareData更新预览图。",
+          "按异常类型选择clarifyNonShare或reject(SharableErrorCode)终止，保留对端身份展示等系统安全要求，不绕过系统提示。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "kps-s001-knock-on",
+          "kind": "require_any",
+          "patterns": [
+            "harmonyShare\\.on\\s*\\(\\s*['\"]knockShare['\"]"
+          ],
+          "onMissing": "failed",
+          "message": "缺少knockShare事件监听注册。"
+        },
+        {
+          "id": "kps-s001-knock-off",
+          "kind": "require_any",
+          "patterns": [
+            "harmonyShare\\.off\\s*\\(\\s*['\"]knockShare['\"]"
+          ],
+          "onMissing": "failed",
+          "message": "缺少knockShare监听解除处理。"
+        },
+        {
+          "id": "kps-s001-shared-data",
+          "kind": "require_any",
+          "patterns": [
+            "new\\s+systemShare\\.SharedData\\s*\\(",
+            "systemShare\\.SharedRecord"
+          ],
+          "onMissing": "failed",
+          "message": "缺少分享数据构造。"
+        },
+        {
+          "id": "kps-s001-utd",
+          "kind": "require_any",
+          "patterns": [
+            "utd\\s*:\\s*UniformDataType",
+            "utd\\s*:\\s*['\"`]"
+          ],
+          "onMissing": "failed",
+          "message": "缺少utd类型设置。"
+        },
+        {
+          "id": "kps-s001-share-call",
+          "kind": "require_any",
+          "patterns": [
+            "\\.share\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少sharableTarget.share发起分享调用。"
+        }
+      ],
+      "negativeCases": [
+        "utd缺失或content与uri同时为空的SharedData构造",
+        "文件类型与纯文本混合分享、多条纯文本分享",
+        "切后台后未解除knockShare监听导致重复注册",
+        "低于clarifyNonShare起始版本的设备调用该接口",
+        "未展示对端身份信息即完成敏感内容分享"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "install",
+        "runtime"
+      ]
+    },
+    {
+      "id": "KPS-S002",
+      "displayName": "目标设备接收落位与一步/指定应用直达",
+      "route": "share-kit-knock",
+      "intentPatterns": [
+        "目标设备接收",
+        "一步直达",
+        "指定应用直达",
+        "指定应用拉起",
+        "shareType",
+        "shareBundleName",
+        "接收落位",
+        "碰一碰接收",
+        "华为分享目录"
+      ],
+      "intentGroups": [
+        [
+          "一步",
+          "直达"
+        ],
+        [
+          "指定应用",
+          "直达"
+        ],
+        [
+          "碰一碰",
+          "接收"
+        ]
+      ],
+      "intentPriority": 2,
+      "targets": [
+        "shareType",
+        "shareBundleName",
+        "getSharedData",
+        "一步直达"
+      ],
+      "sources": [
+        "doc-0e959cbf27f28fe46a0a",
+        "doc-72f096aae754c118bb39"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "接收落位规则矩阵",
+            "hint": "核对一步直达按数据类型的落位：媒体（PC/2in1存文件管理华为分享目录、其他设备存图库华为分享相册）、链接、纯文本、文件、自定义utd的存储位置与打开方式。",
+            "mustResolve": true
+          },
+          {
+            "topic": "链接直达行为差异",
+            "hint": "核对AppLinking未安装时拉起浏览器/应用市场、Deeplink未安装弹窗提示、普通http/https链接直达浏览器的行为差异。",
+            "mustResolve": true
+          },
+          {
+            "topic": "沙箱接收类型前提",
+            "hint": "核对沙箱接收仅支持文件类型（含预置与自定义utd）、存应用沙箱指定目录且应用自行处理预览的前提条件。",
+            "mustResolve": true
+          },
+          {
+            "topic": "指定应用直达metadata配置",
+            "hint": "核对module.json5 abilities.skills隐式Want匹配与metadata中shareType（分组匹配、仅一项生效）、shareBundleName（可多项、按序匹配第一个已安装且支持拉起的应用）的配置规则。",
+            "mustResolve": true
+          },
+          {
+            "topic": "同包名优先直达",
+            "hint": "核对同包名应用优先直达的隐式Want匹配前提与触发顺序。",
+            "mustResolve": true
+          },
+          {
+            "topic": "指定直达能力限制",
+            "hint": "核对限制清单：仅同开发者账号应用、不支持媒体类文件与压缩包、不支持多文件（2个及以上）、仅碰一碰分享；起始版本摘要记录6.0.0(20) Beta3需现提核对。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "KPS-S002-P01",
+            "topic": "媒体文件落位分歧",
+            "positions": [
+              "一步直达：图片/视频在PC/2in1存文件管理华为分享目录、其他设备存图库华为分享相册",
+              "沙箱接收：注册匹配utd时文件进入应用沙箱目录——需现提确认两条路径的优先级与触发条件"
+            ]
+          },
+          {
+            "id": "KPS-S002-P02",
+            "topic": "直达目标解析顺序",
+            "positions": [
+              "同包名应用优先直达（需满足隐式Want匹配）",
+              "同开发者账号下再经shareType分组匹配、shareBundleName按序匹配——需现提确认三级规则的优先顺序与边界"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "按发送数据类型核对目标设备落位：媒体、链接、纯文本、文件、自定义utd分别按规则矩阵到达指定位置或应用；未注册匹配的沙箱能力时走系统默认接收。",
+          "criteriaTopics": [
+            "接收落位规则矩阵",
+            "链接直达行为差异",
+            "沙箱接收类型前提"
+          ]
+        },
+        {
+          "assertion": "配置指定应用直达后，满足限制条件（单文件、非媒体/压缩包、同开发者账号、碰一碰触发）时按同包名优先、shareType/shareBundleName顺序拉起目标应用；不满足限制时回退系统默认落位而非拉起失败。",
+          "criteriaTopics": [
+            "指定应用直达metadata配置",
+            "同包名优先直达",
+            "指定直达能力限制"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "按本次冻结判据确认目标设备接收路径（系统一步直达或应用沙箱接收），并列出本次分享数据类型与预期落位。",
+          "需要指定应用直达时，在module.json5配置abilities.skills隐式Want匹配，并在metadata配置shareType与shareBundleName，核对仅一项shareType生效。",
+          "目标应用被拉起后解析分享数据（可用systemShare.getSharedData(want)），按record.utd分支处理内容；自定义utd无应用可打开时遵循系统提示行为。",
+          "对照限制清单验证负例（多文件、媒体、压缩包、跨开发者账号）应回退系统默认接收，不因配置错误导致拉起失败或数据丢失。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "kps-s002-designated-metadata",
+          "kind": "require_any",
+          "patterns": [
+            "shareType",
+            "shareBundleName"
+          ],
+          "onMissing": "failed",
+          "message": "缺少指定应用直达metadata配置（shareType/shareBundleName）。"
+        },
+        {
+          "id": "kps-s002-skills-want",
+          "kind": "require_any",
+          "patterns": [
+            "skills\\s*:",
+            "entities\\s*:",
+            "actions\\s*:"
+          ],
+          "onMissing": "failed",
+          "message": "缺少abilities.skills隐式Want匹配配置。"
+        },
+        {
+          "id": "kps-s002-receive-parse",
+          "kind": "require_any",
+          "patterns": [
+            "systemShare\\.getSharedData\\s*\\(",
+            "onNewWant\\s*\\(",
+            "getWant\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少接收侧分享数据/want处理入口。"
+        }
+      ],
+      "negativeCases": [
+        "2个及以上文件时期待指定应用直达被拉起",
+        "媒体类文件或压缩包配置指定直达",
+        "跨开发者账号应用通过shareBundleName期望被拉起",
+        "同时配置多个shareType期望全部生效",
+        "沙箱接收capabilities注册为空数组或utd不匹配"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "install",
+        "runtime"
+      ]
+    },
+    {
+      "id": "KPS-S003",
+      "displayName": "手机与PC/2in1、Tablet互分享与沙箱接收",
+      "route": "share-kit-knock",
+      "intentPatterns": [
+        "沙箱接收",
+        "dataReceive",
+        "RecvCapabilityRegistry",
+        "receivableTarget",
+        "碰一碰文件分享",
+        "手机与电脑分享",
+        "手机与平板分享",
+        "互分享",
+        "ShareResultCode",
+        "华为分享接收"
+      ],
+      "intentGroups": [
+        [
+          "碰一碰",
+          "沙箱"
+        ],
+        [
+          "dataReceive",
+          "接收"
+        ],
+        [
+          "碰一碰",
+          "文件分享"
+        ]
+      ],
+      "intentPriority": 2,
+      "targets": [
+        "dataReceive",
+        "RecvCapabilityRegistry",
+        "receivableTarget.receive",
+        "ShareResultCode",
+        "RecvCapability"
+      ],
+      "sources": [
+        "doc-d8dcad5a7b0058ce32ca",
+        "doc-d40d684304271d423dad",
+        "doc-4d6176984d73949355f2",
+        "doc-f711e61c84a2c427a113",
+        "doc-31a9aa66283177125531"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "dataReceive监听注册与生命周期",
+            "hint": "核对on/off('dataReceive')的注册与取消时机（如aboutToAppear/aboutToDisappear成对调用）、两次调用使用相同capabilityRegistry、windowId为真实窗口ID。",
+            "mustResolve": true
+          },
+          {
+            "topic": "RecvCapabilityRegistry构造约束",
+            "hint": "核对windowId必填、capabilities不能为空数组、每项含utd与maxSupportedCount（须大于0）的官方约束。",
+            "mustResolve": true
+          },
+          {
+            "topic": "沙箱接收receive回调处理",
+            "hint": "核对receive的沙箱URI必须真实存在，onDataReceived中经systemShare.SharedData.getRecords()读取record.uri/utd，onResult按ShareResultCode分支处理。",
+            "mustResolve": true
+          },
+          {
+            "topic": "拒绝接收与结果码语义",
+            "hint": "核对reject(harmonyShare.ReceivableErrorCode.NO_RECEIVABLE_ERROR)的使用场景与ShareResultCode各枚举值含义。",
+            "mustResolve": true
+          },
+          {
+            "topic": "类型与数量不匹配的回退行为",
+            "hint": "核对类型不匹配时跳过已注册沙箱能力、按华为分享默认逻辑接收，数量不匹配时系统弹窗提示的官方描述。",
+            "mustResolve": true
+          },
+          {
+            "topic": "文件分享SharedRecord构造与URI转换",
+            "hint": "核对文件分享场景uri与utd必填、uri须由fileUri.getUriFromPath()从路径转换、utd推荐getUniformDataTypeByFilenameExtension()查询。",
+            "mustResolve": true
+          },
+          {
+            "topic": "utd类型与默认存储落位",
+            "hint": "核对utd=IMAGE默认存图库、FILE存文件管理等一步直达落位规则，与沙箱接收存应用沙箱目录的差异。",
+            "mustResolve": true
+          },
+          {
+            "topic": "内容分享与文件分享不可混合",
+            "hint": "核对content（内容分享必填）与uri（文件分享必填）不可混用，混合时数据可能丢失或提示无效类型的官方约束。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "kps-s003-datareceive-device-scope",
+            "topic": "dataReceive设备可用性",
+            "positions": [
+              "仅PC/2in1可正常调用，其他设备返回801错误码",
+              "6.1.0(23)起PC/2in1与Tablet均可用",
+              "所有设备类型均可调用"
+            ]
+          },
+          {
+            "id": "kps-s003-type-mismatch-fallback",
+            "topic": "类型不匹配时的行为",
+            "positions": [
+              "跳过已注册沙箱接口能力，回退华为分享默认逻辑接收",
+              "直接分享失败并向应用返回错误"
+            ]
+          },
+          {
+            "id": "kps-s003-mixed-content-file",
+            "topic": "内容与文件混合分享",
+            "positions": [
+              "不支持混合，数据可能丢失或提示无效的数据类型",
+              "允许同一条SharedRecord同时携带content与uri"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "满足版本与设备条件时（PC/2in1可用，Tablet互通版本门槛以本次冻结快照现提为准），on('dataReceive')按官网契约注册成功；轻碰触发后onDataReceived获得写入沙箱目录的文件、onResult返回SHARE_SUCCESS；类型或数量不匹配时按官网描述回退默认接收逻辑或出现系统提示，未验证真机前不宣称通过。",
+          "criteriaTopics": [
+            "dataReceive监听注册与生命周期",
+            "RecvCapabilityRegistry构造约束",
+            "沙箱接收receive回调处理",
+            "拒绝接收与结果码语义",
+            "类型与数量不匹配的回退行为"
+          ]
+        },
+        {
+          "assertion": "文件分享SharedRecord按uri+utd构造、uri经fileUri.getUriFromPath()转换后，发送端可正常分享；接收落位与utd类型一致（如IMAGE图库、FILE文件管理，以现提结论为准）；content与uri混合构造被识别为负例并按官网约束处理。",
+          "criteriaTopics": [
+            "文件分享SharedRecord构造与URI转换",
+            "utd类型与默认存储落位",
+            "内容分享与文件分享不可混合"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "先核对设备与版本门槛：dataReceive的可用设备范围与起始版本（摘要记录6.0.0(20)起、设备差异见冲突监测点）一律以本次冻结官网快照现提为准，不满足时给出降级路径。",
+          "在页面生命周期内用同一RecvCapabilityRegistry（真实windowId + 非空capabilities[{utd, maxSupportedCount>0}]）成对注册与取消on/off('dataReceive')监听。",
+          "发送侧构造文件分享SharedRecord：uri由fileUri.getUriFromPath()从真实文件路径转换，utd按getUniformDataTypeByFilenameExtension()查询确定；不与content混用。",
+          "接收回调中对receivableTarget调用receive(真实存在的沙箱目录)：onDataReceived遍历systemShare.SharedData.getRecords()处理record.uri/utd，onResult按ShareResultCode分支提示，需要拒绝时调用reject(NO_RECEIVABLE_ERROR)。",
+          "类型或数量不匹配时不阻断系统默认回退行为，按官网描述记录实际现象，不自行实现替代弹窗。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "kps-s003-datareceive-on",
+          "kind": "require_any",
+          "patterns": [
+            "harmonyShare\\.on\\s*\\(\\s*['\"]dataReceive['\"]"
+          ],
+          "onMissing": "failed",
+          "message": "缺少dataReceive监听注册。"
+        },
+        {
+          "id": "kps-s003-datareceive-off",
+          "kind": "require_any",
+          "patterns": [
+            "harmonyShare\\.off\\s*\\(\\s*['\"]dataReceive['\"]"
+          ],
+          "onMissing": "failed",
+          "message": "缺少dataReceive监听取消。"
+        },
+        {
+          "id": "kps-s003-recv-registry",
+          "kind": "require_any",
+          "patterns": [
+            "RecvCapabilityRegistry"
+          ],
+          "onMissing": "failed",
+          "message": "缺少RecvCapabilityRegistry能力声明。"
+        },
+        {
+          "id": "kps-s003-receive-call",
+          "kind": "require_any",
+          "patterns": [
+            "\\.receive\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少receivableTarget.receive沙箱接收调用。"
+        },
+        {
+          "id": "kps-s003-records-handle",
+          "kind": "require_any",
+          "patterns": [
+            "getRecords\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少SharedData.getRecords()结果处理。"
+        },
+        {
+          "id": "kps-s003-result-handle",
+          "kind": "require_any",
+          "patterns": [
+            "ShareResultCode|onResult"
+          ],
+          "onMissing": "failed",
+          "message": "缺少接收结果处理。"
+        },
+        {
+          "id": "kps-s003-file-uri-convert",
+          "kind": "require_any",
+          "patterns": [
+            "fileUri\\.getUriFromPath\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "文件分享uri未通过fileUri.getUriFromPath()转换。"
+        }
+      ],
+      "negativeCases": [
+        "capabilities为空数组或maxSupportedCount≤0仍注册监听",
+        "receive传入不存在或不可访问的沙箱URI",
+        "on与off使用不一致的capabilityRegistry导致监听残留",
+        "文件分享未传uri、或uri未经fileUri.getUriFromPath()转换",
+        "同一SharedRecord混合content与uri构造（内容+文件混合分享）",
+        "在不满足设备范围的设备上调用on('dataReceive')且未处理801错误码",
+        "类型不匹配时自行拦截系统默认回退逻辑"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build"
+      ]
+    },
+    {
+      "id": "KPS-S004",
+      "displayName": "碰一碰精准分享（轻碰坐标）",
+      "route": "share-kit-knock",
+      "intentPatterns": [
+        "碰一碰精准分享",
+        "精准分享",
+        "轻碰坐标",
+        "触发点",
+        "坐标插入",
+        "插入位置",
+        "getInfo",
+        "coordinate",
+        "screenX",
+        "screenY",
+        "hitTestComponentIds"
+      ],
+      "intentGroups": [
+        [
+          "碰一碰",
+          "坐标"
+        ],
+        [
+          "触发点",
+          "插入"
+        ],
+        [
+          "精准分享",
+          "位置"
+        ]
+      ],
+      "intentPriority": 2,
+      "targets": [
+        "getInfo",
+        "coordinate",
+        "screenX",
+        "screenY",
+        "SharableTarget",
+        "ReceivableTarget"
+      ],
+      "sources": [
+        "doc-d40d684304271d423dad",
+        "doc-4d6176984d73949355f2",
+        "doc-31a9aa66283177125531"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "getInfo轻碰坐标语义",
+            "hint": "核对SharableTarget/ReceivableTarget的getInfo().coordinate返回screenX/screenY的语义（整数px、以屏幕左上角为原点）与可空性处理。",
+            "mustResolve": true
+          },
+          {
+            "topic": "坐标能力版本与设备门槛",
+            "hint": "核对getInfo坐标能力的起始版本与适用设备（摘要记录26.0.0起、电脑设备），以及官网给出的运行时校验方式（如deviceInfo设备类型与API可用性判断）与降级路径。",
+            "mustResolve": true
+          },
+          {
+            "topic": "触发点位置匹配业务分支",
+            "hint": "核对系统识别触发点的官方行为：接收端触发点位置存在图片/视频时新文件自动插入该位置、无匹配元素时追加到文件列表末尾；发送端触发点无匹配图片时不发送。",
+            "mustResolve": true
+          },
+          {
+            "topic": "发送端与接收端坐标获取差异",
+            "hint": "核对发送侧sharableTarget.getInfo().coordinate与接收侧receivableTarget.getInfo()的调用时机、返回结构与业务用途差异。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "kps-s004-coordinate-version",
+            "topic": "坐标能力起始版本",
+            "positions": [
+              "getInfo()坐标能力自26.0.0起提供",
+              "更低版本即可获取轻碰坐标"
+            ]
+          },
+          {
+            "id": "kps-s004-coordinate-origin-unit",
+            "topic": "坐标原点与单位",
+            "positions": [
+              "以屏幕左上角为原点、整数px",
+              "其他原点（如窗口左上角）或非px单位"
+            ]
+          },
+          {
+            "id": "kps-s004-insert-fallback",
+            "topic": "触发点无匹配元素时的行为",
+            "positions": [
+              "接收文件默认追加到文件列表末尾",
+              "拒绝接收或提示插入失败"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "坐标能力满足版本与设备门槛（以本次冻结快照现提为准）时，轻碰事件回调中getInfo()返回触发点坐标（screenX/screenY，整数px、屏幕左上角原点），接收端按触发点是否命中图片/视频执行插入该位置或追加列表末尾，发送端触发点无匹配图片时不发送；门槛不满足时按官网指引降级为普通碰一碰分享，真机轻碰验证完成前不宣称通过。",
+          "criteriaTopics": [
+            "getInfo轻碰坐标语义",
+            "坐标能力版本与设备门槛",
+            "触发点位置匹配业务分支",
+            "发送端与接收端坐标获取差异"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "先做运行时版本与设备校验：按本次冻结官网指引核对设备类型与API可用性（坐标能力版本以快照现提为准），不满足时降级为普通碰一碰分享，不阻断主流程。",
+          "发送端注册on('knockShare')（PC/2in1/Tablet侧按windowId指定可轻碰窗口），构造SharedData后调用sharableTarget.share()，并在回调中经sharableTarget.getInfo().coordinate读取发送侧触发点坐标。",
+          "接收端注册on('dataReceive')（capabilityRegistry约束与沙箱接收场景一致），回调中经receivableTarget.getInfo()获取接收侧触发点坐标，再决定receive与插入策略。",
+          "按官网描述实现位置匹配分支：触发点存在图片/视频时将新文件插入该位置，无匹配元素时追加到文件列表末尾；发送端触发点无匹配图片时不发送。",
+          "坐标一律按整数px、屏幕左上角原点处理，不做比例换算；未验证真机轻碰效果前，坐标插入效果标记为待验证。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "kps-s004-knock-register",
+          "kind": "require_any",
+          "patterns": [
+            "harmonyShare\\.on\\s*\\(\\s*['\"](knockShare|dataReceive)['\"]"
+          ],
+          "onMissing": "failed",
+          "message": "缺少碰一碰事件监听注册。"
+        },
+        {
+          "id": "kps-s004-getinfo",
+          "kind": "require_any",
+          "patterns": [
+            "\\.getInfo\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少getInfo()轻碰坐标获取。"
+        },
+        {
+          "id": "kps-s004-coordinate-read",
+          "kind": "require_any",
+          "patterns": [
+            "coordinate\\??\\.(screenX|screenY)"
+          ],
+          "onMissing": "failed",
+          "message": "缺少coordinate.screenX/screenY坐标读取。"
+        },
+        {
+          "id": "kps-s004-version-gate",
+          "kind": "require_any",
+          "patterns": [
+            "apiAvailable|canIUse\\s*\\(|deviceInfo"
+          ],
+          "onMissing": "failed",
+          "message": "缺少坐标能力的运行时版本/设备校验。"
+        },
+        {
+          "id": "kps-s004-share-or-receive",
+          "kind": "require_any",
+          "patterns": [
+            "\\.(share|receive)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少share/receive数据传输调用。"
+        }
+      ],
+      "negativeCases": [
+        "未做设备类型与API可用性校验直接依赖轻碰坐标",
+        "将坐标按浮点或非px单位自行换算",
+        "触发点无匹配图片/视频时误判为失败而非按官网规则追加列表末尾",
+        "在手机端实现仅电脑支持的精准分享插入逻辑且不降级",
+        "发送端触发点无匹配图片时仍强行发送"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build"
+      ]
+    },
+    {
+      "id": "KPS-S005",
+      "displayName": "碰一碰分享卡片模板与界面设计规范",
+      "route": "share-kit-knock",
+      "intentPatterns": [
+        "卡片模板",
+        "碰一碰卡片",
+        "分享卡片",
+        "卡片区",
+        "预览图",
+        "虫洞区",
+        "名片分享",
+        "文件类卡片",
+        "链接类卡片",
+        "thumbnailUri"
+      ],
+      "intentGroups": [
+        [
+          "碰一碰",
+          "卡片"
+        ],
+        [
+          "碰一碰",
+          "预览图"
+        ],
+        [
+          "分享",
+          "模板"
+        ]
+      ],
+      "intentPriority": 2,
+      "targets": [
+        "thumbnailUri",
+        "卡片模板",
+        "SharedData"
+      ],
+      "sources": [
+        "doc-8d178ef3e5880e44c7ff",
+        "doc-2f8df6501e4f8ae067d1"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "分享界面四区域构成与自定义边界",
+            "hint": "核对碰一碰分享界面虫洞区、卡片区、信息展示区、操作区四区域职责；虫洞区（碰后建立连接顶部出现、卡片飞出/飞入）、信息展示区（华为账号头像+设备名称、1碰多头像叠加）、操作区（发送端引导字符/接收端按钮）均不支持应用自定义，仅卡片区随分享数据适配。",
+            "mustResolve": true
+          },
+          {
+            "topic": "图片视频类卡片比例自适应与裁剪",
+            "hint": "核对该类卡片需传入预览图片或视频、按原图比例在4:1~1:4内自适应、超出范围居中裁剪的规则。",
+            "mustResolve": true
+          },
+          {
+            "topic": "文件类卡片主副文本与固定比例",
+            "hint": "核对该类卡片（文件/WiFi/个人热点）主文本为文件名及类型、副文本为文件大小、卡片固定4:3。",
+            "mustResolve": true
+          },
+          {
+            "topic": "链接类与名片卡片模板约束",
+            "hint": "核对链接类模板主副文本+预览图+应用图标要求、内容分享与名片分享两类、最佳预览图比例4:3/1:1/16:9且超出4:3~16:9居中裁剪，以及名片类模板当前仅对系统联系人应用开放的限制。",
+            "mustResolve": true
+          },
+          {
+            "topic": "其他类卡片适用场景",
+            "hint": "核对该类模板用于系统分享面板碰一碰及无预览图特殊场景，传主副文本与应用图标。",
+            "mustResolve": true
+          },
+          {
+            "topic": "卡片模板开发侧数据映射",
+            "hint": "核对SharedData/SharedRecord的utd、title、description、thumbnailUri与卡片类别及模板自动生成分支（是否传title/description、预览图宽高比<1:1沉浸式大卡、>1:1白卡上下、仅缩略图纯图片布局）的对应关系，以及标题最多2行约20中文、描述1行、预览图超512KB压缩等限制。",
+            "mustResolve": true
+          },
+          {
+            "topic": "预览图选择建议",
+            "hint": "核对预览图主体明确、比例合适、底部无重要信息的建议及推荐分辨率与压缩要求。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "KPS-S005-P01",
+            "topic": "卡片模板开发侧数据映射",
+            "positions": [
+              "内容分享指南：按是否传title/description及预览图宽高比自动生成<1:1沉浸式大卡、>1:1白卡上下、仅缩略图纯图片三种布局",
+              "设计指南：图片视频类按原图比例4:1~1:4自适应、超出居中裁剪；文件类固定4:3；链接类4:3~16:9"
+            ]
+          },
+          {
+            "id": "KPS-S005-P02",
+            "topic": "链接类与名片卡片模板约束",
+            "positions": [
+              "设计指南：名片类模板当前仅对系统联系人应用开放",
+              "内容分享指南：链接分享utd须为general.hyperlink并支持App Linking/Deep Linking跳转，未给出名片类模板的应用接入路径"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "按分享数据类型呈现对应卡片模板：图片视频类按原图比例在4:1~1:4内自适应、超出居中裁剪；文件类固定4:3并展示文件名/类型与文件大小主副文本；链接类使用主副文本+预览图+应用图标且预览图比例在4:3~16:9内；界面仅卡片区随数据适配，虫洞区、信息展示区、操作区保持系统样式不可自定义。",
+          "criteriaTopics": [
+            "分享界面四区域构成与自定义边界",
+            "图片视频类卡片比例自适应与裁剪",
+            "文件类卡片主副文本与固定比例",
+            "链接类与名片卡片模板约束",
+            "其他类卡片适用场景"
+          ]
+        },
+        {
+          "assertion": "开发侧通过SharedData/SharedRecord的utd、title、description、thumbnailUri映射卡片类别，模板按宽高比与文本是否传入自动生成；标题不超过2行约20中文、描述1行、预览图超512KB先压缩；预览图主体明确且底部无重要信息。具体限制以本次冻结快照现提为准。",
+          "criteriaTopics": [
+            "卡片模板开发侧数据映射",
+            "预览图选择建议"
+          ]
+        }
+      ],
+      "demoValidation": {
+        "layoutPolicy": "single_page_preferred",
+        "scopePolicy": {
+          "selection": "prompt_strong_relevance_only",
+          "prerequisiteHandling": "setup_or_static_only",
+          "excludedByDefault": [
+            "轻碰坐标精准分享",
+            "沙箱接收接入",
+            "指定应用直达",
+            "版本与设备差异核验",
+            "错误码排查"
+          ],
+          "excludedCriterionTypes": [
+            "version",
+            "capability",
+            "performance"
+          ],
+          "includeExcludedTypeWhenPromptContains": {
+            "version": [
+              "API",
+              "SDK",
+              "版本"
+            ],
+            "capability": [
+              "设备",
+              "机型",
+              "支持范围"
+            ],
+            "performance": [
+              "性能",
+              "功耗"
+            ]
+          }
+        },
+        "points": [
+          {
+            "id": "D01-01",
+            "title": "碰一碰分享卡片模板分类布局",
+            "execution": "single_page",
+            "criteriaTopics": [
+              "分享界面四区域构成与自定义边界",
+              "图片视频类卡片比例自适应与裁剪",
+              "文件类卡片主副文本与固定比例",
+              "链接类与名片卡片模板约束",
+              "其他类卡片适用场景"
+            ],
+            "demoSetupRequirements": [
+              {
+                "id": "s005-mock-share-data",
+                "description": "Demo页内置四类卡片模板的模拟分享数据（预览图、主副文本、应用图标），仅用于布局对比，不代表真实碰一碰传输。",
+                "enforcement": "implementation_and_static_gate",
+                "countsAsFeatureValidation": false
+              },
+              {
+                "id": "s005-system-region-note",
+                "description": "虫洞区、信息展示区、操作区由系统提供且不支持自定义，Demo页仅呈现卡片区布局并以标注说明系统区域不可模拟。",
+                "enforcement": "implementation_and_static_gate",
+                "countsAsFeatureValidation": false
+              }
+            ],
+            "variants": [
+              {
+                "id": "img-video",
+                "label": "图片视频类卡片（预览图3:4）",
+                "parameters": {
+                  "cardType": "image-video",
+                  "previewRatio": "3:4"
+                }
+              },
+              {
+                "id": "file",
+                "label": "文件类卡片（固定4:3主副文本）",
+                "parameters": {
+                  "cardType": "file",
+                  "ratio": "4:3",
+                  "primaryText": "文件名及类型",
+                  "secondaryText": "文件大小"
+                }
+              },
+              {
+                "id": "link",
+                "label": "链接类卡片（预览图16:9+应用图标）",
+                "parameters": {
+                  "cardType": "link",
+                  "previewRatio": "16:9",
+                  "appIcon": true
+                }
+              },
+              {
+                "id": "other",
+                "label": "其他类卡片（无预览图主副文本+应用图标）",
+                "parameters": {
+                  "cardType": "other",
+                  "appIcon": true
+                }
+              }
+            ]
+          },
+          {
+            "id": "D02-01",
+            "title": "预览图比例自适应与居中裁剪",
+            "execution": "single_page",
+            "criteriaTopics": [
+              "图片视频类卡片比例自适应与裁剪",
+              "预览图选择建议"
+            ],
+            "variants": [
+              {
+                "id": "ratio-4-1",
+                "label": "横版边界4:1",
+                "parameters": {
+                  "previewRatio": "4:1"
+                }
+              },
+              {
+                "id": "ratio-1-4",
+                "label": "竖版边界1:4",
+                "parameters": {
+                  "previewRatio": "1:4"
+                }
+              },
+              {
+                "id": "ratio-out",
+                "label": "超出4:1~1:4居中裁剪",
+                "parameters": {
+                  "previewRatio": "9:16",
+                  "crop": "center"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "implementation": {
+        "steps": [
+          "按设计指南确认分享界面四区域构成与自定义边界：仅卡片区随分享数据适配，虫洞区、信息展示区、操作区保持系统样式。",
+          "按分享数据类型映射卡片类别（图片视频/文件/链接/名片/其他），准备预览图、主副文本、应用图标等素材并核对各自比例与裁剪规则。",
+          "开发侧在SharedData/SharedRecord配置utd、title、description、thumbnailUri，按模板自动生成规则与文本限制（标题2行约20中文、描述1行、预览图超512KB压缩）核对，具体限制每次从冻结快照现提。",
+          "链接类分享utd按官网要求配置（general.hyperlink）；名片类模板按官网开放范围核对，不越界使用。",
+          "以Demo页对比各模板布局与预览图裁剪行为；真机轻碰界面效果未经观察前不宣称通过。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "s005-knock-listener",
+          "kind": "require_any",
+          "patterns": [
+            "harmonyShare\\.on\\s*\\(\\s*['\"]knockShare['\"]"
+          ],
+          "onMissing": "failed",
+          "message": "缺少碰一碰分享事件注册，无法触发卡片模板适配。"
+        },
+        {
+          "id": "s005-card-data-config",
+          "kind": "require_any",
+          "patterns": [
+            "utd\\s*:",
+            "thumbnailUri",
+            "title\\s*:",
+            "description\\s*:"
+          ],
+          "onMissing": "failed",
+          "message": "缺少卡片模板适配所需的分享数据配置（utd/title/description/thumbnailUri任一项）。"
+        }
+      ],
+      "negativeCases": [
+        "尝试自定义虫洞区、信息展示区或操作区（系统不支持自定义）",
+        "普通应用使用名片类模板（当前仅对系统联系人应用开放）",
+        "图片视频类分享未传入预览图或视频",
+        "预览图关键信息置于底部或超出推荐比例范围导致裁剪丢失",
+        "标题超过2行约20个中文、描述超过1行仍未截断",
+        "预览图超过512KB未压缩"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "visual"
+      ]
+    },
+    {
+      "id": "KPS-S006",
+      "displayName": "版本与设备形态差异核验",
+      "route": "share-kit-knock",
+      "crossRoute": true,
+      "intentPatterns": [
+        "版本差异",
+        "设备差异",
+        "设备形态",
+        "Tablet互通",
+        "平板互通",
+        "双向分享",
+        "手机优先发送",
+        "sendOnly",
+        "错误码801",
+        "同一华为账号",
+        "轻碰角度",
+        "保护壳",
+        "版本校验"
+      ],
+      "intentGroups": [
+        [
+          "碰一碰",
+          "版本"
+        ],
+        [
+          "碰一碰",
+          "设备"
+        ],
+        [
+          "碰一碰",
+          "Tablet"
+        ],
+        [
+          "碰一碰",
+          "平板"
+        ]
+      ],
+      "intentPriority": 2,
+      "targets": [
+        "sendOnly",
+        "SendCapabilityRegistry",
+        "deviceInfo",
+        "apiAvailable"
+      ],
+      "sources": [
+        "doc-f711e61c84a2c427a113",
+        "doc-31a9aa66283177125531",
+        "doc-0e959cbf27f28fe46a0a",
+        "doc-d40d684304271d423dad",
+        "doc-d8dcad5a7b0058ce32ca",
+        "doc-4d6176984d73949355f2"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "Tablet互通版本门槛",
+            "hint": "核对Phone与Tablet互通、dataReceive在Tablet可用的起始版本（分析摘要记录6.1.0(23)，须从本次冻结快照现提核对，不得当作已验证事实）。",
+            "mustResolve": true
+          },
+          {
+            "topic": "双向分享限制与手机优先发送机制",
+            "hint": "核对自6.0.0(20) Beta5起双向分享受手机优先发送机制限制（按前台可分享内容判定收发端）、Beta3及之前双端有内容时支持双向的版本差异。",
+            "mustResolve": true
+          },
+          {
+            "topic": "sendOnly双向拦截行为",
+            "hint": "核对SendCapabilityRegistry.sendOnly默认false、仅碰一碰生效、双端均为true时双向分享被拦截的语义。",
+            "mustResolve": true
+          },
+          {
+            "topic": "dataReceive设备差异与801错误码",
+            "hint": "核对on('dataReceive')起始6.0.0(20)、≤6.0.2(22)仅PC/2in1可正常调用（其他设备返回801）、≥6.1.0(23)起PC/2in1与Tablet均可使用的设备差异。",
+            "mustResolve": true
+          },
+          {
+            "topic": "指定应用直达版本起点",
+            "hint": "核对指定应用直达自6.0.0(20) Beta3起、仅碰一碰分享支持的版本与能力边界。",
+            "mustResolve": true
+          },
+          {
+            "topic": "环境要求与同账号前提",
+            "hint": "核对PC/2in1系统HarmonyOS 6.0.0 Beta1+、DevEco Studio 6.0.0 Beta1+、双端登录同一华为账号等前提。",
+            "mustResolve": true
+          },
+          {
+            "topic": "物理姿态与保护壳约束",
+            "hint": "核对仅直板手机或折叠手机直板态、轻碰角度俯视≤5°/侧视＞35°/正视≤25°、手机不得超出PC/2in1屏幕、支持官方保护壳不支持过厚外壳等约束。",
+            "mustResolve": true
+          },
+          {
+            "topic": "运行时版本与设备校验降级",
+            "hint": "核对使用高版本接口（如getInfo轻碰坐标，摘要记录起始26.0.0）前按deviceInfo.deviceType与apiAvailable做运行时校验、不满足时降级为普通碰一碰分享的指引。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "KPS-S006-P01",
+            "topic": "双向分享限制与手机优先发送机制",
+            "positions": [
+              "概述：自6.0.0(20) Beta5起按前台可分享内容判定收发端（手机优先发送），Beta3及之前双端有内容时支持双向",
+              "harmonyShare参考：SendCapabilityRegistry.sendOnly默认false，双端均为true时双向分享被拦截，仅碰一碰生效"
+            ]
+          },
+          {
+            "id": "KPS-S006-P02",
+            "topic": "dataReceive设备差异与801错误码",
+            "positions": [
+              "harmonyShare参考：≤6.0.2(22)仅PC/2in1可正常调用、其他设备返回801；≥6.1.0(23)起PC/2in1与Tablet均可正常使用",
+              "概述与沙箱指南：6.0.0(20)起支持PC/2in1，6.1.0(23)起新增Tablet"
+            ]
+          },
+          {
+            "id": "KPS-S006-P03",
+            "topic": "Tablet互通版本门槛",
+            "positions": [
+              "概述：与Tablet互通需6.1.0(23)+",
+              "互分享指南：6.1.0(23)起Phone与Tablet相互分享"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "在同一华为账号、满足版本与设备形态约束的设备间轻碰可完成分享；版本或设备不满足时按官网判据降级或拦截（如≤6.0.2(22)的非PC/2in1设备调用on('dataReceive')返回801），且调用高版本接口前已做运行时校验。",
+          "criteriaTopics": [
+            "环境要求与同账号前提",
+            "物理姿态与保护壳约束",
+            "Tablet互通版本门槛",
+            "dataReceive设备差异与801错误码",
+            "运行时版本与设备校验降级"
+          ]
+        },
+        {
+          "assertion": "双端均有可分享内容时按手机优先发送机制判定收发端，sendOnly双端均为true时双向分享被拦截；指定应用直达仅在6.0.0(20) Beta3起且仅碰一碰分享场景生效。版本结论均以本次冻结快照现提为准。",
+          "criteriaTopics": [
+            "双向分享限制与手机优先发送机制",
+            "sendOnly双向拦截行为",
+            "指定应用直达版本起点"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "从冻结快照现提harmonyShare/systemShare各接口起始版本与设备差异（模块5.0.0(12)起步、dataReceive与带SendCapabilityRegistry重载及指定应用直达6.0.0(20)、clarifyNonShare 6.0.2(22)、Tablet互通6.1.0(23)、getInfo坐标26.0.0等），逐项形成结论，不将摘要当作已验证事实。",
+          "核对环境前提：PC/2in1系统HarmonyOS 6.0.0 Beta1+、DevEco Studio 6.0.0 Beta1+、双端登录同一华为账号。",
+          "在调用高版本或设备相关接口前实现deviceInfo.deviceType/apiAvailable运行时校验，不满足时降级为普通碰一碰分享或给出提示。",
+          "按概述的姿态约束（直板态、轻碰角度、手机不超出屏幕、保护壳限制）组织真机轻碰验证；真机验证完成前不宣称通过。",
+          "双向分享按手机优先发送机制与sendOnly语义核对收发端判定，并在各冲突监测点逐一给出结论。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "s006-runtime-guard",
+          "kind": "require_any",
+          "patterns": [
+            "deviceInfo\\.deviceType",
+            "apiAvailable\\s*\\(",
+            "canIUse\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少运行时设备/版本校验，跨设备互通与高版本接口须先校验再调用。"
+        },
+        {
+          "id": "s006-capability-registry",
+          "kind": "require_any",
+          "patterns": [
+            "SendCapabilityRegistry",
+            "RecvCapabilityRegistry"
+          ],
+          "onMissing": "failed",
+          "message": "缺少能力注册配置（Send/RecvCapabilityRegistry），无法核对sendOnly与接收能力语义。"
+        },
+        {
+          "id": "s006-listener-unregister",
+          "kind": "require_any",
+          "patterns": [
+            "harmonyShare\\.off\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少事件监听解除调用，页面销毁或退后台时应解除监听。"
+        }
+      ],
+      "negativeCases": [
+        "双端未登录同一华为账号时尝试轻碰分享",
+        "折叠手机非直板态触发轻碰",
+        "轻碰角度超出俯视≤5°/侧视＞35°/正视≤25°或手机超出PC/2in1屏幕",
+        "使用过厚保护壳导致轻碰失败",
+        "≤6.0.2(22)的非PC/2in1设备调用on('dataReceive')收到801错误码",
+        "未做运行时版本校验直接调用26.0.0起的getInfo坐标接口",
+        "双端均设置sendOnly=true后期望双向分享成功"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "runtime"
+      ]
+    },
+    {
+      "id": "KPS-S007",
+      "displayName": "分享错误码与异常排查",
+      "route": "share-kit-knock",
+      "intentPatterns": [
+        "分享错误码",
+        "错误码",
+        "1003700001",
+        "1003702001",
+        "1003702002",
+        "1003703001",
+        "分享失败排查",
+        "分享异常排查",
+        "数据类型不支持",
+        "不支持分享",
+        "记录超限",
+        "IPC超限",
+        "数据解析失败",
+        "文件URI排查",
+        "自定义utd"
+      ],
+      "intentGroups": [
+        [
+          "分享",
+          "错误码"
+        ],
+        [
+          "分享",
+          "排查"
+        ],
+        [
+          "分享",
+          "失败"
+        ],
+        [
+          "数据类型",
+          "不支持"
+        ],
+        [
+          "文件",
+          "不支持分享"
+        ],
+        [
+          "碰一碰",
+          "失败"
+        ]
+      ],
+      "intentPriority": 3,
+      "targets": [
+        "getSharedData",
+        "getContactInfo",
+        "1003700001",
+        "1003702001",
+        "1003702002",
+        "1003703001"
+      ],
+      "sources": [
+        "doc-c5e31f70f0dddf3b5d42",
+        "doc-09e5b83c03534aa5efc1",
+        "doc-4699d6373dffaf17af23"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "错误码1003700001记录超限处理",
+            "hint": "从冻结快照现提该错误码的触发条件（数据记录超过上限，记录数上限为500）与官方处理建议（限制用户可选分享内容数量），不沿用分析摘要当作已验证事实。",
+            "mustResolve": true
+          },
+          {
+            "topic": "错误码1003702001类型与格式校验",
+            "hint": "核对触发条件：批量与多选模式仅支持UDMF.File类型记录、类型非预置UniformDataType或已知自定义类型、uri与content全空、uri格式非法；处理为修正记录类型与字段格式。",
+            "mustResolve": true
+          },
+          {
+            "topic": "错误码1003702002 IPC数据超限处理",
+            "hint": "核对上限口径（跨进程传输上限200KB且含want数据本身字段）与官方处理（压缩SharedRecord缩略图、限制文本字数）。",
+            "mustResolve": true
+          },
+          {
+            "topic": "错误码1003703001解析失败处理",
+            "hint": "核对分享关键信息经want传递时getContactInfo/getSharedData入参非法（非分享类型数据、字段不存在）的行为：中止处理并提示用户，不继续消费脏数据。",
+            "mustResolve": true
+          },
+          {
+            "topic": "分享数据组装负例约束",
+            "hint": "核对FAQ口径：不支持文件类型与纯文本类型混合分享、不支持多条纯文本类型分享；并与碰一碰文件分享指南的“内容分享与文件分享不可混合（数据可能丢失或提示无效类型）”交叉核对。",
+            "mustResolve": true
+          },
+          {
+            "topic": "文件URI不可访问排查",
+            "hint": "核对现象（预览区无法正常显示、提示“您选择的文件不支持分享”）与排查步骤：按文件URI规范核对格式、用fileIo.stat验证文件真实存在与访问权限、比较文件创建时间与分享发起时间。",
+            "mustResolve": true
+          },
+          {
+            "topic": "自定义utd注册与预置类型扩展",
+            "hint": "核对非预置文件类型无法匹配目标应用时的官方扩展途径：通用类型经在线提单提供数据类型信息加入预置类型，或按应用自定义数据类型方式注册utd类型。",
+            "mustResolve": true
+          },
+          {
+            "topic": "模块特有错误码与通用错误码边界",
+            "hint": "核对错误码文档覆盖范围声明：仅覆盖本模块特有错误码，401等通用参数错误另见通用错误码文档；错误处理不得把通用错误码当作模块特有错误码解释。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "KPS-S007-P01",
+            "topic": "IPC 200KB上限口径",
+            "positions": [
+              "上限仅针对SharedRecord分享数据本身（如缩略图、文本）",
+              "上限200KB含want数据本身字段，需整体核算"
+            ]
+          },
+          {
+            "id": "KPS-S007-P02",
+            "topic": "混合分享限制口径",
+            "positions": [
+              "Share Kit FAQ：不支持文件类型与纯文本类型混合、不支持多条纯文本",
+              "碰一碰文件分享指南：不支持内容分享与文件分享混合，数据可能丢失或提示无效类型"
+            ]
+          },
+          {
+            "id": "KPS-S007-P03",
+            "topic": "错误码文档覆盖范围",
+            "positions": [
+              "本文档仅覆盖Share Kit模块特有错误码（100370xxxx）",
+              "401等参数错误属通用错误码，需按通用错误码文档排查"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "构造与解析分享数据时，命中Share Kit特有错误码（1003700001记录超限、1003702001类型或格式非法、1003702002 IPC超限、1003703001解析失败）均有与本次冻结官网一致的判定分支和用户可见处理，不出现官网未定义的错误码语义。",
+          "criteriaTopics": [
+            "错误码1003700001记录超限处理",
+            "错误码1003702001类型与格式校验",
+            "错误码1003702002 IPC数据超限处理",
+            "错误码1003703001解析失败处理",
+            "模块特有错误码与通用错误码边界"
+          ]
+        },
+        {
+          "assertion": "数据组装负例（文件与纯文本混合、多条纯文本、uri与content全空、非预置且未注册类型）在发起分享前被拦截或按官网口径提示；文件URI不可访问时可按URI规范与fileIo.stat定位原因；自定义类型需求经utd注册或在线提单扩展解决。",
+          "criteriaTopics": [
+            "分享数据组装负例约束",
+            "文件URI不可访问排查",
+            "自定义utd注册与预置类型扩展"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "先从本次冻结快照现提各错误码的定义、触发条件与官方处理建议，代码中的错误码语义与数值以现提结果为准，不臆造、不沿用历史摘要。",
+          "构造SharedData/SharedRecord前校验记录数量（上限以冻结官网为准）、utd类型与uri/content字段：禁止文件与纯文本混合、多条纯文本、uri与content全空。",
+          "文件分享前用fileUri.getUriFromPath由路径转换URI，必要时用fileIo.stat核验文件真实存在与访问权限，并可与分享发起时间比对确认文件存在。",
+          "按错误码分别落地处理：记录超限限制可选数量、类型或格式非法修正数据组装、IPC超限压缩缩略图与限制文本、解析失败中止处理并提示用户。",
+          "非预置类型需求按官网指引注册自定义utd类型或通过在线提单申请加入预置类型，不在代码中硬编码未知类型字符串。",
+          "区分模块特有错误码与401等通用错误码：通用参数错误按通用错误码文档排查，不并入模块错误码分支。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "kps-s007-error-code-handling",
+          "kind": "require_any",
+          "patterns": [
+            "1003700001",
+            "1003702001",
+            "1003702002",
+            "1003703001"
+          ],
+          "onMissing": "failed",
+          "message": "缺少Share Kit模块特有错误码（100370xxxx）的处理分支。"
+        },
+        {
+          "id": "kps-s007-shared-data-build-or-parse",
+          "kind": "require_any",
+          "patterns": [
+            "systemShare\\.SharedData",
+            "getSharedData\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少systemShare分享数据的构造或解析调用。"
+        },
+        {
+          "id": "kps-s007-file-uri-accessible",
+          "kind": "require_any",
+          "patterns": [
+            "fileUri\\.getUriFromPath\\s*\\(",
+            "fileIo\\.stat\\s*\\(",
+            "fs\\.stat\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "文件分享缺少URI转换或文件可访问性校验。"
+        },
+        {
+          "id": "kps-s007-utd-type-check",
+          "kind": "require_any",
+          "patterns": [
+            "UniformDataType",
+            "getUniformDataTypeByFilenameExtension\\s*\\(",
+            "\\butd\\b"
+          ],
+          "onMissing": "failed",
+          "message": "分享数据组装缺少utd类型校验。"
+        }
+      ],
+      "negativeCases": [
+        "文件类型与纯文本类型混合构造分享数据，导致数据被丢弃或提示无效的数据类型",
+        "一次分享构造多条纯文本类型记录",
+        "uri与content全空的SharedRecord仍调用addRecord",
+        "记录总数超过官网冻结上限仍继续构造分享数据",
+        "非预置且未注册自定义utd的文件类型直接发起分享，无法匹配目标应用",
+        "缩略图过大或文本过多导致跨进程数据超过官网冻结上限",
+        "使用不存在或无权限访问的文件URI发起文件分享，预览区异常并提示不支持分享",
+        "getSharedData/getContactInfo解析失败后不中止，继续处理非法数据",
+        "把401等通用参数错误当作模块特有错误码解释"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build"
+      ]
+    }
+  ]
+}

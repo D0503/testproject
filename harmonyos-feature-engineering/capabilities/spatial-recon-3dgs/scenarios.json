@@ -1,0 +1,2216 @@
+{
+  "schemaVersion": "1.0",
+  "featureId": "spatial-recon-3dgs",
+  "displayName": "3DGS端侧重建",
+  "defaultRoute": "route-c-ndk-recon",
+  "routes": [
+    {
+      "id": "route-c-ndk-recon",
+      "displayName": "C/C++端侧重建流水线",
+      "status": "ready",
+      "projectRequirements": {
+        "model": "stage",
+        "minCompileApi": 23,
+        "minTargetApi": 23,
+        "minCompatibleApi": null,
+        "compatibleApiMayBeLower": true,
+        "compatibilityPolicy": "C/C++重建接口以官网6.1.0(23)起始口径为基准；HMS_SpatialReconNGCallbackFunc与HMS_SpatialRecon_RegisterNGCallbackFunc等NG回调能力26.0.0起提供。Kit仅支持中国境内（香港、澳门特别行政区、中国台湾除外），适用Phone/Tablet/PC/2in1/TV，暂不支持模拟器；芯片体验边界、单session重建/保存并发限制等约束均以每次冻结的官网快照为准，不得仅凭能力名称推断兼容版本。"
+      },
+      "sdk": {
+        "preferredApi": 23,
+        "validatedLocalVersion": null,
+        "requiredDeclarationGlobs": [
+          "hms/native/sysroot/usr/include/spatial/spatial_recon_interface.h"
+        ],
+        "requiredSymbols": [
+          "HMS_SpatialRecon_IsSupport",
+          "HMS_SpatialRecon_CreateSession",
+          "HMS_SpatialRecon_StartSession",
+          "HMS_SpatialRecon_DestroySession"
+        ]
+      },
+      "supportedTargets": {
+        "native": [
+          "spatial_recon_interface.h",
+          "libspatial_recon_ndk.z.so"
+        ],
+        "structures": [
+          "HMS_SpatialRecon_Session",
+          "HMS_SpatialRecon_DataFrame",
+          "HMS_SpatialRecon_ModelWriteInfo",
+          "AREngine_ARSession",
+          "AREngine_ARFrame"
+        ],
+        "functions": [
+          "HMS_SpatialRecon_IsSupport",
+          "HMS_SpatialRecon_CreateSession",
+          "HMS_SpatialRecon_PushFrame",
+          "HMS_SpatialRecon_PushARFrame",
+          "HMS_SpatialRecon_StartSession",
+          "HMS_SpatialRecon_SetRunningMode",
+          "HMS_SpatialRecon_PauseSession",
+          "HMS_SpatialRecon_ResumeSession",
+          "HMS_SpatialRecon_GetProgress",
+          "HMS_SpatialRecon_GetRefinedFrame",
+          "HMS_SpatialRecon_SaveResultToFile",
+          "HMS_SpatialRecon_DestroySession"
+        ]
+      },
+      "intentPatterns": [
+        "C/C++重建",
+        "端侧重建",
+        "spatial_recon_interface",
+        "HMS_SpatialRecon",
+        "PushFrame",
+        "PushARFrame",
+        "libspatial_recon_ndk",
+        "三维场景重建"
+      ]
+    },
+    {
+      "id": "route-arkts-render",
+      "displayName": "ArkTS 3DGS渲染与编辑",
+      "status": "ready",
+      "projectRequirements": {
+        "model": "stage",
+        "minCompileApi": 21,
+        "minTargetApi": 21,
+        "minCompatibleApi": null,
+        "compatibleApiMayBeLower": true,
+        "compatibilityPolicy": "spatialRender模块以官网6.0.1(21)起始口径为基准，全部接口仅Stage模型可用，且必须先通过ArkGraphics 3D的renderContext.loadPlugin(GSPlugin.PLUGIN_ID)加载插件后再Scene.load与加载节点，否则未定义行为；TiledGSNode/setTileRequestCallback/notifyTileReady分块加载与spatialEdit模块编辑导出仅26.0.0起可用。滤镜效果参数枚举存在6.0.1(21)与6.1.0(23)版本差异；具体接口签名、参数范围与默认值以每次冻结的官网快照为准，不得仅凭能力名称推断兼容版本。"
+      },
+      "sdk": {
+        "preferredApi": 21,
+        "validatedLocalVersion": null,
+        "requiredDeclarationGlobs": [
+          "hms/ets/kits/@kit.SpatialReconKit.d.ts",
+          "hms/ets/api/@hms.graphics.spatialRender.d.ts"
+        ],
+        "requiredSymbols": [
+          "spatialRender",
+          "GSPlugin",
+          "loadGSNode"
+        ]
+      },
+      "supportedTargets": {
+        "kit": [
+          "@kit.SpatialReconKit",
+          "@kit.ArkGraphics3D"
+        ],
+        "render": [
+          "spatialRender.GSPlugin",
+          "GSNode",
+          "TiledGSNode",
+          "loadGSNode",
+          "loadTiledGSNode",
+          "setCamera",
+          "setTileRequestCallback",
+          "notifyTileReady"
+        ],
+        "effects": [
+          "RetroEffect",
+          "ComicEffect",
+          "ObraDinnEffect",
+          "ColorEditingEffect"
+        ],
+        "edit": [
+          "spatialEdit.GSEdit",
+          "saveToPLY",
+          "extract3DMainBody"
+        ]
+      },
+      "intentPatterns": [
+        "spatialRender",
+        "spatialEdit",
+        "GSPlugin",
+        "loadGSNode",
+        "loadTiledGSNode",
+        "加载3DGS",
+        "3DGS滤镜",
+        "分块高斯",
+        "TiledGS",
+        "@kit.SpatialReconKit"
+      ]
+    }
+  ],
+  "projectSignals": [
+    {
+      "id": "spatial-recon-c-ndk",
+      "route": "route-c-ndk-recon",
+      "extensions": [
+        ".c",
+        ".cpp",
+        ".cc",
+        ".h",
+        ".hpp",
+        ".txt"
+      ],
+      "pattern": "HMS_SpatialRecon_|spatial_recon_interface\\.h|libspatial_recon_ndk"
+    },
+    {
+      "id": "spatial-recon-arkts-render",
+      "route": "route-arkts-render",
+      "extensions": [
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "spatialRender\\.|GSPlugin|loadGSNode|loadTiledGSNode"
+    },
+    {
+      "id": "spatial-recon-arkts-edit",
+      "route": "route-arkts-render",
+      "extensions": [
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "spatialEdit\\.|GSEdit|editGSNode"
+    },
+    {
+      "id": "spatial-recon-kit-import",
+      "extensions": [
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "@kit\\.SpatialReconKit"
+    }
+  ],
+  "safety": {
+    "modifyMinimumScope": true,
+    "preserveDirtyFiles": true,
+    "keepFailedChanges": true,
+    "automaticRollback": false,
+    "automaticSdkUpgrade": false,
+    "automaticEmulatorDownload": false,
+    "automaticUninstall": false,
+    "maxDirectedRepairRounds": 2
+  },
+  "verification": {
+    "layerStatuses": [
+      "passed",
+      "failed",
+      "blocked",
+      "not_run",
+      "inconclusive"
+    ],
+    "verdicts": [
+      "passed",
+      "passed_with_spec_conflict",
+      "build_passed_runtime_pending",
+      "inconclusive",
+      "failed",
+      "blocked"
+    ],
+    "visualSuccessRequiresObservation": true,
+    "buildCommand": "devecocli build",
+    "runCommand": "devecocli run",
+    "devicePolicy": "run-only-when-requested-and-exactly-one-device-selected"
+  },
+  "entryPoints": [
+    {
+      "snapshotId": "doc-1e8f00c75a195b8dc4ec",
+      "title": "Spatial Recon Kit简介",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/spatial-recon-introduction"
+    },
+    {
+      "snapshotId": "doc-cb7c2fb957cea2e72212",
+      "title": "加载3DGS模型",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/spatial-recon-load"
+    },
+    {
+      "snapshotId": "doc-d61482c6c4d8f7fd6ab0",
+      "title": "添加滤镜效果",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/spatial-recon-filter"
+    },
+    {
+      "snapshotId": "doc-8d1af86b7f1e680864c3",
+      "title": "重建三维场景（C/C++）",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/spatial-recon-c-spatial-recon-pipeline"
+    },
+    {
+      "snapshotId": "doc-53ca1833a8c480312c1d",
+      "title": "管理Spatial Recon会话",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/spatial-recon-c-spatial-recon-session"
+    },
+    {
+      "snapshotId": "doc-280a5fe2ea26482c868e",
+      "title": "Spatial Recon Kit术语",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/spatial-recon-glossary"
+    },
+    {
+      "snapshotId": "doc-9d36d49b538354a72c00",
+      "title": "spatialRender",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/spatial-recon-spatialrender"
+    },
+    {
+      "snapshotId": "doc-2d9b5615c538c73bfd5a",
+      "title": "HMS_SpatialRecon_DataFrame",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-spatialrecon-hms-spatialrecon-dataframe"
+    },
+    {
+      "snapshotId": "doc-20bf562cf3a363876776",
+      "title": "spatial_recon_interface.h",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-spatial-recon-interface-h"
+    },
+    {
+      "snapshotId": "doc-b629f4f2cb236c71c388",
+      "title": "HMS_SpatialRecon_Session",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-spatialrecon-hms-spatialrecon-session"
+    },
+    {
+      "snapshotId": "doc-bfc2e9b7e47446d47311",
+      "title": "spatialEdit",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/spatial-recon-spatialedit"
+    },
+    {
+      "snapshotId": "doc-288aa1ef4aa502f5b4f0",
+      "title": "HMS_SpatialRecon_ModelWriteInfo",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-spatialrecon-hms-spatialrecon-modelwriteinfo"
+    },
+    {
+      "snapshotId": "doc-0ead9927453ef65d15d4",
+      "title": "AREngine_ARSession",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-spatialrecon-arengine-arsession"
+    },
+    {
+      "snapshotId": "doc-6c70739115607dfab616",
+      "title": "AREngine_ARFrame",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-spatialrecon-arengine-arframe"
+    }
+  ],
+  "reviewDocuments": [
+    {
+      "snapshotId": "doc-1e8f00c75a195b8dc4ec",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-cb7c2fb957cea2e72212",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-d61482c6c4d8f7fd6ab0",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-8d1af86b7f1e680864c3",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-53ca1833a8c480312c1d",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-280a5fe2ea26482c868e",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-9d36d49b538354a72c00",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-2d9b5615c538c73bfd5a",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-20bf562cf3a363876776",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-b629f4f2cb236c71c388",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-bfc2e9b7e47446d47311",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-288aa1ef4aa502f5b4f0",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-0ead9927453ef65d15d4",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-6c70739115607dfab616",
+      "role": "api"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "SR-S001",
+      "displayName": "设备支持与重建前置约束确认",
+      "route": "route-c-ndk-recon",
+      "intentPatterns": [
+        "设备支持查询",
+        "重建前置约束",
+        "IsSupport",
+        "SPATIAL_RECON_MODEL_TYPE_GS",
+        "重建工作目录",
+        "模拟器限制",
+        "芯片体验边界",
+        "Spatial Recon约束"
+      ],
+      "intentGroups": [
+        [
+          "3DGS",
+          "设备支持"
+        ],
+        [
+          "端侧重建",
+          "前置检查"
+        ]
+      ],
+      "targets": [
+        "HMS_SpatialRecon_IsSupport",
+        "HMS_SpatialRecon_CreateSession",
+        "SPATIAL_RECON_STATUS_DEVICE_NOT_SUPPORT"
+      ],
+      "sources": [
+        "doc-1e8f00c75a195b8dc4ec",
+        "doc-53ca1833a8c480312c1d",
+        "doc-20bf562cf3a363876776"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "设备支持查询",
+            "hint": "核对HMS_SpatialRecon_IsSupport(SPATIAL_RECON_MODEL_TYPE_GS)的调用与返回处理（SPATIAL_RECON_STATUS_SUCCESS / SPATIAL_RECON_STATUS_DEVICE_NOT_SUPPORT），以及设备支持状态随硬件、系统版本、环境变化的时效性。",
+            "mustResolve": true
+          },
+          {
+            "topic": "地区与设备形态限制",
+            "hint": "核对Kit仅支持中国境内（香港、澳门特别行政区、中国台湾除外）、适用Phone/Tablet/PC/2in1/TV的官网口径对可用性判断的影响。",
+            "mustResolve": true
+          },
+          {
+            "topic": "模拟器与芯片体验边界",
+            "hint": "核对暂不支持模拟器、仅保证Kirin 9020/9030S/9030/9030 Pro及以后旗舰芯片的耗时与质量体验、其他芯片即使IsSupport通过也不保证质量的表述。",
+            "mustResolve": true
+          },
+          {
+            "topic": "工作目录约束",
+            "hint": "核对CreateSession工作目录必须是已存在且为应用文件目录子目录（示例/data/storage/el1/base/spatial_recon_files/，可选el1-5加密等级）的要求与失败返回。",
+            "mustResolve": true
+          },
+          {
+            "topic": "ArkGraphics 3D联合使用前提",
+            "hint": "核对Spatial Recon Kit是ArkGraphics 3D模块的扩展、需与ArkGraphics 3D模块联合使用的关系对接入范围的影响。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "SR-S001-P1",
+            "topic": "IsSupport通过是否等于质量保证",
+            "positions": [
+              "IsSupport返回成功即认为重建耗时与质量有保证",
+              "仅Kirin 9020/9030S/9030/9030 Pro及以后旗舰芯片保证体验，其他芯片即使IsSupport通过也不保证耗时与质量"
+            ]
+          },
+          {
+            "id": "SR-S001-P2",
+            "topic": "支持结果时效性",
+            "positions": [
+              "一次IsSupport查询通过后可长期缓存复用",
+              "设备支持状态随硬件/系统版本/环境变化，使用前应按本次冻结快照口径重新确认"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "在受支持地区与设备形态上先以HMS_SpatialRecon_IsSupport(SPATIAL_RECON_MODEL_TYPE_GS)确认支持，并用已存在的应用文件目录子目录创建会话；任一约束不满足时不进入重建流程并按HMS_SpatialReconStatus错误码明确降级。",
+          "criteriaTopics": [
+            "设备支持查询",
+            "地区与设备形态限制",
+            "模拟器与芯片体验边界",
+            "工作目录约束",
+            "ArkGraphics 3D联合使用前提"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "按本次冻结快照确认地区、设备形态与模拟器限制后再决定是否接入端侧重建流程。",
+          "调用HMS_SpatialRecon_IsSupport(SPATIAL_RECON_MODEL_TYPE_GS)查询支持并处理SPATIAL_RECON_STATUS_DEVICE_NOT_SUPPORT；不把一次查询结果当作长期缓存。",
+          "CreateSession的workPath使用已创建的应用文件目录子目录，失败时不启动会话并按错误码降级，同时向调用方说明Kit与ArkGraphics 3D的联合使用前提。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "sr-s001-is-support",
+          "kind": "require_any",
+          "patterns": [
+            "HMS_SpatialRecon_IsSupport\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少设备支持查询HMS_SpatialRecon_IsSupport。"
+        },
+        {
+          "id": "sr-s001-model-type",
+          "kind": "require_any",
+          "patterns": [
+            "SPATIAL_RECON_MODEL_TYPE_GS"
+          ],
+          "onMissing": "failed",
+          "message": "缺少3DGS模型类型常量SPATIAL_RECON_MODEL_TYPE_GS。"
+        },
+        {
+          "id": "sr-s001-create-session",
+          "kind": "require_any",
+          "patterns": [
+            "HMS_SpatialRecon_CreateSession\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少会话创建HMS_SpatialRecon_CreateSession。"
+        }
+      ],
+      "negativeCases": [
+        "未查询设备支持直接创建会话并进入重建流程",
+        "在中国境外或模拟器环境仍继续端侧重建",
+        "workPath传入不存在目录或应用文件目录之外的路径",
+        "把IsSupport成功当作芯片性能与重建质量保证"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build"
+      ]
+    },
+    {
+      "id": "SR-S002",
+      "displayName": "C/C++重建会话全流程（创建-推帧-启动-进度-暂停恢复-销毁）",
+      "route": "route-c-ndk-recon",
+      "intentPatterns": [
+        "重建会话",
+        "会话生命周期",
+        "推帧",
+        "数据帧输入",
+        "StartSession",
+        "SetRunningMode",
+        "GetProgress",
+        "暂停恢复",
+        "DestroySession",
+        "1080x1440"
+      ],
+      "intentGroups": [
+        [
+          "端侧重建",
+          "会话"
+        ],
+        [
+          "3DGS",
+          "推帧"
+        ],
+        [
+          "C/C++重建",
+          "进度"
+        ]
+      ],
+      "targets": [
+        "HMS_SpatialRecon_CreateSession",
+        "HMS_SpatialRecon_PushFrame",
+        "HMS_SpatialRecon_StartSession",
+        "HMS_SpatialRecon_SetRunningMode",
+        "HMS_SpatialRecon_GetProgress",
+        "HMS_SpatialRecon_PauseSession",
+        "HMS_SpatialRecon_ResumeSession",
+        "HMS_SpatialRecon_DestroySession",
+        "HMS_SpatialRecon_DataFrame"
+      ],
+      "sources": [
+        "doc-8d1af86b7f1e680864c3",
+        "doc-53ca1833a8c480312c1d",
+        "doc-20bf562cf3a363876776",
+        "doc-2d9b5615c538c73bfd5a",
+        "doc-b629f4f2cb236c71c388"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "会话创建与销毁生命周期",
+            "hint": "核对#include \"spatial/spatial_recon_interface.h\"与CMake链接libspatial_recon_ndk.z.so；HMS_SpatialRecon_CreateSession创建、HMS_SpatialRecon_DestroySession手动销毁；会话不保证并发，须确认任务全部完成后销毁，销毁后未保存数据丢失且继续操作为未定义行为。",
+            "mustResolve": true
+          },
+          {
+            "topic": "输入数据帧规格",
+            "hint": "核对自定义输入仅支持width=1080、height=1440的RGB格式（SPATIAL_RECON_IMAGEDATA_FORMAT_RGB）图像，其余尺寸结果未定义；按HMS_SpatialRecon_DataFrame逐字段（焦距、主点、畸变系数[8]、位置、旋转四元数、时间戳、imageData、format）组装；PushFrame数据无效返回SPATIAL_RECON_STATUS_FAILED；系统自动选取关键帧。",
+            "mustResolve": true
+          },
+          {
+            "topic": "启动重建与运行模式",
+            "hint": "核对HMS_SpatialRecon_StartSession(session, &info, callback)异步启动、启动建模后无法再推送帧；启动后须按前后台调用HMS_SpatialRecon_SetRunningMode（前台模式资源更多为默认），未正确设置导致性能功耗劣化；非活动会话调用SetRunningMode无效果。",
+            "mustResolve": true
+          },
+          {
+            "topic": "进度查询与暂停恢复",
+            "hint": "核对HMS_SpatialRecon_GetProgress返回0.0f-1.0f及NULL指针返回错误；PauseSession/ResumeSession在无活动会话或未暂停时的错误返回；建议订阅COMMON_EVENT_THERMAL_LEVEL_CHANGED过热自动暂停。",
+            "mustResolve": true
+          },
+          {
+            "topic": "错误码处理",
+            "hint": "核对HMS_SpatialReconStatus错误码（成功、超最大帧数1023700001、设备不支持801、无效工作路径1023700002、无效帧数据1023700003、会话未初始化1023700004、会话已开始1023700005、未完成1023700006、失败1023700007）的映射与分支处理。",
+            "mustResolve": true
+          },
+          {
+            "topic": "单会话并发限制",
+            "hint": "核对同一时刻仅允许一个session重建、仅允许一个session保存MP4，多个并发为未定义行为。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "SR-S002-P1",
+            "topic": "推帧时机窗口",
+            "positions": [
+              "会话创建后任意时刻均可PushFrame/PushARFrame",
+              "仅StartSession启动建模前可推送帧，启动建模后无法推送"
+            ]
+          },
+          {
+            "id": "SR-S002-P2",
+            "topic": "GetProgress语义切换",
+            "positions": [
+              "GetProgress始终反映重建建模进度",
+              "调用SaveResultToFile后GetProgress仅反映保存进度"
+            ]
+          },
+          {
+            "id": "SR-S002-P3",
+            "topic": "输入帧尺寸与格式",
+            "positions": [
+              "任意分辨率的RGB图像均可作为输入帧",
+              "仅width=1080、height=1440图像受支持，其余尺寸调用不报错但结果未定义，且自定义输入仅支持RGB格式"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "按官网流程完成创建会话→组装并推送1080x1440 RGB数据帧→HMS_SpatialRecon_StartSession启动并按前后台设置RunningMode→GetProgress跟踪进度→必要时Pause/Resume并处理过热事件→任务全部完成后DestroySession；违反时序或帧规格时按HMS_SpatialReconStatus错误码明确失败，不出现并发多会话重建或保存。",
+          "criteriaTopics": [
+            "会话创建与销毁生命周期",
+            "输入数据帧规格",
+            "启动重建与运行模式",
+            "进度查询与暂停恢复",
+            "错误码处理",
+            "单会话并发限制"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "引入spatial/spatial_recon_interface.h，CMake通过find_library定位libspatial_recon_ndk.z.so并target_link_libraries链接；接口以官网6.1.0(23)起始口径为基准。",
+          "创建会话后按HMS_SpatialRecon_DataFrame定义组装1080x1440 RGB帧（或接入AR Engine帧），在StartSession前完成PushFrame/PushARFrame并校验数据有效。",
+          "StartSession后按前后台调用SetRunningMode，用GetProgress跟踪进度，按需PauseSession/ResumeSession并订阅热等级事件过热自动暂停。",
+          "确认重建与保存任务全部完成后仅销毁该唯一会话，全程按HMS_SpatialReconStatus错误码分支处理。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "sr-s002-header",
+          "kind": "require_any",
+          "patterns": [
+            "spatial_recon_interface\\.h"
+          ],
+          "onMissing": "failed",
+          "message": "缺少spatial_recon_interface.h头文件引入。"
+        },
+        {
+          "id": "sr-s002-link",
+          "kind": "require_any",
+          "patterns": [
+            "libspatial_recon_ndk"
+          ],
+          "onMissing": "failed",
+          "message": "缺少libspatial_recon_ndk.z.so的CMake链接。"
+        },
+        {
+          "id": "sr-s002-push-frame",
+          "kind": "require_any",
+          "patterns": [
+            "HMS_SpatialRecon_Push(?:AR)?Frame\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少推帧调用HMS_SpatialRecon_PushFrame/PushARFrame。"
+        },
+        {
+          "id": "sr-s002-start-session",
+          "kind": "require_any",
+          "patterns": [
+            "HMS_SpatialRecon_StartSession\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少启动重建HMS_SpatialRecon_StartSession。"
+        },
+        {
+          "id": "sr-s002-running-mode",
+          "kind": "require_any",
+          "patterns": [
+            "HMS_SpatialRecon_SetRunningMode\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少前后台运行模式设置HMS_SpatialRecon_SetRunningMode。"
+        },
+        {
+          "id": "sr-s002-progress",
+          "kind": "require_any",
+          "patterns": [
+            "HMS_SpatialRecon_GetProgress\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少进度查询HMS_SpatialRecon_GetProgress。"
+        },
+        {
+          "id": "sr-s002-destroy-session",
+          "kind": "require_any",
+          "patterns": [
+            "HMS_SpatialRecon_DestroySession\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少会话销毁HMS_SpatialRecon_DestroySession。"
+        }
+      ],
+      "negativeCases": [
+        "StartSession启动建模后再PushFrame/PushARFrame",
+        "推送非1080x1440尺寸或非RGB格式的帧数据",
+        "同一时刻多个session并发重建或并发保存MP4",
+        "重建或保存任务未完成时销毁会话，或销毁后继续操作会话",
+        "未按前后台切换调用SetRunningMode导致性能功耗劣化",
+        "无活动会话时调用PauseSession且不处理错误返回"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "install",
+        "runtime"
+      ]
+    },
+    {
+      "id": "SR-S003",
+      "displayName": "AR Engine数据帧接入重建",
+      "route": "route-c-ndk-recon",
+      "intentPatterns": [
+        "AR Engine输入",
+        "AR帧接入",
+        "PushARFrame",
+        "ARSession_Update",
+        "HMS_AREngine_ARSession_Update",
+        "SetPreviewSize",
+        "AR重建输入",
+        "AR帧推流"
+      ],
+      "intentGroups": [
+        [
+          "AR",
+          "推帧"
+        ],
+        [
+          "AR Engine",
+          "重建输入"
+        ]
+      ],
+      "intentPriority": 2,
+      "targets": [
+        "HMS_SpatialRecon_PushARFrame",
+        "AREngine_ARSession",
+        "AREngine_ARFrame",
+        "HMS_AREngine_ARSession_Update"
+      ],
+      "sources": [
+        "doc-8d1af86b7f1e680864c3",
+        "doc-0ead9927453ef65d15d4",
+        "doc-6c70739115607dfab616"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "AR会话更新与推帧顺序",
+            "hint": "从本次冻结快照核对AR Engine输入路径的调用顺序约束：是否必须先HMS_AREngine_ARSession_Update获取最新AR帧、再HMS_SpatialRecon_PushARFrame推送，以及违反顺序时的行为。",
+            "mustResolve": true
+          },
+          {
+            "topic": "AR预览尺寸配置",
+            "hint": "核对ARConfig SetPreviewSize的推荐取值（如1080x1440）及其与重建输入帧规格的对应关系，确认是否为推荐项或硬性要求。",
+            "mustResolve": true
+          },
+          {
+            "topic": "AR帧姿态跟踪增益",
+            "hint": "核对官网对AR帧携带姿态与跟踪数据可提升3DGS映射效果（相对自定义输入）的表述与适用条件。",
+            "mustResolve": true
+          },
+          {
+            "topic": "输入路径选择（AR帧与自定义DataFrame）",
+            "hint": "对比PushARFrame与基于HMS_SpatialRecon_DataFrame自定义组装的PushFrame两条输入路径的数据要求、格式限制与适用场景，给出选择依据。",
+            "mustResolve": true
+          },
+          {
+            "topic": "无效帧数据处理",
+            "hint": "核对PushFrame/PushARFrame在帧数据无效时的返回值（如SPATIAL_RECON_STATUS_FAILED）及后续处理要求。",
+            "mustResolve": true
+          },
+          {
+            "topic": "AR输入推帧时序限制",
+            "hint": "核对StartSession启动建模后是否无法继续推送帧，以及AR帧推送必须发生在启动重建之前的时序约束。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "sr-s003-probe-ar-update-order",
+            "topic": "AR推帧前置顺序",
+            "positions": [
+              "重建指南要求AR Engine输入先调用HMS_AREngine_ARSession_Update再调用HMS_SpatialRecon_PushARFrame",
+              "PushARFrame可独立于AR会话更新直接调用"
+            ]
+          },
+          {
+            "id": "sr-s003-probe-preview-size",
+            "topic": "AR预览尺寸约束强度",
+            "positions": [
+              "推荐ARConfig SetPreviewSize配置1080x1440以匹配重建输入规格",
+              "AR输入预览尺寸可任意配置且不影响重建"
+            ]
+          },
+          {
+            "id": "sr-s003-probe-frame-spec-scope",
+            "topic": "1080x1440与RGB约束的适用路径",
+            "positions": [
+              "width=1080/height=1440与仅RGB的规格约束仅针对自定义DataFrame（PushFrame）输入",
+              "该规格约束同样适用于AR Engine（PushARFrame）输入"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "设备支持时按正确顺序完成AR会话更新与AR帧推送后启动重建，进度正常推进；推送无效帧、跳过AR会话更新或启动后继续推帧时按本次冻结的错误码语义返回失败并安全降级，不产生未定义行为。",
+          "criteriaTopics": [
+            "AR会话更新与推帧顺序",
+            "AR预览尺寸配置",
+            "AR帧姿态跟踪增益",
+            "无效帧数据处理",
+            "AR输入推帧时序限制"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "包含spatial_recon_interface.h并通过CMake链接libspatial_recon_ndk.z.so，先用HMS_SpatialRecon_IsSupport确认设备支持，再创建HMS_SpatialRecon_Session。",
+          "按本次冻结判据选择输入路径：AR Engine帧输入按顺序先HMS_AREngine_ARSession_Update再HMS_SpatialRecon_PushARFrame，并按推荐配置预览尺寸；自定义输入则按HMS_SpatialRecon_DataFrame结构组装。",
+          "逐帧检查推帧返回值，无效帧按错误码处理，不将无效数据推入会话。",
+          "推帧完成后调用HMS_SpatialRecon_StartSession启动重建，按前后台切换调用HMS_SpatialRecon_SetRunningMode，确认任务全部完成后再销毁会话。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "sr-s003-pusharframe",
+          "kind": "require_any",
+          "patterns": [
+            "HMS_SpatialRecon_PushARFrame\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少AR帧推送调用HMS_SpatialRecon_PushARFrame。"
+        },
+        {
+          "id": "sr-s003-ar-session-update",
+          "kind": "require_any",
+          "patterns": [
+            "HMS_AREngine_ARSession_Update\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少AR会话更新调用HMS_AREngine_ARSession_Update。"
+        },
+        {
+          "id": "sr-s003-session-create",
+          "kind": "require_any",
+          "patterns": [
+            "HMS_SpatialRecon_CreateSession\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少重建会话创建调用。"
+        },
+        {
+          "id": "sr-s003-start-session",
+          "kind": "require_any",
+          "patterns": [
+            "HMS_SpatialRecon_StartSession\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少重建启动调用HMS_SpatialRecon_StartSession。"
+        },
+        {
+          "id": "sr-s003-header-include",
+          "kind": "require_any",
+          "patterns": [
+            "spatial_recon_interface\\.h"
+          ],
+          "onMissing": "failed",
+          "message": "未包含spatial_recon_interface.h头文件。"
+        },
+        {
+          "id": "sr-s003-destroy-session",
+          "kind": "require_any",
+          "patterns": [
+            "HMS_SpatialRecon_DestroySession\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少会话销毁调用。"
+        }
+      ],
+      "negativeCases": [
+        "未先调用HMS_AREngine_ARSession_Update即直接PushARFrame",
+        "向会话推送无效或空数据的AR帧/自定义帧",
+        "自定义DataFrame输入使用规定规格以外尺寸或非RGB格式仍继续重建",
+        "StartSession启动建模后仍继续推送AR帧",
+        "同一时刻并发运行多个重建session",
+        "重建或保存任务进行中销毁会话"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "install",
+        "runtime"
+      ]
+    },
+    {
+      "id": "SR-S004",
+      "displayName": "重建结果保存与导出",
+      "route": "route-c-ndk-recon",
+      "intentPatterns": [
+        "保存重建结果",
+        "导出重建结果",
+        "导出模型",
+        "SaveResultToFile",
+        "ModelWriteInfo",
+        "导出MP4",
+        "导出PLY",
+        "运镜视频",
+        "点云导出"
+      ],
+      "intentGroups": [
+        [
+          "保存",
+          "重建结果"
+        ],
+        [
+          "导出",
+          "3DGS模型"
+        ],
+        [
+          "NG回调",
+          "保存"
+        ]
+      ],
+      "intentPriority": 2,
+      "targets": [
+        "HMS_SpatialRecon_SaveResultToFile",
+        "HMS_SpatialRecon_ModelWriteInfo",
+        "SPATIAL_RECON_OUTPUT_FORMAT_MP4",
+        "SPATIAL_RECON_OUTPUT_FORMAT_PLY",
+        "HMS_SpatialRecon_RegisterNGCallbackFunc"
+      ],
+      "sources": [
+        "doc-8d1af86b7f1e680864c3",
+        "doc-20bf562cf3a363876776",
+        "doc-288aa1ef4aa502f5b4f0"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "ModelWriteInfo字段校验",
+            "hint": "从本次冻结快照核对HMS_SpatialRecon_ModelWriteInfo各成员约束：经纬度取值范围与符号约定、audioFile须以.mp3结尾且可空、modelFile必填且必须是应用文件目录的子目录、modelFormat取值。",
+            "mustResolve": true
+          },
+          {
+            "topic": "输出格式MP4与PLY",
+            "hint": "核对SPATIAL_RECON_OUTPUT_FORMAT_MP4（运镜视频）与PLY（点云）两种输出格式的语义、差异与选择依据，确认OutputFormat枚举是否仅含这两项。",
+            "mustResolve": true
+          },
+          {
+            "topic": "自动保存与手动保存路径",
+            "hint": "核对writeInfo非空时随StartSession自动保存、writeInfo为空时构建完成后调用HMS_SpatialRecon_SaveResultToFile手动保存的两条路径的触发条件与参数要求。",
+            "mustResolve": true
+          },
+          {
+            "topic": "保存前置条件与返回值语义",
+            "hint": "核对SaveResultToFile的session/writeInfo非空且会话有效活跃要求、构建未成功时的错误（如未完成错误），以及返回值仅表示初始验证状态、实际导出结果经回调传递的语义。",
+            "mustResolve": true
+          },
+          {
+            "topic": "保存阶段进度语义",
+            "hint": "核对GetProgress在保存阶段的含义（如SaveResultToFile后仅反映保存进度）及0.0-1.0区间的解读。",
+            "mustResolve": true
+          },
+          {
+            "topic": "NG回调注册时机与版本门槛",
+            "hint": "核对HMS_SpatialReconNGCallbackFunc与HMS_SpatialRecon_RegisterNGCallbackFunc的起始版本（26.0.0）、StartSession前/后注册分别影响重建或保存结束回调、注册NGCallback覆盖旧风格callback、取消方式（nullptr）及data指针安全责任归属。",
+            "mustResolve": true
+          },
+          {
+            "topic": "单session保存并发限制",
+            "hint": "核对同一时刻仅允许一个session保存MP4、多个session并发的未定义行为，以及保存与销毁会话的时序约束。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "sr-s004-probe-save-paths",
+            "topic": "自动保存与手动保存路径",
+            "positions": [
+              "writeInfo非空时随StartSession自动保存，为空时可在构建完成后调用SaveResultToFile手动保存",
+              "两条保存路径可无条件互换使用",
+              "SaveResultToFile可在构建未完成时随时调用并成功导出"
+            ]
+          },
+          {
+            "id": "sr-s004-probe-ng-version",
+            "topic": "NG回调版本门槛",
+            "positions": [
+              "HMS_SpatialReconNGCallbackFunc与HMS_SpatialRecon_RegisterNGCallbackFunc自26.0.0起提供",
+              "NG回调与其余HMS_SpatialRecon接口同样自6.1.0(23)起提供"
+            ]
+          },
+          {
+            "id": "sr-s004-probe-ng-register-timing",
+            "topic": "NG回调注册时机影响",
+            "positions": [
+              "StartSession前注册影响重建结束回调、之后注册仅影响保存结束回调，且注册NGCallback覆盖旧风格callback",
+              "注册时机不影响回调作用范围，新旧callback可并存"
+            ]
+          },
+          {
+            "id": "sr-s004-probe-progress-semantics",
+            "topic": "保存阶段GetProgress语义",
+            "positions": [
+              "SaveResultToFile调用后GetProgress仅反映保存进度",
+              "GetProgress在任何阶段都只反映重建进度"
+            ]
+          },
+          {
+            "id": "sr-s004-probe-save-concurrency",
+            "topic": "保存并发约束",
+            "positions": [
+              "同一时刻仅允许一个session保存MP4，多个为未定义行为",
+              "可多个session同时保存MP4"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "重建完成后，writeInfo非空时自动保存、为空时通过SaveResultToFile导出MP4/PLY且输出文件位于应用文件目录子目录；字段越界、audioFile后缀不符、构建未完成或多session并发保存时按本次冻结的错误码失败；NG回调仅在版本满足时注册且按注册时机生效，实际导出结果以回调为准。",
+          "criteriaTopics": [
+            "ModelWriteInfo字段校验",
+            "输出格式MP4与PLY",
+            "自动保存与手动保存路径",
+            "保存前置条件与返回值语义",
+            "保存阶段进度语义",
+            "NG回调注册时机与版本门槛",
+            "单session保存并发限制"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "保存前校验HMS_SpatialRecon_ModelWriteInfo：经纬度范围与符号、audioFile以.mp3结尾或置空、modelFile为应用文件目录子目录、modelFormat仅取MP4/PLY枚举。",
+          "选择保存路径：writeInfo非空随StartSession自动保存；writeInfo为空则在构建完成（阶段达到完成态）后调用HMS_SpatialRecon_SaveResultToFile并等待回调确认实际导出结果。",
+          "需要自定义入参回调时先确认设备/SDK版本满足NG回调起始版本，按注册时机语义注册并在不再需要时按官网方式取消，data指针的读取与释放安全由应用自行保证。",
+          "保存期间不与其他session并发保存MP4，确认保存与重建任务全部完成后再调用HMS_SpatialRecon_DestroySession，避免销毁后继续操作。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "sr-s004-writeinfo-struct",
+          "kind": "require_any",
+          "patterns": [
+            "HMS_SpatialRecon_ModelWriteInfo"
+          ],
+          "onMissing": "failed",
+          "message": "缺少保存配置结构体HMS_SpatialRecon_ModelWriteInfo。"
+        },
+        {
+          "id": "sr-s004-save-path",
+          "kind": "require_any",
+          "patterns": [
+            "HMS_SpatialRecon_SaveResultToFile\\s*\\(",
+            "HMS_SpatialRecon_StartSession\\s*\\([^;]*writeInfo"
+          ],
+          "onMissing": "failed",
+          "message": "缺少保存路径：未调用SaveResultToFile，也未在StartSession中携带writeInfo自动保存。"
+        },
+        {
+          "id": "sr-s004-output-format",
+          "kind": "require_any",
+          "patterns": [
+            "SPATIAL_RECON_OUTPUT_FORMAT_(MP4|PLY)"
+          ],
+          "onMissing": "failed",
+          "message": "缺少输出格式枚举（MP4或PLY）。"
+        },
+        {
+          "id": "sr-s004-header-include",
+          "kind": "require_any",
+          "patterns": [
+            "spatial_recon_interface\\.h"
+          ],
+          "onMissing": "failed",
+          "message": "未包含spatial_recon_interface.h头文件。"
+        },
+        {
+          "id": "sr-s004-session-lifecycle",
+          "kind": "require_any",
+          "patterns": [
+            "HMS_SpatialRecon_(CreateSession|DestroySession)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少会话创建或销毁调用，保存结果须依附有效会话生命周期。"
+        }
+      ],
+      "negativeCases": [
+        "经度或纬度超出取值范围仍提交保存",
+        "audioFile不以.mp3结尾或路径非法仍提交保存",
+        "modelFile不是应用文件目录的子目录",
+        "构建未完成时调用SaveResultToFile",
+        "多个session同一时刻并发保存MP4",
+        "在6.1.0(23)版本环境直接调用26.0.0起的NG回调接口",
+        "保存任务未完成即销毁会话"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "install",
+        "runtime"
+      ]
+    },
+    {
+      "id": "SR-S005",
+      "displayName": "加载与渲染3DGS模型（ArkTS）",
+      "route": "route-arkts-render",
+      "intentPatterns": [
+        "加载3DGS",
+        "3DGS模型加载",
+        "渲染3DGS",
+        "loadGSNode",
+        "GSNode",
+        "GSImportSettings",
+        "spatialRender加载",
+        "OhosRawFile"
+      ],
+      "intentGroups": [
+        [
+          "3DGS",
+          "加载"
+        ],
+        [
+          "3DGS",
+          "渲染"
+        ],
+        [
+          "loadGSNode"
+        ]
+      ],
+      "targets": [
+        "spatialRender",
+        "GSPlugin",
+        "loadGSNode",
+        "GSNode",
+        "GSImportSettings"
+      ],
+      "sources": [
+        "doc-cb7c2fb957cea2e72212",
+        "doc-9d36d49b538354a72c00",
+        "doc-1e8f00c75a195b8dc4ec"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "插件加载与初始化顺序",
+            "hint": "核对本轮快照中renderContext.loadPlugin(GSPlugin.PLUGIN_ID)、Scene.load与loadGSNode的先后顺序，以及未加载插件即调用接口的行为口径。",
+            "mustResolve": true
+          },
+          {
+            "topic": "模型格式支持范围",
+            "hint": "核对本轮快照列出的loadGSNode支持的3DGS模型格式清单及示例文件。",
+            "mustResolve": true
+          },
+          {
+            "topic": "uri与offset参数约定",
+            "hint": "核对GSImportSettings的uri写法（如OhosRawFile://协议）与offset取值语义，以及uri为空字符串时的失败口径。",
+            "mustResolve": true
+          },
+          {
+            "topic": "节点挂载与父节点默认行为",
+            "hint": "核对parent参数缺省时GSNode的挂载位置，以及GSNode可设置的节点属性范围。",
+            "mustResolve": true
+          },
+          {
+            "topic": "Stage模型与ArkGraphics 3D依赖约束",
+            "hint": "核对本Kit仅Stage模型可用、作为ArkGraphics 3D模块扩展需与其联合使用的前提条件。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "SR-S005-probe-plugin-order",
+            "topic": "插件加载顺序",
+            "positions": [
+              "加载指南要求先renderContext.loadPlugin(spatialRender.GSPlugin.PLUGIN_ID)再Scene.load并await loadGSNode",
+              "spatialRender参考页口径为未先loadPlugin即调用属未定义行为",
+              "本轮冻结快照需给出调用链结论与缺插件时的实际表现"
+            ]
+          },
+          {
+            "id": "SR-S005-probe-format-list",
+            "topic": "支持格式清单",
+            "positions": [
+              "指南页列出MP4、PLY、GLB三种3DGS模型格式",
+              "参考页仅约定GSImportSettings的uri与offset，未逐格式复述",
+              "格式清单及与文件扩展名的对应关系以本轮快照为准"
+            ]
+          },
+          {
+            "id": "SR-S005-probe-uri-empty",
+            "topic": "uri空字符串行为",
+            "positions": [
+              "参考页摘要称uri为空字符串时加载失败",
+              "失败的具体返回方式（Promise拒绝或异常）未在摘要中固定",
+              "本轮现提时需给出结论"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "在Stage模型工程中按官网顺序完成插件加载与场景加载后，loadGSNode以有效uri成功返回GSNode并挂载到指定父节点（缺省按官网口径处理），页面渲染出3DGS场景；uri为空或无效、格式不受支持时按本轮冻结判据的口径处理失败。",
+          "criteriaTopics": [
+            "插件加载与初始化顺序",
+            "模型格式支持范围",
+            "uri与offset参数约定",
+            "节点挂载与父节点默认行为",
+            "Stage模型与ArkGraphics 3D依赖约束"
+          ]
+        }
+      ],
+      "demoValidation": {
+        "layoutPolicy": "single_page_preferred",
+        "scopePolicy": {
+          "selection": "prompt_strong_relevance_only",
+          "prerequisiteHandling": "setup_or_static_only",
+          "excludedByDefault": [
+            "3DGS滤镜效果",
+            "分块加载",
+            "模型编辑导出",
+            "C/C++端侧重建"
+          ],
+          "excludedCriterionTypes": [
+            "version",
+            "capability",
+            "performance"
+          ],
+          "includeExcludedTypeWhenPromptContains": {
+            "version": [
+              "API",
+              "SDK",
+              "版本"
+            ],
+            "capability": [
+              "设备",
+              "机型",
+              "支持范围"
+            ],
+            "performance": [
+              "性能",
+              "功耗",
+              "内存"
+            ]
+          }
+        },
+        "points": [
+          {
+            "id": "D05-01",
+            "title": "3DGS模型加载与渲染",
+            "execution": "single_page",
+            "criteriaTopics": [
+              "插件加载与初始化顺序",
+              "模型格式支持范围",
+              "uri与offset参数约定",
+              "节点挂载与父节点默认行为"
+            ],
+            "demoSetupRequirements": [
+              {
+                "id": "gs-model-asset",
+                "description": "在工程资源目录放置一个本轮判据认可的3DGS模型文件作为加载对象。",
+                "enforcement": "implementation_and_static_gate",
+                "countsAsFeatureValidation": false
+              }
+            ],
+            "variants": [
+              {
+                "id": "unloaded",
+                "label": "未加载模型基线",
+                "parameters": {
+                  "state": "unloaded"
+                }
+              },
+              {
+                "id": "loaded",
+                "label": "已加载并渲染3DGS模型",
+                "parameters": {
+                  "state": "loaded"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "implementation": {
+        "steps": [
+          "确认Stage模型工程，导入@kit.SpatialReconKit的spatialRender与@kit.ArkGraphics3D的Scene、RenderContext。",
+          "获取默认渲染上下文，先loadPlugin(GSPlugin.PLUGIN_ID)加载3DGS插件，再完成场景加载。",
+          "按本轮冻结判据确认模型格式与uri（如OhosRawFile://）及offset后await loadGSNode，按需指定父节点。",
+          "加载失败路径按官网口径处理并保留错误信息，不吞掉Promise异常。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "sr-s005-import-kit",
+          "kind": "require_any",
+          "patterns": [
+            "@kit\\.SpatialReconKit"
+          ],
+          "onMissing": "failed",
+          "message": "缺少@kit.SpatialReconKit导入。"
+        },
+        {
+          "id": "sr-s005-load-plugin",
+          "kind": "require_any",
+          "patterns": [
+            "loadPlugin\\s*\\(\\s*spatialRender\\.GSPlugin\\.PLUGIN_ID\\s*\\)",
+            "GSPlugin\\.PLUGIN_ID"
+          ],
+          "onMissing": "failed",
+          "message": "缺少GSPlugin插件加载。"
+        },
+        {
+          "id": "sr-s005-scene-load",
+          "kind": "require_any",
+          "patterns": [
+            "Scene\\.load\\s*\\(",
+            "\\.load\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少场景加载调用。"
+        },
+        {
+          "id": "sr-s005-load-gsnode",
+          "kind": "require_any",
+          "patterns": [
+            "loadGSNode\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少loadGSNode模型加载调用。"
+        },
+        {
+          "id": "sr-s005-model-uri",
+          "kind": "require_any",
+          "patterns": [
+            "OhosRawFile://",
+            "uri\\s*:"
+          ],
+          "onMissing": "warn",
+          "message": "未检出3DGS模型uri配置。"
+        }
+      ],
+      "negativeCases": [
+        "未调用loadPlugin(GSPlugin.PLUGIN_ID)即直接loadGSNode",
+        "uri为空字符串或指向不存在的模型文件",
+        "使用本轮判据未列出的模型格式",
+        "在非Stage模型工程中调用spatialRender接口"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "install",
+        "runtime",
+        "visual"
+      ]
+    },
+    {
+      "id": "SR-S006",
+      "displayName": "3DGS渲染滤镜效果",
+      "route": "route-arkts-render",
+      "intentPatterns": [
+        "3DGS滤镜",
+        "滤镜效果",
+        "复古滤镜",
+        "漫画风格",
+        "黑白bit",
+        "颜色编辑",
+        "RetroEffect",
+        "ComicEffect",
+        "ObraDinnEffect",
+        "ColorEditingEffect",
+        "RETRO_EFFECT_ID",
+        "COMIC_EFFECT_ID",
+        "OBRA_DINN_EFFECT_ID",
+        "COLOR_EDITING_EFFECT_ID",
+        "createEffect"
+      ],
+      "intentGroups": [
+        [
+          "3DGS",
+          "滤镜"
+        ],
+        [
+          "滤镜",
+          "复古"
+        ],
+        [
+          "RetroEffect"
+        ],
+        [
+          "ColorEditingEffect"
+        ]
+      ],
+      "targets": [
+        "RetroEffect",
+        "ComicEffect",
+        "ObraDinnEffect",
+        "ColorEditingEffect",
+        "createEffect"
+      ],
+      "sources": [
+        "doc-d61482c6c4d8f7fd6ab0",
+        "doc-9d36d49b538354a72c00"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "效果ID与创建方式",
+            "hint": "核对四种效果常量ID（复古/漫画/黑白bit/颜色编辑）及通过资源工厂createEffect({effectId})创建效果的调用方式与所需导入。",
+            "mustResolve": true
+          },
+          {
+            "topic": "复古滤镜参数范围与默认值",
+            "hint": "核对RetroEffect各参数的取值范围与默认值，以本轮冻结快照为准。",
+            "mustResolve": true
+          },
+          {
+            "topic": "漫画与黑白bit滤镜参数",
+            "hint": "核对ComicEffect与ObraDinnEffect各参数的取值范围、颜色参数类型与默认值。",
+            "mustResolve": true
+          },
+          {
+            "topic": "颜色编辑滤镜参数",
+            "hint": "核对ColorEditingEffect各参数（曝光/对比度/色温/色调/饱和度/自然饱和度等）的推荐范围与默认值。",
+            "mustResolve": true
+          },
+          {
+            "topic": "相机效果链与渲染管线",
+            "hint": "核对创建相机时的FORWARD渲染管线配置，以及将效果append到camera.effects链的顺序要求。",
+            "mustResolve": true
+          },
+          {
+            "topic": "效果接口版本差异",
+            "hint": "核对效果类与效果参数枚举在6.0.1(21)与6.1.0(23)之间的起始版本差异及低版本工程可用性。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "SR-S006-probe-param-version",
+            "topic": "效果参数版本差异",
+            "positions": [
+              "参考页摘要：RetroEffect/ComicEffect/ObraDinnEffect/ColorEditingEffect效果类起始6.0.1(21)",
+              "参考页摘要：RetroEffectParams与ObraDinnEffectParams参数枚举起始6.1.0(23)",
+              "低版本工程使用参数枚举的可用性需按本轮冻结快照逐一给结论"
+            ]
+          },
+          {
+            "id": "SR-S006-probe-default-values",
+            "topic": "参数默认值与范围",
+            "positions": [
+              "参考页摘要给出各参数默认值与范围（如复古pixelSize、漫画lineThreshold、黑白bit噪声强度、颜色编辑曝光对比度等）",
+              "滤镜指南页仅列效果ID与调用步骤，未复述全部默认值",
+              "生成判据时以冻结快照逐项核对，不沿用摘要数值"
+            ]
+          },
+          {
+            "id": "SR-S006-probe-plugin-prereq",
+            "topic": "滤镜前置插件加载",
+            "positions": [
+              "滤镜指南同样要求先loadPlugin(GSPlugin.PLUGIN_ID)再创建与追加效果",
+              "参考页口径为未加载插件即调用属未定义行为",
+              "效果是否必须依附FORWARD管线相机需以快照结论为准"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "在已完成插件加载与3DGS模型渲染的画面上，按效果ID创建滤镜对象并追加到FORWARD管线相机的效果链后，渲染结果呈现对应风格化变化且可通过参数调整；参数取值、默认值与版本可用性以本轮冻结判据为准，保留无滤镜基线对照。",
+          "criteriaTopics": [
+            "效果ID与创建方式",
+            "复古滤镜参数范围与默认值",
+            "漫画与黑白bit滤镜参数",
+            "颜色编辑滤镜参数",
+            "相机效果链与渲染管线",
+            "效果接口版本差异"
+          ]
+        }
+      ],
+      "demoValidation": {
+        "layoutPolicy": "single_page_preferred",
+        "scopePolicy": {
+          "selection": "prompt_strong_relevance_only",
+          "prerequisiteHandling": "setup_or_static_only",
+          "excludedByDefault": [
+            "3DGS模型加载流程细节",
+            "分块加载",
+            "模型编辑导出",
+            "C/C++端侧重建"
+          ],
+          "excludedCriterionTypes": [
+            "version",
+            "capability",
+            "performance"
+          ],
+          "includeExcludedTypeWhenPromptContains": {
+            "version": [
+              "API",
+              "SDK",
+              "版本"
+            ],
+            "capability": [
+              "设备",
+              "机型",
+              "支持范围"
+            ],
+            "performance": [
+              "性能",
+              "功耗",
+              "帧率"
+            ]
+          }
+        },
+        "points": [
+          {
+            "id": "D06-01",
+            "title": "滤镜效果对比",
+            "execution": "single_page",
+            "criteriaTopics": [
+              "效果ID与创建方式",
+              "复古滤镜参数范围与默认值",
+              "漫画与黑白bit滤镜参数",
+              "颜色编辑滤镜参数",
+              "相机效果链与渲染管线"
+            ],
+            "demoSetupRequirements": [
+              {
+                "id": "gs-model-rendered",
+                "description": "先完成GSPlugin加载、场景加载并渲染一个3DGS模型，作为滤镜作用基线。",
+                "enforcement": "implementation_and_static_gate",
+                "countsAsFeatureValidation": false
+              }
+            ],
+            "variants": [
+              {
+                "id": "none",
+                "label": "无滤镜基线",
+                "parameters": {
+                  "effect": "none"
+                }
+              },
+              {
+                "id": "retro",
+                "label": "复古滤镜",
+                "parameters": {
+                  "effect": "retro"
+                }
+              },
+              {
+                "id": "comic",
+                "label": "漫画风格",
+                "parameters": {
+                  "effect": "comic"
+                }
+              },
+              {
+                "id": "obra-dinn",
+                "label": "黑白bit效果",
+                "parameters": {
+                  "effect": "obraDinn"
+                }
+              },
+              {
+                "id": "color-editing",
+                "label": "颜色编辑",
+                "parameters": {
+                  "effect": "colorEditing"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "implementation": {
+        "steps": [
+          "在已渲染3DGS模型的页面中，通过场景资源工厂按效果ID常量创建效果对象并按需断言类型。",
+          "按本轮冻结判据逐项核对滤镜参数取值范围与默认值后再读取或设置参数。",
+          "创建FORWARD渲染管线相机，并将效果对象追加到相机效果链。",
+          "逐个效果变体验证渲染画面变化，保留无滤镜基线用于对照。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "sr-s006-import-kit",
+          "kind": "require_any",
+          "patterns": [
+            "@kit\\.SpatialReconKit"
+          ],
+          "onMissing": "failed",
+          "message": "缺少@kit.SpatialReconKit导入。"
+        },
+        {
+          "id": "sr-s006-load-plugin",
+          "kind": "require_any",
+          "patterns": [
+            "GSPlugin\\.PLUGIN_ID"
+          ],
+          "onMissing": "failed",
+          "message": "缺少GSPlugin插件加载。"
+        },
+        {
+          "id": "sr-s006-effect-id",
+          "kind": "require_any",
+          "patterns": [
+            "RETRO_EFFECT_ID",
+            "COMIC_EFFECT_ID",
+            "OBRA_DINN_EFFECT_ID",
+            "COLOR_EDITING_EFFECT_ID"
+          ],
+          "onMissing": "failed",
+          "message": "缺少滤镜效果ID常量。"
+        },
+        {
+          "id": "sr-s006-create-effect",
+          "kind": "require_any",
+          "patterns": [
+            "createEffect\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少createEffect创建滤镜效果。"
+        },
+        {
+          "id": "sr-s006-forward-pipeline",
+          "kind": "require_any",
+          "patterns": [
+            "RenderingPipelineType\\.FORWARD"
+          ],
+          "onMissing": "failed",
+          "message": "缺少FORWARD渲染管线相机配置。"
+        },
+        {
+          "id": "sr-s006-effects-append",
+          "kind": "require_any",
+          "patterns": [
+            "effects\\.append\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少将效果加入相机效果链。"
+        }
+      ],
+      "negativeCases": [
+        "未加载GSPlugin插件即创建并追加滤镜效果",
+        "使用超出本轮判据范围的滤镜参数值",
+        "效果未追加到相机效果链即期望画面变化",
+        "在低于参数枚举起始版本的工程中使用参数枚举"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "install",
+        "runtime",
+        "visual"
+      ]
+    },
+    {
+      "id": "SR-S007",
+      "displayName": "大规模分块3DGS模型加载",
+      "route": "route-arkts-render",
+      "intentPatterns": [
+        "loadTiledGSNode",
+        "TiledGSNode",
+        "分块3DGS",
+        "分块高斯",
+        "Tiled 3D Gaussian Splatting",
+        "setTileRequestCallback",
+        "notifyTileReady",
+        "GSTile",
+        "瓦片加载",
+        ".sog",
+        "大规模3DGS"
+      ],
+      "intentGroups": [
+        [
+          "分块",
+          "3DGS"
+        ],
+        [
+          "TiledGS",
+          "加载"
+        ]
+      ],
+      "intentPriority": 2,
+      "targets": [
+        "TiledGSNode",
+        "loadTiledGSNode",
+        "GSTile",
+        "setCamera",
+        "setTileRequestCallback",
+        "notifyTileReady"
+      ],
+      "sources": [
+        "doc-9d36d49b538354a72c00",
+        "doc-280a5fe2ea26482c868e"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "分块加载版本门槛与可用性",
+            "hint": "从本次冻结的官网快照核对TiledGSNode、loadTiledGSNode、setCamera、setTileRequestCallback、notifyTileReady、GSTile的起始版本（分析摘要指向26.0.0，须以快照为准）及仅Stage模型可用的约束，不满足时不接入分块接口。",
+            "mustResolve": true
+          },
+          {
+            "topic": "loadTiledGSNode与清单JSON输入",
+            "hint": "核对loadTiledGSNode的签名、清单JSON的uri约定、uri为空字符串时的失败行为、parent缺省挂载行为与Promise<TiledGSNode>返回处理。",
+            "mustResolve": true
+          },
+          {
+            "topic": "setCamera驱动瓦片选择",
+            "hint": "核对setCamera设置驱动分块选择相机的语义、未显式设置时的默认相机行为，以及与瓦片按需选择的联动关系。",
+            "mustResolve": true
+          },
+          {
+            "topic": "瓦片请求回调与就绪通知流程",
+            "hint": "核对setTileRequestCallback的触发时机（驱动相机移动且渲染器需加载更多瓦片时回调GSTile列表）、瓦片数据持久化到tile.uri相对路径的约定，以及notifyTileReady通知.sog可加载、渲染器不再需要该瓦片时不执行任何操作的语义。",
+            "mustResolve": true
+          },
+          {
+            "topic": "插件前置与ArkGraphics 3D联合使用",
+            "hint": "核对renderContext.loadPlugin(spatialRender.GSPlugin.PLUGIN_ID)先于Scene.load与分块节点加载的顺序约束；未加载插件即调用属未定义行为。Kit为ArkGraphics 3D模块扩展，需联合使用。",
+            "mustResolve": true
+          },
+          {
+            "topic": "分块渲染机制与收益",
+            "hint": "核对Tiled 3D Gaussian Splatting按空间划分瓦片、按视口按需加载以降低内存占用与渲染开销的官网口径，以及高斯点（Gaussian Point）作为3DGS基本组成单元的概念定义。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "sr-s007-tiled-version-gate",
+            "topic": "分块加载版本门槛",
+            "positions": [
+              "TiledGSNode/loadTiledGSNode/setTileRequestCallback/notifyTileReady/GSTile等分块接口起始版本为26.0.0",
+              "分块接口随spatialRender基础版本6.0.1(21)即可用"
+            ]
+          },
+          {
+            "id": "sr-s007-plugin-order",
+            "topic": "插件加载顺序",
+            "positions": [
+              "必须先renderContext.loadPlugin(GSPlugin.PLUGIN_ID)再Scene.load与loadTiledGSNode，否则未定义行为",
+              "可直接loadTiledGSNode，插件由系统自动加载"
+            ]
+          },
+          {
+            "id": "sr-s007-camera-default",
+            "topic": "驱动相机默认值",
+            "positions": [
+              "未调用setCamera时默认使用渲染场景相机驱动分块选择",
+              "必须显式setCamera后渲染器才会请求并加载瓦片"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "在满足版本门槛与Stage模型约束的设备上，按loadPlugin(GSPlugin.PLUGIN_ID)→Scene.load→loadTiledGSNode→setCamera→setTileRequestCallback→notifyTileReady顺序接入清单JSON与.sog瓦片后，大规模3DGS场景按视口渐进加载并正常渲染；版本不满足、插件未预加载或uri无效时，静态检查与构建给出明确失败而非进入未定义行为。",
+          "criteriaTopics": [
+            "分块加载版本门槛与可用性",
+            "loadTiledGSNode与清单JSON输入",
+            "setCamera驱动瓦片选择",
+            "瓦片请求回调与就绪通知流程",
+            "插件前置与ArkGraphics 3D联合使用"
+          ]
+        }
+      ],
+      "demoValidation": {
+        "layoutPolicy": "single_page_preferred",
+        "scopePolicy": {
+          "selection": "prompt_strong_relevance_only",
+          "prerequisiteHandling": "setup_or_static_only",
+          "excludedByDefault": [
+            "C/C++重建推帧链路",
+            "3DGS滤镜效果",
+            "3DGS模型编辑导出"
+          ],
+          "excludedCriterionTypes": [
+            "version",
+            "capability",
+            "performance"
+          ],
+          "includeExcludedTypeWhenPromptContains": {
+            "version": [
+              "API",
+              "SDK",
+              "版本",
+              "26.0.0"
+            ],
+            "capability": [
+              "设备",
+              "机型",
+              "支持范围"
+            ],
+            "performance": [
+              "内存",
+              "性能",
+              "开销"
+            ]
+          }
+        },
+        "points": [
+          {
+            "id": "D01-01",
+            "title": "分块3DGS渐进加载与瓦片回调",
+            "execution": "single_page",
+            "criteriaTopics": [
+              "loadTiledGSNode与清单JSON输入",
+              "setCamera驱动瓦片选择",
+              "瓦片请求回调与就绪通知流程"
+            ],
+            "demoSetupRequirements": [
+              {
+                "id": "tiled-assets",
+                "description": "准备清单JSON与对应.sog瓦片资源，并按本次冻结判据放置到应用可访问路径。",
+                "enforcement": "implementation_and_static_gate",
+                "countsAsFeatureValidation": false
+              },
+              {
+                "id": "plugin-preloaded",
+                "description": "按前置顺序完成loadPlugin(GSPlugin.PLUGIN_ID)与Scene.load，再加载分块节点。",
+                "enforcement": "implementation_and_static_gate",
+                "countsAsFeatureValidation": false
+              }
+            ],
+            "interactionRequirements": [
+              {
+                "id": "pan-camera",
+                "description": "在渲染视口内移动驱动相机，使渲染器需要加载新的瓦片。",
+                "expected": "setTileRequestCallback按需回调所缺瓦片，瓦片就绪并notifyTileReady后当前视口内容渐进补全。"
+              }
+            ],
+            "variants": [
+              {
+                "id": "tiled-on",
+                "label": "分块加载渲染",
+                "parameters": {
+                  "loadMode": "tiled"
+                }
+              },
+              {
+                "id": "tiled-baseline",
+                "label": "未启用瓦片基线",
+                "parameters": {
+                  "loadMode": "none"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "implementation": {
+        "steps": [
+          "先按本次冻结判据确认设备与工程满足分块接口版本门槛和Stage模型要求，再规划清单JSON与.sog瓦片资源来源。",
+          "按loadPlugin(spatialRender.GSPlugin.PLUGIN_ID)→Scene.load→loadTiledGSNode的顺序接入分块节点，任何一步插件未加载不得继续调用。",
+          "setCamera设置驱动相机后注册setTileRequestCallback，把取回的瓦片数据持久化到tile.uri相对路径，再调用notifyTileReady通知渲染器可加载。",
+          "渲染器不再需要的瓦片由notifyTileReady安全空操作处理；回调内不做阻塞渲染线程的耗时操作。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "sr-s007-import",
+          "kind": "require_any",
+          "patterns": [
+            "@kit\\.SpatialReconKit"
+          ],
+          "onMissing": "failed",
+          "message": "缺少@kit.SpatialReconKit导入。"
+        },
+        {
+          "id": "sr-s007-plugin-load",
+          "kind": "require_any",
+          "patterns": [
+            "loadPlugin\\s*\\(\\s*spatialRender\\.GSPlugin\\.PLUGIN_ID"
+          ],
+          "onMissing": "failed",
+          "message": "缺少GSPlugin插件加载前置。"
+        },
+        {
+          "id": "sr-s007-tiled-load",
+          "kind": "require_any",
+          "patterns": [
+            "loadTiledGSNode\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少分块3DGS节点加载调用。"
+        },
+        {
+          "id": "sr-s007-set-camera",
+          "kind": "require_any",
+          "patterns": [
+            "setCamera\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少分块驱动相机设置。"
+        },
+        {
+          "id": "sr-s007-tile-callback",
+          "kind": "require_any",
+          "patterns": [
+            "setTileRequestCallback\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少瓦片请求回调注册。"
+        },
+        {
+          "id": "sr-s007-notify-ready",
+          "kind": "require_any",
+          "patterns": [
+            "notifyTileReady\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少瓦片就绪通知调用。"
+        }
+      ],
+      "negativeCases": [
+        "未先loadPlugin(GSPlugin.PLUGIN_ID)即调用loadTiledGSNode",
+        "版本低于分块接口门槛的环境调用TiledGSNode分块能力",
+        "loadTiledGSNode传入空字符串uri或缺失清单JSON",
+        "瓦片数据未持久化到tile.uri相对路径即调用notifyTileReady",
+        "非Stage模型工程使用spatialRender分块接口"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "install",
+        "runtime",
+        "visual"
+      ]
+    },
+    {
+      "id": "SR-S008",
+      "displayName": "3DGS模型编辑与导出",
+      "route": "route-arkts-render",
+      "intentPatterns": [
+        "spatialEdit",
+        "GSEdit",
+        "editGSNode",
+        "selectBy2DBox",
+        "selectBy3DBox",
+        "selectByIndex",
+        "selectBy2DMask",
+        "invertSelection",
+        "getRecommended3DBox",
+        "saveToPLY",
+        "extract3DMainBody",
+        "3DGS编辑",
+        "高斯点编辑",
+        "3DGS导出"
+      ],
+      "intentGroups": [
+        [
+          "3DGS",
+          "编辑"
+        ],
+        [
+          "高斯",
+          "选区"
+        ],
+        [
+          "3DGS",
+          "导出"
+        ]
+      ],
+      "intentPriority": 2,
+      "targets": [
+        "spatialEdit",
+        "GSEdit",
+        "editGSNode",
+        "saveToPLY",
+        "extract3DMainBody"
+      ],
+      "sources": [
+        "doc-bfc2e9b7e47446d47311",
+        "doc-9d36d49b538354a72c00"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "编辑能力版本与Stage模型约束",
+            "hint": "从本次冻结的官网快照核对spatialEdit模块起始版本（分析摘要指向26.0.0，须以快照为准）、SystemCapability.Graphics.SpatialEdit系统能力与仅Stage模型可用的约束。",
+            "mustResolve": true
+          },
+          {
+            "topic": "编辑句柄创建",
+            "hint": "核对GSEdit.editGSNode(node: spatialRender.GSNode)创建编辑句柄的入参要求，以及节点不满足要求时返回undefined的判断与降级处理。",
+            "mustResolve": true
+          },
+          {
+            "topic": "选区方式与语义",
+            "hint": "核对selectBy2DBox(视口矩形)、selectBy3DBox(轴对齐包围盒)、selectByIndex(索引)、selectBy2DMask(PixelMap遮罩及resourceManager.getRawFileContent+image解码准备)、invertSelection反选、clearSelection清空的参数与语义。",
+            "mustResolve": true
+          },
+          {
+            "topic": "编辑操作与撤销",
+            "hint": "核对transform(Mat4x4)对当前选区应用变换、paint(Color, PaintMode)按REPLACE/MULTIPLY/ADD模式上色、remove删除选区高斯点、undo支持连续多次撤销的行为与顺序约束。",
+            "mustResolve": true
+          },
+          {
+            "topic": "射线检测推荐包围盒",
+            "hint": "核对getRecommended3DBox(ori: Vec3, dir: Vec3)返回Aabb的射线检测语义与适用场景。",
+            "mustResolve": true
+          },
+          {
+            "topic": "PLY导出与沙盒路径",
+            "hint": "核对saveToPLY(uri: string)返回Promise<boolean>的语义及写入应用沙盒（如context.filesDir）的路径约束，导出结果用于后续加载或分发。",
+            "mustResolve": true
+          },
+          {
+            "topic": "主体提取覆盖语义",
+            "hint": "核对extract3DMainBody(pressPoint: Vec2)按屏幕按压点提取3D主体、结果覆盖内存中GSNode数据的破坏性语义，以及提取后不得继续按旧数据使用节点。",
+            "mustResolve": true
+          },
+          {
+            "topic": "GSNode获取前置",
+            "hint": "核对先Scene.getDefaultRenderContext()?.loadPlugin(spatialRender.GSPlugin.PLUGIN_ID)加载3DGS插件，再Scene.load()与SceneResourceFactory.createNode获取GSNode的前置顺序（spatialEdit示例均基于该前置）。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "sr-s008-edit-version-gate",
+            "topic": "spatialEdit版本门槛",
+            "positions": [
+              "spatialEdit模块起始版本为26.0.0",
+              "spatialEdit随spatialRender基础版本6.0.1(21)即可用"
+            ]
+          },
+          {
+            "id": "sr-s008-paint-mode-values",
+            "topic": "PaintMode枚举语义",
+            "positions": [
+              "PaintMode含REPLACE直接替换、MULTIPLY相乘、ADD相加三种模式",
+              "PaintMode仅含替换与相乘两种模式"
+            ]
+          },
+          {
+            "id": "sr-s008-extract-overwrite",
+            "topic": "extract3DMainBody结果影响范围",
+            "positions": [
+              "提取结果覆盖内存中GSNode数据（破坏性，原数据不可直接复用）",
+              "提取结果仅新增独立节点，不覆盖原GSNode数据"
+            ]
+          },
+          {
+            "id": "sr-s008-stage-model-only",
+            "topic": "工程模型约束",
+            "positions": [
+              "spatialEdit仅Stage模型可用",
+              "Stage与FA模型均可使用spatialEdit"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "在满足版本与Stage模型约束的工程中，对已按前置顺序加载的GSNode完成editGSNode句柄创建、选区与编辑（变换/上色/删除/连续撤销），并按需saveToPLY写入沙盒或extract3DMainBody提取主体；editGSNode返回undefined、版本不满足或非Stage工程时给出明确降级，extract后不再误用被覆盖前的内存数据。",
+          "criteriaTopics": [
+            "编辑能力版本与Stage模型约束",
+            "编辑句柄创建",
+            "选区方式与语义",
+            "编辑操作与撤销",
+            "PLY导出与沙盒路径",
+            "主体提取覆盖语义",
+            "GSNode获取前置"
+          ]
+        }
+      ],
+      "demoValidation": {
+        "layoutPolicy": "single_page_preferred",
+        "scopePolicy": {
+          "selection": "prompt_strong_relevance_only",
+          "prerequisiteHandling": "setup_or_static_only",
+          "excludedByDefault": [
+            "C/C++重建推帧链路",
+            "分块3DGS加载",
+            "3DGS滤镜效果"
+          ],
+          "excludedCriterionTypes": [
+            "version",
+            "capability"
+          ],
+          "includeExcludedTypeWhenPromptContains": {
+            "version": [
+              "API",
+              "SDK",
+              "版本",
+              "26.0.0"
+            ],
+            "capability": [
+              "设备",
+              "机型",
+              "支持范围"
+            ]
+          }
+        },
+        "points": [
+          {
+            "id": "D01-01",
+            "title": "3DGS选区编辑与导出",
+            "execution": "single_page",
+            "criteriaTopics": [
+              "编辑句柄创建",
+              "选区方式与语义",
+              "编辑操作与撤销",
+              "PLY导出与沙盒路径"
+            ],
+            "demoSetupRequirements": [
+              {
+                "id": "gsnode-loaded",
+                "description": "按前置顺序加载3DGS插件并获取可编辑的GSNode及示例模型资源。",
+                "enforcement": "implementation_and_static_gate",
+                "countsAsFeatureValidation": false
+              }
+            ],
+            "interactionRequirements": [
+              {
+                "id": "select-by-drag",
+                "description": "在渲染视口内拖出2D矩形选区。",
+                "expected": "区域内高斯点进入当前选区，后续编辑仅作用于选区。"
+              },
+              {
+                "id": "undo-edits",
+                "description": "执行上色或删除等编辑后连续多次撤销。",
+                "expected": "按撤销次数逐步回退编辑结果，支持连续多次撤销。"
+              }
+            ],
+            "variants": [
+              {
+                "id": "edit-paint",
+                "label": "选区上色",
+                "parameters": {
+                  "editOp": "paint"
+                }
+              },
+              {
+                "id": "edit-remove",
+                "label": "选区删除",
+                "parameters": {
+                  "editOp": "remove"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "implementation": {
+        "steps": [
+          "先按本次冻结判据确认工程满足spatialEdit版本门槛与Stage模型要求，再按前置顺序加载插件并获取GSNode。",
+          "通过GSEdit.editGSNode创建编辑句柄，返回undefined时按判据降级，不继续执行编辑。",
+          "按需选择selectBy2DBox/3DBox/Index/2DMask等方式建立选区（遮罩需先完成原始文件读取与PixelMap解码），必要时反选或清空。",
+          "对当前选区执行transform/paint(PaintMode)/remove并支持连续undo；导出走saveToPLY写沙盒路径，主体提取前确认extract3DMainBody覆盖内存数据的后果并保留必要副本或提示。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "sr-s008-import",
+          "kind": "require_any",
+          "patterns": [
+            "@kit\\.SpatialReconKit"
+          ],
+          "onMissing": "failed",
+          "message": "缺少@kit.SpatialReconKit导入。"
+        },
+        {
+          "id": "sr-s008-plugin-load",
+          "kind": "require_any",
+          "patterns": [
+            "loadPlugin\\s*\\(\\s*spatialRender\\.GSPlugin\\.PLUGIN_ID"
+          ],
+          "onMissing": "failed",
+          "message": "缺少GSPlugin插件加载前置。"
+        },
+        {
+          "id": "sr-s008-edit-handle",
+          "kind": "require_any",
+          "patterns": [
+            "editGSNode\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少GSEdit编辑句柄创建。"
+        },
+        {
+          "id": "sr-s008-selection",
+          "kind": "require_any",
+          "patterns": [
+            "selectBy(?:2DBox|3DBox|Index|2DMask)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少3DGS选区API调用。"
+        },
+        {
+          "id": "sr-s008-edit-op",
+          "kind": "require_any",
+          "patterns": [
+            "\\.(?:paint|transform|undo)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少选区编辑操作调用。"
+        },
+        {
+          "id": "sr-s008-export-or-extract",
+          "kind": "require_any",
+          "patterns": [
+            "saveToPLY\\s*\\(|extract3DMainBody\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少PLY导出或主体提取调用。"
+        }
+      ],
+      "negativeCases": [
+        "editGSNode返回undefined后仍继续执行编辑操作",
+        "版本低于spatialEdit门槛的环境调用编辑能力",
+        "extract3DMainBody后继续按覆盖前的GSNode内存数据渲染或导出",
+        "saveToPLY写入应用沙盒之外的路径",
+        "非Stage模型工程使用spatialEdit接口"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "install",
+        "runtime",
+        "visual"
+      ]
+    }
+  ]
+}

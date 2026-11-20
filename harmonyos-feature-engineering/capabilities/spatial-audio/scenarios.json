@@ -1,0 +1,1405 @@
+{
+  "schemaVersion": "1.0",
+  "featureId": "spatial-audio",
+  "displayName": "空间音频",
+  "defaultRoute": "route-native-audiosuite",
+  "routes": [
+    {
+      "id": "route-native-audiosuite",
+      "displayName": "C/C++ OHAudioSuite 空间渲染",
+      "status": "ready",
+      "projectRequirements": {
+        "model": "stage",
+        "minCompileApi": 23,
+        "minTargetApi": 23,
+        "minCompatibleApi": null,
+        "compatibleApiMayBeLower": true,
+        "compatibilityPolicy": "OHAudioSuite 引擎/管线基础接口起始 API 22；空间渲染节点 EFFECT_NODE_TYPE_SPACE_RENDER 与固定摆位/旋转/扩展三模式参数接口起始 API 23；HOA 空间渲染节点起始 26.0.0；REALTIME 模式在 API 23 前仅支持均衡器效果节点。CMake 需链接 libohaudio.so 与 libohaudiosuite.so，头文件 ohaudiosuite/native_audio_suite_base.h、native_audio_suite_engine.h 及 ohaudio 相关头。各版本门槛与数量限制以每轮冻结的华为开发者官网为准，不得仅凭能力名称推断兼容版本。"
+      },
+      "sdk": {
+        "preferredApi": 23,
+        "validatedLocalVersion": null,
+        "requiredDeclarationGlobs": [
+          "openharmony/**/ohaudiosuite/native_audio_suite_base.h",
+          "openharmony/**/ohaudiosuite/native_audio_suite_engine.h",
+          "openharmony/**/ohaudio/native_audiorenderer.h"
+        ],
+        "requiredSymbols": [
+          "EFFECT_NODE_TYPE_SPACE_RENDER",
+          "OH_AudioSuiteEngine_SetSpaceRenderPositionParams"
+        ]
+      },
+      "supportedTargets": {
+        "engine": [
+          "OH_AudioSuiteEngine"
+        ],
+        "node": [
+          "EFFECT_NODE_TYPE_SPACE_RENDER",
+          "EFFECT_NODE_TYPE_HOA_SPACE_RENDER"
+        ],
+        "params": [
+          "OH_AudioSuite_SpaceRenderPositionParams",
+          "OH_AudioSuite_SpaceRenderRotationParams",
+          "OH_AudioSuite_SpaceRenderExtensionParams"
+        ]
+      },
+      "intentPatterns": [
+        "空间音频渲染",
+        "空间渲染",
+        "OHAudioSuite",
+        "SpaceRender",
+        "HOA"
+      ]
+    },
+    {
+      "id": "route-arkts-spatialization",
+      "displayName": "ArkTS 空间音频管理与状态订阅",
+      "status": "ready",
+      "projectRequirements": {
+        "model": "stage",
+        "minCompileApi": 18,
+        "minTargetApi": 18,
+        "minCompatibleApi": null,
+        "compatibleApiMayBeLower": true,
+        "compatibilityPolicy": "基于 @kit.AudioKit（SystemCapability.Multimedia.Audio.Spatialization）；getSpatializationManager 与 AudioSpatializationManager 本批查询/订阅接口均起始 API 18，实例唯一获取入口为 audioManager.getSpatializationManager()。开关状态仅为开关，实际渲染生效还依赖设备支持空间音频渲染。设备支持范围与版本以每轮冻结的华为开发者官网为准。"
+      },
+      "sdk": {
+        "preferredApi": 18,
+        "validatedLocalVersion": null,
+        "requiredDeclarationGlobs": [
+          "openharmony/ets/api/@ohos.audio.d.ts"
+        ],
+        "requiredSymbols": [
+          "getSpatializationManager",
+          "AudioSpatializationManager"
+        ]
+      },
+      "supportedTargets": {
+        "manager": [
+          "getSpatializationManager",
+          "AudioSpatializationManager"
+        ],
+        "query": [
+          "isSpatializationEnabledForCurrentDevice",
+          "spatializationSupported"
+        ],
+        "subscribe": [
+          "spatializationEnabledChangeForCurrentDevice"
+        ]
+      },
+      "intentPatterns": [
+        "空间音频查询",
+        "空间音频开关",
+        "空间音频订阅",
+        "AudioSpatializationManager",
+        "spatializationSupported"
+      ]
+    }
+  ],
+  "projectSignals": [
+    {
+      "id": "native-audiosuite-engine",
+      "route": "route-native-audiosuite",
+      "extensions": [
+        ".c",
+        ".cpp",
+        ".cc",
+        ".h",
+        ".hpp"
+      ],
+      "pattern": "\\bOH_AudioSuiteEngine_|EFFECT_NODE_TYPE_SPACE_RENDER"
+    },
+    {
+      "id": "space-render-params",
+      "route": "route-native-audiosuite",
+      "extensions": [
+        ".c",
+        ".cpp",
+        ".cc",
+        ".h",
+        ".hpp"
+      ],
+      "pattern": "SpaceRender(Position|Rotation|Extension)Params"
+    },
+    {
+      "id": "arkts-spatialization-manager",
+      "route": "route-arkts-spatialization",
+      "extensions": [
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "getSpatializationManager|AudioSpatializationManager|spatializationEnabledChangeForCurrentDevice"
+    }
+  ],
+  "safety": {
+    "modifyMinimumScope": true,
+    "preserveDirtyFiles": true,
+    "keepFailedChanges": true,
+    "automaticRollback": false,
+    "automaticSdkUpgrade": false,
+    "automaticEmulatorDownload": false,
+    "automaticUninstall": false,
+    "maxDirectedRepairRounds": 2
+  },
+  "verification": {
+    "layerStatuses": [
+      "passed",
+      "failed",
+      "blocked",
+      "not_run",
+      "inconclusive"
+    ],
+    "verdicts": [
+      "passed",
+      "passed_with_spec_conflict",
+      "build_passed_runtime_pending",
+      "inconclusive",
+      "failed",
+      "blocked"
+    ],
+    "visualSuccessRequiresObservation": true,
+    "buildCommand": "devecocli build",
+    "runCommand": "devecocli run",
+    "devicePolicy": "run-only-when-requested-and-exactly-one-device-selected"
+  },
+  "entryPoints": [
+    {
+      "snapshotId": "doc-a39fa6bbea740bd3d1d6",
+      "title": "空间音频渲染(C/C++)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/audio-suite-space-render"
+    },
+    {
+      "snapshotId": "doc-6970b0cd1e97946c3199",
+      "title": "空间音频能力查询和状态订阅",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/public-audio-spatialization-management"
+    },
+    {
+      "snapshotId": "doc-37f8bc5ff9352c947706",
+      "title": "Audio Kit（音频服务）",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-references/api/audio-api"
+    },
+    {
+      "snapshotId": "doc-af1253fea5b36efa0479",
+      "title": "native_audio_suite_base.h",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h"
+    },
+    {
+      "snapshotId": "doc-cff945c0dd065743c215",
+      "title": "空间音频渲染(C/C++)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-space-render"
+    },
+    {
+      "snapshotId": "doc-bf8367192ded3960290d",
+      "title": "native_audio_suite_engine.h",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h"
+    },
+    {
+      "snapshotId": "doc-631e793f0d7d63aa47eb",
+      "title": "Interface (AudioManager)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiomanager"
+    },
+    {
+      "snapshotId": "doc-dc1f478b08d3b9882d51",
+      "title": "Interface (AudioSpatializationManager)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiospatializationmanager"
+    },
+    {
+      "snapshotId": "doc-d87bb1c4f0b4827f342e",
+      "title": "OH_AudioSuite_SpaceRenderPositionParams",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite-oh-audiosuite-spacerenderpositionparams"
+    },
+    {
+      "snapshotId": "doc-4b37aa2093eaec901236",
+      "title": "OH_AudioSuite_SpaceRenderRotationParams",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite-oh-audiosuite-spacerenderrotationparams"
+    },
+    {
+      "snapshotId": "doc-afa83ec0a10d9ea67b40",
+      "title": "OH_AudioSuite_SpaceRenderExtensionParams",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite-oh-audiosuite-spacerenderextensionparams"
+    }
+  ],
+  "reviewDocuments": [
+    {
+      "snapshotId": "doc-a39fa6bbea740bd3d1d6",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-6970b0cd1e97946c3199",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-37f8bc5ff9352c947706",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-af1253fea5b36efa0479",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-cff945c0dd065743c215",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-bf8367192ded3960290d",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-631e793f0d7d63aa47eb",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-dc1f478b08d3b9882d51",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-d87bb1c4f0b4827f342e",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-4b37aa2093eaec901236",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-afa83ec0a10d9ea67b40",
+      "role": "api"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "SA-S001",
+      "displayName": "C/C++ 空间渲染管线构建与实时预览",
+      "route": "route-native-audiosuite",
+      "intentPatterns": [
+        "空间音频渲染",
+        "空间渲染管线",
+        "空间渲染节点",
+        "实时预览",
+        "OHAudioSuite",
+        "CreatePipeline",
+        "StartPipeline",
+        "StopPipeline",
+        "RenderFrame",
+        "AUDIOSUITE_PIPELINE_REALTIME_MODE"
+      ],
+      "intentGroups": [
+        [
+          "空间渲染",
+          "管线"
+        ],
+        [
+          "OHAudioSuite",
+          "实时预览"
+        ],
+        [
+          "空间音频",
+          "C/C++"
+        ]
+      ],
+      "intentPriority": 1,
+      "targets": [
+        "OH_AudioSuiteEngine",
+        "EFFECT_NODE_TYPE_SPACE_RENDER",
+        "OH_AudioSuiteNodeBuilder",
+        "AUDIOSUITE_PIPELINE_REALTIME_MODE"
+      ],
+      "sources": [
+        "doc-a39fa6bbea740bd3d1d6",
+        "doc-cff945c0dd065743c215",
+        "doc-bf8367192ded3960290d",
+        "doc-af1253fea5b36efa0479"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "引擎与管线生命周期顺序",
+            "hint": "核对本次冻结官网给出的流程：OH_AudioSuiteEngine_Create → CreatePipeline（空间渲染预览用 AUDIOSUITE_PIPELINE_REALTIME_MODE）→ 创建节点并组网 → StartPipeline/StopPipeline → 依次销毁节点、管线、引擎；核对引擎销毁是否级联销毁全部管线。",
+            "mustResolve": true
+          },
+          {
+            "topic": "节点创建与连接组网",
+            "hint": "核对 NodeBuilder（Create/SetNodeType/SetFormat/SetRequestDataCallback/Destroy）构建输入（含数据回调）、EFFECT_NODE_TYPE_SPACE_RENDER、混音（EFFECT_NODE_TYPE_AUDIO_MIXER）与输出节点的方式，以及 CreateNode 后经 ConnectNodes 按官方拓扑连接、DisconnectNodes 的使用条件。",
+            "mustResolve": true
+          },
+          {
+            "topic": "实时预览链路与 finishedFlag 语义",
+            "hint": "核对输出节点经 OH_AudioRenderer 写数据回调结合 OH_AudioSuiteEngine_RenderFrame 的实时预览链路；requestFrameSize 需大于 0、responseSize 不超过请求大小；全部输入提交完成后 finishedFlag 置位，此后不得再调用 RenderFrame。",
+            "mustResolve": true
+          },
+          {
+            "topic": "构建链接与头文件引入",
+            "hint": "核对 CMake 链接 libohaudio.so 与 libohaudiosuite.so，头文件 ohaudiosuite/native_audio_suite_base.h、native_audio_suite_engine.h 及 ohaudio/native_audiorenderer.h、native_audiostreambuilder.h 的引入方式。",
+            "mustResolve": true
+          },
+          {
+            "topic": "REALTIME 模式与版本门槛",
+            "hint": "核对空间渲染能力起始 API version 23；REALTIME 模式在 API 23 前仅支持均衡器效果节点、API 23 及以后支持全部效果节点；EDIT 与 REALTIME 模式差异以本次冻结官网为准。",
+            "mustResolve": true
+          },
+          {
+            "topic": "管线与节点数量拓扑限制",
+            "hint": "核对每引擎管线数量上限、实时预览管线的版本分档限制、每管线输入/输出节点数量要求（有且仅 1 个输出）、混音节点上限、输入与效果节点数量的版本分档上限及超限错误码。",
+            "mustResolve": true
+          },
+          {
+            "topic": "销毁前置条件",
+            "hint": "核对 DestroyNode 须管线处于 STOPPED 且节点不在处理路径、NodeBuilder 用毕销毁、StopPipeline 不改变节点连接、停止后不可再 RenderFrame 等前置条件与违反时错误码。",
+            "mustResolve": true
+          },
+          {
+            "topic": "返回值校验",
+            "hint": "核对官方指南示例代码未包含返回值校验这一已知缺口，实施必须为每个 OHAudioSuite 调用补充返回值检查并按错误码分支处理；错误码含义以本次冻结 base.h/engine.h 为准。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "SA-S001-CP01",
+            "topic": "REALTIME 模式效果节点支持范围",
+            "positions": [
+              "base.h/engine.h 参考：API 23 前 REALTIME 管线仅支持均衡器效果节点，API 23 及以后支持全部效果节点（含空间渲染）",
+              "空间音频渲染指南：直接以 AUDIOSUITE_PIPELINE_REALTIME_MODE 搭配空间渲染节点给出完整示例，隐含要求 API version 23+"
+            ]
+          },
+          {
+            "id": "SA-S001-CP02",
+            "topic": "管线与节点数量上限版本分档",
+            "positions": [
+              "engine.h/base.h：每引擎最多 10 条管线；实时预览管线在 API 26.0.0 前最多 1 条、之后不再单独限制但总数仍受 10 条约束",
+              "engine.h/base.h：每管线输出节点有且仅 1、混音节点不超过 3；效果类节点 API 24 前上限 5 个、API 24 起上限 15 个，超限报数量限制错误"
+            ]
+          },
+          {
+            "id": "SA-S001-CP03",
+            "topic": "RenderFrame 调用时机约束",
+            "positions": [
+              "engine.h：RenderFrame 须在管线运行态调用；所有输入 finishedFlag 置位后再调用返回 UNSUPPORTED_OPERATION；管线停止后不可再 RenderFrame",
+              "指南示例代码未显式处理 finishedFlag 后与停止态的调用约束，也未检查返回值，直接照搬存在违规风险"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "在满足版本与数量约束的工程中，按官网流程创建引擎与 REALTIME 管线，组建输入、空间渲染、混音与唯一输出节点并连接，StartPipeline 后 RenderFrame 持续将渲染帧送至输出写数据回调实现实时预览；全部输入 finishedFlag 置位后停止渲染，StopPipeline 后按节点、管线、引擎顺序销毁且无泄漏；任一调用返回错误码时按错误分支处理。",
+          "criteriaTopics": [
+            "引擎与管线生命周期顺序",
+            "节点创建与连接组网",
+            "实时预览链路与 finishedFlag 语义",
+            "构建链接与头文件引入",
+            "REALTIME 模式与版本门槛",
+            "管线与节点数量拓扑限制",
+            "销毁前置条件",
+            "返回值校验"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "确认工程 API version 满足空间渲染门槛（以本次冻结官网为准，指南标注 23 起），CMakeLists 链接 libohaudio.so 与 libohaudiosuite.so，并引入 native_audio_suite_base.h、native_audio_suite_engine.h 及 ohaudio 相关头文件。",
+          "按官网顺序创建引擎与 REALTIME 模式管线，用 NodeBuilder 依次构建输入（设置数据请求回调）、EFFECT_NODE_TYPE_SPACE_RENDER、混音与输出节点，CreateNode 后按官方拓扑 ConnectNodes 组网。",
+          "启动管线后在输出节点写数据回调中调用 RenderFrame 实时预览；跟踪各输入 finishedFlag，全部置位后停止渲染，StopPipeline 后按节点、管线、引擎逆序销毁并释放 NodeBuilder。",
+          "为每个 OHAudioSuite/OHAudio 调用补充返回值检查并按本次冻结的错误码分支处理，不照搬缺少返回值校验的示例代码。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "sa-s001-engine-create",
+          "kind": "require_any",
+          "patterns": [
+            "OH_AudioSuiteEngine_Create\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少 OHAudioSuite 引擎创建调用。"
+        },
+        {
+          "id": "sa-s001-pipeline-create",
+          "kind": "require_any",
+          "patterns": [
+            "OH_AudioSuiteEngine_CreatePipeline\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少管线创建调用。"
+        },
+        {
+          "id": "sa-s001-realtime-mode",
+          "kind": "require_any",
+          "patterns": [
+            "AUDIOSUITE_PIPELINE_REALTIME_MODE"
+          ],
+          "onMissing": "failed",
+          "message": "未声明 REALTIME 管线工作模式。"
+        },
+        {
+          "id": "sa-s001-space-render-node",
+          "kind": "require_any",
+          "patterns": [
+            "EFFECT_NODE_TYPE_SPACE_RENDER"
+          ],
+          "onMissing": "failed",
+          "message": "缺少空间渲染效果节点类型。"
+        },
+        {
+          "id": "sa-s001-nodebuilder",
+          "kind": "require_any",
+          "patterns": [
+            "OH_AudioSuiteNodeBuilder_(Create|SetNodeType|SetRequestDataCallback)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少 NodeBuilder 节点构建流程。"
+        },
+        {
+          "id": "sa-s001-connect-nodes",
+          "kind": "require_any",
+          "patterns": [
+            "OH_AudioSuiteEngine_ConnectNodes\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少节点连接组网调用。"
+        },
+        {
+          "id": "sa-s001-render-frame",
+          "kind": "require_any",
+          "patterns": [
+            "OH_AudioSuiteEngine_RenderFrame\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少 RenderFrame 实时预览调用。"
+        },
+        {
+          "id": "sa-s001-start-stop",
+          "kind": "require_any",
+          "patterns": [
+            "OH_AudioSuiteEngine_(StartPipeline|StopPipeline)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少管线启动与停止控制。"
+        },
+        {
+          "id": "sa-s001-destroy",
+          "kind": "require_any",
+          "patterns": [
+            "OH_AudioSuiteEngine_(DestroyNode|DestroyPipeline|Destroy)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少节点/管线/引擎销毁清理。"
+        },
+        {
+          "id": "sa-s001-link-libs",
+          "kind": "require_any",
+          "patterns": [
+            "libohaudiosuite"
+          ],
+          "onMissing": "failed",
+          "message": "构建脚本未链接 libohaudiosuite.so。"
+        },
+        {
+          "id": "sa-s001-result-check",
+          "kind": "require_any",
+          "patterns": [
+            "AUDIOSUITE_SUCCESS|AUDIOSUITE_ERROR_"
+          ],
+          "onMissing": "failed",
+          "message": "缺少 OHAudioSuite 调用返回值/错误码检查。"
+        }
+      ],
+      "negativeCases": [
+        "在低于空间渲染版本门槛（指南标注 API 23）的工程中使用 EFFECT_NODE_TYPE_SPACE_RENDER 节点",
+        "REALTIME 管线在 API 23 前接入非均衡器效果节点（含空间渲染节点）",
+        "管线缺少输入节点、输出节点超过 1 个或混音节点超过上限仍启动",
+        "效果节点数量超出当前 API 版本分档上限仍继续创建节点",
+        "全部输入 finishedFlag 置位后继续调用 RenderFrame，或在管线非运行态调用 RenderFrame",
+        "管线未 STOPPED 或节点仍处于处理路径时销毁节点",
+        "未按官方顺序直接销毁引擎而未处理管线与节点的实现",
+        "照搬官方示例代码而省略返回值校验"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "install",
+        "runtime"
+      ],
+      "demoValidation": {
+        "layoutPolicy": "single_page_preferred",
+        "points": [
+          {
+            "id": "D01-01",
+            "title": "REALTIME 空间渲染管线端到端运行",
+            "execution": "single_page",
+            "criteriaTopics": [
+              "引擎与管线生命周期顺序",
+              "节点创建与连接组网",
+              "实时预览链路与 finishedFlag 语义",
+              "构建链接与头文件引入",
+              "返回值校验"
+            ],
+            "demoSetupRequirements": [
+              {
+                "id": "native-bridge-and-log",
+                "description": "页面提供触发各验证序列的按钮与运行结果日志区，经 NAPI 调用 C/C++ 测试序列并把每次调用的返回码逐条回显。",
+                "enforcement": "implementation_and_static_gate",
+                "countsAsFeatureValidation": false
+              }
+            ],
+            "variants": [
+              {
+                "id": "run-complete",
+                "label": "完整生命周期运行",
+                "parameters": {
+                  "durationMs": 10000
+                }
+              }
+            ]
+          },
+          {
+            "id": "D01-02",
+            "title": "停止态销毁顺序与停止后渲染约束",
+            "execution": "single_page",
+            "criteriaTopics": [
+              "销毁前置条件",
+              "实时预览链路与 finishedFlag 语义",
+              "返回值校验"
+            ],
+            "variants": [
+              {
+                "id": "destroy-order",
+                "label": "停止后按节点/管线/引擎逆序销毁",
+                "parameters": {
+                  "sequence": "node-pipeline-engine"
+                }
+              },
+              {
+                "id": "render-after-stop",
+                "label": "停止后调用 RenderFrame 记录返回码",
+                "parameters": {
+                  "sequence": "renderframe-after-stop"
+                }
+              }
+            ]
+          },
+          {
+            "id": "D01-03",
+            "title": "管线数量上限探测",
+            "execution": "single_page",
+            "criteriaTopics": [
+              "管线与节点数量拓扑限制",
+              "返回值校验"
+            ],
+            "variants": [
+              {
+                "id": "pipelines-over-limit",
+                "label": "连续创建 11 条管线记录首次报错",
+                "parameters": {
+                  "pipelineCount": 11
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "SA-S002",
+      "displayName": "空间渲染三模式参数配置（固定摆位/旋转/扩展）",
+      "route": "route-native-audiosuite",
+      "intentPatterns": [
+        "固定摆位",
+        "旋转模式",
+        "扩展模式",
+        "空间渲染参数",
+        "SetSpaceRenderPositionParams",
+        "SetSpaceRenderRotationParams",
+        "SetSpaceRenderExtensionParams",
+        "SpaceRenderPositionParams",
+        "SpaceRenderRotationParams",
+        "SpaceRenderExtensionParams",
+        "surroundTime",
+        "surroundDirection",
+        "extRadius",
+        "extAngle"
+      ],
+      "intentGroups": [
+        [
+          "空间渲染",
+          "固定摆位"
+        ],
+        [
+          "空间渲染",
+          "旋转"
+        ],
+        [
+          "空间渲染",
+          "扩展"
+        ]
+      ],
+      "intentPriority": 1,
+      "targets": [
+        "OH_AudioSuite_SpaceRenderPositionParams",
+        "OH_AudioSuite_SpaceRenderRotationParams",
+        "OH_AudioSuite_SpaceRenderExtensionParams",
+        "OH_AudioSuite_SurroundDirection"
+      ],
+      "sources": [
+        "doc-a39fa6bbea740bd3d1d6",
+        "doc-cff945c0dd065743c215",
+        "doc-bf8367192ded3960290d",
+        "doc-af1253fea5b36efa0479",
+        "doc-d87bb1c4f0b4827f342e",
+        "doc-4b37aa2093eaec901236",
+        "doc-afa83ec0a10d9ea67b40"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "左手坐标系与坐标取值范围",
+            "hint": "核对本次冻结结构体页：固定摆位与旋转模式的 x/y/z 采用左手坐标系（拇指 +X、食指 +Y、其余手指 +Z 正方向），取值范围与单位（提示为 [-5.0, 5.0] 米）以冻结快照为准。",
+            "mustResolve": true
+          },
+          {
+            "topic": "固定摆位模式与实时更新",
+            "hint": "核对 OH_AudioSuiteEngine_SetSpaceRenderPositionParams 的固定摆位配置方式，以及通过实时更新位置实现声源周期变化的官方做法与更新时机约束。",
+            "mustResolve": true
+          },
+          {
+            "topic": "旋转模式参数与环绕方向",
+            "hint": "核对 OH_AudioSuite_SpaceRenderRotationParams 字段：坐标范围、surroundTime 单周环绕时间取值区间（提示为 [2, 40] 秒）、surroundDirection 枚举（提示 SPACE_RENDER_CCW 逆时针 / SPACE_RENDER_CW 顺时针）以冻结快照为准。",
+            "mustResolve": true
+          },
+          {
+            "topic": "扩展模式半径与扩散角",
+            "hint": "核对 OH_AudioSuite_SpaceRenderExtensionParams 字段：extRadius 扩展半径区间（提示 [1.0, 5.0] 米）与 extAngle 水平扩散角（提示为开区间 (0, 360) 度，0 与 360 不可取）及参数大小的听觉语义。",
+            "mustResolve": true
+          },
+          {
+            "topic": "三模式参数接口契约",
+            "hint": "核对 Set/GetSpaceRenderPosition/Rotation/ExtensionParams 六个接口：起始版本（提示 23）、节点必须为空间渲染类型否则 UNSUPPORTED_OPERATION、节点句柄须经 CreateNode 获取、引擎句柄来源与返回值语义。",
+            "mustResolve": true
+          },
+          {
+            "topic": "空间渲染节点输入输出格式",
+            "hint": "核对 EFFECT_NODE_TYPE_SPACE_RENDER 节点的输入输出格式约束（提示输出 48000Hz/S16LE/2 声道）及与输入节点、输出节点格式的匹配要求，以本次冻结 base.h 为准。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "SA-S002-CP01",
+            "topic": "extAngle 开区间边界",
+            "positions": [
+              "SpaceRenderExtensionParams 结构体页：水平扩散角度取值为开区间 (0, 360) 度，边界值 0 与 360 不可取",
+              "部分转述易误写为闭区间 [0, 360]，需以本次冻结结构体页原文判定边界合法性"
+            ]
+          },
+          {
+            "id": "SA-S002-CP02",
+            "topic": "三模式数值范围与单位差异",
+            "positions": [
+              "Position/Rotation 结构体页：x/y/z 坐标范围 [-5.0, 5.0]、单位米，左手坐标系",
+              "Rotation 结构体页：surroundTime 取值 [2, 40] 秒；Extension 结构体页：extRadius 取值 [1.0, 5.0] 米、extAngle 单位度",
+              "三组范围互不通用：坐标范围不能充当扩展半径，实施不得混用各模式参数边界"
+            ]
+          },
+          {
+            "id": "SA-S002-CP03",
+            "topic": "参数接口节点类型与版本门槛",
+            "positions": [
+              "engine.h：六个 Set/Get 空间渲染参数接口起始 API 23，节点必须为空间渲染类型（否则 UNSUPPORTED_OPERATION），句柄经 OH_AudioSuiteEngine_CreateNode 获取",
+              "指南：空间渲染三模式能力整体自 API 23 起提供，低版本工程调用属越界使用"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "对 EFFECT_NODE_TYPE_SPACE_RENDER 节点按选定模式设置参数：坐标、环绕时间、扩展半径与扩散角均在本次冻结官网给出的范围内且单位正确（extAngle 为开区间），Set 调用返回 SUCCESS、Get 回读与设置一致；固定摆位可循环更新位置实现周期变化；对非空间渲染类型节点调用返回 UNSUPPORTED_OPERATION 并进入错误处理。",
+          "criteriaTopics": [
+            "左手坐标系与坐标取值范围",
+            "固定摆位模式与实时更新",
+            "旋转模式参数与环绕方向",
+            "扩展模式半径与扩散角",
+            "三模式参数接口契约",
+            "空间渲染节点输入输出格式"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "在已构建空间渲染管线的基础上，按本次冻结的结构体定义初始化所选模式的参数结构体，坐标使用左手坐标系，数值保持在冻结快照给出的范围与单位内。",
+          "固定摆位模式需要声源周期变化时，按官方做法在运行中重复调用 OH_AudioSuiteEngine_SetSpaceRenderPositionParams 更新位置；旋转、扩展模式分别使用对应结构体与枚举配置。",
+          "调用 Set 前确认节点句柄来自 CreateNode 且节点类型为空间渲染，非该类型按 UNSUPPORTED_OPERATION 分支处理；可用对应 Get 接口回读核对配置，并为每次调用补充返回值检查。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "sa-s002-space-node-type",
+          "kind": "require_any",
+          "patterns": [
+            "EFFECT_NODE_TYPE_SPACE_RENDER"
+          ],
+          "onMissing": "failed",
+          "message": "缺少空间渲染效果节点类型。"
+        },
+        {
+          "id": "sa-s002-params-struct",
+          "kind": "require_any",
+          "patterns": [
+            "OH_AudioSuite_SpaceRender(Position|Rotation|Extension)Params"
+          ],
+          "onMissing": "failed",
+          "message": "缺少空间渲染模式参数结构体定义。"
+        },
+        {
+          "id": "sa-s002-set-params",
+          "kind": "require_any",
+          "patterns": [
+            "OH_AudioSuiteEngine_SetSpaceRender(Position|Rotation|Extension)Params\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少任一空间渲染模式的参数设置调用。"
+        },
+        {
+          "id": "sa-s002-get-params",
+          "kind": "require_any",
+          "patterns": [
+            "OH_AudioSuiteEngine_GetSpaceRender(Position|Rotation|Extension)Params\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少参数回读核对（Get 接口）。"
+        },
+        {
+          "id": "sa-s002-result-check",
+          "kind": "require_any",
+          "patterns": [
+            "AUDIOSUITE_SUCCESS|AUDIOSUITE_ERROR_"
+          ],
+          "onMissing": "failed",
+          "message": "缺少空间渲染参数调用的返回值/错误码检查。"
+        }
+      ],
+      "negativeCases": [
+        "对非空间渲染类型节点调用 Set/GetSpaceRender 参数接口（应得 UNSUPPORTED_OPERATION）",
+        "坐标分量超出冻结官网给出的范围（提示 [-5.0, 5.0] 米）",
+        "surroundTime 超出取值区间（提示 [2, 40] 秒）",
+        "extRadius 超出取值区间（提示 [1.0, 5.0] 米）或 extAngle 取开区间边界值（提示 0/360 度）",
+        "在低于版本门槛（提示 API 23）的工程调用三模式参数接口",
+        "使用未经 CreateNode 获取的节点句柄或错误引擎句柄设置参数",
+        "将固定摆位坐标范围误用作扩展半径边界"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "runtime"
+      ],
+      "demoValidation": {
+        "layoutPolicy": "single_page_preferred",
+        "points": [
+          {
+            "id": "D01-04",
+            "title": "三模式合法参数 Set/Get 回读一致",
+            "execution": "single_page",
+            "criteriaTopics": [
+              "左手坐标系与坐标取值范围",
+              "固定摆位模式与实时更新",
+              "旋转模式参数与环绕方向",
+              "扩展模式半径与扩散角",
+              "三模式参数接口契约"
+            ],
+            "demoSetupRequirements": [
+              {
+                "id": "native-bridge-and-log",
+                "description": "页面提供触发各验证序列的按钮与运行结果日志区，经 NAPI 调用 C/C++ 测试序列并把每次调用的返回码逐条回显。",
+                "enforcement": "implementation_and_static_gate",
+                "countsAsFeatureValidation": false
+              }
+            ],
+            "variants": [
+              {
+                "id": "position-set-get",
+                "label": "固定摆位 Set 后 Get 回读",
+                "parameters": {
+                  "mode": "position",
+                  "x": -2.0,
+                  "y": 0.0,
+                  "z": 2.0
+                }
+              },
+              {
+                "id": "rotation-set-get",
+                "label": "旋转模式 Set 后 Get 回读",
+                "parameters": {
+                  "mode": "rotation",
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 0.0,
+                  "surroundTime": 10,
+                  "surroundDirection": 0
+                }
+              },
+              {
+                "id": "extension-set-get",
+                "label": "扩展模式 Set 后 Get 回读",
+                "parameters": {
+                  "mode": "extension",
+                  "extRadius": 2.0,
+                  "extAngle": 180
+                }
+              }
+            ]
+          },
+          {
+            "id": "D01-05",
+            "title": "越界参数设置行为",
+            "execution": "single_page",
+            "criteriaTopics": [
+              "左手坐标系与坐标取值范围",
+              "旋转模式参数与环绕方向",
+              "扩展模式半径与扩散角",
+              "三模式参数接口契约"
+            ],
+            "variants": [
+              {
+                "id": "position-out-of-range",
+                "label": "固定摆位 x=6.0 越界",
+                "parameters": {
+                  "mode": "position",
+                  "x": 6.0,
+                  "y": 0.0,
+                  "z": 0.0
+                }
+              },
+              {
+                "id": "surround-time-out-of-range",
+                "label": "旋转 surroundTime=60 越界",
+                "parameters": {
+                  "mode": "rotation",
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1.0,
+                  "surroundTime": 60,
+                  "surroundDirection": 1
+                }
+              },
+              {
+                "id": "ext-radius-out-of-range",
+                "label": "扩展 extRadius=0.5 越界",
+                "parameters": {
+                  "mode": "extension",
+                  "extRadius": 0.5,
+                  "extAngle": 90
+                }
+              },
+              {
+                "id": "ext-angle-boundary",
+                "label": "扩展 extAngle 取开区间边界 0 与 360",
+                "parameters": {
+                  "mode": "extension",
+                  "extRadius": 2.0,
+                  "extAngleBoundary": [
+                    0,
+                    360
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "D01-06",
+            "title": "非空间渲染节点调用参数接口被拒",
+            "execution": "single_page",
+            "criteriaTopics": [
+              "三模式参数接口契约"
+            ],
+            "variants": [
+              {
+                "id": "mixer-node-set-params",
+                "label": "对混音节点 Set 空间渲染参数",
+                "parameters": {
+                  "targetNode": "mixer"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "SA-S003",
+      "displayName": "HOA 高阶 Ambisonics 空间渲染节点约束",
+      "route": "route-native-audiosuite",
+      "intentPatterns": [
+        "HOA空间渲染",
+        "HOA节点",
+        "HOA转双耳",
+        "高阶Ambisonics",
+        "Ambisonics",
+        "EFFECT_NODE_TYPE_HOA_SPACE_RENDER"
+      ],
+      "targets": [
+        "EFFECT_NODE_TYPE_HOA_SPACE_RENDER",
+        "OH_AudioSuiteEngine_StartPipeline",
+        "OH_AudioSuiteEngine_IsNodeTypeSupported",
+        "CH_LAYOUT_AMB_ORDER1_ACN_N3D"
+      ],
+      "sources": [
+        "doc-af1253fea5b36efa0479",
+        "doc-bf8367192ded3960290d"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "HOA节点类型与版本门槛",
+            "hint": "从本次冻结的 native_audio_suite_base.h 现提 EFFECT_NODE_TYPE_HOA_SPACE_RENDER 的节点类型定义、枚举值、起始版本 26.0.0 及头文件/库归属，不凭普通空间渲染节点推断。",
+            "mustResolve": true
+          },
+          {
+            "topic": "HOA输入格式约束",
+            "hint": "现提 HOA 节点输入采样率（16000/48000）、采样格式与 1-3 阶 HOA 声道布局（ACN_N3D/SN3D/FUMA 系列）的完整取值集合，含任一约束不满足时的行为。",
+            "mustResolve": true
+          },
+          {
+            "topic": "HOA输出格式",
+            "hint": "现提 HOA 空间渲染节点输出采样率、采样格式与声道数，与下游输出节点配置逐项对齐。",
+            "mustResolve": true
+          },
+          {
+            "topic": "前置拓扑约束与启动报错",
+            "hint": "现提 HOA 格式输入节点与 HOA 空间渲染节点的连接要求，以及前置节点不满足 HOA 格式时 StartPipeline 的报错结论（对照 native_audio_suite_engine.h 的返回码说明）。",
+            "mustResolve": true
+          },
+          {
+            "topic": "节点支持性预检",
+            "hint": "现提 IsNodeTypeSupported 对 HOA 节点类型的探测方式与前置条件（不依赖引擎及管线状态），作为设备差异下的降级依据。",
+            "mustResolve": true
+          },
+          {
+            "topic": "资料适用性边界",
+            "hint": "HOA 仅有 API 参考、无指南实践：判据只锚定 base.h/engine.h 参考页，实施不得引入参考页未记载的实践步骤或参数假设。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "SA-S003-P01",
+            "topic": "HOA节点与普通空间渲染节点格式契约差异",
+            "positions": [
+              "base.h：EFFECT_NODE_TYPE_HOA_SPACE_RENDER 输出 48000Hz/S32LE/2声道，输入为 1-3 阶 HOA 布局",
+              "base.h：EFFECT_NODE_TYPE_SPACE_RENDER 输出 48000Hz/S16LE/2声道，参数走 Position/Rotation/Extension 三模式",
+              "两种节点采样格式与输入要求不同，现提时须逐一核对不可互换、不可套用三模式参数接口"
+            ]
+          },
+          {
+            "id": "SA-S003-P02",
+            "topic": "HOA前置节点约束的报错时机",
+            "positions": [
+              "base.h：前置节点必须为 HOA 格式输入节点，否则 OH_AudioSuiteEngine_StartPipeline 报错",
+              "需现提核对失败发生在 StartPipeline 阶段而非 CreateNode 阶段，并核对具体返回码"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "按参考页约束构造 HOA 格式输入节点并连接 HOA 空间渲染节点时，管线可启动且输出符合 HOA 节点声明的输出格式；输出格式或声道配置与判据不一致时被静态或运行检查发现。",
+          "criteriaTopics": [
+            "HOA节点类型与版本门槛",
+            "HOA输入格式约束",
+            "HOA输出格式",
+            "前置拓扑约束与启动报错"
+          ]
+        },
+        {
+          "assertion": "前置节点不是 HOA 格式输入节点或输入采样率/声道布局超出判据范围时，启动按报错路径返回失败并被用例记录，不产生未定义的渲染结果。",
+          "criteriaTopics": [
+            "HOA输入格式约束",
+            "前置拓扑约束与启动报错",
+            "节点支持性预检"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "先从本次冻结的 base.h/engine.h 参考页现提 HOA 节点枚举、起始版本与格式约束，并用 IsNodeTypeSupported 预检设备是否支持该节点类型，不支持时降级并说明。",
+          "按参考页构造 HOA 格式输入节点（采样率与 1-3 阶 HOA 声道布局逐项对照判据），连接 EFFECT_NODE_TYPE_HOA_SPACE_RENDER，输出节点按 HOA 输出格式配置。",
+          "启动前自检拓扑：HOA 输入节点连接 HOA 空间渲染节点、HOA 节点前置为 HOA 格式输入节点；StartPipeline 失败按返回码记录。",
+          "所有 OHAudioSuite 调用补充返回值校验（参考页返回 OH_AudioSuite_Result；指南示例不含 HOA，不照搬未校验写法）。",
+          "停止与销毁遵循管线 STOPPED 前置条件，逐节点、管线、引擎逆序释放。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "hoa-node-type-reference",
+          "kind": "require_any",
+          "patterns": [
+            "EFFECT_NODE_TYPE_HOA_SPACE_RENDER"
+          ],
+          "onMissing": "failed",
+          "message": "缺少 HOA 空间渲染节点类型引用。"
+        },
+        {
+          "id": "hoa-channel-layout",
+          "kind": "require_any",
+          "patterns": [
+            "CH_LAYOUT_AMB_ORDER[1-3]_(ACN_(N3D|SN3D)|FUMA)"
+          ],
+          "onMissing": "failed",
+          "message": "缺少 1-3 阶 HOA 声道布局配置。"
+        },
+        {
+          "id": "hoa-support-probe",
+          "kind": "require_any",
+          "patterns": [
+            "OH_AudioSuiteEngine_IsNodeTypeSupported\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少 HOA 节点类型支持性预检。"
+        },
+        {
+          "id": "hoa-pipeline-start",
+          "kind": "require_any",
+          "patterns": [
+            "OH_AudioSuiteEngine_StartPipeline\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少管线启动调用及其前置拓扑检查。"
+        },
+        {
+          "id": "hoa-result-check",
+          "kind": "require_any",
+          "patterns": [
+            "AUDIOSUITE_SUCCESS",
+            "OH_AudioSuite_Result"
+          ],
+          "onMissing": "failed",
+          "message": "缺少 OHAudioSuite 返回值校验。"
+        }
+      ],
+      "negativeCases": [
+        "前置节点不是 HOA 格式输入节点即启动管线（预期 StartPipeline 报错，不得忽略返回值）",
+        "对 HOA 节点使用判据范围外的采样率或非 1-3 阶 HOA 声道布局",
+        "下游按 S16LE 解析 HOA 节点输出（应按本次冻结判据的采样格式处理）",
+        "未做 IsNodeTypeSupported 预检即在不支持设备上创建 HOA 节点",
+        "照搬官方指南未校验返回值的写法，报错后继续使用节点句柄"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "runtime"
+      ],
+      "demoValidation": {
+        "layoutPolicy": "single_page_preferred",
+        "points": [
+          {
+            "id": "D01-07",
+            "title": "HOA 节点支持预检与合法拓扑运行",
+            "execution": "single_page",
+            "criteriaTopics": [
+              "HOA节点类型与版本门槛",
+              "HOA输入格式约束",
+              "HOA输出格式",
+              "节点支持性预检"
+            ],
+            "demoSetupRequirements": [
+              {
+                "id": "native-bridge-and-log",
+                "description": "页面提供触发各验证序列的按钮与运行结果日志区，经 NAPI 调用 C/C++ 测试序列并把每次调用的返回码逐条回显。",
+                "enforcement": "implementation_and_static_gate",
+                "countsAsFeatureValidation": false
+              }
+            ],
+            "variants": [
+              {
+                "id": "hoa-order1-acn-n3d",
+                "label": "48000Hz 一阶 ACN_N3D 输入连接 HOA 渲染节点",
+                "parameters": {
+                  "samplingRate": 48000,
+                  "channelLayout": "CH_LAYOUT_AMB_ORDER1_ACN_N3D"
+                }
+              }
+            ]
+          },
+          {
+            "id": "D01-08",
+            "title": "无效前置节点启动失败",
+            "execution": "single_page",
+            "criteriaTopics": [
+              "前置拓扑约束与启动报错"
+            ],
+            "variants": [
+              {
+                "id": "non-hoa-preceding",
+                "label": "普通输入节点连接 HOA 渲染节点后启动",
+                "parameters": {
+                  "preceding": "default-input"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "SA-S004",
+      "displayName": "设备空间音频能力查询与开关状态订阅",
+      "route": "route-arkts-spatialization",
+      "intentPatterns": [
+        "空间音频查询",
+        "空间音频开关",
+        "空间音频订阅",
+        "空间音频状态订阅",
+        "AudioSpatializationManager",
+        "spatializationSupported",
+        "isSpatializationEnabledForCurrentDevice",
+        "spatializationEnabledChangeForCurrentDevice"
+      ],
+      "intentGroups": [
+        [
+          "空间音频",
+          "能力查询"
+        ],
+        [
+          "空间音频",
+          "状态订阅"
+        ]
+      ],
+      "targets": [
+        "getSpatializationManager",
+        "AudioSpatializationManager",
+        "isSpatializationEnabledForCurrentDevice",
+        "spatializationSupported",
+        "spatializationEnabledChangeForCurrentDevice"
+      ],
+      "sources": [
+        "doc-6970b0cd1e97946c3199",
+        "doc-dc1f478b08d3b9882d51",
+        "doc-631e793f0d7d63aa47eb",
+        "doc-37f8bc5ff9352c947706"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "管理器获取入口",
+            "hint": "从本次冻结官网现提 audioManager.getSpatializationManager 的 API 版本门槛、返回类型与唯一入口语义（使用前需先 getAudioManager 获取 AudioManager 实例）。",
+            "mustResolve": true
+          },
+          {
+            "topic": "设备空间音频能力判断",
+            "hint": "现提 AudioDeviceDescriptor.spatializationSupported 的获取路径（经 getRoutingManager 与 getDevicesSync 取设备描述符）与判断语义。",
+            "mustResolve": true
+          },
+          {
+            "topic": "开关状态查询",
+            "hint": "现提 isSpatializationEnabledForCurrentDevice 的同步返回语义（true 开启 / false 未开启）与适用范围。",
+            "mustResolve": true
+          },
+          {
+            "topic": "状态订阅与取消",
+            "hint": "现提 on/off('spatializationEnabledChangeForCurrentDevice') 的回调参数语义与取消粒度（同 callback 取消单个、不传取消全部）。",
+            "mustResolve": true
+          },
+          {
+            "topic": "开关状态与实际生效的关系",
+            "hint": "现提“开关状态仅为开关，实际生效还依赖设备支持空间音频渲染”的约束，实施结论不得把开关 true 表述为渲染已生效。",
+            "mustResolve": true
+          },
+          {
+            "topic": "错误码与参数校验",
+            "hint": "现提 6800101 Parameter verification failed 的触发条件与处理方式（详见错误码参考），查询/订阅失败不得被吞掉。",
+            "mustResolve": true
+          },
+          {
+            "topic": "Kit设备支持范围前提",
+            "hint": "Audio Kit 目录页标注的设备支持范围（Kit 级）仅作前提，实际能力以 spatializationSupported 查询结果为准，二者口径差异需保留。",
+            "mustResolve": true
+          },
+          {
+            "topic": "范围边界：开关设置接口",
+            "hint": "本批确认资料仅含查询与订阅接口：如实施涉及空间音频渲染开关的设置行为，须另行确认官网资料，不得基于接口命名臆造设置能力。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "SA-S004-P01",
+            "topic": "开关状态与设备能力口径差异",
+            "positions": [
+              "能力查询指南：开关状态仅为开关，实际生效还依赖设备支持空间音频渲染（spatializationSupported）",
+              "接口页：isSpatializationEnabledForCurrentDevice 仅返回当前设备空间音频渲染效果开关 true/false",
+              "现提时须对两个口径分别给结论，不得把开关查询结果当作渲染生效证明"
+            ]
+          },
+          {
+            "id": "SA-S004-P02",
+            "topic": "设置类接口缺失边界",
+            "positions": [
+              "本批确认资料（能力查询指南、AudioSpatializationManager 与 AudioManager 接口页）只出现查询与订阅接口",
+              "若需求要求开/关设置能力，现提时须核对官网是否存在对应接口；本能力包范围内按未覆盖处理，不得推断存在"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "在支持空间音频的设备上：spatializationSupported 反映设备能力，isSpatializationEnabledForCurrentDevice 返回当前开关状态；查询失败时按错误码路径记录，不返回伪结果。",
+          "criteriaTopics": [
+            "管理器获取入口",
+            "设备空间音频能力判断",
+            "开关状态查询",
+            "错误码与参数校验"
+          ]
+        },
+        {
+          "assertion": "订阅期间开关状态变化触发 on('spatializationEnabledChangeForCurrentDevice') 回调并给出 true/false；off 传入与 on 相同的 callback 仅取消该监听、不传取消全部，无泄漏的重复回调。",
+          "criteriaTopics": [
+            "状态订阅与取消",
+            "管理器获取入口",
+            "错误码与参数校验"
+          ]
+        },
+        {
+          "assertion": "设备不支持空间音频渲染时，能力查询结论与开关状态分开呈现，实施不宣称空间音频已生效；Kit 级设备范围仅作为前提说明。",
+          "criteriaTopics": [
+            "开关状态与实际生效的关系",
+            "设备空间音频能力判断",
+            "Kit设备支持范围前提",
+            "范围边界：开关设置接口"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "先 getAudioManager 获取 AudioManager，再调用 getSpatializationManager 获取 AudioSpatializationManager 实例，API 门槛按本次冻结判据核对。",
+          "设备能力判断按指南路径经 getRoutingManager().getDevicesSync() 获取 AudioDeviceDescriptor 后读取 spatializationSupported。",
+          "调用 isSpatializationEnabledForCurrentDevice 查询开关状态，结论仅表述为开关状态，与设备能力分开呈现。",
+          "订阅与取消成对实现：on 注册 callback，off 传入同一 callback 取消单个监听、不传取消该事件全部订阅。",
+          "捕获并记录 6800101 等参数校验失败，不做静默降级。",
+          "仅实现查询与订阅；不实现任何空间音频渲染开关的设置行为（本批资料未提供）。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "arkts-audiokit-import",
+          "kind": "require_any",
+          "patterns": [
+            "from\\s+['\\\"]@kit\\.AudioKit['\\\"]"
+          ],
+          "onMissing": "failed",
+          "message": "缺少 @kit.AudioKit 导入。"
+        },
+        {
+          "id": "arkts-spatialization-manager-acquire",
+          "kind": "require_any",
+          "patterns": [
+            "getSpatializationManager\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少 AudioSpatializationManager 实例获取入口。"
+        },
+        {
+          "id": "arkts-spatialization-capability",
+          "kind": "require_any",
+          "patterns": [
+            "spatializationSupported"
+          ],
+          "onMissing": "failed",
+          "message": "缺少设备空间音频能力判断。"
+        },
+        {
+          "id": "arkts-spatialization-query",
+          "kind": "require_any",
+          "patterns": [
+            "isSpatializationEnabledForCurrentDevice\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少当前设备空间音频开关状态查询。"
+        },
+        {
+          "id": "arkts-spatialization-subscribe-on",
+          "kind": "require_any",
+          "patterns": [
+            "\\.on\\(\\s*['\\\"]spatializationEnabledChangeForCurrentDevice['\\\"]"
+          ],
+          "onMissing": "failed",
+          "message": "缺少空间音频开关状态订阅。"
+        },
+        {
+          "id": "arkts-spatialization-subscribe-off",
+          "kind": "require_any",
+          "patterns": [
+            "\\.off\\(\\s*['\\\"]spatializationEnabledChangeForCurrentDevice['\\\"]"
+          ],
+          "onMissing": "failed",
+          "message": "缺少与订阅成对的取消调用。"
+        }
+      ],
+      "negativeCases": [
+        "未先获取 AudioSpatializationManager 实例直接调用查询或订阅接口",
+        "把开关状态 true 直接当作空间音频渲染已生效（未核对设备能力）",
+        "on 订阅后缺少成对 off，或 off 传入与 on 不同的 callback 引用却预期取消监听",
+        "查询/订阅抛出 6800101 参数校验失败时被吞掉或返回伪结果",
+        "基于接口命名臆造并调用空间音频开关设置接口（本批资料未覆盖）"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "runtime"
+      ],
+      "demoValidation": {
+        "layoutPolicy": "single_page_preferred",
+        "points": [
+          {
+            "id": "D01-09",
+            "title": "设备空间音频能力与开关状态查询",
+            "execution": "single_page",
+            "criteriaTopics": [
+              "管理器获取入口",
+              "设备空间音频能力判断",
+              "开关状态查询",
+              "开关状态与实际生效的关系",
+              "Kit设备支持范围前提"
+            ],
+            "demoSetupRequirements": [
+              {
+                "id": "arkts-query-ui",
+                "description": "页面提供查询触发按钮与结果分区展示（设备能力与开关状态分开呈现），不提供任何空间音频开关设置入口。",
+                "enforcement": "implementation_and_static_gate",
+                "countsAsFeatureValidation": false
+              }
+            ],
+            "variants": [
+              {
+                "id": "query-current",
+                "label": "查询当前发声设备能力与开关状态",
+                "parameters": {
+                  "scope": "current-device"
+                }
+              }
+            ]
+          },
+          {
+            "id": "D01-10",
+            "title": "开关状态订阅与成对取消",
+            "execution": "single_page",
+            "criteriaTopics": [
+              "状态订阅与取消",
+              "错误码与参数校验",
+              "管理器获取入口"
+            ],
+            "variants": [
+              {
+                "id": "on-off-pair",
+                "label": "同一 callback 注册/取消与不传取消全部",
+                "parameters": {
+                  "sequence": "on-off-callback-off-all"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

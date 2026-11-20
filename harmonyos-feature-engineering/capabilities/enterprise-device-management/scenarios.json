@@ -1,0 +1,5154 @@
+{
+  "schemaVersion": "1.0",
+  "featureId": "enterprise-device-management",
+  "displayName": "企业设备管理",
+  "defaultRoute": "mdm-onboarding",
+  "routes": [
+    {
+      "id": "mdm-onboarding",
+      "displayName": "资质证书接入",
+      "status": "ready",
+      "intentPatterns": [
+        "MDM资质",
+        "企业MDM应用发布证书",
+        "发布证书",
+        "发布Profile",
+        "受限ACL",
+        "受邀名单",
+        "MDM Kit接入"
+      ],
+      "projectRequirements": {
+        "model": "stage",
+        "minCompileApi": 12,
+        "minTargetApi": 12,
+        "minCompatibleApi": null,
+        "compatibleApiMayBeLower": false,
+        "compatibilityPolicy": "MDM应用权限须在申请企业MDM应用发布证书与Profile时同步声明，否则运行期无法获取；每账号限1个证书、每应用限100个Profile，前提条件（企业实名、MDM开发者资质、受邀名单）与流程细节以本次冻结官网正文为准。"
+      },
+      "sdk": {
+        "preferredApi": 12,
+        "validatedLocalVersion": null,
+        "requiredDeclarationGlobs": [
+          "openharmony/ets/api/@ohos.enterprise.adminManager.d.ts",
+          "openharmony/ets/api/@ohos.enterprise.EnterpriseAdminExtensionAbility.d.ts"
+        ],
+        "requiredSymbols": [
+          "adminManager",
+          "EnterpriseAdminExtensionAbility"
+        ]
+      },
+      "supportedTargets": {
+        "enterprise": []
+      }
+    },
+    {
+      "id": "admin-extension",
+      "displayName": "管理组件与激活",
+      "status": "ready",
+      "intentPatterns": [
+        "EnterpriseAdminExtensionAbility",
+        "adminManager",
+        "startAdminProvision",
+        "enableDeviceAdmin",
+        "enableSelfDeviceAdmin",
+        "disableAdmin",
+        "设备管理应用激活"
+      ],
+      "projectRequirements": {
+        "model": "stage",
+        "minCompileApi": 12,
+        "minTargetApi": 12,
+        "minCompatibleApi": null,
+        "compatibleApiMayBeLower": false,
+        "compatibilityPolicy": "激活类接口版本跨度大：事件订阅等自API 12起、startAdminProvision 15+（仅企业设备、Phone/Tablet正常调用）、enableDeviceAdmin/disableDeviceAdmin 23+（仅SDA、仅PC/2in1）、enableSelfDeviceAdmin 26.0.0；MDM应用须装在首用户（账户ID 100），同设备仅可激活一个超级设备管理应用；具体以冻结正文为准。"
+      },
+      "sdk": {
+        "preferredApi": 12,
+        "validatedLocalVersion": null,
+        "requiredDeclarationGlobs": [
+          "openharmony/ets/api/@ohos.enterprise.adminManager.d.ts",
+          "openharmony/ets/api/@ohos.enterprise.EnterpriseAdminExtensionAbility.d.ts"
+        ],
+        "requiredSymbols": [
+          "adminManager",
+          "EnterpriseAdminExtensionAbility"
+        ]
+      },
+      "supportedTargets": {
+        "enterprise": [
+          "adminManager",
+          "EnterpriseAdminExtensionAbility",
+          "EnterpriseAdminExtensionContext",
+          "common"
+        ]
+      }
+    },
+    {
+      "id": "app-policy",
+      "displayName": "应用与分发管控",
+      "status": "ready",
+      "intentPatterns": [
+        "applicationManager",
+        "bundleManager",
+        "Kiosk",
+        "setAllowedKioskApps",
+        "installMarketApps",
+        "浏览器策略"
+      ],
+      "projectRequirements": {
+        "model": "stage",
+        "minCompileApi": 12,
+        "minTargetApi": 12,
+        "minCompatibleApi": null,
+        "compatibleApiMayBeLower": false,
+        "compatibilityPolicy": "应用/包/浏览器管理首批接口API 12起，名单与Kiosk类接口自20+演进（installMarketApps 22+、Dock快捷栏24+、多数查询实际生效策略重载26.0.0）；名单上限、appId/appIdentifier适用版本与设备形态约束以冻结正文为准。"
+      },
+      "sdk": {
+        "preferredApi": 12,
+        "validatedLocalVersion": null,
+        "requiredDeclarationGlobs": [
+          "openharmony/ets/api/@ohos.enterprise.applicationManager.d.ts",
+          "openharmony/ets/api/@ohos.enterprise.bundleManager.d.ts",
+          "openharmony/ets/api/@ohos.enterprise.browser.d.ts"
+        ],
+        "requiredSymbols": [
+          "applicationManager",
+          "bundleManager",
+          "browser"
+        ]
+      },
+      "supportedTargets": {
+        "enterprise": [
+          "applicationManager",
+          "bundleManager",
+          "browser"
+        ]
+      }
+    },
+    {
+      "id": "device-policy",
+      "displayName": "设备限制与设置",
+      "status": "ready",
+      "intentPatterns": [
+        "restrictions",
+        "deviceSettings",
+        "deviceControl",
+        "locationManager",
+        "accountManager",
+        "setDisallowedPolicy",
+        "operateDevice",
+        "getDeviceInfo"
+      ],
+      "projectRequirements": {
+        "model": "stage",
+        "minCompileApi": 12,
+        "minTargetApi": 12,
+        "minCompatibleApi": null,
+        "compatibleApiMayBeLower": false,
+        "compatibilityPolicy": "限制/设置/控制/账号类接口首批API 12起，26.0.0起大量接口换代（旧setDisallowedPolicy废弃、新枚举FeatureForDevice/FeatureForAccount等）且带设备形态约束（Phone/Tablet或PC/2in1返回801）；每个接口的起始版本、权限（ENTERPRISE_MANAGE_RESTRICTIONS/PERSONAL_MANAGE_RESTRICTIONS等）与冲突规则以冻结正文为准。"
+      },
+      "sdk": {
+        "preferredApi": 12,
+        "validatedLocalVersion": null,
+        "requiredDeclarationGlobs": [
+          "openharmony/ets/api/@ohos.enterprise.restrictions.d.ts",
+          "openharmony/ets/api/@ohos.enterprise.deviceSettings.d.ts",
+          "openharmony/ets/api/@ohos.enterprise.deviceControl.d.ts",
+          "openharmony/ets/api/@ohos.enterprise.deviceInfo.d.ts",
+          "openharmony/ets/api/@ohos.enterprise.locationManager.d.ts",
+          "openharmony/ets/api/@ohos.enterprise.accountManager.d.ts"
+        ],
+        "requiredSymbols": [
+          "restrictions",
+          "deviceSettings",
+          "deviceControl",
+          "deviceInfo",
+          "locationManager",
+          "accountManager"
+        ]
+      },
+      "supportedTargets": {
+        "enterprise": [
+          "restrictions",
+          "deviceSettings",
+          "deviceControl",
+          "deviceInfo",
+          "locationManager",
+          "accountManager"
+        ]
+      }
+    },
+    {
+      "id": "connectivity-policy",
+      "displayName": "网络连接管控",
+      "status": "ready",
+      "intentPatterns": [
+        "networkManager",
+        "wifiManager",
+        "bluetoothManager",
+        "usbManager",
+        "telephonyManager",
+        "setWifiProfileSync",
+        "addFirewallRule"
+      ],
+      "projectRequirements": {
+        "model": "stage",
+        "minCompileApi": 12,
+        "minTargetApi": 12,
+        "minCompatibleApi": null,
+        "compatibleApiMayBeLower": false,
+        "compatibilityPolicy": "网络连接类接口首批API 12起；APN 20+（另需ENTERPRISE_MANAGE_APN）、通话管理20+（仅Phone/Tablet）、防火墙/域名过滤要求HEM商用部署且IPv6自22+支持；具体版本、名单上限与设备形态约束以冻结正文为准。"
+      },
+      "sdk": {
+        "preferredApi": 12,
+        "validatedLocalVersion": null,
+        "requiredDeclarationGlobs": [
+          "openharmony/ets/api/@ohos.enterprise.networkManager.d.ts",
+          "openharmony/ets/api/@ohos.enterprise.wifiManager.d.ts",
+          "openharmony/ets/api/@ohos.enterprise.bluetoothManager.d.ts",
+          "openharmony/ets/api/@ohos.enterprise.usbManager.d.ts",
+          "openharmony/ets/api/@ohos.enterprise.telephonyManager.d.ts"
+        ],
+        "requiredSymbols": [
+          "networkManager",
+          "wifiManager",
+          "bluetoothManager",
+          "usbManager",
+          "telephonyManager"
+        ]
+      },
+      "supportedTargets": {
+        "enterprise": [
+          "networkManager",
+          "wifiManager",
+          "bluetoothManager",
+          "usbManager",
+          "telephonyManager"
+        ]
+      }
+    },
+    {
+      "id": "security-system",
+      "displayName": "安全与系统管控",
+      "status": "ready",
+      "intentPatterns": [
+        "securityManager",
+        "systemManager",
+        "setPasswordPolicy",
+        "setWatermarkImage",
+        "setOtaUpdatePolicy",
+        "addKeyEventPolicies",
+        "startCollectLog"
+      ],
+      "projectRequirements": {
+        "model": "stage",
+        "minCompileApi": 12,
+        "minTargetApi": 12,
+        "minCompatibleApi": null,
+        "compatibleApiMayBeLower": false,
+        "compatibilityPolicy": "安全与系统类接口首批API 12起（水印14+、权限托管20+、外部来源扩展22+、按键/日志/重签名证书23+、屏幕水印与权限禁用26.0.0等）；每接口的权限（ENTERPRISE_MANAGE_SECURITY/ENTERPRISE_MANAGE_SYSTEM/ENTERPRISE_MANAGE_CERTIFICATE等）、数量上限与设备形态约束以冻结正文为准。"
+      },
+      "sdk": {
+        "preferredApi": 12,
+        "validatedLocalVersion": null,
+        "requiredDeclarationGlobs": [
+          "openharmony/ets/api/@ohos.enterprise.securityManager.d.ts",
+          "openharmony/ets/api/@ohos.enterprise.systemManager.d.ts"
+        ],
+        "requiredSymbols": [
+          "securityManager",
+          "systemManager"
+        ]
+      },
+      "supportedTargets": {
+        "enterprise": [
+          "securityManager",
+          "systemManager"
+        ]
+      }
+    },
+    {
+      "id": "debug-ops",
+      "displayName": "调试部署排障",
+      "status": "ready",
+      "intentPatterns": [
+        "edm enable-admin",
+        "edm disable-admin",
+        "9568266",
+        "9568289",
+        "9200001",
+        "企业设备管理错误码",
+        "MDM测试"
+      ],
+      "projectRequirements": {
+        "model": "stage",
+        "minCompileApi": 12,
+        "minTargetApi": 12,
+        "minCompatibleApi": null,
+        "compatibleApiMayBeLower": false,
+        "compatibilityPolicy": "调试命令与错误码适用于全部MDM接口版本：hdc shell edm enable-admin -t da自API 23起且仅PC/2in1；调试Profile须勾选受限ACL权限，否则安装报9568266/9568289；错误码语义与处理步骤以冻结的errorcode-enterprisedevicemanager正文为准。"
+      },
+      "sdk": {
+        "preferredApi": 12,
+        "validatedLocalVersion": null,
+        "requiredDeclarationGlobs": [
+          "openharmony/ets/api/@ohos.enterprise.adminManager.d.ts",
+          "openharmony/ets/api/@ohos.enterprise.EnterpriseAdminExtensionAbility.d.ts"
+        ],
+        "requiredSymbols": [
+          "adminManager",
+          "EnterpriseAdminExtensionAbility"
+        ]
+      },
+      "supportedTargets": {
+        "enterprise": []
+      }
+    },
+    {
+      "id": "multi-mdm-governance",
+      "displayName": "多应用治理",
+      "status": "ready",
+      "intentPatterns": [
+        "多MDM",
+        "多应用管控",
+        "从严管控",
+        "独占规则",
+        "合并规则",
+        "策略冲突"
+      ],
+      "projectRequirements": {
+        "model": "stage",
+        "minCompileApi": 12,
+        "minTargetApi": 12,
+        "minCompatibleApi": null,
+        "compatibleApiMayBeLower": false,
+        "compatibilityPolicy": "多MDM四条冲突规则（从严管控/独占/配置/合并）适用于全部MDM策略接口，Admin取消激活或应用卸载后策略按剩余应用重算；MDM Kit不支持自定义冲突处理机制；规则语义与DA/BDA/SDA角色边界以冻结的mdm-kit-multi-mdm及术语正文为准。"
+      },
+      "sdk": {
+        "preferredApi": 12,
+        "validatedLocalVersion": null,
+        "requiredDeclarationGlobs": [
+          "openharmony/ets/api/@ohos.enterprise.adminManager.d.ts",
+          "openharmony/ets/api/@ohos.enterprise.EnterpriseAdminExtensionAbility.d.ts"
+        ],
+        "requiredSymbols": [
+          "adminManager",
+          "EnterpriseAdminExtensionAbility"
+        ]
+      },
+      "supportedTargets": {
+        "enterprise": []
+      }
+    }
+  ],
+  "projectSignals": [
+    {
+      "id": "mdm-kit-import",
+      "extensions": [
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "@kit\\.MDMKit"
+    },
+    {
+      "id": "enterprise-admin-extension",
+      "route": "admin-extension",
+      "extensions": [
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "EnterpriseAdminExtensionAbility"
+    },
+    {
+      "id": "enterprise-admin-module-config",
+      "route": "admin-extension",
+      "extensions": [
+        ".json5",
+        ".json"
+      ],
+      "pattern": "\"type\"\\s*:\\s*\"enterpriseAdmin\""
+    },
+    {
+      "id": "mdm-permission-declaration",
+      "extensions": [
+        ".json",
+        ".json5",
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "ohos\\.permission\\.(ENTERPRISE_|PERSONAL_MANAGE_RESTRICTIONS)"
+    },
+    {
+      "id": "admin-manager-api",
+      "route": "admin-extension",
+      "extensions": [
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "\\badminManager\\."
+    },
+    {
+      "id": "restrictions-policy-api",
+      "route": "device-policy",
+      "extensions": [
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "\\brestrictions\\.(setDisallowedPolicy|setUserRestriction)"
+    },
+    {
+      "id": "application-policy-api",
+      "route": "app-policy",
+      "extensions": [
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "\\bapplicationManager\\."
+    },
+    {
+      "id": "bundle-policy-api",
+      "route": "app-policy",
+      "extensions": [
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "\\bbundleManager\\.(install|uninstall|addAllowed|addDisallowed)"
+    },
+    {
+      "id": "browser-policy-api",
+      "route": "app-policy",
+      "extensions": [
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "\\bbrowser\\.(setPolicySync|setManagedBrowserPolicy)"
+    },
+    {
+      "id": "device-settings-api",
+      "route": "device-policy",
+      "extensions": [
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "\\b(deviceSettings|deviceControl|deviceInfo|locationManager|accountManager)\\."
+    },
+    {
+      "id": "connectivity-api",
+      "route": "connectivity-policy",
+      "extensions": [
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "\\b(networkManager|wifiManager|bluetoothManager|usbManager|telephonyManager)\\."
+    },
+    {
+      "id": "security-system-api",
+      "route": "security-system",
+      "extensions": [
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "\\b(securityManager|systemManager)\\."
+    },
+    {
+      "id": "edm-debug-command",
+      "route": "debug-ops",
+      "extensions": [
+        ".sh",
+        ".md",
+        ".txt",
+        ".ets",
+        ".ts"
+      ],
+      "pattern": "edm\\s+(enable-admin|disable-admin)"
+    },
+    {
+      "id": "edm-error-code",
+      "route": "debug-ops",
+      "extensions": [
+        ".ets",
+        ".ts",
+        ".md"
+      ],
+      "pattern": "\\b9200\\d{3}\\b|\\b95682(66|89)\\b"
+    }
+  ],
+  "safety": {
+    "modifyMinimumScope": true,
+    "preserveDirtyFiles": true,
+    "keepFailedChanges": true,
+    "automaticRollback": false,
+    "automaticSdkUpgrade": false,
+    "automaticEmulatorDownload": false,
+    "automaticUninstall": false,
+    "maxDirectedRepairRounds": 2
+  },
+  "verification": {
+    "layerStatuses": [
+      "passed",
+      "failed",
+      "blocked",
+      "not_run",
+      "inconclusive"
+    ],
+    "verdicts": [
+      "passed",
+      "passed_with_spec_conflict",
+      "build_passed_runtime_pending",
+      "inconclusive",
+      "failed",
+      "blocked"
+    ],
+    "visualSuccessRequiresObservation": true,
+    "buildCommand": "devecocli build",
+    "runCommand": "devecocli run",
+    "devicePolicy": "run-only-when-requested-and-exactly-one-device-selected"
+  },
+  "entryPoints": [
+    {
+      "snapshotId": "doc-bf6a0868617bc8e31315",
+      "title": "仅MDM应用可用权限",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/permissions-for-mdm-apps"
+    },
+    {
+      "snapshotId": "doc-2b39ab3124ff6a68e6c0",
+      "title": "MDM Kit开发指南",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/mdm-kit-guide"
+    },
+    {
+      "snapshotId": "doc-f1de07264c6020e3ac73",
+      "title": "申请企业MDM应用发布证书",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-enterprise-mdm-cert-0000002283256801"
+    },
+    {
+      "snapshotId": "doc-391bdb30bbf5610f0fc5",
+      "title": "申请企业MDM应用发布Profile",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-enterprise-mdm-profile-0000002248341094"
+    },
+    {
+      "snapshotId": "doc-9c68a769d70aab98beb2",
+      "title": "MDM Kit术语",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term"
+    },
+    {
+      "snapshotId": "doc-32aac54ead9e124e60d6",
+      "title": "EnterpriseAdminExtensionAbility开发指南",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-admin"
+    },
+    {
+      "snapshotId": "doc-4265439e7696cd4b80d2",
+      "title": "@ohos.enterprise.adminManager (admin权限管理)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager"
+    },
+    {
+      "snapshotId": "doc-7e3d0eef4138938a2ecf",
+      "title": "@ohos.enterprise.accountManager (账号管理)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-accountmanager"
+    },
+    {
+      "snapshotId": "doc-c1c0c9febc9f1b2a04d7",
+      "title": "@ohos.enterprise.applicationManager (应用管理)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-applicationmanager"
+    },
+    {
+      "snapshotId": "doc-92aa39b6228ff7c7e188",
+      "title": "@ohos.enterprise.bluetoothManager (蓝牙管理)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-bluetoothmanager"
+    },
+    {
+      "snapshotId": "doc-45530d394986cb17f174",
+      "title": "@ohos.enterprise.browser (浏览器管理)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-browser"
+    },
+    {
+      "snapshotId": "doc-88538070be3e566b573d",
+      "title": "@ohos.enterprise.bundleManager (包管理)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-bundlemanager"
+    },
+    {
+      "snapshotId": "doc-67a96c1ff6771f2a253a",
+      "title": "@ohos.enterprise.common (Enterprise公共模块)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-common"
+    },
+    {
+      "snapshotId": "doc-5f7bda30e61a9599d3e5",
+      "title": "@ohos.enterprise.deviceControl (设备控制管理)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-devicecontrol"
+    },
+    {
+      "snapshotId": "doc-beebd204c17cccdf0a78",
+      "title": "@ohos.enterprise.deviceInfo (设备信息管理)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-deviceinfo"
+    },
+    {
+      "snapshotId": "doc-4b3e08fd956850e7e202",
+      "title": "@ohos.enterprise.deviceSettings (设备设置管理)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-devicesettings"
+    },
+    {
+      "snapshotId": "doc-21386bf6bd19a0f3cb8a",
+      "title": "@ohos.enterprise.locationManager (位置服务管理)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-locationmanager"
+    },
+    {
+      "snapshotId": "doc-f9d1df104ace51791e29",
+      "title": "@ohos.enterprise.networkManager (网络管理)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-networkmanager"
+    },
+    {
+      "snapshotId": "doc-af55e690d023d0424e92",
+      "title": "@ohos.enterprise.restrictions (限制类策略)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions"
+    },
+    {
+      "snapshotId": "doc-97c50e05890e8021e676",
+      "title": "@ohos.enterprise.securityManager (安全管理)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-securitymanager"
+    },
+    {
+      "snapshotId": "doc-afb6804dd1e1a17ac5c8",
+      "title": "@ohos.enterprise.systemManager (系统管理)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-systemmanager"
+    },
+    {
+      "snapshotId": "doc-00682dde43c035e3c51d",
+      "title": "@ohos.enterprise.usbManager (USB管理)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-usbmanager"
+    },
+    {
+      "snapshotId": "doc-34c36b6c0b4de8de495c",
+      "title": "@ohos.enterprise.wifiManager (Wi-Fi管理)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager"
+    },
+    {
+      "snapshotId": "doc-f304abbccd9e8f5d1741",
+      "title": "@ohos.enterprise.EnterpriseAdminExtensionAbility (企业设备管理扩展能力)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability"
+    },
+    {
+      "snapshotId": "doc-71eaa997af03f2942348",
+      "title": "@ohos.enterprise.telephonyManager (通话管理)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-telephonymanager"
+    },
+    {
+      "snapshotId": "doc-2078bc299e9b087d89e1",
+      "title": "企业设备管理错误码",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager"
+    },
+    {
+      "snapshotId": "doc-904f185a57dcfca0f8ff",
+      "title": "如何开展MDM应用测试",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/mdm-faq-0001"
+    },
+    {
+      "snapshotId": "doc-429804ac969633ab2192",
+      "title": "MDM Kit开发指南",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-guide"
+    },
+    {
+      "snapshotId": "doc-9f52eec628fd10122068",
+      "title": "附录",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-appendix"
+    },
+    {
+      "snapshotId": "doc-4a95b23dc716f002dd11",
+      "title": "EnterpriseAdminExtensionContext (企业设备管理扩展能力上下文环境)",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-enterpriseadminextensioncontext"
+    },
+    {
+      "snapshotId": "doc-dffdd45f975ce62a0b21",
+      "title": "多应用管控",
+      "officialUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm"
+    }
+  ],
+  "reviewDocuments": [
+    {
+      "snapshotId": "doc-bf6a0868617bc8e31315",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-2b39ab3124ff6a68e6c0",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-f1de07264c6020e3ac73",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-391bdb30bbf5610f0fc5",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-9c68a769d70aab98beb2",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-32aac54ead9e124e60d6",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-4265439e7696cd4b80d2",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-7e3d0eef4138938a2ecf",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-c1c0c9febc9f1b2a04d7",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-92aa39b6228ff7c7e188",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-45530d394986cb17f174",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-88538070be3e566b573d",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-67a96c1ff6771f2a253a",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-5f7bda30e61a9599d3e5",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-beebd204c17cccdf0a78",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-4b3e08fd956850e7e202",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-21386bf6bd19a0f3cb8a",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-f9d1df104ace51791e29",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-af55e690d023d0424e92",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-97c50e05890e8021e676",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-afb6804dd1e1a17ac5c8",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-00682dde43c035e3c51d",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-34c36b6c0b4de8de495c",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-f304abbccd9e8f5d1741",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-71eaa997af03f2942348",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-2078bc299e9b087d89e1",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-904f185a57dcfca0f8ff",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-429804ac969633ab2192",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-9f52eec628fd10122068",
+      "role": "guide"
+    },
+    {
+      "snapshotId": "doc-4a95b23dc716f002dd11",
+      "role": "api"
+    },
+    {
+      "snapshotId": "doc-dffdd45f975ce62a0b21",
+      "role": "guide"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "EDM-S001",
+      "displayName": "MDM应用资质申请与发布证书/Profile配置",
+      "route": "mdm-onboarding",
+      "intentPatterns": [
+        "MDM资质",
+        "企业MDM应用开发者",
+        "受邀名单",
+        "发布证书",
+        "MDM证书",
+        "企业MDM应用发布证书",
+        "CSR",
+        "发布Profile",
+        "企业MDM应用发布",
+        "受限ACL",
+        "ACL权限",
+        "MDM权限声明",
+        "MDM应用分发"
+      ],
+      "intentGroups": [
+        [
+          "企业MDM",
+          "证书"
+        ],
+        [
+          "企业MDM",
+          "Profile"
+        ],
+        [
+          "受限ACL",
+          "Profile"
+        ],
+        [
+          "MDM",
+          "权限声明"
+        ]
+      ],
+      "targets": [
+        "企业MDM应用发布证书",
+        "企业MDM应用发布Profile",
+        "CSR",
+        "requestPermissions",
+        "appWithSignedPkg"
+      ],
+      "sources": [
+        "doc-f1de07264c6020e3ac73",
+        "doc-391bdb30bbf5610f0fc5",
+        "doc-bf6a0868617bc8e31315",
+        "doc-429804ac969633ab2192",
+        "doc-2b39ab3124ff6a68e6c0"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "开发者资质与受邀名单前提",
+            "hint": "核对账号实名认证、企业MDM应用开发者资质申请、应用受邀名单的申请渠道、所需材料与对接时长，以本次冻结正文为准。",
+            "mustResolve": true
+          },
+          {
+            "topic": "发布证书申请流程与限制",
+            "hint": "核对证书类型取值、名称长度限制、CSR准备与上传、下载方式，以及每账号证书数量上限和证书状态对关联Profile的影响。",
+            "mustResolve": true
+          },
+          {
+            "topic": "发布Profile创建与类型选择",
+            "hint": "核对Profile创建前提（应用、证书、ACL权限）、数量上限、类型选择与证书关联关系。",
+            "mustResolve": true
+          },
+          {
+            "topic": "受限ACL权限勾选与Profile重建",
+            "hint": "核对受限ACL权限加入Profile的勾选条件、未获取时的申请路径、获批后Profile的重建时机及9568266/9568289的处理方式。",
+            "mustResolve": true
+          },
+          {
+            "topic": "MDM权限声明时机约束",
+            "hint": "核对module.json5声明的MDM权限与证书/Profile申请的先后依赖关系，以及未同步申请权限的后果。",
+            "mustResolve": true
+          },
+          {
+            "topic": "MDM应用包格式与分发方式",
+            "hint": "核对.hap/.app包格式、多HAP/HSP打包配置约束、可用分发安装方式及应用市场上架限制。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "acl-declare-timing",
+            "topic": "MDM权限声明时机",
+            "positions": [
+              "开发指南：声明的MDM权限必须在申请MDM证书和Profile时完成申请，否则无法获取",
+              "Profile文档与FAQ：受限ACL权限可后补申请，获批后需重建Profile并勾选方可真正使用（否则9568266/9568289）"
+            ]
+          },
+          {
+            "id": "cert-profile-quota",
+            "topic": "证书与Profile数量上限",
+            "positions": [
+              "证书文档：每账号最多1个企业MDM应用发布证书，吊销不可恢复",
+              "Profile文档：一个应用最多100个Profile，失效/吊销需重新申请"
+            ]
+          },
+          {
+            "id": "mdm-distribution-channel",
+            "topic": "MDM应用分发方式",
+            "positions": [
+              "证书/权限文档：MDM应用不可上架应用市场，仅可按指定企业分发方式安装",
+              "指南/FAQ：调试期经hdc edm enable-admin激活，商用需企业商用申请且HEM部署策略勾选MDM应用部署"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "按官网前提完成企业实名、MDM开发者资质与受邀名单申请后，每账号创建唯一企业MDM应用发布证书并为应用添加类型正确的发布Profile；受限ACL权限勾选进Profile后MDM权限可正常获取且安装不再报9568266/9568289；module.json5声明的MDM权限与证书/Profile申请一致，应用包格式与分发方式符合冻结正文约束；证书或Profile失效、吊销时按官网流程重新申请。",
+          "criteriaTopics": [
+            "开发者资质与受邀名单前提",
+            "发布证书申请流程与限制",
+            "发布Profile创建与类型选择",
+            "受限ACL权限勾选与Profile重建",
+            "MDM权限声明时机约束",
+            "MDM应用包格式与分发方式"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "确认账号已完成企业实名认证并具备发布类证书/Profile访问权限，按官网流程申请企业MDM应用开发者资质与应用受邀名单。",
+          "准备证书请求文件CSR后新增『企业MDM应用发布证书』并下载，再为应用添加『企业MDM应用发布』Profile并关联该证书。",
+          "如需受限ACL权限，先在ACL权限页申请，获批后重建/添加Profile并勾选『受限ACL权限』，使声明的MDM权限真正生效。",
+          "module.json5 requestPermissions声明的MDM权限与证书/Profile申请保持一致；按官网约束打包（.hap/.app）并选择企业分发方式，不上架应用市场。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "mdm-permission-declaration",
+          "kind": "require_any",
+          "patterns": [
+            "ohos\\.permission\\.(ENTERPRISE_[A-Z_]+|PERSONAL_MANAGE_RESTRICTIONS)"
+          ],
+          "onMissing": "failed",
+          "message": "缺少MDM权限声明（module.json5 requestPermissions）。"
+        },
+        {
+          "id": "request-permissions-block",
+          "kind": "require_any",
+          "patterns": [
+            "requestPermissions"
+          ],
+          "onMissing": "failed",
+          "message": "module.json5缺少requestPermissions配置。"
+        },
+        {
+          "id": "mdm-signed-pkg-option",
+          "kind": "require_any",
+          "patterns": [
+            "appWithSignedPkg"
+          ],
+          "onMissing": "warn",
+          "message": "多HAP/HSP打包.app时需在packOptions配置appWithSignedPkg=true，具体以冻结正文核对。"
+        }
+      ],
+      "negativeCases": [
+        "未完成企业实名认证或未加入受邀名单即申请企业MDM应用发布证书",
+        "同一账号尝试创建第二个企业MDM应用发布证书",
+        "Profile未勾选受限ACL权限，编译安装时报9568266 install permission denied",
+        "ACL权限获批后未重建Profile导致报9568289",
+        "MDM权限仅在module.json5声明而未在证书/Profile申请时同步申请，运行期无法获取",
+        "将MDM应用通过应用市场上架分发"
+      ],
+      "requiredChecks": [
+        "static",
+        "build",
+        "install"
+      ]
+    },
+    {
+      "id": "EDM-S002",
+      "displayName": "EnterpriseAdminExtensionAbility组件开发与事件回调",
+      "route": "admin-extension",
+      "intentPatterns": [
+        "EnterpriseAdminExtensionAbility",
+        "企业设备管理扩展能力",
+        "管理组件",
+        "enterpriseAdmin",
+        "onAdminEnabled",
+        "onAdminDisabled",
+        "onBundleAdded",
+        "onBundleRemoved",
+        "onBundleUpdated",
+        "onKeyEvent",
+        "onLogCollected",
+        "onAdminPolicyChanged",
+        "onMarketAppInstallResult",
+        "subscribeManagedEventSync",
+        "ManagedEvent",
+        "startAbilityByAdmin",
+        "EnterpriseAdminExtensionContext"
+      ],
+      "intentGroups": [
+        [
+          "EnterpriseAdminExtensionAbility",
+          "回调"
+        ],
+        [
+          "EnterpriseAdminExtensionAbility",
+          "事件"
+        ],
+        [
+          "ManagedEvent",
+          "订阅"
+        ]
+      ],
+      "targets": [
+        "EnterpriseAdminExtensionAbility",
+        "EnterpriseAdminExtensionContext",
+        "adminManager",
+        "common",
+        "@kit.MDMKit"
+      ],
+      "sources": [
+        "doc-32aac54ead9e124e60d6",
+        "doc-f304abbccd9e8f5d1741",
+        "doc-67a96c1ff6771f2a253a",
+        "doc-4a95b23dc716f002dd11"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "组件继承与导入",
+            "hint": "核对从@kit.MDMKit导入并继承EnterpriseAdminExtensionAbility的写法与系统能力约束。",
+            "mustResolve": true
+          },
+          {
+            "topic": "module.json5注册配置",
+            "hint": "核对extensionAbilities中type=enterpriseAdmin、exported、srcEntry等配置项及其含义。",
+            "mustResolve": true
+          },
+          {
+            "topic": "激活与去激活回调",
+            "hint": "核对onAdminEnabled/onAdminDisabled的默认触发条件（无需注册）与典型初始化/脱管通知用途。",
+            "mustResolve": true
+          },
+          {
+            "topic": "应用与账号事件回调",
+            "hint": "核对应用安装/卸载/更新/启动/停止与账号新增/切换/删除等回调的触发条件及版本约束。",
+            "mustResolve": true
+          },
+          {
+            "topic": "ManagedEvent订阅与回调配对",
+            "hint": "核对subscribeManagedEventSync需注册的ManagedEvent枚举、与各回调的配对关系及所需权限与错误码。",
+            "mustResolve": true
+          },
+          {
+            "topic": "onKeyEvent按键回调",
+            "hint": "核对按键策略下发前置、短按/长按触发节奏、组合键支持范围与keyPolicy差异。",
+            "mustResolve": true
+          },
+          {
+            "topic": "onLogCollected日志回调",
+            "hint": "核对startCollectLog任务创建前置、收集成功后的沙箱日志目录访问与finishLogCollected清理时机。",
+            "mustResolve": true
+          },
+          {
+            "topic": "onAdminPolicyChanged策略变更审计",
+            "hint": "核对超级设备管理应用注册MANAGED_EVENT_POLICIES_CHANGED的前提与PolicyChangedEvent字段语义。",
+            "mustResolve": true
+          },
+          {
+            "topic": "accountId可选参数约束",
+            "hint": "核对带accountId重载回调的参数可选写法要求及其对编译的影响。",
+            "mustResolve": true
+          },
+          {
+            "topic": "context与startAbilityByAdmin",
+            "hint": "核对EnterpriseAdminExtensionContext的获取与使用限制、startAbilityByAdmin的目标组件要求（exported、显式Want）、权限与错误码。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "event-subscribe-pairing",
+            "topic": "事件回调与订阅配对",
+            "positions": [
+              "扩展能力参考：应用/账号类事件回调须先经adminManager.subscribeManagedEventSync注册对应ManagedEvent才能收到",
+              "扩展能力参考：onAdminEnabled/onAdminDisabled无需注册，激活/解除激活后默认触发"
+            ]
+          },
+          {
+            "id": "keyevent-combo-scope",
+            "topic": "组合键支持范围",
+            "positions": [
+              "扩展能力参考：组合键仅支持电源键与音量加减键组合，长按约50ms间隔连续触发",
+              "systemManager：导航键回退/主页/最近打开不可组合"
+            ]
+          },
+          {
+            "id": "admin-callback-semantics",
+            "topic": "onAdminEnabled与onDeviceAdminEnabled语义差异",
+            "positions": [
+              "onAdminEnabled：设备管理应用自身激活的回调",
+              "onDeviceAdminEnabled：仅超级设备管理应用监听普通设备管理应用激活的回调"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "管理组件继承EnterpriseAdminExtensionAbility并以type=enterpriseAdmin在module.json5注册后，激活触发onAdminEnabled完成策略初始化、解除激活触发onAdminDisabled；已注册的ManagedEvent在对应事件发生时收到回调且带accountId重载的参数写法为可选；按键策略下发后onKeyEvent按短按/长按/组合键规则触发；日志收集成功后可在沙箱日志目录获取并调用清理；超级设备管理应用可接收onAdminPolicyChanged完成审计；扩展组件内经startAbilityByAdmin静默启动满足exported要求的目标组件。",
+          "criteriaTopics": [
+            "组件继承与导入",
+            "module.json5注册配置",
+            "激活与去激活回调",
+            "应用与账号事件回调",
+            "ManagedEvent订阅与回调配对",
+            "onKeyEvent按键回调",
+            "onLogCollected日志回调",
+            "onAdminPolicyChanged策略变更审计",
+            "accountId可选参数约束",
+            "context与startAbilityByAdmin"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "从@kit.MDMKit导入并继承EnterpriseAdminExtensionAbility，在module.json5的extensionAbilities中以type=enterpriseAdmin注册（含exported与srcEntry）。",
+          "实现onAdminEnabled/onAdminDisabled承载激活初始化与脱管通知；需要应用/账号事件的回调先经adminManager.subscribeManagedEventSync注册对应ManagedEvent。",
+          "需要按键、日志、策略审计能力时，分别配合systemManager.addKeyEventPolicies、systemManager.startCollectLog与MANAGED_EVENT_POLICIES_CHANGED订阅实现对应回调并处理错误码。",
+          "在扩展组件内使用context（EnterpriseAdminExtensionContext）以显式Want调用startAbilityByAdmin静默启动目标组件，并按官网错误码做失败处理。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "admin-extension-import",
+          "kind": "require_any",
+          "patterns": [
+            "import\\s*\\{[^}]*EnterpriseAdminExtensionAbility[^}]*\\}\\s*from\\s*['\"]@kit\\.MDMKit['\"]"
+          ],
+          "onMissing": "failed",
+          "message": "缺少EnterpriseAdminExtensionAbility的@kit.MDMKit导入。"
+        },
+        {
+          "id": "admin-extension-extends",
+          "kind": "require_any",
+          "patterns": [
+            "extends\\s+EnterpriseAdminExtensionAbility"
+          ],
+          "onMissing": "failed",
+          "message": "管理组件未继承EnterpriseAdminExtensionAbility。"
+        },
+        {
+          "id": "admin-enabled-callback",
+          "kind": "require_any",
+          "patterns": [
+            "onAdminEnabled\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少激活回调onAdminEnabled。"
+        },
+        {
+          "id": "module-config-enterprise-admin",
+          "kind": "require_any",
+          "patterns": [
+            "\"type\"\\s*:\\s*\"enterpriseAdmin\""
+          ],
+          "onMissing": "failed",
+          "message": "module.json5未配置type=enterpriseAdmin的extensionAbility。"
+        },
+        {
+          "id": "managed-event-subscription",
+          "kind": "require_any",
+          "patterns": [
+            "subscribeManagedEventSync\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "应用/账号事件回调需先经subscribeManagedEventSync注册对应ManagedEvent。"
+        },
+        {
+          "id": "accountid-optional-param",
+          "kind": "require_any",
+          "patterns": [
+            "accountId\\?\\s*:\\s*number"
+          ],
+          "onMissing": "warn",
+          "message": "带accountId的重载回调应将accountId声明为可选参数，否则编译报错。"
+        }
+      ],
+      "negativeCases": [
+        "module.json5 extensionAbilities未配置type=enterpriseAdmin导致管理组件无法识别",
+        "应用安装/卸载回调未先订阅MANAGED_EVENT_BUNDLE_ADDED/BUNDLE_REMOVED而收不到通知",
+        "带accountId的重载回调把accountId写成必选参数导致编译失败",
+        "未通过systemManager.addKeyEventPolicies下发按键策略即等待onKeyEvent回调",
+        "onLogCollected收集成功后未访问沙箱日志目录取走日志且未调用finishLogCollected",
+        "同一时间重复创建日志收集任务未等待onLogCollected回调（9201009）",
+        "startAbilityByAdmin使用隐式Want或目标组件exported=false导致启动失败",
+        "将EnterpriseAdminExtensionContext传递到其他组件使用"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "install",
+        "runtime"
+      ]
+    },
+    {
+      "id": "EDM-S003",
+      "displayName": "设备管理应用激活方式与解除激活",
+      "route": "admin-extension",
+      "intentPatterns": [
+        "设备管理应用激活",
+        "激活MDM应用",
+        "解除激活",
+        "disableAdmin",
+        "startAdminProvision",
+        "enableDeviceAdmin",
+        "disableDeviceAdmin",
+        "enableSelfDeviceAdmin",
+        "isByodAdmin",
+        "委托策略",
+        "setDelegatedPolicies",
+        "getDelegatedPolicies",
+        "subscribeManagedEventSync",
+        "unsubscribeManagedEventSync",
+        "SDA激活",
+        "DA激活",
+        "BDA激活",
+        "BYOD激活"
+      ],
+      "intentGroups": [
+        [
+          "adminManager",
+          "激活"
+        ],
+        [
+          "超级设备管理",
+          "自激活"
+        ],
+        [
+          "MDM",
+          "解除激活"
+        ]
+      ],
+      "intentPriority": 2,
+      "targets": [
+        "adminManager",
+        "startAdminProvision",
+        "enableDeviceAdmin",
+        "enableSelfDeviceAdmin",
+        "disableAdmin",
+        "setDelegatedPolicies",
+        "subscribeManagedEventSync",
+        "isByodAdmin"
+      ],
+      "sources": [
+        "doc-4265439e7696cd4b80d2",
+        "doc-429804ac969633ab2192",
+        "doc-9f52eec628fd10122068",
+        "doc-dffdd45f975ce62a0b21"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "激活方式与Admin角色选择",
+            "hint": "核对SDA/DA/BDA三种Admin角色的激活入口差异：HEM商用部署、enableDeviceAdmin(23+)、startAdminProvision(15+)、enableSelfDeviceAdmin(26.0.0自激活凭证)的调用方、前置条件与适用场景。",
+            "mustResolve": true
+          },
+          {
+            "topic": "disableAdmin解除激活与权限演进",
+            "hint": "核对解除激活所需权限按版本演进：API 19及之前需MANAGE_ENTERPRISE_DEVICE_ADMIN（仅系统应用）、20+可申请START_PROVISIONING_MESSAGE仅限BYOD自解除、23+可申请ENTERPRISE_DEACTIVATE_DEVICE_ADMIN仅限SDA/DA自解除；解除失败错误码9200005。",
+            "mustResolve": true
+          },
+          {
+            "topic": "startAdminProvision BYOD激活约束",
+            "hint": "核对15+、仅企业设备生效、仅Phone/Tablet正常调用、parameters必含activateId、可含customizedInfo与localDeactivationPolicy(22+，端侧时长须≤云侧配置)、credential激活凭证经HEM平台申请、需START_PROVISIONING_MESSAGE权限。",
+            "mustResolve": true
+          },
+          {
+            "topic": "enableDeviceAdmin/disableDeviceAdmin DA激活",
+            "hint": "核对23+、仅SDA可调用、需ENTERPRISE_MANAGE_DEVICE_ADMIN权限、仅PC/2in1正常调用其他设备返回801。",
+            "mustResolve": true
+          },
+          {
+            "topic": "enableSelfDeviceAdmin自激活凭证",
+            "hint": "核对26.0.0、PC/2in1正常调用、admin Want须含企业设备管理扩展abilityName与bundleName、credential结构（enterpriseId/appIdentifier/type=SDA/sign/certs）；错误码9200003组件无效、9200004激活失败、9200017凭证无效、9200018非企业设备、9200012参数校验失败。",
+            "mustResolve": true
+          },
+          {
+            "topic": "激活前置约束与单SDA限制",
+            "hint": "核对MDM应用必须装在首用户（账户ID100）才能激活、同一设备仅能激活一个超级设备管理应用、重复激活/多SDA/同应用多管理组件报9200004；声明的MDM权限须在证书/Profile申请时完成。",
+            "mustResolve": true
+          },
+          {
+            "topic": "委托策略与被委托应用约束",
+            "hint": "核对setDelegatedPolicies/getDelegatedPolicies/getDelegatedBundleNames(14+)需ENTERPRISE_MANAGE_DELEGATED_POLICY、被委托应用分发类型须为enterprise_normal/enterprise_mdm、可委托策略范围以MDM附录可委托策略列表为准。",
+            "mustResolve": true
+          },
+          {
+            "topic": "管理事件订阅与BYOD查询",
+            "hint": "核对subscribeManagedEventSync/unsubscribeManagedEventSync需ENTERPRISE_SUBSCRIBE_MANAGED_EVENT、ManagedEvent枚举与起始版本（ACCOUNT_*为18+、STARTUP_GUIDE_COMPLETED/BOOT_COMPLETED为24+、BUNDLE_UPDATED/POLICIES_CHANGED为26.0.0）、26.0.0起POLICIES_CHANGED仅超级设备管理应用可订阅否则9200002、无效订阅9200008；isByodAdmin(20+)需START_PROVISIONING_MESSAGE。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "EDM-S003-CP01",
+            "topic": "解除激活权限的版本演进",
+            "positions": [
+              "API 19及之前需MANAGE_ENTERPRISE_DEVICE_ADMIN且仅系统应用可用",
+              "API 20+可申请START_PROVISIONING_MESSAGE仅限BYOD自解除",
+              "API 23+可申请ENTERPRISE_DEACTIVATE_DEVICE_ADMIN仅限SDA/DA自解除"
+            ]
+          },
+          {
+            "id": "EDM-S003-CP02",
+            "topic": "DA激活与调试命令的设备形态约束",
+            "positions": [
+              "enableDeviceAdmin/disableDeviceAdmin仅PC/2in1正常调用，其他设备返回801",
+              "hdc shell edm enable-admin -t da自API 23起且仅PC/2in1可用，其他形态报错",
+              "-t byod用于激活BYOD设备管理应用"
+            ]
+          },
+          {
+            "id": "EDM-S003-CP03",
+            "topic": "自激活凭证与设备资格校验",
+            "positions": [
+              "credential无效时enableSelfDeviceAdmin报9200017",
+              "非企业设备报9200018",
+              "管理员组件无效报9200003、激活失败报9200004"
+            ]
+          },
+          {
+            "id": "EDM-S003-CP04",
+            "topic": "首个MDM激活后的授权模型",
+            "positions": [
+              "系统激活首个MDM应用后，其他应用须由首个MDM应用发包授予权限才能激活",
+              "开启/关闭开发者模式会使hdc激活的MDM权限失效需重新激活",
+              "经HEM部署的MDM权限不受开发者模式影响"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "按目标Admin角色选择正确激活路径并在满足前置约束（权限已在证书/Profile声明、应用装在首用户账户ID100、设备形态支持）时完成激活，激活后onAdminEnabled回调可初始化策略；解除激活按运行版本匹配对应权限路径；不满足条件时按9200001/9200002/9200004/9200017/9200018/801等错误码降级处理。",
+          "criteriaTopics": [
+            "激活方式与Admin角色选择",
+            "disableAdmin解除激活与权限演进",
+            "startAdminProvision BYOD激活约束",
+            "enableDeviceAdmin/disableDeviceAdmin DA激活",
+            "enableSelfDeviceAdmin自激活凭证",
+            "激活前置约束与单SDA限制"
+          ]
+        },
+        {
+          "assertion": "委托策略仅下发给分发类型为enterprise_normal/enterprise_mdm的被委托应用且范围不超出附录可委托策略列表；管理事件按需订阅并在取消订阅后不再接收，非超级设备管理应用订阅POLICIES_CHANGED按9200002处理。",
+          "criteriaTopics": [
+            "委托策略与被委托应用约束",
+            "管理事件订阅与BYOD查询"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "确认MDM资质与企业MDM发布证书/Profile中已声明所需ohos.permission.ENTERPRISE_*权限，并已按EDM-S002实现EnterpriseAdminExtensionAbility与module.json5注册。",
+          "按目标角色选择激活路径：HEM商用部署、enableDeviceAdmin/disableDeviceAdmin(DA)、startAdminProvision(BYOD)或enableSelfDeviceAdmin(SDA自激活凭证)，调用前校验设备形态、首用户（账户ID100）与单SDA约束。",
+          "激活成功后在onAdminEnabled回调中做初始化；需要委托时用setDelegatedPolicies下发并核验被委托应用分发类型，范围以附录可委托策略列表为准。",
+          "按需用subscribeManagedEventSync订阅管理事件并实现配对回调；解除激活时按运行版本选择对应权限路径，处理9200005等错误。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "edm-s003-mdmkit-import",
+          "kind": "require_any",
+          "patterns": [
+            "@kit\\.MDMKit"
+          ],
+          "onMissing": "failed",
+          "message": "缺少 @kit.MDMKit 导入。"
+        },
+        {
+          "id": "edm-s003-admin-manager-usage",
+          "kind": "require_any",
+          "patterns": [
+            "adminManager\\.(enableDeviceAdmin|disableDeviceAdmin|enableSelfDeviceAdmin|startAdminProvision|disableAdmin|isByodAdmin|setDelegatedPolicies|subscribeManagedEventSync|unsubscribeManagedEventSync)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少 adminManager 激活/解除激活/委托/事件订阅调用。"
+        },
+        {
+          "id": "edm-s003-admin-want",
+          "kind": "require_any",
+          "patterns": [
+            "bundleName",
+            "abilityName"
+          ],
+          "onMissing": "failed",
+          "message": "admin Want 须包含企业设备管理扩展 abilityName 与应用 bundleName。"
+        },
+        {
+          "id": "edm-s003-permission-declaration",
+          "kind": "require_any",
+          "patterns": [
+            "ohos\\.permission\\.ENTERPRISE_(ADMIN_MANAGE|DEACTIVATE_DEVICE_ADMIN|MANAGE_DEVICE_ADMIN|SUBSCRIBE_MANAGED_EVENT|MANAGE_DELEGATED_POLICY|START_PROVISIONING_MESSAGE)"
+          ],
+          "onMissing": "failed",
+          "message": "module.json5 缺少激活类 MDM 权限声明。"
+        },
+        {
+          "id": "edm-s003-error-handling",
+          "kind": "require_any",
+          "patterns": [
+            "try\\s*\\{",
+            "catch\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少激活/解除激活接口的错误处理。"
+        }
+      ],
+      "negativeCases": [
+        "未激活设备管理应用即调用MDM策略接口（9200001）",
+        "MDM应用未安装在首用户（账户ID100）时尝试激活",
+        "同一设备重复激活超级设备管理应用或同应用多管理组件（9200004）",
+        "在Phone/Tablet上调用enableDeviceAdmin（仅PC/2in1，返回801）",
+        "enableSelfDeviceAdmin使用无效credential（9200017）或在非企业设备上激活（9200018）",
+        "startAdminProvision在非企业设备或PC/2in1上调用导致无法正常拉起激活页面",
+        "向分发类型非enterprise_normal/enterprise_mdm的应用委托策略",
+        "非超级设备管理应用订阅MANAGED_EVENT_POLICIES_CHANGED（26.0.0起9200002）或订阅无效事件（9200008）",
+        "API 19及之前的版本以普通应用身份调用disableAdmin（需MANAGE_ENTERPRISE_DEVICE_ADMIN）"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build"
+      ]
+    },
+    {
+      "id": "EDM-S004",
+      "displayName": "应用运行与生命周期管控",
+      "route": "app-policy",
+      "intentPatterns": [
+        "禁止运行名单",
+        "允许运行名单",
+        "应用运行管控",
+        "应用自启",
+        "自启应用",
+        "保活应用",
+        "不可关停应用",
+        "防冻结名单",
+        "隐藏桌面图标",
+        "通知允许名单",
+        "PC快捷栏",
+        "流量统计",
+        "前台时长",
+        "addDisallowedRunningBundlesSync",
+        "addAllowedRunningBundles",
+        "addAutoStartApps",
+        "addKeepAliveApps",
+        "addUserNonStopApps",
+        "addFreezeExemptedApps",
+        "addHideLauncherIcon",
+        "setAbilityDisabled",
+        "addDockApp",
+        "queryTrafficStats"
+      ],
+      "intentGroups": [
+        [
+          "applicationManager",
+          "名单"
+        ],
+        [
+          "应用",
+          "保活"
+        ],
+        [
+          "应用",
+          "自启"
+        ],
+        [
+          "桌面图标",
+          "隐藏"
+        ]
+      ],
+      "targets": [
+        "applicationManager",
+        "addDisallowedRunningBundlesSync",
+        "addAllowedRunningBundles",
+        "addAutoStartApps",
+        "addKeepAliveApps",
+        "addUserNonStopApps",
+        "addFreezeExemptedApps",
+        "addHideLauncherIcon",
+        "setAbilityDisabled",
+        "getAllowedNotificationBundles",
+        "addDockApp",
+        "queryTrafficStats"
+      ],
+      "sources": [
+        "doc-c1c0c9febc9f1b2a04d7"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "禁止/允许运行名单配置与互斥",
+            "hint": "核对addDisallowedRunningBundlesSync（加入后立即终止运行中应用）、remove/get及21+允许名单系列接口；允许名单非空时再添加禁止名单报9200010（API 21起）；每用户名单总数≤200；26.0.0起get系重载支持admin传null查实际生效策略。",
+            "mustResolve": true
+          },
+          {
+            "topic": "允许名单生效范围与MDM自身前置",
+            "hint": "核对允许名单仅对三方应用生效、系统应用默认可运行；MDM应用自身必须加入允许名单否则阻塞接口调用。",
+            "mustResolve": true
+          },
+          {
+            "topic": "应用标识演进与获取",
+            "hint": "核对API 21起appIds支持appId/appIdentifier（推荐appIdentifier），API 20及之前仅appId；appIdentifier经bundleManager.getBundleInfo取signatureInfo或getInstalledBundleList获取；accountId可经getOsAccountLocalId获取。",
+            "mustResolve": true
+          },
+          {
+            "topic": "自启应用管理",
+            "hint": "核对addAutoStartApps名单≤10、Want须含bundleName+abilityName、abilities标签exported=false不支持拉起、API 24起isHiddenStart可隐藏UI自启但须接入状态栏否则设置失败/401且隐藏UI仅PC/2in1与平板PC模式可用、20+版可加accountId+disallowModify禁止用户在设置中取消自启并与无accountId版本合计≤10。",
+            "mustResolve": true
+          },
+          {
+            "topic": "保活应用与状态栏前置",
+            "hint": "核对addKeepAliveApps(14+)仅PC/2in1可调用其他设备801、同一用户名单最多5个、被保活应用须接入状态栏且启动后5秒内加入否则取消保活并杀进程、mainElement必须为UIAbility、连续3次重启失败不再拉起、与禁止运行名单冲突9200010、Phone/Tablet需改用addUserNonStopApps/addFreezeExemptedApps、20+版未接入后台/状态栏服务报9201005。",
+            "mustResolve": true
+          },
+          {
+            "topic": "不可关停与防冻结名单",
+            "hint": "核对addUserNonStopApps22+名单所有用户总和≤10、仅可对已安装应用设置否则9200012、卸载自动移除、Phone/Tablet任务中心不可上滑关闭而PC/2in1仅设置页按钮失效、API24起PC/2in1可调用、API26起禁用SUPER_HUB后再加中转站报9200010；addFreezeExemptedApps22+总和≤10、26.0.0前仅Phone/Tablet。",
+            "mustResolve": true
+          },
+          {
+            "topic": "隐藏桌面图标与恢复规则",
+            "hint": "核对addHideLauncherIcon仅当前用户、分身同步隐藏、不可全部隐藏、上限500、仅Phone/Tablet可调其他设备801；恢复时从第2屏找空位依次回退至第1屏、再无空位则建小文件夹；getHideLauncherIcon(26.0.0)支持Want|null查实际生效。",
+            "mustResolve": true
+          },
+          {
+            "topic": "组件禁用与通知允许名单",
+            "hint": "核对setAbilityDisabled23+仅支持UIAbility、isAbilityDisabled(26.0.0)admin可传null查实际生效；通知允许名单(26.0.0)上限200、与Kiosk模式并存、与restrictions禁用设备通知冲突报9200010、系统服务不受限、跨用户立即生效。",
+            "mustResolve": true
+          },
+          {
+            "topic": "PC快捷栏管理",
+            "hint": "核对addDockApp24+/removeDockApp/getDockApps仅PC/2in1否则801、位置0/1被应用中心/任务中心占用报9201019、应用中心/任务中心/文件管理/回收站不可增删、仅支持有图标的应用入口、每用户上限100、不传index追加末尾、用户可手动调整。",
+            "mustResolve": true
+          },
+          {
+            "topic": "流量与使用统计查询",
+            "hint": "核对queryTrafficStats(26.0.0)networkInfo.type仅BEARER_CELLULAR/BEARER_WIFI否则9200012、秒级时间戳起止非法报9200012、accountId须为当前用户、建议查询间隔1-30天；queryBundleStatsInfos以startTime=0表示自首次开机；getApplicationWindowStates返回窗口Dock与前后台状态。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "EDM-S004-CP01",
+            "topic": "禁止与允许运行名单互斥",
+            "positions": [
+              "允许名单非空时再添加禁止名单报9200010（API 21起）",
+              "需先remove对应名单再反向设置",
+              "保活名单与禁止运行名单冲突同样报9200010"
+            ]
+          },
+          {
+            "id": "EDM-S004-CP02",
+            "topic": "设备形态与接口替代关系",
+            "positions": [
+              "addKeepAliveApps仅PC/2in1可用，Phone/Tablet需改用addUserNonStopApps/addFreezeExemptedApps",
+              "addHideLauncherIcon仅Phone/Tablet可用，其他设备801",
+              "addDockApp仅PC/2in1可用，其他设备801；API24起PC/2in1也可调用addUserNonStopApps"
+            ]
+          },
+          {
+            "id": "EDM-S004-CP03",
+            "topic": "通知允许名单与全局通知禁用",
+            "positions": [
+              "addAllowedNotificationBundles与Kiosk模式可并存",
+              "与restrictions禁用设备通知冲突报9200010",
+              "系统服务通知不受名单限制"
+            ]
+          },
+          {
+            "id": "EDM-S004-CP04",
+            "topic": "名单数量上限差异",
+            "positions": [
+              "运行禁止/允许名单每用户总数≤200",
+              "自启名单≤10（两个add重载合计）",
+              "保活同一用户≤5；不可关停与防冻结所有用户总和各≤10",
+              "隐藏桌面图标≤500；通知允许名单≤200；Dock每用户≤100"
+            ]
+          },
+          {
+            "id": "EDM-S004-CP05",
+            "topic": "不可关停名单与SUPER_HUB禁用",
+            "positions": [
+              "API26起已用restrictions.setDisallowedPolicyForAccount禁用SUPER_HUB后再将中转站加入名单报9200010",
+              "可用removeUserNonStopApps解除冲突",
+              "addHiddenSettingsMenu移除中转站与SUPER_HUB禁用同样存在9200010冲突"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "在已激活且声明ENTERPRISE_MANAGE_APPLICATION的MDM应用中，按设备形态与API版本正确下发应用运行类名单：互斥名单先清理再设置、超限与形态不符时按9200001/9200010/9200012/401/801拒绝；加入禁止运行名单后运行中应用被立即终止。",
+          "criteriaTopics": [
+            "禁止/允许运行名单配置与互斥",
+            "允许名单生效范围与MDM自身前置",
+            "应用标识演进与获取",
+            "不可关停与防冻结名单"
+          ]
+        },
+        {
+          "assertion": "生命周期类策略符合前置约束：自启/保活/隐藏启动按名单上限与状态栏接入要求生效，未接入状态栏的isHiddenStart或保活设置失败；隐藏图标可按恢复规则回显；查询接口能分别返回本MDM所设策略与整机实际生效策略。",
+          "criteriaTopics": [
+            "自启应用管理",
+            "保活应用与状态栏前置",
+            "隐藏桌面图标与恢复规则",
+            "流量与使用统计查询"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "从 @kit.MDMKit 导入 applicationManager，构造含 bundleName 与 EnterpriseAdminAbility 的 admin Want，确认ENTERPRISE_MANAGE_APPLICATION已在证书/Profile声明。",
+          "按管控目标选择名单类接口（禁止/允许运行、自启、保活、不可关停、防冻结、隐藏图标、通知允许名单），下发前核对互斥名单、数量上限与appId/appIdentifier版本适配，MDM自身须在允许名单内。",
+          "按设备形态选择接口：PC/2in1用保活/Dock，Phone/Tablet用不可关停/防冻结/隐藏图标；多MDM场景遵循合并规则。",
+          "查询优先使用26.0.0 admin=null重载核对实际生效策略；对9200010/9200012/401/801等错误码按语义实现处理与回退。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "edm-s004-mdmkit-import",
+          "kind": "require_any",
+          "patterns": [
+            "@kit\\.MDMKit"
+          ],
+          "onMissing": "failed",
+          "message": "缺少 @kit.MDMKit 导入。"
+        },
+        {
+          "id": "edm-s004-app-manager-usage",
+          "kind": "require_any",
+          "patterns": [
+            "applicationManager\\.(addDisallowedRunningBundlesSync|removeDisallowedRunningBundlesSync|getDisallowedRunningBundlesSync|addAllowedRunningBundles|removeAllowedRunningBundles|getAllowedRunningBundles|addAutoStartApps|removeAutoStartApps|getAutoStartApps|addKeepAliveApps|removeKeepAliveApps|getKeepAliveApps|addUserNonStopApps|removeUserNonStopApps|getUserNonStopApps|addFreezeExemptedApps|removeFreezeExemptedApps|getFreezeExemptedApps|addHideLauncherIcon|removeHideLauncherIcon|getHideLauncherIcon|setAbilityDisabled|isAbilityDisabled|addAllowedNotificationBundles|removeAllowedNotificationBundles|getAllowedNotificationBundles|addDockApp|removeDockApp|getDockApps|queryTrafficStats|queryBundleStatsInfos|getApplicationWindowStates)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少 applicationManager 应用运行管控调用。"
+        },
+        {
+          "id": "edm-s004-admin-want",
+          "kind": "require_any",
+          "patterns": [
+            "bundleName"
+          ],
+          "onMissing": "failed",
+          "message": "admin Want 须包含 bundleName 与企业设备管理扩展 abilityName。"
+        },
+        {
+          "id": "edm-s004-permission-declaration",
+          "kind": "require_any",
+          "patterns": [
+            "ohos\\.permission\\.ENTERPRISE_MANAGE_APPLICATION"
+          ],
+          "onMissing": "failed",
+          "message": "module.json5 缺少 ENTERPRISE_MANAGE_APPLICATION 权限声明。"
+        },
+        {
+          "id": "edm-s004-error-handling",
+          "kind": "require_any",
+          "patterns": [
+            "try\\s*\\{",
+            "catch\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少名单策略接口的错误处理。"
+        }
+      ],
+      "negativeCases": [
+        "允许名单非空时直接添加禁止运行名单（API 21起9200010）",
+        "允许名单未包含MDM应用自身导致接口调用被阻塞",
+        "运行名单超出每用户200个上限",
+        "API 20及之前以appIdentifier标识应用（仅支持appId）",
+        "对已在禁止运行名单中的应用配置保活（9200010）",
+        "在Phone/Tablet上调用addKeepAliveApps（应改用addUserNonStopApps/addFreezeExemptedApps）",
+        "isHiddenStart=true但应用未接入状态栏导致设置失败或401",
+        "addUserNonStopApps/addFreezeExemptedApps添加未安装应用（9200012）或超出所有用户总和10个上限",
+        "已禁用SUPER_HUB（API26起）后将中转站加入不可关停名单（9200010）",
+        "非PC/2in1设备调用addDockApp（801）或修改位置0/1（9201019）",
+        "尝试隐藏全部应用桌面图标（不允许全部隐藏）",
+        "queryTrafficStats使用非法bearer类型或非秒级/起止颠倒的时间戳（9200012）"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build"
+      ]
+    },
+    {
+      "id": "EDM-S005",
+      "displayName": "Kiosk模式管控",
+      "route": "app-policy",
+      "intentPatterns": [
+        "Kiosk",
+        "Kiosk模式",
+        "Kiosk管控",
+        "Kiosk白名单",
+        "setAllowedKioskApps",
+        "setKioskFeatures",
+        "isAppKioskAllowed",
+        "onKioskModeEntering"
+      ],
+      "intentGroups": [
+        [
+          "Kiosk",
+          "白名单"
+        ],
+        [
+          "Kiosk",
+          "特征"
+        ]
+      ],
+      "intentPriority": 2,
+      "targets": [
+        "applicationManager",
+        "setAllowedKioskApps",
+        "setKioskFeatures",
+        "isAppKioskAllowed"
+      ],
+      "sources": [
+        "doc-c1c0c9febc9f1b2a04d7",
+        "doc-f304abbccd9e8f5d1741",
+        "doc-4b3e08fd956850e7e202",
+        "doc-bf6a0868617bc8e31315"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "Kiosk权限与激活前提",
+            "hint": "核对ENTERPRISE_SET_KIOSK权限的声明位置与证书/Profile申请时机、仅Stage模型、仅已激活设备管理应用可调、admin Want须含企业设备管理扩展abilityName与bundleName等前提。",
+            "mustResolve": true
+          },
+          {
+            "topic": "Kiosk应用白名单设置与查询",
+            "hint": "核对setAllowedKioskApps的appIdentifier获取方式（bundleManager.getBundleInfo取signatureInfo）、数量上限、重复设置覆盖语义，以及getAllowedKioskApps/isAppKioskAllowed的查询差异与admin传null重载。",
+            "mustResolve": true
+          },
+          {
+            "topic": "Kiosk特征开关与恢复默认",
+            "hint": "核对setKioskFeatures支持的特征项（通知中心/控制中心/手势/侧边Dock及后续版本新增项）、空数组清空特征恢复默认、非Kiosk模式调用不生效而进入Kiosk后生效的行为。",
+            "mustResolve": true
+          },
+          {
+            "topic": "Kiosk模式进入与退出回调",
+            "hint": "核对onKioskModeEntering/onKioskModeExiting的触发时机、起始版本与在EnterpriseAdminExtensionAbility中的实现方式。",
+            "mustResolve": true
+          },
+          {
+            "topic": "Kiosk设备形态与导航约束",
+            "hint": "核对setKioskFeatures的设备形态差异（PC/2in1调用无效果、Phone/Tablet正常）、Kiosk模式下三键/悬浮导航显示与setKioskFeatures配置的依赖关系及错误码。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "EDM-S005-P01",
+            "topic": "Kiosk特征生效条件与设备形态",
+            "positions": [
+              "非Kiosk模式调用setKioskFeatures不生效，进入Kiosk后生效",
+              "PC/2in1调用setKioskFeatures无效果",
+              "Phone/Tablet正常生效",
+              "空数组清空特征后恢复默认（禁用通知中心/控制中心/最近任务/侧Dock）"
+            ]
+          },
+          {
+            "id": "EDM-S005-P02",
+            "topic": "Kiosk白名单容量与多MDM规则",
+            "positions": [
+              "setAllowedKioskApps白名单最多200个应用且重复设置覆盖",
+              "多MDM场景Kiosk相关策略遵循配置类规则（最新配置生效）"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "已激活且声明ENTERPRISE_SET_KIOSK的设备管理应用设置Kiosk白名单后，仅白名单内应用可进入Kiosk运行；setKioskFeatures配置的特征在进入Kiosk后生效、空数组清空恢复默认；查询接口返回与设置一致的策略（admin传null时返回实际生效策略）；进入/退出Kiosk分别触发onKioskModeEntering/onKioskModeExiting回调；越权或未激活调用返回9200001/9200002等对应错误码。",
+          "criteriaTopics": [
+            "Kiosk权限与激活前提",
+            "Kiosk应用白名单设置与查询",
+            "Kiosk特征开关与恢复默认",
+            "Kiosk模式进入与退出回调",
+            "Kiosk设备形态与导航约束"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "确认设备管理应用已激活并在module.json5声明ohos.permission.ENTERPRISE_SET_KIOSK（该权限须在MDM证书/Profile申请时同步申请），admin Want携带企业设备管理扩展的abilityName与bundleName。",
+          "经bundleManager.getBundleInfo获取目标应用signatureInfo.appIdentifier后调用applicationManager.setAllowedKioskApps设置Kiosk白名单，并用getAllowedKioskApps/isAppKioskAllowed核对设置结果。",
+          "按需调用setKioskFeatures配置特征或以空数组清空恢复默认；在EnterpriseAdminExtensionAbility中实现onKioskModeEntering/onKioskModeExiting接收Kiosk模式切换并上报，失败路径按企业设备管理错误码归因处理。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "kiosk-apps-set",
+          "kind": "require_any",
+          "patterns": [
+            "setAllowedKioskApps\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少Kiosk应用白名单设置调用。"
+        },
+        {
+          "id": "kiosk-features-set",
+          "kind": "require_any",
+          "patterns": [
+            "setKioskFeatures\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少Kiosk特征设置或清空调用。"
+        },
+        {
+          "id": "kiosk-query",
+          "kind": "require_any",
+          "patterns": [
+            "isAppKioskAllowed\\s*\\(",
+            "getAllowedKioskApps\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少Kiosk白名单查询调用。"
+        },
+        {
+          "id": "kiosk-permission-declared",
+          "kind": "require_any",
+          "patterns": [
+            "ohos\\.permission\\.ENTERPRISE_SET_KIOSK"
+          ],
+          "onMissing": "failed",
+          "message": "module.json5未声明ENTERPRISE_SET_KIOSK权限。"
+        },
+        {
+          "id": "kiosk-mode-callback",
+          "kind": "require_any",
+          "patterns": [
+            "onKioskModeEntering",
+            "onKioskModeExiting"
+          ],
+          "onMissing": "failed",
+          "message": "未实现Kiosk模式进入/退出回调。"
+        }
+      ],
+      "negativeCases": [
+        "未激活企业设备管理扩展能力即调用Kiosk接口（9200001/9200002）",
+        "未在module.json5声明或未随MDM证书/Profile申请ENTERPRISE_SET_KIOSK权限",
+        "在PC/2in1上调用setKioskFeatures并期望特征生效（实际无效果）",
+        "设备未进入Kiosk模式时校验特征开关效果（非Kiosk模式不生效）",
+        "重复调用setAllowedKioskApps期望追加应用而非覆盖",
+        "Kiosk白名单应用数量超过上限仍继续添加",
+        "清空特征后未核对通知中心/控制中心/最近任务/侧Dock是否恢复默认"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "install",
+        "runtime"
+      ]
+    },
+    {
+      "id": "EDM-S006",
+      "displayName": "应用安装卸载与分发管控",
+      "route": "app-policy",
+      "intentPatterns": [
+        "应用安装",
+        "应用卸载",
+        "静默安装",
+        "企业应用分发",
+        "安装名单",
+        "installMarketApps",
+        "installForResult",
+        "addAllowedInstallBundlesSync",
+        "addDisallowedInstallBundlesSync",
+        "addDisallowedUninstallBundlesSync"
+      ],
+      "intentGroups": [
+        [
+          "静默",
+          "安装"
+        ],
+        [
+          "卸载",
+          "禁止"
+        ]
+      ],
+      "targets": [
+        "bundleManager",
+        "installMarketApps",
+        "installForResult",
+        "getInstalledBundleList"
+      ],
+      "sources": [
+        "doc-88538070be3e566b573d",
+        "doc-f304abbccd9e8f5d1741",
+        "doc-67a96c1ff6771f2a253a",
+        "doc-bf6a0868617bc8e31315",
+        "doc-2078bc299e9b087d89e1",
+        "doc-904f185a57dcfca0f8ff"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "安装允许与禁止名单",
+            "hint": "核对addAllowedInstallBundlesSync/addDisallowedInstallBundlesSync的名单上限、单次设置建议量、appId与appIdentifier的版本适用差异、系统应用例外及多MDM合并规则与查询重载。",
+            "mustResolve": true
+          },
+          {
+            "topic": "卸载禁止与uninstall",
+            "hint": "核对addDisallowedUninstallBundlesSync语义、uninstall的userId/isKeepData参数，以及预置不可卸载应用或已在禁止名单时的失败行为。",
+            "mustResolve": true
+          },
+          {
+            "topic": "企业应用沙箱安装",
+            "hint": "核对install仅允许安装的企业分发类型（可用getBundleInfoForSelf查appDistributionType）、hap路径须为应用沙箱路径、接口耗时提示，以及installForResult的细粒度错误码与版本关系。",
+            "mustResolve": true
+          },
+          {
+            "topic": "应用市场应用静默安装",
+            "hint": "核对installMarketApps的三项前置条件（网络畅通、包名已上架且加入HEM企业应用、设备通过HEM商用部署）、单次包名数量上限、桌面任务表现与onMarketAppInstallResult回调的common.InstallationResult结构。",
+            "mustResolve": true
+          },
+          {
+            "topic": "分发类型安装策略",
+            "hint": "核对addInstallationAllowedAppDistributionTypes添加后仅可安装已添加分发类型的应用、部分移除语义与查询实际生效策略的admin传null重载。",
+            "mustResolve": true
+          },
+          {
+            "topic": "已安装应用查询与存储统计",
+            "hint": "核对getInstalledBundleList的权限、accountId与bundleInfoGetFlag取值，以及getInstalledBundleStorageStats返回的appSize/dataSize统计口径。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "EDM-S006-P01",
+            "topic": "名单标识与容量约束",
+            "positions": [
+              "API 21起appIds支持appId/appIdentifier并推荐appIdentifier",
+              "API 20及之前仅支持appId",
+              "单用户名单总数不超过200且单次设置不建议超过50",
+              "remove仅移除传入的标识形态，不移除同一应用的另一标识"
+            ]
+          },
+          {
+            "id": "EDM-S006-P02",
+            "topic": "安装失败错误归类",
+            "positions": [
+              "9201002为通用安装失败（含HEM前置未满足、包名不一致等）",
+              "9201022磁盘不足、9201023企业设备管理禁止安装",
+              "9201024-9201039为解析/签名/路径/配置/版本/依赖/overlay等细粒度失败",
+              "预置不可卸载应用或已在卸载禁止名单时uninstall返回401"
+            ]
+          },
+          {
+            "id": "EDM-S006-P03",
+            "topic": "install与installForResult取舍",
+            "positions": [
+              "install接口耗时，主线程同步调用需等待返回",
+              "API 26.0.0起建议改用installForResult",
+              "installForResult自26.0.0起提供细粒度安装错误码"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "已激活的设备管理应用设置的安装允许/禁止与卸载禁止名单按单用户上限与多MDM合并规则生效，系统应用按例外规则处理；install仅能安装enterprise_mdm/enterprise_normal分发类型且路径位于应用沙箱的应用，installForResult返回细粒度失败原因；installMarketApps在满足网络、上架并加入HEM企业应用、HEM商用部署三前提后静默安装并经onMarketAppInstallResult回调结果；getInstalledBundleList/getInstalledBundleStorageStats返回已装应用清单与存储统计；违反前提时返回9200001/9201002/9201022-9201039/401等对应错误码。",
+          "criteriaTopics": [
+            "安装允许与禁止名单",
+            "卸载禁止与uninstall",
+            "企业应用沙箱安装",
+            "应用市场应用静默安装",
+            "分发类型安装策略",
+            "已安装应用查询与存储统计"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "确认设备管理应用已激活并在module.json5声明ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY（静默安装市场应用另需ENTERPRISE_INSTALL_BUNDLE），权限须随MDM证书/Profile同步申请。",
+          "按管控目标设置安装允许/禁止、卸载禁止名单或分发类型安装策略，名单标识按设备API版本选择appId或appIdentifier，并用对应get接口与admin传null重载核对策略。",
+          "调用install/installForResult安装应用沙箱内企业分发类型应用，或installMarketApps静默安装应用市场应用，并在EnterpriseAdminExtensionAbility实现onMarketAppInstallResult处理common.InstallationResult。",
+          "用getInstalledBundleList（按需带bundleInfoGetFlag）与getInstalledBundleStorageStats核对安装结果，失败路径按企业设备管理错误码归因处理。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "bundle-install-policy-api",
+          "kind": "require_any",
+          "patterns": [
+            "bundleManager\\.(addAllowedInstallBundlesSync|addDisallowedInstallBundlesSync|addDisallowedUninstallBundlesSync|addInstallationAllowedAppDistributionTypes)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少安装/卸载名单或分发类型策略管理调用。"
+        },
+        {
+          "id": "enterprise-install-api",
+          "kind": "require_any",
+          "patterns": [
+            "bundleManager\\.(install|installForResult|installMarketApps|uninstall)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少企业应用安装/卸载调用。"
+        },
+        {
+          "id": "install-permission-declared",
+          "kind": "require_any",
+          "patterns": [
+            "ohos\\.permission\\.(ENTERPRISE_SET_BUNDLE_INSTALL_POLICY|ENTERPRISE_INSTALL_BUNDLE)"
+          ],
+          "onMissing": "failed",
+          "message": "module.json5未声明包安装策略所需权限。"
+        },
+        {
+          "id": "market-install-callback",
+          "kind": "require_any",
+          "patterns": [
+            "onMarketAppInstallResult"
+          ],
+          "onMissing": "failed",
+          "message": "未实现应用市场应用安装结果回调。"
+        }
+      ],
+      "negativeCases": [
+        "未激活企业设备管理扩展能力即调用安装/名单接口（9200001/9200002）",
+        "install安装分发类型不是enterprise_mdm/enterprise_normal的应用",
+        "hapFilePaths使用非应用沙箱路径或混入其他应用的HAP",
+        "设备未通过HEM商用部署或包名未上架/未加入HEM企业应用时调用installMarketApps（9201002）",
+        "一次installMarketApps传入超过10个包名或包含不一致包名",
+        "名单单用户总数超过200个应用仍继续设置",
+        "卸载预置不可卸载应用或已加入卸载禁止名单的应用（401）",
+        "在API 20及之前的版本用appIdentifier操作名单"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "install",
+        "runtime"
+      ]
+    },
+    {
+      "id": "EDM-S007",
+      "displayName": "浏览器策略管控",
+      "route": "app-policy",
+      "intentPatterns": [
+        "浏览器策略",
+        "浏览器管控",
+        "浏览器管理",
+        "setPolicySync",
+        "getPoliciesSync",
+        "setManagedBrowserPolicy",
+        "getManagedBrowserPolicy",
+        "getSelfManagedBrowserPolicy",
+        "getSelfManagedBrowserPolicyVersion",
+        "ENTERPRISE_SET_BROWSER_POLICY",
+        "webview浏览器"
+      ],
+      "intentGroups": [
+        [
+          "浏览器",
+          "策略"
+        ]
+      ],
+      "targets": [
+        "browser",
+        "browser.setPolicySync",
+        "browser.setManagedBrowserPolicy"
+      ],
+      "sources": [
+        "doc-45530d394986cb17f174",
+        "doc-dffdd45f975ce62a0b21",
+        "doc-2078bc299e9b087d89e1",
+        "doc-429804ac969633ab2192"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "浏览器策略模块约束与导入",
+            "hint": "核对browser模块从@kit.MDMKit导入、仅Stage模型、仅对已激活的设备管理应用开放及EnterpriseDeviceManager系统能力。",
+            "mustResolve": true
+          },
+          {
+            "topic": "权限声明与激活前置",
+            "hint": "核对ohos.permission.ENTERPRISE_SET_BROWSER_POLICY的声明与获取链路，以及MDM Kit开发指南的激活前置要求。",
+            "mustResolve": true
+          },
+          {
+            "topic": "setPolicySync策略设置语义",
+            "hint": "核对appId、policyName、policyValue参数含义，以及policyName为空表示设置应用级策略、policyValue为空表示取消子策略的语义。",
+            "mustResolve": true
+          },
+          {
+            "topic": "浏览器策略查询接口",
+            "hint": "核对getPoliciesSync(admin, appId)查询本MDM应用所设策略与起始26.0.0的admin传null查询实际生效策略重载。",
+            "mustResolve": true
+          },
+          {
+            "topic": "按包名策略与公共事件",
+            "hint": "核对setManagedBrowserPolicy15+、getManagedBrowserPolicy15+、getSelfManagedBrowserPolicy15+与getSelfManagedBrowserPolicyVersion15+的起始版本及COMMON_EVENT_MANAGED_BROWSER_POLICY_CHANGED公共事件发布行为。",
+            "mustResolve": true
+          },
+          {
+            "topic": "多MDM浏览器策略冲突规则",
+            "hint": "核对多MDM场景下同浏览器同策略独占、不同浏览器或同浏览器不同策略合并的适用条件。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "EDM-S007-P01",
+            "topic": "多MDM浏览器策略归属",
+            "positions": [
+              "同浏览器同策略仅一个MDM应用生效（独占规则）",
+              "不同浏览器或同浏览器不同策略可并存（合并规则）"
+            ]
+          },
+          {
+            "id": "EDM-S007-P02",
+            "topic": "setPolicySync空参数语义",
+            "positions": [
+              "policyName为空时表示设置应用级策略",
+              "policyValue为空时表示取消对应子策略"
+            ]
+          },
+          {
+            "id": "EDM-S007-P03",
+            "topic": "策略查询归属",
+            "positions": [
+              "传Want查询本MDM应用设置的策略",
+              "起始26.0.0传null查询实际生效策略"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "已激活并持有ENTERPRISE_SET_BROWSER_POLICY的设备管理应用可对使用华为webview的浏览器通过setPolicySync按policyName/policyValue空值语义完成应用级与子级策略设置及取消，getPoliciesSync返回本MDM应用策略、26.0.0起传null返回实际生效策略，setManagedBrowserPolicy下发后发布COMMON_EVENT_MANAGED_BROWSER_POLICY_CHANGED公共事件；未激活、权限缺失或参数无效分别返回9200001/201/401，多MDM同浏览器同策略按独占规则处理。",
+          "criteriaTopics": [
+            "浏览器策略模块约束与导入",
+            "权限声明与激活前置",
+            "setPolicySync策略设置语义",
+            "浏览器策略查询接口",
+            "按包名策略与公共事件",
+            "多MDM浏览器策略冲突规则"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "确认设备管理应用已激活、已在证书/Profile链路中声明ohos.permission.ENTERPRISE_SET_BROWSER_POLICY，且目标浏览器使用华为webview。",
+          "构造admin Want：bundleName为当前应用包名、abilityName为EnterpriseAdminExtensionAbility组件名。",
+          "调用browser.setPolicySync按appId设置策略：policyName为空表示应用级策略，policyValue为空表示取消对应子策略。",
+          "用browser.getPoliciesSync查询本MDM应用所设策略；API 26.0.0起可传null查询实际生效策略。",
+          "需按包名下发时使用setManagedBrowserPolicy（15+）并订阅COMMON_EVENT_MANAGED_BROWSER_POLICY_CHANGED公共事件；自查策略用getSelfManagedBrowserPolicy/getSelfManagedBrowserPolicyVersion。",
+          "多MDM共存时按同浏览器同策略独占、不同浏览器或同浏览器不同策略合并的规则处理冲突并上报冲突结论。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "edm-s007-import-browser",
+          "kind": "require_any",
+          "patterns": [
+            "import\\s*\\{[^}]*\\bbrowser\\b[^}]*\\}\\s*from\\s*['\"]@kit\\.MDMKit['\"]"
+          ],
+          "onMissing": "failed",
+          "message": "缺少从@kit.MDMKit导入browser模块。"
+        },
+        {
+          "id": "edm-s007-set-policy",
+          "kind": "require_any",
+          "patterns": [
+            "browser\\.setPolicySync\\s*\\(",
+            "browser\\.setManagedBrowserPolicy\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少浏览器策略设置调用（setPolicySync或setManagedBrowserPolicy）。"
+        },
+        {
+          "id": "edm-s007-get-policy",
+          "kind": "require_any",
+          "patterns": [
+            "browser\\.getPoliciesSync\\s*\\(",
+            "browser\\.getManagedBrowserPolicy\\s*\\(",
+            "browser\\.getSelfManagedBrowserPolicy\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少浏览器策略查询调用。"
+        },
+        {
+          "id": "edm-s007-admin-want",
+          "kind": "require_any",
+          "patterns": [
+            "bundleName\\s*:",
+            "new\\s+Want\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少admin Want构造（须含bundleName与EnterpriseAdminAbility的abilityName）。"
+        },
+        {
+          "id": "edm-s007-permission",
+          "kind": "require_any",
+          "patterns": [
+            "ohos\\.permission\\.ENTERPRISE_SET_BROWSER_POLICY"
+          ],
+          "onMissing": "failed",
+          "message": "缺少ENTERPRISE_SET_BROWSER_POLICY权限声明。"
+        }
+      ],
+      "negativeCases": [
+        "未激活设备管理应用即调用浏览器策略接口（9200001）",
+        "未声明或未在证书/Profile申请ENTERPRISE_SET_BROWSER_POLICY导致权限校验失败（201）",
+        "admin Want缺少EnterpriseAdminAbility的abilityName或bundleName（9200002/401）",
+        "policyName与policyValue空值语义混用导致误设置应用级策略或误取消子策略",
+        "多MDM场景对同浏览器同策略重复下发而不处理独占冲突",
+        "对非华为webview浏览器期望策略生效"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build"
+      ]
+    },
+    {
+      "id": "EDM-S008",
+      "displayName": "限制类策略与用户限制",
+      "route": "device-policy",
+      "intentPatterns": [
+        "限制类策略",
+        "禁用策略",
+        "setDisallowedPolicy",
+        "getDisallowedPolicy",
+        "setDisallowedPolicyForAccount",
+        "getDisallowedPolicyForAccount",
+        "setUserRestriction",
+        "getUserRestricted",
+        "setUserRestrictionForAccount",
+        "addDisallowedListForAccount",
+        "FeatureForDevice",
+        "FeatureForAccount",
+        "SettingsForDevice",
+        "SettingsForAccount",
+        "snapshotSkip",
+        "PERSONAL_MANAGE_RESTRICTIONS",
+        "ENTERPRISE_MANAGE_RESTRICTIONS"
+      ],
+      "intentGroups": [
+        [
+          "禁用",
+          "整机"
+        ],
+        [
+          "用户限制",
+          "策略"
+        ]
+      ],
+      "targets": [
+        "restrictions",
+        "restrictions.setDisallowedPolicy",
+        "restrictions.setUserRestriction"
+      ],
+      "sources": [
+        "doc-af55e690d023d0424e92",
+        "doc-bf6a0868617bc8e31315",
+        "doc-4265439e7696cd4b80d2",
+        "doc-dffdd45f975ce62a0b21",
+        "doc-2078bc299e9b087d89e1"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "限制类策略模块约束与激活前置",
+            "hint": "核对restrictions模块从@kit.MDMKit导入、仅Stage模型、仅设备管理应用可调用且需先激活（MDM Kit开发指南前置）。",
+            "mustResolve": true
+          },
+          {
+            "topic": "限制类策略权限体系",
+            "hint": "核对ENTERPRISE_MANAGE_RESTRICTIONS、PERSONAL_MANAGE_RESTRICTIONS（BDA子集bluetooth/hdc/microphone/usb/wifi/tethering/camera/screenshot/screenRecord/nearLink/resetFactory，26.0.0新增mtpServer）与ENTERPRISE_MANAGE_NETWORK（mobileData/airplaneMode 20+）的适用范围。",
+            "mustResolve": true
+          },
+          {
+            "topic": "设备级禁用策略接口演进",
+            "hint": "核对字符串feature版setDisallowedPolicy起始12、废弃26.0.0与24+起FeatureForDevice枚举新接口的替代关系及废弃接口清单。",
+            "mustResolve": true
+          },
+          {
+            "topic": "FeatureForDevice特性清单与设备形态约束",
+            "hint": "核对枚举条目与起始版本，以及仅手机/平板（MMS/SMS/MOBILE_DATA/AIRPLANE_MODE/NFC/PRIVATE_SPACE/TELEPHONE_CALL）、仅PC/2in1（HDC_REMOTE/DISK_RECOVERY_KEY等）约束和801行为。",
+            "mustResolve": true
+          },
+          {
+            "topic": "FeatureForAccount用户级策略",
+            "hint": "核对SUPER_HUB、DISTRIBUTED_TRANSMISSION、FINGERPRINT、PRINT、MTP_CLIENT、USB_STORAGE_DEVICE_WRITE、SUDO等用户级特性及其与设备级策略的覆盖/冲突关系。",
+            "mustResolve": true
+          },
+          {
+            "topic": "SettingsForDevice与SettingsForAccount用户限制",
+            "hint": "核对26.0.0用户限制接口的枚举取值（SET_APN/POWER_LONG_PRESS/SET_ETHERNET_IP/SET_DEVICE_NAME/SET_BIOMETRICS_AND_SCREEN_LOCK/MODIFY_WALLPAPER等）、设备形态约束与HEM商用部署前置。",
+            "mustResolve": true
+          },
+          {
+            "topic": "实际生效策略查询",
+            "hint": "核对getDisallowedPolicy等查询接口admin传Want与传null（getDisallowedPolicy自API20支持）的语义差异及多MDM下的取值来源。",
+            "mustResolve": true
+          },
+          {
+            "topic": "策略冲突与错误处理",
+            "hint": "核对9200010互斥场景（通知允许名单、USB五种冲突、蓝牙整机禁用优先、SUPER_HUB与不可关停名单等）、9200012参数校验、9200013外置存储及203开关被禁用场景与解除步骤。",
+            "mustResolve": true
+          },
+          {
+            "topic": "屏幕快照名单管控",
+            "hint": "核对addDisallowedListForAccount/removeDisallowedListForAccount/getDisallowedListForAccount（feature=snapshotSkip）按应用包名管控的版本与用户约束。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "EDM-S008-P01",
+            "topic": "禁用策略接口代际",
+            "positions": [
+              "setDisallowedPolicy(admin, feature: string, disallow)起始12、26.0.0起废弃",
+              "24+新setDisallowedPolicy使用FeatureForDevice枚举替代"
+            ]
+          },
+          {
+            "id": "EDM-S008-P02",
+            "topic": "权限路径与可设特性范围",
+            "positions": [
+              "ENTERPRISE_MANAGE_RESTRICTIONS可设置全部支持的特性",
+              "PERSONAL_MANAGE_RESTRICTIONS仅限BDA子集（24+接口下BDA仅可设WIFI_P2P，越权报9200002）",
+              "mobileData/airplaneMode需ENTERPRISE_MANAGE_NETWORK（20+）"
+            ]
+          },
+          {
+            "id": "EDM-S008-P03",
+            "topic": "整机禁用与名单策略并存",
+            "positions": [
+              "禁用蓝牙与蓝牙允许/禁用名单并存时整机禁用优先",
+              "禁用USB与addAllowedUsbDevices、setUsbStorageDeviceAccessPolicy、addDisallowedUsbDevices、用户级usbStorageDeviceWrite禁用、禁用USB_SERIAL五种场景报9200010",
+              "已设通知允许名单再禁用NOTIFICATION报9200010"
+            ]
+          },
+          {
+            "id": "EDM-S008-P04",
+            "topic": "实际生效策略查询方式",
+            "positions": [
+              "admin传Want查询对应MDM应用所设策略",
+              "admin传null查询整机实际生效策略（getDisallowedPolicy自API20支持，多MDM合并结果）"
+            ]
+          },
+          {
+            "id": "EDM-S008-P05",
+            "topic": "SUPER_HUB用户级约束",
+            "positions": [
+              "SUPER_HUB仅支持当前用户ID，否则报9200012",
+              "与addUserNonStopApps不可关停名单冲突抛9200010，可用removeUserNonStopApps解除"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "已激活且权限匹配的设备管理应用按目标API版本通过restrictions的FeatureForDevice/FeatureForAccount/SettingsForDevice/SettingsForAccount枚举接口下发设备级与用户级限制，getDisallowedPolicy等查询接口admin传null返回整机实际生效策略；设备形态不符返回801、互斥策略冲突抛9200010、参数非法抛9200012、开关已被禁用时直接操作返回203；26.0.0起废弃字符串feature接口，需改用枚举新接口。",
+          "criteriaTopics": [
+            "限制类策略模块约束与激活前置",
+            "限制类策略权限体系",
+            "设备级禁用策略接口演进",
+            "FeatureForDevice特性清单与设备形态约束",
+            "FeatureForAccount用户级策略",
+            "SettingsForDevice与SettingsForAccount用户限制",
+            "实际生效策略查询",
+            "策略冲突与错误处理",
+            "屏幕快照名单管控"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "确认设备管理应用已激活；按管理角色声明权限：常规路径ENTERPRISE_MANAGE_RESTRICTIONS，BDA路径经adminManager.startAdminProvision激活后使用PERSONAL_MANAGE_RESTRICTIONS仅设子集，mobileData/airplaneMode另需ENTERPRISE_MANAGE_NETWORK（20+）。",
+          "按目标API选择接口代际：26.0.0起改用FeatureForDevice/FeatureForAccount枚举的setDisallowedPolicy(24+)/setDisallowedPolicyForAccount，不再使用已废弃的字符串feature接口与废弃的用户限制旧接口。",
+          "下发设备级禁用策略前核对FeatureForDevice条目的设备形态约束（仅手机/平板或仅PC/2in1，不符返回801）及特性级例外（如LOCAL_INPUT重启解除、RS232部分设备不支持）。",
+          "用户级策略使用FeatureForAccount（SUPER_HUB仅当前用户ID、与不可关停名单冲突时先removeUserNonStopApps）；用户限制使用SettingsForDevice/SettingsForAccount（26.0.0），MODIFY_WALLPAPER等前置HEM商用部署。",
+          "查询策略时按需区分admin传Want（本MDM所设）与传null（整机实际生效，getDisallowedPolicy自API20支持）。",
+          "统一捕获错误并给出处理：9200010互斥先移除对应名单或解除整机禁用，9200012修正参数/用户ID，203先通过setDisallowedPolicy解除对应开关禁用，9200013提示外置存储禁用需重启生效。",
+          "需要按应用控制屏幕快照时使用addDisallowedListForAccount（feature=snapshotSkip）并配套remove/get接口。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "edm-s008-import-restrictions",
+          "kind": "require_any",
+          "patterns": [
+            "import\\s*\\{[^}]*\\brestrictions\\b[^}]*\\}\\s*from\\s*['\"]@kit\\.MDMKit['\"]"
+          ],
+          "onMissing": "failed",
+          "message": "缺少从@kit.MDMKit导入restrictions模块。"
+        },
+        {
+          "id": "edm-s008-disallow-call",
+          "kind": "require_any",
+          "patterns": [
+            "restrictions\\.setDisallowedPolicy(?:ForAccount)?\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少限制类策略设置调用。"
+        },
+        {
+          "id": "edm-s008-query-call",
+          "kind": "require_any",
+          "patterns": [
+            "restrictions\\.getDisallowedPolicy(?:ForAccount)?\\s*\\(",
+            "restrictions\\.getUserRestricted(?:ForAccount)?\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少限制类策略查询调用。"
+        },
+        {
+          "id": "edm-s008-permission",
+          "kind": "require_any",
+          "patterns": [
+            "ohos\\.permission\\.ENTERPRISE_MANAGE_RESTRICTIONS",
+            "ohos\\.permission\\.PERSONAL_MANAGE_RESTRICTIONS",
+            "ohos\\.permission\\.ENTERPRISE_MANAGE_NETWORK"
+          ],
+          "onMissing": "failed",
+          "message": "缺少限制类策略所需权限声明。"
+        },
+        {
+          "id": "edm-s008-admin-want",
+          "kind": "require_any",
+          "patterns": [
+            "bundleName\\s*:",
+            "new\\s+Want\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少admin Want构造（须含bundleName与EnterpriseAdminAbility的abilityName）。"
+        }
+      ],
+      "negativeCases": [
+        "未激活设备管理应用即调用restrictions接口（9200001）",
+        "26.0.0起仍使用已废弃的setDisallowedPolicy(admin, feature: string, disallow)字符串接口",
+        "BDA经PERSONAL_MANAGE_RESTRICTIONS设置子集以外特性，或24+接口设置WIFI_P2P以外项（9200002）",
+        "禁用蓝牙与蓝牙允许/禁用名单并存引发9200010",
+        "禁用USB与可用名单、存储访问策略、用户级usbStorageDeviceWrite禁用、禁用USB_SERIAL等冲突场景（9200010）",
+        "SUPER_HUB设置非当前用户ID（9200012）或与addUserNonStopApps不可关停名单冲突（9200010）",
+        "在Phone/Tablet上设置仅PC/2in1特性（如HDC_REMOTE/DISK_RECOVERY_KEY），或反向调用仅手机/平板特性（801）",
+        "已设addAllowedNotificationBundles再禁用NOTIFICATION（9200010）",
+        "开关已被restrictions禁用后未解除即直接操作开关类接口（203）",
+        "EXTERNAL_STORAGE_CARD禁用期间卸载被占用文件的应用失败（9200013）且重新启用需手动重连"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build"
+      ]
+    },
+    {
+      "id": "EDM-S009",
+      "displayName": "设备设置管控",
+      "route": "device-policy",
+      "intentPatterns": [
+        "设备设置管控",
+        "设备设置",
+        "deviceSettings",
+        "setValue",
+        "getValue",
+        "setSwitchStatus",
+        "隐藏设置项",
+        "addHiddenSettingsMenu",
+        "removeHiddenSettingsMenu",
+        "壁纸管控",
+        "setHomeWallpaper",
+        "setUnlockWallpaper",
+        "息屏时间",
+        "screenOff",
+        "eyeComfort",
+        "默认输入法",
+        "设备名称修改",
+        "悬浮导航",
+        "FLOATING_NAVIGATION",
+        "强制开启蓝牙",
+        "FORCE_ON"
+      ],
+      "intentGroups": [
+        [
+          "deviceSettings",
+          "策略"
+        ],
+        [
+          "隐藏",
+          "设置项"
+        ],
+        [
+          "setSwitchStatus",
+          "开关"
+        ]
+      ],
+      "targets": [
+        "deviceSettings",
+        "setValue",
+        "setValueForAccount",
+        "getValue",
+        "getValueForAccount",
+        "setSwitchStatus",
+        "addHiddenSettingsMenu",
+        "setHomeWallpaper",
+        "setUnlockWallpaper"
+      ],
+      "sources": [
+        "doc-4b3e08fd956850e7e202",
+        "doc-af55e690d023d0424e92",
+        "doc-bf6a0868617bc8e31315",
+        "doc-2078bc299e9b087d89e1"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "设备设置项与取值约束",
+            "hint": "核对setValue/getValue各item的取值格式与适用条件：screenOff毫秒与设备差异、dateTime毫秒时间戳、powerPolicy适用形态、eyeComfort与defaultInputMethod的起始版本。",
+            "mustResolve": true
+          },
+          {
+            "topic": "壁纸设置与资源限制",
+            "hint": "核对setHomeWallpaper/setUnlockWallpaper的起始版本、fd获取方式、体积上限、折叠屏行为与所需壁纸权限。",
+            "mustResolve": true
+          },
+          {
+            "topic": "按用户设置与账号维度",
+            "hint": "核对setValueForAccount/getValueForAccount的DEVICE_NAME字符约束、FLOATING_NAVIGATION取值与设备形态限制、accountId获取方式。",
+            "mustResolve": true
+          },
+          {
+            "topic": "隐藏设置项行为与冲突",
+            "hint": "核对add/remove/getHiddenSettingsMenu的生效行为（即刻生效、搜索不可见、无法打开）、适用设备形态及与中转站相关策略的冲突错误码。",
+            "mustResolve": true
+          },
+          {
+            "topic": "开关状态三态与强制开启限制",
+            "hint": "核对setSwitchStatus支持的SwitchKey、ON/OFF/FORCE_ON三态语义、哪些开关支持FORCE_ON、用户可否手动反向操作及多MDM下的生效规则。",
+            "mustResolve": true
+          },
+          {
+            "topic": "权限与设备形态约束",
+            "hint": "核对ENTERPRISE_MANAGE_SETTINGS与PERSONAL_MANAGE_RESTRICTIONS两条权限路径的适用差异（BDA可设子集、越界错误码）、Stage模型与未激活调用错误。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "EDM-S009-CP01",
+            "topic": "开关设置与禁用策略冲突",
+            "positions": [
+              "开关已被restrictions禁用策略禁用时setSwitchStatus返回203，须先解除禁用再设置",
+              "未被禁用策略覆盖时setSwitchStatus按ON/OFF/FORCE_ON正常生效"
+            ]
+          },
+          {
+            "id": "EDM-S009-CP02",
+            "topic": "隐藏设置项与中转站策略冲突",
+            "positions": [
+              "已按用户禁用中转站类特性后再移除对应隐藏设置项时返回策略冲突9200010，须先解除关联名单或禁用策略",
+              "无关联禁用策略时add/removeHiddenSettingsMenu即刻生效且搜索不可见"
+            ]
+          },
+          {
+            "id": "EDM-S009-CP03",
+            "topic": "开关多MDM并存",
+            "positions": [
+              "多MDM应用间setSwitchStatus不冲突，最后设置生效且三状态可切换",
+              "禁用类限制策略从严生效，任一MDM禁用即禁用，优先于开关状态"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "已激活的设备管理应用以含企业设备管理扩展abilityName与bundleName的Want调用deviceSettings：设置写入按item取值约束与设备形态生效，查询接口可回读所设策略，不满足前置时按对应错误码降级。",
+          "criteriaTopics": [
+            "设备设置项与取值约束",
+            "按用户设置与账号维度",
+            "权限与设备形态约束"
+          ]
+        },
+        {
+          "assertion": "壁纸、隐藏设置项与开关类策略按各自资源限制、生效行为与三态语义生效；开关被禁用策略覆盖时先解除再设置，隐藏设置项与中转站策略冲突场景按策略冲突错误码处理并可按建议顺序解除。",
+          "criteriaTopics": [
+            "壁纸设置与资源限制",
+            "隐藏设置项行为与冲突",
+            "开关状态三态与强制开启限制",
+            "权限与设备形态约束"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "确认MDM应用已激活并在module.json5声明所需权限（权限须在MDM证书/Profile申请时同步申请），以含企业设备管理扩展abilityName与bundleName的Want作为admin参数。",
+          "设置类需求按item选择setValue或setValueForAccount，逐项核对该item的起始版本、取值格式与设备形态约束；用对应getValue接口回读验证。",
+          "壁纸/开关/隐藏设置项分别准备资源与参数：壁纸fd来自应用可访问文件且不超过体积上限，开关区分三态与权限路径，隐藏设置项仅在支持的设备形态调用。",
+          "统一捕获并按企业设备管理错误码文档处理9200001/9200002/9200010/9200012/9201042/201/203/401/801。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "edm-s009-device-settings-usage",
+          "kind": "require_any",
+          "patterns": [
+            "deviceSettings\\."
+          ],
+          "onMissing": "failed",
+          "message": "缺少deviceSettings模块调用。"
+        },
+        {
+          "id": "edm-s009-set-value",
+          "kind": "require_any",
+          "patterns": [
+            "deviceSettings\\.setValue(?:ForAccount)?\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少设备设置写入接口（setValue/setValueForAccount）。"
+        },
+        {
+          "id": "edm-s009-get-value",
+          "kind": "require_any",
+          "patterns": [
+            "deviceSettings\\.getValue(?:ForAccount)?\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少设备设置查询回读接口（getValue/getValueForAccount）。"
+        },
+        {
+          "id": "edm-s009-policy-suite",
+          "kind": "require_any",
+          "patterns": [
+            "deviceSettings\\.(setHomeWallpaper|setUnlockWallpaper|setSwitchStatus|addHiddenSettingsMenu|removeHiddenSettingsMenu|getHiddenSettingsMenu)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少壁纸/开关/隐藏设置项等deviceSettings策略调用。"
+        },
+        {
+          "id": "edm-s009-permission",
+          "kind": "require_any",
+          "patterns": [
+            "ohos\\.permission\\.(ENTERPRISE_MANAGE_SETTINGS|PERSONAL_MANAGE_RESTRICTIONS|ENTERPRISE_SET_WALLPAPER)"
+          ],
+          "onMissing": "failed",
+          "message": "缺少deviceSettings所需权限声明。"
+        },
+        {
+          "id": "edm-s009-admin-want",
+          "kind": "require_any",
+          "patterns": [
+            "abilityName",
+            "bundleName"
+          ],
+          "onMissing": "failed",
+          "message": "admin参数Want须包含企业设备管理扩展abilityName与bundleName。"
+        }
+      ],
+      "negativeCases": [
+        "未激活或非设备管理应用调用deviceSettings接口（9200001/9200002）",
+        "admin Want缺少企业设备管理扩展abilityName或bundleName导致组件无效或参数校验失败",
+        "非Phone/Tablet设备调用悬浮导航、隐藏设置项等接口返回801",
+        "在PC/2in1以外的设备为screenOff设置永不息屏取值",
+        "BDA路径经PERSONAL_MANAGE_RESTRICTIONS设置其子集之外的开关或FORCE_ON（9200002）",
+        "开关已被restrictions禁用时未解除禁用直接setSwitchStatus（203）",
+        "壁纸超过体积上限或fd并非应用可访问文件",
+        "存在中转站关联禁用策略时移除对应隐藏设置项触发策略冲突（9200010）"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build"
+      ]
+    },
+    {
+      "id": "EDM-S010",
+      "displayName": "设备控制、信息查询与位置策略",
+      "route": "device-policy",
+      "intentPatterns": [
+        "设备控制",
+        "deviceControl",
+        "operateDevice",
+        "锁设备",
+        "lockDevice",
+        "unlockDevice",
+        "锁屏",
+        "lockScreen",
+        "恢复出厂",
+        "resetFactory",
+        "重启设备",
+        "关机",
+        "shutDown",
+        "磁盘擦除",
+        "DISK_ERASURE",
+        "设备信息查询",
+        "getDeviceInfo",
+        "deviceSerial",
+        "设备序列号",
+        "IMEI",
+        "simInfo",
+        "位置策略",
+        "setLocationPolicy",
+        "locationManager",
+        "强制开启定位",
+        "禁用定位"
+      ],
+      "intentGroups": [
+        [
+          "operateDevice",
+          "锁设备"
+        ],
+        [
+          "setLocationPolicy",
+          "位置"
+        ],
+        [
+          "getDeviceInfo",
+          "设备信息"
+        ]
+      ],
+      "targets": [
+        "deviceControl",
+        "operateDevice",
+        "deviceInfo",
+        "getDeviceInfo",
+        "locationManager",
+        "setLocationPolicy",
+        "getLocationPolicy"
+      ],
+      "sources": [
+        "doc-5f7bda30e61a9599d3e5",
+        "doc-beebd204c17cccdf0a78",
+        "doc-21386bf6bd19a0f3cb8a",
+        "doc-af55e690d023d0424e92",
+        "doc-dffdd45f975ce62a0b21",
+        "doc-2078bc299e9b087d89e1"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "设备控制操作集与参数",
+            "hint": "核对operateDevice支持的operate取值（恢复出厂/重启/关机/锁屏/锁设备/解锁设备及锁屏文案addition）与新版Operation签名（如磁盘擦除）的起始版本。",
+            "mustResolve": true
+          },
+          {
+            "topic": "锁设备安全与逃生通道",
+            "hint": "核对lockDevice后屏幕与按键行为、锁屏文案定制范围、逃生通道预留建议（保留hdc与远程通信触发解锁）及与Kiosk模式配合方式。",
+            "mustResolve": true
+          },
+          {
+            "topic": "磁盘擦除约束",
+            "hint": "核对磁盘擦除的适用设备形态、擦除后展示图片的沙箱路径与大小/长度限制及不可恢复属性。",
+            "mustResolve": true
+          },
+          {
+            "topic": "恢复出厂与禁用策略冲突",
+            "hint": "核对恢复出厂立即生效且不可恢复的安全设计要求，以及被restrictions禁用恢复出厂时须先解除禁用的前置条件。",
+            "mustResolve": true
+          },
+          {
+            "topic": "设备信息查询标签",
+            "hint": "核对getDeviceInfo支持的label集合（设备名/序列号/SIM信息/磁盘/内存）、各label的设备差异、simInfo返回结构及所需查询权限。",
+            "mustResolve": true
+          },
+          {
+            "topic": "位置策略三态与独占规则",
+            "hint": "核对setLocationPolicy默认/禁用/强制开启三态语义与场景、多MDM独占规则（首个成功下发者获独占权、取消激活后失效恢复默认）及查询实际生效策略的方式。",
+            "mustResolve": true
+          },
+          {
+            "topic": "错误码与权限约束",
+            "hint": "核对ENTERPRISE_OPERATE_DEVICE/ENTERPRISE_GET_DEVICE_INFO/ENTERPRISE_MANAGE_LOCATION权限、Stage模型、仅已激活设备管理应用可用及本域错误码集合。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "EDM-S010-CP01",
+            "topic": "恢复出厂与禁用策略冲突",
+            "positions": [
+              "恢复出厂被restrictions禁用策略禁用时operateDevice该操作失败，须先解除禁用再执行",
+              "未被禁用时resetFactory立即生效且整机数据擦除不可恢复"
+            ]
+          },
+          {
+            "id": "EDM-S010-CP02",
+            "topic": "位置策略独占与多MDM",
+            "positions": [
+              "首个成功下发setLocationPolicy的应用获独占权，后续相反策略下发报策略冲突",
+              "Admin取消激活或应用卸载后位置策略立即失效并恢复系统默认，其他应用可重新配置"
+            ]
+          },
+          {
+            "id": "EDM-S010-CP03",
+            "topic": "锁设备与解锁路径",
+            "positions": [
+              "lockDevice后屏幕无法使用且按键无响应，仅支持锁屏文案定制，须预留可用逃生通道",
+              "unlockDevice存在设备形态与版本约束，解锁能力应在锁定前确认可用"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "已激活的设备管理应用以含企业设备管理扩展abilityName与bundleName的Want调用deviceControl：普通操作按operate语义执行，破坏性操作（恢复出厂/磁盘擦除/锁设备）在满足设备形态、资源约束与逃生通道前置后执行且不可恢复操作有安全设计。",
+          "criteriaTopics": [
+            "设备控制操作集与参数",
+            "锁设备安全与逃生通道",
+            "磁盘擦除约束",
+            "恢复出厂与禁用策略冲突",
+            "错误码与权限约束"
+          ]
+        },
+        {
+          "assertion": "getDeviceInfo按label返回设备资产信息并在不支持的label/设备上报对应错误；setLocationPolicy三态生效且遵循多MDM独占规则，查询接口可回读本MDM策略或以admin传null查询实际生效策略。",
+          "criteriaTopics": [
+            "设备信息查询标签",
+            "位置策略三态与独占规则",
+            "错误码与权限约束"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "确认MDM应用已激活并声明所需权限，以含企业设备管理扩展abilityName与bundleName的Want作为admin参数。",
+          "破坏性操作（恢复出厂/磁盘擦除/锁设备）前落实安全设计：校验设备形态、addition资源约束，预留可用逃生通道（建议保留hdc与远程通信解锁能力）。",
+          "恢复出厂被禁用策略禁用时先经restrictions解除再执行；磁盘擦除按适用设备形态与图片沙箱路径约束准备参数。",
+          "查询类操作按label/策略接口读取，多MDM场景优先以admin传null查询实际生效策略。",
+          "统一捕获并按企业设备管理错误码文档处理9200001/9200002/9200010/9200012/9201048/201/401/801。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "edm-s010-device-control",
+          "kind": "require_any",
+          "patterns": [
+            "deviceControl\\.operateDevice\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少deviceControl.operateDevice调用。"
+        },
+        {
+          "id": "edm-s010-device-info",
+          "kind": "require_any",
+          "patterns": [
+            "deviceInfo\\.getDeviceInfo\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少deviceInfo.getDeviceInfo调用。"
+        },
+        {
+          "id": "edm-s010-location-policy",
+          "kind": "require_any",
+          "patterns": [
+            "locationManager\\.(set|get)LocationPolicy\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少locationManager位置策略设置/查询调用。"
+        },
+        {
+          "id": "edm-s010-permission",
+          "kind": "require_any",
+          "patterns": [
+            "ohos\\.permission\\.(ENTERPRISE_OPERATE_DEVICE|ENTERPRISE_GET_DEVICE_INFO|ENTERPRISE_MANAGE_LOCATION)"
+          ],
+          "onMissing": "failed",
+          "message": "缺少本场景所需MDM权限声明。"
+        },
+        {
+          "id": "edm-s010-admin-want",
+          "kind": "require_any",
+          "patterns": [
+            "abilityName",
+            "bundleName"
+          ],
+          "onMissing": "failed",
+          "message": "admin参数Want须包含企业设备管理扩展abilityName与bundleName。"
+        },
+        {
+          "id": "edm-s010-error-handling",
+          "kind": "require_any",
+          "patterns": [
+            "9200001|9200002|9200010|9200012|9201048",
+            "try\\s*\\{"
+          ],
+          "onMissing": "warn",
+          "message": "建议对本域错误码统一捕获处理。"
+        }
+      ],
+      "negativeCases": [
+        "未激活或非设备管理应用调用operateDevice/getDeviceInfo/setLocationPolicy（9200001/9200002）",
+        "非适用设备形态执行磁盘擦除返回801",
+        "磁盘擦除addition图片超大小限制、路径非应用沙箱或描述超长度限制（参数校验失败）",
+        "lockDevice后未预留逃生通道导致设备无法解锁使用",
+        "恢复出厂被restrictions禁用时未解除禁用直接执行",
+        "在不支持的设备上查询memory等设备形态限定标签",
+        "多MDM场景重复下发与已独占位置策略相反的策略触发策略冲突",
+        "在不满足版本或设备条件的设备上调用unlockDevice返回能力不支持"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build"
+      ]
+    },
+    {
+      "id": "EDM-S011",
+      "displayName": "系统账号管控",
+      "route": "device-policy",
+      "intentPatterns": [
+        "账号管理",
+        "系统账号",
+        "accountManager",
+        "disallowOsAccountAddition",
+        "isOsAccountAdditionDisallowed",
+        "addOsAccountAsync",
+        "createNormalOsAccount",
+        "removeOsAccount",
+        "activateOsAccount",
+        "域账号策略",
+        "setDomainAccountPolicy",
+        "禁止添加账号"
+      ],
+      "intentGroups": [
+        [
+          "accountManager",
+          "账号"
+        ],
+        [
+          "系统账号",
+          "管控"
+        ],
+        [
+          "域账号",
+          "策略"
+        ]
+      ],
+      "targets": [
+        "accountManager"
+      ],
+      "sources": [
+        "doc-7e3d0eef4138938a2ecf",
+        "doc-bf6a0868617bc8e31315",
+        "doc-dffdd45f975ce62a0b21",
+        "doc-2078bc299e9b087d89e1",
+        "doc-429804ac969633ab2192"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "账号添加禁用策略与查询",
+            "hint": "核对disallowOsAccountAddition/isOsAccountAdditionDisallowed的签名、可选accountId语义、多MDM从严管控规则，以及26.0.0起admin传null查询实际生效策略的重载，以冻结正文为准。",
+            "mustResolve": true
+          },
+          {
+            "topic": "账号创建接口与数量约束",
+            "hint": "核对addOsAccountAsync（账号类型、同名/空名错误）与createNormalOsAccount（起始26.0.0、普通系统账号数量上限、运行内存与设备形态约束、超限错误码）的参数与前置条件，以冻结正文为准。",
+            "mustResolve": true
+          },
+          {
+            "topic": "账号移除边界",
+            "hint": "核对removeOsAccount可移除的账号范围（createNormalOsAccount/addOsAccountAsync创建的账号）、默认系统账号ID 100不可移除及对应错误码、支持的设备形态。",
+            "mustResolve": true
+          },
+          {
+            "topic": "账号切换约束",
+            "hint": "核对activateOsAccount（起始26.0.0）的设备与权限要求、仅允许在createNormalOsAccount创建的普通系统账号与默认系统账号(ID 100)之间切换的限制，以及切换不存在/受限/超限账号的错误码，以冻结正文为准。",
+            "mustResolve": true
+          },
+          {
+            "topic": "域账号策略(仅PC/2in1)",
+            "hint": "核对setDomainAccountPolicy/getDomainAccountPolicy的起始版本、仅PC/2in1的设备约束、DomainAccountInfo全空为全局策略与指定域账号策略优先级、serverConfigId必填及设置后需设备侧改密才生效的条件。",
+            "mustResolve": true
+          },
+          {
+            "topic": "模块前置约束与错误处理",
+            "hint": "核对模块共性约束：仅Stage模型、仅对已激活的设备管理应用开放、admin Want须含EnterpriseAdminAbility的abilityName与bundleName、所需权限声明、公共错误码（9200001/9200002/201/401/801等）与账号类错误码。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "EDM-S011-P01",
+            "topic": "多MDM账号添加禁用策略生效口径",
+            "positions": [
+              "任一MDM应用禁用添加账号即最终禁止（从严管控），全部应用移除禁用才恢复",
+              "MDM应用卸载或取消激活后按剩余应用重算策略",
+              "仅剩一个MDM应用时策略完全移除"
+            ]
+          },
+          {
+            "id": "EDM-S011-P02",
+            "topic": "账号策略查询的双口径",
+            "positions": [
+              "isOsAccountAdditionDisallowed传Want查询单个MDM应用所设策略",
+              "26.0.0起新增重载支持admin传null查询整机实际生效策略"
+            ]
+          },
+          {
+            "id": "EDM-S011-P03",
+            "topic": "activateOsAccount切换边界",
+            "positions": [
+              "仅可在createNormalOsAccount创建的普通系统账号与默认系统账号(ID 100)之间切换",
+              "切换受限账号（如addOsAccountAsync创建的账号）返回9201041",
+              "切换不存在账号返回9200012、登录账号数达上限返回9201046、服务超时9200016"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "已激活的MDM应用携带合法admin Want调用accountManager接口：账号添加禁用策略按多MDM从严口径生效并可用Want/null双口径查询；账号创建、移除、切换与域账号策略在冻结正文的数量、设备与参数约束内成功，或返回对应账号类/能力不支持错误码；未激活或越权调用被拦截并返回9200001/9200002。",
+          "criteriaTopics": [
+            "账号添加禁用策略与查询",
+            "账号创建接口与数量约束",
+            "账号移除边界",
+            "账号切换约束",
+            "域账号策略(仅PC/2in1)",
+            "模块前置约束与错误处理"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "确认MDM应用已激活（EnterpriseAdminExtensionAbility已注册并激活），构造含bundleName与企业设备管理扩展abilityName的admin Want，并在module.json5声明所需企业设备管理权限。",
+          "整机禁用新增账号用disallowOsAccountAddition下发，用isOsAccountAdditionDisallowed查询（多MDM从严；26.0.0起admin可传null查实际生效策略）。",
+          "账号创建/移除/切换按冻结正文的设备形态（手机/平板、PC/2in1）与数量约束传参，accountId可经osAccount.getOsAccountLocalId获取；域账号策略仅在PC/2in1下发并说明设备侧改密后生效的条件。",
+          "所有调用使用try/catch，按企业设备管理错误码分类处理（9200001/9200002/201/401/801及9201003/9201040/9201041/9201046/9200016等）。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "edm-s011-mdm-kit-import",
+          "kind": "require_any",
+          "patterns": [
+            "@kit\\.MDMKit"
+          ],
+          "onMissing": "failed",
+          "message": "缺少@kit.MDMKit导入。"
+        },
+        {
+          "id": "edm-s011-account-manager-api",
+          "kind": "require_any",
+          "patterns": [
+            "accountManager\\.(disallowOsAccountAddition|isOsAccountAdditionDisallowed|addOsAccountAsync|createNormalOsAccount|removeOsAccount|activateOsAccount|setDomainAccountPolicy|getDomainAccountPolicy)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少accountManager账号管理接口调用。"
+        },
+        {
+          "id": "edm-s011-admin-want",
+          "kind": "require_any",
+          "patterns": [
+            "EnterpriseAdminAbility"
+          ],
+          "onMissing": "failed",
+          "message": "admin Want须指定企业设备管理扩展Ability名称与bundleName。"
+        },
+        {
+          "id": "edm-s011-permission-declared",
+          "kind": "require_any",
+          "patterns": [
+            "ohos\\.permission\\.ENTERPRISE_[A-Z_]+"
+          ],
+          "onMissing": "failed",
+          "message": "缺少企业设备管理权限声明（具体权限名以冻结正文为准）。"
+        },
+        {
+          "id": "edm-s011-error-handling",
+          "kind": "require_any",
+          "patterns": [
+            "try\\s*\\{"
+          ],
+          "onMissing": "failed",
+          "message": "缺少企业设备管理错误码的捕获与处理。"
+        }
+      ],
+      "negativeCases": [
+        "MDM应用未激活时调用账号管理接口返回9200001",
+        "addOsAccountAsync使用同名账号（9201003）或空名（401）",
+        "createNormalOsAccount超出普通系统账号数量上限返回9201040，或在冻结正文标注不支持的低内存/非手机平板设备上调用",
+        "removeOsAccount尝试移除默认系统账号ID 100返回9201041",
+        "activateOsAccount切换受限账号（如addOsAccountAsync创建的账号）返回9201041，切换不存在账号返回9200012，登录账号数达上限返回9201046",
+        "setDomainAccountPolicy在非PC/2in1设备调用返回801；设置后未在设备侧改密导致有效期类策略不生效"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build"
+      ]
+    },
+    {
+      "id": "EDM-S012",
+      "displayName": "网络管控",
+      "route": "connectivity-policy",
+      "intentPatterns": [
+        "网络管理",
+        "networkManager",
+        "全局代理",
+        "setGlobalProxySync",
+        "setGlobalProxyForAccount",
+        "防火墙",
+        "addFirewallRule",
+        "removeFirewallRule",
+        "域名过滤",
+        "addDomainFilterRule",
+        "移动数据",
+        "turnOnMobileData",
+        "APN",
+        "addApn",
+        "setEthernetConfig",
+        "网卡禁用"
+      ],
+      "intentGroups": [
+        [
+          "networkManager",
+          "网络"
+        ],
+        [
+          "防火墙",
+          "规则"
+        ],
+        [
+          "APN",
+          "企业"
+        ],
+        [
+          "以太网",
+          "配置"
+        ]
+      ],
+      "targets": [
+        "networkManager"
+      ],
+      "sources": [
+        "doc-f9d1df104ace51791e29",
+        "doc-bf6a0868617bc8e31315",
+        "doc-dffdd45f975ce62a0b21",
+        "doc-9f52eec628fd10122068",
+        "doc-af55e690d023d0424e92",
+        "doc-2078bc299e9b087d89e1"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "网络接口禁启用与查询",
+            "hint": "核对getAllNetworkInterfacesSync/getIpAddressSync/getMacSync/setNetworkInterfaceDisabledSync/isNetworkInterfaceDisabledSync的签名与约束，含26.0.0起admin传null查询实际生效策略的重载，以冻结正文为准。",
+            "mustResolve": true
+          },
+          {
+            "topic": "全局代理配置",
+            "hint": "核对设备级setGlobalProxySync与用户级setGlobalProxyForAccount/getGlobalProxyForAccount（起始15+，仅PC/2in1正常、其他设备返回801）的作用域差异与参数结构（host/port/exclusionList，accountId可经osAccount.getOsAccountLocalId获取）。",
+            "mustResolve": true
+          },
+          {
+            "topic": "防火墙规则语义与前置",
+            "hint": "核对防火墙接口的HEM商用部署前置、IPv4/IPv6版本演进（API21及之前仅IPv4、22起双栈需分别添加、23起新增LogType且仅PC/2in1）、ALLOW规则自动生成默认DENY、移除规则与重启清空语义、匹配顺序（先域名过滤后IP防火墙，Action按ALLOW/DENY/REJECT）与appUid按应用生效维度。",
+            "mustResolve": true
+          },
+          {
+            "topic": "域名过滤策略",
+            "hint": "核对addDomainFilterRule/removeDomainFilterRule的参数（domainName/appUid等）、空值清空链与按添加顺序移除的约束，以及建议开机立即配置以避免DNS缓存导致拦截失效、重启可清缓存恢复的实践。",
+            "mustResolve": true
+          },
+          {
+            "topic": "移动数据开关",
+            "hint": "核对turnOnMobileData(admin,isForce)与turnOffMobileData的行为：isForce=true强制开启后用户不可手动关闭须用接口关闭；任一MDM应用已通过restrictions.setDisallowedPolicy禁用移动数据时本接口无法直接开/关。",
+            "mustResolve": true
+          },
+          {
+            "topic": "APN管理",
+            "hint": "核对addApn/deleteApn/updateApn/setPreferredApn/queryApn的起始版本（20+/23+）、ENTERPRISE_MANAGE_APN权限要求与apnInfo必选参数（apnName/mcc/mnc/apn）及可选参数，以冻结正文为准。",
+            "mustResolve": true
+          },
+          {
+            "topic": "以太网配置",
+            "hint": "核对setEthernetConfig（23+）的InterfaceConfig仅IPv4约束、静态IP（ipSetMode/ipAddress/gateway/netMask/dnsServers）与DHCP模式，以及以太网设备未连接错误码9201010。",
+            "mustResolve": true
+          },
+          {
+            "topic": "模块前置约束与错误处理",
+            "hint": "核对模块共性约束：仅Stage模型、仅对已激活的设备管理应用开放、admin Want须含EnterpriseAdminAbility的abilityName与bundleName、ENTERPRISE_MANAGE_NETWORK权限（APN另需ENTERPRISE_MANAGE_APN）、多MDM遵循配置/从严规则、公共错误码（9200001/9200002/201/401/801/9200012）。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "EDM-S012-P01",
+            "topic": "防火墙ALLOW规则与默认DENY",
+            "positions": [
+              "添加Action为ALLOW的规则会自动生成默认DENY，未命中包被丢弃/拦截",
+              "移除ALLOW规则后无ALLOW规则时默认DENY被清空",
+              "设备重启清空全部防火墙规则"
+            ]
+          },
+          {
+            "id": "EDM-S012-P02",
+            "topic": "移动数据开关与restrictions禁用互斥",
+            "positions": [
+              "turnOnMobileData isForce=true强制开启后用户不可手动关闭，须用turnOffMobileData关闭",
+              "任一MDM应用已通过restrictions.setDisallowedPolicy禁用移动数据时，本模块接口无法直接开/关"
+            ]
+          },
+          {
+            "id": "EDM-S012-P03",
+            "topic": "全局代理作用域差异",
+            "positions": [
+              "setGlobalProxySync为设备级全局代理",
+              "setGlobalProxyForAccount为用户级代理，仅PC/2in1正常调用，其他设备返回801"
+            ]
+          },
+          {
+            "id": "EDM-S012-P04",
+            "topic": "域名过滤生效时机与DNS缓存",
+            "positions": [
+              "建议开机立即配置域名过滤以避免DNS缓存导致拦截失效",
+              "重启可清DNS缓存恢复拦截效果"
+            ]
+          },
+          {
+            "id": "EDM-S012-P05",
+            "topic": "IPv4/IPv6双栈规则版本演进",
+            "positions": [
+              "API 21及之前仅支持IPv4",
+              "API 22起支持IPv4+IPv6，需分别添加两族规则",
+              "API 23起新增LogType=NFLOG且仅PC/2in1支持，日志可经订阅安全审计数据查询"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "已激活的MDM应用在网络域按冻结约束生效：网卡禁启用与设备/用户级代理按各自作用域配置（用户级代理仅PC/2in1）；防火墙与域名过滤在HEM商用部署前置下按ALLOW自动生成默认DENY、先域名后IP的顺序生效并在重启后按约束清空；移动数据isForce语义、APN必选参数与以太网配置返回预期结果；策略互斥或设备能力不支持时返回对应错误码，未激活调用返回9200001。",
+          "criteriaTopics": [
+            "网络接口禁启用与查询",
+            "全局代理配置",
+            "防火墙规则语义与前置",
+            "域名过滤策略",
+            "移动数据开关",
+            "APN管理",
+            "以太网配置",
+            "模块前置约束与错误处理"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "确认MDM应用已激活并在module.json5声明ENTERPRISE_MANAGE_NETWORK（APN接口另需ENTERPRISE_MANAGE_APN）；防火墙与域名过滤调用前确认设备已通过HEM商用部署。",
+          "构造含EnterpriseAdminAbility的abilityName与bundleName的admin Want；网卡禁启用、设备级/用户级代理按作用域选择接口，accountId可经osAccount.getOsAccountLocalId获取。",
+          "防火墙规则按IPv4/IPv6分别添加并遵循ALLOW默认DENY、先域名后IP的匹配顺序与重启清空语义；域名过滤建议开机立即配置以规避DNS缓存。",
+          "移动数据开关注意isForce强制开启语义及与restrictions禁用策略的互斥；APN按必选参数（apnName/mcc/mnc/apn）构造；以太网经setEthernetConfig配置静态IP/DHCP。",
+          "统一try/catch并按错误码处理（9200001/9200002/201/401/801/9200012/9201010等）。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "edm-s012-mdm-kit-import",
+          "kind": "require_any",
+          "patterns": [
+            "@kit\\.MDMKit"
+          ],
+          "onMissing": "failed",
+          "message": "缺少@kit.MDMKit导入。"
+        },
+        {
+          "id": "edm-s012-network-manager-api",
+          "kind": "require_any",
+          "patterns": [
+            "networkManager\\.(getAllNetworkInterfacesSync|getIpAddressSync|getMacSync|isNetworkInterfaceDisabledSync|setNetworkInterfaceDisabledSync|setGlobalProxySync|setGlobalProxyForAccount|getGlobalProxyForAccount|getGlobalProxySync|addFirewallRule|removeFirewallRule|addDomainFilterRule|removeDomainFilterRule|turnOnMobileData|turnOffMobileData|addApn|deleteApn|updateApn|setPreferredApn|queryApn|setEthernetConfig)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少networkManager网络管理接口调用。"
+        },
+        {
+          "id": "edm-s012-admin-want",
+          "kind": "require_any",
+          "patterns": [
+            "EnterpriseAdminAbility"
+          ],
+          "onMissing": "failed",
+          "message": "admin Want须指定企业设备管理扩展Ability名称与bundleName。"
+        },
+        {
+          "id": "edm-s012-permission-declared",
+          "kind": "require_any",
+          "patterns": [
+            "ohos\\.permission\\.ENTERPRISE_(MANAGE_NETWORK|MANAGE_APN)"
+          ],
+          "onMissing": "failed",
+          "message": "缺少ENTERPRISE_MANAGE_NETWORK/ENTERPRISE_MANAGE_APN权限声明。"
+        },
+        {
+          "id": "edm-s012-error-handling",
+          "kind": "require_any",
+          "patterns": [
+            "try\\s*\\{"
+          ],
+          "onMissing": "failed",
+          "message": "缺少企业设备管理错误码的捕获与处理。"
+        }
+      ],
+      "negativeCases": [
+        "MDM应用未激活时调用网络管理接口返回9200001",
+        "设备未通过HEM商用部署即配置防火墙/域名过滤规则",
+        "API 22起未分别添加IPv4与IPv6规则导致拦截范围不全",
+        "setEthernetConfig在以太网设备未连接时返回9201010",
+        "turnOnMobileData在任一MDM应用已用restrictions禁用移动数据时无法直接开关",
+        "setGlobalProxyForAccount在非PC/2in1设备调用返回801",
+        "isForce=true强制开启移动数据后未用turnOffMobileData关闭导致用户无法恢复",
+        "设备重启后防火墙规则被清空而未重新下发",
+        "移除过滤规则时未按添加顺序移除或以空值清空整链导致策略意外失效"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build"
+      ]
+    },
+    {
+      "id": "EDM-S013",
+      "displayName": "Wi-Fi管控",
+      "route": "connectivity-policy",
+      "intentPatterns": [
+        "Wi-Fi管控",
+        "企业Wi-Fi",
+        "wifiManager",
+        "setWifiProfileSync",
+        "addAllowedWifiList",
+        "addDisallowedWifiList",
+        "turnOnWifi",
+        "turnOffWifi",
+        "Wi-Fi名单",
+        "Wi-Fi策略"
+      ],
+      "intentGroups": [
+        [
+          "Wi-Fi",
+          "配置下发"
+        ],
+        [
+          "Wi-Fi",
+          "名单"
+        ],
+        [
+          "wifiManager",
+          "策略"
+        ]
+      ],
+      "intentPriority": 2,
+      "targets": [
+        "wifiManager",
+        "WifiProfile",
+        "WifiAccessInfo",
+        "WifiSecurityType"
+      ],
+      "sources": [
+        "doc-34c36b6c0b4de8de495c",
+        "doc-af55e690d023d0424e92",
+        "doc-dffdd45f975ce62a0b21",
+        "doc-2078bc299e9b087d89e1"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "模块前置与权限边界",
+            "hint": "核对wifiManager模块的开放范围（仅已激活的设备管理应用）、Stage模型约束、所需权限与系统能力声明，以及全局禁用Wi-Fi归restrictions模块的职责边界。",
+            "mustResolve": true
+          },
+          {
+            "topic": "Wi-Fi配置下发与安全类型",
+            "hint": "核对setWifiProfileSync的入参结构、支持的WifiSecurityType全集、EAP方法支持范围及phase2Method/证书别名/静态IP等配套字段的有效性条件。",
+            "mustResolve": true
+          },
+          {
+            "topic": "允许/禁用名单与匹配语义",
+            "hint": "核对addAllowedWifiList/addDisallowedWifiList的名单数量上限、SSID与BSSID在允许名单和禁用名单中的匹配差异、BSSID入参的版本要求，以及查询接口admin传null查实际生效策略的起始版本。",
+            "mustResolve": true
+          },
+          {
+            "topic": "Wi-Fi开关与强制开启",
+            "hint": "核对turnOnWifi/turnOffWifi的起始版本、isForce=true强制开启后用户不可手动关闭的行为及必须通过接口解除的约束。",
+            "mustResolve": true
+          },
+          {
+            "topic": "与restrictions禁用策略及多MDM规则的冲突",
+            "hint": "核对restrictions已整机禁用Wi-Fi时开关接口的失败错误码与解除顺序、名单互斥冲突错误码，以及多MDM场景下配置/合并规则的适用方式。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "EDM-S013-CP01",
+            "topic": "整机禁用Wi-Fi与开关/名单并存",
+            "positions": [
+              "restrictions整机禁用Wi-Fi后，turnOnWifi等开关接口失败并报系统功能被禁用类错误（如203），须先解除禁用",
+              "名单与开关不受整机禁用影响，可并行生效",
+              "冲突按多MDM合并规则取并集后生效"
+            ]
+          },
+          {
+            "id": "EDM-S013-CP02",
+            "topic": "允许名单与禁用名单同时设置",
+            "positions": [
+              "两者互斥，后设置一侧报策略冲突（如9200010），需先移除另一侧",
+              "两者取交集生效",
+              "后设置覆盖先设置"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "以含企业设备管理扩展abilityName与bundleName的Want调用wifiManager接口下发配置、名单或开关后，设备按本次冻结判据声明的行为生效；查询接口（含admin传null查实际生效策略）返回与设置一致的策略；遇整机禁用、名单互斥等冲突时返回文档声明的错误码且原策略不被破坏。",
+          "criteriaTopics": [
+            "模块前置与权限边界",
+            "Wi-Fi配置下发与安全类型",
+            "允许/禁用名单与匹配语义",
+            "Wi-Fi开关与强制开启",
+            "与restrictions禁用策略及多MDM规则的冲突"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "从 @kit.MDMKit 导入 wifiManager，构造包含本应用bundleName与企业设备管理扩展abilityName的Want作为admin入参。",
+          "调用前确认设备管理应用已激活，并核对restrictions是否已整机禁用Wi-Fi；被禁用时先按判据解除，再下发配置或名单。",
+          "下发setWifiProfileSync或名单接口后，调用对应查询接口核对策略；需要核对整机实际生效策略时按判据确认admin可传null的版本条件。",
+          "对203、9200010等错误按企业设备管理错误码文档声明的顺序处理（先解除禁用或先移除冲突名单），不盲目重试。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "EDM-S013-import-mdm-kit",
+          "kind": "require_any",
+          "patterns": [
+            "@kit\\.MDMKit"
+          ],
+          "onMissing": "failed",
+          "message": "缺少 @kit.MDMKit 导入。"
+        },
+        {
+          "id": "EDM-S013-admin-want",
+          "kind": "require_any",
+          "patterns": [
+            "EnterpriseAdminAbility"
+          ],
+          "onMissing": "failed",
+          "message": "admin Want 须包含企业设备管理扩展的abilityName与bundleName。"
+        },
+        {
+          "id": "EDM-S013-wifi-api-call",
+          "kind": "require_any",
+          "patterns": [
+            "wifiManager\\.(setWifiProfileSync|addAllowedWifiList|removeAllowedWifiList|addDisallowedWifiList|removeDisallowedWifiList|turnOnWifi|turnOffWifi)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少 wifiManager 策略下发调用。"
+        },
+        {
+          "id": "EDM-S013-wifi-query",
+          "kind": "require_any",
+          "patterns": [
+            "wifiManager\\.(isWifiActiveSync|getAllowedWifiList|getDisallowedWifiList)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少 Wi-Fi 策略状态或名单查询以核对生效结果。"
+        }
+      ],
+      "negativeCases": [
+        "设备管理应用未激活即调用Wi-Fi策略接口（核对9200001/9200002路径）",
+        "已设允许名单再添加禁用名单（或反向）触发策略冲突9200010",
+        "restrictions已整机禁用Wi-Fi时直接调用turnOnWifi（203路径，须先解除禁用）",
+        "isForce强制开启后依赖用户手动关闭（须用turnOffWifi解除）",
+        "EAP配置字段不满足判据声明的必填/互补条件仍下发"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "install",
+        "runtime"
+      ]
+    },
+    {
+      "id": "EDM-S014",
+      "displayName": "蓝牙管控",
+      "route": "connectivity-policy",
+      "intentPatterns": [
+        "蓝牙管控",
+        "企业蓝牙",
+        "bluetoothManager",
+        "addAllowedBluetoothDevices",
+        "addDisallowedBluetoothDevices",
+        "addDisallowedBluetoothProtocols",
+        "turnOnBluetooth",
+        "turnOffBluetooth",
+        "蓝牙名单",
+        "蓝牙策略"
+      ],
+      "intentGroups": [
+        [
+          "蓝牙",
+          "名单"
+        ],
+        [
+          "蓝牙",
+          "协议"
+        ],
+        [
+          "bluetoothManager",
+          "策略"
+        ]
+      ],
+      "intentPriority": 2,
+      "targets": [
+        "bluetoothManager",
+        "BluetoothInfo",
+        "Protocol",
+        "TransferPolicy"
+      ],
+      "sources": [
+        "doc-92aa39b6228ff7c7e188",
+        "doc-af55e690d023d0424e92",
+        "doc-dffdd45f975ce62a0b21",
+        "doc-2078bc299e9b087d89e1"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "模块前置与权限边界",
+            "hint": "核对bluetoothManager模块的开放范围（仅已激活的设备管理应用）、Stage模型约束、所需权限与系统能力声明，以及全局禁用蓝牙归restrictions模块的职责边界。",
+            "mustResolve": true
+          },
+          {
+            "topic": "设备允许/禁用名单",
+            "hint": "核对addAllowedBluetoothDevices/addDisallowedBluetoothDevices的名单数量上限、MAC地址有效性处理、允许与禁用名单的互斥关系，以及查询接口admin传null查实际生效策略的版本条件。",
+            "mustResolve": true
+          },
+          {
+            "topic": "协议禁用名单与方向策略",
+            "hint": "核对协议禁用名单支持的Protocol取值、系统服务与系统应用例外、按accountId生效方式，以及TransferPolicy方向参数的取值和对SPP的方向限制。",
+            "mustResolve": true
+          },
+          {
+            "topic": "蓝牙开关行为",
+            "hint": "核对turnOnBluetooth/turnOffBluetooth的起始版本、调用后用户仍可手动反向操作的行为及对应错误码场景。",
+            "mustResolve": true
+          },
+          {
+            "topic": "策略冲突与多MDM规则",
+            "hint": "核对与restrictions整机禁用蓝牙并存时的优先级与冲突错误码、名单互斥冲突，以及多MDM场景下合并/配置规则的适用方式。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "EDM-S014-CP01",
+            "topic": "整机禁用蓝牙与设备名单并存",
+            "positions": [
+              "restrictions整机禁用蓝牙优先，与名单策略并存时按判据声明的优先级/冲突错误码处理",
+              "设备名单策略优先于整机禁用",
+              "两者互不影响并行生效"
+            ]
+          },
+          {
+            "id": "EDM-S014-CP02",
+            "topic": "允许名单与禁用名单同时设置",
+            "positions": [
+              "两者互斥，冲突时报策略冲突（如9200010），需先移除一侧",
+              "两者取交集生效",
+              "后设置覆盖先设置"
+            ]
+          },
+          {
+            "id": "EDM-S014-CP03",
+            "topic": "SPP协议的方向策略取值",
+            "positions": [
+              "SPP仅允许禁收发（RECEIVE_SEND）方向，其他方向参数校验失败",
+              "SPP支持任意方向（仅发送/仅接收/禁收发）",
+              "SPP不支持任何方向策略参数"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "以含企业设备管理扩展abilityName与bundleName的Want调用bluetoothManager接口下发设备名单、协议禁用或开关后，设备按本次冻结判据声明的行为生效；查询接口（含admin传null查实际生效策略）返回与设置一致的策略；遇名单互斥、整机禁用并存等冲突时返回文档声明的错误码且原策略不被破坏。",
+          "criteriaTopics": [
+            "模块前置与权限边界",
+            "设备允许/禁用名单",
+            "协议禁用名单与方向策略",
+            "蓝牙开关行为",
+            "策略冲突与多MDM规则"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "从 @kit.MDMKit 导入 bluetoothManager，构造包含本应用bundleName与企业设备管理扩展abilityName的Want作为admin入参。",
+          "调用前确认设备管理应用已激活，并核对restrictions是否已整机禁用蓝牙及现有名单状态，避免触发互斥冲突。",
+          "下发设备名单、协议禁用（含方向策略的版本条件与SPP限制）或开关后，调用对应查询接口核对策略；需要核对整机实际生效策略时按判据确认admin可传null的版本条件。",
+          "对策略冲突、权限与参数校验类错误按企业设备管理错误码文档声明的顺序处理，不盲目重试。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "EDM-S014-import-mdm-kit",
+          "kind": "require_any",
+          "patterns": [
+            "@kit\\.MDMKit"
+          ],
+          "onMissing": "failed",
+          "message": "缺少 @kit.MDMKit 导入。"
+        },
+        {
+          "id": "EDM-S014-admin-want",
+          "kind": "require_any",
+          "patterns": [
+            "EnterpriseAdminAbility"
+          ],
+          "onMissing": "failed",
+          "message": "admin Want 须包含企业设备管理扩展的abilityName与bundleName。"
+        },
+        {
+          "id": "EDM-S014-bt-api-call",
+          "kind": "require_any",
+          "patterns": [
+            "bluetoothManager\\.(addAllowedBluetoothDevices|removeAllowedBluetoothDevices|addDisallowedBluetoothDevices|removeDisallowedBluetoothDevices|addDisallowedBluetoothProtocols|removeDisallowedBluetoothProtocols|turnOnBluetooth|turnOffBluetooth)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少 bluetoothManager 策略下发调用。"
+        },
+        {
+          "id": "EDM-S014-bt-query",
+          "kind": "require_any",
+          "patterns": [
+            "bluetoothManager\\.(getBluetoothInfo|getAllowedBluetoothDevices|getDisallowedBluetoothDevices|getDisallowedBluetoothProtocols)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少蓝牙策略或名单查询以核对生效结果。"
+        }
+      ],
+      "negativeCases": [
+        "设备管理应用未激活即调用蓝牙策略接口（核对9200001/9200002路径）",
+        "允许名单与禁用名单同时设置触发策略冲突9200010",
+        "restrictions已整机禁用蓝牙时下发名单或开关（按判据核对优先级与冲突处理顺序）",
+        "对SPP协议指定禁收发以外的方向策略（参数校验失败路径）",
+        "期望协议禁用对系统服务/系统应用生效（核对文档声明的例外范围）"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "install",
+        "runtime"
+      ]
+    },
+    {
+      "id": "EDM-S015",
+      "displayName": "USB管控",
+      "route": "connectivity-policy",
+      "intentPatterns": [
+        "USB管控",
+        "企业USB管理",
+        "usbManager",
+        "addAllowedUsbDevices",
+        "addDisallowedUsbDevices",
+        "setUsbStorageDeviceAccessPolicy",
+        "addDisallowedPermissiveUsbDevices",
+        "USB可用名单",
+        "USB禁用名单",
+        "USB存储只读"
+      ],
+      "intentGroups": [
+        [
+          "USB",
+          "管控"
+        ],
+        [
+          "usbManager",
+          "名单"
+        ],
+        [
+          "USB",
+          "存储",
+          "策略"
+        ]
+      ],
+      "targets": [
+        "usbManager",
+        "UsbDeviceId",
+        "UsbDeviceType",
+        "UsbPolicy",
+        "PermissiveUsbDeviceType",
+        "Descriptor"
+      ],
+      "sources": [
+        "doc-00682dde43c035e3c51d",
+        "doc-af55e690d023d0424e92",
+        "doc-dffdd45f975ce62a0b21",
+        "doc-2078bc299e9b087d89e1"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "USB可用设备名单管理",
+            "hint": "核对addAllowedUsbDevices/removeAllowedUsbDevices/getAllowedUsbDevices的签名、名单上限、UsbDeviceId(vendorId/productId)结构及26.0.0起admin传null查询实际生效策略的重载。",
+            "mustResolve": true
+          },
+          {
+            "topic": "USB存储设备访问策略",
+            "hint": "核对setUsbStorageDeviceAccessPolicy/getUsbStorageDeviceAccessPolicy仅管理baseClass=0x08存储设备、READ_WRITE/READ_ONLY/DISABLED三态从严排序、调用前暂停USB存储读写的要求，以及26.0.0起PERSONAL_MANAGE_RESTRICTIONS权限路径。",
+            "mustResolve": true
+          },
+          {
+            "topic": "禁用设备类型名单",
+            "hint": "核对addDisallowedUsbDevices/removeDisallowedUsbDevices/getDisallowedUsbDevices(14+)按UsbDeviceType(baseClass/subClass/protocol/descriptor)匹配的规则、名单上限与usb.org defined-class-codes标准限制（值255或未定义类码时旧接口不生效）。",
+            "mustResolve": true
+          },
+          {
+            "topic": "Permissive禁用名单",
+            "hint": "核对26.0.0起新增addDisallowedPermissiveUsbDevices/remove/get系列：可不按标准类码匹配、对已连接设备热生效无需插拔、支持部分字段匹配与名单上限，及其与旧禁用名单的冲突边界。",
+            "mustResolve": true
+          },
+          {
+            "topic": "整机禁用USB与名单级策略的分工",
+            "hint": "核对全局禁用USB归restrictions模块、usbManager仅做名单级管控的模块分工，以及restrictions禁用USB/禁用USB存储写入与各名单组合时的9200010冲突场景。",
+            "mustResolve": true
+          },
+          {
+            "topic": "前置条件与权限约束",
+            "hint": "核对仅Stage模型、仅对已激活设备管理应用开放、ohos.permission.ENTERPRISE_MANAGE_USB权限、admin Want须含EnterpriseAdminAbility的abilityName与bundleName，及多MDM名单合并规则。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "EDM-S015-usb-storage-conflict",
+            "topic": "USB存储管控策略叠加",
+            "positions": [
+              "setUsbStorageDeviceAccessPolicy设置禁用/只读",
+              "addDisallowedUsbDevices禁用存储类设备类型",
+              "restrictions整机禁用USB或用户级禁用USB存储写入"
+            ]
+          },
+          {
+            "id": "EDM-S015-usb-allowlist-vs-disable",
+            "topic": "USB可用名单与禁用策略互斥",
+            "positions": [
+              "addAllowedUsbDevices维护可用设备名单",
+              "setDisallowedPolicy禁用USB",
+              "addDisallowedUsbDevices/addDisallowedPermissiveUsbDevices维护禁用名单"
+            ]
+          },
+          {
+            "id": "EDM-S015-permissive-vs-legacy",
+            "topic": "新旧禁用类型名单差异",
+            "positions": [
+              "addDisallowedUsbDevices按usb.org标准类码全字段匹配",
+              "addDisallowedPermissiveUsbDevices部分字段匹配且热生效"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "已激活的MDM应用按需配置USB可用名单、存储访问策略或禁用类型名单后，查询接口返回与设置一致；26.0.0起admin传null可获取整机实际生效策略，多MDM场景名单遵循合并规则。",
+          "criteriaTopics": [
+            "USB可用设备名单管理",
+            "USB存储设备访问策略",
+            "禁用设备类型名单",
+            "Permissive禁用名单",
+            "前置条件与权限约束"
+          ]
+        },
+        {
+          "assertion": "设置互斥策略（如可用名单与禁用USB并存、存储访问策略与存储类禁用叠加）时接口返回9200010，按错误处理先解除或移除冲突策略后重试成功。",
+          "criteriaTopics": [
+            "USB存储设备访问策略",
+            "整机禁用USB与名单级策略的分工",
+            "前置条件与权限约束"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "确认MDM应用已激活、module.json5已声明ohos.permission.ENTERPRISE_MANAGE_USB，并按需区分整机禁用USB（走restrictions）与名单级管控（走usbManager）。",
+          "按管控目标调用对应接口：可用名单用addAllowedUsbDevices/removeAllowedUsbDevices，存储设备用setUsbStorageDeviceAccessPolicy（先暂停USB存储读写），禁用类型用addDisallowedUsbDevices或26.0.0起addDisallowedPermissiveUsbDevices；admin Want统一携带EnterpriseAdminAbility的abilityName与bundleName。",
+          "查询策略时传Want查本MDM设置，26.0.0起可传null查整机实际生效；多MDM场景按合并规则核对最终名单。",
+          "出现9200010时先移除或解除互斥策略再重试；对255或未在defined-class-codes定义的类码改用Permissive系列；捕获9200001/9200002/201/401并按未激活、越权、权限、参数分类处理。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "mdm-usb-import",
+          "kind": "require_any",
+          "patterns": [
+            "import\\s*\\{[^}]*usbManager[^}]*\\}\\s*from\\s*'@kit\\.MDMKit'"
+          ],
+          "onMissing": "failed",
+          "message": "缺少从@kit.MDMKit导入usbManager。"
+        },
+        {
+          "id": "mdm-usb-policy-call",
+          "kind": "require_any",
+          "patterns": [
+            "usbManager\\.(addAllowedUsbDevices|removeAllowedUsbDevices|addDisallowedUsbDevices|removeDisallowedUsbDevices|addDisallowedPermissiveUsbDevices|removeDisallowedPermissiveUsbDevices|setUsbStorageDeviceAccessPolicy)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少USB名单或存储访问策略设置调用。"
+        },
+        {
+          "id": "mdm-usb-query-call",
+          "kind": "require_any",
+          "patterns": [
+            "usbManager\\.(getAllowedUsbDevices|getDisallowedUsbDevices|getDisallowedPermissiveUsbDevices|getUsbStorageDeviceAccessPolicy)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少USB策略查询调用以回读生效结果。"
+        },
+        {
+          "id": "mdm-usb-permission",
+          "kind": "require_any",
+          "patterns": [
+            "ohos\\.permission\\.ENTERPRISE_MANAGE_USB"
+          ],
+          "onMissing": "failed",
+          "message": "缺少ENTERPRISE_MANAGE_USB权限声明。"
+        },
+        {
+          "id": "mdm-usb-admin-want",
+          "kind": "require_any",
+          "patterns": [
+            "EnterpriseAdminAbility"
+          ],
+          "onMissing": "failed",
+          "message": "admin Want须包含EnterpriseAdminExtensionAbility的abilityName。"
+        }
+      ],
+      "negativeCases": [
+        "未激活设备管理应用或非MDM应用直接调用USB管控接口（9200001/9200002）",
+        "已存在可用名单、禁用类型名单或存储访问禁用时设置互斥策略且未先解除（9200010）",
+        "向addDisallowedUsbDevices传入255或未在usb.org defined-class-codes定义的类码并期待生效",
+        "在26.0.0之前环境调用Permissive系列接口或admin传null的查询重载",
+        "超出名单上限（可用名单1000、禁用类型200、Permissive 1000）仍继续添加",
+        "未暂停USB存储读写即切换存储访问策略导致切换异常"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "install",
+        "runtime"
+      ]
+    },
+    {
+      "id": "EDM-S016",
+      "displayName": "通话与SIM管控",
+      "route": "connectivity-policy",
+      "intentPatterns": [
+        "通话管控",
+        "SIM管控",
+        "telephonyManager",
+        "setSimDisabled",
+        "addOutgoingCallPolicyNumbers",
+        "addIncomingCallPolicyNumbers",
+        "hangupCalling",
+        "setDefaultData",
+        "呼出名单",
+        "呼入名单",
+        "默认数据卡"
+      ],
+      "intentGroups": [
+        [
+          "通话",
+          "名单"
+        ],
+        [
+          "SIM",
+          "禁用"
+        ],
+        [
+          "telephonyManager",
+          "管控"
+        ]
+      ],
+      "targets": [
+        "telephonyManager",
+        "adminManager.Policy",
+        "BLOCK_LIST",
+        "TRUST_LIST"
+      ],
+      "sources": [
+        "doc-71eaa997af03f2942348",
+        "doc-af55e690d023d0424e92",
+        "doc-4265439e7696cd4b80d2",
+        "doc-dffdd45f975ce62a0b21",
+        "doc-2078bc299e9b087d89e1"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "SIM卡禁用与启用",
+            "hint": "核对setSimDisabled/setSimEnabled/isSimDisabled的slotId仅支持0/1、多MDM从严管控规则，以及setSimEnabled解除禁用后需到设置-移动网络-SIM卡管理手动打开开关的语义。",
+            "mustResolve": true
+          },
+          {
+            "topic": "SIM菜单启停与默认数据卡",
+            "hint": "核对26.0.0起activeSim/deactiveSim启用/停用SIM卡菜单项需插入SIM卡且关闭飞行模式（失败9201017）、setDefaultData设置默认数据流量卡（飞行模式或未插卡9201020）及getDefaultData返回语义（未设置返回0即卡槽1）。",
+            "mustResolve": true
+          },
+          {
+            "topic": "呼出策略名单",
+            "hint": "核对addOutgoingCallPolicyNumbers/removeOutgoingCallPolicyNumbers/getOutgoingCallPolicyNumbers的policy取adminManager.Policy.BLOCK_LIST/TRUST_LIST、仅支持全号码匹配、数组总长≤1000、多MDM合并规则及26.0.0起admin传null查询重载。",
+            "mustResolve": true
+          },
+          {
+            "topic": "呼入策略名单",
+            "hint": "核对addIncomingCallPolicyNumbers/removeIncomingCallPolicyNumbers/getIncomingCallPolicyNumbers与呼出名单同构的约束，及26.0.0重载(admin: Want|null)传null查询多MDM实际生效策略。",
+            "mustResolve": true
+          },
+          {
+            "topic": "通话挂断范围",
+            "hint": "核对hangupCalling(23+)仅支持挂断运营商通话、不含畅联等三方通话的范围限制。",
+            "mustResolve": true
+          },
+          {
+            "topic": "与整机禁用通话的冲突处理",
+            "hint": "核对restrictions.setDisallowedPolicy已禁用通话时本模块接口报203、需先解除禁用的顺序约束；禁用名单与允许名单互斥报9200010、须先remove对应名单；全局禁用通话归restrictions模块。",
+            "mustResolve": true
+          },
+          {
+            "topic": "前置条件与设备形态约束",
+            "hint": "核对首批API 20起、需ohos.permission.ENTERPRISE_MANAGE_TELEPHONY权限、仅Stage模型、仅对已激活设备管理应用开放、仅Phone/Tablet可用否则返回801。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "EDM-S016-call-list-mutex",
+            "topic": "呼出呼入名单互斥",
+            "positions": [
+              "同一方向设置BLOCK_LIST禁用名单",
+              "同一方向设置TRUST_LIST允许名单"
+            ]
+          },
+          {
+            "id": "EDM-S016-telephony-vs-restrictions",
+            "topic": "整机禁用通话与名单级管控叠加",
+            "positions": [
+              "restrictions.setDisallowedPolicy整机禁用通话",
+              "telephonyManager下发呼出/呼入名单或SIM管控"
+            ]
+          },
+          {
+            "id": "EDM-S016-sim-recovery",
+            "topic": "SIM禁用后的恢复语义",
+            "positions": [
+              "setSimDisabled下发禁用",
+              "setSimEnabled解除禁用后需用户手动开启开关"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "在Phone/Tablet上已激活并声明ENTERPRISE_MANAGE_TELEPHONY的MDM应用完成SIM禁用/启用、呼出呼入策略名单（BLOCK_LIST或TRUST_LIST）与默认数据卡配置；查询结果与设置一致，26.0.0起admin传null可获取多MDM实际生效策略，名单遵循合并规则。",
+          "criteriaTopics": [
+            "SIM卡禁用与启用",
+            "SIM菜单启停与默认数据卡",
+            "呼出策略名单",
+            "呼入策略名单",
+            "前置条件与设备形态约束"
+          ]
+        },
+        {
+          "assertion": "命中冲突条件时返回明确错误码：整机已禁用通话时报203需先解除、同方向禁用与允许名单并存报9200010需先remove、非Phone/Tablet设备返回801；按错误码解除冲突后重试成功。",
+          "criteriaTopics": [
+            "与整机禁用通话的冲突处理",
+            "通话挂断范围",
+            "前置条件与设备形态约束"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "确认设备为Phone/Tablet、MDM应用已激活且声明ohos.permission.ENTERPRISE_MANAGE_TELEPHONY；SIM类接口slotId仅取0/1，activeSim/deactiveSim/setDefaultData调用前确认已插SIM卡且关闭飞行模式。",
+          "按需调用SIM管控（setSimDisabled/setSimEnabled/isSimDisabled/activeSim/deactiveSim/setDefaultData/getDefaultData）与名单管控（addOutgoing/IncomingCallPolicyNumbers，policy选adminManager.Policy.BLOCK_LIST或TRUST_LIST）；admin Want统一携带EnterpriseAdminAbility的abilityName与bundleName。",
+          "查询名单传Want查本MDM策略，26.0.0起可传null查实际生效；多MDM场景名单遵循合并规则、SIM策略遵循从严管控。",
+          "处理错误码：203表示需先解除restrictions整机禁用通话，9200010表示同方向名单互斥需先remove对应名单，9201017/9201020表示插卡或飞行模式前置不满足，801表示设备形态不支持；hangupCalling仅用于运营商通话。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "mdm-telephony-import",
+          "kind": "require_any",
+          "patterns": [
+            "import\\s*\\{[^}]*telephonyManager[^}]*\\}\\s*from\\s*'@kit\\.MDMKit'"
+          ],
+          "onMissing": "failed",
+          "message": "缺少从@kit.MDMKit导入telephonyManager。"
+        },
+        {
+          "id": "mdm-telephony-call-policy",
+          "kind": "require_any",
+          "patterns": [
+            "telephonyManager\\.(addOutgoingCallPolicyNumbers|addIncomingCallPolicyNumbers|removeOutgoingCallPolicyNumbers|removeIncomingCallPolicyNumbers|getOutgoingCallPolicyNumbers|getIncomingCallPolicyNumbers)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少呼出/呼入策略名单接口调用。"
+        },
+        {
+          "id": "mdm-telephony-sim",
+          "kind": "require_any",
+          "patterns": [
+            "telephonyManager\\.(setSimDisabled|setSimEnabled|isSimDisabled|activeSim|deactiveSim|setDefaultData|getDefaultData|hangupCalling)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少SIM管控或通话控制接口调用。"
+        },
+        {
+          "id": "mdm-telephony-permission",
+          "kind": "require_any",
+          "patterns": [
+            "ohos\\.permission\\.ENTERPRISE_MANAGE_TELEPHONY"
+          ],
+          "onMissing": "failed",
+          "message": "缺少ENTERPRISE_MANAGE_TELEPHONY权限声明。"
+        },
+        {
+          "id": "mdm-telephony-policy-enum",
+          "kind": "require_any",
+          "patterns": [
+            "(adminManager\\.)?Policy\\.(BLOCK_LIST|TRUST_LIST)"
+          ],
+          "onMissing": "failed",
+          "message": "呼出/呼入名单须显式选择BLOCK_LIST或TRUST_LIST策略。"
+        }
+      ],
+      "negativeCases": [
+        "非Phone/Tablet设备调用任一接口返回801却按成功处理",
+        "同方向已设禁用名单再设允许名单（或反向）且未先remove（9200010）",
+        "restrictions已整机禁用通话时直接下发名单或挂断接口（203）",
+        "未插SIM卡或飞行模式开启时调用activeSim/deactiveSim/setDefaultData（9201017/9201020）",
+        "使用通配符或部分号码期望命中名单（仅支持全号码匹配）",
+        "slotId超出0/1范围传入SIM类接口",
+        "未激活设备管理应用调用（9200001/9200002）"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build",
+        "install",
+        "runtime"
+      ]
+    },
+    {
+      "id": "EDM-S017",
+      "displayName": "安全管控",
+      "route": "security-system",
+      "intentPatterns": [
+        "securityManager",
+        "安全管理策略",
+        "setPasswordPolicy",
+        "口令策略",
+        "锁屏口令",
+        "installUserCertificate",
+        "uninstallUserCertificate",
+        "用户证书",
+        "getUserCertificates",
+        "setAppClipboardPolicy",
+        "剪贴板管控",
+        "ClipboardPolicy",
+        "setWatermarkImage",
+        "cancelWatermarkImage",
+        "水印",
+        "setScreenWatermarkImage",
+        "屏幕水印",
+        "setPermissionManagedState",
+        "权限托管",
+        "setDisallowedPermission",
+        "权限禁用",
+        "addAllowedPermissionBundle",
+        "installEnterpriseReSignatureCertificate",
+        "企业重签名证书",
+        "setScreenLockDisabledForAccount",
+        "滑动解锁",
+        "getSecurityStatus",
+        "安全状态查询"
+      ],
+      "targets": [
+        "securityManager"
+      ],
+      "sources": [
+        "doc-97c50e05890e8021e676",
+        "doc-2078bc299e9b087d89e1",
+        "doc-bf6a0868617bc8e31315",
+        "doc-dffdd45f975ce62a0b21",
+        "doc-9f52eec628fd10122068"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "调用前提与权限基线",
+            "hint": "从本次冻结正文提取securityManager模块导入方式、仅Stage模型与已激活设备管理应用的前提、admin Want必含的企业设备管理扩展abilityName与bundleName，以及ENTERPRISE_MANAGE_SECURITY/ENTERPRISE_MANAGE_CERTIFICATE/ENTERPRISE_MANAGE_USER_GRANT_PERMISSION等权限与系统能力约束。",
+            "mustResolve": true
+          },
+          {
+            "topic": "用户证书安装卸载与查询",
+            "hint": "提取installUserCertificate/uninstallUserCertificate/getUserCertificates的接口签名与返回值、CertBlob字段与别名长度限制、证书文件存放路径要求、按accountId安装的版本差异及9201001等错误处理。",
+            "mustResolve": true
+          },
+          {
+            "topic": "口令策略与多MDM清除行为",
+            "hint": "提取setPasswordPolicy/getPasswordPolicy两重载语义、PasswordPolicy各字段含义与passwordAlgs设备限制、admin传null查询实际生效策略的起始版本，以及多MDM场景下任一应用取消激活对口令策略的影响。",
+            "mustResolve": true
+          },
+          {
+            "topic": "滑动解锁禁用约束",
+            "hint": "提取setScreenLockDisabledForAccount/isScreenLockDisabledForAccount的起始版本、仅无锁屏密码时生效、已有密码时的错误码、用户输入密码后策略失效行为及支持设备形态。",
+            "mustResolve": true
+          },
+          {
+            "topic": "剪贴板策略四级别",
+            "hint": "提取setAppClipboardPolicy/getAppClipboardPolicy的tokenId获取方式、ClipboardPolicy四级别取值与语义、按bundleName+accountId维度的重载版本及多MDM从严管控规则。",
+            "mustResolve": true
+          },
+          {
+            "topic": "应用级水印与屏幕级水印策略",
+            "hint": "提取setWatermarkImage/cancelWatermarkImage与setScreenWatermarkImage/cancelScreenWatermarkImage的策略数量上限、像素占用与行列取值约束、生效范围与缩放行为差异、取消权限限制、系统应用建议及多MDM归属规则。",
+            "mustResolve": true
+          },
+          {
+            "topic": "权限托管整组传入",
+            "hint": "提取setPermissionManagedState/getPermissionManagedState仅支持user_grant权限、须按应用权限组整组传入的约束、PermissionManagedState取值、所需权限与策略冲突错误码。",
+            "mustResolve": true
+          },
+          {
+            "topic": "权限禁用与例外名单次序",
+            "hint": "提取setDisallowedPermission可禁用的APL等级范围与每用户数量上限、对系统SA的影响、addAllowedPermissionBundle须先禁用的次序约束、应用须实际已申请该权限、例外名单容量与取消禁用后的清理行为、admin传null的合并查询语义。",
+            "mustResolve": true
+          },
+          {
+            "topic": "企业重签名证书生命周期",
+            "hint": "提取installEnterpriseReSignatureCertificate/uninstallEnterpriseReSignatureCertificate的每用户证书上限、别名后缀与证书路径要求、卸载后已签应用重启前后的运行差异、超级设备管理应用取消激活前置及证书保留规则。",
+            "mustResolve": true
+          },
+          {
+            "topic": "安全状态查询",
+            "hint": "提取getSecurityStatus支持的item取值（patch/encryption/root及后续新增项）、所需权限与返回语义。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "EDM-S017-CP01",
+            "topic": "口令策略多MDM清除时机",
+            "positions": [
+              "任一MDM应用取消激活后口令策略即被清除",
+              "口令策略须待全部MDM应用取消激活后才清除"
+            ]
+          },
+          {
+            "id": "EDM-S017-CP02",
+            "topic": "滑动解锁禁用与锁屏密码关系",
+            "positions": [
+              "仅设备无锁屏密码时可禁用滑动解锁，用户输入密码后旧策略失效",
+              "已有锁屏密码时仍可禁用滑动解锁"
+            ]
+          },
+          {
+            "id": "EDM-S017-CP03",
+            "topic": "水印多MDM归属规则",
+            "positions": [
+              "同用户同应用水印独占，不同用户不同应用合并",
+              "全部水印策略一律合并或一律独占"
+            ]
+          },
+          {
+            "id": "EDM-S017-CP04",
+            "topic": "权限例外名单设置次序",
+            "positions": [
+              "须先setDisallowedPermission禁用权限再添加例外名单，否则报错",
+              "例外名单可先于权限禁用设置且同时生效"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "已激活且权限齐备的MDM应用以包含企业设备管理扩展abilityName与bundleName的admin Want调用securityManager策略接口：前置满足时设置/取消成功，查询接口返回本应用策略，支持传null的版本返回整机实际生效策略。",
+          "criteriaTopics": [
+            "调用前提与权限基线",
+            "用户证书安装卸载与查询",
+            "口令策略与多MDM清除行为",
+            "应用级水印与屏幕级水印策略",
+            "权限托管整组传入",
+            "权限禁用与例外名单次序"
+          ]
+        },
+        {
+          "assertion": "前置不满足或策略互斥时返回对应错误码（未激活、越权、存在锁屏密码禁用滑动解锁、未先禁用即加例外、APL超限、参数越界、证书超限等），并按企业设备管理错误码文档给出处理路径。",
+          "criteriaTopics": [
+            "调用前提与权限基线",
+            "滑动解锁禁用约束",
+            "剪贴板策略四级别",
+            "权限禁用与例外名单次序",
+            "企业重签名证书生命周期",
+            "安全状态查询"
+          ]
+        }
+      ],
+      "demoValidation": {
+        "layoutPolicy": "single_page_preferred",
+        "scopePolicy": {
+          "selection": "prompt_strong_relevance_only",
+          "prerequisiteHandling": "setup_or_static_only",
+          "excludedByDefault": [
+            "用户证书管理",
+            "权限禁用与例外名单",
+            "企业重签名证书",
+            "口令策略"
+          ],
+          "excludedCriterionTypes": [
+            "version",
+            "capability",
+            "performance"
+          ],
+          "includeExcludedTypeWhenPromptContains": {
+            "version": [
+              "API",
+              "SDK",
+              "版本"
+            ],
+            "capability": [
+              "设备",
+              "机型",
+              "支持范围"
+            ],
+            "performance": [
+              "性能",
+              "功耗"
+            ]
+          }
+        },
+        "points": [
+          {
+            "id": "D01-01",
+            "title": "应用级水印单图与网格平铺对比",
+            "execution": "single_page",
+            "criteriaTopics": [
+              "应用级水印与屏幕级水印策略"
+            ],
+            "demoSetupRequirements": [
+              {
+                "id": "watermark-params",
+                "description": "在Demo页准备水印图片资源与setWatermarkImage入参（行列取值1-255、像素占用不超过500KB），仅作呈现对比，不作为特性验证点。",
+                "enforcement": "implementation_and_static_gate",
+                "countsAsFeatureValidation": false
+              }
+            ],
+            "variants": [
+              {
+                "id": "centered-1x1",
+                "label": "1x1居中单图",
+                "parameters": {
+                  "intervalsRow": 1,
+                  "intervalsCol": 1
+                }
+              },
+              {
+                "id": "grid-3x3",
+                "label": "3x3网格平铺",
+                "parameters": {
+                  "intervalsRow": 3,
+                  "intervalsCol": 3
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "implementation": {
+        "steps": [
+          "先确认企业设备管理扩展能力已激活，并按目标接口核对ENTERPRISE_MANAGE_SECURITY、ENTERPRISE_MANAGE_CERTIFICATE、ENTERPRISE_MANAGE_USER_GRANT_PERMISSION等权限已在企业MDM证书与Profile申请时声明。",
+          "统一构造包含应用bundleName与企业设备管理扩展abilityName的admin Want后再调用securityManager接口；查询实际生效策略时按接口起始版本选择admin传Want或null。",
+          "证书、水印图片、重签名证书等资源一律置于应用沙箱或rawfile等有权限访问的路径，并遵守策略数量、像素占用与行列取值上限。",
+          "全部调用以try/catch捕获业务错误码并按企业设备管理错误码文档处理，失败时保留现场供排查，不在权限或前置缺失时循环重试。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "mdm-security-import",
+          "kind": "require_any",
+          "patterns": [
+            "securityManager[\\s\\S]{0,80}@kit\\.MDMKit|@kit\\.MDMKit[\\s\\S]{0,200}securityManager"
+          ],
+          "onMissing": "failed",
+          "message": "缺少从 @kit.MDMKit 导入 securityManager。"
+        },
+        {
+          "id": "mdm-admin-want",
+          "kind": "require_any",
+          "patterns": [
+            "bundleName[\\s\\S]{0,160}abilityName|abilityName[\\s\\S]{0,160}bundleName"
+          ],
+          "onMissing": "failed",
+          "message": "admin Want 须同时包含企业设备管理扩展 abilityName 与应用 bundleName。"
+        },
+        {
+          "id": "mdm-security-api",
+          "kind": "require_any",
+          "patterns": [
+            "securityManager\\.(installUserCertificate|uninstallUserCertificate|getUserCertificates|getSecurityStatus|setPasswordPolicy|getPasswordPolicy|setScreenLockDisabledForAccount|isScreenLockDisabledForAccount|setAppClipboardPolicy|getAppClipboardPolicy|setWatermarkImage|cancelWatermarkImage|setScreenWatermarkImage|cancelScreenWatermarkImage|getWatermarkImageApps|setPermissionManagedState|getPermissionManagedState|setExternalSourceExtensionsPolicy|getExternalSourceExtensionsPolicy|installEnterpriseReSignatureCertificate|uninstallEnterpriseReSignatureCertificate|setDisallowedPermission|getDisallowedPermissions|addAllowedPermissionBundle|removeAllowedPermissionBundle|getAllowedPermissionBundles)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少 securityManager 安全管控接口调用。"
+        },
+        {
+          "id": "mdm-error-handling",
+          "kind": "require_any",
+          "patterns": [
+            "\\b9200\\d{3}\\b|BusinessError"
+          ],
+          "onMissing": "failed",
+          "message": "缺少企业设备管理错误码或业务异常处理。"
+        }
+      ],
+      "negativeCases": [
+        "未激活企业设备管理扩展能力即调用securityManager接口（9200001）",
+        "无设备管理权限的普通应用或DA越权调用（9200002/201）",
+        "设备已有锁屏密码时设置滑动解锁禁用（9201021）",
+        "未先setDisallowedPermission即addAllowedPermissionBundle（9201044）",
+        "对APL高于system_basic的权限调用setDisallowedPermission（9201045）",
+        "水印图像像素占用超限或WatermarkProperties行列超出1-255（9200012）",
+        "企业重签名证书同用户超过上限或别名不以.cer结尾（9201006/9201007）",
+        "为系统应用（如桌面）设置水印导致体验异常"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build"
+      ]
+    },
+    {
+      "id": "EDM-S018",
+      "displayName": "系统与更新管控",
+      "route": "security-system",
+      "intentPatterns": [
+        "systemManager",
+        "系统管理策略",
+        "setNTPServer",
+        "NTP服务器",
+        "setOtaUpdatePolicy",
+        "OTA升级策略",
+        "内网升级",
+        "notifyUpdatePackages",
+        "getUpdateResult",
+        "setOtaUpdateNonceEnable",
+        "addDisallowedNearLinkProtocols",
+        "星闪协议禁用",
+        "setInstallLocalEnterpriseAppEnabled",
+        "本地企业应用安装",
+        "setAutoUnlockAfterReboot",
+        "addKeyEventPolicies",
+        "按键事件策略",
+        "onKeyEvent",
+        "startCollectLog",
+        "finishLogCollected",
+        "日志收集",
+        "setActivationLockDisabled",
+        "激活锁"
+      ],
+      "targets": [
+        "systemManager"
+      ],
+      "sources": [
+        "doc-afb6804dd1e1a17ac5c8",
+        "doc-f304abbccd9e8f5d1741",
+        "doc-2078bc299e9b087d89e1",
+        "doc-429804ac969633ab2192",
+        "doc-9f52eec628fd10122068"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "调用前提与权限基线",
+            "hint": "从本次冻结正文提取systemManager模块导入方式、仅Stage模型与已激活设备管理应用的前提、admin Want必含字段、ENTERPRISE_MANAGE_SYSTEM权限（日志收集另需ENTERPRISE_READ_LOG）与系统能力约束。",
+            "mustResolve": true
+          },
+          {
+            "topic": "NTP服务器配置",
+            "hint": "提取setNTPServer/getNTPServer的参数格式（逗号分隔、最大96字节含结束符）与多MDM配置规则下的生效语义。",
+            "mustResolve": true
+          },
+          {
+            "topic": "OTA升级策略与内网升级流程",
+            "hint": "提取setOtaUpdatePolicy的PolicyType五种类型语义与时间窗/延迟参数、禁公网升级字段及官方推荐的替代接口、多MDM独占规则，以及notifyUpdatePackages升级包路径约束、getUpdateResult/getUpdateAuthData的使用顺序与耗时注意事项。",
+            "mustResolve": true
+          },
+          {
+            "topic": "OTA防重放开关",
+            "hint": "提取setOtaUpdateNonceEnable/isOtaUpdateNonceEnable的起始版本、仅PC/2in1可用的设备限制与801行为、默认启用与不建议随意禁用的建议。",
+            "mustResolve": true
+          },
+          {
+            "topic": "星闪协议禁用",
+            "hint": "提取addDisallowedNearLinkProtocols/removeDisallowedNearLinkProtocols/getDisallowedNearLinkProtocols的协议枚举、按accountId生效范围、键盘手写笔等系统服务/应用例外与设备形态约束。",
+            "mustResolve": true
+          },
+          {
+            "topic": "本地企业应用安装开关",
+            "hint": "提取setInstallLocalEnterpriseAppEnabled与按账号ForAccount变体的HEM商用部署前置、支持的分发类型、华为应用市场版本要求与多MDM从严管控规则。",
+            "mustResolve": true
+          },
+          {
+            "topic": "重启后自动解锁",
+            "hint": "提取setAutoUnlockAfterReboot/getAutoUnlockAfterReboot仅无锁屏密码设备生效的约束与查询实际生效策略的重载版本。",
+            "mustResolve": true
+          },
+          {
+            "topic": "按键事件策略与onKeyEvent配对",
+            "hint": "提取addKeyEventPolicies/removeKeyEventPolicies/getKeyEventPolicies的设备形态限制、电源/音量键可组合而导航键不可组合的边界、KeyPolicy拦截与转发语义、KeyCode/KeyEvent类型定义及与EnterpriseAdminExtensionAbility.onKeyEvent回调的配对关系、冲突错误。",
+            "mustResolve": true
+          },
+          {
+            "topic": "故障日志收集生命周期",
+            "hint": "提取startCollectLog仅收集faultlog的范围、单任务互斥与超时行为、日志挂载的MDM沙箱路径、onLogCollected取走日志与finishLogCollected清理的完整流程、所需权限与设备限制。",
+            "mustResolve": true
+          },
+          {
+            "topic": "激活锁禁用凭据前置",
+            "hint": "提取setActivationLockDisabled/isActivationLockDisabled禁用时必须携带有效credential的约束、禁用后无法使用查找设备的影响、相关错误码与多MDM配置规则。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "EDM-S018-CP01",
+            "topic": "OTA策略多MDM规则",
+            "positions": [
+              "setOtaUpdatePolicy多MDM场景遵循独占规则，首个成功下发者生效",
+              "OTA策略按最新配置生效"
+            ]
+          },
+          {
+            "id": "EDM-S018-CP02",
+            "topic": "按键组合键支持范围",
+            "positions": [
+              "电源键与音量键支持组合策略",
+              "回退/主页/最近打开等导航键支持组合策略"
+            ]
+          },
+          {
+            "id": "EDM-S018-CP03",
+            "topic": "日志收集任务互斥",
+            "positions": [
+              "同一时间仅允许一个MDM应用日志收集任务，冲突报错需等待回调",
+              "多个MDM应用可并行收集日志"
+            ]
+          },
+          {
+            "id": "EDM-S018-CP04",
+            "topic": "禁用公网升级途径",
+            "positions": [
+              "OtaUpdatePolicy可禁公网升级改走内网，官方推荐改用restrictions接口",
+              "禁用公网升级只能通过setOtaUpdatePolicy实现"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "已激活的MDM应用以包含企业设备管理扩展abilityName与bundleName的admin Want调用systemManager接口：NTP、OTA、星闪、本地安装、自动解锁、按键、日志、激活锁策略在各自起始版本与设备形态允许范围内设置成功，查询接口返回本应用策略，支持传null的版本返回实际生效策略。",
+          "criteriaTopics": [
+            "调用前提与权限基线",
+            "NTP服务器配置",
+            "OTA升级策略与内网升级流程",
+            "星闪协议禁用",
+            "本地企业应用安装开关",
+            "重启后自动解锁",
+            "按键事件策略与onKeyEvent配对",
+            "故障日志收集生命周期",
+            "激活锁禁用凭据前置"
+          ]
+        },
+        {
+          "assertion": "超出设备形态（不支持设备返回801）、参数非法（升级包路径或格式不符、按键策略冲突）、任务互斥（日志收集冲突）、凭据无效或超时（激活锁）时返回对应错误码，并按企业设备管理错误码文档给出处理路径。",
+          "criteriaTopics": [
+            "调用前提与权限基线",
+            "OTA升级策略与内网升级流程",
+            "OTA防重放开关",
+            "按键事件策略与onKeyEvent配对",
+            "故障日志收集生命周期",
+            "激活锁禁用凭据前置"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "先确认企业设备管理扩展能力已激活并声明ENTERPRISE_MANAGE_SYSTEM（日志收集另需ENTERPRISE_READ_LOG）；涉及本地企业应用安装等HEM前置能力时先核对企业环境已完成商用部署。",
+          "统一构造包含应用bundleName与企业设备管理扩展abilityName的admin Want后调用systemManager接口；内网升级先notifyUpdatePackages通知升级包再设置OTA策略，接口耗时场景避免主线程同步阻塞。",
+          "按键策略与EnterpriseAdminExtensionAbility.onKeyEvent、日志收集与onLogCollected配对实现，日志经沙箱目录取走后调用finishLogCollected清理。",
+          "按各接口起始版本与设备形态（Phone/Tablet、PC/2in1）分支处理，不支持设备返回801时降级或明确提示；全部调用按try/catch处理业务错误码并对照企业设备管理错误码文档。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "mdm-system-import",
+          "kind": "require_any",
+          "patterns": [
+            "systemManager[\\s\\S]{0,80}@kit\\.MDMKit|@kit\\.MDMKit[\\s\\S]{0,200}systemManager"
+          ],
+          "onMissing": "failed",
+          "message": "缺少从 @kit.MDMKit 导入 systemManager。"
+        },
+        {
+          "id": "mdm-admin-want",
+          "kind": "require_any",
+          "patterns": [
+            "bundleName[\\s\\S]{0,160}abilityName|abilityName[\\s\\S]{0,160}bundleName"
+          ],
+          "onMissing": "failed",
+          "message": "admin Want 须同时包含企业设备管理扩展 abilityName 与应用 bundleName。"
+        },
+        {
+          "id": "mdm-system-api",
+          "kind": "require_any",
+          "patterns": [
+            "systemManager\\.(setNTPServer|getNTPServer|setOtaUpdatePolicy|getOtaUpdatePolicy|notifyUpdatePackages|getUpdateResult|getUpdateAuthData|setOtaUpdateNonceEnable|isOtaUpdateNonceEnable|addDisallowedNearLinkProtocols|removeDisallowedNearLinkProtocols|getDisallowedNearLinkProtocols|setInstallLocalEnterpriseAppEnabled|getInstallLocalEnterpriseAppEnabled|setInstallLocalEnterpriseAppEnabledForAccount|getInstallLocalEnterpriseAppEnabledForAccount|setAutoUnlockAfterReboot|getAutoUnlockAfterReboot|addKeyEventPolicies|removeKeyEventPolicies|getKeyEventPolicies|startCollectLog|finishLogCollected|setActivationLockDisabled|isActivationLockDisabled)\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少 systemManager 系统与更新管控接口调用。"
+        },
+        {
+          "id": "mdm-error-handling",
+          "kind": "require_any",
+          "patterns": [
+            "\\b9200\\d{3}\\b|BusinessError"
+          ],
+          "onMissing": "failed",
+          "message": "缺少企业设备管理错误码或业务异常处理。"
+        }
+      ],
+      "negativeCases": [
+        "未激活企业设备管理扩展能力即调用systemManager接口（9200001）",
+        "内网升级包路径不以update开头或非zip格式（9201004）",
+        "非PC/2in1设备调用startCollectLog或setOtaUpdateNonceEnable（801）",
+        "已有锁屏密码的设备设置setAutoUnlockAfterReboot不生效",
+        "按键策略使用导航键组合或下发冲突策略（9200010/9200012）",
+        "上一日志收集任务未结束时再次startCollectLog（9201009）",
+        "禁用激活锁未携带有效credential（9201011）或操作超时（9200016）",
+        "主线程同步等待notifyUpdatePackages等耗时接口返回导致阻塞"
+      ],
+      "requiredChecks": [
+        "static",
+        "sdk",
+        "build"
+      ]
+    },
+    {
+      "id": "EDM-S019",
+      "displayName": "MDM应用调试激活与测试FAQ",
+      "route": "debug-ops",
+      "intentPriority": 2,
+      "intentPatterns": [
+        "MDM调试",
+        "MDM应用测试",
+        "MDM测试",
+        "hdc激活",
+        "edm enable-admin",
+        "edm disable-admin",
+        "受限ACL",
+        "9568266",
+        "9568289",
+        "开发者模式激活失效",
+        "HEM部署",
+        "MDM应用更新"
+      ],
+      "intentGroups": [
+        [
+          "MDM",
+          "调试"
+        ],
+        [
+          "MDM",
+          "测试"
+        ],
+        [
+          "hdc",
+          "激活"
+        ]
+      ],
+      "targets": [
+        "9568266",
+        "9568289",
+        "enable-admin",
+        "disable-admin"
+      ],
+      "sources": [
+        "doc-904f185a57dcfca0f8ff",
+        "doc-429804ac969633ab2192",
+        "doc-2b39ab3124ff6a68e6c0",
+        "doc-88538070be3e566b573d"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "调试证书与受限ACL申请顺序",
+            "hint": "从冻结正文提取：调试证书/Profile申请与企业MDM应用发布证书的关系、发布Profile勾选受限ACL权限的时机，以及9568266与9568289两类安装报错各自的成因与修复动作（含是否需重建Profile并勾选对应ACL权限）。",
+            "mustResolve": true
+          },
+          {
+            "topic": "hdc激活与解除命令约束",
+            "hint": "提取 edm shell edm enable-admin -n 包名 -a 扩展能力类名 的完整参数、-t byod 与 -t da 的API版本与设备形态限制、disable-admin 解除激活用法，以及MDM应用须装在首用户（账户ID 100）的激活前提。",
+            "mustResolve": true
+          },
+          {
+            "topic": "首个MDM应用激活后的授权模型",
+            "hint": "提取系统激活首个MDM应用后，其他MDM应用如何获得激活授权（是否须经首个MDM应用发包授权）、能否继续直接用hdc激活。",
+            "mustResolve": true
+          },
+          {
+            "topic": "开发者模式与激活状态关系",
+            "hint": "提取开发者模式开启/关闭对hdc激活的MDM权限的影响、HEM部署的激活是否受影响，以及失效后的恢复动作。",
+            "mustResolve": true
+          },
+          {
+            "topic": "HEM/EMM部署配置检查",
+            "hint": "提取设备重置后未自动部署的排查点（EMM控制台设备型号应填型号代码如ALN-AL00）、HEM部署策略勾选MDM应用部署与商用申请前提。",
+            "mustResolve": true
+          },
+          {
+            "topic": "MDM应用更新与包体构建约束",
+            "hint": "提取MDM应用更新使用的接口（bundleManager.install）、.hap/.app包体与多HAP/HSP打包约束，以及enableWorkspace对Release包与企业MDM发布证书的要求和其他MDM接口debug/Release均可的差异。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "EDM-S019-P01",
+            "topic": "-t da参数的设备与版本适用",
+            "positions": [
+              "仅API 23起且PC/2in1支持-t da",
+              "其他设备形态使用-t da报错"
+            ]
+          },
+          {
+            "id": "EDM-S019-P02",
+            "topic": "调试Profile权限获取路径",
+            "positions": [
+              "先申请企业MDM应用发布证书，再申请发布Profile并勾选受限ACL权限",
+              "未勾选受限ACL或申请ACL权限后未重建Profile导致9568266/9568289"
+            ]
+          },
+          {
+            "id": "EDM-S019-P03",
+            "topic": "激活失效边界",
+            "positions": [
+              "hdc激活的MDM权限随开发者模式开关失效，需重新激活",
+              "HEM部署的MDM权限不受开发者模式影响"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "按冻结判据完成调试Profile与受限ACL配置后应用可安装且不再出现9568266/9568289；在匹配的设备形态上用 edm enable-admin（含正确的-t参数）激活成功、edm disable-admin 可解除；首个MDM已激活、开发者模式切换、HEM未自动部署等场景均按FAQ结论处理后恢复可用。",
+          "criteriaTopics": [
+            "调试证书与受限ACL申请顺序",
+            "hdc激活与解除命令约束",
+            "首个MDM应用激活后的授权模型",
+            "开发者模式与激活状态关系",
+            "HEM/EMM部署配置检查",
+            "MDM应用更新与包体构建约束"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "先按冻结判据核对企业MDM发布证书、发布Profile与受限ACL权限的申请顺序，再进入设备侧调试。",
+          "将 edm enable-admin / edm disable-admin 命令、-t byod 与 -t da 参数限制、首用户（账户ID 100）安装前提固化到调试脚本或说明文档。",
+          "安装报9568266/9568289时按判据回到AGC补勾受限ACL并重建Profile，再重新安装验证。",
+          "遇到首个MDM授权、开发者模式切换、HEM未自动部署等情形按FAQ结论处理（重新激活、经首个MDM应用发包授权、修正设备型号代码）后再继续接口验证。",
+          "MDM应用更新统一按冻结判据使用 bundleManager.install 路径，并核对包体格式与分发方式约束。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "edms19-activate-command",
+          "kind": "require_any",
+          "patterns": [
+            "edm\\s+enable-admin"
+          ],
+          "onMissing": "failed",
+          "message": "缺少 edm enable-admin 激活命令（调试脚本或说明文档）。"
+        },
+        {
+          "id": "edms19-deactivate-command",
+          "kind": "require_any",
+          "patterns": [
+            "edm\\s+disable-admin"
+          ],
+          "onMissing": "failed",
+          "message": "缺少 edm disable-admin 解除激活命令。"
+        },
+        {
+          "id": "edms19-acl-install-error",
+          "kind": "require_any",
+          "patterns": [
+            "\\b95682(66|89)\\b"
+          ],
+          "onMissing": "failed",
+          "message": "缺少9568266/9568289受限ACL安装报错的处理说明。"
+        },
+        {
+          "id": "edms19-mdmkit-import",
+          "kind": "require_any",
+          "patterns": [
+            "@kit\\.MDMKit"
+          ],
+          "onMissing": "failed",
+          "message": "缺少导入 @kit.MDMKit 的MDM应用工程或示例。"
+        }
+      ],
+      "negativeCases": [
+        "未先申请企业MDM应用发布证书直接申请调试Profile",
+        "发布Profile未勾选受限ACL权限导致安装报9568266",
+        "申请ACL权限后未重建Profile触发9568289",
+        "在不支持的设备形态上使用-t da参数激活",
+        "切换开发者模式后未重新激活继续调用MDM接口",
+        "首个MDM应用激活后仍直接用hdc激活第二个MDM应用",
+        "EMM控制台设备型号填写非型号代码导致设备重置后不自动部署",
+        "enableWorkspace使用debug包调用"
+      ],
+      "requiredChecks": [
+        "static",
+        "build",
+        "runtime"
+      ]
+    },
+    {
+      "id": "EDM-S020",
+      "displayName": "企业设备管理错误码排查",
+      "route": "debug-ops",
+      "intentPriority": 3,
+      "intentPatterns": [
+        "企业设备管理错误码",
+        "EDM错误码",
+        "MDM报错",
+        "错误码排查",
+        "9200001",
+        "9200002",
+        "9200004",
+        "9200010",
+        "9200012",
+        "9201002",
+        "9201021",
+        "9201046"
+      ],
+      "intentGroups": [
+        [
+          "企业设备管理",
+          "错误码"
+        ],
+        [
+          "MDM",
+          "错误码"
+        ]
+      ],
+      "targets": [
+        "9200001",
+        "9200010",
+        "9201002"
+      ],
+      "sources": [
+        "doc-2078bc299e9b087d89e1"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "激活与解除激活类错误处理",
+            "hint": "提取9200001/9200004/9200005/9200017/9200018等错误的信息、可能原因与处理步骤，并映射到激活前置（首用户账户ID 100、同设备单SDA、企业设备、有效激活凭证）。",
+            "mustResolve": true
+          },
+          {
+            "topic": "权限与管理组件类错误处理",
+            "hint": "提取9200002/9200003/9200014/9200015/9200016的处理步骤，区分设备管理权限越权（如DA调用SDA接口）与管理组件启动失败、服务超时的不同排查方向。",
+            "mustResolve": true
+          },
+          {
+            "topic": "策略冲突与参数校验类错误处理",
+            "hint": "提取9200010/9200012/9200013/9201021/9201043/9201044/9201045的触发场景与处理动作（解除互斥策略、修正参数、先完成前置禁用或权限例外条件）。",
+            "mustResolve": true
+          },
+          {
+            "topic": "证书类错误处理",
+            "hint": "提取9201001与9201006/9201007/9201008（证书安装异常、重签名证书数量上限/无效/不存在）的处理步骤。",
+            "mustResolve": true
+          },
+          {
+            "topic": "企业应用安装失败类错误处理",
+            "hint": "提取9201002与9201022-9201039细粒度安装错误的原因与处理（HEM平台前置、磁盘空间、HAP解析/签名、路径、版本、依赖模块等），并区分install与installForResult可获得的错误信息粒度。",
+            "mustResolve": true
+          },
+          {
+            "topic": "账号类错误处理",
+            "hint": "提取9201003/9201040/9201041/9201046（账号创建失败、数量上限、类型受限、默认账号ID 100不可移除、登录账号数上限）的处理步骤。",
+            "mustResolve": true
+          },
+          {
+            "topic": "其他专属错误与通用错误码边界",
+            "hint": "提取9200007/9200008/9200009/9201004/9201005/9201009/9201010/9201011-9201012/9201013-9201019/9201020/9201042/9201048的处理步骤，并界定201/203/401/801等通用错误码与本模块专属错误码的归属与含义。",
+            "mustResolve": true
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "EDM-S020-P01",
+            "topic": "9200010互斥策略在不同模块的触发差异",
+            "positions": [
+              "允许/禁用名单互斥（运行、安装、Wi-Fi、蓝牙等名单类策略）",
+              "保活名单与禁止运行名单冲突",
+              "通知允许名单与禁用设备通知冲突",
+              "SUPER_HUB禁用与不可关停名单等跨模块冲突"
+            ]
+          },
+          {
+            "id": "EDM-S020-P02",
+            "topic": "9200002与201的区分",
+            "positions": [
+              "9200002为设备管理权限越权（如DA调用SDA接口）",
+              "201为权限校验失败的通用错误码"
+            ]
+          },
+          {
+            "id": "EDM-S020-P03",
+            "topic": "安装失败错误获取途径",
+            "positions": [
+              "install返回的失败原因较为粗粒度",
+              "installForResult提供9201022-9201039细粒度错误码"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "每个MDM调用路径均按冻结错误码表建立错误分支与处理动作：9200001/9200002类先回到激活与权限前提，9200010/203类先解除互斥策略再重试，安装类按细粒度错误定位原因，账号/证书类按官网处理步骤映射到具体排查动作；处理建议与本次冻结的错误码描述一一对应。",
+          "criteriaTopics": [
+            "激活与解除激活类错误处理",
+            "权限与管理组件类错误处理",
+            "策略冲突与参数校验类错误处理",
+            "证书类错误处理",
+            "企业应用安装失败类错误处理",
+            "账号类错误处理",
+            "其他专属错误与通用错误码边界"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "从冻结的错误码正文提取本次涉及接口的全部错误码、错误信息、可能原因与处理步骤，形成错误分支映射表。",
+          "为每个MDM接口调用封装错误码判断与可理解的提示；9200010/203类先回溯并解除互斥策略再重试，不盲目重复下发。",
+          "将安装、账号、证书类错误按官网处理步骤映射到具体排查动作（AGC证书/Profile申请、HEM商用部署核对、设备设置操作）。",
+          "区分专属错误码与通用错误码（201/203/401/801），在排查记录中分别标注归属。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "edms20-edm-error-branch",
+          "kind": "require_any",
+          "patterns": [
+            "\\b9200\\d{3}\\b"
+          ],
+          "onMissing": "failed",
+          "message": "缺少企业设备管理错误码（9200xxx）处理分支。"
+        },
+        {
+          "id": "edms20-conflict-handling",
+          "kind": "require_any",
+          "patterns": [
+            "\\b9200010\\b"
+          ],
+          "onMissing": "failed",
+          "message": "缺少策略冲突9200010的处理说明（先解除互斥策略再重试）。"
+        },
+        {
+          "id": "edms20-error-capture",
+          "kind": "require_any",
+          "patterns": [
+            "try\\s*\\{",
+            "\\.catch\\s*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少MDM接口调用的异常捕获。"
+        },
+        {
+          "id": "edms20-universal-errors",
+          "kind": "require_any",
+          "patterns": [
+            "\\b(201|203|401|801)\\b"
+          ],
+          "onMissing": "failed",
+          "message": "缺少通用错误码201/203/401/801的边界说明。"
+        }
+      ],
+      "negativeCases": [
+        "未激活（9200001）时直接调用策略接口且无错误分支",
+        "DA应用收到9200002后未提示权限边界继续重试",
+        "收到9200010后不解除互斥策略直接重复下发",
+        "installMarketApps失败（9201002）未核对HEM商用部署、应用市场上架与网络三前置",
+        "存在锁屏密码时设置禁用滑动解锁收到9201021未先处理密码",
+        "把801（设备能力不支持）当作接口缺陷而非设备形态约束处理"
+      ],
+      "requiredChecks": [
+        "static",
+        "build"
+      ]
+    },
+    {
+      "id": "EDM-S021",
+      "displayName": "多MDM应用策略冲突规则",
+      "route": "multi-mdm-governance",
+      "intentPatterns": [
+        "多MDM",
+        "多应用管控",
+        "多EMM",
+        "从严管控",
+        "独占规则",
+        "合并规则",
+        "策略冲突",
+        "冲突规则",
+        "9200010",
+        "DA/BDA/SDA",
+        "multi MDM"
+      ],
+      "intentGroups": [
+        [
+          "多MDM",
+          "策略"
+        ],
+        [
+          "多MDM",
+          "冲突"
+        ],
+        [
+          "多MDM",
+          "管控"
+        ],
+        [
+          "多应用",
+          "管控"
+        ]
+      ],
+      "intentPriority": 2,
+      "crossRoute": true,
+      "targets": [
+        "多应用管控",
+        "策略冲突",
+        "mdm-kit-multi-mdm"
+      ],
+      "sources": [
+        "doc-dffdd45f975ce62a0b21",
+        "doc-9c68a769d70aab98beb2",
+        "doc-9f52eec628fd10122068"
+      ],
+      "criteriaSpec": {
+        "required": [
+          {
+            "topic": "从严管控规则语义",
+            "hint": "核对规则1：任一MDM应用设置禁用即最终禁用（如会议期间禁摄像头），所有应用移除禁用后才解除；多MDM时卸载或取消激活按剩余应用重算，仅剩一个MDM应用时策略完全移除。",
+            "mustResolve": true
+          },
+          {
+            "topic": "独占规则语义",
+            "hint": "核对规则2：完全相反的策略（如位置服务强制开启与禁用）由首个成功下发者获得独占权，后续同类下发报策略冲突；Admin取消激活或卸载后策略立即失效并恢复系统默认，其他应用可重新配置。",
+            "mustResolve": true
+          },
+          {
+            "topic": "配置规则语义",
+            "hint": "核对规则3：最新配置生效（如NTP服务器取最新、不同MDM配置不同Wi-Fi时数据均保留但设备连最新配置）；MDM应用卸载后已生效配置保留。",
+            "mustResolve": true
+          },
+          {
+            "topic": "合并规则语义",
+            "hint": "核对规则4：名单/集合类策略取并集，某一项必须从所有应用名单中移除才会从最终名单删除；多MDM时按剩余应用重算并集，仅剩一个MDM应用时名单清空。",
+            "mustResolve": true
+          },
+          {
+            "topic": "Admin激活角色与管控边界",
+            "hint": "核对DA（adminManager.enableDeviceAdmin，仅管控设备、不管理其他DA应用）、BDA（adminManager.startAdminProvision，对员工个人设备有限管控如禁用拍照录音）与SDA（可管控设备并管理其他DA应用，含激活/解除激活）的角色差异与管控边界。",
+            "mustResolve": true
+          },
+          {
+            "topic": "自定义冲突处理限制",
+            "hint": "核对官网是否明确MDM Kit不支持自定义冲突处理机制；核对策略互斥（如允许名单与禁用名单同时设置报9200010）与激活类冲突（9200004）的触发条件，实施不得引入自定义仲裁逻辑。",
+            "mustResolve": true
+          },
+          {
+            "topic": "多MDM术语体系",
+            "hint": "核对BYOD（自带设备办公）、COPE（企业派发设备办公）、EDM（企业设备管理底座服务，含Admin组件生命周期与策略冲突处理）、EMM（企业移动管理）、MDM应用等术语定义及其与多应用管控场景的关联。",
+            "mustResolve": true
+          },
+          {
+            "topic": "策略变更审计事件",
+            "hint": "核对超级设备管理应用经adminManager.subscribeManagedEventSync注册MANAGED_EVENT_POLICIES_CHANGED后，任意MDM应用调用附录策略变更上报列表中的接口触发onAdminPolicyChanged（common.PolicyChangedEvent）的机制，可作为多MDM治理的审计手段。",
+            "mustResolve": false
+          }
+        ],
+        "conflictProbes": [
+          {
+            "id": "EDM-S021-P01",
+            "topic": "策略规则归属标注",
+            "positions": [
+              "多应用管控指南将策略生效方式归纳为从严管控/独占/配置/合并四条规则并给出示例（mdm-kit-multi-mdm）",
+              "各API参考页按接口分别标注所遵循规则，如restrictions多处标注从严管控、Wi-Fi/蓝牙允许与禁用名单及安装名单标注合并、NTP与Wi-Fi配置标注配置规则、位置策略标注独占",
+              "需逐一核对本次涉及接口的规则标注与四规则语义一致，避免将名单类合并误判为从严或独占"
+            ]
+          },
+          {
+            "id": "EDM-S021-P02",
+            "topic": "卸载与取消激活后的策略去留",
+            "positions": [
+              "规则3配置类：MDM应用卸载后已生效配置保留",
+              "规则2独占类：Admin取消激活或卸载后策略立即失效并恢复系统默认",
+              "规则1/规则4：按剩余MDM应用重算，仅剩一个MDM应用时从严策略完全移除、合并名单清空",
+              "需核对同一次卸载动作下不同规则类别策略的差异结果"
+            ]
+          },
+          {
+            "id": "EDM-S021-P03",
+            "topic": "冲突错误码语义区分",
+            "positions": [
+              "9200010表示互斥策略冲突（如已设禁用名单再设允许名单、相反策略重复下发）",
+              "9200002表示DA调用SDA专属接口等设备管理权限越权",
+              "9200004表示重复激活/多SDA/同应用多管理组件等激活类冲突",
+              "需按冻结错误码正文核对具体报错归属，不得混用处理建议"
+            ]
+          },
+          {
+            "id": "EDM-S021-P04",
+            "topic": "多MDM规则适用范围",
+            "positions": [
+              "多应用管控指南以企业引入多家EMM厂商同时管理设备（企业PC场景）为例说明冲突风险",
+              "各策略接口的合并/从严/配置/独占规则说明未限定设备形态，Phone/Tablet与PC/2in1接口文档均引用同一规则页",
+              "需核对四规则在不同设备形态与API起始版本下是否一致适用，不因指南示例设备缩小适用范围"
+            ]
+          }
+        ]
+      },
+      "expectedOutcomeTemplates": [
+        {
+          "assertion": "按四条规则预测并核对策略生效结果：任一MDM应用禁用即最终禁用且全部移除才解除；完全相反的策略由首个成功下发者独占、取消激活即失效并恢复系统默认；配置类取最新配置且卸载后保留；名单类取并集且某项须从所有名单移除才从最终名单删除。",
+          "criteriaTopics": [
+            "从严管控规则语义",
+            "独占规则语义",
+            "配置规则语义",
+            "合并规则语义"
+          ]
+        },
+        {
+          "assertion": "互斥策略下发（如已设禁用名单再设允许名单或对已独占策略重复下发）按9200010失败且不改变已生效策略；DA/BDA/SDA按各自管控边界生效，越权调用返回9200002；全程不出现自定义冲突仲裁逻辑。",
+          "criteriaTopics": [
+            "自定义冲突处理限制",
+            "Admin激活角色与管控边界"
+          ]
+        },
+        {
+          "assertion": "MDM应用卸载或取消激活后，从严与合并类策略按剩余应用重算、独占类立即失效恢复默认、配置类保留，与冻结正文的规则表述一致；术语与审计机制按BYOD/COPE/EDM/EMM定义与onAdminPolicyChanged触发条件解释。",
+          "criteriaTopics": [
+            "从严管控规则语义",
+            "独占规则语义",
+            "配置规则语义",
+            "合并规则语义",
+            "多MDM术语体系",
+            "策略变更审计事件"
+          ]
+        }
+      ],
+      "implementation": {
+        "steps": [
+          "先冻结多应用管控指南、MDM Kit术语与附录正文，逐字确认四条规则的原文表述、示例与适用前提，再映射到本次涉及接口的规则标注。",
+          "构造双MDM视角验证用例：对同一特性分别从两个管理应用下发禁用与启用，核对从严管控的即时生效、解除条件以及按剩余应用重算的行为。",
+          "为独占、配置、合并三类各选代表接口（如位置策略、NTP或Wi-Fi配置、应用允许运行名单）验证首个成功下发者生效、最新配置生效、并集与全移除语义。",
+          "验证互斥下发返回9200010且原策略不变，DA越权返回9200002；记录MDM Kit不支持自定义冲突处理的约束，禁止实现任何自定义仲裁。",
+          "如需审计：以超级设备管理应用订阅MANAGED_EVENT_POLICIES_CHANGED，在onAdminPolicyChanged中按附录策略变更上报列表记录策略变更事件。"
+        ]
+      },
+      "staticRules": [
+        {
+          "id": "mdm-kit-import",
+          "kind": "require_any",
+          "patterns": [
+            "@kit\\.MDMKit"
+          ],
+          "onMissing": "failed",
+          "message": "缺少 @kit.MDMKit 导入，无法调用MDM策略接口。"
+        },
+        {
+          "id": "admin-want-construction",
+          "kind": "require_any",
+          "patterns": [
+            "abilityName\\s*:",
+            "bundleName\\s*:"
+          ],
+          "onMissing": "failed",
+          "message": "缺少含 EnterpriseAdminAbility 的 abilityName 与 bundleName 的 admin Want 构造。"
+        },
+        {
+          "id": "policy-dispatch-call",
+          "kind": "require_any",
+          "patterns": [
+            "\\b(restrictions|applicationManager|locationManager|wifiManager|systemManager|bundleManager)\\s*\\."
+          ],
+          "onMissing": "failed",
+          "message": "缺少策略下发调用，无法验证多MDM冲突规则。"
+        },
+        {
+          "id": "policy-remove-or-requery",
+          "kind": "require_any",
+          "patterns": [
+            "remove[A-Z][A-Za-z]*\\(",
+            "get[A-Z][A-Za-z]*\\("
+          ],
+          "onMissing": "failed",
+          "message": "缺少名单移除或策略查询调用，无法验证按剩余应用重算与最终生效结果。"
+        },
+        {
+          "id": "conflict-error-handling",
+          "kind": "require_any",
+          "patterns": [
+            "9200010",
+            "9200002",
+            "9200004"
+          ],
+          "onMissing": "failed",
+          "message": "缺少策略冲突/越权/激活冲突错误码处理分支。"
+        }
+      ],
+      "negativeCases": [
+        "把名单类策略当作从严管控处理，认为任一应用移除该项即从最终名单删除",
+        "独占策略被取消激活后未恢复系统默认，或认为其他MDM应用不能重新配置该策略",
+        "配置类策略在MDM应用卸载后被清除，或误按独占规则处理",
+        "对互斥策略下发不做9200010处理，或尝试实现MDM Kit不支持的自定义冲突仲裁",
+        "DA应用调用SDA专属接口未处理9200002越权错误",
+        "仅凭指南的企业PC示例断言四规则只适用于PC，未核对Phone/Tablet接口的同一规则引用"
+      ],
+      "requiredChecks": [
+        "static",
+        "build"
+      ]
+    }
+  ]
+}

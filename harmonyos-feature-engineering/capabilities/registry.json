@@ -1,0 +1,138 @@
+{
+  "registryVersion": "1.0",
+  "features": [
+    {
+      "id": "immersive-light",
+      "displayName": "沉浸光感",
+      "aliases": [
+        "沉浸光感",
+        "沉浸光感接入",
+        "沉浸材质",
+        "immersive light",
+        "immersive material",
+        "arkui immersive light",
+        "HDS沉浸光感",
+        "HDS组件沉浸光感",
+        "hds immersive light"
+      ],
+      "status": "ready",
+      "readinessMeaning": "能力包登记场景、官网入口与判据骨架；每次开发从现网新鲜冻结并现提判据，不保留历史基线。",
+      "scenarios": "capabilities/immersive-light/scenarios.json",
+      "routingReference": "capabilities/immersive-light/routing.md",
+      "packageVersion": "1.0.1",
+      "schemaVersion": "1.0"
+    },
+    {
+      "id": "easygo-parallel",
+      "displayName": "平行视界",
+      "aliases": [
+        "平行视界",
+        "EasyGo平行视界",
+        "EasyGo parallel",
+        "easygo",
+        "导航模式平行视界"
+      ],
+      "status": "ready",
+      "readinessMeaning": "能力包登记平行视界场景、官网入口与判据骨架；开发时从本次冻结官网现提判据，并对输入示例只复用目标场景需要的通用工程结构。",
+      "scenarios": "capabilities/easygo-parallel/scenarios.json",
+      "routingReference": "capabilities/easygo-parallel/routing.md",
+      "packageVersion": "1.0.0",
+      "schemaVersion": "1.0"
+    },
+    {
+      "id": "live-form",
+      "displayName": "互动卡片",
+      "aliases": [
+        "互动卡片",
+        "LiveForm",
+        "live form",
+        "场景动效卡片",
+        "破框卡片",
+        "服务卡片",
+        "音乐服务卡片"
+      ],
+      "status": "ready",
+      "readinessMeaning": "能力包登记互动卡片与相关服务卡片场景、官网入口和判据骨架；本地资料仅用于建模，开发判据仍从本次冻结官网现提。",
+      "scenarios": "capabilities/live-form/scenarios.json",
+      "routingReference": "capabilities/live-form/routing.md",
+      "packageVersion": "1.0.2",
+      "schemaVersion": "1.0"
+    },
+    {
+      "id": "float-view",
+      "displayName": "闪控窗与闪控球",
+      "aliases": [
+        "闪控窗",
+        "闪控球",
+        "闪控窗与闪控球",
+        "floatView",
+        "float view",
+        "floatingBall",
+        "floating ball",
+        "全链路盯盘"
+      ],
+      "status": "ready",
+      "readinessMeaning": "能力包登记闪控窗、闪控球及相关隐私和跨形态场景的官网入口与判据骨架；开发判据从本次冻结官网现提。",
+      "scenarios": "capabilities/float-view/scenarios.json",
+      "routingReference": "capabilities/float-view/routing.md",
+      "packageVersion": "1.0.0",
+      "schemaVersion": "1.0"
+    },
+    {
+      "id": "enterprise-device-management",
+      "displayName": "企业设备管理",
+      "aliases": [
+        "MDM Kit",
+        "MDM",
+        "EDM",
+        "企业设备管理",
+        "Enterprise Device Management",
+        "企业设备管理接入"
+      ],
+      "description": "基于MDM Kit（import自@kit.MDMKit）的企业设备管理能力接入：资质证书与Profile申请、EnterpriseAdminExtensionAbility组件与激活、应用/包/设备/网络/安全/系统各域管控策略、调试部署与错误码、多MDM冲突规则。",
+      "status": "ready",
+      "scenarios": "capabilities/enterprise-device-management/scenarios.json",
+      "routingReference": "capabilities/enterprise-device-management/routing.md",
+      "packageVersion": "1.0.0",
+      "schemaVersion": "1.0"
+    },
+    {
+      "id": "spatial-recon-3dgs",
+      "displayName": "3DGS端侧重建",
+      "aliases": [
+        "Spatial Recon Kit",
+        "空间建模套件",
+        "空间重建",
+        "3DGS重建",
+        "3D Gaussian Splatting"
+      ],
+      "description": "覆盖Spatial Recon Kit端侧3DGS全链路：C/C++重建流水线（设备支持检查、会话管理、推帧、进度、暂停恢复、结果保存与NG回调）、ArkTS侧3DGS模型加载/渲染/滤镜/大规模分块加载/模型编辑导出，以及地区、设备形态、芯片与版本约束。Kit为ArkGraphics 3D模块扩展，需联合使用。",
+      "status": "ready",
+      "scenarios": "capabilities/spatial-recon-3dgs/scenarios.json",
+      "routingReference": "capabilities/spatial-recon-3dgs/routing.md",
+      "packageVersion": "1.0.1",
+      "schemaVersion": "1.0"
+    },
+    {
+      "id": "spatial-audio",
+      "displayName": "空间音频",
+      "aliases": [
+        "空间音频",
+        "空间音频渲染",
+        "空间渲染",
+        "spatial audio",
+        "AudioSpatializationManager",
+        "OHAudioSuite",
+        "HOA空间渲染",
+        "空间音频查询订阅"
+      ],
+      "description": "覆盖空间音频两条路线：C/C++ OHAudioSuite 空间渲染管线（引擎/管线/节点生命周期、REALTIME 实时预览、固定摆位/旋转/扩展三模式参数、HOA 节点约束）与 ArkTS AudioSpatializationManager 设备能力查询、开关状态查询与状态订阅。",
+      "status": "ready",
+      "readinessMeaning": "能力包登记空间音频两路线场景、官网入口与判据骨架；渲染效果依赖真机与耳机双耳重放，开发判据从本次冻结官网现提，API 行为与错误码按运行检查验证。",
+      "scenarios": "capabilities/spatial-audio/scenarios.json",
+      "routingReference": "capabilities/spatial-audio/routing.md",
+      "packageVersion": "1.0.0",
+      "schemaVersion": "1.0"
+    }
+  ]
+}
